@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-class Lecturer{
+class Lecturer {
 
 	private:
 
@@ -20,10 +20,10 @@ class Lecturer{
 
 		Lecturer(string fName, string lName, int old, int little) {
 
-			fName = firstName;
-			lName = lastName;
-			old = age;
-			little = salary;
+			setAge(old);
+			setFirstName(fName);
+			setlastName(lName);
+			setSalary(little);
 
 		}
 

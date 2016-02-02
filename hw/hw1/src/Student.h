@@ -6,8 +6,8 @@
 
 using namespace std;
 
-class STUDENT
-{
+class STUDENT {
+
 public:
 	
 	STUDENT() { Fname = "null"; Lname = "null"; score = 0; }

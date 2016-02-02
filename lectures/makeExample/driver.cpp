@@ -9,7 +9,7 @@ int main()
 {
   Lecturer Park("John", "Park", 112, 3000);
 
-  cout << Park.GetAge();
+  cout << Park.GetAge() << endl;
 
   return 0;
 }
