@@ -26,7 +26,7 @@ class Country():
 		self.youthLitRateMale = 0
 
 
-	# Getters
+	# Accessors
 
 	def GetName(self):
 
@@ -68,7 +68,7 @@ class Country():
 		return self.youthLitRateMale
 
 
-	# Setters
+	# Mutators
 
 	def SetName(self, param):
 
@@ -110,6 +110,17 @@ class Country():
 		self.youthLitRateMale = param
 
 
-yo = Country()
+# class Continent(object):
+
+# 	def __init__(self):
+
+		
+
+
+	# def getYo(self):
+
+	# 	return self.GetPopulation()
+
+yo = Continent()
 yo.SetPrimaryCompFem(999)
 print yo.GetPrimaryCompFem()

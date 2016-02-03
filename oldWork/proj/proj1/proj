@@ -1,0 +1,119 @@
+#include <iostream>
+#include "proj1.h"
+using namespace std;
+
+int main(){
+
+  int size;
+  int u = 1;
+  int v = 1;
+  int graph[MAX_VERTICES][MAX_VERTICES];
+
+  cout << "How many vertices?" << endl;
+  cin >> size;
+
+  while (CheckInput(size) != true){
+    cout << "Please enter a number under 20." << endl;
+    cin >> size;}
+
+  if(CheckInput(size) == true){
+    InitializeGraph(graph, size);
+    VerticeInput(graph, u, v, size);
+    IsConnected(graph, size);}
+}
+
+void VerticeInput(int graph[][MAX_VERTICES], int u, int v, int size){
+
+  while (CheckInput(u, v, size) == true){
+    cout << "Enter a vertex pair (0 0 to end): ";
+    cin >> u >> v;
+    graph[u-1][v-1] = 1;
+    graph[v-1][u-1] = 1;
+    graph[u-1][u-1] = 1;
+    graph[v-1][v-1] = 1;}
+    if (IsConnected(graph, size) == true)
+      cout << "Graph is connected\n";
+    else
+      cout << "Graph is not connected";
+
+    if (CheckInput(u, v, size) != true){
+    graph[u-1][v-1] = 0;
+    graph[v-1][u-1] = 0;
+    graph[u-1][u-1] = 0;
+    graph[v-1][v-1] = 0;}
+
+    for(int i = 0; i < size; i++){
+      for(int j = 0; j < size; j++)
+        cout << graph[i][j] << " ";
+      cout << endl;}
+}
+
+bool CheckInput(int size){
+  
+  if ((size <= 20) && (size > 0))
+    return true;
+  else
+    return false;
+}
+
+bool CheckInput(int u, int v, int size){
+
+  if ((u <= size) && (v <= size) && (u > 0) && (v > 0)){
+    return true;}
+  else if ((u == 0) && (v == 0))
+    return false;
+  else{
+    cout << "Please enter correct vertices." << endl;
+    return false;}
+}
+
+void InitializeGraph(int graph[][MAX_VERTICES], int size){
+
+for(int i = 0; i < size; i++)
+  for(int j = 0; j < size; j++)
+    graph[i][j] = 0;
+}
+
+bool RemoveEdge(int graph[][MAX_VERTICES], int size, int u, int v){
+
+  if ((graph[u-1][v-1] == 1) || (graph[v-1][u-1] == 1)){
+    graph[u-1][v-1] = 0;
+    graph[v-1][u-1] = 0;
+    return true;}
+  else
+    return false;
+}
+
+bool CreateEdge(int graph[][MAX_VERTICES], int size, int u, int v){
+
+  if ((u > size) || (v > size))
+    return false;
+  else if ((graph[u-1][v-1] == 0) || (graph[v-1][u-1]) == 0){
+    graph[u-1][v-1] = 1;
+    graph[v-1][u-1] = 1;
+    return true;}
+  else
+    return false;
+}
+
+bool IsEdge(int graph[][MAX_VERTICES], int size, int u, int v){
+
+  if ((RemoveEdge(graph, size, u, v) == true) 
+      && (CreateEdge(graph, size, u, v) == true))
+    return true;
+  else
+    return false; 
+}
+
+bool IsConnected(int graph[][MAX_VERTICES], int size){
+  int newSize = size +1;
+
+  for(int i = 0; i < size; i++)
+    for(int j = 0; j < size; j++)
+      if((graph[i][j] == graph[j][i]) &&
+	 (graph[i][j] == graph[i][size-newSize+j])){
+	cout << "yo\n";
+        return true;}
+      else
+	return false;
+}
