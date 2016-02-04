@@ -8,7 +8,7 @@ using namespace std;
 
 class Country {
 
-private:
+protected:
 
 string m_name;
 long m_population;
