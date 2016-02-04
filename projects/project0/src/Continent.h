@@ -1,29 +1,27 @@
 #ifndef CONTINENT_H
 #define CONTINENT_H
 
-#include <string>
-#include <vector>
-
 #include "Country.h"
 
-using namespace std;
+class Continent : public Country {
 
-class Continent : public Country{
+	public:
 
-public:
+	Continent();
 
-Continent();
+	vector< Country * > CountriesInContinent();
 
-vector<Country *> CountriesInContinent();
+	Country HighestPopulation();
 
-Country HighestPopulation();
+	Country HighestGDPSpent();
 
-Country HighestGDPSpent();
+	Country HighestLitRate();
 
-Country HighestLitRate();
+	private:
+
+	vector< Country > countriesInContinent;
 
 
 };
-
 
 #endif
