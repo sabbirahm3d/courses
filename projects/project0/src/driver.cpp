@@ -1,7 +1,6 @@
 #include "Country.h"
 #include "Continent.h"
 
-
 void ReadFromFiles(string, string);
 
 vector< string > &split(const string &s, char delim, vector< string > &elems);
@@ -23,106 +22,149 @@ int main() {
 
 void ReadFromFiles(string file1, string file2) {
 
-	string name, population, litRate, educationGDPSpent,
-		primaryCompletionFemale, primaryCompletionMale, primaryCompletionTotal,
-		youthLitRateFem, youthLitRateMale, country, heading, line;
+	ifstream countries(file1.c_str(), ios_base::in);
+	ifstream statistics(file2.c_str(), ios_base::in);
+
+	string numbers = "0123456789";
+	string countryLine;
+
+	// Countries
+	if (countries.is_open()) {
+
+		cout << "Reading from \'" << file1 << "\'" << endl << endl;
+
+		while (getline(countries, countryLine)) {
+
+			if ( string::npos != countryLine.find_first_of(numbers.c_str()) ) {
+
+				string test[6];
+				int count = 0;
+
+				vector< string > x = split(countryLine, ' ');
+				for (vector<string>::iterator i = x.begin(); i != x.end(); i++){
+					test[count] = *i;
+					count++;
+
+					if ( *i != "--" && *i != "---" ){
+						// cout << *i << endl;
+						// test++;
+					}
+
+					cout << test[count] << endl;
+
+				}
+
+				// copy( x.begin(), x.end(), ostream_iterator<string>(cout, "\n") ); //for testing
+			}
+
+		}
+
+		countries.close();
+	}
+
+	else {
+		cerr << "Unable to open file \'" << file1 << "\'";
+		exit(1);
+	}
+
+
+	string name, population, litRate, eduGDP,
+		priCompFem, priCompMale, priCompTot,
+		youthLitRateFem, youthLitRateMale;
+
+	string heading, line;
 
 	vector< string > africa, asia, europe, oceania, northAmerica, southAmerica;
 
-	ifstream countries(file1 . c_str(), ios_base::in);
-	ifstream statistics(file2 . c_str(), ios_base::in);
-
 	// Statistics
-	if (statistics . is_open()) {
+	if (statistics.is_open()) {
 
 		cout << "Reading from \'" << file2 << "\'" << endl << endl;
 
 		getline(statistics, heading); // isolate the heading from stats
 
-		vector< string > x = split(heading, '\t'); // testing
+		while (statistics >> name >> population >> litRate >> eduGDP >> 
+			priCompTot >> priCompMale >> priCompFem >> youthLitRateFem >> 
+			youthLitRateMale) {
 
-		// copy( x.begin(), x.end(), ostream_iterator<string>(cout, "\n") ); //for testing
+			long newPopulation;
+			float newLitRate, newEduGDP, newPriCompFem, newPriCompMale, 
+				newPriCompTot, newYouthLitRateFem, newYouthLitRateMale;
 
-		// for (int i; i < x.size(); i++){
+			// Convert population into long
+			newPopulation = atol(population.c_str());
 
-		// 	cout << x[i] << "lolol" << endl;
+			// Convert litRate into float
+			if ( atof(litRate.c_str()) == 0 ){ newLitRate = -1; }
 
-		// }
+			else { newLitRate = atof(litRate.c_str()); }
 
+			// Convert eduGDP into float
+			if ( atof(eduGDP.c_str()) == 0 ){ newEduGDP = -1; }
 
-		statistics >> country >> population >> litRate >> educationGDPSpent >>
-		primaryCompletionFemale >> primaryCompletionMale >>
-		primaryCompletionTotal >>
-		youthLitRateFem >> youthLitRateMale;
+			else { newEduGDP = atof(eduGDP.c_str()); }
 
-		while (statistics >> country >> population >> litRate >>
-					 educationGDPSpent >>
-					 primaryCompletionFemale >> primaryCompletionMale >>
-					 primaryCompletionTotal >>
-					 youthLitRateFem >> youthLitRateMale) {
-			cout << country << population << litRate << educationGDPSpent <<
-			primaryCompletionFemale << primaryCompletionMale <<
-			primaryCompletionTotal <<
-			youthLitRateFem << youthLitRateMale << endl;
-		}
+			// Convert priCompFem into float
+			if ( atof(priCompFem.c_str()) == 0 ){ newPriCompFem = -1; }
 
-		statistics . close();
-	}
+			else { newPriCompFem = atof(priCompFem.c_str()); }
 
-	else {
-		cerr << "Unable to open file";
-		exit(1);
-	}
+			// Convert priCompMale into float
+			if ( atof(priCompTot.c_str()) == 0 ){ newPriCompTot = -1; }
 
+			else { newPriCompTot = atof(priCompTot.c_str()); }
 
-	string numbers = "0123456789";
+			// Convert priCompTot into float
+			if ( atof(priCompMale.c_str()) == 0 ){ newPriCompMale = -1; }
 
-	// Countries
-	if (countries . is_open()) {
+			else { newPriCompMale = atof(priCompMale.c_str()); }
 
-		cout << "Reading from \'" << file1 << "\'" << endl << endl;
+			// Convert youthLitRateFem into float
+			if ( atof(youthLitRateFem.c_str()) == 0 ){ newYouthLitRateFem = -1; }
 
-		while (getline(countries, country)) {
+			else { newYouthLitRateFem = atof(youthLitRateFem.c_str()); }
 
-			// size_t found = country.find_first_of(numbers.c_str());
+			// Convert youthLitRateMale into float
+			if ( atof(youthLitRateMale.c_str()) == 0 ){ newYouthLitRateMale = -1; }
 
+			else { newYouthLitRateMale = atof(youthLitRateMale.c_str()); }
 
-			if (string::npos != country . find_first_of(numbers . c_str())) {
-				// string cont, excess, num;
-				// countries >> cont >> excess >> num;
+			Country ex(name, newPopulation, newLitRate,
+					 newEduGDP, newPriCompTot,  
+					 newPriCompMale, newPriCompFem, 
+					 newYouthLitRateFem, newYouthLitRateMale); // for testing
 
-				size_t pos = country . find("--");
-				// vector<char&> nums;
-				// nums.push_back(country.substr(pos+3));
-				cout << country . substr(pos + 3) << endl;
-
-			}
+			// cout << ex.GetPriCompFem() << endl; // for testing
 
 		}
 
+		statistics.close();
 	}
 
 	else {
-		cerr << "Unable to open file";
+		cerr << "Unable to open file \'" << file2 << "\'";
 		exit(1);
 	}
-
 
 }
 
 
 vector< string > &split(const string &s, char delim, vector< string > &elems) {
+
 	stringstream ss(s);
 	string item;
 	while (getline(ss, item, delim)) {
 		elems . push_back(item);
 	}
 	return elems;
+
 }
 
 
 vector< string > split(const string &s, char delim) {
+
 	vector< string > elems;
 	split(s, delim, elems);
 	return elems;
+
 }

@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <stdlib.h>
 #include <fstream>
 #include <sstream>
 #include <vector>
@@ -23,57 +24,62 @@ class Country {
 // Constructor
 
 	Country() {
-		cerr << "Created Default class" << endl;
+		cerr << "Created default class" << endl;
 	}
 
-	Country(string name, long population, float literacyRate,
-					float primaryCompletionFemale, float primaryCompletionMale,
-					float primaryCompletionTotal, float educationGDPSpent,
-					float youthLitRateFem, float youthLitRateMale) {
+	Country(string name, long population, float litRate,
+			 float eduGDP, float priCompTot,
+			 float priCompMale, float priCompFem, 
+			 float youthLitRateFem, float youthLitRateMale) {
+
 		SetName(name);
 		SetPopulation(population);
-		SetPrimaryCompFem(primaryCompletionFemale);
-		SetPrimaryCompMale(primaryCompletionMale);
-		SetPrimaryCompTotal(primaryCompletionTotal);
-		SetEduGDP(educationGDPSpent);
+		SetLitRate(litRate);
+		SetPriCompFem(priCompFem);
+		SetPriCompMale(priCompMale);
+		SetPriCompTot(priCompTot);
+		SetEduGDP(eduGDP);
 		SetYouthLitFem(youthLitRateFem);
 		SetYouthLitMale(youthLitRateMale);
+
 	}
-// Accessors
+
+
+	// Accessors
 
 	string GetName() { return m_name; }
 
 	long GetPopulation() { return m_population; }
 
-	float GetLiteracyRate() { return m_literacyRate; }
+	float GetLitRate() { return m_litRate; }
 
-	float GetPrimaryCompFem() { return m_primaryCompletionFemale; }
+	float GetPriCompFem() { return m_priCompFem; }
 
-	float GetPrimaryCompMale() { return m_primaryCompletionMale; }
+	float GetPriCompMale() { return m_priCompMale; }
 
-	float GetPrimaryCompTotal() { return m_primaryCompletionTotal; }
+	float GetPriCompTot() { return m_priCompTot; }
 
-	float GetEduGDP() { return m_educationGDPSpent; }
+	float GetEduGDP() { return m_eduGDP; }
 
 	float GetYouthLitFem() { return m_youthLitRateFem; }
 
 	float GetYouthLitMale() { return m_youthLitRateMale; }
 
-// Mutators
+	// Mutators
 
 	void SetName(string arg) { m_name = arg; }
 
 	void SetPopulation(long arg) { m_population = arg; }
 
-	void SetLiteracyRate(float arg) { m_literacyRate = arg; }
+	void SetLitRate(float arg) { m_litRate = arg; }
 
-	void SetPrimaryCompFem(float arg) { m_primaryCompletionFemale = arg; }
+	void SetPriCompFem(float arg) { m_priCompFem = arg; }
 
-	void SetPrimaryCompMale(float arg) { m_primaryCompletionMale = arg; }
+	void SetPriCompMale(float arg) { m_priCompMale = arg; }
 
-	void SetPrimaryCompTotal(float arg) { m_primaryCompletionTotal = arg; }
+	void SetPriCompTot(float arg) { m_priCompTot = arg; }
 
-	void SetEduGDP(float arg) { m_educationGDPSpent = arg; }
+	void SetEduGDP(float arg) { m_eduGDP = arg; }
 
 	void SetYouthLitFem(float arg) { m_youthLitRateFem = arg; }
 
@@ -83,11 +89,11 @@ class Country {
 
 	string m_name;
 	long m_population;
-	float m_literacyRate;
-	float m_primaryCompletionFemale;
-	float m_primaryCompletionMale;
-	float m_primaryCompletionTotal;
-	float m_educationGDPSpent;
+	float m_litRate;
+	float m_eduGDP;
+	float m_priCompFem;
+	float m_priCompMale;
+	float m_priCompTot;
 	float m_youthLitRateFem;
 	float m_youthLitRateMale;
 
