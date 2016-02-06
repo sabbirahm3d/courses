@@ -27,37 +27,40 @@ void ReadFromFiles(string file1, string file2) {
 
 	string numbers = "0123456789";
 	string countryLine;
+	string test[20];
 
 	// Countries
 	if (countries.is_open()) {
 
 		cout << "Reading from \'" << file1 << "\'" << endl << endl;
 
+		// string big, excess;
+		// int numCountries;
+
+		int count = 0;
 		while (getline(countries, countryLine)) {
 
 			if ( string::npos != countryLine.find_first_of(numbers.c_str()) ) {
 
-				string test[6];
-				int count = 0;
-
-				vector< string > x = split(countryLine, ' ');
-				for (vector<string>::iterator i = x.begin(); i != x.end(); i++){
-					test[count] = *i;
-					count++;
+				vector< string > continents = split(countryLine, ' ');
+				for (vector<string>::iterator i = continents.begin(); i != continents.end(); i++){
 
 					if ( *i != "--" && *i != "---" ){
-						// cout << *i << endl;
-						// test++;
+						test[count] = *i;
+						cout << "Printing " << count << " " << test[count] << endl;
+						count++;
 					}
-
-					cout << test[count] << endl;
 
 				}
 
-				// copy( x.begin(), x.end(), ostream_iterator<string>(cout, "\n") ); //for testing
 			}
 
 		}
+
+		// for (int j = 0; j <= 6; j++){
+		// 	cout << test[j] << endl;
+
+		// }
 
 		countries.close();
 	}
@@ -68,9 +71,8 @@ void ReadFromFiles(string file1, string file2) {
 	}
 
 
-	string name, population, litRate, eduGDP,
-		priCompFem, priCompMale, priCompTot,
-		youthLitRateFem, youthLitRateMale;
+	string name, population, litRate, eduGDP, priCompTot, priCompMale,
+		priCompFem, youthLitRateFem, youthLitRateMale;
 
 	string heading, line;
 
@@ -79,7 +81,7 @@ void ReadFromFiles(string file1, string file2) {
 	// Statistics
 	if (statistics.is_open()) {
 
-		cout << "Reading from \'" << file2 << "\'" << endl << endl;
+		cout << endl << "Reading from \'" << file2 << "\'" << endl << endl;
 
 		getline(statistics, heading); // isolate the heading from stats
 
@@ -154,7 +156,7 @@ vector< string > &split(const string &s, char delim, vector< string > &elems) {
 	stringstream ss(s);
 	string item;
 	while (getline(ss, item, delim)) {
-		elems . push_back(item);
+		elems.push_back(item);
 	}
 	return elems;
 

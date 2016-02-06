@@ -9,7 +9,7 @@ class Continent : public Country {
 
 	Continent();
 
-	vector< Country * > CountriesInContinent();
+	vector< Country* > CountriesInContinent();
 
 	Country HighestPopulation();
 

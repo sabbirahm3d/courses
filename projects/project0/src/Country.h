@@ -20,12 +20,9 @@ class Country {
 
 	public:
 
+	// Constructor
 
-// Constructor
-
-	Country() {
-		cerr << "Created default class" << endl;
-	}
+	Country() { cerr << "Default constructor used. At least one variable was missing." << endl; }
 
 	Country(string name, long population, float litRate,
 			 float eduGDP, float priCompTot,
@@ -64,6 +61,7 @@ class Country {
 	float GetYouthLitFem() { return m_youthLitRateFem; }
 
 	float GetYouthLitMale() { return m_youthLitRateMale; }
+
 
 	// Mutators
 
