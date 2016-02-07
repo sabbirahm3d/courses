@@ -1,12 +1,17 @@
 #include "Country.h"
 #include "Continent.h"
 
+#include <map>
+
+
 void ReadFromFiles(string, string);
 
 vector< string > &split(const string &s, char delim, vector< string > &elems);
 
 vector< string > split(const string &s, char delim);
 
+
+int NUM_CONTINENTS = 6;
 
 int main() {
 
@@ -24,45 +29,52 @@ void ReadFromFiles(string file1, string file2) {
 
 	ifstream countries(file1.c_str(), ios_base::in);
 	ifstream statistics(file2.c_str(), ios_base::in);
-
-	string numbers = "0123456789";
-	string countryLine;
-	string test[20];
+	vector<string> africa, asia, europe, oceania, northAmerica, southAmerica;
 
 	// Countries
 	if (countries.is_open()) {
 
 		cout << "Reading from \'" << file1 << "\'" << endl << endl;
 
-		// string big, excess;
-		// int numCountries;
+		string continent, excess, country;
+		int numCountries;
 
-		int count = 0;
-		while (getline(countries, countryLine)) {
+		countries >> continent >> excess >> numCountries;
 
-			if ( string::npos != countryLine.find_first_of(numbers.c_str()) ) {
-
-				vector< string > continents = split(countryLine, ' ');
-				for (vector<string>::iterator i = continents.begin(); i != continents.end(); i++){
-
-					if ( *i != "--" && *i != "---" ){
-						test[count] = *i;
-						cout << "Printing " << count << " " << test[count] << endl;
-						count++;
-					}
-
-				}
-
-			}
-
+		for (int i = 0; i <= (numCountries + 1); i++){
+			countries >> country;
+			africa.push_back(country);
+			cout << africa[i] << endl;
 		}
 
-		// for (int j = 0; j <= 6; j++){
-		// 	cout << test[j] << endl;
+		countries >> continent >> excess >> numCountries;
 
-		// }
+		cout << numCountries << endl;
 
-		countries.close();
+		for (int i = 0; i <= (numCountries - 1); i++){
+			countries >> country;
+			asia.push_back(country);
+			cout << asia[i] << endl;
+		}
+
+		countries >> continent >> excess >> numCountries;
+
+		cout << numCountries << endl;
+
+		for (int i = 0; i <= (numCountries - 1); i++){
+			countries >> country;
+			europe.push_back(country);
+			cout << europe[i] << endl;
+		}
+
+		// vector<string>::iterator it;
+
+		//   it = find(asia.begin(), asia.end(), "Bangladesh");
+		//   if (it != asia.end())
+		//     std::cout << "Element found in myvector: " << *it << '\n';
+		//   else
+		//     std::cout << "Element not found in myvector\n";
+
 	}
 
 	else {
@@ -76,7 +88,6 @@ void ReadFromFiles(string file1, string file2) {
 
 	string heading, line;
 
-	vector< string > africa, asia, europe, oceania, northAmerica, southAmerica;
 
 	// Statistics
 	if (statistics.is_open()) {
@@ -131,22 +142,23 @@ void ReadFromFiles(string file1, string file2) {
 
 			else { newYouthLitRateMale = atof(youthLitRateMale.c_str()); }
 
-			Country ex(name, newPopulation, newLitRate,
-					 newEduGDP, newPriCompTot,  
-					 newPriCompMale, newPriCompFem, 
-					 newYouthLitRateFem, newYouthLitRateMale); // for testing
+			Country ex(name, newPopulation, newLitRate, newEduGDP, 
+				newPriCompTot, newPriCompMale, newPriCompFem, 
+				newYouthLitRateFem, newYouthLitRateMale); // for testing
 
 			// cout << ex.GetPriCompFem() << endl; // for testing
 
 		}
 
-		statistics.close();
 	}
 
 	else {
 		cerr << "Unable to open file \'" << file2 << "\'";
 		exit(1);
 	}
+
+	countries.close();
+	statistics.close();
 
 }
 
