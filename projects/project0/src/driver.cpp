@@ -159,37 +159,37 @@ void ReadFromFiles(string file1, string file2) {
 
 			it = find(africa.begin(), africa.end(), countryObj.GetName());
 			if (it != africa.end()){
-				cout << "Element found in Africa: " << *it << '\n';
+				cout << "Country found in Africa: " << *it << '\n';
 				Continent africa(countryObj);
 			}
 
 			it = find(asia.begin(), asia.end(), countryObj.GetName());
 			if (it != asia.end()){
-				cout << "Element found in Asia: " << *it << '\n';
+				cout << "Country found in Asia: " << *it << '\n';
 				Continent asiaObj(countryObj);
 			}
 
 			it = find(europe.begin(), europe.end(), countryObj.GetName());
 			if (it != europe.end()){
-				cout << "Element found in Europe: " << *it << '\n';
+				cout << "Country found in Europe: " << *it << '\n';
 				Continent europeObj(countryObj);
-			}
-
-			it = find(oceania.begin(), oceania.end(), countryObj.GetName());
-			if (it != oceania.end()){
-				cout << "Element found in Oceania: " << *it << '\n';
-				Continent oceaniaObj(countryObj);
 			}
 
 			it = find(northAmerica.begin(), northAmerica.end(), countryObj.GetName());
 			if (it != northAmerica.end()){
-				cout << "Element found in North America: " << *it << '\n';
+				cout << "Country found in North America: " << *it << '\n';
 				Continent northAmericaObj(countryObj);
+			}
+
+			it = find(oceania.begin(), oceania.end(), countryObj.GetName());
+			if (it != oceania.end()){
+				cout << "Country found in Oceania: " << *it << '\n';
+				Continent oceaniaObj(countryObj);
 			}
 
 			it = find(southAmerica.begin(), southAmerica.end(), countryObj.GetName());
 			if (it != southAmerica.end()){
-				cout << "Element found in South America: " << *it << '\n';
+				cout << "Country found in South America: " << *it << '\n';
 				Continent southAmericaObj(countryObj);
 				cout << southAmericaObj.GetHighestPop() << endl;
 			}
