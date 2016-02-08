@@ -106,6 +106,7 @@ void ReadFromFiles(string file1, string file2) {
 			cout << southAmerica[i] << endl;
 		}
 
+
 		// vector<string>::iterator it;
 
 		// it = find(asia.begin(), asia.end(), "Bangladesh");
@@ -183,6 +184,10 @@ void ReadFromFiles(string file1, string file2) {
 			Country ex(name, newPopulation, newLitRate, newEduGDP, 
 				newPriCompTot, newPriCompMale, newPriCompFem, 
 				newYouthLitRateFem, newYouthLitRateMale); // for testing
+
+			// yo = *ex;
+
+			// Continent jkjkj(ex);
 
 			// cout << ex.GetPriCompFem() << endl; // for testing
 

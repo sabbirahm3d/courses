@@ -7,20 +7,21 @@ class Continent : public Country {
 
 	public:
 
-	Continent();
+	Continent(Country country) {
 
-	vector< Country* > CountriesInContinent();
+		countriesInContinent.push_back(country);
 
-	Country HighestPopulation();
-
-	Country HighestGDPSpent();
-
-	Country HighestLitRate();
+	}
 
 	private:
 
-	vector< Country > countriesInContinent;
+	Country highestPopulation;
 
+	Country highestGDPSpent;
+
+	Country highestLitRate;
+
+	vector<Country> countriesInContinent;
 
 };
 

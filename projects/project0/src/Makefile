@@ -12,6 +12,10 @@ Continent.o: Continent.cpp
 driver.o: driver.cpp
 	g++ $(CPPFLAGS) -c driver.cpp
 
+# to test for memory leaks
+val:
+	valgrind ./driver.out
+
 # -f removes any error messages if the file is not present
 clean:
 	rm -rf *~ *.h.gch *# *.out *.o

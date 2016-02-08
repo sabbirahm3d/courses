@@ -22,7 +22,7 @@ class Country {
 
 	// Constructor
 
-	Country() { cerr << "Default constructor used. At least one variable was missing." << endl; }
+	Country() { cerr << "Default constructor used." << endl; }
 
 	Country(string name, long population, float litRate,
 			 float eduGDP, float priCompTot,
