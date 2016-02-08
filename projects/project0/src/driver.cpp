@@ -1,9 +1,6 @@
 #include "Country.h"
 #include "Continent.h"
 
-#include <map>
-#include <typeinfo>
-
 
 void ReadFromFiles(string, string);
 
