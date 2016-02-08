@@ -22,7 +22,7 @@ class Country {
 
 	// Constructor
 
-	Country() { cerr << "Default constructor used." << endl; }
+	Country() { /* Empty constructor */ }
 
 	Country(string name, long population, float litRate,
 			 float eduGDP, float priCompTot,

@@ -30,6 +30,7 @@ void ReadFromFiles(string file1, string file2) {
 
 	ifstream countriesFile(file1.c_str(), ios_base::in);
 	ifstream statistics(file2.c_str(), ios_base::in);
+
 	vector<string> africa, asia, europe, northAmerica, oceania, southAmerica;
 
 	// Countries
@@ -43,77 +44,50 @@ void ReadFromFiles(string file1, string file2) {
 
 		countriesFile >> continent >> excess >> numCountries;
 
-		cout << endl << numCountries << endl;
-
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			africa.push_back(country);
-			cout << africa[i] << endl;
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
-
-		cout << endl << numCountries << endl;
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			asia.push_back(country);
-			cout << asia[i] << endl;
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
-
-		cout << numCountries << endl;
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			europe.push_back(country);
-			cout << europe[i] << endl;
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
-
-		cout << endl << numCountries << endl;
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			northAmerica.push_back(country);
-			cout << northAmerica[i] << endl;
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
-
-		cout << endl << numCountries << endl;
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			oceania.push_back(country);
-			cout << oceania[i] << endl;
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
 
-		cout << endl << numCountries << endl;
-
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
 			southAmerica.push_back(country);
-			cout << southAmerica[i] << endl;
 		}
-
-
-		// vector<string>::iterator it;
-
-		// it = find(asia.begin(), asia.end(), "Bangladesh");
-		// if (it != asia.end())
-		// 	cout << "Element found in myvector: " << *it << '\n';
-		// else
-		// 	cout << "Element not found in myvector\n";
 
 	}
 
@@ -181,15 +155,49 @@ void ReadFromFiles(string file1, string file2) {
 
 			else { newYouthLitRateMale = atof(youthLitRateMale.c_str()); }
 
-			Country ex(name, newPopulation, newLitRate, newEduGDP, 
+			Country countryObj(name, newPopulation, newLitRate, newEduGDP, 
 				newPriCompTot, newPriCompMale, newPriCompFem, 
 				newYouthLitRateFem, newYouthLitRateMale); // for testing
 
-			// yo = *ex;
 
-			// Continent jkjkj(ex);
+			vector<string>::iterator it;
 
-			// cout << ex.GetPriCompFem() << endl; // for testing
+			it = find(africa.begin(), africa.end(), countryObj.GetName());
+			if (it != africa.end()){
+				cout << "Element found in Africa: " << *it << '\n';
+				Continent africa(countryObj);
+			}
+
+			it = find(asia.begin(), asia.end(), countryObj.GetName());
+			if (it != asia.end()){
+				cout << "Element found in Asia: " << *it << '\n';
+				Continent asiaObj(countryObj);
+			}
+
+			it = find(europe.begin(), europe.end(), countryObj.GetName());
+			if (it != europe.end()){
+				cout << "Element found in Europe: " << *it << '\n';
+				Continent europeObj(countryObj);
+			}
+
+			it = find(oceania.begin(), oceania.end(), countryObj.GetName());
+			if (it != oceania.end()){
+				cout << "Element found in Oceania: " << *it << '\n';
+				Continent oceaniaObj(countryObj);
+			}
+
+			it = find(northAmerica.begin(), northAmerica.end(), countryObj.GetName());
+			if (it != northAmerica.end()){
+				cout << "Element found in North America: " << *it << '\n';
+				Continent northAmericaObj(countryObj);
+			}
+
+			it = find(southAmerica.begin(), southAmerica.end(), countryObj.GetName());
+			if (it != southAmerica.end()){
+				cout << "Element found in South America: " << *it << '\n';
+				Continent southAmericaObj(countryObj);
+				cout << southAmericaObj.GetHighestPop() << endl;
+			}
 
 		}
 
@@ -206,7 +214,7 @@ void ReadFromFiles(string file1, string file2) {
 }
 
 
-vector< string > &split(const string &s, char delim, vector< string > &elems) {
+vector<string> &split(const string &s, char delim, vector< string > &elems) {
 
 	stringstream ss(s);
 	string item;
@@ -218,7 +226,7 @@ vector< string > &split(const string &s, char delim, vector< string > &elems) {
 }
 
 
-vector< string > split(const string &s, char delim) {
+vector<string> split(const string &s, char delim) {
 
 	vector< string > elems;
 	split(s, delim, elems);
