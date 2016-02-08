@@ -7,12 +7,10 @@
 
 void ReadFromFiles(string, string);
 
-vector< string > &split(const string &s, char delim, vector< string > &elems);
+// vector< string > &split(const string &s, char delim, vector< string > &elems);
 
-vector< string > split(const string &s, char delim);
+// vector< string > split(const string &s, char delim);
 
-
-int NUM_CONTINENTS = 6;
 
 int main() {
 
@@ -214,22 +212,22 @@ void ReadFromFiles(string file1, string file2) {
 }
 
 
-vector<string> &split(const string &s, char delim, vector< string > &elems) {
+// vector<string> &split(const string &s, char delim, vector< string > &elems) {
 
-	stringstream ss(s);
-	string item;
-	while (getline(ss, item, delim)) {
-		elems.push_back(item);
-	}
-	return elems;
+// 	stringstream ss(s);
+// 	string item;
+// 	while (getline(ss, item, delim)) {
+// 		elems.push_back(item);
+// 	}
+// 	return elems;
 
-}
+// }
 
 
-vector<string> split(const string &s, char delim) {
+// vector<string> split(const string &s, char delim) {
 
-	vector< string > elems;
-	split(s, delim, elems);
-	return elems;
+// 	vector< string > elems;
+// 	split(s, delim, elems);
+// 	return elems;
 
-}
+// }
