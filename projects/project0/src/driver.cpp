@@ -104,6 +104,14 @@ void ReadFromFiles(string file1, string file2) {
 
 		getline(statistics, heading); // isolate the heading from stats
 
+		// Create instances of Continent objects 
+		Continent* africaObj = new Continent();
+		Continent* asiaObj = new Continent();
+		Continent* europeObj = new Continent();
+		Continent* northAmericaObj = new Continent();
+		Continent* oceaniaObj = new Continent();
+		Continent* southAmericaObj = new Continent();
+
 		while (statistics >> name >> population >> litRate >> eduGDP >> 
 			priCompTot >> priCompMale >> priCompFem >> youthLitRateFem >> 
 			youthLitRateMale) {
@@ -154,51 +162,79 @@ void ReadFromFiles(string file1, string file2) {
 				newPriCompTot, newPriCompMale, newPriCompFem, 
 				newYouthLitRateFem, newYouthLitRateMale); // for testing
 
-
 			vector<string>::iterator it;
 
 			it = find(africa.begin(), africa.end(), countryObj.GetName());
 			if (it != africa.end()){
-				cout << "Country found in Africa: " << *it << '\n';
-				// Continent africaObj(countryObj);
-				Continent* africaObj = new Continent(countryObj);
-				cout << *africaObj << endl;
-				delete africaObj;
-				africaObj = NULL;
+				// cout << "Country found in Africa: " << *it << '\n';
+				africaObj->AddCountry(countryObj);
+				// cout << *africaObj << endl;
 			}
+
 
 			it = find(asia.begin(), asia.end(), countryObj.GetName());
 			if (it != asia.end()){
-				cout << "Country found in Asia: " << *it << '\n';
-				Continent asiaObj(countryObj);
+				// cout << "Country found in Asia: " << *it << '\n';
+				asiaObj->AddCountry(countryObj);
+				// cout << *asiaObj << endl;
 			}
 
 			it = find(europe.begin(), europe.end(), countryObj.GetName());
 			if (it != europe.end()){
-				cout << "Country found in Europe: " << *it << '\n';
-				Continent europeObj(countryObj);
+				// cout << "Country found in Europe: " << *it << '\n';
+				europeObj->AddCountry(countryObj);
+				// cout << *europeObj << endl;
 			}
 
 			it = find(northAmerica.begin(), northAmerica.end(), countryObj.GetName());
 			if (it != northAmerica.end()){
-				cout << "Country found in North America: " << *it << '\n';
-				Continent northAmericaObj(countryObj);
+				// cout << "Country found in North America: " << *it << '\n';
+				northAmericaObj->AddCountry(countryObj);
+				// cout << *northAmericaObj << endl;
 			}
 
 			it = find(oceania.begin(), oceania.end(), countryObj.GetName());
 			if (it != oceania.end()){
-				cout << "Country found in Oceania: " << *it << '\n';
-				Continent oceaniaObj(countryObj);
+				// cout << "Country found in Oceania: " << *it << '\n';
+				oceaniaObj->AddCountry(countryObj);
+				// cout << *oceaniaObj << endl;
 			}
 
 			it = find(southAmerica.begin(), southAmerica.end(), countryObj.GetName());
 			if (it != southAmerica.end()){
-				cout << "Country found in South America: " << *it << '\n';
-				Continent southAmericaObj(countryObj);
-				cout << southAmericaObj << endl;
+				// cout << "Country found in South America: " << *it << '\n';
+				southAmericaObj->AddCountry(countryObj);
+				// cout << *southAmericaObj << endl;
 			}
 
 		}
+
+		cout << (*asiaObj).GetHighestPop() << endl;
+		cout << (*asiaObj) << endl;
+
+		cout << (*southAmericaObj).GetHighestPop() << endl;
+		cout << (*southAmericaObj) << endl;
+
+		// Delete continent objects after use
+		// PROBABLY MOVING SOMEWHERE ELSE
+		delete africaObj;
+		africaObj = NULL;
+
+		delete asiaObj;
+		asiaObj = NULL;
+
+		delete europeObj;
+		europeObj = NULL;
+
+		delete northAmericaObj;
+		northAmericaObj = NULL;
+
+		delete oceaniaObj;
+		oceaniaObj = NULL;
+
+		delete southAmericaObj;
+		southAmericaObj = NULL;
+
 
 	}
 

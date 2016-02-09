@@ -7,24 +7,44 @@ class Continent : public Country {
 
 	public:
 
-	Continent(Country country) {
+	Continent(){ /* empty */ }
+
+	void AddCountry(Country country) {
 
 		countriesInContinent.push_back(country);
-		SetHighestPop(country.GetPopulation());
+		// SetHighestPop();
 
 	}
 
 
-	void SetHighestPop(long population){
+	// void SetHighestPop() {
 
-		if ( maxPopulation < population){
-			maxPopulation = population;
-		}
+	// 	for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
+	// 		if ( (*it).GetPopulation() >= maxPopulation ) {
+	// 			maxPopulation = (*it).GetPopulation();
+	// 		}
+	// 	}
 
-	}
+	// 	// if ( maxPopulation < population ) {
+	// 	// 	maxPopulation = population;
+	// 	// }
+
+	// }
 
 
 	long GetHighestPop(){
+
+		// for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
+		// 	cout << (*it).GetName() << endl;
+		// } // for testing
+
+		for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
+			if ( (*it).GetPopulation() >= maxPopulation ) {
+				maxPopulation = (*it).GetPopulation();
+				totalPopulation += (*it).GetPopulation();
+				highestPopulation = (*it).GetName();
+			}
+		}
 
 		return maxPopulation;
 
@@ -32,7 +52,8 @@ class Continent : public Country {
 
 	friend ostream &operator << (ostream &os, const Continent &x){
 
-		os << "Highest population: " << x.maxPopulation << endl;
+		os << "<------------->" << endl;
+		os << "Highest population: " << x.totalPopulation << " " << x.maxPopulation << endl;
 
 		return os;
 
@@ -43,7 +64,9 @@ class Continent : public Country {
 	private:
 
 	static long maxPopulation;
-	Country highestPopulation;
+	static long totalPopulation;
+	// Country highestPopulation;
+	string highestPopulation;
 	Country highestGDPSpent;
 	Country highestLitRate;
 	vector<Country> countriesInContinent;
