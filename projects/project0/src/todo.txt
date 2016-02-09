@@ -1,0 +1,14 @@
+Super class constructor screwing up:
+try passing in a Country object into Continent (FIXED)
+
+Static variables:
+how to pls
+
+cout overload:
+how to pls
+
+optimization:
+repititive assignment of iterator or new variable?
+
+modules:
+is <algorithm> legal?
