@@ -160,7 +160,11 @@ void ReadFromFiles(string file1, string file2) {
 			it = find(africa.begin(), africa.end(), countryObj.GetName());
 			if (it != africa.end()){
 				cout << "Country found in Africa: " << *it << '\n';
-				Continent africa(countryObj);
+				// Continent africaObj(countryObj);
+				Continent* africaObj = new Continent(countryObj);
+				cout << *africaObj << endl;
+				delete africaObj;
+				africaObj = NULL;
 			}
 
 			it = find(asia.begin(), asia.end(), countryObj.GetName());
@@ -191,7 +195,7 @@ void ReadFromFiles(string file1, string file2) {
 			if (it != southAmerica.end()){
 				cout << "Country found in South America: " << *it << '\n';
 				Continent southAmericaObj(countryObj);
-				cout << southAmericaObj.GetHighestPop() << endl;
+				cout << southAmericaObj << endl;
 			}
 
 		}
@@ -208,23 +212,24 @@ void ReadFromFiles(string file1, string file2) {
 
 }
 
+/*
+vector<string> &split(const string &s, char delim, vector< string > &elems) {
 
-// vector<string> &split(const string &s, char delim, vector< string > &elems) {
+	stringstream ss(s);
+	string item;
+	while (getline(ss, item, delim)) {
+		elems.push_back(item);
+	}
+	return elems;
 
-// 	stringstream ss(s);
-// 	string item;
-// 	while (getline(ss, item, delim)) {
-// 		elems.push_back(item);
-// 	}
-// 	return elems;
-
-// }
+}
 
 
-// vector<string> split(const string &s, char delim) {
+vector<string> split(const string &s, char delim) {
 
-// 	vector< string > elems;
-// 	split(s, delim, elems);
-// 	return elems;
+	vector< string > elems;
+	split(s, delim, elems);
+	return elems;
 
-// }
+}
+*/

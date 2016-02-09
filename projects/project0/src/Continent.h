@@ -30,6 +30,15 @@ class Continent : public Country {
 
 	}
 
+	friend ostream &operator << (ostream &os, const Continent &x){
+
+		os << "Highest population: " << x.maxPopulation << endl;
+
+		return os;
+
+	}
+
+
 
 	private:
 
