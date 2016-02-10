@@ -16,20 +16,21 @@ Country::Country(string name, long population, float litRate, float eduGDP,
 
 }
 
-string Country::GetName() { return m_name; }
 
-long Country::GetPopulation() { return m_population; }
+string Country::GetName() const { return m_name; }
 
-float Country::GetLitRate() { return m_litRate; }
+long Country::GetPopulation() const { return m_population; }
 
-float Country::GetPriCompFem() { return m_priCompFem; }
+float Country::GetLitRate() const { return m_litRate; }
 
-float Country::GetPriCompMale() { return m_priCompMale; }
+float Country::GetPriCompFem() const { return m_priCompFem; }
 
-float Country::GetPriCompTot() { return m_priCompTot; }
+float Country::GetPriCompMale() const { return m_priCompMale; }
 
-float Country::GetEduGDP() { return m_eduGDP; }
+float Country::GetPriCompTot() const { return m_priCompTot; }
 
-float Country::GetYouthLitFem() { return m_youthLitRateFem; }
+float Country::GetEduGDP() const { return m_eduGDP; }
 
-float Country::GetYouthLitMale() { return m_youthLitRateMale; }
+float Country::GetYouthLitFem() const { return m_youthLitRateFem; }
+
+float Country::GetYouthLitMale() const { return m_youthLitRateMale; }

@@ -11,10 +11,10 @@ Central-African-Republic
 Chad
 Comoros
 Congo
-Congo,Democratic-Republic-of
+Congo-Rep.
 Djibouti
 Egypt
-Equatorial Guinea
+Equatorial-Guinea
 Eritrea
 Ethiopia
 Gabon
@@ -22,7 +22,7 @@ Gambia
 Ghana
 Guinea
 Guinea-Bissau
-Ivory-Coast
+Cote-d'Ivoire
 Kenya
 Lesotho
 Liberia
@@ -59,7 +59,7 @@ Bahrain
 Bangladesh
 Bhutan
 Brunei
-Burma-(Myanmar)
+Myanmar
 Cambodia
 China
 East-Timor
@@ -71,7 +71,7 @@ Israel
 Japan
 Jordan
 Kazakhstan
-Korea,D.Rep.
+Korea,Dem.Rep.
 Korea,Rep.
 Kuwait
 Kyrgyzstan
@@ -145,9 +145,9 @@ Sweden
 Switzerland
 Ukraine
 United-Kingdom
-Vatican City
+Vatican-City
 NORTH-AMERICA --- 23
-Antigua and Barbuda
+Antigua-and-Barbuda
 Bahamas
 Barbados
 Belize
@@ -156,7 +156,7 @@ Costa-Rica
 Cuba
 Dominica
 Dominican-Republic
-ElSalvador
+El-Salvador
 Grenada
 Guatemala
 Haiti
@@ -166,9 +166,9 @@ Mexico
 Nicaragua
 Panama
 Saint-Kitts-and-Nevis
-Saint Lucia
+Saint-Lucia
 Saint-Vincent-and-the-Grenadines
-Trinidad and Tobago
+Trinidad-and-Tobago
 United-States
 OCEANIA --- 14
 Australia

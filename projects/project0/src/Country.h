@@ -28,15 +28,15 @@ class Country {
 
 	// Accessors
 
-	string GetName();
-	long GetPopulation();
-	float GetLitRate();
-	float GetPriCompFem();
-	float GetPriCompMale();
-	float GetPriCompTot();
-	float GetEduGDP();
-	float GetYouthLitFem();
-	float GetYouthLitMale();
+	string GetName() const;
+	long GetPopulation() const;
+	float GetLitRate() const;
+	float GetPriCompFem() const;
+	float GetPriCompMale() const;
+	float GetPriCompTot() const;
+	float GetEduGDP() const;
+	float GetYouthLitFem() const;
+	float GetYouthLitMale() const;
 
 
 	// // Mutators

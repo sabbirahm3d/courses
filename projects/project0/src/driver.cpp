@@ -26,62 +26,74 @@ void ReadFromFiles(string file1, string file2) {
 	ifstream countriesFile(file1.c_str(), ios_base::in);
 	ifstream statistics(file2.c_str(), ios_base::in);
 
-	vector<string> africa, asia, europe, northAmerica, oceania, southAmerica;
+	vector<string>* africa = new vector<string>;
+	vector<string>* asia = new vector<string>;
+	vector<string>* europe = new vector<string>;
+	vector<string>* northAmerica = new vector<string>;
+	vector<string>* oceania = new vector<string>;
+	vector<string>* southAmerica = new vector<string>;
+
+	vector<string>* continents = new vector<string>;
+	vector<Continent>* world = new vector<Continent>;
 
 	// Countries
 	if (countriesFile.is_open()) {
-
-		cout << "Reading from \'" << file1 << "\'" << endl << endl;
 
 		string continent, excess, country;
 		int numCountries;
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			africa.push_back(country);
+			africa->push_back(country);
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			asia.push_back(country);
+			asia->push_back(country);
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			europe.push_back(country);
+			europe->push_back(country);
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			northAmerica.push_back(country);
+			northAmerica->push_back(country);
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			oceania.push_back(country);
+			oceania->push_back(country);
 		}
 
 
 		countriesFile >> continent >> excess >> numCountries;
+		continents->push_back(continent);
 
 		for (int i = 0; i <= (numCountries); i++){
 			getline(countriesFile, country);
-			southAmerica.push_back(country);
+			southAmerica->push_back(country);
 		}
 
 	}
@@ -91,16 +103,13 @@ void ReadFromFiles(string file1, string file2) {
 		exit(1);
 	}
 
-
+	string heading, line;
 	string name, population, litRate, eduGDP, priCompTot, priCompMale,
 		priCompFem, youthLitRateFem, youthLitRateMale;
 
-	string heading, line;
 
 	// Statistics
 	if (statistics.is_open()) {
-
-		cout << endl << "Reading from \'" << file2 << "\'" << endl << endl;
 
 		getline(statistics, heading); // isolate the heading from stats
 
@@ -164,59 +173,56 @@ void ReadFromFiles(string file1, string file2) {
 
 			vector<string>::iterator it;
 
-			it = find(africa.begin(), africa.end(), countryObj.GetName());
-			if (it != africa.end()){
-				// cout << "Country found in Africa: " << *it << '\n';
+			it = find(africa->begin(), africa->end(), countryObj.GetName());
+			if (it != africa->end()){
 				africaObj->AddCountry(countryObj);
-				// cout << *africaObj << endl;
 			}
 
-
-			it = find(asia.begin(), asia.end(), countryObj.GetName());
-			if (it != asia.end()){
-				// cout << "Country found in Asia: " << *it << '\n';
+			it = find(asia->begin(), asia->end(), countryObj.GetName());
+			if (it != asia->end()){
 				asiaObj->AddCountry(countryObj);
-				// cout << *asiaObj << endl;
 			}
 
-			it = find(europe.begin(), europe.end(), countryObj.GetName());
-			if (it != europe.end()){
-				// cout << "Country found in Europe: " << *it << '\n';
+			it = find(europe->begin(), europe->end(), countryObj.GetName());
+			if (it != europe->end()){
 				europeObj->AddCountry(countryObj);
-				// cout << *europeObj << endl;
 			}
 
-			it = find(northAmerica.begin(), northAmerica.end(), countryObj.GetName());
-			if (it != northAmerica.end()){
-				// cout << "Country found in North America: " << *it << '\n';
+			it = find(northAmerica->begin(), northAmerica->end(), countryObj.GetName());
+			if (it != northAmerica->end()){
 				northAmericaObj->AddCountry(countryObj);
-				// cout << *northAmericaObj << endl;
 			}
 
-			it = find(oceania.begin(), oceania.end(), countryObj.GetName());
-			if (it != oceania.end()){
-				// cout << "Country found in Oceania: " << *it << '\n';
+			it = find(oceania->begin(), oceania->end(), countryObj.GetName());
+			if (it != oceania->end()){
 				oceaniaObj->AddCountry(countryObj);
-				// cout << *oceaniaObj << endl;
 			}
 
-			it = find(southAmerica.begin(), southAmerica.end(), countryObj.GetName());
-			if (it != southAmerica.end()){
-				// cout << "Country found in South America: " << *it << '\n';
+			it = find(southAmerica->begin(), southAmerica->end(), countryObj.GetName());
+			if (it != southAmerica->end()){
 				southAmericaObj->AddCountry(countryObj);
-				// cout << *southAmericaObj << endl;
 			}
 
 		}
 
-		cout << (*asiaObj).GetHighestPop() << endl;
-		cout << (*asiaObj) << endl;
 
-		cout << (*southAmericaObj).GetHighestPop() << endl;
-		cout << (*southAmericaObj) << endl;
+		world->push_back(*africaObj);
+		world->push_back(*asiaObj);
+		world->push_back(*europeObj);
+		world->push_back(*northAmericaObj);
+		world->push_back(*oceaniaObj);
+		world->push_back(*southAmericaObj);
+
+		vector<Continent>::iterator it;
+		int counter = 0;
+
+		for ( it = world->begin(); it != world->end(); ++it ){
+			cout << continents->at(counter) << endl;
+			cout << *it << endl;
+			counter++;
+		}
 
 		// Delete continent objects after use
-		// PROBABLY MOVING SOMEWHERE ELSE
 		delete africaObj;
 		africaObj = NULL;
 
@@ -235,6 +241,11 @@ void ReadFromFiles(string file1, string file2) {
 		delete southAmericaObj;
 		southAmericaObj = NULL;
 
+		delete continents;
+		continents = NULL;
+
+		delete world;
+		world = NULL;
 
 	}
 
@@ -242,6 +253,25 @@ void ReadFromFiles(string file1, string file2) {
 		cerr << "Unable to open file \'" << file2 << "\'";
 		exit(1);
 	}
+
+	// Delete vectors of countries after use
+	delete africa;
+	africa = NULL;
+
+	delete asia;
+	asia = NULL;
+
+	delete europe;
+	europe = NULL;
+
+	delete northAmerica;
+	northAmerica = NULL;
+
+	delete oceania;
+	oceania = NULL;
+
+	delete southAmerica;
+	southAmerica = NULL;
 
 	countriesFile.close();
 	statistics.close();

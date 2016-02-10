@@ -5,68 +5,45 @@
 
 class Continent : public Country {
 
-	public:
+public:
 
-	Continent(){ /* empty */ }
-
-	void AddCountry(Country country) {
-
-		countriesInContinent.push_back(country);
-		// SetHighestPop();
-
-	}
-
-
-	// void SetHighestPop() {
-
-	// 	for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
-	// 		if ( (*it).GetPopulation() >= maxPopulation ) {
-	// 			maxPopulation = (*it).GetPopulation();
-	// 		}
-	// 	}
-
-	// 	// if ( maxPopulation < population ) {
-	// 	// 	maxPopulation = population;
-	// 	// }
-
-	// }
-
-
-	long GetHighestPop(){
-
-		// for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
-		// 	cout << (*it).GetName() << endl;
-		// } // for testing
-
-		for (vector<Country>::iterator it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
-			if ( (*it).GetPopulation() >= maxPopulation ) {
-				maxPopulation = (*it).GetPopulation();
-				totalPopulation += (*it).GetPopulation();
-				highestPopulation = (*it).GetName();
-			}
-		}
-
-		return maxPopulation;
-
-	}
+	Continent();
+	void AddCountry(Country);
+	long GetHighestPop();
+	float GetHighestLitRate();
+	float GetHighestEduGDP();
 
 	friend ostream &operator << (ostream &os, const Continent &x){
 
-		os << "<------------->" << endl;
-		os << "Highest population: " << x.totalPopulation << " " << x.maxPopulation << endl;
+		os << " Population: " << x.totalPopulation << endl;
+
+		os << " Country with highest literacy rate: " << 
+		x.highestLitRate.GetName() << " with a population of " <<
+		x.highestLitRate.GetPopulation() << " and a literacy rate of "
+		<< x.highestLitRate.GetLitRate() << endl ;
+
+		os << " Country with highest GDP spent on education: " << 
+		x.highestGDPSpent.GetName() << " with a population of " <<
+		x.highestGDPSpent.GetPopulation() << " and a literacy rate of "
+		<< x.highestGDPSpent.GetLitRate() << endl ;
+
+		os << " Country with highest population: " << 
+		x.highestPopulation.GetName() << " with a population of " <<
+		x.highestPopulation.GetPopulation() << " and a literacy rate of "
+		<< x.highestPopulation.GetLitRate() << endl ;
 
 		return os;
 
 	}
 
+private:
 
+	long maxPopulation;
+	long totalPopulation;
+	float maxLitRate;
+	float maxEduGDP;
 
-	private:
-
-	static long maxPopulation;
-	static long totalPopulation;
-	// Country highestPopulation;
-	string highestPopulation;
+	Country highestPopulation;
 	Country highestGDPSpent;
 	Country highestLitRate;
 	vector<Country> countriesInContinent;
