@@ -205,6 +205,13 @@ void ReadFromFiles(string file1, string file2) {
 
 		}
 
+		africaObj->Init();
+		asiaObj->Init();
+		europeObj->Init();
+		northAmericaObj->Init();
+		oceaniaObj->Init();
+		southAmericaObj->Init();
+
 
 		world->push_back(*africaObj);
 		world->push_back(*asiaObj);

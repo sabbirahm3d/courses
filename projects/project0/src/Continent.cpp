@@ -14,9 +14,20 @@ Continent::Continent() {
 void Continent::AddCountry(Country country) {
 
 	countriesInContinent.push_back(country);
-	GetHighestLitRate();
-	GetHighestEduGDP();
-	GetHighestPop();
+
+}
+
+
+long Continent::GetTotalPop() {
+
+	vector<Country>::iterator it;
+
+	for (it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
+		totalPopulation += (*it).GetPopulation();
+		// cout << (*it).GetName() << " " << (*it).GetPopulation() << " " << totalPopulation << endl;
+	}
+
+	return totalPopulation;
 
 }
 
@@ -26,9 +37,9 @@ long Continent::GetHighestPop() {
 	vector<Country>::iterator it;
 
 	for (it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
+		totalPopulation += (*it).GetPopulation();
 		if ( (*it).GetPopulation() >= maxPopulation ) {
 			maxPopulation = (*it).GetPopulation();
-			totalPopulation += (*it).GetPopulation();
 			highestPopulation = *it;
 		}
 	}
