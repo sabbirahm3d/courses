@@ -15,58 +15,58 @@ using namespace std;
 
 class Country {
 
-	public:
+  public:
 
-	// Constructors
+  // Constructors
 
-	Country() { /* Empty constructor */ }
-	Country(string, long, float, float, float, float, float, float, float);
-
-
-	// Accessors
-
-	string GetName() const;
-	long GetPopulation() const;
-	float GetLitRate() const;
-	float GetPriCompFem() const;
-	float GetPriCompMale() const;
-	float GetPriCompTot() const;
-	float GetEduGDP() const;
-	float GetYouthLitFem() const;
-	float GetYouthLitMale() const;
+  Country() { /* Empty constructor */ }
+  Country(string, long, float, float, float, float, float, float, float);
 
 
-	// // Mutators
+  // Accessors
 
-	// void SetName(string arg) { m_name = arg; }
+  string GetName() const;
+  long GetPopulation() const;
+  float GetLitRate() const;
+  float GetPriCompFem() const;
+  float GetPriCompMale() const;
+  float GetPriCompTot() const;
+  float GetEduGDP() const;
+  float GetYouthLitFem() const;
+  float GetYouthLitMale() const;
 
-	// void SetPopulation(long arg) { m_population = arg; }
 
-	// void SetLitRate(float arg) { m_litRate = arg; }
+  // // Mutators
 
-	// void SetPriCompFem(float arg) { m_priCompFem = arg; }
+  // void SetName(string arg) { m_name = arg; }
 
-	// void SetPriCompMale(float arg) { m_priCompMale = arg; }
+  // void SetPopulation(long arg) { m_population = arg; }
 
-	// void SetPriCompTot(float arg) { m_priCompTot = arg; }
+  // void SetLitRate(float arg) { m_litRate = arg; }
 
-	// void SetEduGDP(float arg) { m_eduGDP = arg; }
+  // void SetPriCompFem(float arg) { m_priCompFem = arg; }
 
-	// void SetYouthLitFem(float arg) { m_youthLitRateFem = arg; }
+  // void SetPriCompMale(float arg) { m_priCompMale = arg; }
 
-	// void SetYouthLitMale(float arg) { m_youthLitRateMale = arg; }
+  // void SetPriCompTot(float arg) { m_priCompTot = arg; }
 
-	private:
+  // void SetEduGDP(float arg) { m_eduGDP = arg; }
 
-	string m_name;
-	long m_population;
-	float m_litRate;
-	float m_eduGDP;
-	float m_priCompFem;
-	float m_priCompMale;
-	float m_priCompTot;
-	float m_youthLitRateFem;
-	float m_youthLitRateMale;
+  // void SetYouthLitFem(float arg) { m_youthLitRateFem = arg; }
+
+  // void SetYouthLitMale(float arg) { m_youthLitRateMale = arg; }
+
+  private:
+
+  string m_name;
+  long m_population;
+  float m_litRate;
+  float m_eduGDP;
+  float m_priCompFem;
+  float m_priCompMale;
+  float m_priCompTot;
+  float m_youthLitRateFem;
+  float m_youthLitRateMale;
 
 
 };
