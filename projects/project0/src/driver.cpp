@@ -2,17 +2,24 @@
 #include "Continent.h"
 
 
+// Declaration of functions
 void ReadFromFiles(string, string);
 
-// vector< string > &split(const string &s, char delim, vector< string > &elems);
 
-// vector< string > split(const string &s, char delim);
+// Template for deleting heap blocks of any data types
+template <typename type>
+void Destructor(type object) { 
+
+	delete object;
+	object = NULL;
+
+} 
 
 
 int main() {
 
-	string file1 = "data/CountriesContinents.txt";
-	string file2 = "data/2013WorldBankEducationCensusData.txt";
+	string file1 = "CountriesContinents.txt";
+	string file2 = "2013WorldBankEducationCensusData.txt";
 
 	ReadFromFiles(file1, file2);
 
@@ -99,7 +106,9 @@ void ReadFromFiles(string file1, string file2) {
 	}
 
 	else {
-		cerr << "Unable to open file \'" << file1 << "\'";
+		cerr << "Unable to open file \'" << file1 << "\'." << endl
+		<< "Please make sure \'" << file1 << 
+		"\' exists in the same directory as this file." << endl;
 		exit(1);
 	}
 
@@ -212,7 +221,6 @@ void ReadFromFiles(string file1, string file2) {
 		oceaniaObj->Init();
 		southAmericaObj->Init();
 
-
 		world->push_back(*africaObj);
 		world->push_back(*asiaObj);
 		world->push_back(*europeObj);
@@ -230,79 +238,35 @@ void ReadFromFiles(string file1, string file2) {
 		}
 
 		// Delete continent objects after use
-		delete africaObj;
-		africaObj = NULL;
+		Destructor(africaObj);
+		Destructor(asiaObj);
+		Destructor(europeObj);
+		Destructor(northAmericaObj);
+		Destructor(oceaniaObj);
+		Destructor(southAmericaObj);
 
-		delete asiaObj;
-		asiaObj = NULL;
-
-		delete europeObj;
-		europeObj = NULL;
-
-		delete northAmericaObj;
-		northAmericaObj = NULL;
-
-		delete oceaniaObj;
-		oceaniaObj = NULL;
-
-		delete southAmericaObj;
-		southAmericaObj = NULL;
-
-		delete continents;
-		continents = NULL;
-
-		delete world;
-		world = NULL;
+		// Delete the helper vectors
+		Destructor(continents);
+		Destructor(world);
 
 	}
 
 	else {
-		cerr << "Unable to open file \'" << file2 << "\'";
+		cerr << "Unable to open file \'" << file2 << "\'." << endl
+		<< "Please make sure \'" << file2 << 
+		"\' exists in the same directory as this file." << endl;
 		exit(1);
 	}
 
 	// Delete vectors of countries after use
-	delete africa;
-	africa = NULL;
-
-	delete asia;
-	asia = NULL;
-
-	delete europe;
-	europe = NULL;
-
-	delete northAmerica;
-	northAmerica = NULL;
-
-	delete oceania;
-	oceania = NULL;
-
-	delete southAmerica;
-	southAmerica = NULL;
+	Destructor(africa);
+	Destructor(asia);
+	Destructor(europe);
+	Destructor(northAmerica);
+	Destructor(oceania);
+	Destructor(southAmerica);
 
 	countriesFile.close();
 	statistics.close();
 
 }
-
-/*
-vector<string> &split(const string &s, char delim, vector< string > &elems) {
-
-	stringstream ss(s);
-	string item;
-	while (getline(ss, item, delim)) {
-		elems.push_back(item);
-	}
-	return elems;
-
-}
-
-
-vector<string> split(const string &s, char delim) {
-
-	vector< string > elems;
-	split(s, delim, elems);
-	return elems;
-
-}
-*/

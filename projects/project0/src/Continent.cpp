@@ -18,20 +18,6 @@ void Continent::AddCountry(Country country) {
 }
 
 
-long Continent::GetTotalPop() {
-
-	vector<Country>::iterator it;
-
-	for (it = countriesInContinent.begin(); it != countriesInContinent.end(); ++it){
-		totalPopulation += (*it).GetPopulation();
-		// cout << (*it).GetName() << " " << (*it).GetPopulation() << " " << totalPopulation << endl;
-	}
-
-	return totalPopulation;
-
-}
-
-
 long Continent::GetHighestPop() {
 
 	vector<Country>::iterator it;

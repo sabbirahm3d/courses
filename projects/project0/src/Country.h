@@ -5,12 +5,9 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
-#include <stdlib.h>
 #include <fstream>
-#include <sstream>
 #include <vector>
-#include <algorithm> // for copy
-#include <iterator> // for ostream_iterator
+#include <algorithm>
 
 
 using namespace std;

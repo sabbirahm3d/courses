@@ -16,7 +16,6 @@ public:
 		GetHighestPop();
 
 	}
-	long GetTotalPop();
 	long GetHighestPop();
 	float GetHighestLitRate();
 	float GetHighestEduGDP();
