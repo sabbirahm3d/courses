@@ -3,10 +3,18 @@
 
 Continent::Continent() { 
 
-  totalPopulation = 0;
-  maxPopulation = 0;
-  maxEduGDP = 0;
-  maxLitRate = 0;
+  m_totalPopulation = 0;
+  m_highestPopulation = 0;
+  m_highestEduGDP = 0;
+  m_highestLitRate = 0;
+
+}
+
+void Continent::Init() {
+
+  GetHighestLitRate();
+  GetHighestEduGDP();
+  GetHighestPop();
 
 }
 
@@ -25,16 +33,16 @@ long Continent::GetHighestPop() {
   for (it = countriesInContinent.begin(); 
     it != countriesInContinent.end(); ++it) {
 
-      totalPopulation += (*it).GetPopulation();
+      m_totalPopulation += (*it).GetPopulation();
 
-      if ( (*it).GetPopulation() >= maxPopulation ) {
-        maxPopulation = (*it).GetPopulation();
+      if ( (*it).GetPopulation() >= m_highestPopulation ) {
+        m_highestPopulation = (*it).GetPopulation();
         highestPopulation = *it;
       }
 
   }
 
-  return maxPopulation;
+  return m_highestPopulation;
 
 }
 
@@ -46,14 +54,14 @@ float Continent::GetHighestLitRate() {
   for (it = countriesInContinent.begin(); 
     it != countriesInContinent.end(); ++it){
     
-    if ( (*it).GetLitRate() >= maxLitRate ) {
-      maxLitRate = (*it).GetLitRate();
+    if ( (*it).GetLitRate() >= m_highestLitRate ) {
+      m_highestLitRate = (*it).GetLitRate();
       highestLitRate = *it;
     }
 
   }
 
-  return maxLitRate;
+  return m_highestLitRate;
 
 }
 
@@ -65,13 +73,13 @@ float Continent::GetHighestEduGDP() {
   for (it = countriesInContinent.begin(); 
     it != countriesInContinent.end(); ++it){
     
-    if ( (*it).GetEduGDP() >= maxEduGDP ) {
-      maxEduGDP = (*it).GetEduGDP();
+    if ( (*it).GetEduGDP() >= m_highestEduGDP ) {
+      m_highestEduGDP = (*it).GetEduGDP();
       highestGDPSpent = *it;
     }
 
   }
 
-  return maxEduGDP;
+  return m_highestEduGDP;
 
 }

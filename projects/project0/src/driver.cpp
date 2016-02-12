@@ -7,8 +7,8 @@ void ReadFromFiles(string, string);
 
 
 // Template for deleting heap blocks of any data types
-template <typename type>
-void Destroy(type object) { 
+template <typename pointer>
+void Destroy(pointer object) { 
 
   delete object;
   object = NULL;
@@ -212,13 +212,6 @@ void ReadFromFiles(string file1, string file2) {
       }
 
     }
-
-    africaObj->Init();
-    asiaObj->Init();
-    europeObj->Init();
-    northAmericaObj->Init();
-    oceaniaObj->Init();
-    southAmericaObj->Init();
 
     world->push_back(*africaObj);
     world->push_back(*asiaObj);

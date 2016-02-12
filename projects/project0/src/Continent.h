@@ -8,50 +8,46 @@ class Continent : public Country {
 public:
 
   Continent();
+  void Init();
   void AddCountry(Country);
-  void Init() {
-
-    GetHighestLitRate();
-    GetHighestEduGDP();
-    GetHighestPop();
-
-  }
   long GetHighestPop();
   float GetHighestLitRate();
   float GetHighestEduGDP();
 
-  friend ostream &operator << (ostream &os, const Continent &continentObj){
+  friend ostream &operator << (ostream &output, Continent &continentObj){
 
-    os << " * Total population: " << continentObj.totalPopulation << endl;
+    continentObj.Init();
 
-    os << " * Country with highest literacy rate: " <<
+    output << " * Total population: " << continentObj.m_totalPopulation << endl;
+
+    output << " * Country with highest literacy rate: " <<
     continentObj.highestLitRate.GetName() << " with a population of " <<
     continentObj.highestLitRate.GetPopulation() <<
     " and a literacy rate of " << continentObj.highestLitRate.GetLitRate()
     << "." << endl;
 
-    os << " * Country with highest GDP spent on education: " <<
+    output << " * Country with highest GDP spent on education: " <<
     continentObj.highestGDPSpent.GetName() << " with a population of " <<
     continentObj.highestGDPSpent.GetPopulation() <<
     " and a literacy rate of " << continentObj.highestGDPSpent.GetLitRate()
     << "." << endl;
 
-    os << " * Country with highest population: " <<
+    output << " * Country with highest population: " <<
     continentObj.highestPopulation.GetName() << " with a population of "
     << continentObj.highestPopulation.GetPopulation() <<
     " and a literacy rate of " <<
     continentObj.highestPopulation.GetLitRate() << "." << endl;
 
-    return os;
+    return output;
 
   }
 
 private:
 
-  long maxPopulation;
-  long totalPopulation;
-  float maxLitRate;
-  float maxEduGDP;
+  long m_highestPopulation;
+  long m_totalPopulation;
+  float m_highestLitRate;
+  float m_highestEduGDP;
 
   Country highestPopulation;
   Country highestGDPSpent;
