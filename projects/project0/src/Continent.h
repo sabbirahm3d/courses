@@ -1,58 +1,88 @@
+/* File:    Continent.h
+ * Project: CMSC 341: Project 0, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    2/13/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * This header file contains the declarations for the member variables and
+ * methods for the Continent class used in the project. The class is considered
+ * a subclass (child) of the Country class.
+ */
+
+
 #ifndef CONTINENT_H
 #define CONTINENT_H
 
 #include "Country.h"
 
+
 class Continent : public Country {
 
 public:
 
-  Continent();
-  void Init();
-  void AddCountry(Country);
-  long GetHighestPop();
-  float GetHighestLitRate();
-  float GetHighestEduGDP();
+	// Constructor
 
-  friend ostream &operator << (ostream &output, Continent &continentObj){
+	/* Continent() - Overloaded constructor
+	 * Preconditions: None.
+	 * Postconditions: Creates a Continent object and initializes the member
+	   variables. */
 
-    continentObj.Init();
+	Continent();
 
-    output << " * Total population: " << continentObj.m_totalPopulation << endl;
 
-    output << " * Country with highest literacy rate: " <<
-    continentObj.highestLitRate.GetName() << " with a population of " <<
-    continentObj.highestLitRate.GetPopulation() <<
-    " and a literacy rate of " << continentObj.highestLitRate.GetLitRate()
-    << "." << endl;
+	// Mutators/ setters
 
-    output << " * Country with highest GDP spent on education: " <<
-    continentObj.highestGDPSpent.GetName() << " with a population of " <<
-    continentObj.highestGDPSpent.GetPopulation() <<
-    " and a literacy rate of " << continentObj.highestGDPSpent.GetLitRate()
-    << "." << endl;
+	/* SetHighestPop()
+	 * Preconditions: None.
+	 * Postconditions: Returns the Country object with the highest
+	   population. */
 
-    output << " * Country with highest population: " <<
-    continentObj.highestPopulation.GetName() << " with a population of "
-    << continentObj.highestPopulation.GetPopulation() <<
-    " and a literacy rate of " <<
-    continentObj.highestPopulation.GetLitRate() << "." << endl;
+	void SetHighestPop();
 
-    return output;
 
-  }
+	/* SetHighestLitRate()
+	 * Preconditions: None.
+	 * Postconditions: Returns the Country object with the highest
+	   literacy rate. */
+
+	void SetHighestLitRate();
+
+
+	/* SetHighestEduGDP()
+	 * Preconditions: None.
+	 * Postconditions: Returns the Country object with the highest
+	   spending on education. */
+
+	void SetHighestEduGDP();
+
+
+	/* AddCountry()
+	 * Preconditions: Requires a Country object.
+	 * Postconditions: Appends to the vector of Country objects. */
+
+	void AddCountry(Country);
+
+
+	/* operator<< - Overloaded output operator.
+	 * Preconditions: None.
+	 * Postconditions: Returns the Country object with the highest
+	   spending on education. */
+
+	friend ostream& operator<<(ostream&, Continent&);
+
 
 private:
 
-  long m_highestPopulation;
-  long m_totalPopulation;
-  float m_highestLitRate;
-  float m_highestEduGDP;
+	long m_highestPopulation;
+	long m_totalPopulation;
+	float m_highestLitRate;
+	float m_highestEduGDP;
 
-  Country highestPopulation;
-  Country highestGDPSpent;
-  Country highestLitRate;
-  vector<Country> countriesInContinent;
+	Country highestPopulation;
+	Country highestGDPSpent;
+	Country highestLitRate;
+	vector<Country> countriesInContinent;
 
 };
 
