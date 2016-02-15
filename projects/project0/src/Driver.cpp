@@ -1,36 +1,56 @@
+/* File:    Driver.cpp
+ * Project: CMSC 341: Project 0, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    2/13/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * The driver program for Project 0, this file reads through two input files to
+ * map 6 continents to their corresponding countries, and adds statistics to
+ * them to convert into Country objects. The Country objects are then appended
+ * to their corresponding Continent object, and then used to find the total
+ * population, the country with the highest population, literacy rate and
+ * expendature on education for each continents.
+ */
+
+
 #include "Country.h"
 #include "Continent.h"
 
 
-// Declaration of functions
+/* ******************** Declaration of functions ******************** */
+
+/* ReadFromFiles()
+ * Preconditions: Parameters must be valid paths to the input files.
+ * Postconditions: Checks if paths are valid, and then implements the driver
+   program as specified by the Project 0 description. */
+
 void ReadFromFiles(string, string);
 
 
+/* Find()
+ * Preconditions: Parameters are custom iterators, and custom objects.
+   Postconditions: Returns the custom object, if found. */
+
 template <class iteratorT, class stringT>
-iteratorT find(iteratorT first, iteratorT last, const stringT& countryName) {
-
-	while (first != last) {
-		if (*first == countryName) {
-			return first;
-		}
-
-		++first;
-	}
-
-	return last;
-
-}
+iteratorT Find(iteratorT, iteratorT, const stringT&);
 
 
-// Template for deleting heap blocks of any data types
+/* Find()
+ * Preconditions: Parameters are either pointers to vectors of strings or 
+ * custom objects.
+ * Postconditions: Deletes the object and its pointer. */
+
 template <typename pointerT>
-void Destroy(pointerT object) { 
+void Destroy(pointerT);
 
-	delete object;
-	object = NULL;
 
-} 
+/* ******************** Implementation of functions ******************** */
 
+
+/* main()
+ * Driver function. Calls ReadFromFiles() after passing in the paths to the
+   input files. */
 
 int main() {
 
@@ -44,11 +64,54 @@ int main() {
 }
 
 
+/* Find()
+ * Helper template. Parameters are pointers to custom iterators, so the types
+   are not declared. Searches through vectors of Country objects for a Country
+   object with specific attributes, and returns the object if found. */
+
+template <class iteratorT, class stringT>
+iteratorT Find(iteratorT first, iteratorT last, const stringT& countryName) {
+
+	while (first != last) {
+
+		if (*first == countryName) {
+			return first;
+		}
+		++first; // narrows down the area to search by iterations
+	}
+
+	return last;
+
+}
+
+
+/* Destroy()
+ * Helper template. Parameters are pointers to vectors of strings, custom
+   objects, or vectors of custom objects. Deletes the object passed in to free
+   heap memory. */
+
+template <typename pointerT>
+void Destroy(pointerT object) { 
+
+	delete object;
+	object = NULL;
+
+} 
+
+/* ReadFromFiles()
+ * Parameters are paths to the input files. Creates instances of the 2 classes
+   and appends statistical data to them, and calls the overloaded output
+   operator to display the result. */
+
 void ReadFromFiles(string file1, string file2) {
 
+	// Reads the 2 input files
 	ifstream countriesFile(file1.c_str(), ios_base::in);
 	ifstream statistics(file2.c_str(), ios_base::in);
 
+	// Allocates new pointers for vectors of strings to contain countries
+	// for each continents, to contain the names of continents, and vectors
+	// of Continent objects to hold the final output.
 	vector<string>* africa = new vector<string>;
 	vector<string>* asia = new vector<string>;
 	vector<string>* europe = new vector<string>;
@@ -59,7 +122,7 @@ void ReadFromFiles(string file1, string file2) {
 	vector<string>* continents = new vector<string>;
 	vector<Continent>* world = new vector<Continent>;
 
-	// Countries
+	// CountriesContinents.txt
 	if (countriesFile.is_open()) {
 
 		string continent, excess, country;
@@ -226,34 +289,34 @@ void ReadFromFiles(string file1, string file2) {
 
 			vector<string>::iterator it;
 
-			it = find(africa->begin(), africa->end(), countryObj.GetName());
+			it = Find(africa->begin(), africa->end(), countryObj.GetName());
 			if (it != africa->end()) {
 				africaObj->AddCountry(countryObj);
 			}
 
-			it = find(asia->begin(), asia->end(), countryObj.GetName());
+			it = Find(asia->begin(), asia->end(), countryObj.GetName());
 			if (it != asia->end()) {
 				asiaObj->AddCountry(countryObj);
 			}
 
-			it = find(europe->begin(), europe->end(), countryObj.GetName());
+			it = Find(europe->begin(), europe->end(), countryObj.GetName());
 			if (it != europe->end()) {
 				europeObj->AddCountry(countryObj);
 			}
 
-			it = find(northAmerica->begin(), northAmerica->end(),
+			it = Find(northAmerica->begin(), northAmerica->end(),
 				countryObj.GetName());
 			if (it != northAmerica->end()) {
 				northAmericaObj->AddCountry(countryObj);
 			}
 
-			it = find(oceania->begin(), oceania->end(),
+			it = Find(oceania->begin(), oceania->end(),
 				countryObj.GetName());
 			if (it != oceania->end()) {
 				oceaniaObj->AddCountry(countryObj);
 			}
 
-			it = find(southAmerica->begin(), southAmerica->end(),
+			it = Find(southAmerica->begin(), southAmerica->end(),
 				countryObj.GetName());
 			if (it != southAmerica->end()) {
 				southAmericaObj->AddCountry(countryObj);

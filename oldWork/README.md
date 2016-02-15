@@ -1,0 +1,3 @@
+# Old codes
+## IF YOU'RE A POTENTIAL EMPLOYER WHO (MOST LIKE ACCIDENTALLY) STUMBLED UPON THIS DIRECTORY, PLEASE LEAVE. THESE FILES WERE WRITTEN BACK WHEN I WAS A N00B FRESHMAN AND HATED C++ BECAUSE OF THE UGLY ERRORS. I'VE CHANGED INTO A NEW MAN SINCE THEN, HONEST!
+Stuffs from my object oriented programming class, written back when I didn't really care about the cleanliness and organization of repositories.

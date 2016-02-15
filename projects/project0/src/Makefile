@@ -1,7 +1,7 @@
 CPPFLAGS = -Wall -ansi
 
-all: driver.o Country.o Continent.o
-	g++ $(CPPFLAGS) driver.o Country.o Continent.o -o driver.out
+all: Driver.o Country.o Continent.o
+	g++ $(CPPFLAGS) Driver.o Country.o Continent.o -o Driver.out
 
 Country.o: Country.cpp
 	g++ $(CPPFLAGS) -c Country.cpp
@@ -9,12 +9,12 @@ Country.o: Country.cpp
 Continent.o: Continent.cpp
 	g++ $(CPPFLAGS) -c Continent.cpp
 
-driver.o: driver.cpp
-	g++ $(CPPFLAGS) -c driver.cpp
+Driver.o: Driver.cpp
+	g++ $(CPPFLAGS) -c Driver.cpp
 
 # to test for memory leaks
 val:
-	valgrind ./driver.out
+	valgrind ./Driver.out
 
 # -f removes any error messages if the file is not present
 clean:
@@ -22,4 +22,4 @@ clean:
 
 # compile an executable
 run:
-	./driver.out
+	./Driver.out
