@@ -127,62 +127,75 @@ void ReadFromFiles(string file1, string file2) {
 
 		string continent, excess, country;
 		int numCountries;
+		int countSwitch = 0;
 
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
+		// Read through the entire file
+		while ( !countriesFile.eof() ) {
 
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			africa->push_back(country);
-		}
+			// Assigns continent name, excess dummy data ('--' or '---') and
+			// the number of countries as specified in the input file.
+			countriesFile >> continent >> excess >> numCountries;
 
+			// The continent name is then appended to a temporary vector.
+			continents->push_back(continent);
 
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
+			// All the remaining numCountries amount of lines are then stored
+			// in vectors of countries corresponding to their continent.
+			for (int i = 0; i <= numCountries; i++) {
 
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			asia->push_back(country);
-		}
+				getline(countriesFile, country);
 
+				// A switch statement is used since the same looping technique
+				// would be used for all 6 continent vectors
+				switch(countSwitch) {
 
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
+					case 0: {
+						africa->push_back(country);
+						break;
+					}
 
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			europe->push_back(country);
-		}
+					case 1: {
+						asia->push_back(country);
+						break;
+					}
 
+					case 2: {
+						europe->push_back(country);
+						break;
+					}
 
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
+					case 3: {
+						northAmerica->push_back(country);
+						break;
+					}
 
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			northAmerica->push_back(country);
-		}
+					case 4: {
+						oceania->push_back(country);
+						break;
+					}
 
+					case 5: {
+						southAmerica->push_back(country);
+						break;
+					}
 
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
+					default: {
+						cerr << "Invalid format in file." << endl;
+					}
 
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			oceania->push_back(country);
-		}
+				}
+			}
 
-
-		countriesFile >> continent >> excess >> numCountries;
-		continents->push_back(continent);
-
-		for (int i = 0; i <= (numCountries); i++){
-			getline(countriesFile, country);
-			southAmerica->push_back(country);
+			// Iterate to switch to the next for-loop to begin storing data
+			// for the next continent.
+			countSwitch++;
 		}
 
 	}
 
+
+	// Exits the program if the input file does not exist, or the path
+	// specified is invalid.
 	else {
 		cerr << "Unable to open file \'" << file1 << "\'." << endl
 		<< "Please make sure \'" << file1 << 
@@ -220,6 +233,7 @@ void ReadFromFiles(string file1, string file2) {
 			newPopulation = atol(population.c_str());
 
 			// Convert litRate into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(litRate.c_str()) == 0 ){
 				newLitRate = -1;
 			}
@@ -229,6 +243,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert eduGDP into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(eduGDP.c_str()) == 0 ) {
 				newEduGDP = -1;
 			}
@@ -238,6 +253,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert priCompFem into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(priCompFem.c_str()) == 0 ){
 				newPriCompFem = -1;
 			}
@@ -247,6 +263,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert priCompMale into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(priCompTot.c_str()) == 0 ){
 				newPriCompTot = -1;
 			}
@@ -256,6 +273,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert priCompTot into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(priCompMale.c_str()) == 0 ){
 				newPriCompMale = -1;
 			}
@@ -265,6 +283,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert youthLitRateFem into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(youthLitRateFem.c_str()) == 0 ){
 				newYouthLitRateFem = -1;
 			}
@@ -274,6 +293,7 @@ void ReadFromFiles(string file1, string file2) {
 			}
 
 			// Convert youthLitRateMale into float
+			// If variable is not a float, i.e. "N/A", -1 is assigned
 			if ( atof(youthLitRateMale.c_str()) == 0 ){
 				newYouthLitRateMale = -1;
 			}
@@ -354,6 +374,9 @@ void ReadFromFiles(string file1, string file2) {
 
 	}
 
+
+	// Exits the program if the input file does not exist, or the path
+	// specified is invalid.
 	else {
 		cerr << "Unable to open file \'" << file2 << "\'." << endl
 		<< "Please make sure \'" << file2 << 
