@@ -26,166 +26,170 @@ using namespace std;
 
 class Country {
 
-	public:
+public:
 
-	// Constructors
+/* ******************** Constructors ******************** */
 
 
-	/* Country() - Empty constructor
-	 * Preconditions: None.
-	 * Postconditions: None. */
+/* Country() - Empty constructor
+ * Preconditions: None.
+ * Postconditions: None. */
 
-	Country();
+Country();
 
 
-	/* Country() - Overloaded constructor
-	 * Preconditions: The parameters must be of the data type specified.
-	 * Postconditions: Creates a Country object with the parameters as its
-	   attibutes. */
+/* Country() - Overloaded constructor
+ * Preconditions: The parameters must be of the data type specified.
+ * Postconditions: Creates a Country object with the parameters as its
+   attibutes. */
 
-	Country(string, long, float, float, float, float, float, float, float);
+Country(string, long, float, float, float, float, float, float, float);
 
 
-	// Mutators/ Setters
+/* ******************** Mutators/ setters ******************** */
 
-	/* SetName()
-	 * Preconditions: The parameter must be a string.
-	 * Postconditions: Sets the parameter to m_name */
+/* SetName()
+ * Preconditions: The parameter must be a string.
+ * Postconditions: Sets the parameter to m_name */
 
-	void const SetName(string);
+void const SetName(string);
 
 
-	/* SetPopulation()
-	 * Preconditions: The parameter must be a long.
-	 * Postconditions: Sets the parameter to m_population */
+/* SetPopulation()
+ * Preconditions: The parameter must be a long.
+ * Postconditions: Sets the parameter to m_population */
 
-	void const SetPopulation(long);
+void const SetPopulation(long);
 
 
-	/* SetLitRate()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_litRate */
+/* SetLitRate()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_litRate */
 
-	void const SetLitRate(float);
+void const SetLitRate(float);
 
 
-	/* SetPriCompFem()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_priCompFem */
+/* SetPriCompFem()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_priCompFem */
 
-	void const SetPriCompFem(float);
+void const SetPriCompFem(float);
 
 
-	/* SetPriCompMale()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_priCompMale */
+/* SetPriCompMale()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_priCompMale */
 
-	void const SetPriCompMale(float);
+void const SetPriCompMale(float);
 
 
-	/* SetPriCompTot()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_priCompTot */
+/* SetPriCompTot()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_priCompTot */
 
-	void const SetPriCompTot(float);
+void const SetPriCompTot(float);
 
 
-	/* SetEduGDP()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_eduGDP */
+/* SetEduGDP()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_eduGDP */
 
-	void const SetEduGDP(float);
+void const SetEduGDP(float);
 
 
-	/* SetYouthLitFem()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_youthLitFem */
+/* SetYouthLitFem()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_youthLitFem */
 
-	void const SetYouthLitFem(float);
+void const SetYouthLitFem(float);
 
 
-	/* SetYouthLitMale()
-	 * Preconditions: The parameter must be a float.
-	 * Postconditions: Sets the parameter to m_youthLitMale */
+/* SetYouthLitMale()
+ * Preconditions: The parameter must be a float.
+ * Postconditions: Sets the parameter to m_youthLitMale */
 
-	void const SetYouthLitMale(float);
+void const SetYouthLitMale(float);
 
 
-	// Accessors/ Getters
+/* ******************** Accessors/ getters ******************** */
 
-	/* GetName()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_name */
 
-	string GetName() const;
+/* GetName()
+ * Preconditions: None.
+ * Postconditions: Returns m_name */
 
+string GetName() const;
 
-	/* GetPopulation()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_population */
 
-	long GetPopulation() const;
+/* GetPopulation()
+ * Preconditions: None.
+ * Postconditions: Returns m_population */
 
+long GetPopulation() const;
 
-	/* GetLitRate()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_litRate */
 
-	float GetLitRate() const;
+/* GetLitRate()
+ * Preconditions: None.
+ * Postconditions: Returns m_litRate */
 
-	/* GetPriCompFem()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_priCompFem */
+float GetLitRate() const;
 
-	float GetPriCompFem() const;
+/* GetPriCompFem()
+ * Preconditions: None.
+ * Postconditions: Returns m_priCompFem */
 
+float GetPriCompFem() const;
 
-	/* GetPriCompMale()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_priCompMale */
 
-	float GetPriCompMale() const;
+/* GetPriCompMale()
+ * Preconditions: None.
+ * Postconditions: Returns m_priCompMale */
 
+float GetPriCompMale() const;
 
-	/* GetPriCompTot()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_priCompTot */
 
-	float GetPriCompTot() const;
+/* GetPriCompTot()
+ * Preconditions: None.
+ * Postconditions: Returns m_priCompTot */
 
+float GetPriCompTot() const;
 
-	/* GetEduGDP()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_eduGDP */
 
-	float GetEduGDP() const;
+/* GetEduGDP()
+ * Preconditions: None.
+ * Postconditions: Returns m_eduGDP */
 
+float GetEduGDP() const;
 
-	/* GetYouthLitFem()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_youthLitFem */
 
-	float GetYouthLitFem() const;
+/* GetYouthLitFem()
+ * Preconditions: None.
+ * Postconditions: Returns m_youthLitFem */
 
+float GetYouthLitFem() const;
 
-	/* GetYouthLitMale()
-	 * Preconditions: None.
-	 * Postconditions: Returns m_youthLitMale */
 
-	float GetYouthLitMale() const;
+/* GetYouthLitMale()
+ * Preconditions: None.
+ * Postconditions: Returns m_youthLitMale */
 
+float GetYouthLitMale() const;
 
-	private:
 
-	string m_name;
-	long m_population;
-	float m_litRate;
-	float m_eduGDP;
-	float m_priCompFem;
-	float m_priCompMale;
-	float m_priCompTot;
-	float m_youthLitRateFem;
-	float m_youthLitRateMale;
+private:
+
+
+/* ******************** Class attributes ******************** */
+
+string m_name;
+long m_population;
+float m_litRate;
+float m_eduGDP;
+float m_priCompFem;
+float m_priCompMale;
+float m_priCompTot;
+float m_youthLitRateFem;
+float m_youthLitRateMale;
 
 };
 

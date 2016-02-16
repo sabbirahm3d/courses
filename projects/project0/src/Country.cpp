@@ -15,7 +15,7 @@
 #include "Country.h"
 
 
-// Constructors
+/* ******************** Constructors ******************** */
 
 /* Country()
  * Empty constructor */
@@ -24,27 +24,28 @@ Country::Country() { /* Empty constructor */ }
 
 
 /* Country()
- * Overloaded constructor; creates a Country object and uses accessors
+ * Overloaded constructor; creates a Country object and uses mutators
  * to assign attributes to it. */
 
 Country::Country(string name, long population, float litRate, float eduGDP,
-	float priCompTot, float priCompMale, float priCompFem, 
-	float youthLitRateFem, float youthLitRateMale) {
+    float priCompTot, float priCompMale, float priCompFem, 
+    float youthLitRateFem, float youthLitRateMale) {
 
-	SetName(name);
-	SetPopulation(population);
-	SetLitRate(litRate);
-	SetPriCompFem(priCompFem);
-	SetPriCompMale(priCompMale);
-	SetPriCompTot(priCompTot);
-	SetEduGDP(eduGDP);
-	SetYouthLitFem(youthLitRateFem);
-	SetYouthLitMale(youthLitRateMale);
+    SetName(name);
+    SetPopulation(population);
+    SetLitRate(litRate);
+    SetPriCompFem(priCompFem);
+    SetPriCompMale(priCompMale);
+    SetPriCompTot(priCompTot);
+    SetEduGDP(eduGDP);
+    SetYouthLitFem(youthLitRateFem);
+    SetYouthLitMale(youthLitRateMale);
 
 }
 
 
-// Mutators/ setters
+/* ******************** Mutators/ setters ******************** */
+
 
 /* SetName()
  * Assigns m_name */
@@ -100,9 +101,10 @@ void const Country::SetYouthLitFem(float arg) { m_youthLitRateFem = arg; }
 void const Country::SetYouthLitMale(float arg) { m_youthLitRateMale = arg; }
 
 
-// Accessors
+/* ******************** Accessors/ getters ******************** */
 
-/* SetName()
+
+/* GetName()
  * Returns m_name */
 
 string Country::GetName() const { return m_name; }

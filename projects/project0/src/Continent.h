@@ -21,68 +21,111 @@ class Continent : public Country {
 
 public:
 
-	// Constructor
 
-	/* Continent() - Overloaded constructor
-	 * Preconditions: None.
-	 * Postconditions: Creates a Continent object and initializes the member
-	   variables. */
-
-	Continent();
+/* ******************** Constructors ******************** */
 
 
-	// Mutators/ setters
+/* Continent()
+ * Preconditions: None.
+ * Postconditions: Creates a Continent object and initializes the member
+   variables to 0. */
 
-	/* SetHighestPop()
-	 * Preconditions: None.
-	 * Postconditions: Returns the Country object with the highest
-	   population. */
-
-	void SetHighestPop();
+Continent();
 
 
-	/* SetHighestLitRate()
-	 * Preconditions: None.
-	 * Postconditions: Returns the Country object with the highest
-	   literacy rate. */
-
-	void SetHighestLitRate();
+/* ******************** Mutators/ setters ******************** */
 
 
-	/* SetHighestEduGDP()
-	 * Preconditions: None.
-	 * Postconditions: Returns the Country object with the highest
-	   spending on education. */
+/* SetTotalPop()
+ * Preconditions: The parameter must be an int.
+ * Postconditions: Sets the parameter to m_totalPopulation */
 
-	void SetHighestEduGDP();
-
-
-	/* AddCountry()
-	 * Preconditions: Requires a Country object.
-	 * Postconditions: Appends to the vector of Country objects. */
-
-	void AddCountry(Country);
+void SetTotalPop(int);
 
 
-	/* operator<< - Overloaded output operator.
-	 * Preconditions: None.
-	 * Postconditions: Returns the Country object with the highest
-	   spending on education. */
+/* SetHighestPop()
+ * Preconditions: The parameter must be an int.
+ * Postconditions: Sets the parameter to m_highestPopulation */
 
-	friend ostream& operator<<(ostream&, Continent&);
+void SetHighestPop(int);
+
+
+/* SetHighestLitRate()
+ * Preconditions: The parameter must be an int.
+ * Postconditions: Sets the parameter to m_highestLitRate */
+
+void SetHighestLitRate(int);
+
+
+/* SetHighestEduGDP()
+ * Preconditions: The parameter must be an int.
+ * Postconditions: Sets the parameter to m_highestEduGDP */
+
+void SetHighestEduGDP(int);
+
+
+/* ******************** Accessors/ getters ******************** */
+
+
+/* GetHighestPop()
+ * Preconditions: None.
+ * Postconditions: Returns the Country object with the highest
+   population. */
+
+void GetHighestPop();
+
+
+/* GetHighestLitRate()
+ * Preconditions: None.
+ * Postconditions: Returns the Country object with the highest
+   literacy rate. */
+
+void GetHighestLitRate();
+
+
+/* GetHighestEduGDP()
+ * Preconditions: None.
+ * Postconditions: Returns the Country object with the highest
+   spending on education. */
+
+void GetHighestEduGDP();
+
+
+/* ******************** Helper methods ******************** */
+
+
+/* AddCountry()
+ * Preconditions: Requires a Country object.
+ * Postconditions: Appends to the vector of Country objects. */
+
+void AddCountry(Country);
+
+
+/* ******************** Operator overloaders ******************** */
+
+
+/* operator<< - Overloaded output operator.
+ * Preconditions: None.
+ * Postconditions: Returns the Country object with the highest
+   spending on education. */
+
+friend ostream& operator<<(ostream&, Continent&);
 
 
 private:
 
-	long m_highestPopulation;
-	long m_totalPopulation;
-	float m_highestLitRate;
-	float m_highestEduGDP;
+/* ******************** Class attributes ******************** */
 
-	Country highestPopulation;
-	Country highestGDPSpent;
-	Country highestLitRate;
-	vector<Country> countriesInContinent;
+
+long m_highestPopulation;
+long m_totalPopulation;
+float m_highestLitRate;
+float m_highestEduGDP;
+
+Country highestPopulation;
+Country highestGDPSpent;
+Country highestLitRate;
+vector<Country> countriesInContinent;
 
 };
 
