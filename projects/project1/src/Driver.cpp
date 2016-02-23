@@ -11,7 +11,26 @@
  */
 using namespace std;
 
- 
+// struct node
+// {
+//     int data;
+//     struct node *next;
+//     struct node *prev;
+// }*start;
+
+// template <class T>
+class node {
+
+public:
+
+    int data;
+    node *next;
+    node *prev;
+
+};
+
+node* start = new node;
+
 /*
  Class Declaration 
  */
@@ -119,7 +138,7 @@ void double_llist::create_list(int value)
 {
     struct node *s, *temp;
     temp = new(struct node); 
-    temp->info = value;
+    temp->data = value;
     temp->next = NULL;
     if (start == NULL)
     {
@@ -149,7 +168,7 @@ void double_llist::add_begin(int value)
     struct node *temp;
     temp = new(struct node);
     temp->prev = NULL;
-    temp->info = value;
+    temp->data = value;
     temp->next = start;
     start->prev = temp;
     start = temp;
@@ -180,7 +199,7 @@ void double_llist::add_after(int value, int pos)
         }
     }
     tmp = new(struct node);
-    tmp->info = value;
+    tmp->data = value;
     if (q->next == NULL)
     {
         q->next = tmp;
@@ -204,7 +223,7 @@ void double_llist::delete_element(int value)
 {
     struct node *tmp, *q;
      /*first element deletion*/
-    if (start->info == value)
+    if (start->data == value)
     {
         tmp = start;
         start = start->next;  
@@ -217,7 +236,7 @@ void double_llist::delete_element(int value)
     while (q->next->next != NULL)
     {   
         /*Element deleted in between*/
-        if (q->next->info == value)  
+        if (q->next->data == value)  
         {
             tmp = q->next;
             q->next = tmp->next;
@@ -229,7 +248,7 @@ void double_llist::delete_element(int value)
         q = q->next;
     }
      /*last element deleted*/
-    if (q->next->info == value)    
+    if (q->next->data == value)    
     {   
         tmp = q->next;
         free(tmp);
@@ -255,7 +274,7 @@ void double_llist::display_dlist()
     cout<<"The Doubly Link List is :"<<endl;
     while (q != NULL)
     {
-        cout<<q->info<<" <-> ";
+        cout<<q->data<<" <-> ";
         q = q->next;
     }
     cout<<"NULL"<<endl;
