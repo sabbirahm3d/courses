@@ -22,83 +22,145 @@ List341<datatype>::List341() {
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Node341<datatype>* tmp;
+    Node341<datatype>* current = head;
 
-    while(head) {
-        tmp = head;
-        head = head->next;
-        delete tmp;
+    while (head != NULL) {
+        Node341<datatype>* next = current->next;
+        delete current;
+        current = next;
     }
+
+    head = NULL;
 
 }
 
 
-template <class datatype>
-int List341<datatype>::Size() const {
+// template <class datatype>
+// int List341<datatype>::Size() const {
 
-    Node341<datatype> *q = head;
-    int m_size = 0;
+//     return m_size;
 
-    while (q != NULL) {
-        q = q->next;
-        m_size++;
-    }
-    
-    return m_size;
-
-}
+// }
 
 
-template <class datatype>
-bool List341<datatype>::Empty() const {
+// template <class datatype>
+// bool List341<datatype>::Empty() const {
 
-    if (head == NULL) {
-        return true;
-    }
+//     if (head == NULL) {
+//         return true;
+//     }
 
-    else {
-        return false;
-    }
+//     else {
+//         return false;
+//     }
 
-}
-
-
-template <class datatype>
-bool List341<datatype>::Pop() {
-
-    if (tail == NULL)
-        return false;
-
-    Node341<datatype> *tmp = tail;
-    tail = tail->prev;
-
-    if(tail != NULL)
-        tail->next = NULL;
-
-    delete tmp;
-
-}
+// }
 
 
-template <class datatype>
-bool List341<datatype>::Push(datatype value) {
+// template <class datatype>
+// bool List341<datatype>::Pop() {
 
-    Node341<datatype>* temp = new Node341<datatype>();
+//     if (head == NULL) {
+//         return false;
+//     }
 
-    temp->data = value;
-    temp->next = NULL;
+//     else {
+//         Node341<datatype>* cursor = head;
+//         head = head->next;
+//         m_size--;
+//         cout << "Popped " << cursor->data << " from the list." << endl;
+//         delete(cursor);
+//         return true;
+//     }
 
-    if (head == NULL) {
-        temp->prev = NULL;
-        head = temp;
-    }
+// }
 
-    if (tail != NULL)
-        tail->next = temp;
 
-    tail = temp;
+// template <class datatype>
+// bool List341<datatype>::Push(datatype value) {
 
-}
+//     Node341<datatype>* temp = new Node341<datatype>();
+
+//     temp->data = value;
+//     temp->next = NULL;
+
+//     if (head == NULL) {
+//         temp->prev = NULL;
+//         head = temp;
+//         m_size++;
+//         tail = temp;
+//         return true;
+//     }
+
+//     else if (tail != NULL) {
+//         tail->next = temp;
+//         m_size++;
+//         tail = temp;
+//         return true;
+//     }
+
+//     else {
+//         return false;
+//     }
+
+// }
+ 
+
+// template <class datatype>
+// bool List341<datatype>::Clear() {
+
+//     if (head == NULL){
+//         return false;
+//     }
+
+//     else {
+
+//         Node341<datatype> *cursor = head;
+        
+//         /* Traverse the list and delete the node one by one from the head */
+//         while (cursor != NULL) {
+//             /* take out the head node */
+//             head = head->next;
+//             delete cursor;
+//             /* update the head node */
+//             cursor = head;
+//         }
+//         /* Reset the head and tail node */
+//         head = NULL;
+
+//         m_size = 0;
+
+//         return true;
+//     }
+
+// }
+ 
+// /*
+//  * Display elements of Doubly Link List
+//  */
+// template <class datatype>
+// void List341<datatype>::Print() {
+
+//     Node341<datatype> *q = new Node341<datatype>();
+//     if (head == NULL) {
+//         cout<<"List empty,nothing to display"<<endl;
+//         return;
+//     }
+
+//     q = head;
+//     cout<<"The Doubly Link List is :"<<endl;
+//     while (q != NULL) {
+//         cout<<q->data<<" <-> ";
+//         q = q->next;
+//     }
+
+//     cout<<"NULL"<<endl;
+
+// }
+
+
+#endif
+
  
 /*
  * Insertion at the beginning
@@ -161,63 +223,7 @@ bool List341<datatype>::Push(datatype value) {
 //     }
 //     cout<<"Element Inserted"<<endl;
 // }
- 
-/*
- * Deletion of element from the list
- */
-template <class datatype>
-bool List341<datatype>::Clear() {
 
-    if (head == NULL){
-        return false;
-    }
-
-    else {
-
-        Node341<datatype> *cursor = head;
-        
-        /* Traverse the list and delete the node one by one from the head */
-        while (cursor != NULL) {
-            /* take out the head node */
-            head = head->next;
-            delete cursor;
-            /* update the head node */
-            cursor = head;
-        }
-        /* Reset the head and tail node */
-        head = NULL;
-
-        return true;
-    }
-
-}
- 
-/*
- * Display elements of Doubly Link List
- */
-template <class datatype>
-void List341<datatype>::display_dlist()
-{
-    Node341<datatype> *q = new Node341<datatype>();
-    if (head == NULL)
-    {
-        cout<<"List empty,nothing to display"<<endl;
-        return;
-    }
-    q = head;
-    cout<<"The Doubly Link List is :"<<endl;
-    while (q != NULL)
-    {
-        cout<<q->data<<" <-> ";
-        q = q->next;
-    }
-    cout<<"NULL"<<endl;
-}
- 
-/*
- * Number of elements in Doubly Link List
- */
- 
 /*
  * Reverse Doubly Link List
  */
@@ -240,5 +246,3 @@ void List341<datatype>::display_dlist()
 //     head = p1;
 //     cout<<"List Reversed"<<endl; 
 // }
-
-#endif

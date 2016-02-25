@@ -2,6 +2,7 @@
 #define LIST341_H
 
 #include "Node341.h"
+#include <cstddef>
 
 using namespace std;
 
@@ -12,18 +13,20 @@ public:
 
     List341();
     virtual ~List341();
-    virtual bool Push(datatype value);
-    virtual bool Empty() const;
-    virtual bool Pop();
-    // void add_after(datatype value, datatype position);
-    virtual bool Clear();
-    // void search_element(datatype value);
-    void display_dlist();
-    virtual int Size() const;
-    // void reverse();
+
+    virtual int Size() const = 0;
+    virtual bool Empty() const = 0;
+    virtual bool Push(datatype value) = 0;
+    virtual bool Pop() = 0;
+    virtual bool Clear() = 0;
+
+    // void Print();
+
+protected:
 
     Node341<datatype>* head;
     Node341<datatype>* tail;
+    size_t m_size;
 
 };
 
