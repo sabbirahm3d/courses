@@ -1,7 +1,7 @@
 CPPFLAGS = -Wall -ansi
 
-all: Driver.o
-	g++ $(CPPFLAGS) Driver.o -o Driver.out
+all: Driver.o Node341.o
+	g++ $(CPPFLAGS) Node341.o Driver.o -o Driver.out
 
 # Exceptions341.o: Exceptions341.cpp
 # 	g++ $(CPPFLAGS) -c Country.cpp
@@ -20,11 +20,13 @@ Queue341.o: Queue341.cpp Queue341.h
 
 # to test for memory leaks
 val:
-	valgrind ./Driver.out
+	valgrind ./Driver.out --leak-check=full
 
 # -f removes any error messages if the file is not present
 clean:
 	rm -rf *~ *.h.gch *# *.out *.o
+	clear
+	ls
 
 # compile an executable
 run:
