@@ -2,7 +2,6 @@
 #define LIST341_H
 
 #include "Node341.h"
-#include <cstddef>
 
 using namespace std;
 
@@ -26,7 +25,7 @@ protected:
 
     Node341<datatype>* head;
     Node341<datatype>* tail;
-    size_t m_size;
+    int m_size;
 
 };
 

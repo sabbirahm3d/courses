@@ -1,10 +1,11 @@
 #include "Stack341.cpp"
+#include <string>
 
 int main() {
 
     int choice;
-    double element;
-    Stack341<double>* testList = new Stack341<double>;
+    string element;
+    Stack341<string>* testList = new Stack341<string>;
 
     while (1)
     {
@@ -15,7 +16,8 @@ int main() {
         cout<<"4. Clear" <<endl;
         cout<<"5. Size"<<endl;
         cout<<"6. Print list" <<endl;
-        cout<<"7. Quit" <<endl;
+        cout<<"7. Back" <<endl;
+        cout<<"8. Quit" <<endl;
         cout<<"Enter your choice : ";
         cin >> choice;
 
@@ -26,7 +28,7 @@ int main() {
             cout << "Enter the element: ";
             cin >> element;
 
-            if ( testList->Push(element) ){
+            if ( testList->Push(element) ) {
                 cout << "Pushed " << element << " into list." << endl;
             }
 
@@ -82,6 +84,10 @@ int main() {
             break;
 
         case 7:
+            cout << testList->Top() << endl;
+            break;
+
+        case 8:
             exit(1);
 
         // case 7:

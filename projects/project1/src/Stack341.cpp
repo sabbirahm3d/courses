@@ -6,17 +6,20 @@
 
 using namespace std;
 
-// template <class datatype>
-// Stack341<datatype>::Stack341() : List341<datatype>::List341() {
-//   top = -1;
-//   // maxelem = num;
-//   // s = new T[maxelem];
-// }
+
+template <class datatype>
+Stack341<datatype>::Stack341() : List341<datatype>::List341() {;
+
+    m_top = NULL;
+    m_size = List341<datatype>::m_size;
+
+}
+
 
 template <class datatype>
 int Stack341<datatype>::Size() const {
 
-    return List341<datatype>::m_size;
+    return m_size;
 
 }
 
@@ -24,7 +27,7 @@ int Stack341<datatype>::Size() const {
 template <class datatype>
 bool Stack341<datatype>::Empty() const {
 
-    if (head == NULL) {
+    if (List341<datatype>::head == NULL) {
         return true;
     }
 
@@ -38,18 +41,26 @@ bool Stack341<datatype>::Empty() const {
 template <class datatype>
 bool Stack341<datatype>::Pop() {
 
-    if (head == NULL) {
+    if (List341<datatype>::head == NULL) {
         return false;
     }
 
     else {
-        Node341<datatype>* cursor = head;
-        head = head->next;
+        Node341<datatype>* cursor = List341<datatype>::head;
+        List341<datatype>::head = List341<datatype>::head->next;
         m_size--;
         cout << "Popped " << cursor->data << " from the list." << endl;
         delete(cursor);
         return true;
     }
+
+}
+
+
+template <class datatype>
+datatype Stack341<datatype>::Top() {
+
+    return List341<datatype>::tail->data;
 
 }
 
@@ -62,18 +73,18 @@ bool Stack341<datatype>::Push(datatype value) {
     temp->data = value;
     temp->next = NULL;
 
-    if (head == NULL) {
+    if (List341<datatype>::head == NULL) {
         temp->prev = NULL;
-        head = temp;
+        List341<datatype>::head = temp;
         m_size++;
-        tail = temp;
+        List341<datatype>::tail = temp;
         return true;
     }
 
-    else if (tail != NULL) {
-        tail->next = temp;
+    else if (List341<datatype>::tail != NULL) {
+        List341<datatype>::tail->next = temp;
         m_size++;
-        tail = temp;
+        List341<datatype>::tail = temp;
         return true;
     }
 
@@ -87,24 +98,24 @@ bool Stack341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Stack341<datatype>::Clear() {
 
-    if (head == NULL){
+    if (List341<datatype>::head == NULL){
         return false;
     }
 
     else {
 
-        Node341<datatype> *cursor = head;
+        Node341<datatype> *cursor = List341<datatype>::head;
         
-        /* Traverse the list and delete the node one by one from the head */
+        /* Traverse the list and delete the node one by one from the List341<datatype>::head */
         while (cursor != NULL) {
-            /* take out the head node */
-            head = head->next;
+            /* take out the List341<datatype>::head node */
+            List341<datatype>::head = List341<datatype>::head->next;
             delete cursor;
-            /* update the head node */
-            cursor = head;
+            /* update the List341<datatype>::head node */
+            cursor = List341<datatype>::head;
         }
-        /* Reset the head and tail node */
-        head = NULL;
+        /* Reset the List341<datatype>::head and List341<datatype>::tail node */
+        List341<datatype>::head = NULL;
 
         m_size = 0;
 
@@ -112,21 +123,19 @@ bool Stack341<datatype>::Clear() {
     }
 
 }
- 
-/*
- * Display elements of Doubly Link List
- */
+
+
 template <class datatype>
 void Stack341<datatype>::Print() {
 
     Node341<datatype> *q = new Node341<datatype>();
-    if (head == NULL) {
+    if (List341<datatype>::head == NULL) {
         cout<<"List empty,nothing to display"<<endl;
         return;
     }
 
-    q = head;
-    cout<<"The Doubly Link List is :"<<endl;
+    q = List341<datatype>::head;
+    cout << "The Doubly Link List is :"<<endl;
     while (q != NULL) {
         cout<<q->data<<" <-> ";
         q = q->next;
@@ -135,46 +144,5 @@ void Stack341<datatype>::Print() {
     cout<<"NULL"<<endl;
 
 }
-
-
-// template <class T>
-// Stack341<T>::Stack341(const int num)
-// {
-//   top = -1;
-//   maxelem = num;
-//   s = new T[maxelem];
-// }
-
-// template <class T>
-// void Stack341<T>::push(const T t)
-// {
-//   if (top == maxelem) { return; }
-//   s[++top] = t;
-// }
-
-// template <class T>
-// T Stack341<T>::pop()
-// {
-//   if (top == -1) { return -1; }
-//   return s[--top];
-// }
-
-// template <class T>
-// T Stack341<T>::peek()
-// {
-//   if (top == -1) { return -1; }
-//   return s[top];
-// }
-
-// template <class T>
-// void Stack341<T>::display()
-// {
-//   if (top == -1) { cout << "(empty)\n";  return; }
-//   for (int t=0; t <= top; t++) { cout << s[t] << " "; }
-//   cout << "\n";
-// }
-
-// template <class T>
-// T Stack341<T>::empty() {  return top == -1;  }
 
 #endif

@@ -14,7 +14,8 @@ using namespace std;
 template <class datatype>
 List341<datatype>::List341() {
     
-    head = NULL;
+    head = tail = NULL;
+    m_size = m_size;
 
 }
 
@@ -22,12 +23,12 @@ List341<datatype>::List341() {
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Node341<datatype>* current = head;
+    Node341<datatype>* cursor = head;
 
     while (head != NULL) {
-        Node341<datatype>* next = current->next;
-        delete current;
-        current = next;
+        Node341<datatype>* next = cursor->next;
+        delete cursor;
+        cursor = next;
     }
 
     head = NULL;
@@ -246,3 +247,5 @@ List341<datatype>::~List341() {
 //     head = p1;
 //     cout<<"List Reversed"<<endl; 
 // }
+
+// template class List341<double>;

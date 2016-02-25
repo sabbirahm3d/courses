@@ -1,7 +1,7 @@
 CPPFLAGS = -Wall -ansi
 
-all: Driver.o Node341.o List341.o Stack341.o
-	g++ $(CPPFLAGS) Node341.o List341.o Stack341.o Driver.o -o Driver.out
+all: Driver.o Node341.o List341.o Stack341.o Queue341.o
+	g++ $(CPPFLAGS) Node341.o List341.o Stack341.o Queue341.o Driver.o -o Driver.out
 
 # Exceptions341.o: Exceptions341.cpp
 # 	g++ $(CPPFLAGS) -c Country.cpp
