@@ -14,6 +14,7 @@ public:
     virtual ~List341();
     virtual bool Push(datatype value);
     virtual bool Empty() const;
+    virtual bool Pop();
     // void add_after(datatype value, datatype position);
     virtual bool Clear();
     // void search_element(datatype value);
@@ -22,7 +23,7 @@ public:
     // void reverse();
 
     Node341<datatype>* head;
-
+    Node341<datatype>* tail;
 
 };
 

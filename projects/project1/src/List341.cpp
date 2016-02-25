@@ -22,7 +22,13 @@ List341<datatype>::List341() {
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Empty();
+    Node341<datatype>* tmp;
+
+    while(head) {
+        tmp = head;
+        head = head->next;
+        delete tmp;
+    }
 
 }
 
@@ -58,9 +64,25 @@ bool List341<datatype>::Empty() const {
 
 
 template <class datatype>
+bool List341<datatype>::Pop() {
+
+    if (tail == NULL)
+        return false;
+
+    Node341<datatype> *tmp = tail;
+    tail = tail->prev;
+
+    if(tail != NULL)
+        tail->next = NULL;
+
+    delete tmp;
+
+}
+
+
+template <class datatype>
 bool List341<datatype>::Push(datatype value) {
 
-    Node341<datatype>* s = new Node341<datatype>();
     Node341<datatype>* temp = new Node341<datatype>();
 
     temp->data = value;
@@ -71,18 +93,10 @@ bool List341<datatype>::Push(datatype value) {
         head = temp;
     }
 
-    else {
-        s = head;
-        while (s->next != NULL)
-            s = s->next;
-        s->next = temp;
-        temp->prev = s;
-    }
+    if (tail != NULL)
+        tail->next = temp;
 
-    // delete s;
-    // s = NULL;
-    // delete temp;
-    // temp = NULL;
+    tail = temp;
 
 }
  

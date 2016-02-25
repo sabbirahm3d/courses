@@ -42,14 +42,13 @@ int main() {
 
             cout<<endl;
             break;
-        // case 3:
-        //     cout<<"Enter the element: ";
-        //     cin>>element;
-        //     cout<<"Insert Element after postion: ";
-        //     cin>>position;
-        //     testList.add_after(element, position);
-        //     cout<<endl;
-        //     break;
+
+        case 3:
+
+            testList->Pop();
+            cout<<endl;
+            break;
+
         case 4:
             if (testList->Clear()){
                 cout << "List cleared." << endl;
