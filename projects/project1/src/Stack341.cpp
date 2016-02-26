@@ -2,6 +2,8 @@
 #define STACK341_CPP
 
 #include "Stack341.h"
+#include "Exceptions341.h"
+
 #include <iostream>
 
 using namespace std;
@@ -17,6 +19,24 @@ Stack341<datatype>::Stack341() : List341<datatype>::List341() {;
 
 
 template <class datatype>
+Stack341<datatype>::~Stack341() {
+
+    Node341<datatype>* cursor = List341<datatype>::m_head;
+
+    while (cursor != NULL) {
+        Node341<datatype>* next = cursor->next;
+        delete cursor;
+        cursor = next;
+    }
+
+    delete cursor;
+    cursor = NULL;
+    List341<datatype>::m_head = List341<datatype>::m_tail = NULL;
+
+}
+
+
+template <class datatype>
 int Stack341<datatype>::Size() const {
 
     return m_size;
@@ -27,7 +47,7 @@ int Stack341<datatype>::Size() const {
 template <class datatype>
 bool Stack341<datatype>::Empty() const {
 
-    if (List341<datatype>::head == NULL) {
+    if (List341<datatype>::m_head == NULL) {
         return true;
     }
 
@@ -41,13 +61,13 @@ bool Stack341<datatype>::Empty() const {
 template <class datatype>
 bool Stack341<datatype>::Pop() {
 
-    if (List341<datatype>::head == NULL) {
+    if (List341<datatype>::m_head == NULL) {
         return false;
     }
 
     else {
-        Node341<datatype>* cursor = List341<datatype>::head;
-        List341<datatype>::head = List341<datatype>::head->next;
+        Node341<datatype>* cursor = List341<datatype>::m_head;
+        List341<datatype>::m_head = List341<datatype>::m_head->next;
         m_size--;
         cout << "Popped " << cursor->data << " from the list." << endl;
         delete(cursor);
@@ -60,8 +80,17 @@ bool Stack341<datatype>::Pop() {
 template <class datatype>
 datatype Stack341<datatype>::Top() {
 
-    return List341<datatype>::tail->data;
+    if ( List341<datatype>::m_tail == NULL) {
+        throw Exceptions341("bleh blah");
+    
+    try {
+        return List341<datatype>::m_tail->data;
+    }
 
+    catch (Exceptions341 &E){ 
+        cout <<  "E.GetMessage" << endl; 
+    } 
+}
 }
 
 
@@ -73,24 +102,27 @@ bool Stack341<datatype>::Push(datatype value) {
     temp->data = value;
     temp->next = NULL;
 
-    if (List341<datatype>::head == NULL) {
+    if (List341<datatype>::m_head == NULL) {
         temp->prev = NULL;
-        List341<datatype>::head = temp;
+        List341<datatype>::m_head = temp;
         m_size++;
-        List341<datatype>::tail = temp;
+        List341<datatype>::m_tail = temp;
         return true;
     }
 
-    else if (List341<datatype>::tail != NULL) {
-        List341<datatype>::tail->next = temp;
+    else if (List341<datatype>::m_tail != NULL) {
+        List341<datatype>::m_tail->next = temp;
         m_size++;
-        List341<datatype>::tail = temp;
+        List341<datatype>::m_tail = temp;
         return true;
     }
 
     else {
         return false;
     }
+
+    delete temp;
+    temp = NULL;
 
 }
  
@@ -98,24 +130,24 @@ bool Stack341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Stack341<datatype>::Clear() {
 
-    if (List341<datatype>::head == NULL){
+    if (List341<datatype>::m_head == NULL){
         return false;
     }
 
     else {
 
-        Node341<datatype> *cursor = List341<datatype>::head;
+        Node341<datatype> *cursor = List341<datatype>::m_head;
         
-        /* Traverse the list and delete the node one by one from the List341<datatype>::head */
+        /* Traverse the list and delete the node one by one from the List341<datatype>::m_head */
         while (cursor != NULL) {
-            /* take out the List341<datatype>::head node */
-            List341<datatype>::head = List341<datatype>::head->next;
+            /* take out the List341<datatype>::m_head node */
+            List341<datatype>::m_head = List341<datatype>::m_head->next;
             delete cursor;
-            /* update the List341<datatype>::head node */
-            cursor = List341<datatype>::head;
+            /* update the List341<datatype>::m_head node */
+            cursor = List341<datatype>::m_head;
         }
-        /* Reset the List341<datatype>::head and List341<datatype>::tail node */
-        List341<datatype>::head = NULL;
+        /* Reset the List341<datatype>::m_head and List341<datatype>::m_tail node */
+        List341<datatype>::m_head = List341<datatype>::m_tail = NULL;
 
         m_size = 0;
 
@@ -129,12 +161,12 @@ template <class datatype>
 void Stack341<datatype>::Print() {
 
     Node341<datatype> *q = new Node341<datatype>();
-    if (List341<datatype>::head == NULL) {
+    if (List341<datatype>::m_head == NULL) {
         cout<<"List empty,nothing to display"<<endl;
         return;
     }
 
-    q = List341<datatype>::head;
+    q = List341<datatype>::m_head;
     cout << "The Doubly Link List is :"<<endl;
     while (q != NULL) {
         cout<<q->data<<" <-> ";

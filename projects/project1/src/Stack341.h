@@ -2,7 +2,6 @@
 #define STACK341_H
 
 #include "List341.h"
-// #include "List341.cpp"
 
 #include <iostream>
 using namespace std;
@@ -19,6 +18,7 @@ public:
 
 
     Stack341();
+    ~Stack341();
 
     virtual int Size() const;
     virtual bool Empty() const;

@@ -7,8 +7,7 @@ int main() {
     string element;
     Stack341<string>* testList = new Stack341<string>;
 
-    while (1)
-    {
+    while (1) {
         cout<< endl << "----------------------------" << endl;
         cout<<"1. Push" << endl;
         cout<<"2. Pop" << endl;
@@ -88,21 +87,15 @@ int main() {
             break;
 
         case 8:
+            delete testList;
             exit(1);
-
-        // case 7:
-        //     if (start == NULL)
-        //     {
-        //         cout<<"List empty,nothing to reverse"<<endl;
-        //         break;
-        //     }
-        //     testList.reverse();
-        //     cout<<endl;
-        //     break;
 
         default:
             cout<<"Wrong choice"<<endl;
+
         }
     }
+
     return 0;
+
 }

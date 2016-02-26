@@ -14,8 +14,8 @@ using namespace std;
 template <class datatype>
 List341<datatype>::List341() {
     
-    head = tail = NULL;
-    m_size = m_size;
+    m_head = m_tail = NULL;
+    m_size = 0;
 
 }
 
@@ -23,15 +23,15 @@ List341<datatype>::List341() {
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Node341<datatype>* cursor = head;
+    Node341<datatype>* cursor = m_head;
 
-    while (head != NULL) {
+    while (cursor != NULL) {
         Node341<datatype>* next = cursor->next;
         delete cursor;
         cursor = next;
     }
 
-    head = NULL;
+    m_head = m_tail = NULL;
 
 }
 
@@ -47,7 +47,7 @@ List341<datatype>::~List341() {
 // template <class datatype>
 // bool List341<datatype>::Empty() const {
 
-//     if (head == NULL) {
+//     if (m_head == NULL) {
 //         return true;
 //     }
 
@@ -61,13 +61,13 @@ List341<datatype>::~List341() {
 // template <class datatype>
 // bool List341<datatype>::Pop() {
 
-//     if (head == NULL) {
+//     if (m_head == NULL) {
 //         return false;
 //     }
 
 //     else {
-//         Node341<datatype>* cursor = head;
-//         head = head->next;
+//         Node341<datatype>* cursor = m_head;
+//         m_head = m_head->next;
 //         m_size--;
 //         cout << "Popped " << cursor->data << " from the list." << endl;
 //         delete(cursor);
@@ -85,18 +85,18 @@ List341<datatype>::~List341() {
 //     temp->data = value;
 //     temp->next = NULL;
 
-//     if (head == NULL) {
+//     if (m_head == NULL) {
 //         temp->prev = NULL;
-//         head = temp;
+//         m_head = temp;
 //         m_size++;
-//         tail = temp;
+//         m_tail = temp;
 //         return true;
 //     }
 
-//     else if (tail != NULL) {
-//         tail->next = temp;
+//     else if (m_tail != NULL) {
+//         m_tail->next = temp;
 //         m_size++;
-//         tail = temp;
+//         m_tail = temp;
 //         return true;
 //     }
 
@@ -110,24 +110,24 @@ List341<datatype>::~List341() {
 // template <class datatype>
 // bool List341<datatype>::Clear() {
 
-//     if (head == NULL){
+//     if (m_head == NULL){
 //         return false;
 //     }
 
 //     else {
 
-//         Node341<datatype> *cursor = head;
+//         Node341<datatype> *cursor = m_head;
         
-//         /* Traverse the list and delete the node one by one from the head */
+//         /* Traverse the list and delete the node one by one from the m_head */
 //         while (cursor != NULL) {
-//             /* take out the head node */
-//             head = head->next;
+//             /* take out the m_head node */
+//             m_head = m_head->next;
 //             delete cursor;
-//             /* update the head node */
-//             cursor = head;
+//             /* update the m_head node */
+//             cursor = m_head;
 //         }
-//         /* Reset the head and tail node */
-//         head = NULL;
+//         /* Reset the m_head and m_tail node */
+//         m_head = NULL;
 
 //         m_size = 0;
 
@@ -143,12 +143,12 @@ List341<datatype>::~List341() {
 // void List341<datatype>::Print() {
 
 //     Node341<datatype> *q = new Node341<datatype>();
-//     if (head == NULL) {
+//     if (m_head == NULL) {
 //         cout<<"List empty,nothing to display"<<endl;
 //         return;
 //     }
 
-//     q = head;
+//     q = m_head;
 //     cout<<"The Doubly Link List is :"<<endl;
 //     while (q != NULL) {
 //         cout<<q->data<<" <-> ";
@@ -168,7 +168,7 @@ List341<datatype>::~List341() {
  */
 // template <class datatype>
 // void List341<datatype>::add_begin(datatype value) {
-//     if (head == NULL)
+//     if (m_head == NULL)
 //     {
 //         cout<<"First Push the list."<<endl;
 //         return;
@@ -176,9 +176,9 @@ List341<datatype>::~List341() {
 //     Node341<datatype>* temp = new Node341<datatype>();
 //     temp->prev = NULL;
 //     temp->data = value;
-//     temp->next = head;
-//     head->prev = temp;
-//     head = temp;
+//     temp->next = m_head;
+//     m_head->prev = temp;
+//     m_head = temp;
 //     cout<<"Element Inserted"<<endl;
 // }
  
@@ -188,7 +188,7 @@ List341<datatype>::~List341() {
 // template <class datatype>
 // void List341<datatype>::add_after(datatype value, datatype pos)
 // {
-//     if (head == NULL)
+//     if (m_head == NULL)
 //     {
 //         cout<<"First Push the list."<<endl;
 //         return;
@@ -196,7 +196,7 @@ List341<datatype>::~List341() {
 //     Node341<datatype> *tmp = new Node341<datatype>();
 //     Node341<datatype> *q = new Node341<datatype>();
 //     datatype i;
-//     q = head;
+//     q = m_head;
 //     for (i = 0;i < pos - 1; i++)
 //     {
 //         q = q->next;
@@ -233,7 +233,7 @@ List341<datatype>::~List341() {
 // {
 //     Node341<datatype> *p1 = new Node341<datatype>();
 //     Node341<datatype> *p2 = new Node341<datatype>();
-//     p1 = head;
+//     p1 = m_head;
 //     p2 = p1->next;
 //     p1->next = NULL;
 //     p1->prev = p2;
@@ -244,7 +244,7 @@ List341<datatype>::~List341() {
 //         p1 = p2;
 //         p2 = p2->prev; 
 //     }
-//     head = p1;
+//     m_head = p1;
 //     cout<<"List Reversed"<<endl; 
 // }
 

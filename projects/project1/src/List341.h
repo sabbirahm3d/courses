@@ -19,12 +19,10 @@ public:
     virtual bool Pop() = 0;
     virtual bool Clear() = 0;
 
-    // void Print();
-
 protected:
 
-    Node341<datatype>* head;
-    Node341<datatype>* tail;
+    Node341<datatype>* m_head;
+    Node341<datatype>* m_tail;
     int m_size;
 
 };
