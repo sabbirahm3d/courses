@@ -80,17 +80,22 @@ bool Stack341<datatype>::Pop() {
 template <class datatype>
 datatype Stack341<datatype>::Top() {
 
-    if ( List341<datatype>::m_tail == NULL) {
-        throw Exceptions341("bleh blah");
-    
     try {
-        return List341<datatype>::m_tail->data;
+
+        if ( Empty() ) {
+            throw Exceptions341("Stack is empty.");
+        }
+
+        else {
+            return List341<datatype>::m_tail->data;
+        }
+
     }
 
-    catch (Exceptions341 &E){ 
-        cout <<  "E.GetMessage" << endl; 
+    catch (Exceptions341 &E) { 
+        return E.GetMessage();
     } 
-}
+
 }
 
 
