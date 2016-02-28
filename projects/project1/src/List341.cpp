@@ -1,14 +1,21 @@
+/* File:    List341.cpp
+ * Project: CMSC 341: Project 1, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    2/27/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+ *
+ * The header file for the List341 class. This file declares an abstract
+ * templated superclass for the 2 types of linked lists mentioned in the 
+ * project description. It makes use of the templated Node341 class to store
+ * the data and manage the linkages between them.
+ */
+
 #ifndef LIST341_CPP
 #define LIST341_CPP
 
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
 #include "Exceptions341.h"
-#include "Node341.h"
 #include "List341.h"
-
-using namespace std;
 
 
 template <class datatype>

@@ -1,10 +1,10 @@
 #ifndef QUEUE341_CPP
 #define QUEUE341_CPP
 
-#include "Queue341.h"
-#include "Exceptions341.h"
 
 #include <iostream>
+
+#include "Queue341.h"
 
 using namespace std;
 
@@ -14,25 +14,14 @@ Queue341<datatype>::Queue341() : List341<datatype>::List341() {;
 
     m_front = m_back = NULL;
     m_size = List341<datatype>::m_size;
+    m_head = List341<datatype>::m_head;
+    m_tail = List341<datatype>::m_tail;
 
 }
 
 
 template <class datatype>
 Queue341<datatype>::~Queue341() {
-
-    Node341<datatype>* cursor = List341<datatype>::m_head;
-
-    while (cursor != NULL) {
-        Node341<datatype>* next = cursor->next;
-        delete cursor;
-        cursor = next;
-    }
-
-    delete cursor;
-    cursor = NULL;
-
-    List341<datatype>::m_head = List341<datatype>::m_tail = NULL;
 
     Clear();
 
@@ -42,7 +31,7 @@ Queue341<datatype>::~Queue341() {
 template <class datatype>
 int Queue341<datatype>::Size() const {
 
-    return List341<datatype>::m_size;
+    return m_size;
 
 }
 
@@ -50,7 +39,7 @@ int Queue341<datatype>::Size() const {
 template <class datatype>
 bool Queue341<datatype>::Empty() const {
 
-    if (List341<datatype>::m_head == NULL) {
+    if (m_head == NULL) {
         return true;
     }
 
@@ -64,14 +53,14 @@ bool Queue341<datatype>::Empty() const {
 template <class datatype>
 bool Queue341<datatype>::Pop() {
 
-    if (List341<datatype>::m_head == NULL) {
+    if (m_head == NULL) {
         return false;
     }
 
     else {
-        Node341<datatype>* cursor = List341<datatype>::m_head;
-        List341<datatype>::m_head = List341<datatype>::m_head->next;
-        List341<datatype>::m_size--;
+        Node341<datatype>* cursor = m_head;
+        m_head = m_head->next;
+        m_size--;
         cout << "Popped " << cursor->data << " from the list." << endl;
         delete(cursor);
         return true;
@@ -90,7 +79,7 @@ datatype Queue341<datatype>::Front() {
         }
 
         else {
-            return List341<datatype>::m_head->data;
+            return m_head->data;
         }
 
     }
@@ -132,18 +121,18 @@ bool Queue341<datatype>::Push(datatype value) {
     temp->data = value;
     temp->next = NULL;
 
-    if (List341<datatype>::m_head == NULL) {
+    if (m_head == NULL) {
         temp->prev = NULL;
-        List341<datatype>::m_head = temp;
-        List341<datatype>::m_size++;
+        m_head = temp;
         List341<datatype>::m_tail = temp;
+        m_size++;
         return true;
     }
 
     else if (List341<datatype>::m_tail != NULL) {
         List341<datatype>::m_tail->next = temp;
-        List341<datatype>::m_size++;
         List341<datatype>::m_tail = temp;
+        m_size++;
         return true;
     }
 
@@ -157,51 +146,31 @@ bool Queue341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Queue341<datatype>::Clear() {
 
-    if (List341<datatype>::m_head == NULL){
+    if (m_head == NULL){
         return false;
     }
 
     else {
 
-        Node341<datatype> *cursor = List341<datatype>::m_head;
-        
-        /* Traverse the list and delete the node one by one from the List341<datatype>::m_head */
-        while (cursor != NULL) {
-            /* take out the List341<datatype>::m_head node */
-            List341<datatype>::m_head = List341<datatype>::m_head->next;
-            delete cursor;
-            /* update the List341<datatype>::m_head node */
-            cursor = List341<datatype>::m_head;
-        }
-        /* Reset the List341<datatype>::m_head and List341<datatype>::m_tail node */
-        List341<datatype>::m_head = NULL;
+        Node341<datatype> *cursor = m_head;
 
-        List341<datatype>::m_size = 0;
+        /* Traverse the list and delete the node one by one from the m_head */
+        while (cursor != NULL) {
+            /* take out the m_head node */
+            m_head = m_head->next;
+            delete cursor;
+            /* update the m_head node */
+            cursor = m_head;
+        }
+        /* Reset the m_head and List341<datatype>::m_tail node */
+        m_head = NULL;
+
+        m_size = 0;
 
         return true;
     }
 
 }
 
-
-template <class datatype>
-void Queue341<datatype>::Print() {
-
-    Node341<datatype> *q = new Node341<datatype>();
-    if (List341<datatype>::m_head == NULL) {
-        cout<<"List empty,nothing to display"<<endl;
-        return;
-    }
-
-    q = List341<datatype>::m_head;
-    cout << "The Doubly Link List is :"<<endl;
-    while (q != NULL) {
-        cout<<q->data<<" <-> ";
-        q = q->next;
-    }
-
-    cout<<"NULL"<<endl;
-
-}
 
 #endif

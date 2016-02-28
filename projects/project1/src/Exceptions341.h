@@ -21,28 +21,29 @@ class Exceptions341 {
 
 public:
 
-    /**********************************************************************
-     * Exceptions341 (Constructor)
-     * PreCondition: String containing error description.  
-     * 
-     * PostCondition:  Error object
-     *********************************************************************/
+/**********************************************************************
+ * Exceptions341 (Constructor)
+ * PreCondition: String containing error description.  
+ * 
+ * PostCondition:  Error object
+ *********************************************************************/
 
-    Exceptions341(string message): m_message(message) {}
+Exceptions341(string message): m_message(message) {}
 
-    /**********************************************************************
-     * Name: GetMessage
-     * PreCondition: None.  
-     * 
-     * PostCondition:  Returns error message.
-     *********************************************************************/
+/**********************************************************************
+ * Name: GetMessage
+ * PreCondition: None.  
+ * 
+ * PostCondition:  Returns error message.
+ *********************************************************************/
 
-    const string GetMessage() { return m_message; }
-    
+const string GetMessage() { return m_message; }
+
 private:
-    
-    string m_message; //Error message
+
+string m_message; //Error message
 
 };
+
 
 #endif
