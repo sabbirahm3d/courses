@@ -9,6 +9,7 @@
  * MyExceptions Class definition.
  *
  *************************************************************/
+
 #ifndef EXCEPTIONS341_H
 #define EXCEPTIONS341_H
 
@@ -40,7 +41,8 @@ public:
     
 private:
     
-    string m_message; //Error message.
+    string m_message; //Error message
+
 };
 
 #endif

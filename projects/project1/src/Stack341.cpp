@@ -31,7 +31,10 @@ Stack341<datatype>::~Stack341() {
 
     delete cursor;
     cursor = NULL;
+
     List341<datatype>::m_head = List341<datatype>::m_tail = NULL;
+
+    Clear();
 
 }
 
@@ -94,7 +97,7 @@ datatype Stack341<datatype>::Top() {
 
     catch (Exceptions341 &E) { 
         return E.GetMessage();
-    } 
+    }
 
 }
 

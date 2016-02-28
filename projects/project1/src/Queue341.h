@@ -14,14 +14,12 @@ private:
 
     datatype *m_front;
     datatype *m_back;
+    int m_size;
 
 public:
 
-    Queue341() : List341<datatype>::List341() {
-
-        m_front = m_back = NULL;
-
-    }
+    Queue341();
+    ~Queue341();
 
     datatype Front();
     datatype Back();
