@@ -158,7 +158,7 @@ bool Queue341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Queue341<datatype>::Clear() {
 
-    if (m_head == NULL) {
+    if (Empty()) {
         return false;
     }
 
