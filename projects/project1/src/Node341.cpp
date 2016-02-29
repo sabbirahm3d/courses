@@ -13,6 +13,17 @@
 #ifndef NODE341_CPP
 #define NODE341_CPP
 
+
+#include <ostream>
 #include "Node341.h"
+
+template<class datatype>
+Node341<datatype>::Node341() {
+
+	next = prev = NULL;
+	this->data = data;
+
+}
+
 
 #endif

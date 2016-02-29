@@ -289,20 +289,23 @@
 int main(int argc, char *argv[]) {
 
     // Stack341<int> *myStack = new Stack341<int>();
-    Queue341<int> *myDynQueue = new Queue341<int>();
-    // Queue341<int> myQueue;
+    Stack341<int> *myDynQueue = new Stack341<int>();
+    Stack341<int> myQueue;
     
 
     try {
-        for (int i = 0; i < 10; i++){
+        for (int i = 1; i < 101; i++){
             // myStack->Push(i);
             myDynQueue->Push(i);
-            // myQueue.Push(i);
+            myQueue.Push(i);
         }
     cout << "Dynamic queue size: " << myDynQueue->Size() << endl;
-    // cout << "Queue size: " << myQueue.Size() << endl;
+    cout << "Dynamic queue back = " << myDynQueue->Top() << endl;
     cout << "Dynamic queue cleared = " << myDynQueue->Clear() << endl;
-    // cout << "Queue cleared = " << myQueue->Clear() << endl;
+
+    cout << "Queue size: " << myQueue.Size() << endl;
+    cout << "Queue front: " << myQueue.Top() << endl;
+    cout << "Queue cleared = " << myQueue.Clear() << endl;
     
     }
     catch (Exceptions341 &E){

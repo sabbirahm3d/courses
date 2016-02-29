@@ -10,9 +10,11 @@ using namespace std;
 
 
 template <class datatype>
-Stack341<datatype>::Stack341() : List341<datatype>::List341(m_head, m_tail, m_size) {
+Stack341<datatype>::Stack341() {
 
     m_top = NULL;
+    m_head = m_tail = NULL;
+    m_size = 0;
 
 }
 
@@ -20,9 +22,7 @@ Stack341<datatype>::Stack341() : List341<datatype>::List341(m_head, m_tail, m_si
 template <class datatype>
 Stack341<datatype>::~Stack341() {
 
-    m_head = m_tail = NULL;
-
-    m_size = 0;
+    Clear();
 
 }
 
@@ -84,7 +84,7 @@ datatype Stack341<datatype>::Top() {
     }
 
     catch (Exceptions341 &E) { 
-        return E.GetMessage();
+        cout << E.GetMessage();
     }
 
 }
@@ -126,25 +126,30 @@ bool Stack341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Stack341<datatype>::Clear() {
 
-    if (m_head == NULL){
+    if (Empty()) {
         return false;
     }
 
     else {
 
-        Node341<datatype> *cursor = m_head;
-        
+        Node341< datatype > *store;
+        Node341< datatype > *cursor = m_head;
+
         /* Traverse the list and delete the node one by one from the m_head */
         while (cursor != NULL) {
-            /* take out the m_head node */
-            m_head = m_head->next;
-            delete cursor;
-            /* update the m_head node */
-            cursor = m_head;
-        }
-        /* Reset the m_head and m_tail node */
-        m_head = m_tail = NULL;
 
+            /* update the m_head node */
+            store = cursor;
+            cursor = cursor -> next;
+
+            /* take out the m_head node */
+            delete store;
+            store = NULL;
+        }
+
+        /* Reset the m_head and List341<datatype>::m_tail node */
+        delete cursor;
+        m_head = m_tail = NULL;
         m_size = 0;
 
         return true;

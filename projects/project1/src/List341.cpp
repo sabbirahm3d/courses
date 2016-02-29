@@ -14,6 +14,7 @@
 #ifndef LIST341_CPP
 #define LIST341_CPP
 
+
 #include "Exceptions341.h"
 #include "List341.h"
 
@@ -24,31 +25,29 @@ List341<datatype>::List341() {
     m_head = m_tail = NULL;
     m_size = 0;
 
-
-}
-
-
-template <class datatype>
-List341<datatype>::List341(Node341<datatype>* m_head, 
-	Node341<datatype>* m_tail, int size) {
-    
-    m_head = m_tail = NULL;
-    m_size = 0;
-
 }
 
 
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Node341<datatype>* cursor = m_head;
+    Node341< datatype > *store;
+    Node341< datatype > *cursor = m_head;
 
+    /* Traverse the list and delete the node one by one from the m_head */
     while (cursor != NULL) {
-        Node341<datatype>* next = cursor->next;
-        delete cursor;
-        cursor = next;
+
+        /* update the m_head node */
+        store = cursor;
+        cursor = cursor -> next;
+
+        /* take out the m_head node */
+        delete store;
+        store = NULL;
     }
 
+    /* Reset the m_head and List341<datatype>::m_tail node */
+    delete cursor;
     m_head = m_tail = NULL;
 
 }
