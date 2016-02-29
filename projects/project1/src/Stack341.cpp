@@ -10,12 +10,9 @@ using namespace std;
 
 
 template <class datatype>
-Stack341<datatype>::Stack341() : List341<datatype>::List341() {;
+Stack341<datatype>::Stack341() : List341<datatype>::List341(m_head, m_tail, m_size) {
 
     m_top = NULL;
-    m_size = List341<datatype>::m_size;
-    m_head = List341<datatype>::m_head;
-    m_tail = List341<datatype>::m_tail;
 
 }
 
@@ -23,7 +20,9 @@ Stack341<datatype>::Stack341() : List341<datatype>::List341() {;
 template <class datatype>
 Stack341<datatype>::~Stack341() {
 
-    Clear();
+    m_head = m_tail = NULL;
+
+    m_size = 0;
 
 }
 

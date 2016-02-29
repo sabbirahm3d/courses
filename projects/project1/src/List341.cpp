@@ -19,7 +19,18 @@
 
 
 template <class datatype>
-List341<datatype>::List341() {
+List341<datatype>::List341() { 
+
+    m_head = m_tail = NULL;
+    m_size = 0;
+
+
+}
+
+
+template <class datatype>
+List341<datatype>::List341(Node341<datatype>* m_head, 
+	Node341<datatype>* m_tail, int size) {
     
     m_head = m_tail = NULL;
     m_size = 0;

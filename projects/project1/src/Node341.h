@@ -19,9 +19,11 @@ class Node341 {
 
 public:
 
+
     datatype data; // stores data of the datatype specified by the template
     Node341 *next; // pointers to the next and previous data nodes
     Node341 *prev;
+	// Node341() { next = prev = NULL; }
 
 };
 

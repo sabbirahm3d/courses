@@ -32,6 +32,14 @@ protected:
 List341();
 
 
+
+/* List341() - Default constructor
+ * Preconditions: None
+ * Postconditions: Creates a List341 object */
+
+List341(Node341<datatype>*, Node341<datatype>*, int);
+
+
 /* ******************** Destructors ******************** */
 
 /* ~List341() - Empty constructor

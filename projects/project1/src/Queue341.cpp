@@ -10,12 +10,10 @@ using namespace std;
 
 
 template <class datatype>
-Queue341<datatype>::Queue341() : List341<datatype>::List341() {;
+Queue341<datatype>::Queue341() {
 
     m_front = m_back = NULL;
-    m_size = List341<datatype>::m_size;
-    m_head = List341<datatype>::m_head;
-    m_tail = List341<datatype>::m_tail;
+    m_size = 0;
 
 }
 
@@ -23,7 +21,21 @@ Queue341<datatype>::Queue341() : List341<datatype>::List341() {;
 template <class datatype>
 Queue341<datatype>::~Queue341() {
 
-    Clear();
+    // Clear();
+    // Node341<datatype> *cursor = m_head;
+
+    /* Traverse the list and delete the node one by one from the m_head */
+    // while (cursor != NULL) {
+    //     /* take out the m_head node */
+    //     m_head = m_head->next;
+    //     delete cursor;
+    //     /* update the m_head node */
+    //     cursor = m_head;
+    // }
+    /* Reset the m_head and List341<datatype>::m_tail node */
+    m_head = m_tail = NULL;
+
+    m_size = 0;
 
 }
 
@@ -146,7 +158,7 @@ bool Queue341<datatype>::Push(datatype value) {
 template <class datatype>
 bool Queue341<datatype>::Clear() {
 
-    if (m_head == NULL){
+    if (m_head == NULL) {
         return false;
     }
 
