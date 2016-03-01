@@ -5,17 +5,26 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * The implementation file for the Node341 class. The file is empty because
- * the class is treated more as a struct object that does not require any
- * private methods or attributes.
+ * The implementation file for the Node341 class. The file simply consists
+ * of the default constructor that initializes the member variables for the
+ * linked lists.
  */
 
 #ifndef NODE341_CPP
 #define NODE341_CPP
 
 
-#include <ostream>
+#include <iostream>
 #include "Node341.h"
+
+using namespace std;
+
+
+/* ******************** Constructors ******************** */
+
+/* Node341()
+ * Default constructor; creates a Node341 object and initializes its member
+   attributes */
 
 template<class datatype>
 Node341<datatype>::Node341() {

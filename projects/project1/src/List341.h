@@ -8,7 +8,8 @@
  * The header file for the List341 class. This file declares an abstract
  * templated superclass for the 2 types of linked lists mentioned in the 
  * project description. It makes use of the templated Node341 class to store
- * the data and manage the linkages between them.
+ * the data and manage the linkages between them. It also declares several
+ * virtual methods for its derived classes to implement.
  */
 
 #ifndef LIST341_H

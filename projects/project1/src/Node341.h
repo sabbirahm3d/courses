@@ -34,8 +34,7 @@ Node341();
 
 datatype data;
 
-// stores data of the datatype specified by the template pointers to the next
-// and previous data nodes
+// links pointers to the data
 Node341 *next;
 Node341 *prev;
 

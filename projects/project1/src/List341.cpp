@@ -5,10 +5,10 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * The header file for the List341 class. This file declares an abstract
- * templated superclass for the 2 types of linked lists mentioned in the 
- * project description. It makes use of the templated Node341 class to store
- * the data and manage the linkages between them.
+ * The implementation file for the List341 class. This file implements the 
+ * abstract templated superclass for the 2 types of linked lists mentioned in
+ * the project description. It makes use of the templated Node341 class to 
+ * store the data and manage the linkages between them.
  */
 
 #ifndef LIST341_CPP
@@ -19,6 +19,12 @@
 #include "List341.h"
 
 
+/* ******************** Constructors ******************** */
+
+/* List341()
+ * Default constructor; creates a List341 object and initializes its
+   attributes to NULL and 0 */
+
 template <class datatype>
 List341<datatype>::List341() { 
 
@@ -28,28 +34,36 @@ List341<datatype>::List341() {
 }
 
 
+/* ******************** Destructors ******************** */
+
+/* ~List341()
+ * Default destructor; deletes the List341 object by iterating through
+   and deleting each Node341 objects */
+
 template <class datatype>
 List341<datatype>::~List341() {
 
-    Node341< datatype > *store;
+    // Temporary pointers to Node341 objects
+    Node341< datatype > *temp;
     Node341< datatype > *cursor = m_head;
 
-    /* Traverse the list and delete the node one by one from the m_head */
+    // Traverse the list and delete the nodes one by one from the m_head
     while (cursor != NULL) {
 
-        /* update the m_head node */
-        store = cursor;
+        // iterate the cursor through
+        temp = cursor;
         cursor = cursor -> next;
 
-        /* take out the m_head node */
-        delete store;
-        store = NULL;
+        // take out the pointer to the cursor 
+        delete temp;
+        temp = NULL;
     }
 
-    /* Reset the m_head and List341<datatype>::m_tail node */
+    /* Reset the m_head and m_tail node */
     delete cursor;
     m_head = m_tail = NULL;
 
 }
+
 
 #endif
