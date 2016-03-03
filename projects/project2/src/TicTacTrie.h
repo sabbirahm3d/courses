@@ -1,15 +1,15 @@
-#ifndef TICTACTREE_H
-#define TICTACTREE_H
+#ifndef TICTACTRIE_H
+#define TICTACTRIE_H
 
 
 #include "TicTacNode.h"
 
-class TicTacTree {
+class TicTacTrie {
 
 public:
 
-    TicTacTree();
-    ~TicTacTree();
+    TicTacTrie();
+    ~TicTacTrie();
     void addWord(string s);
     bool searchWord(string s);
     // void deleteWord(string s);

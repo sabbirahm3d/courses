@@ -1,16 +1,16 @@
-#include "TicTacTree.h"
+#include "TicTacTrie.h"
 
-TicTacTree::TicTacTree()
+TicTacTrie::TicTacTrie()
 {
     root = new TicTacNode();
 }
 
-TicTacTree::~TicTacTree()
+TicTacTrie::~TicTacTrie()
 {
     // Free memory
 }
 
-void TicTacTree::addWord(string s)
+void TicTacTrie::addWord(string s)
 {
     TicTacNode* current = root;
 
@@ -40,7 +40,7 @@ void TicTacTree::addWord(string s)
 }
 
 
-bool TicTacTree::searchWord(string s)
+bool TicTacTrie::searchWord(string s)
 {
     TicTacNode* current = root;
 

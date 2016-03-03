@@ -20,6 +20,8 @@
 #include <vector>
 
 
+#include "TicTacTree.h"
+
 using namespace std;
 
 /* ******************** Declaration of functions ******************** */
@@ -43,20 +45,22 @@ int main (int argc, char* fileName[] ) {
     if (listOfGames.is_open()) {
 
         string dirLine;
-        vector<ifstream*>* files = new vector<ifstream*>;
+        // vector<ifstream*>* files = new vector<ifstream*>;
 
         // Read through the entire file
         while ( !listOfGames.eof() ) {
 
             getline(listOfGames, dirLine);
-            ifstream games(dirLine.c_str());
-            files->push_back(&games);
-            cout << files->size() << endl;
+            TicTacTree* yee = new TicTacTree(dirLine);
+            // yee->addWord(dirLine);
+            // cout << yee->searchWord(dirLine) << endl;
+            // files->push_back(&games);
+            // cout << files->size() << endl;
 
         }
 
-        delete files;
-        files = NULL;
+        // delete files;
+        // files = NULL;
 
     }
 
