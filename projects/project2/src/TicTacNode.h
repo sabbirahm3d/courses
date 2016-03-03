@@ -18,48 +18,75 @@
 #include <vector>
 #include <map>
 
-using namespace std;
+// using namespace std;
 
+
+// class TicTacNode {
+
+// public:
+
+// /* ******************** Constructors ******************** */
+
+
+// /* TicTacNode() - Default constructor
+//  * Preconditions: None
+//  * Postconditions: Creates a Node341 object and initializes its member 
+//    variables */
+
+// TicTacNode();
+
+
+// /* ******************** Operator overloaders ******************** */
+
+
+//  operator<< - Overloaded output operator.
+//  * Preconditions: None.
+//  * Postconditions: Returns the Country object with the highest
+//    spending on education. 
+
+// friend ostream& operator<<(ostream&, TicTacNode&);
+
+
+// /* ******************** Member variables ******************** */
+
+// string data;
+
+// // links pointers to the data
+// TicTacNode *next;
+// TicTacNode *prev;
+
+// private:
+
+// vector<string>* m_children;
+// map<char, string> m_board;
+
+
+// };
+
+using namespace std;
 
 class TicTacNode {
 
 public:
 
-/* ******************** Constructors ******************** */
+    TicTacNode() { m_data = ' '; m_cursor = false; }
+    ~TicTacNode() {}
 
+    char content() { return m_data; }
+    bool wordMarker() { return m_cursor; }
+    vector<TicTacNode*> children() { return m_children; }
 
-/* TicTacNode() - Default constructor
- * Preconditions: None
- * Postconditions: Creates a Node341 object and initializes its member 
-   variables */
+    void setContent(char c) { m_data = c; }
+    void setWordMarker() { m_cursor = true; }
 
-TicTacNode();
-
-
-/* ******************** Operator overloaders ******************** */
-
-
-/* operator<< - Overloaded output operator.
- * Preconditions: None.
- * Postconditions: Returns the Country object with the highest
-   spending on education. */
-
-friend ostream& operator<<(ostream&, TicTacNode&);
-
-
-/* ******************** Member variables ******************** */
-
-string data;
-
-// links pointers to the data
-TicTacNode *next;
-TicTacNode *prev;
+    TicTacNode* findChild(char c);
+    void appendChild(TicTacNode* child) { m_children.push_back(child); }
 
 private:
 
-vector<string>* m_children;
-map<char, string> m_board;
-
+    char m_data;
+    bool m_cursor;
+    vector<TicTacNode*> m_children;
 
 };
 
