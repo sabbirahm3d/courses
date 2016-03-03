@@ -28,16 +28,16 @@ void TicTacTree::ReadGame(string fileName) {
 
             getline(gameFile, line);
 
-	        string bleh = "";
-	        int counter = 3;
+	        if ( line.length() ) {
 
-	        if (line.length()) {
-	            while (counter) {
-		            bleh += line;
-		            cout << "---------line---------" << endl;
-		            cout << bleh << endl;
-		            counter--;
+		        string state = "";
+
+	            while (state.length() < 9) {
+		            state += line;
+		            // counter--;
+		            cout << state << endl;
 		        }
+		       //      // cout << "---------line---------" << endl;
 			}
 
         }
