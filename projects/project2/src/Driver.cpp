@@ -20,7 +20,7 @@
 #include <vector>
 
 
-#include "TicTacTree.h"
+#include "TicTacToe.h"
 
 using namespace std;
 
@@ -51,7 +51,7 @@ int main (int argc, char* fileName[] ) {
         while ( !listOfGames.eof() ) {
 
             getline(listOfGames, dirLine);
-            TicTacTree* yee = new TicTacTree(dirLine);
+            TicTacToe* yee = new TicTacToe(dirLine);
             // yee->addWord(dirLine);
             // cout << yee->searchWord(dirLine) << endl;
             // files->push_back(&games);

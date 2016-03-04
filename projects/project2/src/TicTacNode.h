@@ -30,7 +30,7 @@
 
 // /* TicTacNode() - Default constructor
 //  * Preconditions: None
-//  * Postconditions: Creates a Node341 object and initializes its member 
+//  * Postconditions: Creates a TicTacNode object and initializes its member 
 //    variables */
 
 // TicTacNode();
@@ -60,8 +60,12 @@ class TicTacNode {
 
 public:
 
-    TicTacNode() { m_data = ' '; m_cursor = false; }
-    TicTacNode(string node) { setContent(node); setWordMarker(); }
+    TicTacNode() {
+        m_data = "";
+        m_cursor = false;
+        next = prev = NULL;
+    }
+    // TicTacNode(string node) { setContent(node); setWordMarker(); }
     ~TicTacNode() {}
 
     string content() { return m_data; }
@@ -84,10 +88,11 @@ public:
 
     friend ostream& operator<<(ostream&, TicTacNode&);
 
+    string m_data;
+    TicTacNode *next, *prev;
 
 private:
 
-    string m_data;
     bool m_cursor;
     vector<TicTacNode*> m_children;
 

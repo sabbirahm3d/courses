@@ -1,13 +1,13 @@
 CPPFLAGS = -Wall -ansi -g
 
-all: Driver.o TicTacNode.o TicTacTree.o
-	g++ $(CPPFLAGS) TicTacNode.o TicTacTree.o Driver.o -o Driver.out
+all: Driver.o TicTacNode.o TicTacToe.o
+	g++ $(CPPFLAGS) TicTacNode.o TicTacToe.o Driver.o -o Driver.out
 
 TicTacNode.o: TicTacNode.cpp TicTacNode.h
 	g++ $(CPPFLAGS) -c TicTacNode.cpp TicTacNode.h
 
-TicTacTree.o: TicTacTree.cpp TicTacTree.h
-	g++ $(CPPFLAGS) -c TicTacTree.cpp TicTacTree.h
+TicTacToe.o: TicTacToe.cpp TicTacToe.h
+	g++ $(CPPFLAGS) -c TicTacToe.cpp TicTacToe.h
 
 TicTacTrie.o: TicTacTrie.cpp TicTacTrie.h
 	g++ $(CPPFLAGS) -c TicTacTrie.cpp TicTacTrie.h
