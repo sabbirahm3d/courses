@@ -51,13 +51,14 @@ int main (int argc, char* fileName[] ) {
         while ( !listOfGames.eof() ) {
 
             getline(listOfGames, dirLine);
-            TicTacToe* yee = new TicTacToe(dirLine);
+            TicTacToe* game = new TicTacToe(dirLine);
+            // cout << game->Size() << endl;
             // yee->addWord(dirLine);
             // cout << yee->searchWord(dirLine) << endl;
             // files->push_back(&games);
             // cout << files->size() << endl;
-            delete yee;
-            yee = NULL;
+            delete game;
+            game = NULL;
 
         }
 

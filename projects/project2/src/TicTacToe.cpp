@@ -3,15 +3,22 @@
 #include "TicTacToe.h"
 
 
-TicTacToe::TicTacToe(){}
+TicTacToe::TicTacToe() { /* Empty constructor */ }
+
 
 TicTacToe::TicTacToe(string fileName) {
 
     ReadGame(fileName);
+    m_isOver = false;
+    m_results = 0;
+    // m_size = 0;
 
 }
 
+
 TicTacToe::~TicTacToe() {
+
+    Clear();
 
 }
 
@@ -32,19 +39,38 @@ void TicTacToe::ReadGame(string fileName) {
         // Read through the entire file
         while ( getline(gameFile, line) ) {
 
+            if ( line.length() ) {
+                state = "";
 
-            while ( state.length() < 9 ) {
-                state += line;
-                state += "\n";
-                getline(gameFile, line);
+                while ( state.length() < 9 ) {
+                    state += line;
+                    // state += "\n";
+                    getline(gameFile, line);
+                }
+
+                // cout << state << endl;
+                this->Push(state);
+                // cout << Size() << endl;
             }
+        }
 
+        m_isOver = true;
+
+        if ( GetResults(state, 'X') ) {
+            m_results = 1;
+            cout << "X won" << endl;
             cout << state << endl;
-            cout << Push(state) << endl;
-            // TicTacNode yo(state);
-            // cout << yo << endl;
-            state = "";
+        }
 
+        else if ( GetResults(state, 'O') ) {
+            m_results = 2;
+            cout << "O won" << endl;
+            cout << state << endl;
+        }
+
+        else {
+            m_results = 3;
+            cout << "It's a draw" << endl;
         }
 
     }
@@ -55,6 +81,42 @@ void TicTacToe::ReadGame(string fileName) {
 
 
 }
+
+
+bool TicTacToe::GetIsOver() {
+
+    return m_isOver;
+
+}
+
+
+// int TicTacToe::Size() const {
+
+//     return m_size;
+
+// }
+
+
+bool TicTacToe::GetResults(string state, char player){
+
+    return (
+    // Horizontal
+        ((state[0] == player) && (state[1] == player) && (state[2] == player))
+        || ((state[3] == player) && (state[4] == player) && (state[5] == player))
+        || ((state[6] == player) && (state[7] == player) && (state[8] == player))
+
+    // Vertical
+        || ((state[0] == player) && (state[3] == player) && (state[6] == player))
+        || ((state[1] == player) && (state[4] == player) && (state[7] == player))
+        || ((state[2] == player) && (state[5] == player) && (state[8] == player))
+
+    // Diagonal
+        || ((state[0] == player) && (state[4] == player) && (state[8] == player))
+        || ((state[2] == player) && (state[4] == player) && (state[6] == player))
+    );
+
+}
+
 
 bool TicTacToe::Empty() const {
 
@@ -76,6 +138,7 @@ bool TicTacToe::Push(string value) {
         cursor->prev = NULL;
         m_head = cursor;
         m_tail = cursor;
+        // m_size++;
         return true;
     }
 
@@ -83,6 +146,7 @@ bool TicTacToe::Push(string value) {
     else if ( !Empty() ) {
         m_tail->next = cursor;
         m_tail = cursor;
+        // m_size++;
         return true;
     }
 
@@ -94,6 +158,7 @@ bool TicTacToe::Push(string value) {
     cursor = NULL;
 
 }
+
 
 bool TicTacToe::Clear() {
 
@@ -122,8 +187,28 @@ bool TicTacToe::Clear() {
         /* Reset the m_head and m_tail node */
         delete cursor;
         m_head = m_tail = NULL;
+        // m_size = 0;
 
         return true;
     }
+
+}
+
+void TicTacToe::Print() {
+
+    if (m_head == NULL) {
+        cout << "Game empty."<<endl;
+        return;
+    }
+
+    TicTacNode* q = m_head;
+    cout << "The game is:" << endl;
+
+    while (q != NULL) {
+        cout << *q << " <-> ";
+        q = q->next;
+    }
+
+    cout << "NULL" << endl;
 
 }

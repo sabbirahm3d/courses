@@ -1,3 +1,4 @@
+#include "TicTacToe.h"
 #include "TicTacTrie.h"
 
 TicTacTrie::TicTacTrie()
@@ -8,6 +9,8 @@ TicTacTrie::TicTacTrie()
 TicTacTrie::~TicTacTrie()
 {
     // Free memory
+    delete root;
+    root = NULL;
 }
 
 void TicTacTrie::addWord(string s)

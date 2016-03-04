@@ -65,6 +65,7 @@ public:
         m_cursor = false;
         next = prev = NULL;
     }
+
     // TicTacNode(string node) { setContent(node); setWordMarker(); }
     ~TicTacNode() {}
 
@@ -93,6 +94,7 @@ public:
 
 private:
 
+    map<int, char> m_board;
     bool m_cursor;
     vector<TicTacNode*> m_children;
 

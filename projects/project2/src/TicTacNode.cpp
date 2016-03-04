@@ -28,13 +28,14 @@
 
 TicTacNode* TicTacNode::findChild(string c) {
 
-    for ( unsigned int i = 0; i < m_children.size(); i++ )
-    {
+    for ( unsigned int i = 0; i < m_children.size(); i++ ) {
+
         TicTacNode* tmp = m_children.at(i);
-        if ( tmp->content() == c )
-        {
+
+        if ( tmp->content() == c ) {
             return tmp;
         }
+
     }
 
     return NULL;
