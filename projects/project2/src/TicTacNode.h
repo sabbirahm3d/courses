@@ -36,15 +36,6 @@
 // TicTacNode();
 
 
-// /* ******************** Operator overloaders ******************** */
-
-
-//  operator<< - Overloaded output operator.
-//  * Preconditions: None.
-//  * Postconditions: Returns the Country object with the highest
-//    spending on education. 
-
-// friend ostream& operator<<(ostream&, TicTacNode&);
 
 
 // /* ******************** Member variables ******************** */
@@ -58,7 +49,7 @@
 // private:
 
 // vector<string>* m_children;
-// map<char, string> m_board;
+// map<string, string> m_board;
 
 
 // };
@@ -70,21 +61,33 @@ class TicTacNode {
 public:
 
     TicTacNode() { m_data = ' '; m_cursor = false; }
+    TicTacNode(string node) { setContent(node); setWordMarker(); }
     ~TicTacNode() {}
 
-    char content() { return m_data; }
+    string content() { return m_data; }
     bool wordMarker() { return m_cursor; }
     vector<TicTacNode*> children() { return m_children; }
 
-    void setContent(char c) { m_data = c; }
+    void setContent(string c) { m_data = c; }
     void setWordMarker() { m_cursor = true; }
 
-    TicTacNode* findChild(char c);
+    TicTacNode* findChild(string c);
     void appendChild(TicTacNode* child) { m_children.push_back(child); }
+
+    /* ******************** Operator overloaders ******************** */
+
+
+    /* operator<< - Overloaded output operator.
+     * Preconditions: None.
+     * Postconditions: Returns the Country object with the highest
+       spending on education. */
+
+    friend ostream& operator<<(ostream&, TicTacNode&);
+
 
 private:
 
-    char m_data;
+    string m_data;
     bool m_cursor;
     vector<TicTacNode*> m_children;
 

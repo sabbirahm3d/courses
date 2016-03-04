@@ -56,11 +56,11 @@ int main (int argc, char* fileName[] ) {
             // cout << yee->searchWord(dirLine) << endl;
             // files->push_back(&games);
             // cout << files->size() << endl;
+            delete yee;
+            yee = NULL;
 
         }
 
-        // delete files;
-        // files = NULL;
 
     }
 

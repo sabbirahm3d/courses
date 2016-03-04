@@ -7,9 +7,14 @@ TicTacTree::TicTacTree(){}
 
 TicTacTree::TicTacTree(string fileName) {
 
-	ReadGame(fileName);
+    ReadGame(fileName);
 
 }
+
+TicTacTree::~TicTacTree() {
+
+}
+
 
 void TicTacTree::ReadGame(string fileName) {
 
@@ -17,38 +22,35 @@ void TicTacTree::ReadGame(string fileName) {
 
     if (gameFile.is_open()) {
 
-    	cout << "========================" << endl;
-    	cout << "Reading: " << fileName << endl;
-    	cout << "========================" << endl;
+        cout << "========================" << endl;
+        cout << "Reading: " << fileName << endl;
+        cout << "========================" << endl << endl;
 
-        string line;
+        string line, dummy;
+        string state = "";
 
         // Read through the entire file
-        while ( !gameFile.eof() ) {
+        while ( getline(gameFile, line) ) {
 
-            getline(gameFile, line);
 
-	        if ( line.length() ) {
+            while ( state.length() < 9 ) {
+                state += line;
+                state += "\n";
+                getline(gameFile, line);
+            }
 
-		        string state = "";
-
-	            while (state.length() < 9) {
-		            state += line;
-		            // counter--;
-		            cout << state << endl;
-		        }
-		       //      // cout << "---------line---------" << endl;
-			}
+            cout << state << endl;
+            TicTacNode yo(state);
+            cout << yo << endl;
+            state = "";
 
         }
-
 
     }
 
     else {
         cerr << "Please make sure the file name is valid." << endl;
     }
-
 
 
 }
