@@ -13,13 +13,15 @@ public:
     ~TicTacToe();
 
     void ReadGame(string);
-    bool GetResults(string, char);
+    bool GetWinner(string, char);
     bool GetIsOver();
+    int GetResults();
 
     bool Empty() const;
     bool Push(string value);
     bool Clear();
-    int Size() const;
+    // int Size() const;
+    void EndGame(string);
     void Print();
 
 

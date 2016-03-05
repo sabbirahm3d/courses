@@ -8,10 +8,10 @@ TicTacToe::TicTacToe() { /* Empty constructor */ }
 
 TicTacToe::TicTacToe(string fileName) {
 
-    ReadGame(fileName);
     m_isOver = false;
     m_results = 0;
     // m_size = 0;
+    ReadGame(fileName);
 
 }
 
@@ -40,6 +40,7 @@ void TicTacToe::ReadGame(string fileName) {
         while ( getline(gameFile, line) ) {
 
             if ( line.length() ) {
+
                 state = "";
 
                 while ( state.length() < 9 ) {
@@ -49,29 +50,12 @@ void TicTacToe::ReadGame(string fileName) {
                 }
 
                 // cout << state << endl;
-                this->Push(state);
+                Push(state);
                 // cout << Size() << endl;
             }
         }
 
-        m_isOver = true;
-
-        if ( GetResults(state, 'X') ) {
-            m_results = 1;
-            cout << "X won" << endl;
-            cout << state << endl;
-        }
-
-        else if ( GetResults(state, 'O') ) {
-            m_results = 2;
-            cout << "O won" << endl;
-            cout << state << endl;
-        }
-
-        else {
-            m_results = 3;
-            cout << "It's a draw" << endl;
-        }
+        EndGame(state);
 
     }
 
@@ -79,6 +63,52 @@ void TicTacToe::ReadGame(string fileName) {
         cerr << "Please make sure the file name is valid." << endl;
     }
 
+
+}
+
+
+int TicTacToe::GetResults() {
+
+    return m_results;
+
+}
+
+
+void TicTacToe::EndGame(string finalBoard) {
+
+    for ( unsigned int i = 0; i < finalBoard.length(); i++ ) {
+
+        if ( (finalBoard[i] == '-') && !GetIsOver() ) {
+            m_results = 0;
+        }
+
+        else {
+            m_isOver = true;
+        }
+
+    }
+
+    if (m_isOver) {
+
+        if ( GetWinner(finalBoard, 'X') ) {
+            m_results = 1;
+            cout << "X won" << endl;
+            cout << finalBoard << endl;
+        }
+
+        else if ( GetWinner(finalBoard, 'O') ) {
+            m_results = 2;
+            cout << "O won" << endl;
+            cout << finalBoard << endl;
+        }
+
+        else {
+            m_results = 3;
+            cout << "It's a draw" << endl;
+        }
+    }
+
+    // cout << m_results << endl;
 
 }
 
@@ -97,7 +127,7 @@ bool TicTacToe::GetIsOver() {
 // }
 
 
-bool TicTacToe::GetResults(string state, char player){
+bool TicTacToe::GetWinner(string state, char player){
 
     return (
     // Horizontal
@@ -193,6 +223,7 @@ bool TicTacToe::Clear() {
     }
 
 }
+
 
 void TicTacToe::Print() {
 

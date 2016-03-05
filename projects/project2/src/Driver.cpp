@@ -45,17 +45,14 @@ int main (int argc, char* fileName[] ) {
     if (listOfGames.is_open()) {
 
         string dirLine;
-        // vector<ifstream*>* files = new vector<ifstream*>;
 
         // Read through the entire file
         while ( !listOfGames.eof() ) {
 
             getline(listOfGames, dirLine);
             TicTacToe* game = new TicTacToe(dirLine);
-            // cout << game->Size() << endl;
+            cout << "yoyoyo " << game->GetResults() << endl;
             // yee->addWord(dirLine);
-            // cout << yee->searchWord(dirLine) << endl;
-            // files->push_back(&games);
             // cout << files->size() << endl;
             delete game;
             game = NULL;

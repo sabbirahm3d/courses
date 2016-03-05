@@ -14,7 +14,7 @@ TicTacTrie.o: TicTacTrie.cpp TicTacTrie.h
 
 # to test for memory leaks
 val:
-	valgrind ./Driver.out $(FILE) --leak-check=full
+	valgrind ./Driver.out $(FILE) --track-origins=yes
 
 # -f removes any error messages if the file is not present
 clean:
