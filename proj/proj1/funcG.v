@@ -6,12 +6,15 @@ wire w1, w2, w3, w4, w5, w6, w7;
 
 	and(w1, C, !D); // 2 NOR
 
-	or(w2, w1, A); // 2 AND
+	and(w2, B, !C);
 
-	xor(w3, B, C); // 2 NAND
+	and(w3, !B, C);
 
-	or(g, w2, w3);
+	or(w4, w2, A);
 
+	or(w5, w1, w3);
+
+	or(g, w4, w5);
 	/*
 	1 x 2 NOR, 1(2(2)) = 4 transistors
 	1 x 2 AND, 1(2(2)+2) = 6 transistors

@@ -2,7 +2,7 @@ module funcE(e, A, B, C, D);
 
 input A, B, C, D;
 output e;
-wire w1, w2, w3, w4, w5, w6, w7;
+wire w1, w2, w3, w4;
 
 	or(w1, B, C); // 2 NOR
 

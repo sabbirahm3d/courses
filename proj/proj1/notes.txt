@@ -6,11 +6,10 @@ e: 0, 2, 6, 8, H
 f: 0, 4, 5, 6, 8, 9, H
 g: 2, 3, 4, 5, 6, 8, 9, H
 
-x kmap(a) = A~B~C + ~AC + ~(A+B)(~D) + ~ABD
-x kmap(b) = A + ~B + [CD + ~C~D] = ~(~AB) + (C ^ ~D)
-x kmap(c) = ~(~A~B)(C~D)
-x kmap(d) = A~B~C + ~A~C(BD) + ~(A+B)(C+~D) + ~A(C~D)
-x kmap(e) = [AB + AC] + ~B~D + C~D = A(B+C) + ~D(~B+C)
-x kmap(g) = A + [B~C + ~BC] + C~D = A + (B ^ C) + C~D
-
-kmap(f) = A + [B~C + B~D] + [~C~D] = A + B~(CD) + ~(C+D)
+kmap(a) = A~B~C + ~AC + ~(A+B)(~D) + ~ABD
+kmap(b) = ~(~AB) + (C ^ ~D)
+kmap(c) = ~(~A~B)(C~D)
+kmap(d) = A~B~C + ~A~C(BD) + ~(A+B)(C+~D) + ~A(C~D)
+kmap(e) = A(B+C) + ~D(~B+C)
+kmap(f) = A + B~C + ~D~(~BC)
+kmap(g) = A + B~C + ~BC + C~D

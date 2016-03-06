@@ -2,17 +2,17 @@ module funcF(f, A, B, C, D);
 
 input A, B, C, D;
 output f;
-wire w1, w2, w3, w4, w5, w6, w7;
+wire w1, w2, w3, w4;
 
-	nand(w1, C, D); // 2 NOR
+	and(w1, B, !C);
 
-	and(w2, w1, B); // 2 AND
+	or(w2, w1, A);
 
-	or(w3, w2, A); // 2 NAND
+	nand(w3, !B, C);
 
-	nor(w4, C, D);
+	and(w4, w3, !D);
 
-	or(f, w3, w4);
+	or(f, w2, w4);
 
 	/*
 	1 x 2 NOR, 1(2(2)) = 4 transistors
