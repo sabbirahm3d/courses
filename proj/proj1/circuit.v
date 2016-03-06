@@ -50,6 +50,7 @@ wire w1, w2, w3, w4, w5, w6, w7;
 
 	nand(c, w8, w3); // ~(~A~B)(C~D)
 
+
 	or(w20, w1, w2); // A~B~C + ~AC
 
 	or(w21, w4, w17); // ~A~B~D + ~ABD
@@ -64,5 +65,20 @@ wire w1, w2, w3, w4, w5, w6, w7;
 
 	or(d, w24, w22); // A~B~C + ~A~C(BD) + ~(A+B)(C+~D) + ~A(C~D)
 
+
+	nor(w25, B, D); // ~(B+D) = ~B~D
+
+
+	or(w26, w25, w8);
+
+	nand(w27, !B, !C);
+
+	and(w28, w27, A);
+
+	nand(w29, w26, w26);
+
+	nand(w30, w28, w28);
+
+	nand(e, w29, w30);
 
 	endmodule
