@@ -1,4 +1,4 @@
-module testbench();
+module funcTestbench();
 
    // 4 inputs for A, B, C, and D                                             
    reg [3:0] switches;
@@ -30,7 +30,7 @@ module testbench();
      begin
         #5 switches = switches + 4'b0001;
 
-        $monitor("switches=%b, a=%b, b=%b, c=%b, d=%b, e=%b, f=%b, g=%b", switches, a, b, c, d, e, f, g);
+        $monitor("%b: %d: a=%b, b=%b, c=%b, d=%b, e=%b, f=%b, g=%b", switches, switches, a, b, c, d, e, f, g);
 
         // $monitor displays the time and the string everytime             
         // 'switches' or 'out' changes value.                              

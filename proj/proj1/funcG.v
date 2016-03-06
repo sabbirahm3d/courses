@@ -4,17 +4,22 @@ input A, B, C, D;
 output g;
 wire w1, w2, w3, w4, w5, w6, w7;
 
-	and(w1, C, !D); // 2 NOR
+	nor(w1, C, C);
 
-	and(w2, B, !C);
+	nor(w2, !D, !D);
 
-	and(w3, !B, C);
+	nor(w3, w1, w2); // ~(C+~D)
 
-	or(w4, w2, A);
+	and(w4, B, !C);
 
-	or(w5, w1, w3);
+	nand(w5, !B, C);
 
-	or(g, w4, w5);
+	or(w6, w4, A);
+
+	or(w7, !w5, w3);
+
+	or(g, w6, w7);
+
 	/*
 	1 x 2 NOR, 1(2(2)) = 4 transistors
 	1 x 2 AND, 1(2(2)+2) = 6 transistors

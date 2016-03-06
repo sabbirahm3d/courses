@@ -2,13 +2,21 @@ module funcB(b, A, B, C, D);
 
 input A, B, C, D;
 output b;
-wire w1, w2;
+wire w1, w2, w3, w4, w5, w6;
 
 	nand(w1, !A, B);
 
-	xor(w2, C, !D);
+	nor(w2, C, C);
 
-	or(b, w1, w2);
+	nor(w3, !D, !D);
+
+	nor(w4, C, !D);
+
+	nor(w5, w2, w3);
+
+	nor(w6, w4, w5);
+
+	or(b, w1, w6);
 
 	/* 
 	2 x 3 AND, 2(2(3)+2) = 16 transistors
