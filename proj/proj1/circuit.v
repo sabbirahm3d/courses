@@ -4,81 +4,78 @@ input A, B, C, D;
 output a, b, c, d, e, f, g;
 wire w1, w2, w3, w4, w5, w6, w7;
 
-	and(w1, A, !B, ~C); // A~B~C
+	and(w1, A, !B, !C); // A~B~C
 
 	and(w2, !A, C); // ~AC
 
-	nor(w3, A, B); // ~(A+B)
+	nor(w3, A, B); // ~(A+B) = ~A~B
 
 	and(w4, !A, B, D); // ~ABD
 
 	nor(w5, C, !D); // ~(C+~D)
 
-	nor(w6, C, C); // ~(C+C)
+	nor(w6, w5, w5); // C+~D  
 
-	nor(w7, !D, !D); // (~D+~D)
+	nor(w7, C, C); // ~(C+C)
 
-	nor(w8, w6, w7); // C~D
+	nor(w8, !D, !D); // ~(~D+~D)
 
-	nor(w9, w5, w5); // C+~D
+	nor(w9, w7, w8); // C~D
 
-	nor(w10, w5, w8); // C^~D
+	nand(w10, !A, B); // ~(~AB)
 
-	nand(w11, !A, B); // ~(~AB)
+	and(w11, B, !C); // B~C
 
-	and(w12, B, !C); // B~C
+	nand(w12, !B, C); // ~(~BC)
 
-	nand(w13, !B, C); // ~(~BC)
+	nor(w14, B, D); // ~(B+D)
 
-	and(w14, w13, !D); // ~D(~(~BC))
+	nand(w15, !B, !C); // ~(~B~C)
 
-	or(w15, !w13, w8); // ~BC + C~D
+	and(w16, w15, A); // A~(~B~C)
 
-	or(w16, w12, A); // A + B~C
+	or(w17, w14, w9); // ~B~D + C~D
 
-	or(f, w16, w14); // A + B~C + ~D(~(~BC))
+	nand(w18, w17, w17); // 0
 
-	or(g, w15, w16); // A + B~C + ~B + C~D
+	nand(w19, w16, w16); // 0
 
-	or(b, w10, w11); // A + ~B + C^~B
+	nand(e, w18, w19); // A~(~B~C) + ~B~D + C~D
 
-	and(w17, w3, !D); // ~A~B~D
+	and(w20, w12, !D); // ~D(~(~BC))
 
-	and(w18, w4, !C); // ~AB~CD
+	or(w21, !w12, w9); // ~BC + C~D
 
-	and(w19, w9, w3); // ~A~B(C+~D)
+	or(w22, A, w11); // A + (B~C)
 
-	nand(c, w8, w3); // ~(~A~B)(C~D)
+	or(f, w20, w22); // A + (B~C) + ~D(~(~BC))
 
+	or(g, w21, w22); // ~BC + C~D + A + (B~C)
 
-	or(w20, w1, w2); // A~B~C + ~AC
+	nor(w23, w5, w9); // C ^ ~D
 
-	or(w21, w4, w17); // ~A~B~D + ~ABD
+	or(b, w10, w23); // ~(~AB) + C ^ ~D
 
-	or(a, w20, w21); // A~B~C + ~AC + ~(A+B)(~D) + ~ABD
+	nand(c, w3, w9); // ~( ~(A+B)(C~D) )
 
-	or(w22, w18, w1); // A~B~C + ~AB~CD
+	and(w24, w3, w6); // ~(A+B)(C+~D)
 
-	or(w23, w8, !A); // ~A(C~D)
+	and(w25, !A, w9); // ~A(C~D)
 
-	or(w24, w23, w18); // ~A(C~D) + ~A~CBD
+	or(w26, w24, w25); // ~(A+B)(C+~D) + ~A(C~D)
 
-	or(d, w24, w22); // A~B~C + ~A~C(BD) + ~(A+B)(C+~D) + ~A(C~D)
+	and(w27, !C, w4); // ~C(~ABD)
 
+	or(w28, w1, w27); // A~B~C + ~C(~ABD)
 
-	nor(w25, B, D); // ~(B+D) = ~B~D
+	or(d, w26, w28); // ~(A+B)(C+~D) + ~A(C~D) + A~B~C + ~C(~ABD)
 
+	and(w29, !D, w3); // ~D(~(A+B)) = ~D(~A~B)
 
-	or(w26, w25, w8);
+	or(w30, w1, w2); // A~B~C + ~AC
 
-	nand(w27, !B, !C);
+	or(w31, w4, w29); // ~ABD + ~A~B~D
 
-	and(w28, w27, A);
-
-	nand(w29, w26, w26);
-
-	nand(w30, w28, w28);
-
-	nand(e, w29, w30);
+	or(a, w30, w31);
 
 	endmodule
