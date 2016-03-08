@@ -21,6 +21,7 @@
 
 
 #include "TicTacToe.h"
+#include "TicTacTrie.h"
 
 using namespace std;
 
@@ -45,13 +46,15 @@ int main (int argc, char* fileName[] ) {
     if (listOfGames.is_open()) {
 
         string dirLine;
+        TicTacTrie* trie = new TicTacTrie();
 
         // Read through the entire file
         while ( !listOfGames.eof() ) {
 
             getline(listOfGames, dirLine);
             TicTacToe* game = new TicTacToe(dirLine);
-            cout << "yoyoyo " << game->GetResults() << endl;
+            trie->AddGame(*game);
+            // cout << "yoyoyo " << game->GetResults() << endl;
             // yee->addWord(dirLine);
             // cout << files->size() << endl;
             delete game;
@@ -59,6 +62,8 @@ int main (int argc, char* fileName[] ) {
 
         }
 
+        delete trie;
+        trie = NULL;
 
     }
 

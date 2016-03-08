@@ -1,7 +1,7 @@
 CPPFLAGS = -Wall -ansi -g
 
-all: Driver.o TicTacNode.o TicTacToe.o
-	g++ $(CPPFLAGS) TicTacNode.o TicTacToe.o Driver.o -o Driver.out
+all: Driver.o TicTacNode.o TicTacToe.o TicTacTrie.o
+	g++ $(CPPFLAGS) TicTacNode.o TicTacToe.o TicTacTrie.o Driver.o -o Driver.out
 
 TicTacNode.o: TicTacNode.cpp TicTacNode.h
 	g++ $(CPPFLAGS) -c TicTacNode.cpp TicTacNode.h
@@ -25,3 +25,8 @@ clean:
 # compile an executable
 run:
 	./Driver.out $(FILE)
+
+yo:
+	make clean
+	make
+	clear

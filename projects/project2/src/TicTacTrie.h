@@ -3,6 +3,7 @@
 
 
 #include "TicTacNode.h"
+#include "TicTacToe.h"
 
 class TicTacTrie {
 
@@ -10,13 +11,18 @@ public:
 
     TicTacTrie();
     ~TicTacTrie();
-    void addWord(string s);
-    bool searchWord(string s);
+    void AddGame(TicTacToe& game);
+    // void addWord(string s);
+    // bool searchWord(string s);
     // void deleteWord(string s);
 
 private:
 
     TicTacNode* root;
+    int m_xWins;
+    int m_oWins;
+    int m_draws;
+    int m_size;
 
 };
 

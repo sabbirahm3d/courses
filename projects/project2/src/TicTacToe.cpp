@@ -2,6 +2,8 @@
 
 #include "TicTacToe.h"
 
+#include <iostream>
+using namespace std;
 
 TicTacToe::TicTacToe() { /* Empty constructor */ }
 
@@ -10,6 +12,7 @@ TicTacToe::TicTacToe(string fileName) {
 
     m_isOver = false;
     m_results = 0;
+
     // m_size = 0;
     ReadGame(fileName);
 
@@ -199,8 +202,8 @@ bool TicTacToe::Clear() {
     else {
 
         // Temporary pointers to Node341 objects
-        TicTacNode *temp;
-        TicTacNode *cursor = m_head;
+        TicTacNode* temp;
+        TicTacNode* cursor = m_head;
 
         // Traverse the list and delete the nodes one by one from the m_head
         while (cursor != NULL) {
@@ -217,6 +220,8 @@ bool TicTacToe::Clear() {
         /* Reset the m_head and m_tail node */
         delete cursor;
         m_head = m_tail = NULL;
+        // delete m_cursor;
+        cursor = NULL;
         // m_size = 0;
 
         return true;
@@ -225,21 +230,41 @@ bool TicTacToe::Clear() {
 }
 
 
-void TicTacToe::Print() {
+// void TicTacToe::Print() {
 
-    if (m_head == NULL) {
-        cout << "Game empty."<<endl;
-        return;
+//     if (m_head == NULL) {
+//         cout << "Game empty."<<endl;
+//         return;
+//     }
+
+//     TicTacNode* q = m_head;
+//     cout << "The game is:" << endl;
+
+//     while (q != NULL) {
+//         cout << *q << " <-> ";
+//         q = q->next;
+//     }
+
+//     cout << "NULL" << endl;
+
+// }
+
+TicTacNode TicTacToe::Print() {
+
+    if ( Empty() ) {
+        // return NULL;
+        cout << "blej" << endl;
     }
 
-    TicTacNode* q = m_head;
-    cout << "The game is:" << endl;
-
-    while (q != NULL) {
-        cout << *q << " <-> ";
-        q = q->next;
+    else {
+        TicTacNode* cursor = m_head;
+        TicTacNode temp = *cursor;
+        delete cursor;
+        cursor = NULL;
+        m_head = m_head->next;
+        cout << "Popped " << temp.m_data << " from the list." << endl;
+        return temp;
     }
 
-    cout << "NULL" << endl;
 
 }

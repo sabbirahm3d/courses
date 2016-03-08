@@ -1,4 +1,4 @@
-#include "TicTacToe.h"
+// #include "TicTacToe.h"
 #include "TicTacTrie.h"
 
 TicTacTrie::TicTacTrie()
@@ -13,55 +13,71 @@ TicTacTrie::~TicTacTrie()
     root = NULL;
 }
 
-void TicTacTrie::addWord(string s)
-{
-    TicTacNode* current = root;
 
-    if ( s.length() == 0 )
-    {
-        current->setWordMarker(); // an empty word
-        return;
-    }
+void TicTacTrie::AddGame(TicTacToe& game) {
 
-    for ( int i = 0; i < s.length(); i++ )
-    {        
-        TicTacNode* child = current->findChild(s[i]);
-        if ( child != NULL )
-        {
-            current = child;
-        }
-        else
-        {
-            TicTacNode* tmp = new TicTacNode();
-            tmp->setContent(s[i]);
-            current->appendChild(tmp);
-            current = tmp;
-        }
-        if ( i == s.length() - 1 )
-            current->setWordMarker();
-    }
+    TicTacNode cursor = game.Print();
+    // TicTacNode* another = game.Print();
+
+    // while ( game.GetIsOver() ) {
+        cout << "ay yo again " << cursor.m_data << endl;
+        // cout << "ay yo " << game.GetResults() << endl;
+        // cout << "ay yo " << game.Empty() << endl;
+    // }
+
+    // delete cursor;
+
 }
 
+// void TicTacTrie::addWord(string s)
+// {
+//     TicTacNode* current = root;
 
-bool TicTacTrie::searchWord(string s)
-{
-    TicTacNode* current = root;
+//     if ( s.length() == 0 )
+//     {
+//         current->setWordMarker(); // an empty word
+//         return;
+//     }
 
-    while ( current != NULL )
-    {
-        for ( int i = 0; i < s.length(); i++ )
-        {
-            TicTacNode* tmp = current->findChild(s[i]);
-            if ( tmp == NULL )
-                return false;
-            current = tmp;
-        }
+//     for ( int i = 0; i < s.length(); i++ )
+//     {        
+//         TicTacNode* child = current->findChild(s[i]);
+//         if ( child != NULL )
+//         {
+//             current = child;
+//         }
+//         else
+//         {
+//             TicTacNode* tmp = new TicTacNode();
+//             tmp->setContent(s[i]);
+//             current->appendChild(tmp);
+//             current = tmp;
+//         }
+//         if ( i == s.length() - 1 )
+//             current->setWordMarker();
+//     }
+// }
 
-        if ( current->wordMarker() )
-            return true;
-        else
-            return false;
-    }
 
-    return false;
-}
+// bool TicTacTrie::searchWord(string s)
+// {
+//     TicTacNode* current = root;
+
+//     while ( current != NULL )
+//     {
+//         for ( int i = 0; i < s.length(); i++ )
+//         {
+//             TicTacNode* tmp = current->findChild(s[i]);
+//             if ( tmp == NULL )
+//                 return false;
+//             current = tmp;
+//         }
+
+//         if ( current->wordMarker() )
+//             return true;
+//         else
+//             return false;
+//     }
+
+//     return false;
+// }

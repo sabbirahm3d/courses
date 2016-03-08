@@ -22,7 +22,8 @@ public:
     bool Clear();
     // int Size() const;
     void EndGame(string);
-    void Print();
+    // void Print();
+    TicTacNode Print();
 
 
 private:
