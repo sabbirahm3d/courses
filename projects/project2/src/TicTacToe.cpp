@@ -51,6 +51,7 @@ void TicTacToe::ReadGame(string fileName) {
                 }
 
                 Push(state);
+
             }
         }
 
@@ -176,12 +177,13 @@ bool TicTacToe::Push(string value) {
     // cursor->setContent(value[i]);
     // current->appendChild(tmp);
     // current = tmp;
-    for ( int i = 0; i < value.length(); i++ ) {        
-            cursor->setContent(value[i]);
-    }
+
+    // for ( unsigned int i = 0; i < value.length(); i++ ) {        
+    //     cursor->setContent(value[i]);
+    // }
 
 
-    // cursor->m_data = value;
+    cursor->m_data = value;
     cursor->next = NULL;
 
     // If list is empty, value is the only element

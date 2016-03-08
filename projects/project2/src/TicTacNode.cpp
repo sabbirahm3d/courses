@@ -17,8 +17,8 @@
 
 // TicTacTicTacNode::TicTacTicTacNode() {
 
-// 	next = prev = NULL;
-// 	this->data = data;
+//  next = prev = NULL;
+//  this->data = data;
 
 // }
 
@@ -26,7 +26,7 @@
 #include "TicTacNode.h"
 
 
-TicTacNode* TicTacNode::findChild(char c) {
+ TicTacNode* TicTacNode::findChild(string c) {
 
     for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 
@@ -43,9 +43,35 @@ TicTacNode* TicTacNode::findChild(char c) {
 }
 
 
+void TicTacNode::operator= (const TicTacNode& D) { 
+
+    // map<int, char> newBoard;
+
+    for (unsigned int i = 0; i < m_data.length(); i++) {
+
+        m_board.insert(pair<int, char>(i + 1, m_data[i] ));
+
+    }
+
+    // m_board = D.m_board;
+
+}
+
+
 ostream& operator<< (ostream& out, TicTacNode& node){
 
-    out << node.m_data;
+map<int,char>::iterator it = node.m_board.begin();
+
+  for (it=node.m_board.begin(); it!=node.m_board.end(); ++it)
+    out << it->first << " => " << it->second << '\n';
+
+    // for (unsigned int i = 0; i < m_data.length(); i++) {
+
+    //     node.m_board.insert(pair<int, char>(i + 1, m_data[i] ));
+
+    // }    
+
+    // out << node.m_board;
 
     return out;
 

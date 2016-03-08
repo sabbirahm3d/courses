@@ -12,7 +12,7 @@ public:
     TicTacTrie();
     ~TicTacTrie();
     void AddGame(TicTacToe& game);
-    void addWord(TicTacNode* s);
+    // void addWord(TicTacNode* s);
     // bool searchWord(string s);
     // void deleteWord(string s);
 
