@@ -20,16 +20,14 @@ public:
     bool Empty() const;
     bool Push(string value);
     bool Clear();
-    // int Size() const;
+    int Size() const;
     void EndGame(string);
-    // void Print();
-    TicTacNode Print();
+    TicTacNode* Pop();
 
 
 private:
 
     TicTacNode *m_head, *m_tail;
-    // int m_size;
     bool m_isOver;
     int m_results;
 

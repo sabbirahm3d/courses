@@ -12,8 +12,6 @@ TicTacToe::TicTacToe(string fileName) {
 
     m_isOver = false;
     m_results = 0;
-
-    // m_size = 0;
     ReadGame(fileName);
 
 }
@@ -52,9 +50,7 @@ void TicTacToe::ReadGame(string fileName) {
                     getline(gameFile, line);
                 }
 
-                // cout << state << endl;
                 Push(state);
-                // cout << Size() << endl;
             }
         }
 
@@ -66,6 +62,19 @@ void TicTacToe::ReadGame(string fileName) {
         cerr << "Please make sure the file name is valid." << endl;
     }
 
+
+}
+
+
+int TicTacToe::Size() const {
+
+    unsigned int size = 0;
+
+    for ( TicTacNode *current = m_head; current; current = current->next ) {
+        size++;
+    }
+
+    return size++;
 
 }
 
@@ -146,7 +155,7 @@ bool TicTacToe::GetWinner(string state, char player){
     // Diagonal
         || ((state[0] == player) && (state[4] == player) && (state[8] == player))
         || ((state[2] == player) && (state[4] == player) && (state[6] == player))
-    );
+        );
 
 }
 
@@ -163,7 +172,16 @@ bool TicTacToe::Push(string value) {
     // create a cursor pointer to move all the elements
     TicTacNode* cursor = new TicTacNode();
 
-    cursor->m_data = value;
+    // TicTacNode* tmp = new TicTacNode();
+    // cursor->setContent(value[i]);
+    // current->appendChild(tmp);
+    // current = tmp;
+    for ( int i = 0; i < value.length(); i++ ) {        
+            cursor->setContent(value[i]);
+    }
+
+
+    // cursor->m_data = value;
     cursor->next = NULL;
 
     // If list is empty, value is the only element
@@ -230,41 +248,15 @@ bool TicTacToe::Clear() {
 }
 
 
-// void TicTacToe::Print() {
+TicTacNode* TicTacToe::Pop() {
 
-//     if (m_head == NULL) {
-//         cout << "Game empty."<<endl;
-//         return;
-//     }
-
-//     TicTacNode* q = m_head;
-//     cout << "The game is:" << endl;
-
-//     while (q != NULL) {
-//         cout << *q << " <-> ";
-//         q = q->next;
-//     }
-
-//     cout << "NULL" << endl;
-
-// }
-
-TicTacNode TicTacToe::Print() {
-
-    if ( Empty() ) {
-        // return NULL;
-        cout << "blej" << endl;
-    }
-
-    else {
-        TicTacNode* cursor = m_head;
-        TicTacNode temp = *cursor;
-        delete cursor;
-        cursor = NULL;
-        m_head = m_head->next;
-        cout << "Popped " << temp.m_data << " from the list." << endl;
-        return temp;
-    }
+    TicTacNode* cursor = m_head;
+    // TicTacNode temp = *cursor;
+    // delete cursor;
+    // cursor = NULL;
+    m_head = m_head->next;
+        // cout << "Popped " << temp.m_data << " from the list." << endl;
+    return cursor;
 
 
 }

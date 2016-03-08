@@ -16,47 +16,46 @@ TicTacTrie::~TicTacTrie()
 
 void TicTacTrie::AddGame(TicTacToe& game) {
 
-    TicTacNode cursor = game.Print();
-    // TicTacNode* another = game.Print();
+    while ( game.Size() ) {
+        TicTacNode* cursor = game.Pop();
+        addWord(cursor);
+        delete cursor;
+        cursor = NULL;
+    }
 
-    // while ( game.GetIsOver() ) {
-        cout << "ay yo again " << cursor.m_data << endl;
-        // cout << "ay yo " << game.GetResults() << endl;
-        // cout << "ay yo " << game.Empty() << endl;
-    // }
-
-    // delete cursor;
 
 }
 
-// void TicTacTrie::addWord(string s)
-// {
-//     TicTacNode* current = root;
+void TicTacTrie::addWord(TicTacNode* hey) {
 
-//     if ( s.length() == 0 )
-//     {
-//         current->setWordMarker(); // an empty word
-//         return;
-//     }
+    TicTacNode* current = root;
 
-//     for ( int i = 0; i < s.length(); i++ )
-//     {        
-//         TicTacNode* child = current->findChild(s[i]);
-//         if ( child != NULL )
-//         {
-//             current = child;
-//         }
-//         else
-//         {
-//             TicTacNode* tmp = new TicTacNode();
-//             tmp->setContent(s[i]);
-//             current->appendChild(tmp);
-//             current = tmp;
-//         }
-//         if ( i == s.length() - 1 )
-//             current->setWordMarker();
-//     }
-// }
+    string s = hey->m_data;
+
+    if ( s.length() == 0 )
+    {
+        current->setWordMarker(); // an empty word
+        return;
+    }
+
+    for ( int i = 0; i < s.length(); i++ )
+    {        
+        TicTacNode* child = current->findChild(s[i]);
+        if ( child != NULL )
+        {
+            current = child;
+        }
+        else
+        {
+            TicTacNode* tmp = new TicTacNode();
+            tmp->setContent(s[i]);
+            current->appendChild(tmp);
+            current = tmp;
+        }
+        if ( i == s.length() - 1 )
+            current->setWordMarker();
+    }
+}
 
 
 // bool TicTacTrie::searchWord(string s)

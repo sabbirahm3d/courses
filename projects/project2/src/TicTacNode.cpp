@@ -26,7 +26,7 @@
 #include "TicTacNode.h"
 
 
-TicTacNode* TicTacNode::findChild(string c) {
+TicTacNode* TicTacNode::findChild(char c) {
 
     for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 

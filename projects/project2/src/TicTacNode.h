@@ -61,22 +61,22 @@ class TicTacNode {
 public:
 
     TicTacNode() {
-        m_data = "";
+        m_data = ' ';
         m_cursor = false;
         next = prev = NULL;
     }
 
-    // TicTacNode(string node) { setContent(node); setWordMarker(); }
+    // TicTacNode(char node) { setContent(node); setWordMarker(); }
     ~TicTacNode() {}
 
-    string content() { return m_data; }
+    char content() { return m_data; }
     bool wordMarker() { return m_cursor; }
     vector<TicTacNode*> children() { return m_children; }
 
-    void setContent(string c) { m_data = c; }
+    void setContent(char c) { m_data = c; }
     void setWordMarker() { m_cursor = true; }
 
-    TicTacNode* findChild(string c);
+    TicTacNode* findChild(char c);
     void appendChild(TicTacNode* child) { m_children.push_back(child); }
 
     /* ******************** Operator overloaders ******************** */
@@ -89,7 +89,7 @@ public:
 
     friend ostream& operator<<(ostream&, TicTacNode&);
 
-    string m_data;
+    char m_data;
     TicTacNode *next, *prev;
 
 private:
