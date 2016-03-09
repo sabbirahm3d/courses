@@ -54,11 +54,11 @@
 
 // };
 
-using namespace std;
+ using namespace std;
 
-class TicTacNode {
+ class TicTacNode {
 
-public:
+ public:
 
     TicTacNode() {
         m_data = ' ';
@@ -69,11 +69,24 @@ public:
     // TicTacNode(string node) { setContent(node); setWordMarker(); }
     ~TicTacNode() {}
 
-    string content() { return m_data; }
+    string content() { 
+        return m_data;
+    }
+    
     bool wordMarker() { return m_cursor; }
     vector<TicTacNode*> children() { return m_children; }
 
-    void setContent(string c) { m_data = c; }
+    void setContent(string c) {
+
+        for (unsigned int i = 0; i < c.length(); i++) {
+
+            m_board.insert(pair<int, char>(i + 1, c[i] ));
+
+        }
+
+       // m_data = c; 
+    }
+
     void setWordMarker() { m_cursor = true; }
 
     TicTacNode* findChild(string c);
@@ -87,18 +100,18 @@ public:
      * Postconditions: Returns the Country object with the highest
        spending on education. */
 
-    friend ostream& operator<<(ostream&, TicTacNode&);
+     friend ostream& operator<<(ostream&, TicTacNode&);
 
 
-    string m_data;
-    TicTacNode *next, *prev;
+     string m_data;
+     TicTacNode *next, *prev;
+    vector<TicTacNode*> m_children;
 
-private:
+ private:
 
     void operator=(const TicTacNode&);
     map<int, char> m_board;
     bool m_cursor;
-    vector<TicTacNode*> m_children;
 
 };
 

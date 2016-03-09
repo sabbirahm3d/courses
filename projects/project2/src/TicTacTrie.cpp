@@ -1,16 +1,19 @@
 // #include "TicTacToe.h"
 #include "TicTacTrie.h"
 
-TicTacTrie::TicTacTrie()
-{
+
+TicTacTrie::TicTacTrie() {
+
     root = new TicTacNode();
+
 }
 
-TicTacTrie::~TicTacTrie()
-{
-    // Free memory
+
+TicTacTrie::~TicTacTrie() {
+
     delete root;
     root = NULL;
+
 }
 
 
@@ -18,10 +21,28 @@ void TicTacTrie::AddGame(TicTacToe& game) {
 
     while ( game.Size() ) {
         TicTacNode* cursor = game.Pop();
-        cout << *cursor << endl;
         // addWord(cursor);
         delete cursor;
         cursor = NULL;
+    }
+
+    switch( game.GetResults() ) {
+
+        case 1:
+            m_xWins++;
+            break;
+
+        case 2:
+            m_oWins++;
+            break;
+
+        case 3:
+            m_draws++;
+            break;
+
+        default:
+            break;
+
     }
 
 
@@ -29,9 +50,25 @@ void TicTacTrie::AddGame(TicTacToe& game) {
 
 // void TicTacTrie::addWord(TicTacNode* hey) {
 
+//     string word = hey->content();
+
+//     if (word.length()) {
+//         ++m_size;
+//         string subword = word.substr(1, word.size()-1);
+//         if (m_children[word[0]]) {
+//             m_children[word[0]]->addWord(hey->setContent(subword));
+//         } else {
+//             TicTacTrie *tmp = new TicTacTrie();
+//             tmp->addWord(hey->setContent(subword));
+//             m_children[word[0]] = tmp;
+//         }
+//     }
+
+// void TicTacTrie::addWord(TicTacNode* hey) {
+
 //     TicTacNode* current = root;
 
-//     string s = hey->m_data;
+//     // string s = hey->m_data;
 
 //     if ( s.length() == 0 )
 //     {

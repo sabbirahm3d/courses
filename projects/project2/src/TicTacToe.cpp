@@ -183,7 +183,7 @@ bool TicTacToe::Push(string value) {
     // }
 
 
-    cursor->m_data = value;
+    cursor->setContent(value);
     cursor->next = NULL;
 
     // If list is empty, value is the only element

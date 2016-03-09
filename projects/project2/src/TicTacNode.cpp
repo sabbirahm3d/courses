@@ -31,11 +31,13 @@
     for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 
         TicTacNode* tmp = m_children.at(i);
+        string hey = tmp->content();
 
-        if ( tmp->content() == c ) {
-            return tmp;
+        for ( unsigned int j = 0; j < hey.length(); j++ ) {
+            if ( tmp->content() == c ) {
+                return tmp;
+            }
         }
-
     }
 
     return NULL;
@@ -45,25 +47,26 @@
 
 void TicTacNode::operator= (const TicTacNode& D) { 
 
-    // map<int, char> newBoard;
+    // // map<int, char> newBoard;
 
-    for (unsigned int i = 0; i < m_data.length(); i++) {
+    // for (unsigned int i = 0; i < m_data.length(); i++) {
 
-        m_board.insert(pair<int, char>(i + 1, m_data[i] ));
+    //     m_board.insert(pair<int, char>(i + 1, m_data[i] ));
 
-    }
+    // }
 
-    // m_board = D.m_board;
+    m_board = D.m_board;
 
 }
 
 
 ostream& operator<< (ostream& out, TicTacNode& node){
 
-map<int,char>::iterator it = node.m_board.begin();
+    map<int, char>::iterator it = node.m_board.begin();
 
-  for (it=node.m_board.begin(); it!=node.m_board.end(); ++it)
-    out << it->first << " => " << it->second << '\n';
+    for (it = node.m_board.begin(); it != node.m_board.end(); ++it) {
+        out << it->first << " => " << it->second << endl;
+    }
 
     // for (unsigned int i = 0; i < m_data.length(); i++) {
 
