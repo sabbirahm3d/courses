@@ -9,40 +9,30 @@
  */
 
 
-/* ******************** Constructors ******************** */
-
-// /* TicTacNode341()
-//  * Default constructor; creates a TicTacNode341 object and initializes its member
-//    attributes */
-
-// TicTacTicTacNode::TicTacTicTacNode() {
-
-//  next = prev = NULL;
-//  this->data = data;
-
-// }
-
-
 #include "TicTacNode.h"
 
+/* ******************** Constructors ******************** */
 
- TicTacNode* TicTacNode::findChild(string c) {
+//  void TicTacNode::findChild(string c) {
 
-    for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 
-        TicTacNode* tmp = m_children.at(i);
-        string hey = tmp->content();
+//     for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 
-        for ( unsigned int j = 0; j < hey.length(); j++ ) {
-            if ( tmp->content() == c ) {
-                return tmp;
-            }
-        }
-    }
+//         // TicTacNode* tmp = m_children.at(i);
+//         // string hey = tmp->content();
+//         if ( m_children[i] == c) {
+//             cout << c << endl;
+//         }
+//         // for ( unsigned int j = 0; j < hey.length(); j++ ) {
+//         //     if ( tmp->content() == c ) {
+//         //         return tmp;
+//         //     }
+//     }
+//     // }
 
-    return NULL;
+//     // return NULL;
 
-}
+// }
 
 
 void TicTacNode::operator= (const TicTacNode& D) { 

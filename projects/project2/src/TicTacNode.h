@@ -84,12 +84,12 @@
 
         }
 
-       // m_data = c; 
+       m_data = c;
     }
 
     void setWordMarker() { m_cursor = true; }
 
-    TicTacNode* findChild(string c);
+    // void findChild(string c);
     void appendChild(TicTacNode* child) { m_children.push_back(child); }
 
     /* ******************** Operator overloaders ******************** */
@@ -105,7 +105,7 @@
 
      string m_data;
      TicTacNode *next, *prev;
-    vector<TicTacNode*> m_children;
+     vector<TicTacNode*> m_children;
 
  private:
 
