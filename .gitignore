@@ -12,6 +12,7 @@ __pycache__/
 *.h.gch
 *#
 *.xml
+/.idea
 
 # Distribution / packaging
 .Python
