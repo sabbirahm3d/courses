@@ -89,7 +89,7 @@
 
     void setWordMarker() { m_cursor = true; }
 
-    // void findChild(string c);
+    void findChild(char c);
     void appendChild(TicTacNode* child) { m_children.push_back(child); }
 
     /* ******************** Operator overloaders ******************** */

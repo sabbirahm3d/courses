@@ -1,6 +1,6 @@
 // #include "TicTacToe.h"
 #include "TicTacTrie.h"
-
+#include <cstring>
 
 TicTacTrie::TicTacTrie() {
 
@@ -21,9 +21,8 @@ void TicTacTrie::AddGame(TicTacToe& game) {
 
     while ( game.Size() ) {
         TicTacNode* cursor = game.Pop();
-        m_childrens.push_back(cursor->content());
         // cout << *cursor << endl;
-        addWord(*cursor);
+        // addWord(*cursor);
         delete cursor;
         cursor = NULL;
     }
@@ -31,19 +30,19 @@ void TicTacTrie::AddGame(TicTacToe& game) {
     switch( game.GetResults() ) {
 
         case 1:
-            m_xWins++;
-            break;
+        m_xWins++;
+        break;
 
         case 2:
-            m_oWins++;
-            break;
+        m_oWins++;
+        break;
 
         case 3:
-            m_draws++;
-            break;
+        m_draws++;
+        break;
 
         default:
-            break;
+        break;
 
     }
 
@@ -52,24 +51,60 @@ void TicTacTrie::AddGame(TicTacToe& game) {
 
 void TicTacTrie::addWord(TicTacNode& hey) {
 
-    string word = hey.content();
+    string text = hey.content();
+    TicTacNode* temp = root;
 
-    for ( unsigned int i = 0; i < word.length(); i++ ) {
+    // vector<char> word(text, 9);
+    for ( unsigned int i = 0; i < text.length(); i++ ) {
 
-        // m_size++;
-        string subword = word.substr( 1, word.size()-1 );
-        if ( m_childrens.at(word) ) {
-            // m_children[word[0]]->addWord(hey->setContent(subword));
-            cout << word << " " << subword << endl;
-        } 
-        // else {
-        //     TicTacTrie *tmp = new TicTacTrie();
-        //     tmp->addWord(hey->setContent(subword));
-        //     m_children[word[0]] = tmp;
-        // }
+    //     word->push_back(text[i]);
+    //     word->push_back('\0');
+    //     // TicTacNode* temp = root;
+    //     // if (searchWord(&hey, text)) {
+    //     //     cout << text << endl;
+    //     // }
+    //     // m_size++;
+    //     // string subword = text.substr( 1, text.size()-1 );
+    //     // if ( m_childrens.at(word) ) {
+    //         // m_children[word[0]]->addWord(hey->setContent(subword));
+    //     // cout << i << " " << subword << endl;
+    //     // } 
+    //     // else {
+    //     //     TicTacTrie *tmp = new TicTacTrie();
+    //     //     tmp->addWord(hey->setContent(subword));
+    //     //     m_children[word[0]] = tmp;
+    //     // }
     }
+    // delete word;
+    // word = NULL;
 
 }
+
+
+// bool TicTacTrie::searchWord(TicTacNode* trie_tree, const char *text) {
+ 
+//     // Functions very similar to insert() function
+//     vector<char> word(text, text + strlen(text));
+//     TicTacNode* temp = trie_tree;
+
+//     while (word.size() != 0) {
+//         if (temp->m_children[word[0] - 'a'] != NULL) {
+//             temp = temp->m_children[word[0] - 'a'];
+//             word.erase( word.begin() );
+//         } else {
+//             break;
+//         }
+//     }
+
+//     if (word.size() == 0) {
+//                 // Word found
+//         return true;
+//     } else {
+//                 // Word not found
+//         return false;
+//     }
+// }
+
 
 // void TicTacTrie::addWord(TicTacNode* hey) {
 

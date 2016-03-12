@@ -37,11 +37,17 @@ using namespace std;
  * Driver function. Calls ReadFromFiles() after passing in the paths to the
    input files. */
 
-int main (int argc, char* fileName[] ) {
+//int main (int argc, char* fileName[] ) {
 
-    cout << fileName[1] << endl;
+int main() {
 
-    ifstream listOfGames(fileName[1], ios_base::in);
+//    cout << fileName[1] << endl;
+
+    string yo = "testfilenames.txt";
+
+//    ifstream listOfGames(fileName[1], ios_base::in);
+
+    ifstream listOfGames(yo.c_str(), ios_base::in);
 
     if (listOfGames.is_open()) {
 

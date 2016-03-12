@@ -15,6 +15,7 @@ public:
     void addWord(TicTacNode& s);
     // bool searchWord(string s);
     // void deleteWord(string s);
+    bool searchWord(TicTacNode*, const char*);
 
 private:
 
@@ -23,7 +24,8 @@ private:
     int m_oWins;
     int m_draws;
     int m_size;
-    vector<string> m_childrens;
+    vector<TicTacNode>* m_childrens;
+    vector<int> occurrences;
 
 };
 

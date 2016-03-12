@@ -13,29 +13,33 @@
 
 /* ******************** Constructors ******************** */
 
-//  void TicTacNode::findChild(string c) {
+ void TicTacNode::findChild(char c) {
 
 
-//     for ( unsigned int i = 0; i < m_children.size(); i++ ) {
+    // cout << "before loop " << c << endl;
 
-//         // TicTacNode* tmp = m_children.at(i);
-//         // string hey = tmp->content();
-//         if ( m_children[i] == c) {
-//             cout << c << endl;
-//         }
-//         // for ( unsigned int j = 0; j < hey.length(); j++ ) {
-//         //     if ( tmp->content() == c ) {
-//         //         return tmp;
-//         //     }
-//     }
-//     // }
+    for ( unsigned int i = 0; i < m_children.size(); i++ ) {
 
-//     // return NULL;
+        // TicTacNode* tmp = m_children.at(i);
+        // string hey = tmp->content();
+        for (unsigned int j = 0; j < (m_children[i])->content().length(); j++){
+            cout << "ehhh " << m_children[i]->content()[j] << endl;
+            if ( m_children[i]->content()[j] == c) {
+                cout << c << endl;
+            }
+        }        // for ( unsigned int j = 0; j < hey.length(); j++ ) {
+        //     if ( tmp->content() == c ) {
+        //         return tmp;
+        //     }
+        }
+    // }
 
-// }
+    // return NULL;
+
+    }
 
 
-void TicTacNode::operator= (const TicTacNode& D) { 
+    void TicTacNode::operator= (const TicTacNode& D) { 
 
     // // map<int, char> newBoard;
 
@@ -45,18 +49,18 @@ void TicTacNode::operator= (const TicTacNode& D) {
 
     // }
 
-    m_board = D.m_board;
+        m_board = D.m_board;
 
-}
-
-
-ostream& operator<< (ostream& out, TicTacNode& node){
-
-    map<int, char>::iterator it = node.m_board.begin();
-
-    for (it = node.m_board.begin(); it != node.m_board.end(); ++it) {
-        out << it->first << " => " << it->second << endl;
     }
+
+
+    ostream& operator<< (ostream& out, TicTacNode& node){
+
+        map<int, char>::iterator it = node.m_board.begin();
+
+        for (it = node.m_board.begin(); it != node.m_board.end(); ++it) {
+            out << it->first << " => " << it->second << endl;
+        }
 
     // for (unsigned int i = 0; i < m_data.length(); i++) {
 
@@ -66,6 +70,6 @@ ostream& operator<< (ostream& out, TicTacNode& node){
 
     // out << node.m_board;
 
-    return out;
+        return out;
 
-}
+    }
