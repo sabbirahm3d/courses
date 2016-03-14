@@ -1,7 +1,7 @@
 /* File:    Driver.cpp
- * Project: CMSC 341: Project 0, Spring 2016
+ * Project: CMSC 341: Project 2, Spring 2016
  * Author:  Sabbir Ahmed
- * Date:    2/13/16
+ * Date:    1/3/37
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
 
@@ -25,16 +25,7 @@
 
 using namespace std;
 
-/* ******************** Declaration of functions ******************** */
-
-
-
-
-/* ******************** Implementation of functions ******************** */
-
-
-/* main()
- * Driver function. Calls ReadFromFiles() after passing in the paths to the
+/* Driver function. Calls ReadFromFiles() after passing in the paths to the
    input files. */
 
 //int main (int argc, char* fileName[] ) {
@@ -43,40 +34,38 @@ int main() {
 
 //    cout << fileName[1] << endl;
 
-    string yo = "testfilenames.txt";
+	string yo = "testfilenames.txt";
 
 //    ifstream listOfGames(fileName[1], ios_base::in);
 
-    ifstream listOfGames(yo.c_str(), ios_base::in);
+	ifstream listOfGames(yo . c_str(), ios_base::in);
 
-    if (listOfGames.is_open()) {
+	if (listOfGames . is_open()) {
 
-        string dirLine;
-        TicTacTrie* trie = new TicTacTrie();
+		string dirLine;
+		TicTacTrie *trie = new TicTacTrie();
 
-        // Read through the entire file
-        while ( !listOfGames.eof() ) {
+		// Read through the entire file
+		while (!listOfGames . eof()) {
 
-            getline(listOfGames, dirLine);
-            TicTacToe* game = new TicTacToe(dirLine);
-            trie->AddGame(*game);
-            // cout << "yoyoyo " << game->GetResults() << endl;
-            // yee->addWord(dirLine);
-            // cout << files->size() << endl;
-            delete game;
-            game = NULL;
+			getline(listOfGames, dirLine);
+			TicTacToe *game = new TicTacToe(dirLine);
+			trie -> AddGame(* game);
+			// cout << "yoyoyo " << game->GetResults() << endl;
+			// yee->addWord(dirLine);
+			// cout << files->size() << endl;
+			delete game;
+			game = NULL;
 
-        }
+		}
 
-        delete trie;
-        trie = NULL;
+		delete trie;
+		trie = NULL;
 
-    }
+	}
 
-    else {
-        cerr << "Please make sure the file name is valid." << endl;
-    }
-
-    return 0;
-
+	else {
+		cerr << "Please make sure the file name is valid." << endl;
+	}
+	return 0;
 }
