@@ -30,9 +30,9 @@ void TicTacToe::ReadGame(string fileName) {
 
     if ( gameFile.is_open() ) {
 
-        cout << "========================" << endl;
+        cout << endl << "========================" << endl;
         cout << "Reading: " << fileName << endl;
-        cout << "========================" << endl << endl;
+        cout << "========================" << endl;
 
         string line, dummy;
         string state = "";
@@ -101,27 +101,57 @@ void TicTacToe::EndGame(string finalBoard) {
 
     }
 
-    if (m_isOver) {
+    if ( m_isOver ) {
 
         if ( GetWinner(finalBoard, 'X') ) {
             m_results = 1;
-            cout << "X won" << endl;
-            cout << finalBoard << endl;
+            cout << "Player X won!" << endl;
+            cout << "Game board:" << endl;
+
+            for ( unsigned int i = 1; i < finalBoard.size() + 1; i++ ) {
+
+                cout << finalBoard[i-1];
+
+                if ( !(i % 3) ) {
+                    cout << endl;
+                }
+
+            }
         }
 
         else if ( GetWinner(finalBoard, 'O') ) {
             m_results = 2;
-            cout << "O won" << endl;
-            cout << finalBoard << endl;
+            cout << "Player O won!" << endl;
+            cout << "Game board:" << endl;
+
+            for ( unsigned int i = 1; i < finalBoard.size() + 1; i++ ) {
+
+                cout << finalBoard[i-1];
+
+                if ( !(i % 3) ) {
+                    cout << endl;
+                }
+
+            }
         }
 
         else {
             m_results = 3;
-            cout << "It's a draw" << endl;
+            cout << "The game was a draw!" << endl;
+            cout << "Game board:" << endl;
+
+            for ( unsigned int i = 1; i < finalBoard.size() + 1; i++ ) {
+
+                cout << finalBoard[i-1];
+
+                if ( !(i % 3) ) {
+                    cout << endl;
+                }
+
+            }
+
         }
     }
-
-    // cout << m_results << endl;
 
 }
 
@@ -133,30 +163,24 @@ bool TicTacToe::GetIsOver() {
 }
 
 
-// int TicTacToe::Size() const {
-
-//     return m_size;
-
-// }
-
-
 bool TicTacToe::GetWinner(string state, char player){
 
     return (
+
     // Horizontal
-        ((state[0] == player) && (state[1] == player) && (state[2] == player))
-        || ((state[3] == player) && (state[4] == player) && (state[5] == player))
-        || ((state[6] == player) && (state[7] == player) && (state[8] == player))
+    ((state[0] == player) && (state[1] == player) && (state[2] == player))
+    || ((state[3] == player) && (state[4] == player) && (state[5] == player))
+    || ((state[6] == player) && (state[7] == player) && (state[8] == player))
 
     // Vertical
-        || ((state[0] == player) && (state[3] == player) && (state[6] == player))
-        || ((state[1] == player) && (state[4] == player) && (state[7] == player))
-        || ((state[2] == player) && (state[5] == player) && (state[8] == player))
+    || ((state[0] == player) && (state[3] == player) && (state[6] == player))
+    || ((state[1] == player) && (state[4] == player) && (state[7] == player))
+    || ((state[2] == player) && (state[5] == player) && (state[8] == player))
 
     // Diagonal
-        || ((state[0] == player) && (state[4] == player) && (state[8] == player))
-        || ((state[2] == player) && (state[4] == player) && (state[6] == player))
-        );
+    || ((state[0] == player) && (state[4] == player) && (state[8] == player))
+    || ((state[2] == player) && (state[4] == player) && (state[6] == player))
+    );
 
 }
 
@@ -173,16 +197,6 @@ bool TicTacToe::Push(string value) {
     // create a cursor pointer to move all the elements
     TicTacNode* cursor = new TicTacNode();
 
-    // TicTacNode* tmp = new TicTacNode();
-    // cursor->setContent(value[i]);
-    // current->appendChild(tmp);
-    // current = tmp;
-
-    // for ( unsigned int i = 0; i < value.length(); i++ ) {        
-    //     cursor->setContent(value[i]);
-    // }
-
-
     cursor->setContent(value);
     cursor->next = NULL;
 
@@ -191,7 +205,6 @@ bool TicTacToe::Push(string value) {
         cursor->prev = NULL;
         m_head = cursor;
         m_tail = cursor;
-        // m_size++;
         return true;
     }
 
@@ -199,7 +212,6 @@ bool TicTacToe::Push(string value) {
     else if ( !Empty() ) {
         m_tail->next = cursor;
         m_tail = cursor;
-        // m_size++;
         return true;
     }
 

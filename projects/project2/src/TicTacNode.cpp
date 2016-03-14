@@ -13,63 +13,45 @@
 
 /* ******************** Constructors ******************** */
 
- void TicTacNode::findChild(char c) {
 
-
-    // cout << "before loop " << c << endl;
-
-    for ( unsigned int i = 0; i < m_children.size(); i++ ) {
-
-        // TicTacNode* tmp = m_children.at(i);
-        // string hey = tmp->content();
-        for (unsigned int j = 0; j < (m_children[i])->content().length(); j++){
-            cout << "ehhh " << m_children[i]->content()[j] << endl;
-            if ( m_children[i]->content()[j] == c) {
-                cout << c << endl;
-            }
-        }        // for ( unsigned int j = 0; j < hey.length(); j++ ) {
-        //     if ( tmp->content() == c ) {
-        //         return tmp;
-        //     }
+TicTacNode* TicTacNode::findChild(char c)
+{
+    for (unsigned int i = 0; i < m_children.size(); i++ )
+    {
+        TicTacNode* tmp = m_children.at(i);
+        if ( tmp->childContent() == c )
+        {
+            return tmp;
         }
-    // }
-
-    // return NULL;
-
     }
 
+    return NULL;
+}
 
-    void TicTacNode::operator= (const TicTacNode& D) { 
 
-    // // map<int, char> newBoard;
+void TicTacNode::operator= (const TicTacNode& D) { 
 
-    // for (unsigned int i = 0; i < m_data.length(); i++) {
+// // map<int, char> newBoard;
 
-    //     m_board.insert(pair<int, char>(i + 1, m_data[i] ));
+// for (unsigned int i = 0; i < m_data.length(); i++) {
 
-    // }
+//     m_board.insert(pair<int, char>(i + 1, m_data[i] ));
 
-        m_board = D.m_board;
+// }
 
+    m_board = D.m_board;
+
+}
+
+
+ostream& operator<< (ostream& out, TicTacNode& node){
+
+    map<int, char>::iterator it = node.m_board.begin();
+
+    for (it = node.m_board.begin(); it != node.m_board.end(); ++it) {
+        out << it->first << " -> " << it->second << endl;
     }
 
+    return out;
 
-    ostream& operator<< (ostream& out, TicTacNode& node){
-
-        map<int, char>::iterator it = node.m_board.begin();
-
-        for (it = node.m_board.begin(); it != node.m_board.end(); ++it) {
-            out << it->first << " => " << it->second << endl;
-        }
-
-    // for (unsigned int i = 0; i < m_data.length(); i++) {
-
-    //     node.m_board.insert(pair<int, char>(i + 1, m_data[i] ));
-
-    // }    
-
-    // out << node.m_board;
-
-        return out;
-
-    }
+}

@@ -28,11 +28,9 @@ class TicTacTrie {
 
 	void AddGame(TicTacToe &game);
 
-	void addWord(TicTacNode &s);
+	void addWord(string s);
 
-	// bool searchWord(string s);
-	// void deleteWord(string s);
-	bool searchWord(TicTacNode *, const char *);
+	bool searchWord(string s);
 
 
 	// !! REQUIRED FUNCTIONS !!
@@ -49,24 +47,16 @@ class TicTacTrie {
 
 	void addGame(TicTacToe game);
 
-	int getPlayerXWins() const;
-	int getPlayerOWins() const;
-	int getNumberOfDraws() const;
-	int getNumberOfNodesInTree() const;
-
-	void setPlayerXWins(int wins);
-	void setPlayerOWins(int wins);
-	void setNumberOfDraws(int draws);
-	void setNumberOfNodesInTree(int sizeOfTree);
-
+	int GetXWins() const;
+	int GetOWins() const;
+	int GetDraws() const;
+	int Size() const;
 
 	// !! END REQUIRED FUNCTIONS !!
 
 	private:
 
 	TicTacNode *root;
-	vector< TicTacNode > *m_childrens;
-	vector< int > occurrences;
 
 	// !! REQUIRED VARIABLES !!
 

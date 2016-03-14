@@ -25,20 +25,92 @@ class TicTacNode {
 
 	public:
 
+// 	TicTacNode() {
+// 		m_data = ' ';
+// 		m_cursor = false;
+// 		next = prev = NULL;
+// 	}
+
+// 	// TicTacNode(string node) { setContent(node); setWordMarker(); }
+// 	~TicTacNode() { }
+
+// 	string content() {
+// 		return m_data;
+// 	}
+
+// 	bool wordMarker() { return m_cursor; }
+
+// 	vector< TicTacNode * > children() { return m_children; }
+
+// 	void setContent(string c) {
+
+// 		for (unsigned int i = 0; i < c . length(); i++) {
+
+// 			m_board . insert(pair< int, char >(i + 1, c[i]));
+
+// 		}
+
+// 		m_data = c;
+// 	}
+
+// 	void setWordMarker() { m_cursor = true; }
+
+// 	void findChild(char c);
+
+// 	void appendChild(TicTacNode *child) { m_children . push_back(child); }
+
+// 	/* ******************** Operator overloaders ******************** */
+
+
+// 	 operator<< - Overloaded output operator.
+// 	 * Preconditions: None.
+// 	 * Postconditions: Returns the Country object with the highest
+// 		 spending on education. 
+
+// 	// !! Required Function !!
+// 	// A friend class in C++ can access the "private" and "protected"
+// 	// members of the class in which it is declared as a friend.
+// 	friend ostream &operator<<(ostream &, TicTacNode &);
+
+
+
+// 	string m_data;
+// 	TicTacNode *next, *prev;
+
+// 	// !! Required Variable !!
+// 	// Must be a vector containing pointers to all of the chilren of this node
+// 	vector< TicTacNode * > m_children;
+
+
+
+// 	private:
+
+// 	void operator=(const TicTacNode &);
+
+// 	// !! Required Variable !!
+// 	// A map containing the game board
+// 	map< int, char > m_board;
+
+// 	bool m_cursor;
+
+// };
+
 	TicTacNode() {
 		m_data = ' ';
-		m_cursor = false;
 		next = prev = NULL;
 	}
 
-	// TicTacNode(string node) { setContent(node); setWordMarker(); }
 	~TicTacNode() { }
 
 	string content() {
 		return m_data;
 	}
 
-	bool wordMarker() { return m_cursor; }
+	char childContent() {
+		return m_content;
+	}
+
+	// bool wordMarker() { return m_cursor; }
 
 	vector< TicTacNode * > children() { return m_children; }
 
@@ -53,9 +125,9 @@ class TicTacNode {
 		m_data = c;
 	}
 
-	void setWordMarker() { m_cursor = true; }
+	void setChildContent(char c) { m_content = c; }
 
-	void findChild(char c);
+	TicTacNode* findChild(char c);
 
 	void appendChild(TicTacNode *child) { m_children . push_back(child); }
 
@@ -86,12 +158,11 @@ class TicTacNode {
 	private:
 
 	void operator=(const TicTacNode &);
+	char m_content;
 
 	// !! Required Variable !!
 	// A map containing the game board
 	map< int, char > m_board;
-
-	bool m_cursor;
 
 };
 

@@ -45,7 +45,7 @@ class TicTacToe {
 
 	void EndGame(string);
 
-	TicTacNode *Pop();
+	TicTacNode* Pop();
 
 
 	private:

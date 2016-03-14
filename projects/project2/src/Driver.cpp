@@ -40,24 +40,28 @@ int main() {
 
 	ifstream listOfGames(yo . c_str(), ios_base::in);
 
-	if (listOfGames . is_open()) {
+	if (listOfGames.is_open()) {
 
 		string dirLine;
 		TicTacTrie *trie = new TicTacTrie();
 
 		// Read through the entire file
-		while (!listOfGames . eof()) {
+		while (!listOfGames.eof()) {
 
 			getline(listOfGames, dirLine);
-			TicTacToe *game = new TicTacToe(dirLine);
-			trie -> AddGame(* game);
-			// cout << "yoyoyo " << game->GetResults() << endl;
-			// yee->addWord(dirLine);
-			// cout << files->size() << endl;
+			TicTacToe* game = new TicTacToe(dirLine);
+			trie -> AddGame(*game);
 			delete game;
 			game = NULL;
 
 		}
+
+		cout << endl << "Final TicTacTrie statistics:" << endl;
+		cout << "============================" << endl;
+		cout << "Player X wins: " << trie->GetXWins() << endl;
+		cout << "Player O wins: " << trie->GetOWins() << endl;
+		cout << "Draws: " << trie->GetDraws() << endl;
+		cout << "Trie tree size: " << trie->Size() << endl;
 
 		delete trie;
 		trie = NULL;
