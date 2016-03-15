@@ -6,10 +6,7 @@
  * E-mail:  sabbir1@umbc.edu
  *
  * Description:
- * - This class holds the trie data structure using TicTacNode objects
- * - This class contains the trie data structure, which will hold all paths for
- *   the TicTacToe games
- * - Project Requirement: Each member variable must have a getter
+ * The header file for the TicTacTrie class
  */
 
 #ifndef TICTACTRIE_H
@@ -23,13 +20,29 @@ class TicTacTrie {
 
 public:
 
+
+    /* ******************** Constructors ******************** */
+
+
+    /* TicTacTrie() - Default constructor
+     * Preconditions: None
+     * Postconditions: Initializes its member variables and root */
+
     TicTacTrie();
+
+
+    /* ******************** Destructors ******************** */
+
+
+    /* ~TicTacTrie() - Default destructor
+     * Preconditions: None
+     * Postconditions: Deletes the node */
 
     ~TicTacTrie();
 
-    void AddGame(TicTacToe&);
 
-    void AddTicTacNode(string);
+    /* ******************** Accessors/ getters ******************** */
+
 
     int GetXWins() const;
 
@@ -40,9 +53,23 @@ public:
     int Size() const;
 
 
+    /* ******************* Helper functions ******************* */
+
+
+    void AddGame(TicTacToe&);
+
+
+    /* ******************* Helper tree functions ******************* */
+
+
+    void AddTicTacNode(string);
+
+
 private:
 
-    TicTacNode *root;
+    TicTacNode* root;
+
+    vector<TicTacNode*> m_leaves;
 
     int m_xWins; // The number of games Player X has won
 

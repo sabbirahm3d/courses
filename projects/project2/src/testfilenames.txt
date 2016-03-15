@@ -1,3 +1,6 @@
 testgame1.txt
 testgame2.txt
+testgame2.txt
+testgame2.txt
+testgame2.txt
 testgame3.txt

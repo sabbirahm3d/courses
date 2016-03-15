@@ -1,13 +1,35 @@
-#include <fstream>
+/* File:    TicTacToe.cpp
+ * Project: CMSC 341: Project 2, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    3/15/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+ *
+ * Description:
+ * This class holds single tic tac toe game in linked list format
+ * This class will essentially be a linked list of TicTacNode objects
+ * containing the information about a game that was read in
+ */
+
 
 #include "TicTacToe.h"
 
+#include <fstream>
 #include <iostream>
 using namespace std;
 
 
+/* ******************** Constructors ******************** */
+
+/* TicTacNode()
+ * Default constructor - does nothing */
+
 TicTacToe::TicTacToe() { /* Empty constructor */ }
 
+
+/* TicTacNode()
+ * Overloaded constructor - Initializes its member variables, and reads through
+   the game file */
 
 TicTacToe::TicTacToe(string fileName) {
 
@@ -18,8 +40,21 @@ TicTacToe::TicTacToe(string fileName) {
 }
 
 
+/* ******************** Destructors ******************** */
+
+/* TicTacNode()
+ * Default destructor - clears the list */
+
 TicTacToe::~TicTacToe() { Clear(); }
 
+
+/* ******************** Helper functions ******************** */
+
+
+/* ReadGame()
+ * Reads through the game, and assigns the data into 
+   TicTacNode objects which is then pushed into the list. Also calls
+   other functions to determine the winner */
 
 void TicTacToe::ReadGame(string fileName) {
 
@@ -63,12 +98,8 @@ void TicTacToe::ReadGame(string fileName) {
 }
 
 
-int TicTacToe::GetResults() {
-
-    return m_results;
-
-}
-
+/* EndGame()
+ * Displays if the game is over and who the winner is */
 
 void TicTacToe::EndGame(string finalBoard) {
 
@@ -80,22 +111,26 @@ void TicTacToe::EndGame(string finalBoard) {
         }
 
         else {
-            m_isOver = true;
+            m_isOver = true; // if game is over
         }
 
     }
 
+    // once game is over, determine the winner
     if ( m_isOver ) {
 
+        // if X wins
         if ( GetWinner(finalBoard, 'X') ) {
             m_results = 1;
             cout << "Player X won!" << endl;
             cout << "Game board:" << endl;
 
+            // print out the final board of the game
             for ( unsigned int i = 1; i < finalBoard.size() + 1; i++ ) {
 
                 cout << finalBoard[i-1];
 
+                // insert a newline after every rows
                 if ( !(i % 3) ) {
                     cout << endl;
                 }
@@ -139,29 +174,43 @@ void TicTacToe::EndGame(string finalBoard) {
 
 }
 
+/* ******************** Accessors/ getters ******************** */
 
-bool TicTacToe::GetIsOver() {
 
-    return m_isOver;
+/* GetResults()
+ * Returns the final result of the game, where:
+   0 - Game has not ended
+   1 - Player X won
+   2 - Player O won
+   3 - Game was a draw */
 
-}
+int TicTacToe::GetResults() { return m_results; }
 
+
+/* GetIsOver()
+ * Returns true if the game is over */
+
+bool TicTacToe::GetIsOver() { return m_isOver; }
+
+
+/* GetWinner()
+ * Determines the winner of the game */
 
 bool TicTacToe::GetWinner(string state, char player){
 
     return (
 
-    // Horizontal
+    // Horizontal match
     ((state[0] == player) && (state[1] == player) && (state[2] == player))
     || ((state[3] == player) && (state[4] == player) && (state[5] == player))
     || ((state[6] == player) && (state[7] == player) && (state[8] == player))
 
-    // Vertical
+    // Vertical match
     || ((state[0] == player) && (state[3] == player) && (state[6] == player))
     || ((state[1] == player) && (state[4] == player) && (state[7] == player))
     || ((state[2] == player) && (state[5] == player) && (state[8] == player))
 
-    // Diagonal
+    // Diagonal match
     || ((state[0] == player) && (state[4] == player) && (state[8] == player))
     || ((state[2] == player) && (state[4] == player) && (state[6] == player))
     );
@@ -195,7 +244,7 @@ bool TicTacToe::Empty() const { return (m_head == NULL && m_tail == NULL); }
 
 
 /* Push()
- * Pushes data into the list, and returns true if success */
+ * Pushes data into the list */
 
 void TicTacToe::Push(string value) {
 

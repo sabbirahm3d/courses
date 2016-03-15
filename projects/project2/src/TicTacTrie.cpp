@@ -1,5 +1,17 @@
+/* File:    TicTacTrie.h
+ * Project: CMSC 341: Project 2, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    3/14/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+ *
+ * Description:
+ * This class holds the trie data structure using TicTacNode objects
+ * This class contains the trie data structure, which will hold all paths for
+ * the TicTacToe games
+ */
+
 #include "TicTacTrie.h"
-#include <cstring>
 
 TicTacTrie::TicTacTrie() {
 
@@ -12,6 +24,11 @@ TicTacTrie::~TicTacTrie() {
 
     delete root;
     root = NULL;
+
+    for ( unsigned int i = 0; i < m_leaves.size(); i++ ) {
+        delete m_leaves[i];
+        m_leaves[i] = NULL;
+    }
 
 }
 
@@ -66,7 +83,8 @@ void TicTacTrie::AddTicTacNode(string s) {
         return;
     }
 
-    for ( unsigned int i = 0; i < s.length(); i++ ) {        
+    for ( unsigned int i = 0; i < s.length(); i++ ) {   
+
         TicTacNode* child = current->FindChild(s[i]);
         if ( child != NULL ) {
             current = child;
@@ -78,6 +96,7 @@ void TicTacTrie::AddTicTacNode(string s) {
             tmp->SetChildContent(s[i]);
             current->AddChild(tmp);
             current = tmp;
+            m_leaves.push_back(current);
             newChild = true;
         }
 
