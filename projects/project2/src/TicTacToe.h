@@ -6,20 +6,20 @@
  * E-mail:  sabbir1@umbc.edu
  *
  * Description:
- * - This class holds single tic tac toe game in linked list format
- * - This class will essentially be a linked list of TicTacNode objects
- *   containing the information about a game that was read in
+ * This class holds single tic tac toe game in linked list format
+ * This class will essentially be a linked list of TicTacNode objects
+ * containing the information about a game that was read in.
  */
+
 
 #ifndef TICTACTOE_H
 #define TICTACTOE_H
 
-#include <string>
 #include "TicTacNode.h"
 
 class TicTacToe {
 
-	public:
+public:
 
 	TicTacToe();
 
@@ -37,7 +37,7 @@ class TicTacToe {
 
 	bool Empty() const;
 
-	bool Push(string value);
+	void Push(string value);
 
 	bool Clear();
 
@@ -48,14 +48,10 @@ class TicTacToe {
 	TicTacNode* Pop();
 
 
-	private:
+private:
 
 	TicTacNode *m_head, *m_tail;
-
-	// !! REQUIRED VARIABLES !!
-
-	bool m_isOver; // defines whether or not hte game in the file reached an end
-
+	bool m_isOver;
 
 	// Defines the outcome of a game
 	// 0 - Game has not ended
@@ -63,8 +59,6 @@ class TicTacToe {
 	// 2 - Player O won
 	// 3 - Game was a draw
 	int m_results;
-
-	// !! END REQUIRED VARIABLES !!
 
 };
 

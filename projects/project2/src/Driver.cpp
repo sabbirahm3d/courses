@@ -1,7 +1,7 @@
 /* File:    Driver.cpp
  * Project: CMSC 341: Project 2, Spring 2016
  * Author:  Sabbir Ahmed
- * Date:    1/3/37
+ * Date:    3/14/16
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
 
@@ -14,62 +14,68 @@
  */
 
 #include <cstdlib>
-#include <iostream>
-#include <string>
 #include <fstream>
-#include <vector>
 
 
 #include "TicTacToe.h"
 #include "TicTacTrie.h"
 
-using namespace std;
+ using namespace std;
 
 /* Driver function. Calls ReadFromFiles() after passing in the paths to the
    input files. */
 
-//int main (int argc, char* fileName[] ) {
+ int main (int argc, char* fileName[] ) {
 
-int main() {
+    if ( argc == 2 ) {
 
-//    cout << fileName[1] << endl;
+        ifstream listOfGames(fileName[1], ios_base::in);
 
-	string yo = "testfilenames.txt";
+        if (listOfGames.is_open()) {
 
-//    ifstream listOfGames(fileName[1], ios_base::in);
+            string dirLine;
+            TicTacTrie *trie = new TicTacTrie();
 
-	ifstream listOfGames(yo . c_str(), ios_base::in);
+            // Read through the entire file
+            while (!listOfGames.eof()) {
 
-	if (listOfGames.is_open()) {
+                getline(listOfGames, dirLine);
+                TicTacToe* game = new TicTacToe(dirLine);
+                trie -> AddGame(*game);
+                delete game;
+                game = NULL;
 
-		string dirLine;
-		TicTacTrie *trie = new TicTacTrie();
+            }
 
-		// Read through the entire file
-		while (!listOfGames.eof()) {
+            cout << endl << "Final TicTacTrie statistics:" << endl;
+            cout << "============================" << endl;
+            cout << "Player X wins: " << trie->GetXWins() << endl;
+            cout << "Player O wins: " << trie->GetOWins() << endl;
+            cout << "Draws: " << trie->GetDraws() << endl;
+            cout << "Trie tree size: " << trie->Size() << endl;
 
-			getline(listOfGames, dirLine);
-			TicTacToe* game = new TicTacToe(dirLine);
-			trie -> AddGame(*game);
-			delete game;
-			game = NULL;
+            delete trie;
+            trie = NULL;
 
-		}
+        }
 
-		cout << endl << "Final TicTacTrie statistics:" << endl;
-		cout << "============================" << endl;
-		cout << "Player X wins: " << trie->GetXWins() << endl;
-		cout << "Player O wins: " << trie->GetOWins() << endl;
-		cout << "Draws: " << trie->GetDraws() << endl;
-		cout << "Trie tree size: " << trie->Size() << endl;
+        else {
+            cerr << "\'" << fileName[1] << "\' does not exist." << endl;
+        }
 
-		delete trie;
-		trie = NULL;
+    }
 
-	}
+    else if (argc > 2) {
+        cerr << 
+        "Please include ONLY the input file path as the command line argument."
+        << endl;
+    }
 
-	else {
-		cerr << "Please make sure the file name is valid." << endl;
-	}
-	return 0;
+    else {
+        cerr <<
+        "Please include the name of the file as the command line argument."
+        << endl;
+    }
+
+    return 0;
 }

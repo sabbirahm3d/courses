@@ -1,7 +1,7 @@
 /* File:    TicTacTrie.h
  * Project: CMSC 341: Project 2, Spring 2016
  * Author:  Sabbir Ahmed
- * Date:    1/3/37
+ * Date:    3/14/16
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
@@ -18,57 +18,40 @@
 #include "TicTacNode.h"
 #include "TicTacToe.h"
 
+
 class TicTacTrie {
 
-	public:
+public:
 
-	TicTacTrie();
+    TicTacTrie();
 
-	~TicTacTrie();
+    ~TicTacTrie();
 
-	void AddGame(TicTacToe &game);
+    void AddGame(TicTacToe&);
 
-	void addWord(string s);
+    void AddTicTacNode(string);
 
-	bool searchWord(string s);
+    int GetXWins() const;
+
+    int GetOWins() const;
+
+    int GetDraws() const;
+
+    int Size() const;
 
 
-	// !! REQUIRED FUNCTIONS !!
+private:
 
-	/* MOST IMPORTANT & REQUIRED FUNCTION OF TicTacTrie class
-	 * - Iterates through the TicTacToe game that is passed into it
-	 *
-	 * TODO: If it finds a node that isn't in the trie,
-	 * TODO: -> then it will add it to the appropriate spot
-	 *
-	 * TODO: If it finds moves that are already in the trie
-	 * TODO: -> it will follow through and add any new moves
-	 */
+    TicTacNode *root;
 
-	void addGame(TicTacToe game);
+    int m_xWins; // The number of games Player X has won
 
-	int GetXWins() const;
-	int GetOWins() const;
-	int GetDraws() const;
-	int Size() const;
+    int m_oWins; // The number of games Player O has won
 
-	// !! END REQUIRED FUNCTIONS !!
+    int m_draws; // The number of games resulting in a draw
 
-	private:
+    int m_size;  // The current number of nodes in the tree
 
-	TicTacNode *root;
-
-	// !! REQUIRED VARIABLES !!
-
-	int m_xWins; // The number of games Player X has won
-
-	int m_oWins; // The number of games Player O has won
-
-	int m_draws; // The number of games resulting in a draw
-
-	int m_size;  // The current number of nodes in the tree
-
-	// !! END REQUIRED VARIABLES !!
 };
 
 #endif

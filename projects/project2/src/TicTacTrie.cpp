@@ -3,75 +3,80 @@
 
 TicTacTrie::TicTacTrie() {
 
-	root = new TicTacNode();
-	m_size = 0;
+    root = new TicTacNode();
 
 }
 
 
 TicTacTrie::~TicTacTrie() {
 
-	delete root;
-	root = NULL;
+    delete root;
+    root = NULL;
 
 }
+
+
+int TicTacTrie::GetXWins() const { return m_xWins; }
+
+int TicTacTrie::GetOWins() const { return m_oWins; }
+
+int TicTacTrie::GetDraws() const { return m_draws; }
+
+int TicTacTrie::Size() const { return m_size; }
 
 
 void TicTacTrie::AddGame(TicTacToe &game) {
 
-	while (game . Size()) {
-		TicTacNode *cursor = game.Pop();
-		addWord(cursor->content());
-		delete cursor;
-		cursor = NULL;
-	}
+    while (game.Size()) {
+        TicTacNode *cursor = game.Pop();
+        AddTicTacNode(cursor->GetData());
+        delete cursor;
+        cursor = NULL;
+    }
 
-	switch (game.GetResults()) {
+    switch (game.GetResults()) {
 
-		case 1:
-			m_xWins++;
-			break;
+        case 1:
+            m_xWins++;
+            break;
 
-		case 2:
-			m_oWins++;
-			break;
+        case 2:
+            m_oWins++;
+            break;
 
-		case 3:
-			m_draws++;
-			break;
+        case 3:
+            m_draws++;
+            break;
 
-		default:
-			break;
+        default:
+            break;
 
-	}
-
+    }
 
 }
 
 
-void TicTacTrie::addWord(string s) {
+void TicTacTrie::AddTicTacNode(string s) {
+
 
     TicTacNode* current = root;
     bool newChild = false;
-    int sizeOfTree = 0;
 
-    if ( s.length() == 0 )
-    {
+    if ( !s.length() ) {
         return;
     }
 
-    for ( unsigned int i = 0; i < s.length(); i++ )
-    {        
-        TicTacNode* child = current->findChild(s[i]);
-        if ( child != NULL )
-        {
+    for ( unsigned int i = 0; i < s.length(); i++ ) {        
+        TicTacNode* child = current->FindChild(s[i]);
+        if ( child != NULL ) {
             current = child;
         }
-        else
-        {
+
+        else {
+
             TicTacNode* tmp = new TicTacNode();
-            tmp->setChildContent(s[i]);
-            current->appendChild(tmp);
+            tmp->SetChildContent(s[i]);
+            current->AddChild(tmp);
             current = tmp;
             newChild = true;
         }
@@ -83,36 +88,3 @@ void TicTacTrie::addWord(string s) {
     }
 
 }
-
-
-bool TicTacTrie::searchWord(string s)
-{
-    TicTacNode* current = root;
-
-    while ( current != NULL )
-    {
-        for ( int i = 0; i < s.length(); i++ )
-        {
-            TicTacNode* tmp = current->findChild(s[i]);
-            if ( tmp == NULL )
-                return false;
-            current = tmp;
-        }
-
-        if ( current )
-            return true;
-        else
-            return false;
-    }
-
-    return false;
-}
-
-
-int TicTacTrie::GetXWins() const { return m_xWins; }
-
-int TicTacTrie::GetOWins() const { return m_oWins; }
-
-int TicTacTrie::GetDraws() const { return m_draws; }
-
-int TicTacTrie::Size() const { return m_size; }
