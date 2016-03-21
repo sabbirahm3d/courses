@@ -45,19 +45,24 @@ TicTacNode::~TicTacNode() {
 
     // Clear the member containers
 
-    for ( size_t i = 0; i < m_children.size(); i++ ) {
+    for ( unsigned int i = 0; i < m_children.size(); i++ ) {
+
+        // reassign all the elements to one index
         m_children[0] = m_children[i];
+
     }
 
+    // shrink the vector back to 0
     m_children.resize(0);
 
     for ( unsigned int i = 0; i < m_board.size(); i++ ) {
-        m_board[0] = m_board[i];
-        m_board.erase(i);
-        cout << m_board.size() << endl;
-    }
 
-    cout << "ay" << endl;
+        // reassign all the values to one index
+        m_board[0] = m_board[i];
+
+        // deallocate their memory
+        m_board.erase(i);
+    }
 
 }
 

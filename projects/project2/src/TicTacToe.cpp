@@ -33,6 +33,7 @@ TicTacToe::TicTacToe(string fileName) {
 
     m_isOver = false;
     m_results = 0;
+    m_head = m_tail = NULL;
     ReadGame(fileName);
 
 }
@@ -250,7 +251,6 @@ void TicTacToe::Push(string value) {
     TicTacNode* cursor = new TicTacNode();
 
     cursor->SetData(value);
-    // cursor->next = NULL;
 
     // If list is empty, value is the only element
     if ( Empty() ) {
@@ -268,8 +268,8 @@ void TicTacToe::Push(string value) {
         return;
     }
 
-    delete cursor;
-    cursor = NULL;
+    // delete cursor;
+    // cursor = NULL;
 
 }
 
