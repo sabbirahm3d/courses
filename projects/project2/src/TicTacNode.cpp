@@ -43,9 +43,21 @@ TicTacNode::~TicTacNode() {
     m_child = ' ';
     next = prev = NULL;
 
-    // Clears the class containers
-    m_children.clear();
-    m_board.clear();
+    // Clear the member containers
+
+    for ( size_t i = 0; i < m_children.size(); i++ ) {
+        m_children[0] = m_children[i];
+    }
+
+    m_children.resize(0);
+
+    for ( unsigned int i = 0; i < m_board.size(); i++ ) {
+        m_board[0] = m_board[i];
+        m_board.erase(i);
+        cout << m_board.size() << endl;
+    }
+
+    cout << "ay" << endl;
 
 }
 
