@@ -5,7 +5,6 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * Description:
  * This class holds single tic tac toe game in linked list format
  * This class will essentially be a linked list of TicTacNode objects
  * containing the information about a game that was read in
@@ -13,8 +12,6 @@
 
 
 #include "TicTacToe.h"
-
-#include <fstream>
 
 
 /* ******************** Constructors ******************** */
@@ -66,26 +63,31 @@ void TicTacToe::ReadGame(string fileName) {
     if ( gameFile.is_open() ) {
 
         string line, dummy;
-        string state = "";
+        string board = "";
 
         // Read through the entire file
         while ( getline(gameFile, line) ) {
 
+            // ignore empty lines
             if ( line.length() ) {
 
-                state = "";
+                board = "";
 
-                while ( state.length() < 9 ) {
-                    state += line;
+                // a game board is represented with its whitespace stripped
+                while ( board.length() < 9 ) {
+                    board += line;
                     getline(gameFile, line);
                 }
 
-                Push(state);
+                // the board is then converted into a TicTacNode and pushed
+                // into the TicTacToe list
+                Push(board);
 
             }
         }
 
-        EndGame(state);
+        // call the other functions when the program is done reading the games
+        EndGame(board);
 
     }
 
@@ -137,6 +139,7 @@ void TicTacToe::EndGame(string finalBoard) {
             }
         }
 
+        // if O wins
         else if ( GetWinner(finalBoard, 'O') ) {
             m_results = 2;
             cout << "Player O won!" << endl;
@@ -153,6 +156,7 @@ void TicTacToe::EndGame(string finalBoard) {
             }
         }
 
+        // if draw
         else {
             m_results = 3;
             cout << "The game was a draw!" << endl;
@@ -177,11 +181,7 @@ void TicTacToe::EndGame(string finalBoard) {
 
 
 /* GetResults()
- * Returns the final result of the game, where:
-   0 - Game has not ended
-   1 - Player X won
-   2 - Player O won
-   3 - Game was a draw */
+ * Returns the final result of the game */
 
 int TicTacToe::GetResults() { return m_results; }
 
@@ -195,23 +195,24 @@ bool TicTacToe::GetIsOver() { return m_isOver; }
 /* GetWinner()
  * Determines the winner of the game */
 
-bool TicTacToe::GetWinner(string state, char player){
+bool TicTacToe::GetWinner(string board, char player){
 
     return (
 
     // Horizontal match
-    ((state[0] == player) && (state[1] == player) && (state[2] == player))
-    || ((state[3] == player) && (state[4] == player) && (state[5] == player))
-    || ((state[6] == player) && (state[7] == player) && (state[8] == player))
+    ((board[0] == player) && (board[1] == player) && (board[2] == player))
+    || ((board[3] == player) && (board[4] == player) && (board[5] == player))
+    || ((board[6] == player) && (board[7] == player) && (board[8] == player))
 
     // Vertical match
-    || ((state[0] == player) && (state[3] == player) && (state[6] == player))
-    || ((state[1] == player) && (state[4] == player) && (state[7] == player))
-    || ((state[2] == player) && (state[5] == player) && (state[8] == player))
+    || ((board[0] == player) && (board[3] == player) && (board[6] == player))
+    || ((board[1] == player) && (board[4] == player) && (board[7] == player))
+    || ((board[2] == player) && (board[5] == player) && (board[8] == player))
 
     // Diagonal match
-    || ((state[0] == player) && (state[4] == player) && (state[8] == player))
-    || ((state[2] == player) && (state[4] == player) && (state[6] == player))
+    || ((board[0] == player) && (board[4] == player) && (board[8] == player))
+    || ((board[2] == player) && (board[4] == player) && (board[6] == player))
+
     );
 
 }
@@ -227,11 +228,12 @@ int TicTacToe::Size() const {
 
     unsigned int size = 0;
 
+    // traverse through the entire list while incrementing the counter
     for ( TicTacNode *current = m_head; current; current = current->next ) {
-        size++;
+        ++size;
     }
 
-    return size++;
+    return size;
 
 }
 
@@ -252,7 +254,7 @@ void TicTacToe::Push(string value) {
 
     cursor->SetData(value);
 
-    // If list is empty, value is the only element
+    // if list is empty, value is the only element
     if ( Empty() ) {
         cursor->prev = NULL;
         m_head = cursor;
@@ -260,7 +262,7 @@ void TicTacToe::Push(string value) {
         return;
     }
 
-    // If list is not empty, all the elements get pushed
+    // if list is not empty, all the elements get pushed
     else if ( !Empty() ) {
         m_tail->next = cursor;
         m_tail = cursor;
@@ -268,8 +270,8 @@ void TicTacToe::Push(string value) {
         return;
     }
 
-    // delete cursor;
-    // cursor = NULL;
+    delete cursor;
+    cursor = NULL;
 
 }
 
@@ -285,23 +287,23 @@ bool TicTacToe::Clear() {
 
     else {
 
-        // Temporary pointers to Node341 objects
+        // temporary pointers to Node341 objects
         TicTacNode* temp;
         TicTacNode* cursor = m_head;
 
-        // Traverse the list and delete the nodes one by one from the m_head
+        // traverse the list and delete the nodes one by one from the m_head
         while (cursor != NULL) {
 
             // iterate the cursor through
             temp = cursor;
             cursor = cursor -> next;
 
-            // take out the pointer to the cursor 
+            // delete the pointer to the cursor 
             delete temp;
             temp = NULL;
         }
 
-        /* Reset the m_head and m_tail node */
+        /* reset the m_head and m_tail node */
         delete cursor;
         m_head = m_tail = NULL;
         cursor = NULL;

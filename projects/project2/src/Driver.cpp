@@ -5,41 +5,41 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
 
- * The driver program for Project 0, this file reads through two input files to
- * map 6 dirLines to their corresponding countries, and adds statistics to
- * them to convert into Country objects. The Country objects are then appended
- * to their corresponding Continent object, and then used to find the total
- * population, the country with the highest population, literacy rate and
- * expendature on education for each dirLines.
+ * The driver program for Project 2, this file reads through the file passed
+ * in as a command line argument containing the paths to the files containing
+ * the tic tac toe game boards, converts them into linked list objects to be
+ * later merged into a trie tree containing all the moves in the games
  */
-
-#include <cstdlib>
-#include <fstream>
 
 
 #include "TicTacToe.h"
 #include "TicTacTrie.h"
 
- using namespace std;
 
-/* Driver function. Calls ReadFromFiles() after passing in the paths to the
-   input files. */
+/* Driver function
+ * Reads in the command line arguments, and constructs TicTacToe linked list
+   objects and TicTacTrie trie tree objects */
 
  int main (int argc, char* fileName[] ) {
 
+    // number of command line arguments must be exactly 2:
+    // 0th default argument is the executible file, 1st is the input file name
     if ( argc == 2 ) {
 
         ifstream listOfGames(fileName[1], ios_base::in);
 
-        if (listOfGames.is_open()) {
+        if ( listOfGames.is_open() ) {
 
             string dirLine;
-            TicTacTrie *trie = new TicTacTrie();
+            TicTacTrie* trie = new TicTacTrie();
 
             // Read through the entire file
-            while (!listOfGames.eof()) {
+            while ( !( listOfGames.eof() ) ) {
 
                 getline(listOfGames, dirLine);
+
+                // pass in paths of game files to create instances of TicTacToe
+                // objects
                 TicTacToe* game = new TicTacToe(dirLine);
                 trie -> AddGame(*game);
                 delete game;
@@ -78,4 +78,5 @@
     }
 
     return 0;
+
 }

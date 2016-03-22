@@ -60,7 +60,7 @@ TicTacNode::~TicTacNode() {
         // reassign all the values to one index
         m_board[0] = m_board[i];
 
-        // deallocate their memory
+        // free their memory
         m_board.erase(i);
     }
 
@@ -93,7 +93,7 @@ void TicTacNode::SetData(string data) {
     m_data = data; 
 
     for ( unsigned int i = 0; i < data.length(); i++ ) {
-        m_board.insert( pair<int, char> (i + 1, data[i]) );
+        m_board.insert( pair<int, char> (i, data[i]) );
     }
 
 }

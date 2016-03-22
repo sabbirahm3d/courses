@@ -5,7 +5,6 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * Description:
  * The header file for the TicTacTrie class
  */
 
@@ -26,7 +25,7 @@ public:
 
     /* TicTacTrie() - Default constructor
      * Preconditions: None
-     * Postconditions: Initializes its member variables and root */
+     * Postconditions: Initializes its member attributes and root */
 
     TicTacTrie();
 
@@ -36,7 +35,7 @@ public:
 
     /* ~TicTacTrie() - Default destructor
      * Preconditions: None
-     * Postconditions: Deletes the node */
+     * Postconditions: Deletes the tree and all its member attributes */
 
     ~TicTacTrie();
 
@@ -44,11 +43,30 @@ public:
     /* ******************** Accessors/ getters ******************** */
 
 
+    /* GetXWins()
+     * Preconditions: None
+     * Postconditions: Returns the number of times player X won */
+
     int GetXWins() const;
+
+
+    /* GetOWins()
+     * Preconditions: None
+     * Postconditions: Returns the number of times player O won */
 
     int GetOWins() const;
 
+
+    /* GetDraws()
+     * Preconditions: None
+     * Postconditions: Returns the number of times game ended in a draw */
+
     int GetDraws() const;
+
+
+    /* Size()
+     * Preconditions: None
+     * Postconditions: Returns the number of leaves in the tree */
 
     int Size() const;
 
@@ -56,27 +74,36 @@ public:
     /* ******************* Helper functions ******************* */
 
 
+    /* AddGame()
+     * Preconditions: Parameter must be a valid TicTacToe object
+     * Postconditions: Traverses through a game to convert the nodes into
+       leaves of the tree */
+
     void AddGame(TicTacToe&);
 
 
     /* ******************* Helper tree functions ******************* */
 
 
-    void AddTicTacNode(string);
+    /* AddLeaf()
+     * Preconditions: Parameter is the data of TicTacNodes
+     * Postconditions: Adds the leaves into the the tree */
+
+    void AddLeaf(string);
 
 
 private:
 
-    TicTacNode* root;
+    /* ******************* Private tree attributes ******************* */
 
-    vector<TicTacNode*> m_leaves;
+    TicTacNode* root;
+    vector<TicTacNode*> leaves;
+
+    /* ******************* Private TicTacTrie attributes ******************* */
 
     int m_xWins; // The number of games Player X has won
-
     int m_oWins; // The number of games Player O has won
-
     int m_draws; // The number of games resulting in a draw
-
     int m_size;  // The current number of nodes in the tree
 
 };
