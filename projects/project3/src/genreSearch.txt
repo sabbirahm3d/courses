@@ -1,0 +1,18 @@
+<Title: Hit the Lights, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: The Four Horsemen, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Motorbreath, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Jump in the Fire, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: (Anesthesia) - Pulling Teeth, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Whiplash, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Phantom Lord, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: No Remorse, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Seek & Destroy, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Metal Militia, Artist: Metallica, Album: Kill 'Em All, Genre: Thrash Metal, Year: 1983>
+<Title: Fight Fire with Fire, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: Ride the Lightning, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: For Whom the Bell Tolls, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: Fade to Black, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: Trapped Under Ice, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: Escape, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: Creeping Death, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>
+<Title: The Call of Ktulu, Artist: Metallica, Album: Ride the Lightning, Genre: Thrash Metal, Year: 1984>

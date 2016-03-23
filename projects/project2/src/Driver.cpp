@@ -20,7 +20,7 @@
  * Reads in the command line arguments, and constructs TicTacToe linked list
    objects and TicTacTrie trie tree objects */
 
- int main (int argc, char* fileName[] ) {
+int main (int argc, char* fileName[] ) {
 
     // number of command line arguments must be exactly 2:
     // 0th default argument is the executible file, 1st is the input file name
