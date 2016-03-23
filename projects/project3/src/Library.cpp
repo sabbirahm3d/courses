@@ -23,12 +23,12 @@ Library::Library(const std::string &libraryPath)
          * _library vector takes ownership of the pointer -
          * we don't want to mess with it any further
          */
-        song = NULL;
+         song = NULL;
 
         /* Eat whitespace */
-        while (libraryFile.good() && 
-                (libraryFile.peek() == '\n' || libraryFile.peek() == ' '))
-        {
+         while (libraryFile.good() && 
+            (libraryFile.peek() == '\n' || libraryFile.peek() == ' '))
+         {
             libraryFile.get();
         }
     }
