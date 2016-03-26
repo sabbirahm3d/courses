@@ -12,16 +12,20 @@
  * Readable collection of Songs constructed
  * from a file with a list of song metadata.
  */
-class Library
-{
+
+class Library {
+
 private:
+
     /* Mutable iterator */
     typedef std::vector<Song *>::iterator iterator;
 
     /* Underlying song library */
     std::vector<Song *> _library;
 
+
 public:
+
     /* Public read-only iterator */
     typedef std::vector<Song *>::const_iterator const_iterator;
 
@@ -36,6 +40,8 @@ public:
 
     /* Return a const iterator pointing past the end of the Song collection */
     const_iterator end() const;
+
 };
+
 
 #endif

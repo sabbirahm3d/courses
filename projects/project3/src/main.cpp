@@ -13,15 +13,14 @@
 #define EXPECTED_ARGC 2
 
 /* Print the given song to stdout */
-void printSong(Song *song)
-{
+void printSong(Song *song) {
     std::cout << song << '\n';
 }
 
-int main(int argc, char **argv)
-{
-    if (argc != EXPECTED_ARGC)
-    {
+
+int main(int argc, char **argv) {
+
+    if (argc != EXPECTED_ARGC) {
         std::cerr << "Usage: " << argv[0] << " <library-path>" << std::endl;
         return 1;
     }
@@ -32,11 +31,11 @@ int main(int argc, char **argv)
 
     /* Populate the indexes */
     for (Library::const_iterator iter = library.begin(); 
-         iter != library.end(); 
-         iter++)
-    {
+            iter != library.end(); iter++) {
+        printSong(*iter);
         titleIndex.insert(*iter);
     }
+
 
 #ifdef DEBUG
     /* Level order printing */
@@ -48,4 +47,5 @@ int main(int argc, char **argv)
     std::cout << std::endl;
 
     return 0;
+
 }

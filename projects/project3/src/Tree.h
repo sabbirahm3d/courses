@@ -30,10 +30,13 @@
  * in sorted order. Calling Compare()(a, b) returns
  * true if a is less than b, and false otherwise.
  */
+
+
 template <typename DataType, typename Compare = std::less<DataType> >
-class Tree
-{
-public:
+class Tree {
+
+ public:
+
     /* Iterator for the tree */
     class iterator;
 
@@ -82,16 +85,19 @@ public:
 
     /* Level order print of the tree */
     template <typename DataType_, typename Compare_>
-    friend std::ostream &operator<<(std::ostream &stream,
-                                    const Tree<DataType_, Compare_> &tree);
-};
+    friend std::ostream &operator<<(
+          std::ostream &stream, const Tree<DataType_, Compare_> &tree);
+
+ };
+
 
 /* Tree iterator that performs in-order traversals */
 template <typename DataType, typename Compare>
 class Tree<DataType, Compare>::iterator 
-    : public std::iterator<std::forward_iterator_tag, DataType>
-{
-public:
+ : public std::iterator<std::forward_iterator_tag, DataType> {
+
+ public:
+
     /* Default constructor - creates past-the-end iterator */
     iterator();
 
@@ -115,9 +121,12 @@ public:
 
     /* Advance to the current data's successor */
     iterator operator++(int unused);
+
 };
+
 
 #include "Tree.cpp"
 #include "TreeIterator.cpp"
+
 
 #endif

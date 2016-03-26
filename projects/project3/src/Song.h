@@ -7,12 +7,14 @@
 #include <istream>
 #include <ostream>
 
+
 /* 
  * Song structure. Stores metadata relevant to songs.
  * Songs may be serialized and deserialized.
  */
-struct Song
-{
+
+struct Song {
+
     std::string title;
     std::string artist;
     std::string album;
@@ -27,6 +29,7 @@ struct Song
 
     /* Deserialize a song from the given input stream */
     friend std::istream &operator>>(std::istream &stream, Song &song);
+
 };
 
 
