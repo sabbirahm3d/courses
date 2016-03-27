@@ -2,18 +2,26 @@
 
 
 bool TitleCompare::operator()(const Song *a, const Song *b) {
-    /* Your comparison logic here... */
+
+
+    if (std::string(a->title) < std::string(b->title)) { return true; }
+
     return false;
+
 }
 
 
 bool TitleCompare::operator()(const Song *song, const std::string &title) {
-    /* Your comparison logic here... */
+
+    if (std::string(song->title) < std::string(title)) { return true; }
+
     return false;
 }
 
 
 bool TitleCompare::operator()(const std::string &title, const Song *song) {
-    /* Your comparison logic here... */
+
+    if (std::string(title) < std::string(song->title)) { return true; }
+
     return false;
 }

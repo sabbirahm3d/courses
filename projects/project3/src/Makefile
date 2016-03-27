@@ -29,3 +29,8 @@ run: $(EXE)
 .PHONY: debug
 debug:
 	CPPFLAGS = -DDEBUG
+
+.PHONY: yo
+yo:
+	make clean
+	make

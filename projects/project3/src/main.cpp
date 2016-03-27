@@ -32,7 +32,9 @@ int main(int argc, char **argv) {
     /* Populate the indexes */
     for (Library::const_iterator iter = library.begin(); 
             iter != library.end(); iter++) {
-        printSong(*iter);
+        if (TitleCompare()(*(iter), *(iter++))) {
+            // std::cout << *(iter) << *(++iter) << std::endl;
+        }
         titleIndex.insert(*iter);
     }
 
