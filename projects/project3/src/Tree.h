@@ -4,6 +4,9 @@
 #include <iterator>
 #include <ostream>
 #include <utility>
+
+#include <stack>
+
 #include "Node.h"
 
 /* 
@@ -88,7 +91,12 @@ class Tree {
     friend std::ostream &operator<<(
           std::ostream &stream, const Tree<DataType_, Compare_> &tree);
 
- };
+ private:
+
+    Node<DataType>* root;
+
+
+};
 
 
 /* Tree iterator that performs in-order traversals */

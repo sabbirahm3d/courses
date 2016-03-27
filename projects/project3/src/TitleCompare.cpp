@@ -1,27 +1,28 @@
 #include "TitleCompare.h"
 
 
-bool TitleCompare::operator()(const Song *a, const Song *b) {
+bool TitleCompare::operator()(const Song* a, const Song* b) {
 
-
-    if (std::string(a->title) < std::string(b->title)) { return true; }
+    if (a->title < b->title) { return true; }
 
     return false;
 
 }
 
 
-bool TitleCompare::operator()(const Song *song, const std::string &title) {
+bool TitleCompare::operator()(const Song* song, const std::string& title) {
 
-    if (std::string(song->title) < std::string(title)) { return true; }
+    if (song->title < title) { return true; }
 
     return false;
+
 }
 
 
-bool TitleCompare::operator()(const std::string &title, const Song *song) {
+bool TitleCompare::operator()(const std::string& title, const Song* song) {
 
-    if (std::string(title) < std::string(song->title)) { return true; }
+    if (title < song->title) { return true; }
 
     return false;
+
 }

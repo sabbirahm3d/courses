@@ -4,7 +4,7 @@ override CXXFLAGS += -Wall
 -include $(DEPS)
 
 EXE = Project3.out
-OBJS = main.o Song.o Library.o TitleCompare.o
+OBJS = main.o Song.o Library.o TitleCompare.o ArtistCompare.o AlbumCompare.o GenreCompare.o YearCompare.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
 $(EXE): $(DEPS) $(OBJS)
@@ -25,6 +25,10 @@ clean:
 .PHONY: run
 run: $(EXE)
 	./$(EXE) $(LIBRARY_FILE)
+
+.PHONY: val
+val: $(EXE)
+	valgrind ./$(EXE) $(LIBRARY_FILE)
 
 .PHONY: debug
 debug:

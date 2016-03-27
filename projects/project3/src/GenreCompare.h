@@ -1,12 +1,12 @@
-#ifndef TITLE_COMPARE_H
-#define TITLE_COMPARE_H
+#ifndef GENRE_COMPARE_H
+#define GENRE_COMPARE_H
 
 /* Declaration of the comparison functor for use with the Title index */
 
 #include <string>
 #include "Song.h"
 
-struct TitleCompare {
+struct GenreCompare {
     /* 
      * Return whether or not song a's title is 
      * lexicographically less than song b's title
@@ -24,6 +24,7 @@ struct TitleCompare {
      * lexicographically less than the song's title
      */
     bool operator()(const std::string&, const Song*);
+
 };
 
 #endif

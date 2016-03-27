@@ -5,7 +5,11 @@
 
 template <typename DataType, typename Compare>
 Tree<DataType, Compare>::Tree() {
-    /* Your code here... */    
+
+    root = new Node<DataType>();
+    root->left = new Node<DataType>();
+    root->left->parent = root;
+
 }
 
 
