@@ -30,13 +30,10 @@ int main(int argc, char **argv) {
     Tree<Song *, TitleCompare> titleIndex;
 
     /* Populate the indexes */
-    // for (Library::const_iterator iter = library.begin(); 
-    //         iter != library.end(); iter++) {
-    //     if (TitleCompare()(*(iter), *(iter++))) {
-    //         // std::cout << *(iter) << *(++iter) << std::endl;
-    //     }
-    //     titleIndex.insert(*iter);
-    // }
+    for (Library::const_iterator iter = library.begin(); 
+            iter != library.end(); iter++) {
+        titleIndex.insert(*iter);
+    }
 
 
 #ifdef DEBUG

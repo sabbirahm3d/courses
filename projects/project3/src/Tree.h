@@ -95,6 +95,7 @@ class Tree {
 
     Node<DataType>* root;
 
+    Node<DataType>* find_position(Node<DataType>*, DataType);
 
 };
 

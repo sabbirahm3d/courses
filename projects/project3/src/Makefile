@@ -32,7 +32,8 @@ val: $(EXE)
 
 .PHONY: debug
 debug:
-	CPPFLAGS = -DDEBUG
+	make clean
+	make CPPFLAGS=-DDEBUG
 
 .PHONY: yo
 yo:
