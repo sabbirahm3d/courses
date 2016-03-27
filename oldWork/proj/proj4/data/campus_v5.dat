@@ -1,0 +1,12 @@
+5
+Intersection  0.0 Hilltop Circle and Center Road
+Intersection  0.0 Hilltop Circle and Walker Ave
+PoliceStation 1.0 Campus Police
+Intersection  0.0 Hilltop Circle and UMBC Blvd
+SafeHouse     0.0 Patapsco Hall
+1 2
+2 3
+3 4
+4 5
+5 1
+0 0 
