@@ -6,9 +6,11 @@
 template <typename DataType, typename Compare>
 Tree<DataType, Compare>::Tree() {
 
-    root = new Node<DataType>();
-    root->left = new Node<DataType>();
-    root->left->parent = root;
+    // root = new Node<DataType>();
+    // root->left = new Node<DataType>();
+    // root->left->parent = root;
+
+    root = NULL;
 
 }
 
@@ -28,36 +30,33 @@ Tree<DataType, Compare>::operator=(const Tree<DataType, Compare> &other) {
 
 template <typename DataType, typename Compare>
 Tree<DataType, Compare>::~Tree() {
-    /* Your code here... */    
+
+    root = NULL;
+
 }
 
 
 template <typename DataType, typename Compare>
 void Tree<DataType, Compare>::insert(DataType data) {
 
-    Node<DataType>* newNode = new Node<DataType>(data);
-    Node<DataType>* cursor = root->left;
+    if (root == NULL) {
 
-    if (cursor->left == NULL) {
+        root = new Node<DataType>;
+        root->key[0] = data;
 
-        // First insertion
-        newNode->parent = cursor;
-        cursor->left = newNode;
+    } else {
 
+        std::stack<Node<DataType>* > s = search(root, data);
+        std::stack<Node<DataType>* > butts(s);
+
+        while (!butts.empty()) {
+
+            std::cout << butts.top() << std::endl;
+            butts.pop();
+
+        }
     }
 
-    else {
-
-        cursor = find_position(cursor, data);
-        if (cursor == NULL) return;
-
-        if (cursor->middle == NULL) cursor->insert1Siblings(new Node<DataType>(data), data);
-        else if (cursor->right == NULL) cursor->insert2Siblings(new Node<DataType>(data), data);
-        else cursor->insert3Siblings(new Node<DataType>(data), data);
-
-        // cursor->insert(new Node<DataType>(data), data);
-    }
-    
 }
 
 
@@ -130,29 +129,61 @@ std::ostream &operator<<(std::ostream &stream,
 
 
 template <typename DataType, typename Compare>
-Node<DataType>* find_position(Node<DataType>* node, DataType data) {
+std::stack<Node<DataType>* > search(Node<DataType>* node, DataType data) {
 
-    if (node == NULL) return NULL;
+  // Searches the tree for the data and returns an 
+  // inorder stack of node pointers
 
-    while (!node->isLeaf()) {
+    std::stack<Node<DataType>* > s;
 
-        if (node->key[0] == data || node->key[1] == data)
-            return NULL;
+    while (node != NULL) {
 
-        if (node->key[0] == -1 || data < node->key[0])
-            node = node->child[0];
+        s.push(node);
 
-        else if (node->key[1] == -1 || data < node->key[1])
-            node = node->middle;
+        if (is_two_node(node)) {
 
-        else
-            node = node->right;
+            if (data == node->key[0]) {
 
-    }
+            } else if (data < node->key[0]) {
 
-    if (node->key[0] == data) return NULL;
-    return node->parent;
-}
+                node = node->left;
 
+            } else {
+
+                node = node->middle;
+
+            } // if else
+
+        } else {
+
+      // if ((data == node->key[0]) || (data == node->key[1])) {
+
+      //   break;
+
+    // }
+
+            if (data < node->key[0]) {
+
+                node = node->left;
+
+            } else if (data < node->key[1]) {
+
+                node = node->middle;
+
+            } else {
+
+                node = node->right;
+
+                  } // if else
+
+                } // if else
+
+              } // while
+
+  // cout << "search works!" << endl;
+
+              return s;
+
+          }
 
 #endif

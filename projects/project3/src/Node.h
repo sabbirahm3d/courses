@@ -10,16 +10,17 @@ struct Node {
     DataType key[2];
     Node *left, *middle, *right, *parent;
 
-    Node()
-    : left(NULL), middle(NULL), right(NULL), parent(NULL) {}
 
-    Node(DataType data)
-    : left(NULL), middle(NULL), right(NULL), parent(NULL) {
+    // Node() : left(NULL), middle(NULL), right(NULL), parent(NULL) {}
 
-        key[0] = data;
-        key[1] = NULL;
 
-    }
+    // Node(DataType data) : left(NULL), middle(NULL), right(NULL), parent(NULL) {
+
+    //     key[0] = data;
+    //     key[1] = NULL;
+
+    // }
+
 
     bool is_leaf() {
 
@@ -28,134 +29,142 @@ struct Node {
     }
 
 
-    int minimum() {
+    bool is_two_node() { return (key[1] == NULL); }
 
-        Node<DataType> *node = this;
-        while (!node->isLeaf()) node = node->leaf;
-        return node->key[0];
+    bool is_three_node() { return (key[1] != NULL); }
 
-    }
+   //  DataType minimum() {
 
-        // Insert into a node with 1 child
-    void insert1Siblings(Node<DataType> *newChild, DataType newSmallest) {
-        int newKey = newChild->key[0];
-        newChild->parent = this;
+   //      Node<DataType> *node = this;
+   //      while (!node->isLeaf()) node = node->left;
+   //      return node->key[0];
 
-        if (newKey < left->key[0]) {
-                // newNode is inserted as first child of root
-            middle = left;
-            left = newChild;
-            key[0] = middle->minimum();
+   //  }
 
-        } else {
-                // newNode is iserted as second child of root
-            middle = newChild;
-            key[0] = newSmallest;
-        }
-    }
 
-    // Insert into a node with 2 children
-    void insert2Siblings(Node<DataType> *newChild, DataType newSmallest) {
+   //      // Insert into a node with 1 child
+   //  void insert1Siblings(Node<DataType> *newChild, DataType newSmallest) {
 
-        int newKey = newChild->key[0];
-        newChild->parent = this;
+   //      DataType newKey = newChild->key[0];
+   //      newChild->parent = this;
 
-        if (newKey < left->key[0]) {
-            right = middle;
-            middle = left;
-            left = newChild;
+   //      if (newKey < left->key[0]) {
+   //              // newNode is inserted as first child of root
+   //          middle = left;
+   //          left = newChild;
+   //          key[0] = middle->minimum();
 
-            key[1] = key[0];
-            key[0] = middle->minimum();
-            updateParentSmallest(newSmallest);
-        }
+   //      } else {
+   //              // newNode is iserted as second child of root
+   //          middle = newChild;
+   //          key[0] = newSmallest;
+   //      }
+   //  }
 
-        else if (newKey < middle->key[0]) {
-            right = middle;
-            middle = newChild;
 
-            key[1] = key[0];
-            key[0] = newSmallest;
+   //  // Insert into a node with 2 children
+   //  void insert2Siblings(Node<DataType> *newChild, DataType newSmallest) {
 
-        } else {
+   //      DataType newKey = newChild->key[0];
+   //      newChild->parent = this;
 
-            right = newChild;
-            key[1] = newSmallest;
+   //      if (newKey < left->key[0]) {
+   //          right = middle;
+   //          middle = left;
+   //          left = newChild;
 
-        }
+   //          key[1] = key[0];
+   //          key[0] = middle->minimum();
+   //          updateParentSmallest(newSmallest);
+   //      }
 
-    }
+   //      else if (newKey < middle->key[0]) {
+   //          right = middle;
+   //          middle = newChild;
 
-        // Insert into a node with 3 children
-    void insert3Siblings(Node *newChild, int newSmallest) {
-     int newKey = newChild->key[0];
+   //          key[1] = key[0];
+   //          key[0] = newSmallest;
 
-     int splitSmallest = -1;
-     Node *splitNode = new Node();
-     splitNode->parent = parent;
+   //      } else {
 
-     if (newKey < child[0]->key[0] || newKey < child[1]->key[0]) {
-                // newChild is inserted in current node
-         splitSmallest = key[0];
-         splitNode->child[0] = child[1];
-         splitNode->child[1] = child[2];
-         splitNode->key[0] = key[1];
+   //          right = newChild;
+   //          key[1] = newSmallest;
 
-         child[1]->parent = splitNode;
-         child[2]->parent = splitNode;
-         newChild->parent = this;
+   //      }
 
-         if (newKey < child[0]->key[0]) {
-                    // newChild is inserted as first child
-             child[1] = child[0];
-             child[0] = newChild;
+   //  }
 
-             key[0] = child[1]->minimum();
-             updateParentSmallest(newSmallest);
-         }
-         else {
-                    // newChild is inserted as second child
-             child[1] = newChild;
 
-             key[0] = newSmallest;
-         }
-     }
-     else {
-                // newChild is inserted in split node
-         child[2]->parent = splitNode;
-         newChild->parent = splitNode;
+   //  // Insert into a node with 3 children
+   //  void insert3Siblings(Node<DataType> *newChild, DataType newSmallest) {
+   //     DataType newKey = newChild->key[0];
 
-         if (newKey < child[2]->key[0]) {
-                    // newChild is inserted as first child
-             splitSmallest = newSmallest;
-             splitNode->child[0] = newChild;
-             splitNode->child[1] = child[2];
-             splitNode->key[0] = key[1];
-         }
-         else {
-                    // newChild is inserted as second child
-             splitSmallest = key[1];
-             splitNode->child[0] = child[2];
-             splitNode->child[1] = newChild;
-             splitNode->key[0] = newSmallest;
-         }
-     }
+   //     DataType splitSmallest = NULL;
+   //     Node *splitNode = new Node();
+   //     splitNode->parent = parent;
 
-     child[2] = NULL;
-     key[1] = -1;
+   //     if (newKey < left->key[0] || newKey < middle->key[0]) {
+   //              // newChild is inserted in current node
+   //         splitSmallest = key[0];
+   //         splitNode->left = middle;
+   //         splitNode->middle = right;
+   //         splitNode->key[0] = key[1];
 
-     if (parent->parent == NULL) {
-                // At root, so new root needs to be created
-         Node *newNode = new Node();
+   //         middle->parent = splitNode;
+   //         right->parent = splitNode;
+   //         newChild->parent = this;
 
-         parent->child[0] = newNode;
-         newNode->parent = parent;
-         newNode->child[0] = this;
-         parent = newNode;
-     }
+   //         if (newKey < left->key[0]) {
+   //                  // newChild is inserted as first child
+   //             middle = left;
+   //             left = newChild;
 
-     parent->insert(splitNode, splitSmallest);
- }
+   //             key[0] = middle->minimum();
+   //             updateParentSmallest(newSmallest);
+   //         }
+   //         else {
+   //                  // newChild is inserted as second child
+   //             middle = newChild;
+
+   //             key[0] = newSmallest;
+   //         }
+   //     }
+   //     else {
+   //              // newChild is inserted in split node
+   //         right->parent = splitNode;
+   //         newChild->parent = splitNode;
+
+   //         if (newKey < right->key[0]) {
+   //                  // newChild is inserted as first child
+   //             splitSmallest = newSmallest;
+   //             splitNode->left = newChild;
+   //             splitNode->middle = right;
+   //             splitNode->key[0] = key[1];
+   //         }
+   //         else {
+   //                  // newChild is inserted as second child
+   //             splitSmallest = key[1];
+   //             splitNode->left = right;
+   //             splitNode->middle = newChild;
+   //             splitNode->key[0] = newSmallest;
+   //         }
+   //     }
+
+   //     right = NULL;
+   //     key[1] = NULL;
+
+   //     if (parent->parent == NULL) {
+   //              // At root, so new root needs to be created
+   //         Node *newNode = new Node();
+
+   //         parent->left = newNode;
+   //         newNode->parent = parent;
+   //         newNode->left = this;
+   //         parent = newNode;
+   //     }
+
+   //     parent->insert(splitNode, splitSmallest);
+   // }
 
 
 };
