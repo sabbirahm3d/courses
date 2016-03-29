@@ -1,189 +1,191 @@
 #ifndef TREE_CPP
 #define TREE_CPP
 
+#include "Tree.h"
+
 /* Stubs for the tree's methods */
 
-template <typename DataType, typename Compare>
-Tree<DataType, Compare>::Tree() {
+template < typename DataType, typename Compare >
+Tree< DataType, Compare >::Tree() {
 
-    // root = new Node<DataType>();
-    // root->left = new Node<DataType>();
-    // root->left->parent = root;
+	// root = new Node<DataType>();
+	// root->left = new Node<DataType>();
+	// root->left->parent = root;
 
-    root = NULL;
-
-}
-
-
-template <typename DataType, typename Compare>
-Tree<DataType, Compare>::Tree(const Tree<DataType, Compare> &other) {
-    /* Your code here... */    
-}
-
-
-template <typename DataType, typename Compare>
-Tree<DataType, Compare> &
-Tree<DataType, Compare>::operator=(const Tree<DataType, Compare> &other) {
-    /* Your code here... */    
-}
-
-
-template <typename DataType, typename Compare>
-Tree<DataType, Compare>::~Tree() {
-
-    root = NULL;
+	root = NULL;
 
 }
 
 
-template <typename DataType, typename Compare>
-void Tree<DataType, Compare>::insert(DataType data) {
+template < typename DataType, typename Compare >
+Tree< DataType, Compare >::Tree(const Tree< DataType, Compare > &other) {
+	/* Your code here... */
+}
 
-    if (root == NULL) {
 
-        root = new Node<DataType>;
-        root->key[0] = data;
+template < typename DataType, typename Compare >
+Tree< DataType, Compare > &
+Tree< DataType, Compare >::operator=(const Tree< DataType, Compare > &other) {
+	/* Your code here... */
+}
 
-    } else {
 
-        std::stack<Node<DataType>* > s = search(root, data);
-        std::stack<Node<DataType>* > butts(s);
+template < typename DataType, typename Compare >
+Tree< DataType, Compare >::~Tree() {
 
-        while (!butts.empty()) {
-
-            std::cout << butts.top() << std::endl;
-            butts.pop();
-
-        }
-    }
+	root = NULL;
 
 }
 
 
-template <typename DataType, typename Compare>
-bool Tree<DataType, Compare>::empty() const {
-    /* Your code here... */    
-    return false;
-}
+template < typename DataType, typename Compare >
+void Tree< DataType, Compare >::insert(DataType data) {
 
-
-template <typename DataType, typename Compare>
-size_t Tree<DataType, Compare>::size() const {
-    /* Your code here... */    
-    return 0;
-}
-
-
-template <typename DataType, typename Compare>
-typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::begin() {
-    /* Your code here... */    
-    return iterator();
-}
-
-
-template <typename DataType, typename Compare>
-typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::end() {
-    /* Your code here... */    
-    return iterator();
+//    if (root == NULL) {
+//
+//        root = new Node<DataType>;
+//        root->key[0] = data;
+//
+//    } else {
+//
+//        std::stack<Node<DataType>* > s = search(root, data);
+//        std::stack<Node<DataType>* > butts(s);
+//
+//        while (!butts.empty()) {
+//
+//            std::cout << butts.top() << std::endl;
+//            butts.pop();
+//
+//        }
+//    }
 
 }
 
 
-template <typename DataType, typename Compare>
-template <typename KeyType>
-typename Tree<DataType, Compare>::iterator 
-Tree<DataType, Compare>::find_first(KeyType key) {
-    /* Your code here... */    
-    return iterator();
+template < typename DataType, typename Compare >
+bool Tree< DataType, Compare >::empty() const {
+	/* Your code here... */
+	return false;
+}
+
+
+template < typename DataType, typename Compare >
+size_t Tree< DataType, Compare >::size() const {
+	/* Your code here... */
+	return 0;
+}
+
+
+template < typename DataType, typename Compare >
+typename Tree< DataType, Compare >::iterator Tree< DataType, Compare >::begin() {
+	/* Your code here... */
+	return iterator();
+}
+
+
+template < typename DataType, typename Compare >
+typename Tree< DataType, Compare >::iterator Tree< DataType, Compare >::end() {
+	/* Your code here... */
+	return iterator();
 
 }
 
 
-template <typename DataType, typename Compare>
-template <typename KeyType>
-typename Tree<DataType, Compare>::iterator 
-Tree<DataType, Compare>::find_last(KeyType key) {
-    /* Your code here... */    
-    return iterator();
-}
-
-
-template <typename DataType, typename Compare>
-template <typename KeyType>
-std::pair<typename Tree<DataType, Compare>::iterator,
-typename Tree<DataType, Compare>::iterator>
-Tree<DataType, Compare>::find_range(KeyType key) {
-    /* Your code here... */
-    return std::make_pair(iterator(), iterator());
+template < typename DataType, typename Compare >
+template < typename KeyType >
+typename Tree< DataType, Compare >::iterator
+Tree< DataType, Compare >::find_first(KeyType key) {
+	/* Your code here... */
+	return iterator();
 
 }
 
 
-template <typename DataType, typename Compare>
+template < typename DataType, typename Compare >
+template < typename KeyType >
+typename Tree< DataType, Compare >::iterator
+Tree< DataType, Compare >::find_last(KeyType key) {
+	/* Your code here... */
+	return iterator();
+}
+
+
+template < typename DataType, typename Compare >
+template < typename KeyType >
+std::pair< typename Tree< DataType, Compare >::iterator,
+	typename Tree< DataType, Compare >::iterator >
+Tree< DataType, Compare >::find_range(KeyType key) {
+	/* Your code here... */
+	return std::make_pair(iterator(), iterator());
+
+}
+
+
+template < typename DataType, typename Compare >
 std::ostream &operator<<(std::ostream &stream,
-    const Tree<DataType, Compare> &tree) {
-    /* Your code here... */
-    return stream;
+												 const Tree< DataType, Compare > &tree) {
+	/* Your code here... */
+	return stream;
 
 }
 
 
-template <typename DataType, typename Compare>
-std::stack<Node<DataType>* > search(Node<DataType>* node, DataType data) {
+template < typename DataType, typename Compare >
+std::stack< Node< DataType > * > search(Node< DataType > *node, DataType data) {
 
-  // Searches the tree for the data and returns an 
-  // inorder stack of node pointers
+	// Searches the tree for the data and returns an
+	// inorder stack of node pointers
 
-    std::stack<Node<DataType>* > s;
+	std::stack< Node< DataType > * > s;
 
-    while (node != NULL) {
+	while (node != NULL) {
 
-        s.push(node);
+		s . push(node);
 
-        if (is_two_node(node)) {
+		if (is_two_node(node)) {
 
-            if (data == node->key[0]) {
+			if (data == node -> key[0]) {
 
-            } else if (data < node->key[0]) {
+			} else if (data < node -> key[0]) {
 
-                node = node->left;
+				node = node -> left;
 
-            } else {
+			} else {
 
-                node = node->middle;
+				node = node -> middle;
 
-            } // if else
+			} // if else
 
-        } else {
+		} else {
 
-      // if ((data == node->key[0]) || (data == node->key[1])) {
+			// if ((data == node->key[0]) || (data == node->key[1])) {
 
-      //   break;
+			//   break;
 
-    // }
+			// }
 
-            if (data < node->key[0]) {
+			if (data < node -> key[0]) {
 
-                node = node->left;
+				node = node -> left;
 
-            } else if (data < node->key[1]) {
+			} else if (data < node -> key[1]) {
 
-                node = node->middle;
+				node = node -> middle;
 
-            } else {
+			} else {
 
-                node = node->right;
+				node = node -> right;
 
-                  } // if else
+			} // if else
 
-                } // if else
+		} // if else
 
-              } // while
+	} // while
 
-  // cout << "search works!" << endl;
+	// cout << "search works!" << endl;
 
-              return s;
+	return s;
 
-          }
+}
 
 #endif
