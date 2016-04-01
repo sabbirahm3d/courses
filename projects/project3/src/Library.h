@@ -15,31 +15,31 @@
 
 class Library {
 
-private:
+	private:
 
-    /* Mutable iterator */
-    typedef std::vector<Song *>::iterator iterator;
+	/* Mutable iterator */
+	typedef std::vector< Song * >::iterator iterator;
 
-    /* Underlying song library */
-    std::vector<Song *> _library;
+	/* Underlying song library */
+	std::vector< Song * > _library;
 
 
-public:
+	public:
 
-    /* Public read-only iterator */
-    typedef std::vector<Song *>::const_iterator const_iterator;
+	/* Public read-only iterator */
+	typedef std::vector< Song * >::const_iterator const_iterator;
 
-    /* Construct the library and populate it with the songs in the given file */
-    Library(const std::string &libraryPath);
+	/* Construct the library and populate it with the songs in the given file */
+	Library(const std::string &libraryPath);
 
-    /* Destructor */
-    ~Library();
+	/* Destructor */
+	~Library();
 
-    /* Return a const iterator to the beginning of the Song collection */
-    const_iterator begin() const;
+	/* Return a const iterator to the beginning of the Song collection */
+	const_iterator begin() const;
 
-    /* Return a const iterator pointing past the end of the Song collection */
-    const_iterator end() const;
+	/* Return a const iterator pointing past the end of the Song collection */
+	const_iterator end() const;
 
 };
 

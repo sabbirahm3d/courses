@@ -36,70 +36,70 @@
  */
 
 
-template<typename DataType, typename Compare = std::less<DataType> >
+template < typename DataType, typename Compare = std::less< DataType > >
 class Tree {
 
-public:
+	public:
 
-    /* Iterator for the tree */
-    class iterator;
+	/* Iterator for the tree */
+	class iterator;
 
-    /* Default Constructor - construct an empty tree */
-    Tree();
+	/* Default Constructor - construct an empty tree */
+	Tree();
 
-    /* Copy constructor */
-    Tree(const Tree<DataType, Compare> &other);
+	/* Copy constructor */
+	Tree(const Tree< DataType, Compare > &other);
 
-    /* Copy assignment */
-    Tree &operator=(const Tree<DataType, Compare> &other);
+	/* Copy assignment */
+	Tree &operator=(const Tree< DataType, Compare > &other);
 
-    /* Destructor */
-    ~Tree();
+	/* Destructor */
+	~Tree();
 
-    /* Insert the given data into the tree */
-    void insert(DataType data);
+	/* Insert the given data into the tree */
+	void insert(DataType data);
 
-    /* Return whether or not the tree is empty */
-    bool empty() const;
+	/* Return whether or not the tree is empty */
+	bool empty() const;
 
-    /* Return the number of data items stored in the tree */
-    size_t size() const;
+	/* Return the number of data items stored in the tree */
+	size_t size() const;
 
-    /* Return an iterator pointing to the first element in the tree */
-    iterator begin();
+	/* Return an iterator pointing to the first element in the tree */
+	iterator begin();
 
-    /* Return an iterator past the end of the tree */
-    iterator end();
+	/* Return an iterator past the end of the tree */
+	iterator end();
 
-    /* Return an iterator pointing to the first item in the tree equal to key */
-    template<typename KeyType>
-    iterator find_first(KeyType key);
+	/* Return an iterator pointing to the first item in the tree equal to key */
+	template < typename KeyType >
+	iterator find_first(KeyType key);
 
-    /* Return an iterator pointing to the last item in the tree equal to key */
-    template<typename KeyType>
-    iterator find_last(KeyType key);
+	/* Return an iterator pointing to the last item in the tree equal to key */
+	template < typename KeyType >
+	iterator find_last(KeyType key);
 
-    /* 
-     * Return a pair of iterators pointing to the first item 
-     * in the tree equal to key, and past the last item 
-     * in the tree equal to key.
-     */
-    template<typename KeyType>
-    std::pair<iterator, iterator> find_range(KeyType key);
+	/*
+	 * Return a pair of iterators pointing to the first item
+	 * in the tree equal to key, and past the last item
+	 * in the tree equal to key.
+	 */
+	template < typename KeyType >
+	std::pair< iterator, iterator > find_range(KeyType key);
 
-    /* Level order print of the tree */
-    template<typename DataType_, typename Compare_>
-    friend std::ostream &operator<<(
-            std::ostream &stream, const Tree<DataType_, Compare_> &tree);
+	/* Level order print of the tree */
+	template < typename DataType_, typename Compare_ >
+	friend std::ostream &operator<<(
+		std::ostream &stream, const Tree< DataType_, Compare_ > &tree);
 
-    void traverse();
+	void traverse();
 
-private:
+	private:
 
-    Node<DataType>* m_root;
-    unsigned int m_size;
-    int m_degree;
-    std::vector<Node<DataType>* > leaves;
+	Node< DataType > *m_root;
+	unsigned int m_size;
+	int m_degree;
+	std::vector< Node< DataType > * > leaves;
 
 //    void insert(Node<DataType>*, DataType);
 
@@ -112,42 +112,42 @@ private:
 
 
 /* Tree iterator that performs in-order traversals */
-template<typename DataType, typename Compare>
-class Tree<DataType, Compare>::iterator
-        : public std::iterator<std::forward_iterator_tag, DataType> {
+template < typename DataType, typename Compare >
+class Tree< DataType, Compare >::iterator
+	: public std::iterator< std::forward_iterator_tag, DataType > {
 
-public:
+	public:
 
-    /* Default constructor - creates past-the-end iterator */
-    iterator();
+	/* Default constructor - creates past-the-end iterator */
+	iterator();
 
-    /* Default constructor - creates past-the-end iterator */
-    iterator(Node<DataType>*);
+	/* Default constructor - creates past-the-end iterator */
+	iterator(Node< DataType > *);
 
-    /* Copy constructor */
-    iterator(const iterator&);
+	/* Copy constructor */
+	iterator(const iterator &);
 
-    /* Copy assignment */
-    iterator &operator=(const iterator&);
+	/* Copy assignment */
+	iterator &operator=(const iterator &);
 
-    /* Return whether or not two iterators are pointing at the same place */
-    bool operator==(const iterator&) const;
+	/* Return whether or not two iterators are pointing at the same place */
+	bool operator==(const iterator &) const;
 
-    /* Return whether or not two iterators are not pointing at the same place */
-    bool operator!=(const iterator&) const;
+	/* Return whether or not two iterators are not pointing at the same place */
+	bool operator!=(const iterator &) const;
 
-    /* Return the data the iterator is pointing to */
-    DataType operator*() const;
+	/* Return the data the iterator is pointing to */
+	DataType operator*() const;
 
-    /* Advance to the current data's successor */
-    iterator &operator++();
+	/* Advance to the current data's successor */
+	iterator &operator++();
 
-    /* Advance to the current data's successor */
-    iterator operator++(int);
+	/* Advance to the current data's successor */
+	iterator operator++(int);
 
-private:
+	private:
 
-    Node<DataType>* m_cursor;
+	Node< DataType > *m_cursor;
 
 };
 

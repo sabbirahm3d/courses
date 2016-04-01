@@ -12,8 +12,8 @@
 
 
 /* Read an arbitrary value from the input stream */
-static void readValue(std::istream &stream,  const char *keyName, char *value,
-                        unsigned long valueChars);
+static void readValue(std::istream &stream, const char *keyName, char *value,
+											unsigned long valueChars);
 
 /* Read a string from the input stream */
 static std::string readStringValue(std::istream &stream, const char *keyName);
@@ -21,98 +21,95 @@ static std::string readStringValue(std::istream &stream, const char *keyName);
 /* Read an unsigned long from the input stream */
 static unsigned long readULongValue(std::istream &stream, const char *keyName);
 
-
 std::ostream &operator<<(std::ostream &stream, const Song &song) {
 
-    stream << "<Title: " << song.title.c_str() << ", "
-    << "Artist: " << song.artist.c_str() << ", "
-    << "Album: " << song.album.c_str() << ", "
-    << "Genre: " << song.genre.c_str() << ", "
-    << "Year: " << song.year << ">";
+	stream << "<Title: " << song . title . c_str() << ", "
+	<< "Artist: " << song . artist . c_str() << ", "
+	<< "Album: " << song . album . c_str() << ", "
+	<< "Genre: " << song . genre . c_str() << ", "
+	<< "Year: " << song . year << ">";
 
-    return stream;
-
+	return stream;
 }
-
 
 std::ostream &operator<<(std::ostream &stream, const Song *song) {
 
-    stream << "<Title: " << song->title.c_str() << ", "
-    << "Artist: " << song->artist.c_str() << ", "
-    << "Album: " << song->album.c_str() << ", "
-    << "Genre: " << song->genre.c_str() << ", "
-    << "Year: " << song->year << ">";
+	stream << "<Title: " << song -> title . c_str() << ", "
+	<< "Artist: " << song -> artist . c_str() << ", "
+	<< "Album: " << song -> album . c_str() << ", "
+	<< "Genre: " << song -> genre . c_str() << ", "
+	<< "Year: " << song -> year << ">";
 
-    return stream;
+	return stream;
 
 }
 
 
 std::istream &operator>>(std::istream &stream, Song &song) {
 
-    song.title = readStringValue(stream, "Title:");
-    song.artist = readStringValue(stream, "Artist:");
-    song.album = readStringValue(stream, "Album:");
-    song.genre = readStringValue(stream, "Genre:");
-    song.year = readULongValue(stream, "Year:");
+	song . title = readStringValue(stream, "Title:");
+	song . artist = readStringValue(stream, "Artist:");
+	song . album = readStringValue(stream, "Album:");
+	song . genre = readStringValue(stream, "Genre:");
+	song . year = readULongValue(stream, "Year:");
 
-    return stream;
+	return stream;
 
 }
 
 
 static std::string readStringValue(std::istream &stream, const char *keyName) {
 
-    char value[VALUE_CHARS];
-    std::memset(value, '\0', sizeof(value));
+	char value[VALUE_CHARS];
+	std::memset(value, '\0', sizeof(value));
 
-    readValue(stream, keyName, value, sizeof(value));
+	readValue(stream, keyName, value, sizeof(value));
 
-    return std::string(value);
+	return std::string(value);
 
 }
 
 
-static unsigned long readULongValue(std::istream &stream, 
-                                    const char *keyName) {
+static unsigned long readULongValue(std::istream &stream,
+																		const char *keyName) {
 
-    char value[VALUE_CHARS];
-    std::memset(value, '\0', sizeof(value));
+	char value[VALUE_CHARS];
+	std::memset(value, '\0', sizeof(value));
 
-    readValue(stream, keyName, value, sizeof(value));
+	readValue(stream, keyName, value, sizeof(value));
 
-    return static_cast<unsigned long>(std::atol(value));
+	return static_cast<unsigned long>(std::atol(value));
 
 }
 
 
 static void readValue(std::istream &stream, const char *keyName, char *value,
-                        unsigned long valueChars) {
+											unsigned long valueChars) {
 
-    std::string err("Unexpected field: ");
+	std::string err("Unexpected field: ");
 
-    char key[KEY_NAME_CHARS];
+	char key[KEY_NAME_CHARS];
 
-    if (keyName == NULL) {
-        throw std::invalid_argument("keyName cannot be NULL");
-    }
+	if (keyName == NULL) {
+		throw std::invalid_argument("keyName cannot be NULL");
+	}
 
-    if (value == NULL) {
-        throw std::invalid_argument("value cannot be NULL");
-    }
+	if (value == NULL) {
+		throw std::invalid_argument("value cannot be NULL");
+	}
 
-    std::memset(key, '\0', sizeof(key));
+	std::memset(key, '\0', sizeof(key));
 
-    /* Ensure we're reading the expected key */
-    stream.get(key, sizeof(key), KEY_DELIMITER);
-    if (strncmp(key, keyName, strlen(keyName)) != 0) {
-        throw std::runtime_error(err + key);
-    }
+	/* Ensure we're reading the expected key */
+	stream . get(key, sizeof(key), KEY_DELIMITER);
+	if (strncmp(key, keyName, strlen(keyName)) != 0) {
+		throw std::runtime_error(err + key);
+	}
 
-    /* Read past the delimiter */
-    stream.get();
+	/* Read past the delimiter */
+	stream . get();
 
-    /* Get the value */
-    stream.getline(value, valueChars);
+	/* Get the value */
+	stream . getline(value, valueChars);
 
 }
