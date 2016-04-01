@@ -2,170 +2,166 @@
 #define NODE_H
 
 
+#include <stddef.h>
+#include <iostream>
+
 /* Node structure for use in 2-3 trees */
 
-template <typename DataType>
+template<typename DataType>
 struct Node {
 
-    DataType key[2];
-    Node *left, *middle, *right, *parent;
+    DataType *key;
+    int m_degree;
+    Node<DataType> **m_children;
+    int numKeys;
+    bool m_leaf;
+
+    Node(){}
+
+    // Constructor for Node<DataType> class
+    Node(int degree, bool m_leaf) {
+        // Copy the given minimum degree and m_leaf property
+        m_degree = degree;
+        m_leaf = m_leaf;
+
+        // Allocate memory for maximum number of possible key
+        // and child pointers
+        key = new DataType[2 * m_degree - 1];
+        m_children = new Node<DataType> *[2 * m_degree];
+
+        // Initialize the number of key as 0
+        numKeys = 0;
+    }
+
+    ~Node() {
 
 
-    // Node() : left(NULL), middle(NULL), right(NULL), parent(NULL) {}
+        delete[] m_children;
+        m_children = NULL;
 
+//        if (key != NULL) {
+//            delete key;
+        key = NULL;
+//        }
+    }
 
-    // Node(DataType data) : left(NULL), middle(NULL), right(NULL), parent(NULL) {
+    // Function to traverse all nodes in a subtree rooted with this node
+    void traverse() {
+        // There are numKeys key and numKeys+1 children, travers through numKeys key
+        // and first numKeys children
+        int i;
+        for (i = 0; i < numKeys; i++) {
+            // If this is not m_leaf, then before printing key[i],
+            // traverse the subtree rooted with child m_children[i].
+            if (!m_leaf)
+                m_children[i]->traverse();
+            std::cout << " " << key[i];
+        }
 
-    //     key[0] = data;
-    //     key[1] = NULL;
+        // Print the subtree rooted with last child
+        if (!m_leaf)
+            m_children[i]->traverse();
+    }
 
-    // }
+// Function to search key data in subtree rooted with this node
+    Node<DataType> *search(DataType data) {
+        // Find the first key greater than or equal to data
+        int i = 0;
+        while (i < numKeys && data > key[i])
+            i++;
 
+        // If the found key is equal to data, return this node
+        if (key[i] == data)
+            return this;
 
-    bool is_leaf() {
+        // If key is not found here and this is a m_leaf node
+        if (!m_leaf)
+            return NULL;
 
-        return (left == NULL && middle == NULL && right == NULL);
-
+        // Go to the appropriate child
+        return m_children[i]->search(data);
     }
 
 
-    bool is_two_node() { return (key[1] == NULL); }
+    void insert_up(DataType data) {
+        // Initialize index as index of rightmost element
+        int i = numKeys - 1;
 
-    bool is_three_node() { return (key[1] != NULL); }
+        // If this is a m_leaf node
+        if (!m_leaf) {
+            // The following loop does two things
+            // a) Finds the location of new key to be inserted
+            // b) Moves all greater key to one place ahead
+            while (i >= 0 && key[i] > data) {
+                key[i + 1] = key[i];
+                i--;
+            }
 
-   //  DataType minimum() {
+            // Insert the new key at found location
+            key[i + 1] = data;
+            numKeys = numKeys + 1;
+        }
+        else // If this node is not m_leaf
+        {
+            // Find the child which is going to have the new key
+            while (i >= 0 && key[i] > data)
+                i--;
 
-   //      Node<DataType> *node = this;
-   //      while (!node->isLeaf()) node = node->left;
-   //      return node->key[0];
+            // See if the found child is full
+            if (m_children[i + 1]->numKeys == 2 * m_degree - 1) {
+                // If the child is full, then split it
+                splitChild(i + 1, m_children[i + 1]);
 
-   //  }
+                // After split, the middle key of m_children[i] goes up and
+                // m_children[i] is splitted into two. See which of the two
+                // is going to have the new key
+                if (key[i + 1] < data)
+                    i++;
+            }
+            m_children[i + 1]->insert_up(data);
+        }
+    }
 
+// A utility function to split the child y of this node
+// Note that y must be full when this function is called
+    void splitChild(int i, Node<DataType> *y) {
+        // Create a new node which is going to store (m_degree-1) key
+        // of y
+        Node<DataType> *z = new Node<DataType>(y->m_degree, y->m_leaf);
+        z->numKeys = m_degree - 1;
 
-   //      // Insert into a node with 1 child
-   //  void insert1Siblings(Node<DataType> *newChild, DataType newSmallest) {
+        // Copy the last (m_degree-1) key of y to z
+        for (int j = 0; j < m_degree - 1; j++)
+            z->key[j] = y->key[j + m_degree];
 
-   //      DataType newKey = newChild->key[0];
-   //      newChild->parent = this;
+        // Copy the last m_degree children of y to z
+        if (!y->m_leaf) {
+            for (int j = 0; j < m_degree; j++)
+                z->m_children[j] = y->m_children[j + m_degree];
+        }
 
-   //      if (newKey < left->key[0]) {
-   //              // newNode is inserted as first child of root
-   //          middle = left;
-   //          left = newChild;
-   //          key[0] = middle->minimum();
+        // Reduce the number of key in y
+        y->numKeys = m_degree - 1;
 
-   //      } else {
-   //              // newNode is iserted as second child of root
-   //          middle = newChild;
-   //          key[0] = newSmallest;
-   //      }
-   //  }
+        // Since this node is going to have a new child,
+        // create space of new child
+        for (int j = numKeys; j >= i + 1; j--)
+            m_children[j + 1] = m_children[j];
 
+        // Link the new child to this node
+        m_children[i + 1] = z;
 
-   //  // Insert into a node with 2 children
-   //  void insert2Siblings(Node<DataType> *newChild, DataType newSmallest) {
+        // A key of y will move to this node. Find location of
+        // new key and move all greater key one space ahead
+        for (int j = numKeys - 1; j >= i; j--)
+            key[j + 1] = key[j];
 
-   //      DataType newKey = newChild->key[0];
-   //      newChild->parent = this;
+        // Copy the middle key of y to this node
+        key[i] = y->key[m_degree - 1];
 
-   //      if (newKey < left->key[0]) {
-   //          right = middle;
-   //          middle = left;
-   //          left = newChild;
-
-   //          key[1] = key[0];
-   //          key[0] = middle->minimum();
-   //          updateParentSmallest(newSmallest);
-   //      }
-
-   //      else if (newKey < middle->key[0]) {
-   //          right = middle;
-   //          middle = newChild;
-
-   //          key[1] = key[0];
-   //          key[0] = newSmallest;
-
-   //      } else {
-
-   //          right = newChild;
-   //          key[1] = newSmallest;
-
-   //      }
-
-   //  }
-
-
-   //  // Insert into a node with 3 children
-   //  void insert3Siblings(Node<DataType> *newChild, DataType newSmallest) {
-   //     DataType newKey = newChild->key[0];
-
-   //     DataType splitSmallest = NULL;
-   //     Node *splitNode = new Node();
-   //     splitNode->parent = parent;
-
-   //     if (newKey < left->key[0] || newKey < middle->key[0]) {
-   //              // newChild is inserted in current node
-   //         splitSmallest = key[0];
-   //         splitNode->left = middle;
-   //         splitNode->middle = right;
-   //         splitNode->key[0] = key[1];
-
-   //         middle->parent = splitNode;
-   //         right->parent = splitNode;
-   //         newChild->parent = this;
-
-   //         if (newKey < left->key[0]) {
-   //                  // newChild is inserted as first child
-   //             middle = left;
-   //             left = newChild;
-
-   //             key[0] = middle->minimum();
-   //             updateParentSmallest(newSmallest);
-   //         }
-   //         else {
-   //                  // newChild is inserted as second child
-   //             middle = newChild;
-
-   //             key[0] = newSmallest;
-   //         }
-   //     }
-   //     else {
-   //              // newChild is inserted in split node
-   //         right->parent = splitNode;
-   //         newChild->parent = splitNode;
-
-   //         if (newKey < right->key[0]) {
-   //                  // newChild is inserted as first child
-   //             splitSmallest = newSmallest;
-   //             splitNode->left = newChild;
-   //             splitNode->middle = right;
-   //             splitNode->key[0] = key[1];
-   //         }
-   //         else {
-   //                  // newChild is inserted as second child
-   //             splitSmallest = key[1];
-   //             splitNode->left = right;
-   //             splitNode->middle = newChild;
-   //             splitNode->key[0] = newSmallest;
-   //         }
-   //     }
-
-   //     right = NULL;
-   //     key[1] = NULL;
-
-   //     if (parent->parent == NULL) {
-   //              // At root, so new root needs to be created
-   //         Node *newNode = new Node();
-
-   //         parent->left = newNode;
-   //         newNode->parent = parent;
-   //         newNode->left = this;
-   //         parent = newNode;
-   //     }
-
-   //     parent->insert(splitNode, splitSmallest);
-   // }
-
+        // Increment count of key in this node
+        numKeys = numKeys + 1;
+    }
 
 };
 

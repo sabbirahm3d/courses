@@ -1,68 +1,102 @@
 #ifndef TREE_ITERATOR_CPP
 #define TREE_ITERATOR_CPP
 
-
-template <typename DataType, typename Compare>
-Tree<DataType, Compare>::iterator::iterator() {
-    /* Your code here... */
-}
+#include "Tree.h"
 
 
-template <typename DataType, typename Compare>
-Tree<DataType, Compare>::iterator::iterator(const iterator &other) {
-    /* Your code here... */
-}
+template<typename DataType, typename Compare>
+Tree<DataType, Compare>::iterator::iterator() : m_cursor(NULL) { }
+
+template<typename DataType, typename Compare>
+Tree<DataType, Compare>::iterator::iterator(Node<DataType> *cursor) :
+        m_cursor(cursor) { }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
+Tree<DataType, Compare>::iterator::iterator(const iterator &other) :
+        m_cursor(other.m_cursor) { }
+
+
+template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator &
 Tree<DataType, Compare>::iterator::operator=(const iterator &other) {
-    /* Your code here... */
+
+    if (this != &other) {
+        m_cursor = other.m_cursor;
+    }
+
     return *this;
 
 }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
 bool Tree<DataType, Compare>::iterator::operator==(
-      const iterator &other) const {
+        const iterator &other) const {
 
-    /* Your code here... */
-    return false;
+    return (m_cursor == other.m_cursor);
 
 }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
 bool Tree<DataType, Compare>::iterator::operator!=(
-      const iterator &other) const {
-    /* Your code here... */
-    return false;
+        const iterator &other) const {
+
+    return !(*this == other);
+
 }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
 DataType Tree<DataType, Compare>::iterator::operator*() const {
-    /* Your code here... */
-    return DataType();
+
+   return m_cursor->key[0];
 
 }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator &
 Tree<DataType, Compare>::iterator::operator++() {
-    /* Your code here... */   
-    return *this;
+
+    // if (m_cursor == NULL) {
+
+    //     return *this;
+
+    // } else if (m_cursor->right != NULL) {
+
+    //     m_cursor = m_cursor->right;
+
+    //     while (m_cursor->left != NULL) {
+    //         m_cursor = m_cursor->left;
+    //     }
+
+    // } else {
+
+    //     while (m_cursor->parent != NULL
+    //            && m_cursor->parent->left != m_cursor) {
+    //         m_cursor = m_cursor->parent;
+    //     }
+
+    //     m_cursor = m_cursor->parent;
+
+    // }
+
+    // return *this;
 
 }
 
 
-template <typename DataType, typename Compare>
+template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator
 Tree<DataType, Compare>::iterator::operator++(int unused) {
-    /* Your code here... */
-    return *this;
+
+    Tree<DataType, Compare>::iterator temp(*this);
+
+    operator++();
+
+    return temp;
 
 }
 

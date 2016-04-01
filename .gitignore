@@ -1,7 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Python template
-# Byte-compiled / optimized / DLL files
-__pycache__/
 *.py[cod]
 *$py.class
 
@@ -11,27 +7,5 @@ __pycache__/
 *~
 *.h.gch
 *#
+*.d
 .idea/
-
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Sphinx documentation
-docs/_build/
-
-pip-selfcheck.json

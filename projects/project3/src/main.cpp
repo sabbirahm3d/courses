@@ -9,6 +9,10 @@
 #include "Song.h"
 #include "Tree.h"
 #include "TitleCompare.h"
+#include "YearCompare.h"
+#include "ArtistCompare.h"
+#include "AlbumCompare.h"
+#include "GenreCompare.h"
 
 #define EXPECTED_ARGC 2
 
@@ -27,13 +31,15 @@ int main(int argc, char **argv) {
 
     /* Read in the library */
     Library library(argv[1]);
-    Tree<Song *, TitleCompare> titleIndex;
+    Tree<Song*, ArtistCompare>* titleIndex = new Tree<Song*, ArtistCompare>;
 
     /* Populate the indexes */
-    for (Library::const_iterator iter = library.begin(); 
-            iter != library.end(); iter++) {
-        titleIndex.insert(*iter);
+    for (Library::const_iterator iter = library.begin();
+         iter != library.end(); iter++) {
+        titleIndex->insert(*iter);
     }
+
+    std::cout << titleIndex->size() << std::endl;
 
 
 #ifdef DEBUG
@@ -42,8 +48,13 @@ int main(int argc, char **argv) {
 #endif
 
     /* In order printing */
-    std::for_each(titleIndex.begin(), titleIndex.end(), printSong);
-    std::cout << std::endl;
+//    std::for_each(titleIndex->begin(), titleIndex->end(), printSong);
+//    std::cout << std::endl;
+
+//    titleIndex->traverse();
+
+    delete titleIndex;
+    titleIndex = NULL;
 
     return 0;
 

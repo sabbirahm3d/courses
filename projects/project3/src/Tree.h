@@ -4,10 +4,11 @@
 #include <iterator>
 #include <ostream>
 #include <utility>
-
 #include <stack>
+#include <bits/stl_vector.h>
 
 #include "Node.h"
+
 
 /* 
  * 2-3 Tree class 
@@ -35,10 +36,10 @@
  */
 
 
-template <typename DataType, typename Compare = std::less<DataType> >
+template<typename DataType, typename Compare = std::less<DataType> >
 class Tree {
 
- public:
+public:
 
     /* Iterator for the tree */
     class iterator;
@@ -57,7 +58,7 @@ class Tree {
 
     /* Insert the given data into the tree */
     void insert(DataType data);
-    
+
     /* Return whether or not the tree is empty */
     bool empty() const;
 
@@ -71,11 +72,11 @@ class Tree {
     iterator end();
 
     /* Return an iterator pointing to the first item in the tree equal to key */
-    template <typename KeyType>
+    template<typename KeyType>
     iterator find_first(KeyType key);
 
     /* Return an iterator pointing to the last item in the tree equal to key */
-    template <typename KeyType>
+    template<typename KeyType>
     iterator find_last(KeyType key);
 
     /* 
@@ -83,44 +84,57 @@ class Tree {
      * in the tree equal to key, and past the last item 
      * in the tree equal to key.
      */
-    template <typename KeyType>
+    template<typename KeyType>
     std::pair<iterator, iterator> find_range(KeyType key);
 
     /* Level order print of the tree */
-    template <typename DataType_, typename Compare_>
+    template<typename DataType_, typename Compare_>
     friend std::ostream &operator<<(
-          std::ostream &stream, const Tree<DataType_, Compare_> &tree);
+            std::ostream &stream, const Tree<DataType_, Compare_> &tree);
 
- private:
+    void traverse();
 
-    Node<DataType>* root;
+private:
 
-    // Node<DataType>* find_position(Node<DataType>*, DataType);
+    Node<DataType>* m_root;
+    unsigned int m_size;
+    int m_degree;
+    std::vector<Node<DataType>* > leaves;
+
+    void insert(Node<DataType>*, DataType);
+
+//    std::stack<Node<DataType> *> search(Node<DataType>*, DataType);
+//    DataType middle_node(DataType, DataType, DataType);
+//    DataType maximum(DataType, DataType, DataType);
+//    DataType minimum(DataType, DataType, DataType);
 
 };
 
 
 /* Tree iterator that performs in-order traversals */
-template <typename DataType, typename Compare>
-class Tree<DataType, Compare>::iterator 
- : public std::iterator<std::forward_iterator_tag, DataType> {
+template<typename DataType, typename Compare>
+class Tree<DataType, Compare>::iterator
+        : public std::iterator<std::forward_iterator_tag, DataType> {
 
- public:
+public:
 
     /* Default constructor - creates past-the-end iterator */
     iterator();
 
+    /* Default constructor - creates past-the-end iterator */
+    iterator(Node<DataType>*);
+
     /* Copy constructor */
-    iterator(const iterator &other);
+    iterator(const iterator&);
 
     /* Copy assignment */
-    iterator &operator=(const iterator &other);
+    iterator &operator=(const iterator&);
 
     /* Return whether or not two iterators are pointing at the same place */
-    bool operator==(const iterator &other) const;
+    bool operator==(const iterator&) const;
 
     /* Return whether or not two iterators are not pointing at the same place */
-    bool operator!=(const iterator &other) const;
+    bool operator!=(const iterator&) const;
 
     /* Return the data the iterator is pointing to */
     DataType operator*() const;
@@ -129,7 +143,11 @@ class Tree<DataType, Compare>::iterator
     iterator &operator++();
 
     /* Advance to the current data's successor */
-    iterator operator++(int unused);
+    iterator operator++(int);
+
+private:
+
+    Node<DataType>* m_cursor;
 
 };
 
