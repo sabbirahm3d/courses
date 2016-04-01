@@ -17,7 +17,7 @@
 #define EXPECTED_ARGC 2
 
 /* Print the given song to stdout */
-void printSong(Song *song) {
+void printSong(Song* song) {
     std::cout << song << '\n';
 }
 
@@ -31,15 +31,15 @@ int main(int argc, char **argv) {
 
     /* Read in the library */
     Library library(argv[1]);
-    Tree<Song*, ArtistCompare>* titleIndex = new Tree<Song*, ArtistCompare>;
+    Tree<Song*, YearCompare> titleIndex;
 
     /* Populate the indexes */
     for (Library::const_iterator iter = library.begin();
          iter != library.end(); iter++) {
-        titleIndex->insert(*iter);
+        titleIndex.insert(*iter);
     }
 
-    std::cout << titleIndex->size() << std::endl;
+    std::cout << titleIndex.size() << std::endl;
 
 
 #ifdef DEBUG
@@ -51,10 +51,8 @@ int main(int argc, char **argv) {
 //    std::for_each(titleIndex->begin(), titleIndex->end(), printSong);
 //    std::cout << std::endl;
 
-//    titleIndex->traverse();
-
-    delete titleIndex;
-    titleIndex = NULL;
+//    delete titleIndex;
+//    titleIndex = NULL;
 
     return 0;
 

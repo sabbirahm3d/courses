@@ -13,7 +13,7 @@ Library::Library(const std::string &libraryPath) {
     }
 
 
-    while ( libraryFile.good() ) {
+    while (libraryFile.good()) {
 
         song = new Song();
 
@@ -27,8 +27,8 @@ Library::Library(const std::string &libraryPath) {
         song = NULL;
 
         /* Eat whitespace */
-        while ( libraryFile.good() &&
-            ( libraryFile.peek() == '\n' || libraryFile.peek() == ' ' ) ) {
+        while (libraryFile.good() &&
+               (libraryFile.peek() == '\n' || libraryFile.peek() == ' ')) {
             libraryFile.get();
         }
 

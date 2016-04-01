@@ -51,7 +51,7 @@ bool Tree<DataType, Compare>::iterator::operator!=(
 template<typename DataType, typename Compare>
 DataType Tree<DataType, Compare>::iterator::operator*() const {
 
-   return m_cursor->key[0];
+    return m_cursor->key[0];
 
 }
 

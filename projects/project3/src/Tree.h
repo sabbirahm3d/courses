@@ -5,7 +5,7 @@
 #include <ostream>
 #include <utility>
 #include <stack>
-#include <bits/stl_vector.h>
+#include <vector>
 
 #include "Node.h"
 
@@ -101,7 +101,7 @@ private:
     int m_degree;
     std::vector<Node<DataType>* > leaves;
 
-    void insert(Node<DataType>*, DataType);
+//    void insert(Node<DataType>*, DataType);
 
 //    std::stack<Node<DataType> *> search(Node<DataType>*, DataType);
 //    DataType middle_node(DataType, DataType, DataType);

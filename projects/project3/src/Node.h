@@ -16,7 +16,7 @@ struct Node {
     int numKeys;
     bool m_leaf;
 
-    Node(){}
+    Node() { }
 
     // Constructor for Node<DataType> class
     Node(int degree, bool m_leaf) {
@@ -64,23 +64,23 @@ struct Node {
     }
 
 // Function to search key data in subtree rooted with this node
-    Node<DataType> *search(DataType data) {
-        // Find the first key greater than or equal to data
-        int i = 0;
-        while (i < numKeys && data > key[i])
-            i++;
-
-        // If the found key is equal to data, return this node
-        if (key[i] == data)
-            return this;
-
-        // If key is not found here and this is a m_leaf node
-        if (!m_leaf)
-            return NULL;
-
-        // Go to the appropriate child
-        return m_children[i]->search(data);
-    }
+//    Node<DataType> *search(DataType data) {
+//        // Find the first key greater than or equal to data
+//        int i = 0;
+//        while (i < numKeys && data > key[i])
+//            i++;
+//
+//        // If the found key is equal to data, return this node
+//        if (key[i] == data)
+//            return this;
+//
+//        // If key is not found here and this is a m_leaf node
+//        if (!m_leaf)
+//            return NULL;
+//
+//        // Go to the appropriate child
+//        return m_children[i]->search(data);
+//    }
 
 
     void insert_up(DataType data) {
@@ -99,10 +99,9 @@ struct Node {
 
             // Insert the new key at found location
             key[i + 1] = data;
-            numKeys = numKeys + 1;
-        }
-        else // If this node is not m_leaf
-        {
+            numKeys++;
+
+        } else { // If this node is not m_leaf
             // Find the child which is going to have the new key
             while (i >= 0 && key[i] > data)
                 i--;
@@ -160,7 +159,7 @@ struct Node {
         key[i] = y->key[m_degree - 1];
 
         // Increment count of key in this node
-        numKeys = numKeys + 1;
+        numKeys++;
     }
 
 };
