@@ -18,42 +18,43 @@
 
 /* Print the given song to stdout */
 void printSong(Song *song) {
-	std::cout << song << '\n';
+    std::cout << song << '\n';
 }
 
 
 int main(int argc, char **argv) {
 
-	if (argc != EXPECTED_ARGC) {
-		std::cerr << "Usage: " << argv[0] << " <library-path>" << std::endl;
-		return 1;
-	}
+    if (argc != EXPECTED_ARGC) {
+        std::cerr << "Usage: " << argv[0] << " <library-path>" << std::endl;
+        return 1;
+    }
 
-	/* Read in the library */
-	Library library(argv[1]);
-	Tree< Song *, YearCompare > titleIndex;
+    /* Read in the library */
+    Library library(argv[1]);
+    Tree<Song *, YearCompare> titleIndex;
 
-	/* Populate the indexes */
-	for (Library::const_iterator iter = library . begin();
-			 iter != library . end(); iter++) {
-		titleIndex . insert(* iter);
-	}
+    /* Populate the indexes */
+    for (Library::const_iterator iter = library.begin();
+         iter != library.end(); iter++) {
+        titleIndex.insert(*iter);
+    }
 
-	std::cout << titleIndex . size() << std::endl;
+    std::cout << titleIndex.size() << std::endl;
 
+//    titleIndex.traverse();
 
 #ifdef DEBUG
-	/* Level order printing */
-	std::cout << titleIndex << '\n' << std::endl;
+    /* Level order printing */
+    std::cout << titleIndex << '\n' << std::endl;
 #endif
 
-	/* In order printing */
-//    std::for_each(titleIndex->begin(), titleIndex->end(), printSong);
+    /* In order printing */
+    std::for_each(titleIndex.begin(), titleIndex.end(), printSong);
 //    std::cout << std::endl;
 
 //    delete titleIndex;
 //    titleIndex = NULL;
 
-	return 0;
+    return 0;
 
 }
