@@ -38,8 +38,6 @@ Tree<DataType, Compare>::~Tree() {
         m_root = NULL;
     }
 
-    std::cout << leaves.size() << std::endl;
-
     for (unsigned int i = 0; i < leaves.size(); i++) {
         delete leaves[i];
         leaves[i] = NULL;
@@ -48,159 +46,62 @@ Tree<DataType, Compare>::~Tree() {
     leaves.resize(0);
 }
 
+//create a new node, initialize all crucial values
+template<typename DataType, typename Compare>
+Node<DataType> *Tree<DataType, Compare>::instantiate(const DataType data) {
+    //pre: the initial value the node holds
+    //post: a pointer to the newly created node
+    Node<DataType> *node = new Node<DataType>;
+    node->left_key = data;
+    node->num_keys = 1;
+    node->left = node->middle = node->right = node->parent = NULL;
+    return node;
+}
+
 
 template<typename DataType, typename Compare>
 void Tree<DataType, Compare>::insert(DataType data) {
 
-
     if (m_root == NULL) {
-
-        m_root = new Node<DataType>;
-        m_root->key[0] = data;
-
-//        std::cout << "first insert" << std::endl;
+        m_root = instantiate(data);
         m_size++;
-        leaves.push_back(m_root);
-
+        //if has only 1 node
+    } else if (m_root->is_leaf()) {
+        m_size++;
+        if (m_root->num_keys == 1) {    //if it's a 2-node
+            insertSecondItem(m_root, data);
+        } else {    //it's a 3-node
+            m_root = split_node(m_root, instantiate(data), 0);
+        }
+        //other conditions
     } else {
-
         m_size++;
+        insert(m_root, data);
+    }
 
-        std::stack<Node<DataType> *> s = search(m_root, data);
-
-        std::stack<Node<DataType> *> butts(s);
-
-        while (!butts.empty()) {
-
-//            std::cout << butts.top() << std::endl;
-            butts.pop();
-
-        } // while
-
-        int dir = 0;
-        struct Node<DataType> *node = new Node<DataType>;
-
-        leaves.push_back(node);
-
-        node = s.top();
-        s.pop();
-
-        if ((node->key[0] == data) || (node->key[1] == data)) return;
-
-        int count = 0;
-
-        while (count < (s.size() + 1)) {
-
-            struct Node<DataType> *node1 = new Node<DataType>;
-            struct Node<DataType> *node2 = new Node<DataType>;
-            struct Node<DataType> *parent = new Node<DataType>;
-
-            node1->key[0] = minimum(node->key[0], node->key[1], data);
-            node2->key[0] = maximum(node->key[0], node->key[1], data);
-            DataType temp = middle_node(node->key[0], node->key[1], data);
-
-            if (!s.empty()) {
-
-                parent = s.top();
-                s.pop();
-
-            } //if
-
-            if (node->is_two_node()) {
-
-//                std::cout << "isTwoNode(node)" << std::endl;
-
-                if (Compare()(node->key[0], data)) {
-                    node->key[1] = data;
-                } else {
-                    node->key[0] = data;
-                }
-
-                return;
-
-            } else {  // current node is a 3 node
+}
 
 
-                if (node == parent->left) dir = 0;
-                if (node == parent->middle) dir = 1;
-                if (node == parent->right) dir = 2;
-
-                if (parent->is_two_node()) {
-
-//                    std::cout << "isTwoNode(parent)" << std::endl;
-
-                    switch (dir) {
-
-                        case 0:
-
-                            parent->key[1] = parent->key[0];
-                            parent->key[0] = temp;
-                            parent->left = node1;
-                            parent->right = parent->middle;
-                            parent->middle = node2;
-                            break;
-
-                        case 1:
-
-                            parent->key[1] = temp;
-                            parent->middle = node1;
-                            parent->right = node2;
-                            break;
-
-                    } // switch
-
-                } else if (s.empty()) {
-
-//                    std::cout << "m_root node!" << std::endl;
-
-                    Node<DataType> *newRoot = new Node<DataType>;
-                    newRoot->key[0] = temp;
-                    newRoot->left = node1;
-                    newRoot->middle = node2;
-                    m_root = newRoot;
-
-                } else {
-
-//                    std::cout << "isThreeNode(parent)" << std::endl;
-
-                    switch (dir) {
-
-                        case 0:
-
-//                            parent->temp = parent->right;
-                            parent->right = parent->middle;
-                            parent->middle = node2;
-                            parent->left = node1;
-                            break;
-
-                        case 1:
-
-//                            parent->temp = parent->right;
-                            parent->right = node2;
-                            parent->middle = node1;
-                            break;
-
-                        case 2:
-
-                            parent->right = node1;
-//                            parent->temp = node2;
-                            break;
-
-                    } // switch
-
-                } // if else
-
-            } // else
-
-            data = temp;
-            node = parent;
-            count++;
-
-        } // while
-
-    } // if tree is empty
-
-} // ttTreeInsert
+template<typename DataType, typename Compare>
+DataType *Tree<DataType, Compare>::insert_up(const DataType m, const DataType node, const DataType data) {
+    //pre: the three elements; m, node should be old node's values, data should be new value
+    //post: a pointer to the sorted array
+    DataType *middle = new DataType[3];
+    if (Compare()(data, m)) { //m is the median
+        middle[0] = data;
+        middle[1] = m;
+        middle[2] = node;
+    } else if (Compare()(node, data)) {  //node is the median
+        middle[0] = m;
+        middle[1] = node;
+        middle[2] = data;
+    } else { //data is the median
+        middle[0] = m;
+        middle[1] = data;
+        middle[2] = node;
+    }
+    return middle;
+}
 
 
 template<typename DataType, typename Compare>
@@ -209,6 +110,140 @@ bool Tree<DataType, Compare>::empty() const { return (m_root == NULL); }
 
 template<typename DataType, typename Compare>
 size_t Tree<DataType, Compare>::size() const { return m_size; }
+
+
+template<typename DataType, typename Compare>
+void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
+
+    //pre: a pointer to the node to start with, the value to insert
+    //post: value is inserted to the tree
+    if (node->is_leaf()) { //base case; if node is a leaf
+        if (node->num_keys == 1) {   //leaf has empty space
+            insertSecondItem(node, data);
+        } else {    //leaf is full; split it; insert_up the node to parent
+            int pos = search(node->parent, node);
+            Node<DataType> *promo = split_node(node, instantiate(data), pos);  //split the node
+            while (node->parent != m_root) {    //if parent is not m_root
+                if (node->parent->num_keys == 1) { //the parent is not full
+                    insertSecondItem(node->parent, promo->left_key);   //insert value to parent
+                    //rearrange leftover's linking
+                    int pos = search(node->parent, node);
+                    if (pos == 0) { //if node is left child
+                        node->parent->left = promo->left;
+                        node->parent->middle = promo->right;
+                    } else if (pos == 2) {   //if node is right child
+                        node->parent->middle = promo->left;
+                        node->parent->right = promo->right;
+                    }
+                    promo->left->parent = promo->right->parent = node->parent;
+                    break;  //insertion complete
+                } else {    //continue to split parent's parent and so on
+                    pos = search(node->parent, node);   //direction the split request comes from
+                    node = node->parent;  //go one level up
+                    promo = split_node(node, promo, pos);   //split parent's parent
+                }
+            }
+            if (node->parent == m_root) { //when trace to m_root
+                pos = search(node->parent, node);   //direction the split request comes from
+                if (node->parent->num_keys == 1) {   //the m_root is not full
+                    insertSecondItem(node->parent, promo->left_key);
+                    if (pos == 0) { //if node is left child
+                        node->parent->left = promo->left;
+                        node->parent->middle = promo->right;
+                    } else if (pos == 2) {   //if node is right child
+                        node->parent->middle = promo->left;
+                        node->parent->right = promo->right;
+                    }
+                    promo->left->parent = promo->right->parent = node->parent;
+                } else {    //split the m_root
+                    pos = search(node->parent, node);
+                    node = node->parent;
+                    m_root = split_node(node, promo, pos);    //m_root will be updated
+                }
+            }
+        }
+    } else {    //non-base case
+        if (node->num_keys == 1) {   //2-node
+            if (Compare()(data, node->left_key)) insert(node->left, data);  //go left subtree
+            else insert(node->right, data);   //go right subtree
+        } else {    //3-node
+            if (Compare()(data, node->left_key)) insert(node->left, data);  //go left subtree
+            else if (Compare()(node->right_key, data)) insert(node->right, data);  //go left subtree
+            else insert(node->middle, data);    //go middle subtree
+        }
+    }
+
+}
+
+template<typename DataType, typename Compare>
+Node<DataType> *Tree<DataType, Compare>::split_node(Node<DataType> *n, Node<DataType> *x, const int pos) {
+    //pre: a pointer to the node to split, the node that causes the split, and where the split causer comes from (left, middle, right = 0, 1, 2)
+    //post: a pointer to the top-most node of manipulated subtree
+    Node<DataType> *nodeCache[4];    //cache children of nodes passed in
+    //rearrange the position of these children for later hook up
+    if (pos == 0) {   //x left, x right, n middle, n right
+        nodeCache[0] = x->left;
+        nodeCache[1] = x->right;
+        nodeCache[2] = n->middle;
+        nodeCache[3] = n->right;
+    } else if (pos == 2) {   //n left, n middle, x left, x right
+        nodeCache[0] = n->left;
+        nodeCache[1] = n->middle;
+        nodeCache[2] = x->left;
+        nodeCache[3] = x->right;
+    } else {    //n left, x left, x right, n right
+        nodeCache[0] = n->left;
+        nodeCache[1] = x->left;
+        nodeCache[2] = x->right;
+        nodeCache[3] = n->right;
+    }
+    DataType *middle = insert_up(n->left_key, n->right_key, x->left_key); //sort the passed nodes' values
+    //reuse nodes to prevent memory leak
+    Node<DataType> *promo = instantiate(middle[1]);   //new promoted node
+    Node<DataType> *l = instantiate(middle[0]); //left child
+    Node<DataType> *r = instantiate(middle[2]); //right child
+    //parental relationship of first relative level
+    promo->left = l;
+    promo->right = r;
+    l->parent = promo;
+    r->parent = promo;
+    //parental relationship of second relative level; hook up cached nodes
+    if (nodeCache[0] != NULL) {
+        l->left = nodeCache[0];
+        l->right = nodeCache[1];
+        nodeCache[0]->parent = nodeCache[1]->parent = l;
+        r->left = nodeCache[2];
+        r->right = nodeCache[3];
+        nodeCache[2]->parent = nodeCache[3]->parent = r;
+    }
+    return promo;
+}
+
+
+template<typename DataType, typename Compare>
+void Tree<DataType, Compare>::insertSecondItem(Node<DataType> *node, const DataType data) {
+    //pre: a pointer to the 2-node, and the value to be inserted
+    //post: value is inserted
+    if (Compare()(data, node->left_key)) {   //data should be on left
+        node->right_key = node->left_key;
+        node->left_key = data;
+    } else {    //data should be on right
+        node->right_key = data;
+    }
+    node->num_keys = 2;
+}
+
+
+template<typename DataType, typename Compare>
+int Tree<DataType, Compare>::search(Node<DataType> *parent, Node<DataType> *node) {
+
+    //pre: a pointer to the parent, and a pointer to the node itself
+    //post: return 0 for left, 1 for middle, 2 for right child
+    if (parent->left == node) return 0;    //if left child
+    else if (parent->middle == node) return 1; //if middle child
+    else return 2;  //if right child
+
+}
 
 
 template<typename DataType, typename Compare>
@@ -257,148 +292,6 @@ Tree<DataType, Compare>::find_last(KeyType key) {
 
 
 template<typename DataType, typename Compare>
-void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
-
-    if (node->is_leaf()) {
-        node->left = new Node<DataType>;
-        node->key[0] = data;
-        node->left = NULL;
-        node->right = NULL;
-        m_size++;
-
-        delete node;
-    }
-
-    else if ((Compare()(data, node->key[0])) && (node->is_two_node())) {
-
-        insert(node->left, data);
-
-    } else if (Compare()(data, node->key[0])) {
-
-        node->left = new Node<DataType>;
-        node->left->key[0] = data;
-        node->left->parent = node;
-        m_size++;
-
-    } else if (node->right != NULL) {
-
-        insert(node->right, data);
-
-    } else if (node->is_three_node()) {
-
-        if (Compare()(data, node->key[0])) {
-            insert(node->left, data);
-        } else if (Compare()(data, node->key[1])) {
-            insert(node->middle, data);
-        } else {
-            insert(node->right, data);
-        }
-
-    } else {
-
-        node->right = new Node<DataType>;
-        node->right->key[0] = data;
-        node->right->parent = node;
-        m_size++;
-    }
-
-
-}
-
-template<typename DataType, typename Compare>
-std::stack<Node<DataType> *> Tree<DataType, Compare>::search(
-        Node<DataType> *node, DataType data) {
-
-    std::stack<Node<DataType> *> newNode;
-
-    while (node != NULL) {
-
-        newNode.push(node);
-
-        if (node->is_two_node()) {
-
-            if (data == node->key[0]) {
-
-            } else if (data < node->key[0]) {
-
-                node = node->left;
-
-            } else {
-
-                node = node->middle;
-
-            } // if else
-
-        } else {
-
-            // if ((data == node->key[0]) || (data == node->key[1])) {
-
-            //   break;
-
-            // }
-
-            if (data < node->key[0]) {
-
-                node = node->left;
-
-            } else if (data < node->key[1]) {
-
-                node = node->middle;
-
-            } else {
-
-                node = node->right;
-
-            } // if else
-
-        } // if else
-
-    } // while
-
-//    std::cout << "search works!" << std::endl;
-
-    return newNode;
-
-}
-
-
-template<typename DataType, typename Compare>
-DataType Tree<DataType, Compare>::middle_node(DataType x, DataType y, DataType z) {
-
-    DataType mid = 0;
-
-    if ((z < x && y > x) || (y < x && z > x)) mid = x;
-    if ((x < y && z > y) || (z < y && x > y)) mid = y;
-    if ((y < z && x > z) || (x < z && y > z)) mid = z;
-    return mid;
-
-}
-
-
-template<typename DataType, typename Compare>
-DataType Tree<DataType, Compare>::maximum(DataType x, DataType y, DataType z) {
-
-    DataType max = x;
-
-    if (y > max) max = y;
-    if (z > max) max = z;
-    return max;
-
-} // max
-
-
-template<typename DataType, typename Compare>
-DataType Tree<DataType, Compare>::minimum(DataType x, DataType y, DataType z) {
-
-    DataType min = x;
-
-    if (y < min) min = y;
-    if (z < min) min = z;
-    return min;
-
-} // min
-
-template<typename DataType, typename Compare>
 template<typename KeyType>
 std::pair<typename Tree<DataType, Compare>::iterator,
         typename Tree<DataType, Compare>::iterator>
@@ -408,23 +301,9 @@ Tree<DataType, Compare>::find_range(KeyType key) {
 
 }
 
-
-template<typename DataType, typename Compare>
-void Tree<DataType, Compare>::traverse() {
-//    if (m_root != NULL) m_root->traverse();
-}
-
-
 template<typename DataType, typename Compare>
 std::ostream &operator<<(std::ostream &stream,
                          Tree<DataType, Compare> &tree) {
-
-//    while (tree.m_root != NULL) {
-//        stream << tree.m_root->key[0] << std::endl;
-////        tree.m_root = tree.m_root->key[0];
-//    }
-
-//    tree.traverse();
 
     return stream;
 

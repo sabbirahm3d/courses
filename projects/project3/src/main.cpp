@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
 
     /* Read in the library */
     Library library(argv[1]);
-    Tree<Song *, YearCompare> titleIndex;
+    Tree<Song *, TitleCompare> titleIndex;
 
     /* Populate the indexes */
     for (Library::const_iterator iter = library.begin();

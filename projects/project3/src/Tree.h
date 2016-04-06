@@ -87,8 +87,6 @@ public:
     template<typename KeyType>
     std::pair<iterator, iterator> find_range(KeyType key);
 
-    void traverse();
-
     /* Level order print of the tree */
     template<typename DataType_, typename Compare_>
     friend std::ostream &operator<<(
@@ -98,13 +96,18 @@ private:
 
     Node<DataType> *m_root;
     unsigned int m_size;
-//    int m_degrees;
     std::vector<Node<DataType> *> leaves;
-    void insert(Node<DataType>*, DataType);
-    DataType minimum(DataType, DataType, DataType);
-    DataType maximum(DataType, DataType, DataType);
-    DataType middle_node(DataType, DataType, DataType);
-    std::stack<Node<DataType>* > search(Node<DataType>*, DataType);
+
+    Node<DataType> *instantiate(const DataType);
+
+    void insert(Node<DataType> *, DataType);
+
+    DataType *insert_up(const DataType, const DataType, const DataType);
+
+    Node<DataType>* split_node(Node<DataType>*, Node<DataType>*, const int);
+    void insertSecondItem(Node<DataType> *, const DataType);
+
+    int search(Node<DataType> *, Node<DataType> *);
 
 };
 
