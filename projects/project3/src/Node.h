@@ -13,33 +13,16 @@ struct Node {
     Node<DataType> *left, *middle, *right, *parent;
 
 
-    Node() : left(NULL), middle(NULL), right(NULL), parent(NULL),
-             num_keys(0) {  }
+    Node() : num_keys(0),
+             left(NULL), middle(NULL), right(NULL), parent(NULL) { }
 
+    Node(DataType data) : left_key(data), num_keys(1),
+                          left(NULL), middle(NULL), right(NULL),
+                          parent(NULL) { }
 
-//    Node(DataType data) : left(NULL), middle(NULL), right(NULL), parent(NULL) {
-//
-//        key[0] = data;
-//        key[1] = NULL;
-//
-//    }
+    ~Node() { }
 
-    ~Node() {
-
-//        if (key[0] != NULL) {
-////            delete key[0];
-//            key[0] = NULL;
-//        }
-////        delete key[1];
-//        key[1] = NULL;
-
-    }
-
-    bool is_leaf() { return (left == NULL); }
-
-//    bool is_two_node() { return (key[1] == NULL); }
-//
-//    bool is_three_node() { return (key[1] != NULL); }
+    bool is_leaf() { return (left == NULL && middle == NULL && right == NULL); }
 
 };
 

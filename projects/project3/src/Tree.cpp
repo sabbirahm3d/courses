@@ -33,29 +33,72 @@ Tree<DataType, Compare>::operator=(const Tree<DataType, Compare> &other) {
 template<typename DataType, typename Compare>
 Tree<DataType, Compare>::~Tree() {
 
-    while (m_root != NULL) {
-        delete m_root;
-        m_root = NULL;
+    destroy_tree(m_root);
+
+    for (unsigned int i = 0; i < m_leaves.size(); i++) {
+        delete m_leaves[i];
+        m_leaves[i] = NULL;
     }
 
-    for (unsigned int i = 0; i < leaves.size(); i++) {
-        delete leaves[i];
-        leaves[i] = NULL;
-    }
+    m_leaves.resize(0);
 
-    leaves.resize(0);
 }
 
-//create a new node, initialize all crucial values
+
 template<typename DataType, typename Compare>
-Node<DataType> *Tree<DataType, Compare>::instantiate(const DataType data) {
-    //pre: the initial value the node holds
-    //post: a pointer to the newly created node
-    Node<DataType> *node = new Node<DataType>;
-    node->left_key = data;
-    node->num_keys = 1;
-    node->left = node->middle = node->right = node->parent = NULL;
-    return node;
+void Tree<DataType, Compare>::destroy_tree(Node<DataType> *leaf) {
+
+    if (leaf != NULL) {
+        destroy_tree(leaf->left);
+        destroy_tree(leaf->middle);
+        destroy_tree(leaf->right);
+        delete leaf;
+    }
+
+}
+
+
+//print out a node's value(s)
+template<typename DataType, typename Compare>
+void Tree<DataType, Compare>::printNode(Node<DataType> *n) {
+    //pre: a node pointer
+    //post: output the node's data item(s)
+    if (n != NULL) {  //print guard
+        if (n->num_keys == 1) std::cout << n->left_key << " ";
+        else std::cout << n->left_key << std::endl << n->right_key << " ";
+    }
+}
+
+
+//print all nodes' values in the tree form
+template<typename DataType, typename Compare>
+void Tree<DataType, Compare>::display() {
+    //pre: none
+    //post: output the tree's values, in the form of their original hierarchies
+    if (m_root == NULL) std::cout << "Empty tree.";    //print guard
+    else {
+        std::vector<Node<DataType> *> v;  //list to print
+        std::vector<Node<DataType> *> c;  //list to hold children of v, for later use
+        v.push_back(m_root);  //first level
+        while (!v.empty()) {
+            for (int i = 0; i < v.size(); i++) {  //print all nodes
+                printNode(v[i]);
+                std::cout << std::endl;
+            }
+
+            std::cout << std::endl;   //end this level
+            for (int i = 0; i < v.size(); i++) { //find children of nodes in v
+                if (v[i]->left) c.push_back(v[i]->left);
+                if (v[i]->middle) c.push_back(v[i]->middle);
+                if (v[i]->right) c.push_back(v[i]->right);
+            }
+
+            v.clear();
+            v.swap(c);
+            c.clear();    //clear v, make children print-ready
+        }
+    }
+    std::cout << std::endl;
 }
 
 
@@ -63,27 +106,38 @@ template<typename DataType, typename Compare>
 void Tree<DataType, Compare>::insert(DataType data) {
 
     if (m_root == NULL) {
-        m_root = instantiate(data);
+        m_root = new Node<DataType>(data);
+        m_leaves.push_back(m_root);
         m_size++;
         //if has only 1 node
+
     } else if (m_root->is_leaf()) {
-        m_size++;
+
         if (m_root->num_keys == 1) {    //if it's a 2-node
+
             insertSecondItem(m_root, data);
+
         } else {    //it's a 3-node
-            m_root = split_node(m_root, instantiate(data), 0);
+
+            m_root = split_node(m_root, new Node<DataType>(data), 0);
+            m_leaves.push_back(m_root);
+
         }
-        //other conditions
+
+        m_size++;
+
     } else {
+
         m_size++;
         insert(m_root, data);
+
     }
 
 }
 
 
 template<typename DataType, typename Compare>
-DataType *Tree<DataType, Compare>::insert_up(const DataType m, const DataType node, const DataType data) {
+DataType *Tree<DataType, Compare>::insert_up(DataType m, DataType node, DataType data) {
     //pre: the three elements; m, node should be old node's values, data should be new value
     //post: a pointer to the sorted array
     DataType *middle = new DataType[3];
@@ -100,7 +154,9 @@ DataType *Tree<DataType, Compare>::insert_up(const DataType m, const DataType no
         middle[1] = data;
         middle[2] = node;
     }
+
     return middle;
+
 }
 
 
@@ -118,25 +174,38 @@ void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
     //pre: a pointer to the node to start with, the value to insert
     //post: value is inserted to the tree
     if (node->is_leaf()) { //base case; if node is a leaf
+
         if (node->num_keys == 1) {   //leaf has empty space
+
             insertSecondItem(node, data);
+
         } else {    //leaf is full; split it; insert_up the node to parent
+
             int pos = search(node->parent, node);
-            Node<DataType> *promo = split_node(node, instantiate(data), pos);  //split the node
+
+            Node<DataType> *promo = split_node(node, new Node<DataType>(data), pos);  //split the node
+
             while (node->parent != m_root) {    //if parent is not m_root
                 if (node->parent->num_keys == 1) { //the parent is not full
                     insertSecondItem(node->parent, promo->left_key);   //insert value to parent
+
                     //rearrange leftover's linking
                     int pos = search(node->parent, node);
+
                     if (pos == 0) { //if node is left child
+
                         node->parent->left = promo->left;
                         node->parent->middle = promo->right;
+
                     } else if (pos == 2) {   //if node is right child
+
                         node->parent->middle = promo->left;
                         node->parent->right = promo->right;
+
                     }
+
                     promo->left->parent = promo->right->parent = node->parent;
-                    break;  //insertion complete
+                    return;  //insertion complete
                 } else {    //continue to split parent's parent and so on
                     pos = search(node->parent, node);   //direction the split request comes from
                     node = node->parent;  //go one level up
@@ -199,9 +268,9 @@ Node<DataType> *Tree<DataType, Compare>::split_node(Node<DataType> *n, Node<Data
     }
     DataType *middle = insert_up(n->left_key, n->right_key, x->left_key); //sort the passed nodes' values
     //reuse nodes to prevent memory leak
-    Node<DataType> *promo = instantiate(middle[1]);   //new promoted node
-    Node<DataType> *l = instantiate(middle[0]); //left child
-    Node<DataType> *r = instantiate(middle[2]); //right child
+    Node<DataType> *promo = new Node<DataType>(middle[1]);   //new promoted node
+    Node<DataType> *l = new Node<DataType>(middle[0]); //left child
+    Node<DataType> *r = new Node<DataType>(middle[2]); //right child
     //parental relationship of first relative level
     promo->left = l;
     promo->right = r;
@@ -305,6 +374,7 @@ template<typename DataType, typename Compare>
 std::ostream &operator<<(std::ostream &stream,
                          Tree<DataType, Compare> &tree) {
 
+    tree.display();
     return stream;
 
 }

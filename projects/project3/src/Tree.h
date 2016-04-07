@@ -56,6 +56,10 @@ public:
     /* Destructor */
     ~Tree();
 
+    void printNode(Node<DataType> *);
+
+    void display();
+
     /* Insert the given data into the tree */
     void insert(DataType data);
 
@@ -92,19 +96,21 @@ public:
     friend std::ostream &operator<<(
             std::ostream &stream, const Tree<DataType_, Compare_> &tree);
 
+
 private:
 
     Node<DataType> *m_root;
     unsigned int m_size;
-    std::vector<Node<DataType> *> leaves;
+    std::vector<Node<DataType> *> m_leaves;
 
-    Node<DataType> *instantiate(const DataType);
+    void destroy_tree(Node<DataType>*);
 
     void insert(Node<DataType> *, DataType);
 
-    DataType *insert_up(const DataType, const DataType, const DataType);
+    DataType *insert_up(DataType, DataType, DataType);
 
-    Node<DataType>* split_node(Node<DataType>*, Node<DataType>*, const int);
+    Node<DataType> *split_node(Node<DataType> *, Node<DataType> *, const int);
+
     void insertSecondItem(Node<DataType> *, const DataType);
 
     int search(Node<DataType> *, Node<DataType> *);

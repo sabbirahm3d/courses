@@ -39,9 +39,8 @@ int main(int argc, char **argv) {
         titleIndex.insert(*iter);
     }
 
-    std::cout << titleIndex.size() << std::endl;
+    std::cout << titleIndex << std::endl;
 
-//    titleIndex.traverse();
 
 #ifdef DEBUG
     /* Level order printing */
