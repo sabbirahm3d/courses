@@ -158,7 +158,7 @@ public:
     }
 
     BSTIterator end() {
-        return BSTIterator(NULL);
+        return BSTIterator();
     }
 };
 

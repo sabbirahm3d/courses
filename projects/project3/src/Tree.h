@@ -58,8 +58,6 @@ public:
 
     void printNode(Node<DataType> *);
 
-    void display();
-
     /* Insert the given data into the tree */
     void insert(DataType data);
 
@@ -68,6 +66,8 @@ public:
 
     /* Return the number of data items stored in the tree */
     size_t size() const;
+
+    Node<DataType>* root();
 
     /* Return an iterator pointing to the first element in the tree */
     iterator begin();

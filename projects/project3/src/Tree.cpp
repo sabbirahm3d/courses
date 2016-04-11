@@ -37,7 +37,6 @@ Tree<DataType, Compare>::~Tree() {
 
     for (unsigned int i = 0; i < m_leaves.size(); i++) {
         delete m_leaves[i];
-        m_leaves[i] = NULL;
     }
 
     m_leaves.resize(0);
@@ -67,38 +66,6 @@ void Tree<DataType, Compare>::printNode(Node<DataType> *n) {
         if (n->num_keys == 1) std::cout << n->left_key << " ";
         else std::cout << n->left_key << std::endl << n->right_key << " ";
     }
-}
-
-
-//print all nodes' values in the tree form
-template<typename DataType, typename Compare>
-void Tree<DataType, Compare>::display() {
-    //pre: none
-    //post: output the tree's values, in the form of their original hierarchies
-    if (m_root == NULL) std::cout << "Empty tree.";    //print guard
-    else {
-        std::vector<Node<DataType> *> v;  //list to print
-        std::vector<Node<DataType> *> c;  //list to hold children of v, for later use
-        v.push_back(m_root);  //first level
-        while (!v.empty()) {
-            for (int i = 0; i < v.size(); i++) {  //print all nodes
-                printNode(v[i]);
-                std::cout << std::endl;
-            }
-
-            std::cout << std::endl;   //end this level
-            for (int i = 0; i < v.size(); i++) { //find children of nodes in v
-                if (v[i]->left) c.push_back(v[i]->left);
-                if (v[i]->middle) c.push_back(v[i]->middle);
-                if (v[i]->right) c.push_back(v[i]->right);
-            }
-
-            v.clear();
-            v.swap(c);
-            c.clear();    //clear v, make children print-ready
-        }
-    }
-    std::cout << std::endl;
 }
 
 
@@ -137,25 +104,31 @@ void Tree<DataType, Compare>::insert(DataType data) {
 
 
 template<typename DataType, typename Compare>
-DataType *Tree<DataType, Compare>::insert_up(DataType m, DataType node, DataType data) {
-    //pre: the three elements; m, node should be old node's values, data should be new value
-    //post: a pointer to the sorted array
-    DataType *middle = new DataType[3];
-    if (Compare()(data, m)) { //m is the median
-        middle[0] = data;
-        middle[1] = m;
-        middle[2] = node;
-    } else if (Compare()(node, data)) {  //node is the median
-        middle[0] = m;
-        middle[1] = node;
-        middle[2] = data;
-    } else { //data is the median
-        middle[0] = m;
-        middle[1] = data;
-        middle[2] = node;
+DataType *Tree<DataType, Compare>::insert_up(DataType left, DataType middle,
+                                             DataType right) {
+
+    DataType *cache = new DataType[3];
+    if (Compare()(right, left)) { //left is the median
+
+        cache[0] = right;
+        cache[1] = left;
+        cache[2] = middle;
+
+    } else if (Compare()(middle, right)) {  //middle is the median
+
+        cache[0] = left;
+        cache[1] = middle;
+        cache[2] = right;
+
+    } else { //right is the median
+
+        cache[0] = left;
+        cache[1] = right;
+        cache[2] = middle;
+
     }
 
-    return middle;
+    return cache;
 
 }
 
@@ -167,6 +140,9 @@ bool Tree<DataType, Compare>::empty() const { return (m_root == NULL); }
 template<typename DataType, typename Compare>
 size_t Tree<DataType, Compare>::size() const { return m_size; }
 
+
+template<typename DataType, typename Compare>
+Node<DataType> *Tree<DataType, Compare>::root() { return m_root; };
 
 template<typename DataType, typename Compare>
 void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
@@ -190,9 +166,9 @@ void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
                     insertSecondItem(node->parent, promo->left_key);   //insert value to parent
 
                     //rearrange leftover's linking
-                    int pos = search(node->parent, node);
+                    pos = search(node->parent, node);
 
-                    if (pos == 0) { //if node is left child
+                    if (!pos) { //if node is left child
 
                         node->parent->left = promo->left;
                         node->parent->middle = promo->right;
@@ -205,13 +181,18 @@ void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
                     }
 
                     promo->left->parent = promo->right->parent = node->parent;
+                    m_leaves.push_back(promo);
+
                     return;  //insertion complete
+
+
                 } else {    //continue to split parent's parent and so on
                     pos = search(node->parent, node);   //direction the split request comes from
                     node = node->parent;  //go one level up
                     promo = split_node(node, promo, pos);   //split parent's parent
                 }
             }
+
             if (node->parent == m_root) { //when trace to m_root
                 pos = search(node->parent, node);   //direction the split request comes from
                 if (node->parent->num_keys == 1) {   //the m_root is not full
@@ -230,7 +211,10 @@ void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
                     m_root = split_node(node, promo, pos);    //m_root will be updated
                 }
             }
+
+            m_leaves.push_back(promo);
         }
+
     } else {    //non-base case
         if (node->num_keys == 1) {   //2-node
             if (Compare()(data, node->left_key)) insert(node->left, data);  //go left subtree
@@ -285,6 +269,12 @@ Node<DataType> *Tree<DataType, Compare>::split_node(Node<DataType> *n, Node<Data
         r->right = nodeCache[3];
         nodeCache[2]->parent = nodeCache[3]->parent = r;
     }
+
+    delete middle;
+    m_leaves.push_back(l);
+    m_leaves.push_back(r);
+//    m_leaves.push_back(promo);
+
     return promo;
 }
 
@@ -319,7 +309,7 @@ template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::begin() {
 
     if (m_root == NULL) {
-        return iterator(NULL);
+        return iterator();
     }
 
     Node<DataType> *current = m_root;
@@ -374,7 +364,32 @@ template<typename DataType, typename Compare>
 std::ostream &operator<<(std::ostream &stream,
                          Tree<DataType, Compare> &tree) {
 
-    tree.display();
+//    tree.display();
+    if (tree.root() == NULL) stream << "Empty tree.";    //print guard
+    else {
+        std::vector<Node<DataType> *> v;  //list to print
+        std::vector<Node<DataType> *> c;  //list to hold children of v, for later use
+        v.push_back(tree.root());  //first level
+        while (!v.empty()) {
+            for (int i = 0; i < v.size(); i++) {  //print all nodes
+                tree.printNode(v[i]);
+                stream << std::endl;
+            }
+
+            stream << std::endl;   //end this level
+            for (int i = 0; i < v.size(); i++) { //find children of nodes in v
+                if (v[i]->left) c.push_back(v[i]->left);
+                if (v[i]->middle) c.push_back(v[i]->middle);
+                if (v[i]->right) c.push_back(v[i]->right);
+            }
+
+            v.clear();
+            v.swap(c);
+            c.clear();    //clear v, make children print-ready
+        }
+    }
+    stream << std::endl;
+
     return stream;
 
 }
