@@ -1,0 +1,22 @@
+Circuit: * C:\users\sabbir\Desktop\306\lab 3\Fig4.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Thu Sep 24 15:47:47 2015
+Total elapsed time: 0.123 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2097
+traniter = 2094
+tranpoints = 1048
+accept = 1048
+rejected = 0
+matrix size = 5
+fillins = 0
+solver = Normal
+Matrix Compiler1: 204 bytes object code size  1.0/0.8/[0.8]
+Matrix Compiler2: 311 bytes object code size  0.8/0.9/[0.7]
+
+
