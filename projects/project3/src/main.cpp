@@ -4,7 +4,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <cstdlib>
 #include "Library.h"
 #include "Song.h"
 #include "Tree.h"
@@ -31,7 +30,7 @@ int main(int argc, char **argv) {
 
     /* Read in the library */
     Library library(argv[1]);
-    Tree<Song *, GenreCompare>* titleIndex = new Tree<Song *, GenreCompare>;
+    Tree<Song *, TitleCompare>* titleIndex = new Tree<Song *, TitleCompare>;
 
     /* Populate the indexes */
     for (Library::const_iterator iter = library.begin();

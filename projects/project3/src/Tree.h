@@ -56,8 +56,6 @@ public:
     /* Destructor */
     ~Tree();
 
-    void printNode(Node<DataType> *);
-
     /* Insert the given data into the tree */
     void insert(DataType data);
 
@@ -67,7 +65,7 @@ public:
     /* Return the number of data items stored in the tree */
     size_t size() const;
 
-    Node<DataType>* root();
+    Node<DataType> *root();
 
     /* Return an iterator pointing to the first element in the tree */
     iterator begin();
@@ -103,7 +101,7 @@ private:
     unsigned int m_size;
     std::vector<Node<DataType> *> m_leaves;
 
-    void destroy_tree(Node<DataType>*);
+    void destroy_tree(Node<DataType> *);
 
     void insert(Node<DataType> *, DataType);
 
