@@ -1,21 +1,53 @@
+/* File:    Tree.cpp
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * Implementation of the 2-3 TreeIterator class
+ */
+
 #ifndef TREE_ITERATOR_CPP
 #define TREE_ITERATOR_CPP
 
 #include "Tree.h"
 
 
+/* ******************** Constructors ******************** */
+
+
+/* Tree::iterator()
+ * Default constructor */
+
 template<typename DataType, typename Compare>
 Tree<DataType, Compare>::iterator::iterator() : m_cursor(NULL) { }
+
+
+/* Tree::iterator()
+ * Overloaded constructor */
 
 template<typename DataType, typename Compare>
 Tree<DataType, Compare>::iterator::iterator(Node<DataType> *cursor) :
         m_cursor(cursor) { }
 
 
+/* ******************** Copy constructors ******************** */
+
+
+/* Tree::iterator()
+ * Copy constructor */
+
 template<typename DataType, typename Compare>
 Tree<DataType, Compare>::iterator::iterator(const iterator &other) :
         m_cursor(other.m_cursor) { }
 
+
+/* ******************** Overloaded operator ******************** */
+
+
+/* Tree::iterator::iterator=()
+ * Assignment operator */
 
 template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator &
@@ -30,6 +62,9 @@ Tree<DataType, Compare>::iterator::operator=(const iterator &other) {
 }
 
 
+/* Tree::iterator::iterator==()
+ * Comparison operator */
+
 template<typename DataType, typename Compare>
 bool Tree<DataType, Compare>::iterator::operator==(
         const iterator &other) const {
@@ -38,6 +73,9 @@ bool Tree<DataType, Compare>::iterator::operator==(
 
 }
 
+
+/* Tree::iterator::iterator!=()
+ * Comparison operator */
 
 template<typename DataType, typename Compare>
 bool Tree<DataType, Compare>::iterator::operator!=(
@@ -48,6 +86,9 @@ bool Tree<DataType, Compare>::iterator::operator!=(
 }
 
 
+/* Tree::iterator::iterator*()
+ * Reference operator, returns the data of the node */
+
 template<typename DataType, typename Compare>
 DataType Tree<DataType, Compare>::iterator::operator*() const {
 
@@ -55,6 +96,9 @@ DataType Tree<DataType, Compare>::iterator::operator*() const {
 
 }
 
+
+/* Tree::iterator::iterator++()
+ * Increment operator */
 
 template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator &
@@ -69,14 +113,18 @@ Tree<DataType, Compare>::iterator::operator++() {
         m_cursor = m_cursor->right;
 
         while (m_cursor->left != NULL) {
+
             m_cursor = m_cursor->left;
+
         }
 
     } else {
 
         while (m_cursor->parent != NULL
+
                && m_cursor->parent->left != m_cursor) {
             m_cursor = m_cursor->parent;
+
         }
 
         m_cursor = m_cursor->parent;
@@ -87,6 +135,9 @@ Tree<DataType, Compare>::iterator::operator++() {
 
 }
 
+
+/* Tree::iterator::iterator++()
+ * Overloaded increment operator */
 
 template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator

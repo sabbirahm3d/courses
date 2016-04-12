@@ -143,7 +143,7 @@ public:
     /* Return whether or not two iterators are pointing at the same place */
     bool operator==(const iterator &) const;
 
-    /* Return whether or not two iterators are not pointing at the same place */
+    /* Return whether or not 2 iterators are not pointing at the same place */
     bool operator!=(const iterator &) const;
 
     /* Return the data the iterator is pointing to */
@@ -154,8 +154,6 @@ public:
 
     /* Advance to the current data's successor */
     iterator operator++(int);
-
-private:
 
     Node<DataType> *m_cursor;
 

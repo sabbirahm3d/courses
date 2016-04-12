@@ -8,6 +8,7 @@
  * Implementation of the 2-3 Tree class
  */
 
+
 #ifndef TREE_CPP
 #define TREE_CPP
 
@@ -30,8 +31,7 @@ Tree<DataType, Compare>::Tree() : m_root(NULL), m_size(0) { }
 
 template<typename DataType, typename Compare>
 Tree<DataType, Compare>::Tree(const Tree<DataType, Compare> &other) :
-        m_root(other.m_root),
-        m_size(other.m_size) { };
+        m_root(other.m_root), m_size(other.m_size) { };
 
 
 /* ******************** Assignment operator ******************** */
@@ -77,10 +77,13 @@ template<typename DataType, typename Compare>
 void Tree<DataType, Compare>::destroy_tree(Node<DataType> *leaf) {
 
     if (leaf != NULL) {
+
         destroy_tree(leaf->left);
         destroy_tree(leaf->middle);
         destroy_tree(leaf->right);
+
         delete leaf;
+
     }
 
 }
@@ -103,10 +106,10 @@ void Tree<DataType, Compare>::insert(DataType data) {
         m_leaves.push_back(m_root);
         m_size++;
 
-        //if tree has only one node
+        // if tree has only one node
     } else if (m_root->is_leaf()) {
 
-        //if it's a two-node
+        // if it's a two-node
         if (m_root->num_keys == 1) {
 
             insert_second_item(m_root, data);
@@ -155,7 +158,6 @@ Node<DataType> *Tree<DataType, Compare>::root() { return m_root; };
 
 /* ******************** Private methods ******************** */
 
-
 /* insert()
  * overloaded insert function, requires location of data to be placed and
  * implement the actual insertion */
@@ -166,105 +168,156 @@ void Tree<DataType, Compare>::insert(Node<DataType> *node, DataType data) {
     //pre: a pointer to the node to start with, the value to insert
     //post: value is inserted to the tree
 
-    // base case; if node is a leaf
+    // if node is a leaf
     if (node->is_leaf()) {
 
-        if (node->num_keys == 1) {   //leaf has empty space
+        // leaf has an empty spot
+        if (node->num_keys == 1) {
 
             insert_second_item(node, data);
 
-        } else {    //leaf is full; split it; insert_up the node to parent
+            // leaf is full; split it; insert_up the node to parent
+        } else {
 
+            // new location of data
             int pos = find_position(node->parent, node);
 
-            //split the node
-            Node<DataType> *promo = split_node(node,
-                                               new Node<DataType>(data),
-                                               pos);
+            // split the node
+            Node<DataType> *new_node = split_node(node,
+                                                  new Node<DataType>(data),
+                                                  pos);
 
-            //if parent is not m_root
+            //if parent is not root
             while (node->parent != m_root) {
-                //the parent is not full
-                if (node->parent->num_keys == 1) {
-                    //insert value to parent
-                    insert_second_item(node->parent, promo->left_key);
 
-                    //rearrange leftover's linking
+                // the parent is not full
+                if (node->parent->num_keys == 1) {
+
+                    // insert value to parent
+                    insert_second_item(node->parent, new_node->left_key);
+
+                    // rearrange leftover's linking
                     pos = find_position(node->parent, node);
 
-                    if (!pos) { //if node is left child
+                    // if node is left child
+                    if (!pos) {
 
-                        node->parent->left = promo->left;
-                        node->parent->middle = promo->right;
+                        node->parent->left = new_node->left;
+                        node->parent->middle = new_node->right;
 
-                    } else if (pos == 2) {   //if node is right child
+                        //if node is right child
+                    } else if (pos == 2) {
 
-                        node->parent->middle = promo->left;
-                        node->parent->right = promo->right;
+                        node->parent->middle = new_node->left;
+                        node->parent->right = new_node->right;
 
                     }
 
-                    promo->left->parent = promo->right->parent = node->parent;
-                    m_leaves.push_back(promo);
+                    new_node->left->parent = new_node->right->parent = node->parent;
+
+                    // the promoted node is then deleted
+                    m_leaves.push_back(new_node);
 
                     return;  //insertion complete
 
 
-                } else {    //continue to split parent's parent and so on
+                    // if parent is full, split it as well
+                } else {
 
-                    //direction the split request comes from
+                    // find position to split
                     pos = find_position(node->parent, node);
-                    node = node->parent;  //go one level up
-                    //split parent's parent
-                    promo = split_node(node, promo, pos);
+
+                    // move node up one level
+                    node = node->parent;
+
+                    // split grandparent
+                    new_node = split_node(node, new_node, pos);
+
                 }
+
             }
 
-            if (node->parent == m_root) { //when trace to m_root
-                //direction the split request comes from
+            // if parent is root
+            if (node->parent == m_root) {
+
+                // direction the split request comes from
                 pos = find_position(node->parent, node);
-                if (node->parent->num_keys == 1) {   //the m_root is not full
-                    insert_second_item(node->parent, promo->left_key);
-                    if (pos == 0) { //if node is left child
-                        node->parent->left = promo->left;
-                        node->parent->middle = promo->right;
-                    } else if (pos == 2) {   //if node is right child
-                        node->parent->middle = promo->left;
-                        node->parent->right = promo->right;
+
+                // root is not full
+                if (node->parent->num_keys == 1) {
+
+                    insert_second_item(node->parent, new_node->left_key);
+
+                    // if node is left child
+                    if (!pos) {
+
+                        node->parent->left = new_node->left;
+                        node->parent->middle = new_node->right;
+
+                        // if node is right child
+                    } else if (pos == 2) {
+
+                        node->parent->middle = new_node->left;
+                        node->parent->right = new_node->right;
+
                     }
-                    promo->left->parent = promo->right->parent = node->parent;
-                } else {    //split the m_root
+
+                    new_node->left->parent = new_node->right->parent = node->parent;
+
+                    // if parent is full, split it
+                } else {
+
                     pos = find_position(node->parent, node);
                     node = node->parent;
-                    //m_root will be updated
-                    m_root = split_node(node, promo, pos);
+
+                    // root will be updated
+                    m_root = split_node(node, new_node, pos);
+
                 }
             }
 
-            m_leaves.push_back(promo);
+            m_leaves.push_back(new_node);
         }
 
-    } else {    //non-base case
+        // if node is not leaf
+    } else {
 
-        if (node->num_keys == 1) {   //2-node
+        // if it's a two-node
+        if (node->num_keys == 1) {
 
+            // traverse to the left subtree
             if (Compare()(data, node->left_key)) {
+
                 insert(node->left, data);
-            }  //go left subtree
-            else {
+
+                // traverse to the left subtree
+            } else {
+
                 insert(node->right, data);
-            }   //go right subtree
-        } else {    //3-node
+
+            }
+
+            // if it's a three-node
+        } else {
+
+            // traverse to the left subtree
             if (Compare()(data, node->left_key)) {
+
                 insert(node->left, data);
-            }  //go left subtree
-            else if (Compare()(node->right_key, data)) {
+
+                // traverse to the right subtree
+            } else if (Compare()(node->right_key, data)) {
+
                 insert(node->right, data);
-            }  //go left subtree
-            else {
+
+                // traverse to the middle subtree
+            } else {
+
                 insert(node->middle, data);
-            }    //go middle subtree
+
+            }
         }
+
     }
 
 }
@@ -278,20 +331,25 @@ DataType *Tree<DataType, Compare>::insert_up(DataType left,
                                              DataType middle,
                                              DataType right) {
 
+    // temporary array of data being passed in to rearrange its children
     DataType *cache = new DataType[3];
-    if (Compare()(right, left)) { //left is the median
+
+    // left becomes the middle node
+    if (Compare()(right, left)) {
 
         cache[0] = right;
         cache[1] = left;
         cache[2] = middle;
 
-    } else if (Compare()(middle, right)) {  //middle is the median
+        // middle stays the middle node
+    } else if (Compare()(middle, right)) {
 
         cache[0] = left;
         cache[1] = middle;
         cache[2] = right;
 
-    } else { //right is the median
+        // right becomes the middle node
+    } else {
 
         cache[0] = left;
         cache[1] = right;
@@ -314,18 +372,18 @@ Node<DataType> *Tree<DataType, Compare>::split_node(
         Node<DataType> *second_node,
         const int pos) {
 
-    Node<DataType> *node_cache[4];    //cache children of nodes passed in
-    //rearrange the position of these children for later hook up
+    // temporary array of children being passed in to be rearranged
+    Node<DataType> *node_cache[4];
 
-    //second_node left, second_node right, first_node middle, first_node right
-    if (pos == 0) {
+    // parent->left == node
+    if (!pos) {
 
         node_cache[0] = second_node->left;
         node_cache[1] = second_node->right;
         node_cache[2] = first_node->middle;
         node_cache[3] = first_node->right;
 
-        //first_node left, first_node middle, second_node left, second_node right
+        // parent->middle == node
     } else if (pos == 2) {
 
         node_cache[0] = first_node->left;
@@ -333,7 +391,7 @@ Node<DataType> *Tree<DataType, Compare>::split_node(
         node_cache[2] = second_node->left;
         node_cache[3] = second_node->right;
 
-        //first_node left, second_node left, second_node right, first_node right
+        // parent->right == node
     } else {
 
         node_cache[0] = first_node->left;
@@ -343,31 +401,36 @@ Node<DataType> *Tree<DataType, Compare>::split_node(
 
     }
 
-    //sort the passed nodes' values
+    // rearrange the passed nodes' values
     DataType *middle = insert_up(first_node->left_key, first_node->right_key,
                                  second_node->left_key);
 
-    //reuse nodes to prevent memory leak
+    // new promoted node
+    Node<DataType> *new_node = new Node<DataType>(middle[1]);
 
-    //new promoted node
-    Node<DataType> *promo = new Node<DataType>(middle[1]);
-    Node<DataType> *left = new Node<DataType>(middle[0]); //left child
-    Node<DataType> *right = new Node<DataType>(middle[2]); //right child
+    // left child
+    Node<DataType> *left = new Node<DataType>(middle[0]);
 
-    //parental relationship of first relative level
-    promo->left = left;
-    promo->right = right;
-    left->parent = promo;
-    right->parent = promo;
+    // right child
+    Node<DataType> *right = new Node<DataType>(middle[2]);
 
-    //parental relationship of second relative level; hook up cached nodes
+    // parental relationship of first relative level
+    new_node->left = left;
+    new_node->right = right;
+    left->parent = new_node;
+    right->parent = new_node;
+
+    // parental relationship of second relative level, connect back to cache
     if (node_cache[0] != NULL) {
+
         left->left = node_cache[0];
         left->right = node_cache[1];
         node_cache[0]->parent = node_cache[1]->parent = left;
+
         right->left = node_cache[2];
         right->right = node_cache[3];
         node_cache[2]->parent = node_cache[3]->parent = right;
+
     }
 
     delete middle;
@@ -375,7 +438,8 @@ Node<DataType> *Tree<DataType, Compare>::split_node(
     m_leaves.push_back(left);
     m_leaves.push_back(right);
 
-    return promo;
+    return new_node;
+
 }
 
 
@@ -387,17 +451,21 @@ void Tree<DataType, Compare>::insert_second_item(Node<DataType> *node,
                                                  const DataType data) {
     //pre: a pointer to the 2-node, and the value to be inserted
     //post: value is inserted
-    if (Compare()(data, node->left_key)) {   //data should be on left
+
+    //data should be on left
+    if (Compare()(data, node->left_key)) {
 
         node->right_key = node->left_key;
         node->left_key = data;
 
-    } else {    //data should be on right
+        //data should be on right
+    } else {
 
         node->right_key = data;
 
     }
 
+    // update number of keys
     node->num_keys = 2;
 
 }
@@ -426,6 +494,11 @@ int Tree<DataType, Compare>::find_position(Node<DataType> *parent,
 }
 
 
+/* ******************** Iterator functions ******************** */
+
+/* begin()
+ * points to the beginning of the tree */
+
 template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::begin() {
 
@@ -444,6 +517,9 @@ typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::begin() {
 }
 
 
+/* end()
+ * points to the ending of the tree */
+
 template<typename DataType, typename Compare>
 typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::end() {
 
@@ -451,6 +527,9 @@ typename Tree<DataType, Compare>::iterator Tree<DataType, Compare>::end() {
 
 }
 
+
+/* find_first()
+ * finds first instance of the key */
 
 template<typename DataType, typename Compare>
 template<typename KeyType>
@@ -462,6 +541,9 @@ Tree<DataType, Compare>::find_first(KeyType key) {
 }
 
 
+/* find_last()
+ * finds last instance of the key */
+
 template<typename DataType, typename Compare>
 template<typename KeyType>
 typename Tree<DataType, Compare>::iterator
@@ -470,6 +552,10 @@ Tree<DataType, Compare>::find_last(KeyType key) {
     return iterator();
 }
 
+
+/* find_range()
+ * Return a pair of iterators pointing to the first item in the tree equal
+ * to key, and past the last item in the tree equal to key */
 
 template<typename DataType, typename Compare>
 template<typename KeyType>
@@ -482,6 +568,12 @@ Tree<DataType, Compare>::find_range(KeyType key) {
 }
 
 
+/* ******************** Overloaded operators ******************** */
+
+
+/* operator<<()
+ * prints out the content of the tree in level order */
+
 template<typename DataType, typename Compare>
 std::ostream &operator<<(std::ostream &stream,
                          Tree<DataType, Compare> &tree) {
@@ -493,42 +585,64 @@ std::ostream &operator<<(std::ostream &stream,
 
     } else {
 
-        std::vector<Node<DataType> *> level;  //list to print
+        // vector to print
+        std::vector<Node<DataType> *> level;
 
-        //list to hold children of level, for later use
+        // list to hold children of level
         std::vector<Node<DataType> *> children;
-        level.push_back(tree.root());  //first level
+
+        // 0th level of tree
+        level.push_back(tree.root());
 
         while (!level.empty()) {
 
-            //print all nodes
+            // print all nodes
             for (unsigned int i = 0; i < level.size(); i++) {
+
                 if (level[i] != NULL) {
+
+                    // if node is a two-node
                     if (level[i]->num_keys == 1) {
+
                         stream << level[i]->left_key << " ";
+
+                        // if node is a three-node
                     } else {
+
                         stream << level[i]->left_key << std::endl <<
                         level[i]->right_key << " ";
+
                     }
+
                 }
 
                 stream << std::endl;
             }
 
-            stream << std::endl;   //end this level
+            // end this level
+            stream << std::endl;
 
-            //find children of nodes in level
-            for (int i = 0; i < level.size(); i++) {
-                if (level[i]->left) children.push_back(level[i]->left);
-                if (level[i]->middle) children.push_back(level[i]->middle);
-                if (level[i]->right) children.push_back(level[i]->right);
+            // find children of nodes in level to push into children vector
+            for (unsigned int i = 0; i < level.size(); i++) {
+
+                if (level[i]->left) { children.push_back(level[i]->left); }
+                if (level[i]->middle) { children.push_back(level[i]->middle); }
+                if (level[i]->right) { children.push_back(level[i]->right); }
+
             }
 
+            // clear out the vector
             level.clear();
+
+            // the children are next in queue to be level-order printed
             level.swap(children);
-            children.clear();    //clear level, make children print-ready
+
+            // clear out the children
+            children.clear();
+
         }
 
+        // delete the vectors after use
         for (unsigned int i = 0; i < level.size(); i++) {
             delete level[i];
         }
