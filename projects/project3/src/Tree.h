@@ -1,22 +1,16 @@
-#ifndef TREE_H
-#define TREE_H
+/* File:    Tree.h
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
 
-#include <iterator>
-#include <ostream>
-#include <utility>
-#include <stack>
-#include <vector>
-
-#include "Node.h"
-
-
-/* 
- * 2-3 Tree class 
+ * 2-3 Tree class
  * All nodes in a 2-3 tree either have 1 or 2 keys.
  * Internal nodes that have 1 key have 2 children.
  * Internal nodes that have 2 keys have 3 children.
  * All leaves are at the same level.
- * 
+ *
  * For every 2 node n, all modes to the left of n have
  * value less than or equal to n's value, and all values
  * to the right of n have value greater than or equal to
@@ -34,6 +28,17 @@
  * in sorted order. Calling Compare()(a, b) returns
  * true if a is less than b, and false otherwise.
  */
+
+#ifndef TREE_H
+#define TREE_H
+
+#include <iterator>
+#include <ostream>
+#include <utility>
+#include <stack>
+#include <vector>
+
+#include "Node.h"
 
 
 template<typename DataType, typename Compare = std::less<DataType> >
@@ -109,9 +114,9 @@ private:
 
     Node<DataType> *split_node(Node<DataType> *, Node<DataType> *, const int);
 
-    void insertSecondItem(Node<DataType> *, const DataType);
+    void insert_second_item(Node<DataType> *, const DataType);
 
-    int search(Node<DataType> *, Node<DataType> *);
+    int find_position(Node<DataType> *, Node<DataType> *);
 
 };
 
@@ -149,6 +154,8 @@ public:
 
     /* Advance to the current data's successor */
     iterator operator++(int);
+
+private:
 
     Node<DataType> *m_cursor;
 

@@ -1,3 +1,14 @@
+/* File:    Library.cpp
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * Song library class implementation. Readable collection of Songs constructed
+ * from a file with a list of song metadata.
+ */
+
 #include "Library.h"
 #include <stdexcept>
 #include <fstream>

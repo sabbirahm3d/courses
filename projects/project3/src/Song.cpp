@@ -1,4 +1,13 @@
-/* Song serialization and deserialization utilities */
+/* File:    Song.cpp
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * Song serialization and deserialization utilities. Stores metadata relevant to songs.
+ * Songs may be serialized and deserialized.
+ */
 
 #include "Song.h"
 #include <cstring>

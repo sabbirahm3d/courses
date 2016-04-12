@@ -1,3 +1,13 @@
+/* File:    TitleCompare.h
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * Class declaration for functor
+ */
+
 #ifndef TITLE_COMPARE_H
 #define TITLE_COMPARE_H
 

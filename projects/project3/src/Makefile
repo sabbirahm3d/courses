@@ -4,7 +4,8 @@ override CXXFLAGS += -Wall
 -include $(DEPS)
 
 EXE = Project3.out
-OBJS = main.o Song.o Library.o TitleCompare.o ArtistCompare.o AlbumCompare.o GenreCompare.o YearCompare.o
+OBJS = main.o Song.o Library.o TitleCompare.o ArtistCompare.o AlbumCompare.o \
+GenreCompare.o YearCompare.o Tree.o TreeIterator.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
 $(EXE): $(DEPS) $(OBJS)

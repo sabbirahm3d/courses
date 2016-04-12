@@ -1,17 +1,22 @@
+/* File:    Song.h
+ * Project: CMSC 341: Project 3, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+
+ * Song structure declaration. Stores metadata relevant to songs.
+ * Songs may be serialized and deserialized.
+ */
+
+
 #ifndef SONG_H
 #define SONG_H
-
-/* Song structure declaration */
 
 #include <string>
 #include <istream>
 #include <ostream>
 
-
-/* 
- * Song structure. Stores metadata relevant to songs.
- * Songs may be serialized and deserialized.
- */
 
 struct Song {
 
