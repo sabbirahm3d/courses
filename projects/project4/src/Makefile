@@ -3,7 +3,7 @@ CXX = $(shell which g++)
 override CXXFLAGS += -Wall
 -include $(DEPS)
 
-EXE = Project3.out
+EXE = Project4.out
 OBJS = main.o MMHeap.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
@@ -34,8 +34,3 @@ val: $(EXE)
 debug:
 	make clean
 	make CPPFLAGS=-DDEBUG
-
-.PHONY: yo
-yo:
-	make clean
-	make
