@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
 
-    MMHeap<std::string>* theHeap3 = new MMHeap<std::string>;
+    MMHeap<int> *theHeap3 = new MMHeap<int>;
     MMHeap<int> theHeap;
     std::string filename;
 
@@ -22,12 +22,14 @@ int main(int argc, char **argv) {
         std::string line;
 
         while (getline(file, line)) {
-            theHeap3->insert(std::string(line.c_str()));
+            theHeap3->insert(atoi(line.c_str()));
         }
+
     } else {
 
         std::cout << "File was not opened." << std::endl;
         return 0;
+
     }
 
     theHeap3->dump();
@@ -82,8 +84,6 @@ int main(int argc, char **argv) {
     theHeap.deleteMax();
     theHeap.deleteMax();
     theHeap.dump();
-
-    std::cout << "----------------------------------------" << std::endl;
 
     delete theHeap3;
 

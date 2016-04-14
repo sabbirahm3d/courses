@@ -11,9 +11,6 @@ public:
 
     MMHeap();
 
-//    MMHeap(std::vector<DataType> zcontainer, Compare zcompare = Compare()) :
-//            m_nodes(zcontainer), compare_(zcompare) { }
-
     ~MMHeap();
 
     bool empty() const;
@@ -39,7 +36,7 @@ public:
 
 private:
 
-    unsigned int log2(unsigned int zvalue);
+//    unsigned int log2(unsigned int zvalue);
 
     unsigned int parent(unsigned int zindex);
 
