@@ -36,31 +36,27 @@ public:
 
 private:
 
-//    unsigned int log2(unsigned int zvalue);
+    unsigned int parent(unsigned int);
 
-    unsigned int parent(unsigned int zindex);
+    unsigned int leftChild(unsigned int);
 
-    unsigned int leftChild(unsigned int zindex);
+    unsigned int rightChild(unsigned int);
 
-    unsigned int rightChild(unsigned int zindex);
+    bool isOnMinLevel(unsigned int);
 
-    bool isOnMinLevel(unsigned int zindex);
+    bool isOnMaxLevel(unsigned int);
 
-    bool isOnMaxLevel(unsigned int zindex);
+    void percolate(unsigned int, bool);
 
-    template<bool MaxLevel>
-    void percolate_(unsigned int zindex);
+    void percolate(unsigned int);
 
-    void percolate(unsigned int zindex);
+    void trickle(unsigned int, bool);
 
-    template<bool MaxLevel>
-    void trickle_(unsigned int zindex);
-
-    void trickle(unsigned int zindex);
+    void trickle(unsigned int);
 
     unsigned int findMinIndex() const;
 
-    void deleteElement(unsigned int zindex);
+    void deleteElement(unsigned int);
 
     std::vector<DataType> m_nodes;
     Compare compare_;

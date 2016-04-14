@@ -5,9 +5,11 @@
 
 int main(int argc, char **argv) {
 
-    MMHeap<int> *theHeap3 = new MMHeap<int>;
-    MMHeap<int> theHeap;
+    MMHeap<std::string> *int_heap = new MMHeap<std::string>;
+    MMHeap<std::string> *test_heap = new MMHeap<std::string>;
     std::string filename;
+
+    test_heap->dump();
 
     if (argc == 2) {
         filename = argv[1];
@@ -22,7 +24,7 @@ int main(int argc, char **argv) {
         std::string line;
 
         while (getline(file, line)) {
-            theHeap3->insert(atoi(line.c_str()));
+            int_heap->insert((line));
         }
 
     } else {
@@ -32,60 +34,26 @@ int main(int argc, char **argv) {
 
     }
 
-    theHeap3->dump();
+    int_heap->dump();
 
-    std::cout << "*** Insert 18, 94, 74. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-    theHeap.insert(18);
-    theHeap.insert(94);
-    theHeap.insert(74);
-    theHeap.dump();
+    std::cout << "Call delete_min 10 times" << std::endl;
 
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "*** Then deleteMax. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-
-    theHeap.deleteMax();
-    theHeap.dump();
+    for (int ii = 0; ii < 10; ii++) {
+        int_heap->deleteMin();
+    }
 
 
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "*** Make the min-max heap in Figure 6.57. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
+    int_heap->dump();
 
-    theHeap.dump();
+    std::cout << "Call delete_max 10 times" << std::endl;
 
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "*** Then insert 53, 57, 13, 12, 9, 10. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
+    for (int ii = 0; ii < 10; ii++) {
+        int_heap->deleteMax();
+    }
 
-    theHeap.insert(53);
-    theHeap.insert(57);
-    theHeap.insert(13);
-    theHeap.insert(12);
-    theHeap.insert(9);
-    theHeap.insert(10);
-    theHeap.dump();
+    int_heap->dump();
 
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "*** Then call deleteMin 3 times. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-
-    theHeap.deleteMin();
-    theHeap.deleteMin();
-    theHeap.deleteMin();
-    theHeap.dump();
-
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << "*** Then call deleteMax 3 times. ***" << std::endl;
-    std::cout << "----------------------------------------" << std::endl;
-
-    theHeap.deleteMax();
-    theHeap.deleteMax();
-    theHeap.deleteMax();
-    theHeap.dump();
-
-    delete theHeap3;
+    delete int_heap;
 
     return 0;
 }

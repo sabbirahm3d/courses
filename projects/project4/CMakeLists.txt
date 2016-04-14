@@ -5,6 +5,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98")
 
 set(SOURCE_FILES
         src/main.cpp
+        src/MyException.h
         src/MMHeap.h
         src/MMHeap.cpp)
 

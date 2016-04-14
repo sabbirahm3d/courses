@@ -5,14 +5,11 @@
 #include <math.h>
 
 #include "MMHeap.h"
+#include "MyException.h"
 
 
 template<typename DataType, typename Compare>
-MMHeap<DataType, Compare>::MMHeap() {
-
-//    std::vector<DataType> m_nodes;
-
-}
+MMHeap<DataType, Compare>::MMHeap() { }
 
 
 template<typename DataType, typename Compare>
@@ -28,23 +25,6 @@ MMHeap<DataType, Compare>::~MMHeap() {
     m_nodes.resize(0);
 
 }
-
-
-//template<class DataType, class Compare>
-//unsigned int MMHeap<DataType, Compare>::log2(unsigned int zvalue) {
-//    // log2(0) is undefined so error
-//    if (zvalue == 0) throw std::domain_error("Log base 2 of 0 is undefined.");
-//
-//    unsigned int result = 0;
-//
-//    // Loop until zvalue equals 0
-//    while (zvalue) {
-//        zvalue >>= 1;
-//        ++result;
-//    }
-//
-//    return (result - 1);
-//}
 
 
 template<class DataType, class Compare>
@@ -73,7 +53,7 @@ unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
  **/
 template<class DataType, class Compare>
 bool MMHeap<DataType, Compare>::isOnMinLevel(unsigned int index) {
-    return ((int)log2(index + 1) % 2 == 1);
+    return ((int) log2(index + 1) % 2 == 1);
 }
 
 
@@ -84,8 +64,7 @@ bool MMHeap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
 
 
 template<class DataType, class Compare>
-template<bool MaxLevel>
-void MMHeap<DataType, Compare>::percolate_(unsigned int index) {
+void MMHeap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
     // Can't bring the root any farther up
     if (index == 0) return;
 
@@ -99,9 +78,9 @@ void MMHeap<DataType, Compare>::percolate_(unsigned int index) {
     zindex_grandparent = parent(zindex_grandparent);
 
     // Check to see if we should swap with the grandparent
-    if (compare_(m_nodes[index], m_nodes[zindex_grandparent]) ^ MaxLevel) {
+    if (compare_(m_nodes[index], m_nodes[zindex_grandparent]) ^ max_level) {
         std::swap(m_nodes[zindex_grandparent], m_nodes[index]);
-        percolate_<MaxLevel>(zindex_grandparent);
+        percolate(zindex_grandparent, max_level);
     }
 }
 
@@ -118,28 +97,27 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index) {
         // Check to see if we should swap with the parent
         if (compare_(m_nodes[zindex_parent], m_nodes[index])) {
             std::swap(m_nodes[zindex_parent], m_nodes[index]);
-            percolate_<true>(zindex_parent);
+            percolate(zindex_parent, true);
         }
         else {
-            percolate_<false>(index);
+            percolate(index, false);
         }
     }
     else {
         // Check to see if we should swap with the parent
         if (compare_(m_nodes[index], m_nodes[zindex_parent])) {
             std::swap(m_nodes[zindex_parent], m_nodes[index]);
-            percolate_<false>(zindex_parent);
+            percolate(zindex_parent, false);
         }
         else {
-            percolate_<true>(index);
+            percolate(index, true);
         }
     }
 }
 
 
 template<class DataType, class Compare>
-template<bool MaxLevel>
-void MMHeap<DataType, Compare>::trickle_(unsigned int index) {
+void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
     /* In the following comments, substitute the word "less" with the word
      * "more" and the word "smallest" with the word "greatest" when MaxLevel
      * equals true. */
@@ -158,16 +136,16 @@ void MMHeap<DataType, Compare>::trickle_(unsigned int index) {
     unsigned int left = leftChild(index);
 
     // Check the left and right child
-    if (left < m_nodes.size() && (compare_(m_nodes[left], m_nodes[smallestNode]) ^ MaxLevel))
+    if (left < m_nodes.size() && (compare_(m_nodes[left], m_nodes[smallestNode]) ^ max_level))
         smallestNode = left;
-    if (left + 1 < m_nodes.size() && (compare_(m_nodes[left + 1], m_nodes[smallestNode]) ^ MaxLevel))
+    if (left + 1 < m_nodes.size() && (compare_(m_nodes[left + 1], m_nodes[smallestNode]) ^ max_level))
         smallestNode = left + 1;
 
-    /* Check the grandchildren which are guarenteed to be in consecutive
+    /* Check the grandchildren which are guaranteed to be in consecutive
      * positions in memory. */
     unsigned int leftGrandchild = leftChild(left);
     for (unsigned int i = 0; i < 4 && leftGrandchild + i < m_nodes.size(); ++i)
-        if (compare_(m_nodes[leftGrandchild + i], m_nodes[smallestNode]) ^ MaxLevel)
+        if (compare_(m_nodes[leftGrandchild + i], m_nodes[smallestNode]) ^ max_level)
             smallestNode = leftGrandchild + i;
 
     // The current node was the smallest node, don't do anything.
@@ -179,20 +157,17 @@ void MMHeap<DataType, Compare>::trickle_(unsigned int index) {
     // If the smallest node was a grandchild...
     if (smallestNode - left > 1) {
         // If the smallest node's parent is bigger than it, swap them
-        if (compare_(m_nodes[parent(smallestNode)], m_nodes[smallestNode]) ^ MaxLevel)
+        if (compare_(m_nodes[parent(smallestNode)], m_nodes[smallestNode]) ^ max_level)
             std::swap(m_nodes[parent(smallestNode)], m_nodes[smallestNode]);
 
-        trickle_<MaxLevel>(smallestNode);
+        trickle(smallestNode, max_level);
     }
 }
 
 
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::trickle(unsigned int index) {
-    if (isOnMinLevel(index))
-        trickle_<false>(index);
-    else
-        trickle_<true>(index);
+    trickle(index, !isOnMinLevel(index));
 }
 
 /**
@@ -206,10 +181,11 @@ unsigned int MMHeap<DataType, Compare>::findMinIndex() const {
     // There are four cases
     switch (m_nodes.size()) {
         case 0:
+            throw MyException("empty");
             // The heap is empty so throw an error
-            throw std::underflow_error("No min element exists because "
-                                               "there are no elements in the "
-                                               "heap.");
+//            throw std::underflow_error("No min element exists because "
+//                                               "there are no elements in the "
+//                                               "heap.");
         case 1:
             // There is only one element in the heap, return that element
             return 0;
@@ -263,12 +239,13 @@ unsigned int MMHeap<DataType, Compare>::size() const {
 
 
 template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::insert(const DataType &zvalue) {
+void MMHeap<DataType, Compare>::insert(const DataType &value) {
+
     // Push the value onto the end of the heap
-    m_nodes.push_back(zvalue);
+    m_nodes.push_back(value);
 
     // Reorder the heap so that the min-max heap property holds true
-    percolate(m_nodes.size() - 1);
+    percolate((unsigned int) m_nodes.size() - 1);
 
 }
 
@@ -306,6 +283,7 @@ const DataType &MMHeap<DataType, Compare>::getMin() const {
  **/
 template<class DataType, class Compare>
 DataType MMHeap<DataType, Compare>::deleteMax() {
+
     // If the heap is empty throw an error
     if (m_nodes.size() == 0)
         throw std::underflow_error("No max element exists because there "
@@ -353,6 +331,7 @@ DataType MMHeap<DataType, Compare>::deleteMin() {
     return temp;
 }
 
+
 /**
  * @brief Outputs the heap, as layed out in memory, into the given output
  *        stream.
@@ -361,7 +340,7 @@ template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::dump() const {
 
     if (empty()) {
-        std::cout << "Heap is Empty";
+        std::cout << MyException("empty").GetMessage();
     }
 
     else {
@@ -374,13 +353,14 @@ void MMHeap<DataType, Compare>::dump() const {
 
         for (unsigned int nodes = 0; nodes < m_nodes.size(); ++nodes) {
 
+            std::cout << "H[" << nodes << "] = " << m_nodes[nodes] << std::endl;
+
+            // print level after every 2^n iterations
             if (!(nodes % ((int) pow(2, level)))) {
                 std::cout << "--------------- Level " << level <<
                 " ---------------" << std::endl;
                 level++;
             }
-
-            std::cout << "H[" << nodes << "] = " << m_nodes[nodes] << std::endl;
 
         }
     }
