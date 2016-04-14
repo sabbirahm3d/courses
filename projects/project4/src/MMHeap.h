@@ -2,16 +2,17 @@
 #define MMHEAP_H
 
 #include <iostream>
+#include <vector>
 
 template<typename DataType, typename Compare = std::less<DataType> >
 class MMHeap {
 
 public:
 
-    MMHeap() { }
+    MMHeap();
 
-    MMHeap(std::vector<DataType> zcontainer, Compare zcompare = Compare()) :
-            heap_(zcontainer), compare_(zcompare) { }
+//    MMHeap(std::vector<DataType> zcontainer, Compare zcompare = Compare()) :
+//            m_nodes(zcontainer), compare_(zcompare) { }
 
     ~MMHeap();
 
@@ -64,7 +65,7 @@ private:
 
     void deleteElement(unsigned int zindex);
 
-    std::vector<DataType> heap_;
+    std::vector<DataType> m_nodes;
     Compare compare_;
 
 };

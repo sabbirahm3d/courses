@@ -24,11 +24,11 @@ clean:
 
 .PHONY: run
 run: $(EXE)
-	./$(EXE) $(LIBRARY_FILE)
+	./$(EXE) $(INPUT_FILE)
 
 .PHONY: val
 val: $(EXE)
-	valgrind ./$(EXE) $(LIBRARY_FILE)
+	valgrind ./$(EXE) $(INPUT_FILE)
 
 .PHONY: debug
 debug:

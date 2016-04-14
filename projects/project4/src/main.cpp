@@ -1,67 +1,61 @@
-#include "MMHeap.cpp"
-#include <iostream>
-#include <vector>
-#include <string>
+#include "MMHeap.h"
 #include <fstream>
 
 #include <cstdlib>
 
-using namespace std;
-//using namespace minmax;
-
 int main(int argc, char **argv) {
 
+    MMHeap<std::string>* theHeap3 = new MMHeap<std::string>;
     MMHeap<int> theHeap;
-//    MMHeap<int> theHeap;
-    vector<int> numbers;
-    string filename;
+    std::string filename;
 
     if (argc == 2) {
         filename = argv[1];
     } else {
-        cout << "Not enough command line arguments." << endl;
+        std::cout << "Not enough command line arguments." << std::endl;
         return 0;
     }
 
-    ifstream file(filename.c_str());
+    std::ifstream file(filename.c_str());
 
     if (file.is_open()) {
-        string line;
+        std::string line;
 
         while (getline(file, line)) {
-            numbers.push_back(atoi(line.c_str()));
+            theHeap3->insert(std::string(line.c_str()));
         }
     } else {
 
-        cout << "File was not opened." << endl;
+        std::cout << "File was not opened." << std::endl;
         return 0;
-
     }
 
-    cout << "*** Insert 18, 94, 74. ***" << endl;
-    cout << "--------------------" << endl;
+    theHeap3->dump();
+
+    std::cout << "*** Insert 18, 94, 74. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
     theHeap.insert(18);
     theHeap.insert(94);
     theHeap.insert(74);
     theHeap.dump();
 
-    cout << "--------------------" << endl;
-    cout << "*** Then deleteMax. ***" << endl;
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "*** Then deleteMax. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
     theHeap.deleteMax();
     theHeap.dump();
 
 
-    cout << "--------------------" << endl;
-    cout << "*** Make the min-max heap in Figure 6.57. ***" << endl;
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "*** Make the min-max heap in Figure 6.57. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
     theHeap.dump();
 
-    cout << "--------------------" << endl;
-    cout << "*** Then insert 53, 57, 13, 12, 9, 10. ***" << endl;
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "*** Then insert 53, 57, 13, 12, 9, 10. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
     theHeap.insert(53);
     theHeap.insert(57);
@@ -71,26 +65,27 @@ int main(int argc, char **argv) {
     theHeap.insert(10);
     theHeap.dump();
 
-    cout << "--------------------" << endl;
-    cout << "*** Then call deleteMin 3 times. ***" << endl;
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "*** Then call deleteMin 3 times. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
     theHeap.deleteMin();
     theHeap.deleteMin();
     theHeap.deleteMin();
     theHeap.dump();
 
-    cout << "--------------------" << endl;
-    cout << "*** Then call deleteMax 3 times. ***" << endl;
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "*** Then call deleteMax 3 times. ***" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
 
     theHeap.deleteMax();
     theHeap.deleteMax();
     theHeap.deleteMax();
     theHeap.dump();
 
-    cout << "--------------------" << endl;
+    std::cout << "----------------------------------------" << std::endl;
 
+    delete theHeap3;
 
     return 0;
 }

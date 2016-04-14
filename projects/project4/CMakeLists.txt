@@ -8,4 +8,4 @@ set(SOURCE_FILES
         src/MMHeap.h
         src/MMHeap.cpp)
 
-add_executable(project4 ${SOURCE_FILES} src/test.txt)
+add_executable(project4 ${SOURCE_FILES} src/integers.txt)
