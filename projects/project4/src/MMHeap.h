@@ -17,7 +17,7 @@ public:
 
     /* Returns the number of elements in the heap.
      */
-    unsigned int size() const;
+    unsigned long size() const;
 
     void insert(const DataType &);
 

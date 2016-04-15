@@ -8,8 +8,8 @@
  * Implementation of custom exception class
  */
 
-#ifndef MYEXCEPTIONS_H
-#define MYEXCEPTIONS_H
+#ifndef MYEXCEPTION_H
+#define MYEXCEPTION_H
 
 #include <string>
 

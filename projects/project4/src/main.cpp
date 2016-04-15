@@ -1,6 +1,6 @@
 #include "MMHeap.h"
-#include <fstream>
 
+#include <fstream>
 #include <cstdlib>
 
 int main(int argc, char **argv) {
@@ -52,6 +52,14 @@ int main(int argc, char **argv) {
     }
 
     int_heap->dump();
+
+//    std::cout << "Attempt to remove from empty heap" << std::endl;
+//
+//    for (int ii = 0; ii < 580; ii++) {
+//        int_heap->deleteMin();
+//    }
+//
+//    int_heap->dump();
 
     delete int_heap;
 

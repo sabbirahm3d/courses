@@ -65,8 +65,9 @@ bool MMHeap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
 
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
+
     // Can't bring the root any farther up
-    if (index == 0) return;
+    if (!index) return;
 
     // Find the parent of the passed node first
     unsigned int zindex_grandparent = parent(index);
@@ -87,37 +88,46 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
 
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::percolate(unsigned int index) {
+
     // Can't bring the root any farther up
-    if (index == 0) return;
+    if (!index) return;
 
     // Find the parent of the passed node
     unsigned int zindex_parent = parent(index);
 
     if (isOnMinLevel(index)) {
+
         // Check to see if we should swap with the parent
         if (compare_(m_nodes[zindex_parent], m_nodes[index])) {
             std::swap(m_nodes[zindex_parent], m_nodes[index]);
             percolate(zindex_parent, true);
         }
+
         else {
             percolate(index, false);
         }
+
     }
+
     else {
+
         // Check to see if we should swap with the parent
         if (compare_(m_nodes[index], m_nodes[zindex_parent])) {
             std::swap(m_nodes[zindex_parent], m_nodes[index]);
             percolate(zindex_parent, false);
         }
+
         else {
             percolate(index, true);
         }
+
     }
 }
 
 
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
+
     /* In the following comments, substitute the word "less" with the word
      * "more" and the word "smallest" with the word "greatest" when MaxLevel
      * equals true. */
@@ -179,9 +189,20 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index) {
 template<class DataType, class Compare>
 unsigned int MMHeap<DataType, Compare>::findMinIndex() const {
     // There are four cases
+
+
+
     switch (m_nodes.size()) {
+
+//        try {
         case 0:
-            throw MyException("empty");
+            throw MyException("No min");
+//        }
+
+//        catch (MyException &no_min) {
+//            std::cout << no_min.GetMessage() << std::endl;
+//        }
+
             // The heap is empty so throw an error
 //            throw std::underflow_error("No min element exists because "
 //                                               "there are no elements in the "
@@ -197,15 +218,24 @@ unsigned int MMHeap<DataType, Compare>::findMinIndex() const {
              * smallest child */
             return compare_(m_nodes[1], m_nodes[2]) ? 1 : 2;
     }
+
+
 }
 
 
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::deleteElement(unsigned int index) {
+
     // Ensure the element exists
-    if (index >= (unsigned int) m_nodes.size())
-        throw std::underflow_error("Cannot delete specified element from "
-                                           "the heap because it does not exist.");
+    try {
+        if (index >= (unsigned int) m_nodes.size())
+            throw MyException("No min");
+    }
+
+    catch (MyException &no_min) {
+        std::cout << no_min.GetMessage() << std::endl;
+    }
+
 
     // If we're deleting the last element in the heap, just delete it
     if (index == m_nodes.size() - 1) {
@@ -222,19 +252,20 @@ void MMHeap<DataType, Compare>::deleteElement(unsigned int index) {
     /* Let the element trickle down so that the min-max heap property is
      * preserved */
     trickle(index);
+
 }
 
 template<class DataType, class Compare>
 bool MMHeap<DataType, Compare>::empty() const {
-    return m_nodes.size() == 0;
+    return (m_nodes.size() == 0);
 }
 
 /**
  * @brief Returns the number of elements in the heap.
  **/
 template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::size() const {
-    return (unsigned int) m_nodes.size();
+unsigned long MMHeap<DataType, Compare>::size() const {
+    return m_nodes.size();
 }
 
 
@@ -256,10 +287,16 @@ void MMHeap<DataType, Compare>::insert(const DataType &value) {
  **/
 template<class DataType, class Compare>
 const DataType &MMHeap<DataType, Compare>::getMax() const {
+
     // If the heap is empty throw an error
-    if (empty())
-        throw std::underflow_error("No max element exists because there "
-                                           "are no elements in the heap.");
+    try {
+        if (empty())
+            throw MyException("Empty heaps don't have a maximum");
+    }
+
+    catch (MyException &no_max) {
+        std::cout << no_max.GetMessage() << std::endl;
+    }
 
     return m_nodes[0];
 }
@@ -285,9 +322,16 @@ template<class DataType, class Compare>
 DataType MMHeap<DataType, Compare>::deleteMax() {
 
     // If the heap is empty throw an error
-    if (m_nodes.size() == 0)
-        throw std::underflow_error("No max element exists because there "
-                                           "are no elements in the heap.");
+    try {
+        if (empty())
+            throw std::underflow_error("No max element exists because there "
+                                               "are no elements in the heap.");
+    }
+
+    catch (MyException &empty_heap) {
+        std::cout << empty_heap.GetMessage() << std::endl;
+    }
+
 
     // Save the max value
     DataType temp = m_nodes[0];
@@ -295,14 +339,6 @@ DataType MMHeap<DataType, Compare>::deleteMax() {
     deleteElement(0);
 
     return temp;
-}
-
-/**
- * @brief Convenience function that calls deleteMax().
- **/
-template<class DataType, class Compare>
-DataType MMHeap<DataType, Compare>::pop() {
-    return deleteMax();
 }
 
 
@@ -316,9 +352,15 @@ template<class DataType, class Compare>
 DataType MMHeap<DataType, Compare>::deleteMin() {
 
     // If the heap is empty throw an error
-    if (m_nodes.size() == 0)
-        throw std::underflow_error("No max element exists because there "
-                                           "are no elements in the heap.");
+    try {
+        if (empty())
+            throw MyException("No max element exists because there "
+                                      "are no elements in the heap.");
+    }
+
+    catch (MyException &empty_heap) {
+        std::cout << empty_heap.GetMessage() << std::endl;
+    }
 
     // Save the min's index
     unsigned int smallest = findMinIndex();
@@ -339,30 +381,37 @@ DataType MMHeap<DataType, Compare>::deleteMin() {
 template<class DataType, class Compare>
 void MMHeap<DataType, Compare>::dump() const {
 
-    if (empty()) {
-        std::cout << MyException("empty").GetMessage();
+    try {
+
+        if (empty()) {
+            throw MyException("Can't dump empty heap");
+        }
+
+        else {
+
+            int level = 0;
+
+            std::cout << "Size = " << size() << std::endl;
+            std::cout << "Minimum = " << getMin() << std::endl;
+            std::cout << "Maximum = " << getMax() << std::endl << std::endl;
+
+            for (unsigned int nodes = 0; nodes < m_nodes.size(); ++nodes) {
+
+                std::cout << "H[" << nodes << "] : " << m_nodes[nodes] << std::endl;
+
+                // print level after every 2^n iterations
+                if (!(nodes % ((int) pow(2, level)))) {
+                    std::cout << "--------------- Level " << level <<
+                    " ---------------" << std::endl;
+                    level++;
+                }
+
+            }
+        }
     }
 
-    else {
-
-        int level = 0;
-
-        std::cout << "Size = " << size() << std::endl;
-        std::cout << "Minimum = " << getMin() << std::endl;
-        std::cout << "Maximum = " << getMax() << std::endl << std::endl;
-
-        for (unsigned int nodes = 0; nodes < m_nodes.size(); ++nodes) {
-
-            std::cout << "H[" << nodes << "] = " << m_nodes[nodes] << std::endl;
-
-            // print level after every 2^n iterations
-            if (!(nodes % ((int) pow(2, level)))) {
-                std::cout << "--------------- Level " << level <<
-                " ---------------" << std::endl;
-                level++;
-            }
-
-        }
+    catch (MyException &empty_heap) {
+        std::cout << empty_heap.GetMessage() << std::endl;
     }
 
     std::cout << std::endl;
