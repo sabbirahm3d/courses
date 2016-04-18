@@ -3,15 +3,17 @@
 #include <fstream>
 #include <cstdlib>
 
+#define EXPECTED_ARGC 2
+
 int main(int argc, char **argv) {
 
-    MMHeap<std::string> *int_heap = new MMHeap<std::string>;
+    MMHeap<int> *int_heap = new MMHeap<int>;
     MMHeap<std::string> *test_heap = new MMHeap<std::string>;
     std::string filename;
 
     test_heap->dump();
 
-    if (argc == 2) {
+    if (argc == EXPECTED_ARGC) {
         filename = argv[1];
     } else {
         std::cout << "Not enough command line arguments." << std::endl;
@@ -20,11 +22,11 @@ int main(int argc, char **argv) {
 
     std::ifstream file(filename.c_str());
 
-    if (file.is_open()) {
+    if (file.good()) {
         std::string line;
 
         while (getline(file, line)) {
-            int_heap->insert((line));
+            int_heap->insert(atoi(line.c_str()));
         }
 
     } else {

@@ -1,1206 +1,1207 @@
 ./Project4.out strings.txt
 Can't dump empty heap
+
 Size = 591
 Minimum = Abyssinian
 Maximum = Zorse
 
-H[0] : Zorse
 --------------- Level 0 ---------------
-H[1] : Abyssinian
-H[2] : Afghan Hound
+H[0] : Abyssinian
 --------------- Level 1 ---------------
-H[3] : Zebu
-H[4] : Zebra Shark
+H[1] : Zebu
+H[2] : Zorse
 --------------- Level 2 ---------------
-H[5] : Woodpecker
-H[6] : Zonkey
-H[7] : Adelie Penguin
-H[8] : American Water Spaniel
+H[3] : Adelie Penguin
+H[4] : Affenpinscher
+H[5] : Aldabra Giant Tortoise
+H[6] : Afghan Hound
 --------------- Level 3 ---------------
-H[9] : Affenpinscher
-H[10] : Akita
-H[11] : Alligator
-H[12] : Aldabra Giant Tortoise
-H[13] : African Penguin
-H[14] : African Tree Toad
-H[15] : Woolly Mammoth
-H[16] : Zebra
+H[7] : Zebra Shark
+H[8] : Woolly Mammoth
+H[9] : Welsh Corgi
+H[10] : Yellow-Eyed Penguin
+H[11] : Woodpecker
+H[12] : Vervet Monkey
+H[13] : X-Ray Tetra
+H[14] : Zonkey
 --------------- Level 4 ---------------
-H[17] : Wild Boar
-H[18] : Turkish Angora
-H[19] : Tree Frog
-H[20] : Water Dragon
-H[21] : White Tiger
-H[22] : Yellow-Eyed Penguin
-H[23] : Stellers Sea Cow
-H[24] : Uguisu
-H[25] : Tiger Shark
-H[26] : Vervet Monkey
-H[27] : Woolly Monkey
-H[28] : X-Ray Tetra
-H[29] : Wrasse
-H[30] : Yorkshire Terrier
-H[31] : African Bush Elephant
-H[32] : African Palm Civet
+H[15] : African Bush Elephant
+H[16] : African Forest Elephant
+H[17] : Arctic Wolf
+H[18] : American Water Spaniel
+H[19] : African Clawed Frog
+H[20] : African Civet
+H[21] : American Bulldog
+H[22] : Akita
+H[23] : Bavarian Mountain Hound
+H[24] : American Coonhound
+H[25] : Beaver
+H[26] : Alligator
+H[27] : Angelfish
+H[28] : African Penguin
+H[29] : African Tree Toad
+H[30] : Ainu Dog
 --------------- Level 5 ---------------
-H[33] : African Forest Elephant
-H[34] : Airedale Terrier
-H[35] : Axolotl
-H[36] : Avocet
-H[37] : Arctic Wolf
-H[38] : Bandicoot
-H[39] : African Clawed Frog
-H[40] : Banded Palm Civet
-H[41] : Albatross
-H[42] : African Civet
-H[43] : Antelope
-H[44] : American Staffordshire Terrier
-H[45] : Eastern Lowland Gorilla
-H[46] : American Bulldog
-H[47] : Boxer Dog
-H[48] : Bavarian Mountain Hound
-H[49] : American Coonhound
-H[50] : Black Widow Spider
-H[51] : Black Rhinoceros
-H[52] : Bedlington Terrier
-H[53] : Booby
-H[54] : Beaver
-H[55] : Barracuda
-H[56] : Angelfish
-H[57] : American Eskimo Dog
-H[58] : American Pit Bull Terrier
-H[59] : Australian Mist
-H[60] : Alaskan Malamute
-H[61] : Ainu Dog
-H[62] : Barn Owl
-H[63] : Tetra
-H[64] : Sumatran Orang-utan
+H[31] : Wild Boar
+H[32] : West Highland Terrier
+H[33] : Woodlouse
+H[34] : Zebra
+H[35] : Western Lowland Gorilla
+H[36] : Whale Shark
+H[37] : Siberian Husky
+H[38] : Tarsier
+H[39] : Tiffany
+H[40] : Tree Frog
+H[41] : Water Dragon
+H[42] : Vulture
+H[43] : Walrus
+H[44] : Western Gorilla
+H[45] : Wolverine
+H[46] : Yak
+H[47] : Moray Eel
+H[48] : Stellers Sea Cow
+H[49] : Scorpion Fish
+H[50] : Uguisu
+H[51] : Shrimp
+H[52] : Salamander
+H[53] : Sponge
+H[54] : Tortoise
+H[55] : Water Buffalo
+H[56] : White Rhinoceros
+H[57] : Thorny Devil
+H[58] : Woolly Monkey
+H[59] : Wrasse
+H[60] : Sea Turtle
+H[61] : Yorkshire Terrier
+H[62] : Squirrel Monkey
 --------------- Level 6 ---------------
-H[65] : Sumatran Rhinoceros
-H[66] : West Highland Terrier
-H[67] : Wombat
-H[68] : Tuatara
-H[69] : Woodlouse
-H[70] : Welsh Corgi
-H[71] : Tarsier
-H[72] : Western Lowland Gorilla
-H[73] : Rabbit
-H[74] : Whale Shark
-H[75] : Sea Lion
-H[76] : Siberian Husky
-H[77] : Poison Dart Frog
-H[78] : South China Tiger
-H[79] : Tang
-H[80] : Siberian Tiger
-H[81] : Tiger Salamander
-H[82] : Tiffany
-H[83] : Uakari
-H[84] : Vulture
-H[85] : Tasmanian Devil
-H[86] : Snowy Owl
-H[87] : Squid
-H[88] : Walrus
-H[89] : Western Gorilla
-H[90] : Millipede
-H[91] : Sperm Whale
-H[92] : Wolverine
-H[93] : Yak
-H[94] : Wolf
-H[95] : Mongrel
-H[96] : Moray Eel
-H[97] : Pheasant
-H[98] : Mayfly
-H[99] : Pelican
-H[100] : Scorpion Fish
-H[101] : Rock Hyrax
-H[102] : Tortoise
-H[103] : Pond Skater
-H[104] : Shrimp
-H[105] : Pika
-H[106] : Salamander
-H[107] : Sloth
-H[108] : Saint Bernard
-H[109] : Red-handed Tamarin
-H[110] : Sponge
-H[111] : Umbrellabird
-H[112] : Tapir
-H[113] : Striped Rocket Frog
-H[114] : Water Buffalo
-H[115] : Mountain Gorilla
-H[116] : Thorny Devil
-H[117] : Water Vole
-H[118] : Siberian
-H[119] : Wildebeest
-H[120] : Rat
-H[121] : Sea Turtle
-H[122] : Ocelot
-H[123] : Starfish
-H[124] : Tibetan Mastiff
-H[125] : Spadefoot Toad
-H[126] : Squirrel Monkey
-H[127] : African Wild Dog
-H[128] : Basset Hound
+H[63] : African Palm Civet
+H[64] : Asian Giant Hornet
+H[65] : Barnacle
+H[66] : African Wild Dog
+H[67] : Armadillo
+H[68] : Australian Kelpie Dog
+H[69] : Airedale Terrier
+H[70] : Bison
+H[71] : Bactrian Camel
+H[72] : Badger
+H[73] : Bat
+H[74] : Avocet
+H[75] : Common Loon
+H[76] : Cesky Fousek
+H[77] : Greater Swiss Mountain Dog
+H[78] : Bandicoot
+H[79] : Australian Shepherd
+H[80] : Asiatic Black Bear
+H[81] : Border Terrier
+H[82] : Banded Palm Civet
+H[83] : Asian Palm Civet
+H[84] : Alpine Dachsbracke
+H[85] : Crested Penguin
+H[86] : Albatross
+H[87] : Arctic Hare
+H[88] : Bornean Orang-utan
+H[89] : Antelope
+H[90] : Burrowing Frog
+H[91] : Eastern Lowland Gorilla
+H[92] : Gerbil
+H[93] : Coral
+H[94] : American Staffordshire Terrier
+H[95] : Boxer Dog
+H[96] : Boykin Spaniel
+H[97] : Blue Lacy Dog
+H[98] : Bird
+H[99] : Ant
+H[100] : American Eskimo Dog
+H[101] : Black Widow Spider
+H[102] : Chimpanzee
+H[103] : Black Rhinoceros
+H[104] : Cat
+H[105] : Bloodhound
+H[106] : Bedlington Terrier
+H[107] : Edible Frog
+H[108] : Bumble Bee
+H[109] : Chamois
+H[110] : Booby
+H[111] : Beetle
+H[112] : Bichon Frise
+H[113] : Barracuda
+H[114] : Border Collie
+H[115] : American Pit Bull Terrier
+H[116] : Curly Coated Retriever
+H[117] : Birds Of Paradise
+H[118] : Crocodile
+H[119] : Caracal
+H[120] : Australian Mist
+H[121] : Canaan Dog
+H[122] : Alaskan Malamute
+H[123] : Appenzeller Dog
+H[124] : Baboon
+H[125] : Brown Bear
+H[126] : Barn Owl
 --------------- Level 7 ---------------
-H[129] : Barnacle
-H[130] : Green Bee-Eater
-H[131] : Caiman
-H[132] : Blue Whale
-H[133] : American Foxhound
-H[134] : Asian Giant Hornet
-H[135] : Bolognese Dog
-H[136] : Armadillo
-H[137] : Beagle
-H[138] : Australian Kelpie Dog
-H[139] : Birman
-H[140] : Akbash
-H[141] : Bison
-H[142] : Fennec Fox
-H[143] : Bearded Dragon
-H[144] : Binturong
-H[145] : Basenji Dog
-H[146] : Badger
-H[147] : German Pinscher
-H[148] : Chihuahua
-H[149] : Bat
-H[150] : Cassowary
-H[151] : Pied Tamarin
-H[152] : Gharial
-H[153] : Cesky Fousek
-H[154] : Malayan Tiger
-H[155] : Irish Setter
-H[156] : Greater Swiss Mountain Dog
-H[157] : Dog
-H[158] : Barb
-H[159] : Frog
-H[160] : Australian Shepherd
-H[161] : Asiatic Black Bear
-H[162] : Bearded Collie
-H[163] : Opossum
-H[164] : Bullfrog
-H[165] : Border Terrier
-H[166] : Bernese Mountain Dog
-H[167] : Bear
-H[168] : Asian Palm Civet
-H[169] : Alpine Dachsbracke
-H[170] : King Penguin
-H[171] : Giant Schnauzer
-H[172] : Javanese
-H[173] : Arctic Fox
-H[174] : American Cocker Spaniel
-H[175] : Epagneul Pont Audemer
-H[176] : Desert Tortoise
-H[177] : Bornean Orang-utan
-H[178] : Dormouse
-H[179] : Burrowing Frog
-H[180] : Cheetah
-H[181] : Gorilla
-H[182] : Collared Peccary
-H[183] : Elephant Shrew
-H[184] : Kudu
-H[185] : Impala
-H[186] : Gerbil
-H[187] : Coral
-H[188] : Dragonfly
-H[189] : Arctic Hare
-H[190] : Clouded Leopard
-H[191] : Cuscus
-H[192] : Boykin Spaniel
-H[193] : Centipede
-H[194] : Deutsche Bracke
-H[195] : Blue Lacy Dog
-H[196] : Hammerhead Shark
-H[197] : Cuttlefish
-H[198] : Bird
-H[199] : Asian Elephant
-H[200] : Anteater
-H[201] : Doberman Pinscher
-H[202] : Ant
-H[203] : Egyptian Mau
-H[204] : Cichlid
-H[205] : Lionfish
-H[206] : Chimpanzee
-H[207] : Cairn Terrier
-H[208] : Geoffroys Tamarin
-H[209] : Cat
-H[210] : Keel Billed Toucan
-H[211] : Bloodhound
-H[212] : Chinook
-H[213] : Bulldog
-H[214] : Himalayan
-H[215] : English Shepherd
-H[216] : Edible Frog
-H[217] : Bumble Bee
-H[218] : Dalmatian
-H[219] : Hare
-H[220] : Chinese Crested Dog
-H[221] : Chamois
-H[222] : Clumber Spaniel
-H[223] : Beetle
-H[224] : Gentoo Penguin
-H[225] : Falcon
-H[226] : Bichon Frise
-H[227] : Border Collie
-H[228] : Borneo Elephant
-H[229] : Chameleon
-H[230] : Budgerigar
-H[231] : Bombay
-H[232] : Anatolian Shepherd Dog
-H[233] : Curly Coated Retriever
-H[234] : Hamster
-H[235] : Common Toad
-H[236] : Birds Of Paradise
-H[237] : Grey Mouse Lemur
-H[238] : Crocodile
-H[239] : Deer
-H[240] : Caracal
-H[241] : Baboon
-H[242] : Dingo
-H[243] : Indri
-H[244] : Canaan Dog
-H[245] : Field Spaniel
-H[246] : Burmese
-H[247] : Black Russian Terrier
-H[248] : Appenzeller Dog
-H[249] : Galapagos Tortoise
-H[250] : Duck
-H[251] : Bull Terrier
-H[252] : Goose
-H[253] : Fossa
-H[254] : Bobcat
-H[255] : Frilled Lizard
-H[256] : Puffin
+H[127] : Red Panda
+H[128] : Tetra
+H[129] : Sumatran Orang-utan
+H[130] : Somali
+H[131] : Sumatran Rhinoceros
+H[132] : Pike
+H[133] : Sumatran Tiger
+H[134] : Silver Dollar
+H[135] : Seahorse
+H[136] : Wombat
+H[137] : Tuatara
+H[138] : Toucan
+H[139] : White Faced Capuchin
+H[140] : Saola
+H[141] : Rhinoceros
+H[142] : Wasp
+H[143] : Pademelon
+H[144] : Stag Beetle
+H[145] : Vampire Bat
+H[146] : Warthog
+H[147] : Rabbit
+H[148] : Monkey
+H[149] : Piranha
+H[150] : Turkish Angora
+H[151] : Sea Lion
+H[152] : Numbat
+H[153] : Nightingale
+H[154] : Sheep
+H[155] : Otter
+H[156] : Poison Dart Frog
+H[157] : Golden Oriole
+H[158] : South China Tiger
+H[159] : Rockhopper Penguin
+H[160] : Sea Otter
+H[161] : Puma
+H[162] : Siberian Tiger
+H[163] : Tiger Salamander
+H[164] : Sparrow
+H[165] : Tang
+H[166] : Robin
+H[167] : Peacock
+H[168] : Snapping Turtle
+H[169] : Uakari
+H[170] : Royal Penguin
+H[171] : Tasmanian Devil
+H[172] : Lynx
+H[173] : Snowy Owl
+H[174] : Giant Panda Bear
+H[175] : Snail
+H[176] : Squid
+H[177] : Stingray
+H[178] : Stoat
+H[179] : Prawn
+H[180] : Reindeer
+H[181] : Little Penguin
+H[182] : Millipede
+H[183] : Sperm Whale
+H[184] : Serval
+H[185] : Wallaby
+H[186] : White Tiger
+H[187] : Siamese
+H[188] : Wolf
+H[189] : Whippet
+H[190] : Newt
+H[191] : Manta Ray
+H[192] : Howler Monkey
+H[193] : Mongrel
+H[194] : Meerkat
+H[195] : Flat Coat Retriever
+H[196] : Pelican
+H[197] : Maine Coon
+H[198] : Eskimo Dog
+H[199] : Flying Squirrel
+H[200] : Komodo Dragon
+H[201] : Javan Rhinoceros
+H[202] : Pheasant
+H[203] : Rock Hyrax
+H[204] : Parrot
+H[205] : Sea Squirt
+H[206] : Staffordshire Bull Terrier
+H[207] : Norfolk Terrier
+H[208] : Pond Skater
+H[209] : Ibizan Hound
+H[210] : Saint Bernard
+H[211] : Mule
+H[212] : Pika
+H[213] : Sabre-Toothed Tiger
+H[214] : Pug
+H[215] : Quoll
+H[216] : Sloth
+H[217] : Raccoon
+H[218] : Mole
+H[219] : Lemming
+H[220] : Red Wolf
+H[221] : Labrador Retriever
+H[222] : Red-handed Tamarin
+H[223] : Dodo
+H[224] : Squirrel
+H[225] : Tapir
+H[226] : Jellyfish
+H[227] : Mandrill
+H[228] : Poodle
+H[229] : Striped Rocket Frog
+H[230] : Seal
+H[231] : Llama
+H[232] : Markhor
+H[233] : Mountain Gorilla
+H[234] : Sumatran Elephant
+H[235] : Water Vole
+H[236] : Rottweiler
+H[237] : Ragdoll
+H[238] : Siberian
+H[239] : Weasel
+H[240] : Wildebeest
+H[241] : Rat
+H[242] : Puss Moth
+H[243] : Octopus
+H[244] : Panther
+H[245] : Ocelot
+H[246] : Fly
+H[247] : Starfish
+H[248] : Pygmy Hippopotamus
+H[249] : Tibetan Mastiff
+H[250] : Monitor Lizard
+H[251] : Slow Worm
+H[252] : Patas Monkey
+H[253] : Skunk
+H[254] : Spadefoot Toad
 --------------- Level 8 ---------------
-H[257] : Neanderthal
-H[258] : Red Panda
-H[259] : Shih Tzu
-H[260] : Snake
-H[261] : Sea Dragon
-H[262] : Somali
-H[263] : Porcupine
-H[264] : Snowshoe
-H[265] : Pike
-H[266] : Gar
-H[267] : Sumatran Tiger
-H[268] : Leopard Cat
-H[269] : Galapagos Penguin
-H[270] : Silver Dollar
-H[271] : Jaguar
-H[272] : Labradoodle
-H[273] : Spider Monkey
-H[274] : White Faced Capuchin
-H[275] : Quail
-H[276] : Sun Bear
-H[277] : Toucan
-H[278] : Fin Whale
-H[279] : Spectacled Bear
-H[280] : Macaw
-H[281] : Orang-utan
-H[282] : Saola
-H[283] : Raccoon Dog
-H[284] : Rhinoceros
-H[285] : Minke Whale
-H[286] : Wasp
-H[287] : Pademelon
-H[288] : Common Loon
-H[289] : Stag Beetle
-H[290] : Persian
-H[291] : Termite
-H[292] : Vampire Bat
-H[293] : Warthog
-H[294] : Tawny Owl
-H[295] : Macaroni Penguin
-H[296] : Piranha
-H[297] : Chow Chow
-H[298] : Monkey
-H[299] : Common Frog
+H[255] : Birman
+H[256] : Keel Billed Toucan
+H[257] : Basset Hound
+H[258] : Camel
+H[259] : Greenland Dog
+H[260] : Catfish
+H[261] : Green Bee-Eater
+H[262] : Japanese Chin
+H[263] : Caiman
+H[264] : Discus
+H[265] : Blue Whale
+H[266] : Caterpillar
+H[267] : Galapagos Penguin
+H[268] : American Foxhound
+H[269] : Australian Terrier
+H[270] : Chipmunk
+H[271] : Buffalo
+H[272] : Bolognese Dog
+H[273] : Havanese
+H[274] : Australian Cattle Dog
+H[275] : Dogue De Bordeaux
+H[276] : Bonobo
+H[277] : Heron
+H[278] : Beagle
+H[279] : Guppy
+H[280] : Bluetick Coonhound
+H[281] : Brazilian Terrier
+H[282] : Akbash
+H[283] : Chinstrap Penguin
+H[284] : Eastern Gorilla
+H[285] : Koala
+H[286] : Leaf-Tailed Gecko
+H[287] : Crane
+H[288] : Bearded Dragon
+H[289] : Cavalier King Charles Spaniel
+H[290] : Binturong
+H[291] : Butterfly
+H[292] : Basenji Dog
+H[293] : Donkey
+H[294] : Bull Shark
+H[295] : German Pinscher
+H[296] : Oyster
+H[297] : Chihuahua
+H[298] : Common Frog
+H[299] : Chow Chow
 H[300] : Frigatebird
-H[301] : Tropicbird
-H[302] : Humpback Whale
-H[303] : Purple Emperor
+H[301] : Humpback Whale
+H[302] : Cassowary
+H[303] : Pink Fairy Armadillo
 H[304] : Sand Lizard
-H[305] : Guinea Fowl
-H[306] : Numbat
-H[307] : Great White Shark
-H[308] : Giant African Land Snail
-H[309] : Sheep
-H[310] : Nightingale
-H[311] : Otter
+H[305] : Great White Shark
+H[306] : Guinea Fowl
+H[307] : Giant African Land Snail
+H[308] : Gharial
+H[309] : Purple Emperor
+H[310] : Malayan Tiger
+H[311] : Japanese Macaque
 H[312] : Marine Toad
-H[313] : Moose
-H[314] : Pink Fairy Armadillo
-H[315] : Golden Oriole
-H[316] : Emperor Tamarin
+H[313] : Irish Setter
+H[314] : Moose
+H[315] : Emperor Tamarin
+H[316] : Dog
 H[317] : Malayan Civet
-H[318] : Japanese Macaque
+H[318] : Barb
 H[319] : Mountain Lion
-H[320] : Gibbon
-H[321] : Rockhopper Penguin
-H[322] : Dunker
-H[323] : Molly
+H[320] : Frog
+H[321] : Dunker
+H[322] : Collared Peccary
+H[323] : Cougar
 H[324] : Balinese
-H[325] : Sea Otter
-H[326] : Cougar
-H[327] : Stoat
-H[328] : Stick Insect
-H[329] : Sparrow
+H[325] : Molly
+H[326] : Bearded Collie
+H[327] : Stick Insect
+H[328] : Opossum
+H[329] : Gecko
 H[330] : Radiated Tortoise
-H[331] : Gecko
+H[331] : Bullfrog
 H[332] : Leopard Tortoise
-H[333] : Robin
-H[334] : Clown Fish
+H[333] : Clown Fish
+H[334] : Bernese Mountain Dog
 H[335] : Crab-Eating Macaque
-H[336] : Peacock
-H[337] : Kiwi
+H[336] : Giant Schnauzer
+H[337] : Bear
 H[338] : Scorpion
 H[339] : Basking Shark
-H[340] : Okapi
-H[341] : Royal Penguin
+H[340] : Kiwi
+H[341] : King Penguin
 H[342] : Pygmy Marmoset
-H[343] : Snapping Turtle
+H[343] : Okapi
 H[344] : Swan
-H[345] : Lynx
-H[346] : Lobster
+H[345] : Lobster
+H[346] : Javanese
 H[347] : Mastiff
-H[348] : Giant Panda Bear
-H[349] : Crested Penguin
-H[350] : Black Bear
-H[351] : Raccoon
+H[348] : Arctic Fox
+H[349] : Black Bear
+H[350] : American Cocker Spaniel
+H[351] : Irish WolfHound
 H[352] : Moth
-H[353] : Maltese
-H[354] : Snail
-H[355] : Siamese Fighting Fish
-H[356] : Hermit Crab
-H[357] : Irish WolfHound
-H[358] : Stingray
-H[359] : Prawn
+H[353] : Epagneul Pont Audemer
+H[354] : Maltese
+H[355] : Hermit Crab
+H[356] : Gibbon
+H[357] : Dormouse
+H[358] : Siamese Fighting Fish
+H[359] : Grizzly Bear
 H[360] : Horse
-H[361] : Horn Shark
-H[362] : Reindeer
-H[363] : Grasshopper
-H[364] : Grizzly Bear
-H[365] : Great Dane
-H[366] : Little Penguin
-H[367] : Puffer Fish
-H[368] : Guinea Pig
-H[369] : Quetzal
-H[370] : Serval
-H[371] : Roseate Spoonbill
+H[361] : Cheetah
+H[362] : Horn Shark
+H[363] : Gorilla
+H[364] : Grasshopper
+H[365] : Desert Tortoise
+H[366] : Great Dane
+H[367] : Kudu
+H[368] : Elephant Shrew
+H[369] : Puffer Fish
+H[370] : Quetzal
+H[371] : Impala
 H[372] : Lion
-H[373] : Wallaby
-H[374] : Ibis
-H[375] : Newt
-H[376] : Marsh Frog
-H[377] : Moorhen
-H[378] : Siamese
+H[373] : Roseate Spoonbill
+H[374] : Guinea Pig
+H[375] : Marsh Frog
+H[376] : Dragonfly
+H[377] : Lizard
+H[378] : Moorhen
 H[379] : Fish
-H[380] : Whippet
-H[381] : Lizard
-H[382] : Echidna
-H[383] : Highland Cattle
-H[384] : Manta Ray
-H[385] : Howler Monkey
+H[380] : Ibis
+H[381] : Echidna
+H[382] : Clouded Leopard
+H[383] : Cuttlefish
+H[384] : Highland Cattle
+H[385] : Cuscus
 H[386] : Fox
 H[387] : Elephant
 H[388] : Golden Lion Tamarin
-H[389] : Meerkat
+H[389] : Deutsche Bracke
 H[390] : Electric Eel
-H[391] : Flat Coat Retriever
+H[391] : English Cocker Spaniel
 H[392] : Drever
-H[393] : Maine Coon
+H[393] : Hammerhead Shark
 H[394] : Olm
 H[395] : Indian Star Tortoise
 H[396] : Human
-H[397] : Eskimo Dog
+H[397] : Bull Mastiff
 H[398] : Boston Terrier
-H[399] : Bactrian Camel
-H[400] : Flying Squirrel
-H[401] : Entlebucher Mountain Dog
+H[399] : Asian Elephant
+H[400] : Egyptian Mau
+H[401] : Anteater
 H[402] : Crab
 H[403] : Dugong
 H[404] : Gila Monster
-H[405] : Javan Rhinoceros
-H[406] : Fishing Cat
-H[407] : Komodo Dragon
+H[405] : Fishing Cat
+H[406] : Doberman Pinscher
+H[407] : Entlebucher Mountain Dog
 H[408] : Hippopotamus
-H[409] : Earwig
-H[410] : Parrot
-H[411] : Norwegian Forest
-H[412] : Sea Squirt
-H[413] : Staffordshire Bull Terrier
+H[409] : Cichlid
+H[410] : Earwig
+H[411] : Lionfish
+H[412] : Norwegian Forest
+H[413] : Mayfly
 H[414] : Cow
 H[415] : Horned Frog
-H[416] : Estrela Mountain Dog
-H[417] : Norfolk Terrier
+H[416] : Cairn Terrier
+H[417] : Geoffroys Tamarin
 H[418] : Pekingese
-H[419] : Ibizan Hound
-H[420] : Flamingo
+H[419] : Flamingo
+H[420] : Estrela Mountain Dog
 H[421] : Russian Blue
 H[422] : Platypus
-H[423] : Dwarf Crocodile
-H[424] : Dhole
-H[425] : Mule
+H[423] : Dhole
+H[424] : Bulldog
+H[425] : Chinook
 H[426] : Magpie
-H[427] : Goat
-H[428] : Sabre-Toothed Tiger
-H[429] : Magellanic Penguin
-H[430] : Pug
+H[427] : Dwarf Crocodile
+H[428] : Goat
+H[429] : Himalayan
+H[430] : Magellanic Penguin
 H[431] : Possum
 H[432] : Hedgehog
-H[433] : Quoll
+H[433] : English Shepherd
 H[434] : Ladybird
 H[435] : French Bulldog
 H[436] : Grey Seal
-H[437] : Iguana
-H[438] : Mole
-H[439] : Labrador Retriever
+H[437] : Dalmatian
+H[438] : Iguana
+H[439] : Hare
 H[440] : Kingfisher
-H[441] : Red Wolf
-H[442] : English Springer Spaniel
-H[443] : Elephant Seal
+H[441] : English Springer Spaniel
+H[442] : Chinese Crested Dog
+H[443] : Cottontop Tamarin
 H[444] : Cockroach
-H[445] : Lemming
-H[446] : Cottontop Tamarin
-H[447] : Collie
-H[448] : Dodo
+H[445] : Elephant Seal
+H[446] : Clumber Spaniel
+H[447] : Caiman Lizard
+H[448] : Collie
 H[449] : Sea Slug
 H[450] : Spiny Dogfish
 H[451] : Neapolitan Mastiff
-H[452] : Jellyfish
+H[452] : Falcon
 H[453] : Glass Lizard
 H[454] : Capybara
 H[455] : Darwin's Frog
-H[456] : Mandrill
-H[457] : Harrier
-H[458] : Poodle
-H[459] : Coyote
-H[460] : English Cocker Spaniel
-H[461] : Caiman Lizard
-H[462] : Seal
-H[463] : Llama
-H[464] : King Crab
-H[465] : Markhor
-H[466] : Indian Palm Squirrel
-H[467] : Indian Rhinoceros
+H[456] : Gentoo Penguin
+H[457] : Borneo Elephant
+H[458] : Harrier
+H[459] : Chameleon
+H[460] : Coyote
+H[461] : Budgerigar
+H[462] : Centipede
+H[463] : King Crab
+H[464] : Common Toad
+H[465] : Indian Palm Squirrel
+H[466] : Anatolian Shepherd Dog
+H[467] : Hamster
 H[468] : Dusky Dolphin
-H[469] : Sumatran Elephant
+H[469] : Indian Rhinoceros
 H[470] : Pool Frog
 H[471] : German Shepherd
-H[472] : Squirrel
-H[473] : Rottweiler
+H[472] : Penguin
+H[473] : Bombay
 H[474] : Bongo
 H[475] : Pointer
 H[476] : Jack Russel
-H[477] : Ragdoll
-H[478] : Grouse
-H[479] : Quokka
-H[480] : Weasel
-H[481] : White Rhinoceros
+H[477] : Grouse
+H[478] : Grey Mouse Lemur
+H[479] : Deer
+H[480] : Tiger Shark
+H[481] : Quokka
 H[482] : Fox Terrier
 H[483] : Bottle Nosed Dolphin
 H[484] : Polar Bear
-H[485] : Emu
-H[486] : Puss Moth
-H[487] : Octopus
-H[488] : Mongoose
-H[489] : Panther
+H[485] : Dingo
+H[486] : Emu
+H[487] : Mongoose
+H[488] : Manatee
+H[489] : Indri
 H[490] : Fire-Bellied Toad
-H[491] : Giraffe
-H[492] : Manatee
-H[493] : Fly
+H[491] : Field Spaniel
+H[492] : Giraffe
+H[493] : Burmese
 H[494] : Ferret
-H[495] : Penguin
+H[495] : Galapagos Tortoise
 H[496] : Sri Lankan Elephant
-H[497] : Pygmy Hippopotamus
-H[498] : Lemur
-H[499] : Monitor Lizard
+H[497] : Lemur
+H[498] : Black Russian Terrier
+H[499] : Leopard
 H[500] : Proboscis Monkey
-H[501] : Leopard
+H[501] : Duck
 H[502] : Masked Palm Civet
-H[503] : Slow Worm
+H[503] : Hyena
 H[504] : Coati
-H[505] : Patas Monkey
+H[505] : Goose
 H[506] : Killer Whale
-H[507] : Hyena
-H[508] : Fur Seal
-H[509] : Skunk
-H[510] : Brown Bear
-H[511] : Bull Mastiff
-H[512] : Carolina Dog
+H[507] : Fur Seal
+H[508] : Fossa
+H[509] : Bull Terrier
+H[510] : Bobcat
 --------------- Level 9 ---------------
+H[511] : Carolina Dog
+H[512] : Frilled Lizard
 H[513] : Newfoundland
 H[514] : Long-Eared Owl
-H[515] : Cross River Gorilla
+H[515] : Glow Worm
 H[516] : Bengal Tiger
-H[517] : Glow Worm
-H[518] : Camel
-H[519] : Horseshoe Crab
+H[517] : Neanderthal
+H[518] : Cross River Gorilla
+H[519] : Shih Tzu
 H[520] : Insect
-H[521] : Catfish
+H[521] : Snake
 H[522] : Finnish Spitz
-H[523] : Greenland Dog
+H[523] : Horseshoe Crab
 H[524] : Liger
-H[525] : Japanese Chin
+H[525] : Sea Dragon
 H[526] : Sea Urchin
 H[527] : Chicken
-H[528] : Grey Reef Shark
-H[529] : Discus
-H[530] : Mouse
+H[528] : Mouse
+H[529] : Grey Reef Shark
+H[530] : Porcupine
 H[531] : Gopher
 H[532] : Hercules Beetle
-H[533] : Common Buzzard
-H[534] : Caterpillar
-H[535] : Greyhound
-H[536] : River Dolphin
-H[537] : Indian Elephant
-H[538] : Dachshund
-H[539] : Aye Aye
-H[540] : Australian Terrier
+H[533] : Gar
+H[534] : Common Buzzard
+H[535] : River Dolphin
+H[536] : Snowshoe
+H[537] : Leopard Cat
+H[538] : Indian Elephant
+H[539] : Dachshund
+H[540] : Aye Aye
 H[541] : Jackal
-H[542] : Chipmunk
+H[542] : Greyhound
 H[543] : Honey Bee
 H[544] : Flounder
-H[545] : Buffalo
-H[546] : Eagle
-H[547] : Seahorse
+H[545] : Eagle
+H[546] : Labradoodle
+H[547] : Spider Monkey
 H[548] : Rattlesnake
-H[549] : Havanese
-H[550] : Australian Cattle Dog
-H[551] : Heron
-H[552] : Dogue De Bordeaux
-H[553] : Bonobo
+H[549] : Umbrellabird
+H[550] : Axolotl
+H[551] : Puffin
+H[552] : Emperor Penguin
+H[553] : Sun Bear
 H[554] : Butterfly Fish
-H[555] : Puma
+H[555] : Quail
 H[556] : Red Knee Tarantula
-H[557] : Emperor Penguin
+H[557] : Fin Whale
 H[558] : Dolphin
-H[559] : Guppy
-H[560] : River Turtle
-H[561] : Bluetick Coonhound
-H[562] : Humboldt Penguin
-H[563] : Monte Iberia Eleuth
-H[564] : Old English Sheepdog
-H[565] : Brazilian Terrier
+H[559] : Jaguar
+H[560] : Spectacled Bear
+H[561] : Humboldt Penguin
+H[562] : Macaw
+H[563] : Old English Sheepdog
+H[564] : Orang-utan
+H[565] : Monte Iberia Eleuth
 H[566] : Ostrich
-H[567] : Chinstrap Penguin
+H[567] : Fennec Fox
 H[568] : Hummingbird
-H[569] : Eastern Gorilla
-H[570] : Kakapo
-H[571] : Koala
-H[572] : Leopard Seal
+H[569] : Kakapo
+H[570] : Raccoon Dog
+H[571] : Leopard Seal
+H[572] : Minke Whale
 H[573] : Turkey
-H[574] : Leaf-Tailed Gecko
+H[574] : River Turtle
 H[575] : Giant Clam
 H[576] : Indochinese Tiger
 H[577] : Chesapeake Bay Retriever
 H[578] : Chinchilla
-H[579] : Cavalier King Charles Spaniel
+H[579] : Pied Tamarin
 H[580] : Nurse Shark
-H[581] : Crane
-H[582] : Kangaroo
-H[583] : Butterfly
-H[584] : Oyster
-H[585] : Donkey
+H[581] : Kangaroo
+H[582] : Persian
+H[583] : Macaroni Penguin
+H[584] : Termite
+H[585] : Tropicbird
 H[586] : Dogo Argentino
 H[587] : Pig
 H[588] : Tiger
-H[589] : Bull Shark
-H[590] : Golden Retriever
+H[589] : Golden Retriever
+H[590] : Tawny Owl
 
 Call delete_min 10 times
 Size = 581
-Minimum = African Tree Toad
-Maximum = Zorse
+Minimum = Abyssinian
+Maximum = Woolly Monkey
 
-H[0] : Zorse
 --------------- Level 0 ---------------
-H[1] : African Wild Dog
-H[2] : African Tree Toad
+H[0] : Abyssinian
 --------------- Level 1 ---------------
-H[3] : Zebu
-H[4] : Zebra Shark
+H[1] : Woolly Mammoth
+H[2] : Woolly Monkey
 --------------- Level 2 ---------------
-H[5] : Woodpecker
-H[6] : Zonkey
-H[7] : Airedale Terrier
-H[8] : American Water Spaniel
+H[3] : Adelie Penguin
+H[4] : Affenpinscher
+H[5] : Aldabra Giant Tortoise
+H[6] : Afghan Hound
 --------------- Level 3 ---------------
-H[9] : Albatross
-H[10] : Akita
-H[11] : Alligator
-H[12] : Aldabra Giant Tortoise
-H[13] : American Eskimo Dog
-H[14] : Ainu Dog
-H[15] : Woolly Mammoth
-H[16] : Zebra
+H[7] : Woodlouse
+H[8] : Whale Shark
+H[9] : Welsh Corgi
+H[10] : Wolverine
+H[11] : Woodpecker
+H[12] : Vervet Monkey
+H[13] : White Rhinoceros
+H[14] : Wildebeest
 --------------- Level 4 ---------------
-H[17] : Wild Boar
-H[18] : Turkish Angora
-H[19] : Tree Frog
-H[20] : Water Dragon
-H[21] : White Tiger
-H[22] : Yellow-Eyed Penguin
-H[23] : Stellers Sea Cow
-H[24] : Uguisu
-H[25] : Tiger Shark
-H[26] : Vervet Monkey
-H[27] : Woolly Monkey
-H[28] : X-Ray Tetra
-H[29] : Wrasse
-H[30] : Yorkshire Terrier
-H[31] : Barnacle
-H[32] : American Foxhound
+H[15] : African Bush Elephant
+H[16] : African Forest Elephant
+H[17] : Arctic Wolf
+H[18] : American Water Spaniel
+H[19] : African Clawed Frog
+H[20] : African Civet
+H[21] : American Bulldog
+H[22] : Akita
+H[23] : Bavarian Mountain Hound
+H[24] : American Coonhound
+H[25] : Beaver
+H[26] : Alligator
+H[27] : Angelfish
+H[28] : African Penguin
+H[29] : African Tree Toad
+H[30] : Ainu Dog
 --------------- Level 5 ---------------
-H[33] : Armadillo
-H[34] : Akbash
-H[35] : Axolotl
-H[36] : Avocet
-H[37] : Arctic Wolf
-H[38] : Bandicoot
-H[39] : Asiatic Black Bear
-H[40] : Banded Palm Civet
-H[41] : Alpine Dachsbracke
-H[42] : American Cocker Spaniel
-H[43] : Antelope
-H[44] : American Staffordshire Terrier
-H[45] : Eastern Lowland Gorilla
-H[46] : American Bulldog
-H[47] : Boxer Dog
-H[48] : Bavarian Mountain Hound
-H[49] : American Coonhound
-H[50] : Black Widow Spider
-H[51] : Black Rhinoceros
-H[52] : Bedlington Terrier
-H[53] : Booby
-H[54] : Beaver
-H[55] : Barracuda
-H[56] : Angelfish
-H[57] : Anatolian Shepherd Dog
-H[58] : American Pit Bull Terrier
-H[59] : Australian Mist
-H[60] : Alaskan Malamute
-H[61] : Appenzeller Dog
-H[62] : Barn Owl
-H[63] : Tetra
-H[64] : Sumatran Orang-utan
+H[31] : Wild Boar
+H[32] : West Highland Terrier
+H[33] : Wombat
+H[34] : White Faced Capuchin
+H[35] : Western Lowland Gorilla
+H[36] : Turkish Angora
+H[37] : Siberian Husky
+H[38] : Tarsier
+H[39] : Tiffany
+H[40] : Tree Frog
+H[41] : Water Dragon
+H[42] : Vulture
+H[43] : Walrus
+H[44] : Western Gorilla
+H[45] : White Tiger
+H[46] : Wolf
+H[47] : Moray Eel
+H[48] : Stellers Sea Cow
+H[49] : Scorpion Fish
+H[50] : Uguisu
+H[51] : Shrimp
+H[52] : Salamander
+H[53] : Sponge
+H[54] : Tortoise
+H[55] : Water Buffalo
+H[56] : Striped Rocket Frog
+H[57] : Thorny Devil
+H[58] : Water Vole
+H[59] : Weasel
+H[60] : Sea Turtle
+H[61] : Tibetan Mastiff
+H[62] : Squirrel Monkey
 --------------- Level 6 ---------------
-H[65] : Sumatran Rhinoceros
-H[66] : West Highland Terrier
-H[67] : Wombat
-H[68] : Tuatara
-H[69] : Woodlouse
-H[70] : Welsh Corgi
-H[71] : Tarsier
-H[72] : Western Lowland Gorilla
-H[73] : Rabbit
-H[74] : Whale Shark
-H[75] : Sea Lion
-H[76] : Siberian Husky
-H[77] : Poison Dart Frog
-H[78] : South China Tiger
-H[79] : Tang
-H[80] : Siberian Tiger
-H[81] : Tiger Salamander
-H[82] : Tiffany
-H[83] : Uakari
-H[84] : Vulture
-H[85] : Tasmanian Devil
-H[86] : Snowy Owl
-H[87] : Squid
-H[88] : Walrus
-H[89] : Western Gorilla
-H[90] : Millipede
-H[91] : Sperm Whale
-H[92] : Wolverine
-H[93] : Yak
-H[94] : Wolf
-H[95] : Mongrel
-H[96] : Moray Eel
-H[97] : Pheasant
-H[98] : Mayfly
-H[99] : Pelican
-H[100] : Scorpion Fish
-H[101] : Rock Hyrax
-H[102] : Tortoise
-H[103] : Pond Skater
-H[104] : Shrimp
-H[105] : Pika
-H[106] : Salamander
-H[107] : Sloth
-H[108] : Saint Bernard
-H[109] : Red-handed Tamarin
-H[110] : Sponge
-H[111] : Umbrellabird
-H[112] : Tapir
-H[113] : Striped Rocket Frog
-H[114] : Water Buffalo
-H[115] : Pig
-H[116] : Thorny Devil
-H[117] : Water Vole
-H[118] : Siberian
-H[119] : Wildebeest
-H[120] : Rat
-H[121] : Sea Turtle
-H[122] : Ocelot
-H[123] : Starfish
-H[124] : Tibetan Mastiff
-H[125] : Spadefoot Toad
-H[126] : Squirrel Monkey
-H[127] : Bull Mastiff
-H[128] : Basset Hound
+H[63] : African Palm Civet
+H[64] : Asian Giant Hornet
+H[65] : Barnacle
+H[66] : African Wild Dog
+H[67] : Armadillo
+H[68] : Australian Kelpie Dog
+H[69] : Airedale Terrier
+H[70] : Bison
+H[71] : Bactrian Camel
+H[72] : Badger
+H[73] : Bat
+H[74] : Avocet
+H[75] : Common Loon
+H[76] : Cesky Fousek
+H[77] : Greater Swiss Mountain Dog
+H[78] : Bandicoot
+H[79] : Australian Shepherd
+H[80] : Asiatic Black Bear
+H[81] : Border Terrier
+H[82] : Banded Palm Civet
+H[83] : Asian Palm Civet
+H[84] : Alpine Dachsbracke
+H[85] : Crested Penguin
+H[86] : Albatross
+H[87] : Arctic Hare
+H[88] : Bornean Orang-utan
+H[89] : Antelope
+H[90] : Burrowing Frog
+H[91] : Eastern Lowland Gorilla
+H[92] : Gerbil
+H[93] : Coral
+H[94] : American Staffordshire Terrier
+H[95] : Boxer Dog
+H[96] : Boykin Spaniel
+H[97] : Blue Lacy Dog
+H[98] : Bird
+H[99] : Ant
+H[100] : American Eskimo Dog
+H[101] : Black Widow Spider
+H[102] : Chimpanzee
+H[103] : Black Rhinoceros
+H[104] : Cat
+H[105] : Bloodhound
+H[106] : Bedlington Terrier
+H[107] : Edible Frog
+H[108] : Bumble Bee
+H[109] : Chamois
+H[110] : Booby
+H[111] : Beetle
+H[112] : Bichon Frise
+H[113] : Barracuda
+H[114] : Border Collie
+H[115] : American Pit Bull Terrier
+H[116] : Curly Coated Retriever
+H[117] : Birds Of Paradise
+H[118] : Crocodile
+H[119] : Caracal
+H[120] : Australian Mist
+H[121] : Canaan Dog
+H[122] : Alaskan Malamute
+H[123] : Appenzeller Dog
+H[124] : Baboon
+H[125] : Brown Bear
+H[126] : Barn Owl
 --------------- Level 7 ---------------
-H[129] : Butterfly
-H[130] : Green Bee-Eater
-H[131] : Caiman
-H[132] : Blue Whale
-H[133] : Dachshund
-H[134] : Asian Giant Hornet
-H[135] : Bolognese Dog
-H[136] : Australian Cattle Dog
-H[137] : Beagle
-H[138] : Australian Kelpie Dog
-H[139] : Birman
-H[140] : Brazilian Terrier
-H[141] : Bison
-H[142] : Fennec Fox
-H[143] : Bearded Dragon
-H[144] : Binturong
-H[145] : Basenji Dog
-H[146] : Badger
-H[147] : German Pinscher
-H[148] : Chihuahua
-H[149] : Bat
-H[150] : Cassowary
-H[151] : Pied Tamarin
-H[152] : Gharial
-H[153] : Cesky Fousek
-H[154] : Malayan Tiger
-H[155] : Irish Setter
-H[156] : Greater Swiss Mountain Dog
-H[157] : Dog
-H[158] : Barb
-H[159] : Frog
-H[160] : Australian Shepherd
-H[161] : Balinese
-H[162] : Bearded Collie
-H[163] : Opossum
-H[164] : Bullfrog
-H[165] : Border Terrier
-H[166] : Bernese Mountain Dog
-H[167] : Bear
-H[168] : Asian Palm Civet
-H[169] : Basking Shark
-H[170] : King Penguin
-H[171] : Giant Schnauzer
-H[172] : Javanese
-H[173] : Arctic Fox
-H[174] : Black Bear
-H[175] : Epagneul Pont Audemer
-H[176] : Desert Tortoise
-H[177] : Bornean Orang-utan
-H[178] : Dormouse
-H[179] : Burrowing Frog
-H[180] : Cheetah
-H[181] : Gorilla
-H[182] : Collared Peccary
-H[183] : Elephant Shrew
-H[184] : Kudu
-H[185] : Impala
-H[186] : Gerbil
-H[187] : Coral
-H[188] : Dragonfly
-H[189] : Arctic Hare
-H[190] : Clouded Leopard
-H[191] : Cuscus
-H[192] : Boykin Spaniel
-H[193] : Centipede
-H[194] : Deutsche Bracke
-H[195] : Blue Lacy Dog
-H[196] : Hammerhead Shark
-H[197] : Cuttlefish
-H[198] : Bird
-H[199] : Asian Elephant
-H[200] : Anteater
-H[201] : Doberman Pinscher
-H[202] : Ant
-H[203] : Egyptian Mau
-H[204] : Cichlid
-H[205] : Lionfish
-H[206] : Chimpanzee
-H[207] : Cairn Terrier
-H[208] : Geoffroys Tamarin
-H[209] : Cat
-H[210] : Keel Billed Toucan
-H[211] : Bloodhound
-H[212] : Chinook
-H[213] : Bulldog
-H[214] : Himalayan
-H[215] : English Shepherd
-H[216] : Edible Frog
-H[217] : Bumble Bee
-H[218] : Dalmatian
-H[219] : Hare
-H[220] : Chinese Crested Dog
-H[221] : Chamois
-H[222] : Clumber Spaniel
-H[223] : Beetle
-H[224] : Gentoo Penguin
-H[225] : Falcon
-H[226] : Bichon Frise
-H[227] : Border Collie
-H[228] : Borneo Elephant
-H[229] : Chameleon
-H[230] : Budgerigar
-H[231] : Bombay
-H[232] : Indian Palm Squirrel
-H[233] : Curly Coated Retriever
-H[234] : Hamster
-H[235] : Common Toad
-H[236] : Birds Of Paradise
-H[237] : Grey Mouse Lemur
-H[238] : Crocodile
-H[239] : Deer
-H[240] : Caracal
-H[241] : Baboon
-H[242] : Dingo
-H[243] : Indri
-H[244] : Canaan Dog
-H[245] : Field Spaniel
-H[246] : Burmese
-H[247] : Black Russian Terrier
-H[248] : Crane
-H[249] : Galapagos Tortoise
-H[250] : Duck
-H[251] : Bull Terrier
-H[252] : Goose
-H[253] : Fossa
-H[254] : Bobcat
-H[255] : Golden Retriever
-H[256] : Puffin
+H[127] : Red Panda
+H[128] : Tetra
+H[129] : Sumatran Orang-utan
+H[130] : Somali
+H[131] : Sumatran Rhinoceros
+H[132] : Pike
+H[133] : Sumatran Tiger
+H[134] : Silver Dollar
+H[135] : Seahorse
+H[136] : Umbrellabird
+H[137] : Tuatara
+H[138] : Toucan
+H[139] : Tiger
+H[140] : Saola
+H[141] : Rhinoceros
+H[142] : Wasp
+H[143] : Pademelon
+H[144] : Stag Beetle
+H[145] : Vampire Bat
+H[146] : Warthog
+H[147] : Rabbit
+H[148] : Monkey
+H[149] : Piranha
+H[150] : Macaroni Penguin
+H[151] : Sea Lion
+H[152] : Numbat
+H[153] : Nightingale
+H[154] : Sheep
+H[155] : Otter
+H[156] : Poison Dart Frog
+H[157] : Golden Oriole
+H[158] : South China Tiger
+H[159] : Rockhopper Penguin
+H[160] : Sea Otter
+H[161] : Puma
+H[162] : Siberian Tiger
+H[163] : Tiger Salamander
+H[164] : Sparrow
+H[165] : Tang
+H[166] : Robin
+H[167] : Peacock
+H[168] : Snapping Turtle
+H[169] : Uakari
+H[170] : Royal Penguin
+H[171] : Tasmanian Devil
+H[172] : Lynx
+H[173] : Snowy Owl
+H[174] : Giant Panda Bear
+H[175] : Snail
+H[176] : Squid
+H[177] : Stingray
+H[178] : Stoat
+H[179] : Prawn
+H[180] : Reindeer
+H[181] : Little Penguin
+H[182] : Millipede
+H[183] : Sperm Whale
+H[184] : Serval
+H[185] : Wallaby
+H[186] : Termite
+H[187] : Siamese
+H[188] : Moorhen
+H[189] : Whippet
+H[190] : Newt
+H[191] : Manta Ray
+H[192] : Howler Monkey
+H[193] : Mongrel
+H[194] : Meerkat
+H[195] : Flat Coat Retriever
+H[196] : Pelican
+H[197] : Maine Coon
+H[198] : Eskimo Dog
+H[199] : Flying Squirrel
+H[200] : Komodo Dragon
+H[201] : Javan Rhinoceros
+H[202] : Pheasant
+H[203] : Rock Hyrax
+H[204] : Parrot
+H[205] : Sea Squirt
+H[206] : Staffordshire Bull Terrier
+H[207] : Norfolk Terrier
+H[208] : Pond Skater
+H[209] : Ibizan Hound
+H[210] : Saint Bernard
+H[211] : Mule
+H[212] : Pika
+H[213] : Sabre-Toothed Tiger
+H[214] : Pug
+H[215] : Quoll
+H[216] : Sloth
+H[217] : Raccoon
+H[218] : Mole
+H[219] : Lemming
+H[220] : Red Wolf
+H[221] : Labrador Retriever
+H[222] : Red-handed Tamarin
+H[223] : Dodo
+H[224] : Squirrel
+H[225] : Tapir
+H[226] : Jellyfish
+H[227] : Mandrill
+H[228] : Poodle
+H[229] : Kangaroo
+H[230] : Seal
+H[231] : Llama
+H[232] : Markhor
+H[233] : Mountain Gorilla
+H[234] : Sumatran Elephant
+H[235] : Tropicbird
+H[236] : Rottweiler
+H[237] : Ragdoll
+H[238] : Siberian
+H[239] : Tiger Shark
+H[240] : Quokka
+H[241] : Rat
+H[242] : Puss Moth
+H[243] : Octopus
+H[244] : Panther
+H[245] : Ocelot
+H[246] : Fly
+H[247] : Starfish
+H[248] : Pygmy Hippopotamus
+H[249] : Tawny Owl
+H[250] : Monitor Lizard
+H[251] : Slow Worm
+H[252] : Patas Monkey
+H[253] : Skunk
+H[254] : Spadefoot Toad
 --------------- Level 8 ---------------
-H[257] : Neanderthal
-H[258] : Red Panda
-H[259] : Shih Tzu
-H[260] : Snake
-H[261] : Sea Dragon
-H[262] : Somali
-H[263] : Porcupine
-H[264] : Snowshoe
-H[265] : Pike
-H[266] : Gar
-H[267] : Sumatran Tiger
-H[268] : Oyster
-H[269] : Galapagos Penguin
-H[270] : Silver Dollar
-H[271] : Jaguar
-H[272] : Labradoodle
-H[273] : Spider Monkey
-H[274] : White Faced Capuchin
-H[275] : Quail
-H[276] : Sun Bear
-H[277] : Toucan
-H[278] : Fin Whale
-H[279] : Spectacled Bear
-H[280] : Macaw
-H[281] : Orang-utan
-H[282] : Saola
-H[283] : Raccoon Dog
-H[284] : Rhinoceros
-H[285] : Minke Whale
-H[286] : Wasp
-H[287] : Pademelon
-H[288] : Common Loon
-H[289] : Stag Beetle
-H[290] : Persian
-H[291] : Termite
-H[292] : Vampire Bat
-H[293] : Warthog
-H[294] : Tawny Owl
-H[295] : Macaroni Penguin
-H[296] : Piranha
-H[297] : Chow Chow
-H[298] : Monkey
-H[299] : Common Frog
+H[255] : Birman
+H[256] : Keel Billed Toucan
+H[257] : Basset Hound
+H[258] : Camel
+H[259] : Greenland Dog
+H[260] : Catfish
+H[261] : Green Bee-Eater
+H[262] : Japanese Chin
+H[263] : Caiman
+H[264] : Discus
+H[265] : Blue Whale
+H[266] : Caterpillar
+H[267] : Galapagos Penguin
+H[268] : American Foxhound
+H[269] : Australian Terrier
+H[270] : Chipmunk
+H[271] : Buffalo
+H[272] : Bolognese Dog
+H[273] : Havanese
+H[274] : Australian Cattle Dog
+H[275] : Dogue De Bordeaux
+H[276] : Bonobo
+H[277] : Heron
+H[278] : Beagle
+H[279] : Guppy
+H[280] : Bluetick Coonhound
+H[281] : Brazilian Terrier
+H[282] : Akbash
+H[283] : Chinstrap Penguin
+H[284] : Eastern Gorilla
+H[285] : Koala
+H[286] : Leaf-Tailed Gecko
+H[287] : Crane
+H[288] : Bearded Dragon
+H[289] : Cavalier King Charles Spaniel
+H[290] : Binturong
+H[291] : Butterfly
+H[292] : Basenji Dog
+H[293] : Donkey
+H[294] : Bull Shark
+H[295] : German Pinscher
+H[296] : Oyster
+H[297] : Chihuahua
+H[298] : Common Frog
+H[299] : Chow Chow
 H[300] : Frigatebird
-H[301] : Tropicbird
-H[302] : Humpback Whale
-H[303] : Purple Emperor
+H[301] : Humpback Whale
+H[302] : Cassowary
+H[303] : Pink Fairy Armadillo
 H[304] : Sand Lizard
-H[305] : Guinea Fowl
-H[306] : Numbat
-H[307] : Great White Shark
-H[308] : Giant African Land Snail
-H[309] : Sheep
-H[310] : Nightingale
-H[311] : Otter
+H[305] : Great White Shark
+H[306] : Guinea Fowl
+H[307] : Giant African Land Snail
+H[308] : Gharial
+H[309] : Purple Emperor
+H[310] : Malayan Tiger
+H[311] : Japanese Macaque
 H[312] : Marine Toad
-H[313] : Moose
-H[314] : Pink Fairy Armadillo
-H[315] : Golden Oriole
-H[316] : Emperor Tamarin
+H[313] : Irish Setter
+H[314] : Moose
+H[315] : Emperor Tamarin
+H[316] : Dog
 H[317] : Malayan Civet
-H[318] : Japanese Macaque
+H[318] : Barb
 H[319] : Mountain Lion
-H[320] : Gibbon
-H[321] : Rockhopper Penguin
-H[322] : Dunker
-H[323] : Molly
-H[324] : Dogo Argentino
-H[325] : Sea Otter
-H[326] : Cougar
-H[327] : Stoat
-H[328] : Stick Insect
-H[329] : Sparrow
+H[320] : Frog
+H[321] : Dunker
+H[322] : Collared Peccary
+H[323] : Cougar
+H[324] : Balinese
+H[325] : Molly
+H[326] : Bearded Collie
+H[327] : Stick Insect
+H[328] : Opossum
+H[329] : Gecko
 H[330] : Radiated Tortoise
-H[331] : Gecko
+H[331] : Bullfrog
 H[332] : Leopard Tortoise
-H[333] : Robin
-H[334] : Clown Fish
+H[333] : Clown Fish
+H[334] : Bernese Mountain Dog
 H[335] : Crab-Eating Macaque
-H[336] : Peacock
-H[337] : Kiwi
+H[336] : Giant Schnauzer
+H[337] : Bear
 H[338] : Scorpion
-H[339] : Donkey
-H[340] : Okapi
-H[341] : Royal Penguin
+H[339] : Basking Shark
+H[340] : Kiwi
+H[341] : King Penguin
 H[342] : Pygmy Marmoset
-H[343] : Snapping Turtle
+H[343] : Okapi
 H[344] : Swan
-H[345] : Lynx
-H[346] : Lobster
+H[345] : Lobster
+H[346] : Javanese
 H[347] : Mastiff
-H[348] : Giant Panda Bear
-H[349] : Crested Penguin
-H[350] : Bull Shark
-H[351] : Raccoon
+H[348] : Arctic Fox
+H[349] : Black Bear
+H[350] : American Cocker Spaniel
+H[351] : Irish WolfHound
 H[352] : Moth
-H[353] : Maltese
-H[354] : Snail
-H[355] : Siamese Fighting Fish
-H[356] : Hermit Crab
-H[357] : Irish WolfHound
-H[358] : Stingray
-H[359] : Prawn
+H[353] : Epagneul Pont Audemer
+H[354] : Maltese
+H[355] : Hermit Crab
+H[356] : Gibbon
+H[357] : Dormouse
+H[358] : Siamese Fighting Fish
+H[359] : Grizzly Bear
 H[360] : Horse
-H[361] : Horn Shark
-H[362] : Reindeer
-H[363] : Grasshopper
-H[364] : Grizzly Bear
-H[365] : Great Dane
-H[366] : Little Penguin
-H[367] : Puffer Fish
-H[368] : Guinea Pig
-H[369] : Quetzal
-H[370] : Serval
-H[371] : Roseate Spoonbill
+H[361] : Cheetah
+H[362] : Horn Shark
+H[363] : Gorilla
+H[364] : Grasshopper
+H[365] : Desert Tortoise
+H[366] : Great Dane
+H[367] : Kudu
+H[368] : Elephant Shrew
+H[369] : Puffer Fish
+H[370] : Quetzal
+H[371] : Impala
 H[372] : Lion
-H[373] : Wallaby
-H[374] : Ibis
-H[375] : Newt
-H[376] : Marsh Frog
-H[377] : Moorhen
-H[378] : Siamese
+H[373] : Roseate Spoonbill
+H[374] : Guinea Pig
+H[375] : Marsh Frog
+H[376] : Dragonfly
+H[377] : Lizard
+H[378] : Dogo Argentino
 H[379] : Fish
-H[380] : Whippet
-H[381] : Lizard
-H[382] : Echidna
-H[383] : Highland Cattle
-H[384] : Manta Ray
-H[385] : Howler Monkey
+H[380] : Ibis
+H[381] : Echidna
+H[382] : Clouded Leopard
+H[383] : Cuttlefish
+H[384] : Highland Cattle
+H[385] : Cuscus
 H[386] : Fox
 H[387] : Elephant
 H[388] : Golden Lion Tamarin
-H[389] : Meerkat
+H[389] : Deutsche Bracke
 H[390] : Electric Eel
-H[391] : Flat Coat Retriever
+H[391] : English Cocker Spaniel
 H[392] : Drever
-H[393] : Maine Coon
+H[393] : Hammerhead Shark
 H[394] : Olm
 H[395] : Indian Star Tortoise
 H[396] : Human
-H[397] : Eskimo Dog
+H[397] : Bull Mastiff
 H[398] : Boston Terrier
-H[399] : Bactrian Camel
-H[400] : Flying Squirrel
-H[401] : Entlebucher Mountain Dog
+H[399] : Asian Elephant
+H[400] : Egyptian Mau
+H[401] : Anteater
 H[402] : Crab
 H[403] : Dugong
 H[404] : Gila Monster
-H[405] : Javan Rhinoceros
-H[406] : Fishing Cat
-H[407] : Komodo Dragon
+H[405] : Fishing Cat
+H[406] : Doberman Pinscher
+H[407] : Entlebucher Mountain Dog
 H[408] : Hippopotamus
-H[409] : Earwig
-H[410] : Parrot
-H[411] : Norwegian Forest
-H[412] : Sea Squirt
-H[413] : Staffordshire Bull Terrier
+H[409] : Cichlid
+H[410] : Earwig
+H[411] : Lionfish
+H[412] : Norwegian Forest
+H[413] : Mayfly
 H[414] : Cow
 H[415] : Horned Frog
-H[416] : Estrela Mountain Dog
-H[417] : Norfolk Terrier
+H[416] : Cairn Terrier
+H[417] : Geoffroys Tamarin
 H[418] : Pekingese
-H[419] : Ibizan Hound
-H[420] : Flamingo
+H[419] : Flamingo
+H[420] : Estrela Mountain Dog
 H[421] : Russian Blue
 H[422] : Platypus
-H[423] : Dwarf Crocodile
-H[424] : Dhole
-H[425] : Mule
+H[423] : Dhole
+H[424] : Bulldog
+H[425] : Chinook
 H[426] : Magpie
-H[427] : Goat
-H[428] : Sabre-Toothed Tiger
-H[429] : Magellanic Penguin
-H[430] : Pug
+H[427] : Dwarf Crocodile
+H[428] : Goat
+H[429] : Himalayan
+H[430] : Magellanic Penguin
 H[431] : Possum
 H[432] : Hedgehog
-H[433] : Quoll
+H[433] : English Shepherd
 H[434] : Ladybird
 H[435] : French Bulldog
 H[436] : Grey Seal
-H[437] : Iguana
-H[438] : Mole
-H[439] : Labrador Retriever
+H[437] : Dalmatian
+H[438] : Iguana
+H[439] : Hare
 H[440] : Kingfisher
-H[441] : Red Wolf
-H[442] : English Springer Spaniel
-H[443] : Elephant Seal
+H[441] : English Springer Spaniel
+H[442] : Chinese Crested Dog
+H[443] : Cottontop Tamarin
 H[444] : Cockroach
-H[445] : Lemming
-H[446] : Cottontop Tamarin
-H[447] : Collie
-H[448] : Dodo
+H[445] : Elephant Seal
+H[446] : Clumber Spaniel
+H[447] : Caiman Lizard
+H[448] : Collie
 H[449] : Sea Slug
 H[450] : Spiny Dogfish
 H[451] : Neapolitan Mastiff
-H[452] : Jellyfish
+H[452] : Falcon
 H[453] : Glass Lizard
 H[454] : Capybara
 H[455] : Darwin's Frog
-H[456] : Mandrill
-H[457] : Harrier
-H[458] : Poodle
-H[459] : Coyote
-H[460] : English Cocker Spaniel
-H[461] : Caiman Lizard
-H[462] : Seal
-H[463] : Llama
-H[464] : King Crab
-H[465] : Markhor
-H[466] : Mountain Gorilla
-H[467] : Indian Rhinoceros
+H[456] : Gentoo Penguin
+H[457] : Borneo Elephant
+H[458] : Harrier
+H[459] : Chameleon
+H[460] : Coyote
+H[461] : Budgerigar
+H[462] : Centipede
+H[463] : King Crab
+H[464] : Common Toad
+H[465] : Indian Palm Squirrel
+H[466] : Anatolian Shepherd Dog
+H[467] : Hamster
 H[468] : Dusky Dolphin
-H[469] : Sumatran Elephant
+H[469] : Indian Rhinoceros
 H[470] : Pool Frog
 H[471] : German Shepherd
-H[472] : Squirrel
-H[473] : Rottweiler
+H[472] : Penguin
+H[473] : Bombay
 H[474] : Bongo
 H[475] : Pointer
 H[476] : Jack Russel
-H[477] : Ragdoll
-H[478] : Grouse
-H[479] : Quokka
-H[480] : Weasel
-H[481] : White Rhinoceros
+H[477] : Grouse
+H[478] : Grey Mouse Lemur
+H[479] : Deer
+H[480] : Persian
+H[481] : Golden Retriever
 H[482] : Fox Terrier
 H[483] : Bottle Nosed Dolphin
 H[484] : Polar Bear
-H[485] : Emu
-H[486] : Puss Moth
-H[487] : Octopus
-H[488] : Mongoose
-H[489] : Panther
+H[485] : Dingo
+H[486] : Emu
+H[487] : Mongoose
+H[488] : Manatee
+H[489] : Indri
 H[490] : Fire-Bellied Toad
-H[491] : Giraffe
-H[492] : Manatee
-H[493] : Fly
+H[491] : Field Spaniel
+H[492] : Giraffe
+H[493] : Burmese
 H[494] : Ferret
-H[495] : Penguin
+H[495] : Galapagos Tortoise
 H[496] : Sri Lankan Elephant
-H[497] : Pygmy Hippopotamus
-H[498] : Lemur
-H[499] : Monitor Lizard
+H[497] : Lemur
+H[498] : Black Russian Terrier
+H[499] : Leopard
 H[500] : Proboscis Monkey
-H[501] : Leopard
+H[501] : Duck
 H[502] : Masked Palm Civet
-H[503] : Slow Worm
+H[503] : Hyena
 H[504] : Coati
-H[505] : Patas Monkey
+H[505] : Goose
 H[506] : Killer Whale
-H[507] : Hyena
-H[508] : Fur Seal
-H[509] : Skunk
-H[510] : Brown Bear
-H[511] : Frilled Lizard
-H[512] : Carolina Dog
+H[507] : Fur Seal
+H[508] : Fossa
+H[509] : Bull Terrier
+H[510] : Bobcat
 --------------- Level 9 ---------------
+H[511] : Carolina Dog
+H[512] : Frilled Lizard
 H[513] : Newfoundland
 H[514] : Long-Eared Owl
-H[515] : Cross River Gorilla
+H[515] : Glow Worm
 H[516] : Bengal Tiger
-H[517] : Glow Worm
-H[518] : Camel
-H[519] : Horseshoe Crab
+H[517] : Neanderthal
+H[518] : Cross River Gorilla
+H[519] : Shih Tzu
 H[520] : Insect
-H[521] : Catfish
+H[521] : Snake
 H[522] : Finnish Spitz
-H[523] : Greenland Dog
+H[523] : Horseshoe Crab
 H[524] : Liger
-H[525] : Japanese Chin
+H[525] : Sea Dragon
 H[526] : Sea Urchin
 H[527] : Chicken
-H[528] : Grey Reef Shark
-H[529] : Discus
-H[530] : Mouse
+H[528] : Mouse
+H[529] : Grey Reef Shark
+H[530] : Porcupine
 H[531] : Gopher
 H[532] : Hercules Beetle
-H[533] : Common Buzzard
-H[534] : Caterpillar
-H[535] : Greyhound
-H[536] : River Dolphin
-H[537] : Indian Elephant
-H[538] : Leopard Cat
-H[539] : Aye Aye
-H[540] : Australian Terrier
+H[533] : Gar
+H[534] : Common Buzzard
+H[535] : River Dolphin
+H[536] : Snowshoe
+H[537] : Leopard Cat
+H[538] : Indian Elephant
+H[539] : Dachshund
+H[540] : Aye Aye
 H[541] : Jackal
-H[542] : Chipmunk
+H[542] : Greyhound
 H[543] : Honey Bee
 H[544] : Flounder
-H[545] : Buffalo
-H[546] : Eagle
-H[547] : Seahorse
+H[545] : Eagle
+H[546] : Labradoodle
+H[547] : Spider Monkey
 H[548] : Rattlesnake
-H[549] : Havanese
-H[550] : Tiger
-H[551] : Heron
-H[552] : Dogue De Bordeaux
-H[553] : Bonobo
+H[549] : Pig
+H[550] : Axolotl
+H[551] : Puffin
+H[552] : Emperor Penguin
+H[553] : Sun Bear
 H[554] : Butterfly Fish
-H[555] : Puma
+H[555] : Quail
 H[556] : Red Knee Tarantula
-H[557] : Emperor Penguin
+H[557] : Fin Whale
 H[558] : Dolphin
-H[559] : Guppy
-H[560] : River Turtle
-H[561] : Bluetick Coonhound
-H[562] : Humboldt Penguin
-H[563] : Monte Iberia Eleuth
-H[564] : Old English Sheepdog
-H[565] : Kangaroo
+H[559] : Jaguar
+H[560] : Spectacled Bear
+H[561] : Humboldt Penguin
+H[562] : Macaw
+H[563] : Old English Sheepdog
+H[564] : Orang-utan
+H[565] : Monte Iberia Eleuth
 H[566] : Ostrich
-H[567] : Chinstrap Penguin
+H[567] : Fennec Fox
 H[568] : Hummingbird
-H[569] : Eastern Gorilla
-H[570] : Kakapo
-H[571] : Koala
-H[572] : Leopard Seal
+H[569] : Kakapo
+H[570] : Raccoon Dog
+H[571] : Leopard Seal
+H[572] : Minke Whale
 H[573] : Turkey
-H[574] : Leaf-Tailed Gecko
+H[574] : River Turtle
 H[575] : Giant Clam
 H[576] : Indochinese Tiger
 H[577] : Chesapeake Bay Retriever
 H[578] : Chinchilla
-H[579] : Cavalier King Charles Spaniel
+H[579] : Pied Tamarin
 H[580] : Nurse Shark
 
 Call delete_max 10 times
@@ -1208,586 +1209,585 @@ Size = 571
 Minimum = African Tree Toad
 Maximum = Woolly Monkey
 
-H[0] : Woolly Monkey
 --------------- Level 0 ---------------
-H[1] : African Wild Dog
-H[2] : African Tree Toad
+H[0] : African Tree Toad
 --------------- Level 1 ---------------
-H[3] : Woolly Mammoth
-H[4] : Wolverine
+H[1] : Woolly Mammoth
+H[2] : Woolly Monkey
 --------------- Level 2 ---------------
-H[5] : Woodpecker
-H[6] : Wildebeest
-H[7] : Airedale Terrier
-H[8] : American Water Spaniel
+H[3] : African Wild Dog
+H[4] : Akita
+H[5] : Aldabra Giant Tortoise
+H[6] : Ainu Dog
 --------------- Level 3 ---------------
-H[9] : Albatross
-H[10] : Akita
-H[11] : Alligator
-H[12] : Aldabra Giant Tortoise
-H[13] : American Eskimo Dog
-H[14] : Ainu Dog
-H[15] : West Highland Terrier
-H[16] : Woodlouse
+H[7] : Woodlouse
+H[8] : Whale Shark
+H[9] : Welsh Corgi
+H[10] : Wolverine
+H[11] : Woodpecker
+H[12] : Vervet Monkey
+H[13] : White Rhinoceros
+H[14] : Wildebeest
 --------------- Level 4 ---------------
-H[17] : Wild Boar
-H[18] : Turkish Angora
-H[19] : Tree Frog
-H[20] : Water Dragon
-H[21] : White Tiger
-H[22] : Wolf
-H[23] : Stellers Sea Cow
-H[24] : Uguisu
-H[25] : Tiger Shark
-H[26] : Vervet Monkey
-H[27] : Water Buffalo
-H[28] : Water Vole
-H[29] : White Rhinoceros
-H[30] : Tibetan Mastiff
-H[31] : Barnacle
-H[32] : American Foxhound
+H[15] : American Foxhound
+H[16] : Airedale Terrier
+H[17] : Arctic Wolf
+H[18] : American Water Spaniel
+H[19] : Asiatic Black Bear
+H[20] : Albatross
+H[21] : American Bulldog
+H[22] : American Staffordshire Terrier
+H[23] : Bavarian Mountain Hound
+H[24] : American Coonhound
+H[25] : Beaver
+H[26] : Alligator
+H[27] : Angelfish
+H[28] : American Pit Bull Terrier
+H[29] : Alaskan Malamute
+H[30] : Appenzeller Dog
 --------------- Level 5 ---------------
-H[33] : Armadillo
-H[34] : Akbash
-H[35] : Axolotl
-H[36] : Avocet
-H[37] : Arctic Wolf
-H[38] : Bandicoot
-H[39] : Asiatic Black Bear
-H[40] : Banded Palm Civet
-H[41] : Alpine Dachsbracke
-H[42] : American Cocker Spaniel
-H[43] : Antelope
-H[44] : American Staffordshire Terrier
-H[45] : Eastern Lowland Gorilla
-H[46] : American Bulldog
-H[47] : Boxer Dog
-H[48] : Bavarian Mountain Hound
-H[49] : American Coonhound
-H[50] : Black Widow Spider
-H[51] : Black Rhinoceros
-H[52] : Bedlington Terrier
-H[53] : Booby
-H[54] : Beaver
-H[55] : Barracuda
-H[56] : Angelfish
-H[57] : Anatolian Shepherd Dog
-H[58] : American Pit Bull Terrier
-H[59] : Australian Mist
-H[60] : Alaskan Malamute
-H[61] : Appenzeller Dog
-H[62] : Barn Owl
-H[63] : Tetra
-H[64] : Sumatran Orang-utan
+H[31] : Wild Boar
+H[32] : West Highland Terrier
+H[33] : Wombat
+H[34] : White Faced Capuchin
+H[35] : Western Lowland Gorilla
+H[36] : Turkish Angora
+H[37] : Siberian Husky
+H[38] : Tarsier
+H[39] : Tiffany
+H[40] : Tree Frog
+H[41] : Water Dragon
+H[42] : Vulture
+H[43] : Walrus
+H[44] : Western Gorilla
+H[45] : White Tiger
+H[46] : Wolf
+H[47] : Moray Eel
+H[48] : Stellers Sea Cow
+H[49] : Scorpion Fish
+H[50] : Uguisu
+H[51] : Shrimp
+H[52] : Salamander
+H[53] : Sponge
+H[54] : Tortoise
+H[55] : Water Buffalo
+H[56] : Striped Rocket Frog
+H[57] : Thorny Devil
+H[58] : Water Vole
+H[59] : Weasel
+H[60] : Sea Turtle
+H[61] : Tibetan Mastiff
+H[62] : Squirrel Monkey
 --------------- Level 6 ---------------
-H[65] : Sumatran Rhinoceros
-H[66] : Sumatran Tiger
-H[67] : Wombat
-H[68] : Tuatara
-H[69] : Spectacled Bear
-H[70] : Welsh Corgi
-H[71] : Tarsier
-H[72] : Western Lowland Gorilla
-H[73] : Rabbit
-H[74] : Whale Shark
-H[75] : Sea Lion
-H[76] : Siberian Husky
-H[77] : Poison Dart Frog
-H[78] : South China Tiger
-H[79] : Tang
-H[80] : Siberian Tiger
-H[81] : Tiger Salamander
-H[82] : Tiffany
-H[83] : Uakari
-H[84] : Vulture
-H[85] : Tasmanian Devil
-H[86] : Snowy Owl
-H[87] : Squid
-H[88] : Walrus
-H[89] : Western Gorilla
-H[90] : Millipede
-H[91] : Sperm Whale
-H[92] : Wallaby
-H[93] : Siamese
-H[94] : Whippet
-H[95] : Mongrel
-H[96] : Moray Eel
-H[97] : Pheasant
-H[98] : Mayfly
-H[99] : Pelican
-H[100] : Scorpion Fish
-H[101] : Rock Hyrax
-H[102] : Tortoise
-H[103] : Pond Skater
-H[104] : Shrimp
-H[105] : Pika
-H[106] : Salamander
-H[107] : Sloth
-H[108] : Saint Bernard
-H[109] : Red-handed Tamarin
-H[110] : Sponge
-H[111] : Umbrellabird
-H[112] : Tapir
-H[113] : Striped Rocket Frog
-H[114] : Seal
-H[115] : Pig
-H[116] : Thorny Devil
-H[117] : Squirrel
-H[118] : Siberian
-H[119] : Weasel
-H[120] : Rat
-H[121] : Sea Turtle
-H[122] : Ocelot
-H[123] : Starfish
-H[124] : Proboscis Monkey
-H[125] : Spadefoot Toad
-H[126] : Squirrel Monkey
-H[127] : Bull Mastiff
-H[128] : Basset Hound
+H[63] : Basset Hound
+H[64] : Asian Giant Hornet
+H[65] : Barnacle
+H[66] : Australian Terrier
+H[67] : Armadillo
+H[68] : Australian Kelpie Dog
+H[69] : Akbash
+H[70] : Bison
+H[71] : Bactrian Camel
+H[72] : Badger
+H[73] : Bat
+H[74] : Avocet
+H[75] : Common Loon
+H[76] : Cesky Fousek
+H[77] : Greater Swiss Mountain Dog
+H[78] : Bandicoot
+H[79] : Australian Shepherd
+H[80] : Balinese
+H[81] : Border Terrier
+H[82] : Banded Palm Civet
+H[83] : Asian Palm Civet
+H[84] : Alpine Dachsbracke
+H[85] : Crested Penguin
+H[86] : American Cocker Spaniel
+H[87] : Arctic Hare
+H[88] : Bornean Orang-utan
+H[89] : Antelope
+H[90] : Burrowing Frog
+H[91] : Eastern Lowland Gorilla
+H[92] : Gerbil
+H[93] : Coral
+H[94] : Clouded Leopard
+H[95] : Boxer Dog
+H[96] : Boykin Spaniel
+H[97] : Blue Lacy Dog
+H[98] : Bird
+H[99] : Ant
+H[100] : American Eskimo Dog
+H[101] : Black Widow Spider
+H[102] : Chimpanzee
+H[103] : Black Rhinoceros
+H[104] : Cat
+H[105] : Bloodhound
+H[106] : Bedlington Terrier
+H[107] : Edible Frog
+H[108] : Bumble Bee
+H[109] : Chamois
+H[110] : Booby
+H[111] : Beetle
+H[112] : Bichon Frise
+H[113] : Barracuda
+H[114] : Border Collie
+H[115] : Anatolian Shepherd Dog
+H[116] : Curly Coated Retriever
+H[117] : Birds Of Paradise
+H[118] : Crocodile
+H[119] : Caracal
+H[120] : Australian Mist
+H[121] : Canaan Dog
+H[122] : Burmese
+H[123] : Black Russian Terrier
+H[124] : Baboon
+H[125] : Brown Bear
+H[126] : Barn Owl
 --------------- Level 7 ---------------
-H[129] : Butterfly
-H[130] : Green Bee-Eater
-H[131] : Caiman
-H[132] : Blue Whale
-H[133] : Chesapeake Bay Retriever
-H[134] : Asian Giant Hornet
-H[135] : Bolognese Dog
-H[136] : Australian Cattle Dog
-H[137] : Beagle
-H[138] : Australian Kelpie Dog
-H[139] : Birman
-H[140] : Brazilian Terrier
-H[141] : Bison
-H[142] : Fennec Fox
-H[143] : Bearded Dragon
-H[144] : Binturong
-H[145] : Basenji Dog
-H[146] : Badger
-H[147] : German Pinscher
-H[148] : Chihuahua
-H[149] : Bat
-H[150] : Cassowary
-H[151] : Pied Tamarin
-H[152] : Gharial
-H[153] : Cesky Fousek
-H[154] : Malayan Tiger
-H[155] : Irish Setter
-H[156] : Greater Swiss Mountain Dog
-H[157] : Dog
-H[158] : Barb
-H[159] : Frog
-H[160] : Australian Shepherd
-H[161] : Balinese
-H[162] : Bearded Collie
-H[163] : Opossum
-H[164] : Bullfrog
-H[165] : Border Terrier
-H[166] : Bernese Mountain Dog
-H[167] : Bear
-H[168] : Asian Palm Civet
-H[169] : Basking Shark
-H[170] : King Penguin
-H[171] : Giant Schnauzer
-H[172] : Javanese
-H[173] : Arctic Fox
-H[174] : Black Bear
-H[175] : Epagneul Pont Audemer
-H[176] : Desert Tortoise
-H[177] : Bornean Orang-utan
-H[178] : Dormouse
-H[179] : Burrowing Frog
-H[180] : Cheetah
-H[181] : Gorilla
-H[182] : Collared Peccary
-H[183] : Elephant Shrew
-H[184] : Kudu
-H[185] : Impala
-H[186] : Gerbil
-H[187] : Coral
-H[188] : Chinchilla
-H[189] : Arctic Hare
-H[190] : Clouded Leopard
-H[191] : Cuscus
-H[192] : Boykin Spaniel
-H[193] : Centipede
-H[194] : Deutsche Bracke
-H[195] : Blue Lacy Dog
-H[196] : Hammerhead Shark
-H[197] : Cuttlefish
-H[198] : Bird
-H[199] : Asian Elephant
-H[200] : Anteater
-H[201] : Doberman Pinscher
-H[202] : Ant
-H[203] : Egyptian Mau
-H[204] : Cichlid
-H[205] : Lionfish
-H[206] : Chimpanzee
-H[207] : Cairn Terrier
-H[208] : Geoffroys Tamarin
-H[209] : Cat
-H[210] : Keel Billed Toucan
-H[211] : Bloodhound
-H[212] : Chinook
-H[213] : Bulldog
-H[214] : Himalayan
-H[215] : English Shepherd
-H[216] : Edible Frog
-H[217] : Bumble Bee
-H[218] : Dalmatian
-H[219] : Hare
-H[220] : Chinese Crested Dog
-H[221] : Chamois
-H[222] : Clumber Spaniel
-H[223] : Beetle
-H[224] : Gentoo Penguin
-H[225] : Falcon
-H[226] : Bichon Frise
-H[227] : Border Collie
-H[228] : Borneo Elephant
-H[229] : Chameleon
-H[230] : Budgerigar
-H[231] : Bombay
-H[232] : Indian Palm Squirrel
-H[233] : Curly Coated Retriever
-H[234] : Hamster
-H[235] : Common Toad
-H[236] : Birds Of Paradise
-H[237] : Grey Mouse Lemur
-H[238] : Crocodile
-H[239] : Deer
-H[240] : Caracal
-H[241] : Baboon
-H[242] : Dingo
-H[243] : Indri
-H[244] : Canaan Dog
-H[245] : Field Spaniel
-H[246] : Burmese
-H[247] : Black Russian Terrier
-H[248] : Crane
-H[249] : Galapagos Tortoise
-H[250] : Duck
-H[251] : Bull Terrier
-H[252] : Goose
-H[253] : Fossa
-H[254] : Bobcat
-H[255] : Golden Retriever
-H[256] : Puffin
+H[127] : Red Panda
+H[128] : Tetra
+H[129] : Sumatran Orang-utan
+H[130] : Somali
+H[131] : Sumatran Rhinoceros
+H[132] : Pike
+H[133] : Sumatran Tiger
+H[134] : Turkey
+H[135] : Seahorse
+H[136] : Umbrellabird
+H[137] : Tuatara
+H[138] : Toucan
+H[139] : Tiger
+H[140] : Saola
+H[141] : Rhinoceros
+H[142] : Wasp
+H[143] : Pademelon
+H[144] : Stag Beetle
+H[145] : Vampire Bat
+H[146] : Warthog
+H[147] : Rabbit
+H[148] : Monkey
+H[149] : Piranha
+H[150] : Macaroni Penguin
+H[151] : Sea Lion
+H[152] : Numbat
+H[153] : Nightingale
+H[154] : Sheep
+H[155] : Otter
+H[156] : Poison Dart Frog
+H[157] : Golden Oriole
+H[158] : South China Tiger
+H[159] : Rockhopper Penguin
+H[160] : Sea Otter
+H[161] : Puma
+H[162] : Siberian Tiger
+H[163] : Tiger Salamander
+H[164] : Sparrow
+H[165] : Tang
+H[166] : Robin
+H[167] : Peacock
+H[168] : Snapping Turtle
+H[169] : Uakari
+H[170] : Royal Penguin
+H[171] : Tasmanian Devil
+H[172] : Lynx
+H[173] : Snowy Owl
+H[174] : Pied Tamarin
+H[175] : Snail
+H[176] : Squid
+H[177] : Stingray
+H[178] : Stoat
+H[179] : Prawn
+H[180] : Reindeer
+H[181] : Little Penguin
+H[182] : Millipede
+H[183] : Sperm Whale
+H[184] : Serval
+H[185] : Wallaby
+H[186] : Termite
+H[187] : Siamese
+H[188] : Moorhen
+H[189] : Whippet
+H[190] : Newt
+H[191] : Manta Ray
+H[192] : Howler Monkey
+H[193] : Mongrel
+H[194] : Meerkat
+H[195] : Flat Coat Retriever
+H[196] : Pelican
+H[197] : Maine Coon
+H[198] : Eskimo Dog
+H[199] : Flying Squirrel
+H[200] : Komodo Dragon
+H[201] : Javan Rhinoceros
+H[202] : Pheasant
+H[203] : Rock Hyrax
+H[204] : Parrot
+H[205] : Sea Squirt
+H[206] : Staffordshire Bull Terrier
+H[207] : Norfolk Terrier
+H[208] : Pond Skater
+H[209] : Ibizan Hound
+H[210] : Saint Bernard
+H[211] : Mule
+H[212] : Pika
+H[213] : Sabre-Toothed Tiger
+H[214] : Pug
+H[215] : Quoll
+H[216] : Sloth
+H[217] : Raccoon
+H[218] : Mole
+H[219] : Lemming
+H[220] : Red Wolf
+H[221] : Labrador Retriever
+H[222] : Red-handed Tamarin
+H[223] : Dodo
+H[224] : Squirrel
+H[225] : Tapir
+H[226] : Jellyfish
+H[227] : Mandrill
+H[228] : Poodle
+H[229] : Kangaroo
+H[230] : Seal
+H[231] : Llama
+H[232] : Markhor
+H[233] : Mountain Gorilla
+H[234] : Sumatran Elephant
+H[235] : Tropicbird
+H[236] : Rottweiler
+H[237] : Ragdoll
+H[238] : Siberian
+H[239] : Tiger Shark
+H[240] : Quokka
+H[241] : Rat
+H[242] : Puss Moth
+H[243] : Octopus
+H[244] : Panther
+H[245] : Ocelot
+H[246] : Minke Whale
+H[247] : Starfish
+H[248] : Pygmy Hippopotamus
+H[249] : Tawny Owl
+H[250] : Monitor Lizard
+H[251] : Slow Worm
+H[252] : Patas Monkey
+H[253] : Skunk
+H[254] : Spadefoot Toad
 --------------- Level 8 ---------------
-H[257] : Neanderthal
-H[258] : Red Panda
-H[259] : Shih Tzu
-H[260] : Snake
-H[261] : Sea Dragon
-H[262] : Somali
-H[263] : Porcupine
-H[264] : Snowshoe
-H[265] : Pike
-H[266] : Gar
-H[267] : River Dolphin
-H[268] : Oyster
-H[269] : Galapagos Penguin
-H[270] : Silver Dollar
-H[271] : Jaguar
-H[272] : Labradoodle
-H[273] : Spider Monkey
-H[274] : White Faced Capuchin
-H[275] : Quail
-H[276] : Sun Bear
-H[277] : Toucan
-H[278] : Fin Whale
-H[279] : River Turtle
-H[280] : Macaw
-H[281] : Orang-utan
-H[282] : Saola
-H[283] : Raccoon Dog
-H[284] : Rhinoceros
-H[285] : Minke Whale
-H[286] : Wasp
-H[287] : Pademelon
-H[288] : Common Loon
-H[289] : Stag Beetle
-H[290] : Persian
-H[291] : Termite
-H[292] : Vampire Bat
-H[293] : Warthog
-H[294] : Tawny Owl
-H[295] : Macaroni Penguin
-H[296] : Piranha
-H[297] : Chow Chow
-H[298] : Monkey
-H[299] : Common Frog
+H[255] : Birman
+H[256] : Keel Billed Toucan
+H[257] : Bengal Tiger
+H[258] : Camel
+H[259] : Greenland Dog
+H[260] : Catfish
+H[261] : Green Bee-Eater
+H[262] : Japanese Chin
+H[263] : Caiman
+H[264] : Discus
+H[265] : Blue Whale
+H[266] : Caterpillar
+H[267] : Galapagos Penguin
+H[268] : Indian Elephant
+H[269] : Aye Aye
+H[270] : Chipmunk
+H[271] : Buffalo
+H[272] : Bolognese Dog
+H[273] : Havanese
+H[274] : Australian Cattle Dog
+H[275] : Dogue De Bordeaux
+H[276] : Bonobo
+H[277] : Heron
+H[278] : Beagle
+H[279] : Guppy
+H[280] : Bluetick Coonhound
+H[281] : Brazilian Terrier
+H[282] : Chesapeake Bay Retriever
+H[283] : Chinstrap Penguin
+H[284] : Eastern Gorilla
+H[285] : Koala
+H[286] : Leaf-Tailed Gecko
+H[287] : Crane
+H[288] : Bearded Dragon
+H[289] : Cavalier King Charles Spaniel
+H[290] : Binturong
+H[291] : Butterfly
+H[292] : Basenji Dog
+H[293] : Donkey
+H[294] : Bull Shark
+H[295] : German Pinscher
+H[296] : Oyster
+H[297] : Chihuahua
+H[298] : Common Frog
+H[299] : Chow Chow
 H[300] : Frigatebird
-H[301] : Tropicbird
-H[302] : Humpback Whale
-H[303] : Purple Emperor
+H[301] : Humpback Whale
+H[302] : Cassowary
+H[303] : Pink Fairy Armadillo
 H[304] : Sand Lizard
-H[305] : Guinea Fowl
-H[306] : Numbat
-H[307] : Great White Shark
-H[308] : Giant African Land Snail
-H[309] : Sheep
-H[310] : Nightingale
-H[311] : Otter
+H[305] : Great White Shark
+H[306] : Guinea Fowl
+H[307] : Giant African Land Snail
+H[308] : Gharial
+H[309] : Purple Emperor
+H[310] : Malayan Tiger
+H[311] : Japanese Macaque
 H[312] : Marine Toad
-H[313] : Moose
-H[314] : Pink Fairy Armadillo
-H[315] : Golden Oriole
-H[316] : Emperor Tamarin
+H[313] : Irish Setter
+H[314] : Moose
+H[315] : Emperor Tamarin
+H[316] : Dog
 H[317] : Malayan Civet
-H[318] : Japanese Macaque
+H[318] : Barb
 H[319] : Mountain Lion
-H[320] : Gibbon
-H[321] : Rockhopper Penguin
-H[322] : Dunker
-H[323] : Molly
-H[324] : Dogo Argentino
-H[325] : Sea Otter
-H[326] : Cougar
-H[327] : Stoat
-H[328] : Stick Insect
-H[329] : Sparrow
+H[320] : Frog
+H[321] : Dunker
+H[322] : Collared Peccary
+H[323] : Cougar
+H[324] : Indochinese Tiger
+H[325] : Molly
+H[326] : Bearded Collie
+H[327] : Stick Insect
+H[328] : Opossum
+H[329] : Gecko
 H[330] : Radiated Tortoise
-H[331] : Gecko
+H[331] : Bullfrog
 H[332] : Leopard Tortoise
-H[333] : Robin
-H[334] : Clown Fish
+H[333] : Clown Fish
+H[334] : Bernese Mountain Dog
 H[335] : Crab-Eating Macaque
-H[336] : Peacock
-H[337] : Kiwi
+H[336] : Giant Schnauzer
+H[337] : Bear
 H[338] : Scorpion
-H[339] : Donkey
-H[340] : Okapi
-H[341] : Royal Penguin
+H[339] : Basking Shark
+H[340] : Kiwi
+H[341] : King Penguin
 H[342] : Pygmy Marmoset
-H[343] : Snapping Turtle
+H[343] : Okapi
 H[344] : Swan
-H[345] : Lynx
-H[346] : Lobster
+H[345] : Lobster
+H[346] : Javanese
 H[347] : Mastiff
-H[348] : Giant Panda Bear
-H[349] : Crested Penguin
-H[350] : Bull Shark
-H[351] : Raccoon
+H[348] : Arctic Fox
+H[349] : Black Bear
+H[350] : Giant Panda Bear
+H[351] : Irish WolfHound
 H[352] : Moth
-H[353] : Maltese
-H[354] : Snail
-H[355] : Siamese Fighting Fish
-H[356] : Hermit Crab
-H[357] : Irish WolfHound
-H[358] : Stingray
-H[359] : Prawn
+H[353] : Epagneul Pont Audemer
+H[354] : Maltese
+H[355] : Hermit Crab
+H[356] : Gibbon
+H[357] : Dormouse
+H[358] : Siamese Fighting Fish
+H[359] : Grizzly Bear
 H[360] : Horse
-H[361] : Horn Shark
-H[362] : Reindeer
-H[363] : Grasshopper
-H[364] : Grizzly Bear
-H[365] : Great Dane
-H[366] : Little Penguin
-H[367] : Puffer Fish
-H[368] : Guinea Pig
-H[369] : Quetzal
-H[370] : Serval
-H[371] : Roseate Spoonbill
+H[361] : Cheetah
+H[362] : Horn Shark
+H[363] : Gorilla
+H[364] : Grasshopper
+H[365] : Desert Tortoise
+H[366] : Great Dane
+H[367] : Kudu
+H[368] : Elephant Shrew
+H[369] : Puffer Fish
+H[370] : Quetzal
+H[371] : Impala
 H[372] : Lion
-H[373] : Giant Clam
-H[374] : Ibis
-H[375] : Newt
-H[376] : Marsh Frog
-H[377] : Moorhen
-H[378] : Dragonfly
+H[373] : Roseate Spoonbill
+H[374] : Guinea Pig
+H[375] : Marsh Frog
+H[376] : Dragonfly
+H[377] : Lizard
+H[378] : Dogo Argentino
 H[379] : Fish
-H[380] : Leaf-Tailed Gecko
-H[381] : Lizard
-H[382] : Echidna
-H[383] : Highland Cattle
-H[384] : Manta Ray
-H[385] : Howler Monkey
+H[380] : Ibis
+H[381] : Echidna
+H[382] : Giant Clam
+H[383] : Cuttlefish
+H[384] : Highland Cattle
+H[385] : Cuscus
 H[386] : Fox
 H[387] : Elephant
 H[388] : Golden Lion Tamarin
-H[389] : Meerkat
+H[389] : Deutsche Bracke
 H[390] : Electric Eel
-H[391] : Flat Coat Retriever
+H[391] : English Cocker Spaniel
 H[392] : Drever
-H[393] : Maine Coon
+H[393] : Hammerhead Shark
 H[394] : Olm
 H[395] : Indian Star Tortoise
 H[396] : Human
-H[397] : Eskimo Dog
+H[397] : Bull Mastiff
 H[398] : Boston Terrier
-H[399] : Bactrian Camel
-H[400] : Flying Squirrel
-H[401] : Entlebucher Mountain Dog
+H[399] : Asian Elephant
+H[400] : Egyptian Mau
+H[401] : Anteater
 H[402] : Crab
 H[403] : Dugong
 H[404] : Gila Monster
-H[405] : Javan Rhinoceros
-H[406] : Fishing Cat
-H[407] : Komodo Dragon
+H[405] : Fishing Cat
+H[406] : Doberman Pinscher
+H[407] : Entlebucher Mountain Dog
 H[408] : Hippopotamus
-H[409] : Earwig
-H[410] : Parrot
-H[411] : Norwegian Forest
-H[412] : Sea Squirt
-H[413] : Staffordshire Bull Terrier
+H[409] : Cichlid
+H[410] : Earwig
+H[411] : Lionfish
+H[412] : Norwegian Forest
+H[413] : Mayfly
 H[414] : Cow
 H[415] : Horned Frog
-H[416] : Estrela Mountain Dog
-H[417] : Norfolk Terrier
+H[416] : Cairn Terrier
+H[417] : Geoffroys Tamarin
 H[418] : Pekingese
-H[419] : Ibizan Hound
-H[420] : Flamingo
+H[419] : Flamingo
+H[420] : Estrela Mountain Dog
 H[421] : Russian Blue
 H[422] : Platypus
-H[423] : Dwarf Crocodile
-H[424] : Dhole
-H[425] : Mule
+H[423] : Dhole
+H[424] : Bulldog
+H[425] : Chinook
 H[426] : Magpie
-H[427] : Goat
-H[428] : Sabre-Toothed Tiger
-H[429] : Magellanic Penguin
-H[430] : Pug
+H[427] : Dwarf Crocodile
+H[428] : Goat
+H[429] : Himalayan
+H[430] : Magellanic Penguin
 H[431] : Possum
 H[432] : Hedgehog
-H[433] : Quoll
+H[433] : English Shepherd
 H[434] : Ladybird
 H[435] : French Bulldog
 H[436] : Grey Seal
-H[437] : Iguana
-H[438] : Mole
-H[439] : Labrador Retriever
+H[437] : Dalmatian
+H[438] : Iguana
+H[439] : Hare
 H[440] : Kingfisher
-H[441] : Red Wolf
-H[442] : English Springer Spaniel
-H[443] : Elephant Seal
+H[441] : English Springer Spaniel
+H[442] : Chinese Crested Dog
+H[443] : Cottontop Tamarin
 H[444] : Cockroach
-H[445] : Lemming
-H[446] : Cottontop Tamarin
-H[447] : Collie
-H[448] : Dodo
+H[445] : Elephant Seal
+H[446] : Clumber Spaniel
+H[447] : Caiman Lizard
+H[448] : Collie
 H[449] : Sea Slug
 H[450] : Spiny Dogfish
 H[451] : Neapolitan Mastiff
-H[452] : Jellyfish
+H[452] : Falcon
 H[453] : Glass Lizard
 H[454] : Capybara
 H[455] : Darwin's Frog
-H[456] : Mandrill
-H[457] : Harrier
-H[458] : Poodle
-H[459] : Coyote
-H[460] : English Cocker Spaniel
-H[461] : Caiman Lizard
-H[462] : Leopard Seal
-H[463] : Llama
-H[464] : King Crab
-H[465] : Markhor
-H[466] : Mountain Gorilla
-H[467] : Indian Rhinoceros
+H[456] : Gentoo Penguin
+H[457] : Borneo Elephant
+H[458] : Harrier
+H[459] : Chameleon
+H[460] : Coyote
+H[461] : Budgerigar
+H[462] : Centipede
+H[463] : King Crab
+H[464] : Common Toad
+H[465] : Indian Palm Squirrel
+H[466] : Chinchilla
+H[467] : Hamster
 H[468] : Dusky Dolphin
-H[469] : Sumatran Elephant
+H[469] : Indian Rhinoceros
 H[470] : Pool Frog
 H[471] : German Shepherd
-H[472] : Indochinese Tiger
-H[473] : Rottweiler
+H[472] : Penguin
+H[473] : Bombay
 H[474] : Bongo
 H[475] : Pointer
 H[476] : Jack Russel
-H[477] : Ragdoll
-H[478] : Grouse
-H[479] : Quokka
-H[480] : Koala
-H[481] : Turkey
+H[477] : Grouse
+H[478] : Grey Mouse Lemur
+H[479] : Deer
+H[480] : Persian
+H[481] : Golden Retriever
 H[482] : Fox Terrier
 H[483] : Bottle Nosed Dolphin
 H[484] : Polar Bear
-H[485] : Emu
-H[486] : Puss Moth
-H[487] : Octopus
-H[488] : Mongoose
-H[489] : Panther
+H[485] : Dingo
+H[486] : Emu
+H[487] : Mongoose
+H[488] : Manatee
+H[489] : Indri
 H[490] : Fire-Bellied Toad
-H[491] : Giraffe
-H[492] : Manatee
+H[491] : Field Spaniel
+H[492] : Giraffe
 H[493] : Fly
 H[494] : Ferret
-H[495] : Penguin
+H[495] : Galapagos Tortoise
 H[496] : Sri Lankan Elephant
-H[497] : Pygmy Hippopotamus
-H[498] : Lemur
-H[499] : Monitor Lizard
-H[500] : Nurse Shark
-H[501] : Leopard
+H[497] : Lemur
+H[498] : Leopard Seal
+H[499] : Leopard
+H[500] : Proboscis Monkey
+H[501] : Duck
 H[502] : Masked Palm Civet
-H[503] : Slow Worm
+H[503] : Hyena
 H[504] : Coati
-H[505] : Patas Monkey
+H[505] : Goose
 H[506] : Killer Whale
-H[507] : Hyena
-H[508] : Fur Seal
-H[509] : Skunk
-H[510] : Brown Bear
-H[511] : Frilled Lizard
-H[512] : Carolina Dog
+H[507] : Fur Seal
+H[508] : Fossa
+H[509] : Bull Terrier
+H[510] : Bobcat
 --------------- Level 9 ---------------
+H[511] : Carolina Dog
+H[512] : Frilled Lizard
 H[513] : Newfoundland
 H[514] : Long-Eared Owl
-H[515] : Cross River Gorilla
-H[516] : Bengal Tiger
-H[517] : Glow Worm
-H[518] : Camel
-H[519] : Horseshoe Crab
+H[515] : Glow Worm
+H[516] : Nurse Shark
+H[517] : Neanderthal
+H[518] : Cross River Gorilla
+H[519] : Shih Tzu
 H[520] : Insect
-H[521] : Catfish
+H[521] : Snake
 H[522] : Finnish Spitz
-H[523] : Greenland Dog
+H[523] : Horseshoe Crab
 H[524] : Liger
-H[525] : Japanese Chin
+H[525] : Sea Dragon
 H[526] : Sea Urchin
 H[527] : Chicken
-H[528] : Grey Reef Shark
-H[529] : Discus
-H[530] : Mouse
+H[528] : Mouse
+H[529] : Grey Reef Shark
+H[530] : Porcupine
 H[531] : Gopher
 H[532] : Hercules Beetle
-H[533] : Common Buzzard
-H[534] : Caterpillar
-H[535] : Greyhound
-H[536] : Dachshund
-H[537] : Indian Elephant
-H[538] : Leopard Cat
-H[539] : Aye Aye
-H[540] : Australian Terrier
+H[533] : Gar
+H[534] : Common Buzzard
+H[535] : River Dolphin
+H[536] : Snowshoe
+H[537] : Leopard Cat
+H[538] : River Turtle
+H[539] : Dachshund
+H[540] : Silver Dollar
 H[541] : Jackal
-H[542] : Chipmunk
+H[542] : Greyhound
 H[543] : Honey Bee
 H[544] : Flounder
-H[545] : Buffalo
-H[546] : Eagle
-H[547] : Seahorse
+H[545] : Eagle
+H[546] : Labradoodle
+H[547] : Spider Monkey
 H[548] : Rattlesnake
-H[549] : Havanese
-H[550] : Tiger
-H[551] : Heron
-H[552] : Dogue De Bordeaux
-H[553] : Bonobo
+H[549] : Pig
+H[550] : Axolotl
+H[551] : Puffin
+H[552] : Emperor Penguin
+H[553] : Sun Bear
 H[554] : Butterfly Fish
-H[555] : Puma
+H[555] : Quail
 H[556] : Red Knee Tarantula
-H[557] : Emperor Penguin
+H[557] : Fin Whale
 H[558] : Dolphin
-H[559] : Guppy
-H[560] : Cavalier King Charles Spaniel
-H[561] : Bluetick Coonhound
-H[562] : Humboldt Penguin
-H[563] : Monte Iberia Eleuth
-H[564] : Old English Sheepdog
-H[565] : Kangaroo
+H[559] : Jaguar
+H[560] : Spectacled Bear
+H[561] : Humboldt Penguin
+H[562] : Macaw
+H[563] : Old English Sheepdog
+H[564] : Orang-utan
+H[565] : Monte Iberia Eleuth
 H[566] : Ostrich
-H[567] : Chinstrap Penguin
+H[567] : Fennec Fox
 H[568] : Hummingbird
-H[569] : Eastern Gorilla
-H[570] : Kakapo
+H[569] : Kakapo
+H[570] : Raccoon Dog
 
-Attempt to remove from empty heap

@@ -15,12 +15,6 @@ MMHeap<DataType, Compare>::MMHeap() { }
 template<typename DataType, typename Compare>
 MMHeap<DataType, Compare>::~MMHeap() {
 
-//    destroy_tree(m_root);
-
-//    for (unsigned int i = 0; i < m_nodes.size(); i++) {
-//        delete m_nodes[i];
-//    }
-
     m_nodes.clear();
     m_nodes.resize(0);
 
@@ -53,7 +47,7 @@ unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
  **/
 template<class DataType, class Compare>
 bool MMHeap<DataType, Compare>::isOnMinLevel(unsigned int index) {
-    return ((int) log2(index + 1) % 2 == 1);
+    return ((int) log2(index + 1) % 2 == 0);
 }
 
 
@@ -187,26 +181,15 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index) {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::findMinIndex() const {
+unsigned int MMHeap<DataType, Compare>::findMaxIndex() const {
+
     // There are four cases
-
-
 
     switch (m_nodes.size()) {
 
 //        try {
         case 0:
             throw MyException("No min");
-//        }
-
-//        catch (MyException &no_min) {
-//            std::cout << no_min.GetMessage() << std::endl;
-//        }
-
-            // The heap is empty so throw an error
-//            throw std::underflow_error("No min element exists because "
-//                                               "there are no elements in the "
-//                                               "heap.");
         case 1:
             // There is only one element in the heap, return that element
             return 0;
@@ -216,7 +199,7 @@ unsigned int MMHeap<DataType, Compare>::findMinIndex() const {
         default:
             /* There are three or more elements in the heap, return the
              * smallest child */
-            return compare_(m_nodes[1], m_nodes[2]) ? 1 : 2;
+            return compare_(m_nodes[1], m_nodes[2]) ? 2 : 1;
     }
 
 
@@ -265,7 +248,7 @@ bool MMHeap<DataType, Compare>::empty() const {
  **/
 template<class DataType, class Compare>
 unsigned long MMHeap<DataType, Compare>::size() const {
-    return m_nodes.size();
+    return (m_nodes.size());
 }
 
 
@@ -286,7 +269,7 @@ void MMHeap<DataType, Compare>::insert(const DataType &value) {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-const DataType &MMHeap<DataType, Compare>::getMax() const {
+const DataType &MMHeap<DataType, Compare>::getMin() const {
 
     // If the heap is empty throw an error
     try {
@@ -307,9 +290,9 @@ const DataType &MMHeap<DataType, Compare>::getMax() const {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-const DataType &MMHeap<DataType, Compare>::getMin() const {
-    // findMinIndex() will throgh an underflow_error if no min exists
-    return m_nodes[findMinIndex()];
+const DataType &MMHeap<DataType, Compare>::getMax() const {
+    // findMaxIndex() will through an underflow_error if no min exists
+    return m_nodes[findMaxIndex()];
 }
 
 /**
@@ -324,8 +307,8 @@ DataType MMHeap<DataType, Compare>::deleteMax() {
     // If the heap is empty throw an error
     try {
         if (empty())
-            throw std::underflow_error("No max element exists because there "
-                                               "are no elements in the heap.");
+            throw MyException("No max element exists because there "
+                                      "are no elements in the heap.");
     }
 
     catch (MyException &empty_heap) {
@@ -363,7 +346,7 @@ DataType MMHeap<DataType, Compare>::deleteMin() {
     }
 
     // Save the min's index
-    unsigned int smallest = findMinIndex();
+    unsigned int smallest = findMaxIndex();
 
     // Save the min value
     DataType temp = m_nodes[smallest];
@@ -397,14 +380,14 @@ void MMHeap<DataType, Compare>::dump() const {
 
             for (unsigned int nodes = 0; nodes < m_nodes.size(); ++nodes) {
 
-                std::cout << "H[" << nodes << "] : " << m_nodes[nodes] << std::endl;
-
                 // print level after every 2^n iterations
-                if (!(nodes % ((int) pow(2, level)))) {
+                if (!((nodes + 1) % ((int) pow(2, level)))) {
                     std::cout << "--------------- Level " << level <<
                     " ---------------" << std::endl;
                     level++;
                 }
+
+                std::cout << "H[" << nodes << "] : " << m_nodes[nodes] << std::endl;
 
             }
         }

@@ -54,7 +54,7 @@ private:
 
     void trickle(unsigned int);
 
-    unsigned int findMinIndex() const;
+    unsigned int findMaxIndex() const;
 
     void deleteElement(unsigned int);
 
