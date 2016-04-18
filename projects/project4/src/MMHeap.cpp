@@ -32,14 +32,16 @@ unsigned int MMHeap<DataType, Compare>::leftChild(unsigned int index) {
     return (2 * index + 1);
 }
 
-/**
- * @brief Returns the index of the right child of the node specified by
- *        @c index.
- **/
-template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
-    return (2 * index + 2);
-}
+
+///**
+// * @brief Returns the index of the right child of the node specified by
+// *        @c index.
+// **/
+//template<class DataType, class Compare>
+//unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
+//    return (2 * index + 2);
+//}
+
 
 /**
  * @brief Returns @c true if the node specified by @c index is on a
@@ -47,14 +49,14 @@ unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
  **/
 template<class DataType, class Compare>
 bool MMHeap<DataType, Compare>::isOnMinLevel(unsigned int index) {
-    return ((int) log2(index + 1) % 2 == 0);
+    return (((int) log2(index + 1) % 2) == 0);
 }
 
 
-template<class DataType, class Compare>
-bool MMHeap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
-    return !isOnMinLevel(index);
-}
+//template<class DataType, class Compare>
+//bool MMHeap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
+//    return !isOnMinLevel(index);
+//}
 
 
 template<class DataType, class Compare>
@@ -64,18 +66,18 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
     if (!index) return;
 
     // Find the parent of the passed node first
-    unsigned int zindex_grandparent = parent(index);
+    unsigned int grandparent_index = parent(index);
 
-    // If there is no grandparent, return
-    if (zindex_grandparent == 0) return;
+    // If there is no grandparent_index, return
+    if (!grandparent_index) return;
 
-    // Find the grandparent
-    zindex_grandparent = parent(zindex_grandparent);
+    // Find the grandparent_index
+    grandparent_index = parent(grandparent_index);
 
-    // Check to see if we should swap with the grandparent
-    if (compare_(m_nodes[index], m_nodes[zindex_grandparent]) ^ max_level) {
-        std::swap(m_nodes[zindex_grandparent], m_nodes[index]);
-        percolate(zindex_grandparent, max_level);
+    // Check to see if we should swap with the grandparent_index
+    if (less(m_nodes[index], m_nodes[grandparent_index]) ^ max_level) {
+        std::swap(m_nodes[grandparent_index], m_nodes[index]);
+        percolate(grandparent_index, max_level);
     }
 }
 
@@ -87,14 +89,14 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index) {
     if (!index) return;
 
     // Find the parent of the passed node
-    unsigned int zindex_parent = parent(index);
+    unsigned int parent_index = parent(index);
 
     if (isOnMinLevel(index)) {
 
         // Check to see if we should swap with the parent
-        if (compare_(m_nodes[zindex_parent], m_nodes[index])) {
-            std::swap(m_nodes[zindex_parent], m_nodes[index]);
-            percolate(zindex_parent, true);
+        if (less(m_nodes[parent_index], m_nodes[index])) {
+            std::swap(m_nodes[parent_index], m_nodes[index]);
+            percolate(parent_index, true);
         }
 
         else {
@@ -106,9 +108,9 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index) {
     else {
 
         // Check to see if we should swap with the parent
-        if (compare_(m_nodes[index], m_nodes[zindex_parent])) {
-            std::swap(m_nodes[zindex_parent], m_nodes[index]);
-            percolate(zindex_parent, false);
+        if (less(m_nodes[index], m_nodes[parent_index])) {
+            std::swap(m_nodes[parent_index], m_nodes[index]);
+            percolate(parent_index, false);
         }
 
         else {
@@ -140,16 +142,19 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
     unsigned int left = leftChild(index);
 
     // Check the left and right child
-    if (left < m_nodes.size() && (compare_(m_nodes[left], m_nodes[smallestNode]) ^ max_level))
+    if ((left < m_nodes.size()) &&
+        (less(m_nodes[left], m_nodes[smallestNode]) ^ max_level))
         smallestNode = left;
-    if (left + 1 < m_nodes.size() && (compare_(m_nodes[left + 1], m_nodes[smallestNode]) ^ max_level))
+
+    if ((left + 1 < m_nodes.size()) &&
+        (less(m_nodes[left + 1], m_nodes[smallestNode]) ^ max_level))
         smallestNode = left + 1;
 
     /* Check the grandchildren which are guaranteed to be in consecutive
      * positions in memory. */
     unsigned int leftGrandchild = leftChild(left);
     for (unsigned int i = 0; i < 4 && leftGrandchild + i < m_nodes.size(); ++i)
-        if (compare_(m_nodes[leftGrandchild + i], m_nodes[smallestNode]) ^ max_level)
+        if (less(m_nodes[leftGrandchild + i], m_nodes[smallestNode]) ^ max_level)
             smallestNode = leftGrandchild + i;
 
     // The current node was the smallest node, don't do anything.
@@ -161,7 +166,7 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
     // If the smallest node was a grandchild...
     if (smallestNode - left > 1) {
         // If the smallest node's parent is bigger than it, swap them
-        if (compare_(m_nodes[parent(smallestNode)], m_nodes[smallestNode]) ^ max_level)
+        if (less(m_nodes[parent(smallestNode)], m_nodes[smallestNode]) ^ max_level)
             std::swap(m_nodes[parent(smallestNode)], m_nodes[smallestNode]);
 
         trickle(smallestNode, max_level);
@@ -187,9 +192,8 @@ unsigned int MMHeap<DataType, Compare>::findMaxIndex() const {
 
     switch (m_nodes.size()) {
 
-//        try {
         case 0:
-            throw MyException("No min");
+            std::cout << "No max" << std::endl;
         case 1:
             // There is only one element in the heap, return that element
             return 0;
@@ -199,7 +203,7 @@ unsigned int MMHeap<DataType, Compare>::findMaxIndex() const {
         default:
             /* There are three or more elements in the heap, return the
              * smallest child */
-            return compare_(m_nodes[1], m_nodes[2]) ? 2 : 1;
+            return less(m_nodes[1], m_nodes[2]) ? 2 : 1;
     }
 
 
@@ -382,12 +386,13 @@ void MMHeap<DataType, Compare>::dump() const {
 
                 // print level after every 2^n iterations
                 if (!((nodes + 1) % ((int) pow(2, level)))) {
-                    std::cout << "--------------- Level " << level <<
-                    " ---------------" << std::endl;
+                    std::cout << "------------------- Level " << level <<
+                    " -------------------" << std::endl;
                     level++;
                 }
 
-                std::cout << "H[" << nodes << "] : " << m_nodes[nodes] << std::endl;
+                std::cout << "H[" << nodes << "] : " << m_nodes[nodes] <<
+                std::endl;
 
             }
         }

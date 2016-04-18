@@ -59,7 +59,7 @@ private:
     void deleteElement(unsigned int);
 
     std::vector<DataType> m_nodes;
-    Compare compare_;
+    Compare less;
 
 };
 
