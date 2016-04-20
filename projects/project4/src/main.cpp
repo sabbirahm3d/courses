@@ -64,6 +64,7 @@ int main(int argc, char **argv) {
 //    int_heap->dump();
 
     delete int_heap;
+    delete test_heap;
 
     return 0;
 }

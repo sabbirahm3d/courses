@@ -13,11 +13,9 @@ public:
 
     ~MMHeap();
 
-    bool empty() const;
-
     /* Returns the number of elements in the heap.
      */
-    unsigned long size() const;
+    unsigned int size() const;
 
     void insert(const DataType &);
 
@@ -27,8 +25,6 @@ public:
 
     DataType deleteMax();
 
-    DataType pop();
-
     DataType deleteMin();
 
     void dump() const;
@@ -36,15 +32,17 @@ public:
 
 private:
 
+    bool empty() const;
+
     unsigned int parent(unsigned int);
 
     unsigned int leftChild(unsigned int);
 
-    unsigned int rightChild(unsigned int);
+//    unsigned int rightChild(unsigned int);
 
     bool isOnMinLevel(unsigned int);
 
-    bool isOnMaxLevel(unsigned int);
+//    bool isOnMaxLevel(unsigned int);
 
     void percolate(unsigned int, bool);
 
@@ -58,7 +56,7 @@ private:
 
     void deleteElement(unsigned int);
 
-    std::vector<DataType> m_nodes;
+    std::vector<DataType> heap;
     Compare less;
 
 };
