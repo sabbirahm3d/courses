@@ -1,4 +1,4 @@
-#include "MMHeap.h"
+#include "MMheap.h"
 
 #include <fstream>
 #include <cstdlib>
@@ -7,8 +7,8 @@
 
 int main(int argc, char **argv) {
 
-    MMHeap<int> *int_heap = new MMHeap<int>;
-    MMHeap<std::string> *test_heap = new MMHeap<std::string>;
+    MMheap<int> *int_heap = new MMheap<int>;
+    MMheap<std::string> *test_heap = new MMheap<std::string>;
     std::string filename;
 
     test_heap->dump();

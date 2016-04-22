@@ -5,13 +5,13 @@
 #include <vector>
 
 template<typename DataType, typename Compare = std::less<DataType> >
-class MMHeap {
+class MMheap {
 
 public:
 
-    MMHeap();
+    MMheap();
 
-    ~MMHeap();
+    ~MMheap();
 
     /* Returns the number of elements in the heap.
      */
@@ -61,6 +61,6 @@ private:
 
 };
 
-#include "MMHeap.cpp"
+#include "MMheap.cpp"
 
 #endif

@@ -4,16 +4,16 @@
 #include <stdexcept>
 #include <math.h>
 
-#include "MMHeap.h"
+#include "MMheap.h"
 #include "MyException.h"
 
 
 template<typename DataType, typename Compare>
-MMHeap<DataType, Compare>::MMHeap() { }
+MMheap<DataType, Compare>::MMheap() { }
 
 
 template<typename DataType, typename Compare>
-MMHeap<DataType, Compare>::~MMHeap() {
+MMheap<DataType, Compare>::~MMheap() {
 
     heap.clear();
     heap.resize(0);
@@ -21,14 +21,33 @@ MMHeap<DataType, Compare>::~MMHeap() {
 }
 
 
+/**
+ * @brief Returns the number of elements in the heap.
+ **/
 template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::parent(unsigned int index) {
+unsigned int MMheap<DataType, Compare>::size() const { return (heap.size()); }
+
+
+template<class DataType, class Compare>
+void MMheap<DataType, Compare>::insert(const DataType &value) {
+
+    // Push the value onto the end of the heap
+    heap.push_back(value);
+
+    // Reorder the heap so that the min-max heap property holds true
+    percolate((unsigned int) heap.size() - 1);
+
+}
+
+
+template<class DataType, class Compare>
+unsigned int MMheap<DataType, Compare>::parent(unsigned int index) {
     return ((index - 1) / 2);
 }
 
 
 template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::leftChild(unsigned int index) {
+unsigned int MMheap<DataType, Compare>::leftChild(unsigned int index) {
     return (2 * index + 1);
 }
 
@@ -38,7 +57,7 @@ unsigned int MMHeap<DataType, Compare>::leftChild(unsigned int index) {
 // *        @c index.
 // **/
 //template<class DataType, class Compare>
-//unsigned int MMHeap<DataType, Compare>::rightChild(unsigned int index) {
+//unsigned int MMheap<DataType, Compare>::rightChild(unsigned int index) {
 //    return (2 * index + 2);
 //}
 
@@ -48,42 +67,19 @@ unsigned int MMHeap<DataType, Compare>::leftChild(unsigned int index) {
  *        @e min-level.
  **/
 template<class DataType, class Compare>
-bool MMHeap<DataType, Compare>::isOnMinLevel(unsigned int index) {
+bool MMheap<DataType, Compare>::isOnMinLevel(unsigned int index) {
     return (((int) log2(index + 1) % 2) == 0);
 }
 
 
 //template<class DataType, class Compare>
-//bool MMHeap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
+//bool MMheap<DataType, Compare>::isOnMaxLevel(unsigned int index) {
 //    return !isOnMinLevel(index);
 //}
 
 
 template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
-
-    // Can't bring the root any farther up
-    if (!index) return;
-
-    // Find the parent of the passed node first
-    unsigned int grandparent_index = parent(index);
-
-    // If there is no grandparent_index, return
-    if (!grandparent_index) return;
-
-    // Find the grandparent_index
-    grandparent_index = parent(grandparent_index);
-
-    // Check to see if we should swap with the grandparent_index
-    if (less(heap[index], heap[grandparent_index]) ^ max_level) {
-        std::swap(heap[grandparent_index], heap[index]);
-        percolate(grandparent_index, max_level);
-    }
-}
-
-
-template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::percolate(unsigned int index) {
+void MMheap<DataType, Compare>::percolate(unsigned int index) {
 
     // Can't bring the root any farther up
     if (!index) return;
@@ -122,7 +118,36 @@ void MMHeap<DataType, Compare>::percolate(unsigned int index) {
 
 
 template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
+void MMheap<DataType, Compare>::percolate(unsigned int index, bool max_level) {
+
+    // Can't bring the root any farther up
+    if (!index) return;
+
+    // Find the parent of the passed node first
+    unsigned int grandparent_index = parent(index);
+
+    // If there is no grandparent_index, return
+    if (!grandparent_index) return;
+
+    // Find the grandparent_index
+    grandparent_index = parent(grandparent_index);
+
+    // Check to see if we should swap with the grandparent_index
+    if (less(heap[index], heap[grandparent_index]) ^ max_level) {
+        std::swap(heap[grandparent_index], heap[index]);
+        percolate(grandparent_index, max_level);
+    }
+}
+
+
+template<class DataType, class Compare>
+void MMheap<DataType, Compare>::trickle(unsigned int index) {
+    trickle(index, !isOnMinLevel(index));
+}
+
+
+template<class DataType, class Compare>
+void MMheap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
 
     /* In the following comments, substitute the word "less" with the word
      * "more" and the word "smallest" with the word "greatest" when MaxLevel
@@ -180,11 +205,6 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index, bool max_level) {
 }
 
 
-template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::trickle(unsigned int index) {
-    trickle(index, !isOnMinLevel(index));
-}
-
 /**
  * @brief Finds the smallest element in the Min-Max Heap and return its
  *        index.
@@ -192,7 +212,7 @@ void MMHeap<DataType, Compare>::trickle(unsigned int index) {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::findMaxIndex() const {
+unsigned int MMheap<DataType, Compare>::findMaxIndex() const {
 
     // There are four cases
 
@@ -220,7 +240,7 @@ unsigned int MMHeap<DataType, Compare>::findMaxIndex() const {
 
 
 template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::deleteElement(unsigned int index) {
+void MMheap<DataType, Compare>::deleteElement(unsigned int index) {
 
     // Ensure the element exists
     try {
@@ -252,29 +272,10 @@ void MMHeap<DataType, Compare>::deleteElement(unsigned int index) {
 }
 
 template<class DataType, class Compare>
-bool MMHeap<DataType, Compare>::empty() const {
+bool MMheap<DataType, Compare>::empty() const {
     return (heap.size() == 0);
 }
 
-/**
- * @brief Returns the number of elements in the heap.
- **/
-template<class DataType, class Compare>
-unsigned int MMHeap<DataType, Compare>::size() const {
-    return (heap.size());
-}
-
-
-template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::insert(const DataType &value) {
-
-    // Push the value onto the end of the heap
-    heap.push_back(value);
-
-    // Reorder the heap so that the min-max heap property holds true
-    percolate((unsigned int) heap.size() - 1);
-
-}
 
 /**
  * @brief Returns the element with the greatest value in the heap.
@@ -282,7 +283,7 @@ void MMHeap<DataType, Compare>::insert(const DataType &value) {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-const DataType &MMHeap<DataType, Compare>::getMin() const {
+const DataType &MMheap<DataType, Compare>::getMin() const {
 
     // If the heap is empty throw an error
     try {
@@ -303,7 +304,7 @@ const DataType &MMHeap<DataType, Compare>::getMin() const {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-const DataType &MMHeap<DataType, Compare>::getMax() const {
+const DataType &MMheap<DataType, Compare>::getMax() const {
     // findMaxIndex() will through an underflow_error if no min exists
     return (heap[findMaxIndex()]);
 }
@@ -315,7 +316,7 @@ const DataType &MMHeap<DataType, Compare>::getMax() const {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-DataType MMHeap<DataType, Compare>::deleteMax() {
+DataType MMheap<DataType, Compare>::deleteMax() {
 
     // If the heap is empty throw an error
     try {
@@ -345,7 +346,7 @@ DataType MMHeap<DataType, Compare>::deleteMax() {
  * @exception std::underflow_error
  **/
 template<class DataType, class Compare>
-DataType MMHeap<DataType, Compare>::deleteMin() {
+DataType MMheap<DataType, Compare>::deleteMin() {
 
     // If the heap is empty throw an error
     try {
@@ -375,7 +376,7 @@ DataType MMHeap<DataType, Compare>::deleteMin() {
  *        stream.
  **/
 template<class DataType, class Compare>
-void MMHeap<DataType, Compare>::dump() const {
+void MMheap<DataType, Compare>::dump() const {
 
     try {
 
