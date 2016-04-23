@@ -4,7 +4,7 @@ override CXXFLAGS += -Wall
 -include $(DEPS)
 
 EXE = Project4.out
-OBJS = main.o MMHeap.o
+OBJS = main.o MMheap.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
 $(EXE): $(DEPS) $(OBJS)

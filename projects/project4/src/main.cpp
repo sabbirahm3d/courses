@@ -1,3 +1,13 @@
+/* File:    main.cpp
+ * Project: CMSC 341: Project 4, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    4/23/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+ *
+ * Driver script to test the MMheap class
+ */
+
 #include "MMheap.h"
 
 #include <fstream>
@@ -49,19 +59,13 @@ int main(int argc, char **argv) {
 
     std::cout << "Call delete_max 10 times" << std::endl;
 
-    for (int ii = 0; ii < 10; ii++) {
+    for (int ii = 0; ii < 30; ii++) {
         int_heap->deleteMax();
     }
 
     int_heap->dump();
 
-//    std::cout << "Attempt to remove from empty heap" << std::endl;
-//
-//    for (int ii = 0; ii < 580; ii++) {
-//        int_heap->deleteMin();
-//    }
-//
-//    int_heap->dump();
+    std::cout << "Deleting the heaps..." << std::endl;
 
     delete int_heap;
     delete test_heap;
