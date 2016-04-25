@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
 
     int_heap->dump();
 
-    std::cout << "Call delete_max 10 times" << std::endl;
+    std::cout << "Call delete_max 30 times" << std::endl;
 
     for (int ii = 0; ii < 30; ii++) {
         int_heap->deleteMax();

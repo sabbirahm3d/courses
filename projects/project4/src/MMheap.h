@@ -92,12 +92,6 @@ private:
 
     unsigned int parent(unsigned int);
 
-    /* leftChild()
-     * Preconditions: None
-     * Postconditions: Stores the index of the left child node */
-
-    unsigned int leftChild(unsigned int);
-
     /* isOnMinLevel()
      * Preconditions: None
      * Postconditions: Determines if node is on an even level */
