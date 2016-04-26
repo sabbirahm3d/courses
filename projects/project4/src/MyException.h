@@ -33,7 +33,7 @@ public:
  * PostCondition:  Returns error message.
  *********************************************************************/
 
-    const std::string GetMessage() { return m_message; }
+    const std::string getMessage() { return m_message; }
 
 private:
 

@@ -36,7 +36,7 @@ MMheap<DataType, Compare>::MMheap() {
 template<typename DataType, typename Compare>
 MMheap<DataType, Compare>::~MMheap() {
 
-    for (unsigned int i = 0; i < heap->size(); i++) {
+    for (unsigned int i = 0; i < size(); i++) {
         (*heap)[0] = (*heap)[i];
     }
 
@@ -69,7 +69,7 @@ void MMheap<DataType, Compare>::insert(const DataType &value) {
     heap->push_back(value);
 
     // reorder the heap so that the min-max heap property holds true
-    percolate((unsigned int) heap->size() - 1);
+    percolate((unsigned int) size() - 1);
 }
 
 
@@ -85,8 +85,8 @@ const DataType &MMheap<DataType, Compare>::getMin() const {
             throw MyException("Empty heaps don't have minimums");
     }
 
-    catch (MyException &no_min) {
-        std::cout << no_min.GetMessage() << std::endl;
+    catch (MyException &noMin) {
+        std::cout << noMin.getMessage() << std::endl;
     }
 
     // the root is the min
@@ -119,7 +119,7 @@ DataType MMheap<DataType, Compare>::deleteMax() {
     }
 
     catch (MyException &emptyHeap) {
-        std::cout << emptyHeap.GetMessage() << std::endl;
+        std::cout << emptyHeap.getMessage() << std::endl;
     }
 
     // save the maximum value's index
@@ -140,20 +140,22 @@ DataType MMheap<DataType, Compare>::deleteMax() {
 template<class DataType, class Compare>
 DataType MMheap<DataType, Compare>::deleteMin() {
 
+    DataType tempMin;
     // throw an exception if the heap is empty
     try {
-        if (!(heap->size()))
+        if (!size())
             throw MyException("No minimum element exists because there are no "
                                       "elements in the heap");
     }
 
     catch (MyException &emptyHeap) {
-        std::cout << emptyHeap.GetMessage() << std::endl;
+        std::cout << emptyHeap.getMessage() << std::endl;
+        return tempMin;
     }
 
 
     // Save the minimum value
-    DataType tempMin = (*heap)[0];
+    tempMin = (*heap)[0];
 
     deleteElement(0);
 
@@ -189,7 +191,7 @@ void MMheap<DataType, Compare>::dump() const {
             (((int) (log2(size() - 1)) % 2) ? "odd" : "even")
             << std::endl << std::endl;
 
-            for (unsigned int nodes = 0; nodes < heap->size(); ++nodes) {
+            for (unsigned int nodes = 0; nodes < size(); ++nodes) {
 
                 // print level after every 2^nodes iterations
                 if (!((nodes + 1) % ((int) pow(2, level)))) {
@@ -206,7 +208,7 @@ void MMheap<DataType, Compare>::dump() const {
     }
 
     catch (MyException &emptyHeap) {
-        std::cout << emptyHeap.GetMessage() << std::endl;
+        std::cout << emptyHeap.getMessage() << std::endl;
     }
 
     std::cout << std::endl;
@@ -286,16 +288,16 @@ void MMheap<DataType, Compare>::percolate(unsigned int index, bool maxLevel) {
     if (!parent(index)) return;
 
     // find the grandparent index
-    unsigned int grandparent_index = parent(parent(index));
+    unsigned int grandparentIndex = parent(parent(index));
 
-    /* check to see if we should swap with the grandparent_index the node will
+    /* check to see if we should swap with the grandparentIndex the node will
         only percolate up the heap if:
         node < grandparent(node) and node != odd level or
         node > grandparent(node) and node == odd level */
-    if ((less((*heap)[index], (*heap)[grandparent_index]) && !maxLevel) ||
-        (less((*heap)[grandparent_index], (*heap)[index]) && maxLevel)) {
-        std::swap((*heap)[grandparent_index], (*heap)[index]);
-        percolate(grandparent_index, maxLevel);
+    if ((less((*heap)[index], (*heap)[grandparentIndex]) && !maxLevel) ||
+        (less((*heap)[grandparentIndex], (*heap)[index]) && maxLevel)) {
+        std::swap((*heap)[grandparentIndex], (*heap)[index]);
+        percolate(grandparentIndex, maxLevel);
     }
 
 }
@@ -313,14 +315,14 @@ void MMheap<DataType, Compare>::trickle(unsigned int index) {
 template<class DataType, class Compare>
 void MMheap<DataType, Compare>::trickle(unsigned int index, bool maxLevel) {
 
-    // Ensure the element exists.
+    // Ensure the element exists
     try {
         if (index >= heap->size())
             throw MyException("Element specified by index does not exist");
     }
 
     catch (MyException &bounds) {
-        std::cout << bounds.GetMessage() << std::endl;
+        std::cout << bounds.getMessage() << std::endl;
     }
 
 
@@ -350,8 +352,10 @@ void MMheap<DataType, Compare>::trickle(unsigned int index, bool maxLevel) {
      * positions in memory. */
     unsigned int leftGrandchild = 2 * left + 1;
 
-    for (unsigned int i = 0; (i < 4 && leftGrandchild + i < heap->size()); ++i)
-        if (less((*heap)[leftGrandchild + i], (*heap)[smallestNode]) ^ maxLevel)
+    for (unsigned int i = 0; ((i < 4) &&
+                              ((leftGrandchild + i) < heap->size())); ++i)
+        if (less((*heap)[leftGrandchild + i], (*heap)[smallestNode])
+            ^ maxLevel)
             smallestNode = leftGrandchild + i;
 
     // The current node was the smallest node, don't do anything.
@@ -363,8 +367,10 @@ void MMheap<DataType, Compare>::trickle(unsigned int index, bool maxLevel) {
     // If the smallest node was a grandchild...
     if (smallestNode - left > 1) {
         // If the smallest node's parent is bigger than it, swap them
-        if (less((*heap)[parent(smallestNode)], (*heap)[smallestNode]) ^ maxLevel)
+        if (less((*heap)[parent(smallestNode)], (*heap)[smallestNode])
+            ^ maxLevel) {
             std::swap((*heap)[parent(smallestNode)], (*heap)[smallestNode]);
+        }
 
         trickle(smallestNode, maxLevel);
     }
@@ -386,16 +392,16 @@ unsigned int MMheap<DataType, Compare>::findMaxIndex() const {
         case 0:
             std::cout << "Empty heaps don't have maximums" << std::endl;
 
-        // the only one element in the heap, return that element
+            // the only one element in the heap, return that element
         case 1:
             return 0;
 
-        // there are two nodes, and the maximum would be non-root
+            // there are two nodes, and the maximum would be non-root
         case 2:
             return 1;
 
-        // there are more than two nodes in the heap, find the maximum in
-        // level 1, heap[1] and heap[2]
+            // there are more than two nodes in the heap, find the maximum in
+            // level 1, heap[1] and heap[2]
         default:
             return (less((*heap)[1], (*heap)[2]) ? 2 : 1);
 
@@ -412,23 +418,23 @@ void MMheap<DataType, Compare>::deleteElement(unsigned int index) {
 
     // Ensure the element exists
     try {
-        if (index >= (unsigned int) heap->size())
+        if (index >= size())
             throw MyException("No min");
     }
 
-    catch (MyException &no_min) {
-        std::cout << no_min.GetMessage() << std::endl;
+    catch (MyException &noMin) {
+        std::cout << noMin.getMessage() << std::endl;
     }
 
 
     // If we're deleting the last element in the heap, just delete it
-    if (index == heap->size() - 1) {
+    if (index == (size() - 1)) {
         heap->pop_back();
         return;
     }
 
     // Replace the element with the last element in the heap
-    std::swap((*heap)[index], (*heap)[heap->size() - 1]);
+    std::swap((*heap)[index], (*heap)[(size() - 1)]);
 
     // Delete the last element in the heap
     heap->pop_back();

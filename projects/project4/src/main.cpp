@@ -18,10 +18,14 @@
 int main(int argc, char **argv) {
 
     MMheap<int> *int_heap = new MMheap<int>;
-    MMheap<std::string> *test_heap = new MMheap<std::string>;
+    MMheap<std::string> *strHeap = new MMheap<std::string>;
     std::string filename;
 
-    test_heap->dump();
+    std::cout << "Dumping empty heap:" << std::endl;
+    strHeap->dump();
+
+    std::cout << "Call getMin on empty heap:" << std::endl;
+    strHeap->deleteMin();
 
     if (argc == EXPECTED_ARGC) {
         filename = argv[1];
@@ -48,7 +52,7 @@ int main(int argc, char **argv) {
 
     int_heap->dump();
 
-    std::cout << "Call delete_min 10 times" << std::endl;
+    std::cout << "Call deleteMin 10 times" << std::endl;
 
     for (int ii = 0; ii < 10; ii++) {
         int_heap->deleteMin();
@@ -57,7 +61,7 @@ int main(int argc, char **argv) {
 
     int_heap->dump();
 
-    std::cout << "Call delete_max 30 times" << std::endl;
+    std::cout << "Call deleteMax 30 times" << std::endl;
 
     for (int ii = 0; ii < 30; ii++) {
         int_heap->deleteMax();
@@ -68,7 +72,7 @@ int main(int argc, char **argv) {
     std::cout << "Deleting the heaps..." << std::endl;
 
     delete int_heap;
-    delete test_heap;
+    delete strHeap;
 
     return 0;
 }
