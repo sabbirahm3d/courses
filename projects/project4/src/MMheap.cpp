@@ -12,6 +12,7 @@
 #define MMHEAP_CPP
 
 #include <math.h>
+#include <stdlib.h>
 
 #include "MMheap.h"
 #include "MyException.h"
@@ -81,7 +82,7 @@ const DataType &MMheap<DataType, Compare>::getMin() const {
 
     // throw an exception if heap is empty
     try {
-        if (!(heap->size()))
+        if (!size())
             throw MyException("Empty heaps don't have minimums");
     }
 
@@ -113,19 +114,18 @@ DataType MMheap<DataType, Compare>::deleteMax() {
 
     // throw an exception if the heap is empty
     try {
-        if (!(heap->size()))
+        if (!size())
             throw MyException("No maximum element exists because there are no "
                                       "elements in the heap");
     }
 
     catch (MyException &emptyHeap) {
         std::cout << emptyHeap.getMessage() << std::endl;
-        throw;
+        exit(0);
     }
 
     // save the maximum value
     DataType tempMax = (*heap)[findMaxIndex()];
-
     deleteElement(findMaxIndex());
 
     return tempMax;
@@ -147,13 +147,12 @@ DataType MMheap<DataType, Compare>::deleteMin() {
 
     catch (MyException &emptyHeap) {
         std::cout << emptyHeap.getMessage() << std::endl;
-        throw;
+        exit(0);
     }
 
 
     // Save the minimum value
     DataType tempMin = (*heap)[0];
-
     deleteElement(0);
 
     return tempMin;
@@ -374,9 +373,7 @@ void MMheap<DataType, Compare>::trickle(unsigned int index, bool minLevel) {
             smallestNode = leftGrandchild + i;
 
     // the current node was the smallest node, break out of function
-    if (index == smallestNode) {
-        return;
-    }
+    if (index == smallestNode) { return; }
 
     // swap the current node with the smallest node
     std::swap((*heap)[index], (*heap)[smallestNode]);
