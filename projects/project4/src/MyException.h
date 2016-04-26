@@ -5,7 +5,7 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * Implementation of custom exception class
+ * Implementation of a custom exception class
  */
 
 #ifndef MYEXCEPTION_H
@@ -17,27 +17,28 @@ class MyException {
 
 public:
 
-/**********************************************************************
- * Exceptions341 (Constructor)
- * PreCondition: String containing error description.
- *
- * PostCondition:  Error object
- *********************************************************************/
+    /* ******************** Constructors ******************** */
+
+    /* MyException()
+     * Preconditions: The error message passed in must be valid string
+     * Postconditions: Creates an instance with the error message */
 
     MyException(std::string message) : m_message(message) { }
 
-/**********************************************************************
- * Name: GetMessage
- * PreCondition: None.
- *
- * PostCondition:  Returns error message.
- *********************************************************************/
+
+    /* ******************** Public methods ******************** */
+
+    /* getMessage()
+     * Preconditions: None
+     * Postconditions: Returns the error message */
 
     const std::string getMessage() { return m_message; }
 
 private:
 
-    std::string m_message; //Error message
+    /* ******************** Private attributes ******************** */
+
+    std::string m_message; // error message
 
 };
 

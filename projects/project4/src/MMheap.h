@@ -5,7 +5,9 @@
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * The header file for the MMheap class
+ * The header file for the MMheap class. MMheap is a templated class with its
+ * data type templated as DataType and std::less is used to determine
+ * relationships between nodes in the structure
  */
 
 #ifndef MMHEAP_H

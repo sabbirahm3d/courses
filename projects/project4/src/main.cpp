@@ -24,8 +24,8 @@ int main(int argc, char **argv) {
     std::cout << "Dumping empty heap:" << std::endl;
     strHeap->dump();
 
-    std::cout << "Call getMin on empty heap:" << std::endl;
-    strHeap->deleteMin();
+//    std::cout << "Call getMin on empty heap:" << std::endl;
+//    strHeap->deleteMax();
 
     if (argc == EXPECTED_ARGC) {
         filename = argv[1];
