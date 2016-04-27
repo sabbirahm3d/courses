@@ -10,14 +10,14 @@
  * relationships between nodes in the structure
  */
 
-#ifndef HASHTABLE_H
-#define HASHTABLE_H
+#ifndef PERFECTHASH_H
+#define PERFECTHASH_H
 
 #include <iostream>
 #include <string>
 #include <vector>
 
-class Hashtable {
+class PerfectHash {
 
 public:
 
@@ -27,16 +27,19 @@ public:
      * Preconditions: None
      * Postconditions: None */
 
-    Hashtable();
+    PerfectHash() { }
 
 
     /* MMheap() - Default constructor
      * Preconditions: None
      * Postconditions: None */
 
-    Hashtable(std::string, int);
+    void Hash(std::string, int);
 
 private:
 
 
 };
+
+
+#endif

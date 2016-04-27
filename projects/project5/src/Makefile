@@ -3,8 +3,8 @@ CXX = $(shell which g++)
 override CXXFLAGS += -Wall
 -include $(DEPS)
 
-EXE = Project4.out
-OBJS = main.o MMheap.o
+EXE = Project5.out
+OBJS = Project5.o PerfectHash.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
 $(EXE): $(DEPS) $(OBJS)

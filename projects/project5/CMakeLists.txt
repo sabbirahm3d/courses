@@ -4,8 +4,13 @@ project(project5)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98")
 
 set(SOURCE_FILES
-        src/main.cpp
-        src/Hashtable.cpp
-        src/Hashtable.h
+        src/Project5.cpp
+        src/Pair.h
+        src/Pair.cpp
+        src/PerfectHash.h
+        src/PerfectHash.cpp
+        src/BackupHash.h
+        src/BackupHash.cpp
+        src/HashException.h
         )
 add_executable(project5 ${SOURCE_FILES} src/input.txt)

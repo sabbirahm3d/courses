@@ -8,7 +8,7 @@
  * Driver script to test the MMheap class
  */
 
-#include "Hashtable.h"
+#include "BackupHash.h"
 
 #include <fstream>
 #include <cstdlib>
@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
 
     std::string fileName;
 
-    Hashtable* table = new Hashtable;
+    BackupHash* table = new BackupHash;
 
     if (argc == EXPECTED_ARGC) {
         fileName = argv[1];
@@ -32,10 +32,14 @@ int main(int argc, char **argv) {
     std::ifstream file(fileName.c_str());
 
     if (file.good()) {
-        std::string line;
+        std::string city;
+        std::string coords;
 
-        while (getline(file, line)) {
-            int_heap->insert(atoi(line.c_str()));
+        while (getline(file, city)) {
+            std::cout << city << std::endl;
+            getline(file, coords);
+            table->put(city, atoi(coords.c_str()));
+            table->get(city);
         }
 
     } else {
@@ -44,6 +48,9 @@ int main(int argc, char **argv) {
         return 0;
 
     }
+
+    delete table;
+//    table = NULL;
 
     return 0;
 }
