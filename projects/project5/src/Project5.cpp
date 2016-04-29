@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
             std::cout << city << std::endl;
             getline(file, coords);
             table->put(city, atoi(coords.c_str()));
-            table->get(city);
+//            table->get(city);
         }
 
     } else {
