@@ -7,24 +7,18 @@ class Pair {
 
 public:
 
-    Pair(std::string city, int coords) {
-        this->city = city;
-        this->coords = coords;
-    }
+    Pair(std::string city, std::string coords) :
+            m_city(city), m_coords(coords) { }
 
-    std::string getCity() {
-        return city;
-    }
+    std::string GetCity() { return m_city; }
 
-    int getCoords() {
-        return coords;
-    }
+    std::string GetCoords() { return m_coords; }
 
 
 private:
 
-    std::string city;
-    int coords;
+    std::string m_city;
+    std::string m_coords;
 
 };
 

@@ -14,8 +14,9 @@
 #define PERFECTHASH_H
 
 #include <iostream>
-#include <string>
 #include <vector>
+
+#include "BackupHash.h"
 
 class PerfectHash {
 
@@ -27,17 +28,24 @@ public:
      * Preconditions: None
      * Postconditions: None */
 
-    PerfectHash() { }
+    PerfectHash();
 
 
     /* MMheap() - Default constructor
      * Preconditions: None
      * Postconditions: None */
 
-    void Hash(std::string, int);
+    ~PerfectHash();
+
+    int ASCII(std::string);
+
+    std::string Value(std::string);
+
+    void Map(std::string, std::string);
 
 private:
 
+    std::vector<Pair *> table;
 
 };
 

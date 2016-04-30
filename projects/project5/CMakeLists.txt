@@ -6,7 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98")
 set(SOURCE_FILES
         src/Project5.cpp
         src/Pair.h
-        src/Pair.cpp
         src/PerfectHash.h
         src/PerfectHash.cpp
         src/BackupHash.h

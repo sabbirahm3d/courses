@@ -8,11 +8,10 @@
  * Driver script to test the MMheap class
  */
 
-#include "BackupHash.h"
+//#include "BackupHash.h"
+#include "PerfectHash.h"
 
 #include <fstream>
-#include <cstdlib>
-#include <iostream>
 
 #define EXPECTED_ARGC 2
 
@@ -20,7 +19,7 @@ int main(int argc, char **argv) {
 
     std::string fileName;
 
-    BackupHash* table = new BackupHash;
+    PerfectHash* table = new PerfectHash;
 
     if (argc == EXPECTED_ARGC) {
         fileName = argv[1];
@@ -30,16 +29,17 @@ int main(int argc, char **argv) {
     }
 
     std::ifstream file(fileName.c_str());
+    int numCities = 0;
 
     if (file.good()) {
         std::string city;
         std::string coords;
 
         while (getline(file, city)) {
-            std::cout << city << std::endl;
             getline(file, coords);
-            table->put(city, atoi(coords.c_str()));
-//            table->get(city);
+            table->Map(city, coords);
+            std::cout << table->Value(city) << std::endl;
+            numCities++;
         }
 
     } else {
@@ -50,7 +50,9 @@ int main(int argc, char **argv) {
     }
 
     delete table;
-//    table = NULL;
+    table = NULL;
+
+    std::cout << numCities << " cities found" << std::endl;
 
     return 0;
 }
