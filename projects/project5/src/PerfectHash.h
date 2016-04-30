@@ -39,6 +39,8 @@ public:
 
     int ASCII(std::string);
 
+    int HashFunc();
+
     std::string Value(std::string);
 
     void Map(std::string, std::string);
@@ -46,6 +48,7 @@ public:
 private:
 
     std::vector<Pair *> table;
+    std::vector<BackupHash *> backups;
 
 };
 

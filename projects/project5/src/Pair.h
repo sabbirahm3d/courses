@@ -10,6 +10,8 @@ public:
     Pair(std::string city, std::string coords) :
             m_city(city), m_coords(coords) { }
 
+    ~Pair() { }
+
     std::string GetCity() { return m_city; }
 
     std::string GetCoords() { return m_coords; }

@@ -4,7 +4,7 @@ override CXXFLAGS += -Wall
 -include $(DEPS)
 
 EXE = Project5.out
-OBJS = Project5.o PerfectHash.o BackupHash.o Pair.o
+OBJS = Project5.o PerfectHash.o BackupHash.o
 DEPS = $(addprefix .,$(OBJS:.o=.d))
 
 $(EXE): $(DEPS) $(OBJS)
