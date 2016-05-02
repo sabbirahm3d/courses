@@ -12,6 +12,9 @@
 #include "HashException.h"
 
 
+#define PRIME1 16890581
+#define PRIME2 = 17027399
+
 /* ******************** Constructors ******************** */
 
 /* MMheap() - Default constructor
@@ -19,7 +22,7 @@
 
 PerfectHash::PerfectHash() {
 
-    for (int i = 0; i < (2 * PRIME1); i++) {
+    for (int i = 0; i < (bigN); i++) {
         table.push_back(NULL);
     }
 
@@ -44,20 +47,33 @@ PerfectHash::~PerfectHash() {
 
 int PerfectHash::ASCII(std::string city) {
 
+    int c = RandomInt();
     int sum = 0;
 
-    for (unsigned int i = 0; i < city.size(); i++) {
-        sum += city[i];
+    for (unsigned int i = 0; i < city.size(); ++i) {
+        sum += (int) (pow(c, i) * city[i]);
     }
 
-    return sum;
+    return HashFunc(sum % PRIME1);
 
 }
 
 
+int PerfectHash::RandomInt() { return rand() % (PRIME1 - 1) + 1; }
+
+
+int PerfectHash::HashFunc(int value) {
+
+    int a = RandomInt();
+    int b = RandomInt();
+
+    return ((a * value + b) % PRIME1) % bigN;
+
+}
+
 std::string PerfectHash::Value(std::string city) {
 
-    int hash = (ASCII(city) % PRIME1);
+    int hash = (ASCII(city) % bigN);
 
     BackupHash *newTable = new BackupHash;
 
@@ -79,7 +95,7 @@ std::string PerfectHash::Value(std::string city) {
 
 void PerfectHash::Map(std::string city, std::string coords) {
 
-    int hash = (ASCII(city) % PRIME1);
+    int hash = (ASCII(city) % bigN);
 
     BackupHash *newTable = new BackupHash;
 
@@ -94,5 +110,7 @@ void PerfectHash::Map(std::string city, std::string coords) {
         delete table[hash];
 
     table[hash] = new Pair(city, coords);
+
+    std::cout << city << std::endl;
 
 }

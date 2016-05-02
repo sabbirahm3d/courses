@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
     std::string fileName;
 
-    PerfectHash* table = new PerfectHash;
+    PerfectHash *table = new PerfectHash;
 
     if (argc == EXPECTED_ARGC) {
         fileName = argv[1];
@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
         while (getline(file, city)) {
             getline(file, coords);
             table->Map(city, coords);
-            std::cout << table->Value(city) << std::endl;
+//            std::cout << table->Value(city) << std::endl;
             numCities++;
         }
 

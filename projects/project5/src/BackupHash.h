@@ -1,12 +1,14 @@
 #include <cstdlib>
 #include <iostream>
+#include <math.h>
 #include <time.h>
+#include <stdlib.h>
 #include <vector>
 
 #include "Pair.h"
 
-const int PRIME1 = 1000;
-const int PRIME2 = 5435;
+const int bigN = 1000;
+const int bigM = 5435;
 
 class BackupHash {
 public:
@@ -18,7 +20,7 @@ public:
 
     BackupHash() {
 
-        for (int i = 0; i < PRIME2; i++) {
+        for (int i = 0; i < bigM; i++) {
             table.push_back(NULL);
         }
     }
@@ -50,7 +52,7 @@ public:
 
     std::string Value(std::string city) {
 
-        int hash = (ASCII(city) % PRIME2);
+        int hash = (ASCII(city) % bigM);
 
         while (table[hash] != NULL && (table[hash])->GetCity() != city)
             hash = (hash + 1);
@@ -66,7 +68,7 @@ public:
 
     void Map(std::string city, std::string coords) {
 
-        int hash = (ASCII(city) % PRIME2);
+        int hash = (ASCII(city) % bigM);
 //        std::cout << "BACK USED " << hash << std::endl;
 
 

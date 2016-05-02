@@ -39,7 +39,9 @@ public:
 
     int ASCII(std::string);
 
-    int HashFunc();
+    int RandomInt();
+
+    int HashFunc(int);
 
     std::string Value(std::string);
 
