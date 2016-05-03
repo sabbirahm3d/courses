@@ -1,6 +1,5 @@
 from collections import OrderedDict  # for sorting hashtables
 from string import ascii_uppercase  # for iterating through the alphabet
-from pprint import pprint
 
 # the states of the sequence
 STATES = {
@@ -21,29 +20,32 @@ STATES = {
 # overflow
 MAX = 70
 
+# special circumstances
+CHANGE = [5, 15]
+
 
 def states(switch):
+    """Maps current state to the next based on input
+    """
 
-    coins = {}
+    state_table = {}
 
+    # if switch == 0, input is 25 cents
+    # if switch == 1, input is 10 cents
     coin = 10 if switch == 1 else 25
 
     # print "switch =", switch, "\n-----------"
-
     for i, j in STATES.iteritems():
 
         if ((j + coin) % MAX) in STATES.values():
-            coins[i] = STATES.keys()[STATES.values().index((j + coin) % MAX)]
+            state_table[i] = \
+                STATES.keys()[STATES.values().index((j + coin) % MAX)]
 
-        if (j + coin) % MAX == 5:
-            coins[i] = 'A'
+        elif (j + coin) % MAX in CHANGE:
+            state_table[i] = \
+                STATES.keys()[STATES.values().index((j + coin) % MAX - 5)]
 
-        elif (j + coin) % MAX == 15:
-            coins[i] = 'B'
-
-    coins = OrderedDict(sorted(coins.items()))
-
-    return coins
+    return OrderedDict(sorted(state_table.items()))
 
 
 def dispense(state, switch):
@@ -54,7 +56,7 @@ def dispense(state, switch):
 
     if (total >= MAX):
 
-        if ((total - MAX == 5) or (total - MAX == 15)):
+        if (total - MAX) in CHANGE:
             return 1, 1
 
         return 1, 0
@@ -74,7 +76,7 @@ def state_assignment():
 
 def binary(value, bits):
 
-    binary_val = ('0000' + str(bin(value)[2:]))
+    binary_val = '0000' + str(bin(value)[2:])
 
     if len(binary_val) > bits:
         return binary_val[len(binary_val) - bits:]
@@ -82,7 +84,7 @@ def binary(value, bits):
     return binary_val
 
 
-def printer(value=None, switch=None, output=None, display=0):
+def printer(value=None, switch=None, output=None, display=''):
 
     flip_flop = {}
     codes = state_assignment()
@@ -91,7 +93,9 @@ def printer(value=None, switch=None, output=None, display=0):
 
         for i, j in states(switch).iteritems():
             flip_flop[int((str(switch) + str(codes[i])), 2)] = codes[j][value]
-            if display:
+            if display == 'state':
+                print STATES[i], '->', STATES[j], str(dispense(i, switch))
+            elif display == 'codes':
                 print codes[i], '->', codes[j], str(dispense(i, switch))
 
     else:
@@ -99,7 +103,9 @@ def printer(value=None, switch=None, output=None, display=0):
         for i, j in states(switch).iteritems():
             flip_flop[int((str(switch) + str(codes[i])), 2)] \
                 = dispense(i, switch)[output]
-            if display:
+            if display == 'state':
+                print STATES[i], '->', STATES[j], str(dispense(i, switch))
+            elif display == 'codes':
                 print codes[i], '->', codes[j], str(dispense(i, switch))
 
     return flip_flop
@@ -128,14 +134,19 @@ def pair_terms(mins):
 
 D0 = sorted(minterms(printer(value=0, switch=0)) +
             minterms(printer(value=0, switch=1)))
+
 D1 = sorted(minterms(printer(value=1, switch=0)) +
             minterms(printer(value=1, switch=1)))
+
 D2 = sorted(minterms(printer(value=2, switch=0)) +
             minterms(printer(value=2, switch=1)))
+
 D3 = sorted(minterms(printer(value=3, switch=0)) +
             minterms(printer(value=3, switch=1)))
+
 z = sorted(minterms(printer(switch=0, output=0)) +
            minterms(printer(switch=1, output=0)))
+
 w = sorted(minterms(printer(switch=0, output=1)) +
            minterms(printer(switch=1, output=1)))
 
@@ -147,9 +158,6 @@ print "Minterms for z:", z
 print "Minterms for w:", w, "\n"
 
 functions = {}
-
-all_minterms = D0 + D1 + D2 + D3 + z + w
-
 
 functions['D0'] = pair_terms(D0)
 functions['D1'] = pair_terms(D1)
@@ -163,7 +171,7 @@ functions = OrderedDict(sorted(functions.items()))
 for i, j in functions.iteritems():
     print i, j
 
-yo = []
+# yo = []
 
 # for i in functions.values():
 #     for j in i:
@@ -174,5 +182,7 @@ yo = []
 
 # print (set(decoders))
 
+all_minterms = D0 + D1 + D2 + D3 + z + w
+
 print '\n', len(set(all_minterms)), 'different minterms'
-pprint(list(set(all_minterms)))
+print (list(set(all_minterms)))
