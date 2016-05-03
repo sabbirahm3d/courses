@@ -5,10 +5,11 @@ input clock,reset;
 output reg data_out;
 
 always@(negedge clock)
-begin
-if(reset)
-data_out<=1'd0;
-else
-data_out<=data_in;v end
+    begin
+        if(reset)
+            data_out<=1'd0;
+        else
+            data_out<=data_in;
+    end
 
 endmodule
