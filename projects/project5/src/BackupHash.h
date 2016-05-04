@@ -6,9 +6,12 @@
 #include <vector>
 
 #include "Pair.h"
+#include "PerfectHash.h"
 
-const int bigN = 1000;
-const int bigM = 5435;
+#define PRIME1 16890581
+#define PRIME2 17027399
+
+typedef unsigned long big_int;
 
 class BackupHash {
 public:
@@ -18,44 +21,66 @@ public:
 /* MMheap() - Default constructor
  * Initializes the heap vector */
 
-    BackupHash() {
+    BackupHash(int size) : m_size(size), tries(0) {
 
-        for (int i = 0; i < bigM; i++) {
+        for (int i = 0; i < m_size; i++) {
             table.push_back(NULL);
         }
+
     }
+
 
     ~BackupHash() {
 
         for (unsigned int i = 0; i < table.size(); i++)
-            if (table[i] != NULL)
+            if (table[i] != NULL) {
                 delete table[i];
+            }
 
         table.resize(0);
 
     }
 
 
-    int ASCII(std::string city) {
+    big_int ASCII(std::string city) {
 
+        big_int c = RandomInt(1, PRIME2);
         int sum = 0;
 
-        for (unsigned int i = 0; i < city.size(); i++) {
-            sum += city[i];
-
+        for (unsigned int i = 0; i < city.size(); ++i) {
+            sum += (int) (pow(c, i) * city[i]);
         }
 
-        return sum;
+        return HashFunc(sum % PRIME2);
 
     }
 
 
+    big_int RandomInt(int lower, big_int upper) {
+
+        srand(tries);
+//    tries++;
+        return rand() % upper + lower;
+
+    }
+
+
+    big_int HashFunc(int value) {
+
+        big_int a = RandomInt(1, PRIME1);
+        big_int b = RandomInt(0, PRIME1 - 1);
+
+        return ((big_int) (a * value + b) % PRIME1) % m_size;
+
+    }
+
     std::string Value(std::string city) {
 
-        int hash = (ASCII(city) % bigM);
+        big_int hash = (ASCII(city));
 
-        while (table[hash] != NULL && (table[hash])->GetCity() != city)
-            hash = (hash + 1);
+        while (table[hash] != NULL && (table[hash])->GetCity() != city) {
+            hash = (ASCII(city));
+        }
 
         if (table[hash] == NULL)
             return "";
@@ -68,25 +93,26 @@ public:
 
     void Map(std::string city, std::string coords) {
 
-        int hash = (ASCII(city) % bigM);
-//        std::cout << "BACK USED " << hash << std::endl;
+        big_int hash = (ASCII(city));
 
-
-        while (table[hash] != NULL && table[hash]->GetCity() != city) {
-            hash = (hash + 1);
+        if (table[hash] != NULL && table[hash]->GetCity() != city) {
+            hash = (ASCII(city));
         }
+
         if (table[hash] != NULL)
             delete table[hash];
 
         table[hash] = new Pair(city, coords);
 
-//    std::cout << hash << std::endl;
+    std::cout << "backup used" << std::endl;
 
     }
 
 private:
 
     std::vector<Pair *> table;
+    int m_size;
+    unsigned int tries;
 
 
 };

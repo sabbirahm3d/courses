@@ -22,13 +22,15 @@ class PerfectHash {
 
 public:
 
+
+    big_int collisions;
     /* ******************** Constructors ******************** */
 
     /* MMheap() - Default constructor
      * Preconditions: None
      * Postconditions: None */
 
-    PerfectHash();
+    PerfectHash(int);
 
 
     /* MMheap() - Default constructor
@@ -37,11 +39,11 @@ public:
 
     ~PerfectHash();
 
-    int ASCII(std::string);
+    unsigned long ASCII(std::string);
 
-    int RandomInt();
+    big_int RandomInt(int, big_int);
 
-    int HashFunc(int);
+    unsigned long HashFunc(int);
 
     std::string Value(std::string);
 
@@ -51,7 +53,8 @@ private:
 
     std::vector<Pair *> table;
     std::vector<BackupHash *> backups;
-
+    int m_size;
+    unsigned int tries;
 };
 
 

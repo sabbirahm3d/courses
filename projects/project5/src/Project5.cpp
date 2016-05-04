@@ -19,8 +19,6 @@ int main(int argc, char **argv) {
 
     std::string fileName;
 
-    PerfectHash *table = new PerfectHash;
-
     if (argc == EXPECTED_ARGC) {
         fileName = argv[1];
     } else {
@@ -32,15 +30,29 @@ int main(int argc, char **argv) {
     int numCities = 0;
 
     if (file.good()) {
-        std::string city;
+        std::string data;
+        std::vector<std::string> *fileData = new std::vector<std::string>;
         std::string coords;
 
-        while (getline(file, city)) {
-            getline(file, coords);
-            table->Map(city, coords);
-//            std::cout << table->Value(city) << std::endl;
+        while (getline(file, data)) {
+            fileData->push_back(data);
             numCities++;
         }
+
+        PerfectHash *table = new PerfectHash(numCities / 2);
+
+        for (int i = 0; i < fileData->size() - 1; i++) {
+            table->Map((*fileData)[i], (*fileData)[i + 1]);
+//            std::cout << table->Value((*fileData)[i]) << std::endl;
+        }
+
+        std::cout << table->collisions << std::endl;
+        std::cout << table->Value("Zephyrhills North, FL") << std::endl;
+
+        delete table;
+        table = NULL;
+        delete fileData;
+        fileData = NULL;
 
     } else {
 
@@ -49,8 +61,6 @@ int main(int argc, char **argv) {
 
     }
 
-    delete table;
-    table = NULL;
 
     std::cout << numCities << " cities found" << std::endl;
 
