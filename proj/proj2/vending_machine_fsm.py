@@ -258,7 +258,9 @@ def ic_factory():
     return OrderedDict(sorted(functions.items()))
 
 
-for i, j in ic_factory().iteritems():
-    print i, j
+if __name__ == '__main__':
 
-print "Default don't cares:", [int(i, 2) for i in dont_cares()]
+    for i, j in ic_factory().iteritems():
+        print i, j
+
+    print "Default don't cares:", [int(i, 2) for i in dont_cares()]
