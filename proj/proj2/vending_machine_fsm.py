@@ -88,7 +88,7 @@ def kmap_seq():
     """Generates 5 bit minterms in a K-map sequence
 
     Input: none
-    Output: a tuple of outputs, z0, z1"""
+    Output: list of K-map sequence minterms"""
 
     var = []
     terms = []
@@ -231,33 +231,26 @@ def ic_factory():
     pins = ['J0', 'J0_D', 'K0', 'K0_D', 'J1', 'J1_D', 'K1', 'K1_D', 'J2',
             'J2_D', 'K2', 'K2_D', 'J3', 'J3_D', 'K3', 'K3_D', 'z0', 'z1']
 
-    functions = {pin: [] for pin in pins}
+    bool_func = {pin: [] for pin in pins}
 
     for bins in xrange(2):
+
         for bits in xrange(4):
-            functions['J' + str(bits)].extend(sorted(
-                minterms(
-                    code_transitions(index=bits, switch=bins), bits, 'j')[0]
-            ))
-            functions['K' + str(bits)].extend(sorted(
-                minterms(
-                    code_transitions(index=bits, switch=bins), bits, 'k')[0]
-            ))
-            functions['J' + str(bits) + '_D'].extend(sorted(
-                minterms(
-                    code_transitions(index=bits, switch=bins), bits, 'j')[1]
-            ))
-            functions['K' + str(bits) + '_D'].extend(sorted(
-                minterms(
-                    code_transitions(index=bits, switch=bins), bits, 'k')[1]
-            ))
+            bool_func['J' + str(bits)].extend(sorted(minterms(code_transitions(
+                index=bits, switch=bins), bits, 'j')[0]))
+            bool_func['K' + str(bits)].extend(sorted(minterms(code_transitions(
+                index=bits, switch=bins), bits, 'k')[0]))
+            bool_func['J' + str(bits) + '_D'].extend(sorted(minterms(
+                code_transitions(index=bits, switch=bins), bits, 'j')[1]))
+            bool_func['K' + str(bits) + '_D'].extend(sorted(minterms(
+                code_transitions(index=bits, switch=bins), bits, 'k')[1]))
+
         for outputs in xrange(2):
-            functions['z' + str(outputs)].extend(sorted(
-                minterms(code_transitions(switch=bins, output=outputs), -1)[0]
-            ))
+            bool_func['z' + str(outputs)].extend(sorted(minterms(
+                code_transitions(switch=bins, output=outputs), -1)[0]))
 
     # sorts map
-    return OrderedDict(sorted(functions.items()))
+    return OrderedDict(sorted(bool_func.items()))
 
 
 if __name__ == '__main__':

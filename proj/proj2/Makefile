@@ -1,5 +1,5 @@
-SRC = jkflop.v
-TESTBENCH = test.v
+DEP = jk_flipflop.v
+TESTBENCH = main.v
 # TBOUTPUT = waves.lxt	
 # THIS NEEDS TO MATCH THE OUTPUT FILE
 #FROM YOUR TESTBENCH
@@ -14,18 +14,20 @@ SOUTPUT = -lxt		#SIMULATOR OUTPUT TYPE
 #TOOL OUTPUT
 EXE = proj2.out			#COMPILER OUTPUT
 
-compile: $(TESTBENCH) $(SRC)
-	$(COMPILER) $(SRC) $(TESTBENCH) -o $(EXE)
+compile: $(TESTBENCH) $(DEP)
+	$(COMPILER) $(DEP) $(TESTBENCH) -o $(EXE)
 
+$(EXE): $(TESTBENCH) $(DEP)
+	$(COMPILER) $(EXE) $(TESTBENCH) $(DEP)
+
+display: $(TBOUTPUT)
+	$(VIEWER) $(TBOUTPUT) &
+
+.PHONY: clean
 clean:
 	rm -f  *.out
 	clear
 
-run: $(EXE)
+.PHONY: run
+run:
 	./$(EXE)
-
-$(EXE): $(TESTBENCH) $(SRC)
-	$(COMPILER) $(EXE) $(TESTBENCH) $(SRC)
-
-display: $(TBOUTPUT)
-	$(VIEWER) $(TBOUTPUT) &
