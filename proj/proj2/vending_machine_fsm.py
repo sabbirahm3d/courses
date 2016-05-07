@@ -172,12 +172,14 @@ def code_transitions(index=None, switch=None, output=None, display=''):
             flip_flop[int((str(str(switch) + codes[i])), 2)] \
                 = dispense(i, switch)[output]
 
-            if display == 'state':
-                print STATES[i], '->', STATES[j], str(dispense(i, switch))
-            elif display == 'codes':
-                print codes[i], '->', codes[j], str(dispense(i, switch))
-            elif display == 'clear':
-                print i, '->', j, str(dispense(i, switch))
+        if display == 'state':
+            print STATES[i], '->', STATES[j], str(dispense(i, switch))
+
+        elif display == 'codes':
+            print codes[i], '->', codes[j], str(dispense(i, switch))
+
+        elif display == 'clear':
+            print i, '->', j, str(dispense(i, switch))
 
     return flip_flop
 
@@ -260,7 +262,9 @@ def ic_factory():
 
 if __name__ == '__main__':
 
-    for i, j in ic_factory().iteritems():
-        print i, j
+    print __doc__, '\n'
 
     print "Default don't cares:", [int(i, 2) for i in dont_cares()]
+
+    for i, j in ic_factory().iteritems():
+        print i, j
