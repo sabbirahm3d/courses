@@ -1,4 +1,4 @@
-DEP = jk_flipflop.v
+DEP = jk_flipflop.v vending_machine_fsm.v
 TESTBENCH = main.v
 # TBOUTPUT = waves.lxt	
 # THIS NEEDS TO MATCH THE OUTPUT FILE

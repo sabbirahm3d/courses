@@ -1,32 +1,25 @@
 module main;
 
-    reg J, K, CLK;
-    wire Q, Q_NOT;
-    jk_flipflop jk_ff(.J(J), .K(K), .CLK(CLK), .Q(Q), .Q_NOT(Q_NOT));
+    reg a, CLK;
+    wire y0, y1;
+    vending_machine_fsm circuit(.a(a), .CLK(CLK), .y0(y0), .y1(y1));
 
-    initial begin
-        J=1'b0; K=1'b0;
+	initial begin
 
-        CLK=1;
+        a = 1'b0;
+        CLK = 1;
 
-        #100;
-        J=1'b0; K=1'b1; #100;
-        J=1'b1; K=0'b0; #100;
-        J=1'b1; K=1'b1; #100;
-        J=1'b0; K=0'b0; #100;
-        J=1'b0; K=1'b1; #100;
-        J=1'b1; K=0'b0; #100;
-        J=1'b1; K=1'b1; #100;
-        J=1'b0; K=0'b0; #100;
+        #1000 $finish;
 
-        #50 $finish;
     end
 
     always
-        #50 CLK = ~CLK;
+        #50 CLK = !CLK;
 
-    always
-        #50 $monitor( "CLK=%b J=%b K=%b Q=%b, Q_NOT=%b",
-            CLK, J, K, Q, Q_NOT);
+	always
+	    begin
+	        // a = a + 1'b1;
+	        #5 $monitor("CLK=%b, x=%b, y0=%b, y1=%b", CLK, a, y0, y1);
+	    end
 
 endmodule

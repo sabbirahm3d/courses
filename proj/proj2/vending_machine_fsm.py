@@ -185,7 +185,7 @@ def code_transitions(index=None, switch=None, output=None, display=''):
 
 
 def minterms(flip_flop, index, pin=''):
-    """Generates minterms for functions
+    """Simulates a JK flip flop to generate minterms for functions
 
     Input: flip_flop -> map of transitions
            index -> index of the minterm codes corresponding to the flip flop
@@ -219,7 +219,7 @@ def minterms(flip_flop, index, pin=''):
             if int(j):
                 minterms.append(i)
 
-    return minterms, dont_cares
+    return sorted(minterms), sorted(dont_cares)
 
 
 def ic_factory():
@@ -236,18 +236,18 @@ def ic_factory():
     for bins in xrange(2):
 
         for bits in xrange(4):
-            bool_func['J' + str(bits)].extend(sorted(minterms(code_transitions(
-                index=bits, switch=bins), bits, 'j')[0]))
-            bool_func['K' + str(bits)].extend(sorted(minterms(code_transitions(
-                index=bits, switch=bins), bits, 'k')[0]))
-            bool_func['J' + str(bits) + '_D'].extend(sorted(minterms(
-                code_transitions(index=bits, switch=bins), bits, 'j')[1]))
-            bool_func['K' + str(bits) + '_D'].extend(sorted(minterms(
-                code_transitions(index=bits, switch=bins), bits, 'k')[1]))
+            bool_func['J' + str(bits)].extend(minterms(code_transitions(
+                index=bits, switch=bins), bits, 'j')[0])
+            bool_func['K' + str(bits)].extend(minterms(code_transitions(
+                index=bits, switch=bins), bits, 'k')[0])
+            bool_func['J' + str(bits) + '_D'].extend(minterms(
+                code_transitions(index=bits, switch=bins), bits, 'j')[1])
+            bool_func['K' + str(bits) + '_D'].extend(minterms(
+                code_transitions(index=bits, switch=bins), bits, 'k')[1])
 
         for outputs in xrange(2):
-            bool_func['z' + str(outputs)].extend(sorted(minterms(
-                code_transitions(switch=bins, output=outputs), -1)[0]))
+            bool_func['z' + str(outputs)].extend(minterms(
+                code_transitions(switch=bins, output=outputs), -1)[0])
 
     # sorts map
     return OrderedDict(sorted(bool_func.items()))
