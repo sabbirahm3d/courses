@@ -18,7 +18,7 @@ module main;
 
 	always
 	    begin
-	        // a = a + 1'b1;
+	        a = a + 1'b1;
 	        #5 $monitor("CLK=%b, x=%b, y0=%b, y1=%b", CLK, a, y0, y1);
 	    end
 

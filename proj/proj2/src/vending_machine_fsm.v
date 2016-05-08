@@ -3,7 +3,7 @@ module vending_machine_fsm(
     output y0, y1);
 
     wire J0, K0, J1, K1, J2, K2, J3, K3;
-    wire b, b_, c, c_, d, d_, e, e_;
+    output b, b_, c, c_, d, d_, e, e_;
 
     jk_flipflop JK0(.J(J0), .K(K0), .CLK(CLK), .Q(b), .Q_NOT(b_));
     jk_flipflop JK1(.J(J1), .K(K1), .CLK(CLK), .Q(c), .Q_NOT(c_));

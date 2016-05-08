@@ -1,33 +1,44 @@
 DEP = jk_flipflop.v vending_machine_fsm.v
-TESTBENCH = main.v
-# TBOUTPUT = waves.lxt	
-# THIS NEEDS TO MATCH THE OUTPUT FILE
-#FROM YOUR TESTBENCH
-COMPILER = iverilog
-SIMULATOR = vvp
-VIEWER = gtkwave
+TESTBENCH0 = tb_dimes.v
+TESTBENCH1 = tb_quarters.v
+TESTBENCH2 = tb_both.v
+TESTBENCH3 = jk_tb.v
+COMPILER = ncverilog
 
-#OPTIONS
+# flags that work on other compilers besides ncverilog
 COFLAGS = -v -o
-SFLAGS = -v
-SOUTPUT = -lxt		#SIMULATOR OUTPUT TYPE
-#TOOL OUTPUT
-EXE = proj2.out			#COMPILER OUTPUT
 
-compile: $(TESTBENCH) $(DEP)
-	$(COMPILER) $(DEP) $(TESTBENCH) -o $(EXE)
+# compiler output
+EXE = proj2.out
 
+
+# compile testbench to verify the FSM with both 0 and 1 inputs
+both: $(TESTBENCH0) $(DEP)
+	$(COMPILER) $(DEP) $(TESTBENCH2)
+
+# compile testbench to verify the FSM with only 0 inputs
+dimes: $(TESTBENCH0) $(DEP)
+	$(COMPILER) $(DEP) $(TESTBENCH0)
+
+# compile testbench to verify the FSM with only 1 inputs
+quarters: $(TESTBENCH0) $(DEP)
+	$(COMPILER) $(DEP) $(TESTBENCH1)
+
+# compile testbench to verify the JK flip flop module
+jk: $(TESTBENCH0) $(DEP)
+	$(COMPILER) $(DEP) $(TESTBENCH3)
+
+# compiles dependencies for the executible (when compiled with the -o option)
 $(EXE): $(TESTBENCH) $(DEP)
 	$(COMPILER) $(EXE) $(TESTBENCH) $(DEP)
 
-display: $(TBOUTPUT)
-	$(VIEWER) $(TBOUTPUT) &
-
+# clean directory of executibles
 .PHONY: clean
 clean:
-	rm -f  *.out
+	rm -f  *.out *.log
 	clear
 
+# run compiled executible
 .PHONY: run
 run:
-	./$(EXE)
+	./*.out
