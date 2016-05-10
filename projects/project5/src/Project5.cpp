@@ -39,15 +39,21 @@ int main(int argc, char **argv) {
             numCities++;
         }
 
-        PerfectHash *table = new PerfectHash(numCities / 2);
+        numCities = numCities / 2;
+
+        PerfectHash *table = new PerfectHash(numCities);
 
         for (int i = 0; i < fileData->size() - 1; i++) {
             table->Map((*fileData)[i], (*fileData)[i + 1]);
 //            std::cout << table->Value((*fileData)[i]) << std::endl;
         }
 
-        std::cout << table->collisions << std::endl;
-        std::cout << table->Value("Zephyrhills North, FL") << std::endl;
+//        for (int i = 0; i < fileData->size() - 1; i++) {
+////            table->Map((*fileData)[i], (*fileData)[i + 1]);
+//            std::cout << table->Value((*fileData)[i]) << std::endl;
+//        }
+        std::cout << table->GetCollisions() << std::endl;
+        std::cout << table->Value("Williamsburg, FL") << std::endl;
 
         delete table;
         table = NULL;

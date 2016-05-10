@@ -12,4 +12,5 @@ set(SOURCE_FILES
         src/BackupHash.cpp
         src/HashException.h
         )
+
 add_executable(project5 ${SOURCE_FILES} src/input.txt)

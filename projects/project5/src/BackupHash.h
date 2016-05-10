@@ -1,3 +1,6 @@
+#ifndef BACKUPHASH_H
+#define BACKUPHASH_H
+
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
@@ -6,7 +9,7 @@
 #include <vector>
 
 #include "Pair.h"
-#include "PerfectHash.h"
+//#include "PerfectHash.h"
 
 #define PRIME1 16890581
 #define PRIME2 17027399
@@ -41,45 +44,50 @@ public:
 
     }
 
+    static unsigned long Hash(std::string, int);
 
-    big_int ASCII(std::string city) {
+    static big_int RandomInt(int, big_int);
 
-        big_int c = RandomInt(1, PRIME2);
-        int sum = 0;
+    static unsigned long HashFunc(int, int);
 
-        for (unsigned int i = 0; i < city.size(); ++i) {
-            sum += (int) (pow(c, i) * city[i]);
-        }
-
-        return HashFunc(sum % PRIME2);
-
-    }
-
-
-    big_int RandomInt(int lower, big_int upper) {
-
-        srand(tries);
-//    tries++;
-        return rand() % upper + lower;
-
-    }
-
-
-    big_int HashFunc(int value) {
-
-        big_int a = RandomInt(1, PRIME1);
-        big_int b = RandomInt(0, PRIME1 - 1);
-
-        return ((big_int) (a * value + b) % PRIME1) % m_size;
-
-    }
+//    big_int Hash(std::string city) {
+//
+//        big_int c = RandomInt(1, PRIME2);
+//        int sum = 0;
+//
+//        for (unsigned int i = 0; i < city.size(); ++i) {
+//            sum += (int) (pow(c, i) * city[i]);
+//        }
+//
+//        return HashFunc(sum % PRIME2);
+//
+//    }
+//
+//
+//    big_int RandomInt(int lower, big_int upper) {
+//
+//        srand(tries);
+////    tries++;
+//        return rand() % upper + lower;
+//
+//    }
+//
+//
+//    big_int HashFunc(int value) {
+//
+//        big_int a = RandomInt(1, PRIME1);
+//        big_int b = RandomInt(0, PRIME1 - 1);
+//
+//        return ((big_int) (a * value + b) % PRIME1) % m_size;
+//
+//    }
 
     std::string Value(std::string city) {
 
-        big_int hash = (ASCII(city));
+        big_int hash = Hash(city, m_size);
 
         while (table[hash] != NULL && (table[hash])->GetCity() != city) {
-            hash = (ASCII(city));
+            hash = Hash(city, m_size);
         }
 
         if (table[hash] == NULL)
@@ -93,10 +101,10 @@ public:
 
     void Map(std::string city, std::string coords) {
 
-        big_int hash = (ASCII(city));
+        big_int hash = Hash(city, m_size);
 
         if (table[hash] != NULL && table[hash]->GetCity() != city) {
-            hash = (ASCII(city));
+            hash = Hash(city, m_size);
         }
 
         if (table[hash] != NULL)
@@ -104,7 +112,7 @@ public:
 
         table[hash] = new Pair(city, coords);
 
-    std::cout << "backup used" << std::endl;
+        std::cout << "backup used" << std::endl;
 
     }
 
@@ -116,3 +124,6 @@ private:
 
 
 };
+
+
+#endif

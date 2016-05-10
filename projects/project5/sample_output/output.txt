@@ -1,0 +1,44 @@
+
+p1: 16890581
+p2: 17027399
+a: 12588336
+b: 13007675
+c: 13887798
+
+number of cities: 1000
+maximum collisions: 7
+# primary slots with 0 cities: 365
+# primary slots with 1 cities: 371
+# primary slots with 2 cities: 192
+# primary slots with 3 cities: 50
+# primary slots with 4 cities: 17
+# primary slots with 5 cities: 4
+# primary slots with 6 cities: 0
+# primary slots with 7 cities: 1
+# primary slots with 8 cities: 0
+# primary slots with 9 cities: 0
+** cities in the slot with most collisions **
+Ajo, AZ (32.37172 -112.86071)
+Fowler, MI (43.0017 -84.73972)
+Merriam Woods, MO (36.71395 -93.16185)
+Minetto, NY (43.39812 -76.47744)
+Morehead City, NC (34.72294 -76.72604)
+Overbrook, KS (38.78056 -95.5572)
+San Joaquin Hills, CA (33.61169 -117.83672)
+# secondary hash tables trying 1 hash functions: 36
+# secondary hash tables trying 2 hash functions: 0
+# secondary hash tables trying 3 hash functions: 161
+# secondary hash tables trying 4 hash functions: 44
+# secondary hash tables trying 5 hash functions: 22
+# secondary hash tables trying 6 hash functions: 1
+# secondary hash tables trying 7 hash functions: 0
+# secondary hash tables trying 8 hash functions: 0
+# secondary hash tables trying 9 hash functions: 0
+# secondary hash tables trying 10 hash functions: 0
+number of secondary hash tables with more than one item: 264
+average # of hash functions tried: 3.07197
+city details: Key = 818
+Ringgold, GA (34.91591 -85.10912):
+
+
+

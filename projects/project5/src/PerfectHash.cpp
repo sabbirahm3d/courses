@@ -42,49 +42,49 @@ PerfectHash::~PerfectHash() {
 }
 
 
-big_int PerfectHash::ASCII(std::string city) {
-
-    big_int c = RandomInt(1, PRIME2);
-    int sum = 0;
-
-    for (unsigned int i = 0; i < city.size(); ++i) {
-        sum += (int) (pow(c, i) * city[i]);
-    }
-
-    return HashFunc(sum % PRIME2);
-
-}
-
-
-big_int PerfectHash::RandomInt(int lower, big_int upper) {
-
-    srand(tries);
-//    tries++;
-    return rand() % upper + lower;
-
-}
-
-
-big_int PerfectHash::HashFunc(int value) {
-
-    big_int a = RandomInt(1, PRIME1);
-    big_int b = RandomInt(0, PRIME1 - 1);
-//    std::cout << a << " " << b << std::endl;
-
-    return ((big_int) (a * value + b) % PRIME1) % m_size;
-
-}
+//big_int PerfectHash::Hash(std::string city) {
+//
+//    big_int c = RandomInt(1, PRIME2);
+//    int sum = 0;
+//
+//    for (unsigned int i = 0; i < city.size(); ++i) {
+//        sum += (int) (pow(c, i) * city[i]);
+//    }
+//
+//    return HashFunc(sum % PRIME2);
+//
+//}
+//
+//
+//big_int PerfectHash::RandomInt(int lower, big_int upper) {
+//
+//    srand(tries);
+////    tries++;
+//    return rand() % upper + lower;
+//
+//}
+//
+//
+//big_int PerfectHash::HashFunc(int value) {
+//
+//    big_int a = RandomInt(1, PRIME1);
+//    big_int b = RandomInt(0, PRIME1 - 1);
+////    std::cout << a << " " << b << std::endl;
+//
+//    return ((big_int) (a * value + b) % PRIME1) % m_size;
+//
+//}
 
 std::string PerfectHash::Value(std::string city) {
 
-    big_int hash = ASCII(city);
+    big_int hash = BackupHash::Hash(city, m_size);
 
     BackupHash *newTable = new BackupHash(10);
 
     while (table[hash] != NULL && (table[hash])->GetCity() != city) {
         newTable->Value(city);
         tries++;
-        hash = (ASCII(city));
+        hash = BackupHash::Hash(city, m_size);
     }
 
     backups.push_back(newTable);
@@ -100,14 +100,16 @@ std::string PerfectHash::Value(std::string city) {
 
 void PerfectHash::Map(std::string city, std::string coords) {
 
-    big_int hash = ASCII(city);
+    big_int hash = BackupHash::Hash(city, m_size);
 
+    std::cout << hash << std::endl;
+    
     BackupHash *newTable = new BackupHash(10);
 
     if (table[hash] != NULL && table[hash]->GetCity() != city) {
         newTable->Map(city, coords);
         tries++;
-        hash = ASCII(city);
+        hash = BackupHash::Hash(city, m_size);
         collisions++;
     }
 
@@ -118,6 +120,5 @@ void PerfectHash::Map(std::string city, std::string coords) {
 
     table[hash] = new Pair(city, coords);
 
-//    std::cout << city << std::endl;
 
 }

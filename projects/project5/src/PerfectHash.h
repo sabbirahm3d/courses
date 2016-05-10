@@ -23,7 +23,6 @@ class PerfectHash {
 public:
 
 
-    big_int collisions;
     /* ******************** Constructors ******************** */
 
     /* MMheap() - Default constructor
@@ -39,22 +38,26 @@ public:
 
     ~PerfectHash();
 
-    unsigned long ASCII(std::string);
-
-    big_int RandomInt(int, big_int);
-
-    unsigned long HashFunc(int);
-
     std::string Value(std::string);
 
     void Map(std::string, std::string);
 
+    big_int GetCollisions() { return collisions; }
+
 private:
+
+//    unsigned long Hash(std::string);
+//
+//    big_int RandomInt(int, big_int);
+//
+//    unsigned long HashFunc(int);
 
     std::vector<Pair *> table;
     std::vector<BackupHash *> backups;
     int m_size;
     unsigned int tries;
+    big_int collisions;
+
 };
 
 
