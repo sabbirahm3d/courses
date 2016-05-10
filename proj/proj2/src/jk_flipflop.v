@@ -1,5 +1,8 @@
-module jk_flipflop(
-    input J, K, CLK,
+// jk_flipflop.v
+// Module for a JK flip flop
+
+module jk_flipflop (
+    input J, K, CLK, reset,
     output Q, Q_NOT);
 
     // If J and K are both low, Q holds.
@@ -7,7 +10,11 @@ module jk_flipflop(
     // If J and K are both high, then Q toggles.
     reg Q, Q_NOT;
 
-    always@(posedge CLK) begin
+    always@(negedge CLK or negedge reset) begin
+
+        if (!reset) begin
+            Q <= 1'b0;
+        end
 
         case({J,K})
 

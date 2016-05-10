@@ -1,3 +1,6 @@
+// jk_tb.v
+// Testbench for jk_flipflop
+
 module jk_tb;
 
     reg J, K, CLK;

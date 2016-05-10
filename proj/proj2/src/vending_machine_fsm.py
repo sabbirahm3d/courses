@@ -257,7 +257,7 @@ if __name__ == '__main__':
 
     print __doc__, '\n'
 
-    print "Default don't cares:", [int(i, 2) for i in dont_cares()]
+    print "Default don't cares:", sorted([int(i, 2) for i in dont_cares()])
 
     for i, j in ic_factory().iteritems():
         print i, j
