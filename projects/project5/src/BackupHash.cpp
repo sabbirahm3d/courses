@@ -16,8 +16,7 @@ big_int BackupHash::Hash(std::string city, int size) {
 
 big_int BackupHash::RandomInt(int lower, big_int upper) {
 
-    srand(time(NULL));
-//    tries++;
+    srand(0);
     return rand() % upper + lower;
 
 }

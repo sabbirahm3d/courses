@@ -89,11 +89,14 @@ std::string PerfectHash::Value(std::string city) {
 
     backups.push_back(newTable);
 
-    if (table[hash] == NULL)
-        return "";
+    if (table[hash] == NULL) {
+        return "Value not found.";
+    }
 
-    else
+    else {
+        std::cout << "Key: " << hash << std::endl << city << ": ";
         return table[hash]->GetCoords();
+    }
 
 }
 
@@ -102,8 +105,6 @@ void PerfectHash::Map(std::string city, std::string coords) {
 
     big_int hash = BackupHash::Hash(city, m_size);
 
-    std::cout << hash << std::endl;
-    
     BackupHash *newTable = new BackupHash(10);
 
     if (table[hash] != NULL && table[hash]->GetCity() != city) {

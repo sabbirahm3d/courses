@@ -8,12 +8,12 @@
  * Driver script to test the MMheap class
  */
 
-//#include "BackupHash.h"
 #include "PerfectHash.h"
 
 #include <fstream>
 
-#define EXPECTED_ARGC 2
+const int EXPECTED_ARGC = 2;
+const std::string SEARCH_FOR_CITY = "Torrington, WY";
 
 int main(int argc, char **argv) {
 
@@ -48,12 +48,8 @@ int main(int argc, char **argv) {
 //            std::cout << table->Value((*fileData)[i]) << std::endl;
         }
 
-//        for (int i = 0; i < fileData->size() - 1; i++) {
-////            table->Map((*fileData)[i], (*fileData)[i + 1]);
-//            std::cout << table->Value((*fileData)[i]) << std::endl;
-//        }
         std::cout << table->GetCollisions() << std::endl;
-        std::cout << table->Value("Williamsburg, FL") << std::endl;
+        std::cout << table->Value(SEARCH_FOR_CITY) << std::endl;
 
         delete table;
         table = NULL;

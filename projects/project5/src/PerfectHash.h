@@ -46,7 +46,7 @@ public:
 
 private:
 
-//    unsigned long Hash(std::string);
+//    int Hash(std::string);
 //
 //    big_int RandomInt(int, big_int);
 //

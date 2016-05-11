@@ -39,6 +39,3 @@ number of secondary hash tables with more than one item: 264
 average # of hash functions tried: 3.07197
 city details: Key = 818
 Ringgold, GA (34.91591 -85.10912):
-
-
-

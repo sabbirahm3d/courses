@@ -93,8 +93,10 @@ public:
         if (table[hash] == NULL)
             return "";
 
-        else
+        else {
+            std::cout << "backupKey: " << hash << std::endl << city << ": ";
             return table[hash]->GetCoords();
+        }
 
     }
 
