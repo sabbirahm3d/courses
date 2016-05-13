@@ -1,64 +1,84 @@
-/* File:    MMheap.h
- * Project: CMSC 341: Project 4, Spring 2016
+/* File:    PerfectHash.h
+ * Project: CMSC 341: Project 5, Spring 2016
  * Author:  Sabbir Ahmed
- * Date:    4/23/16
+ * Date:    5/11/16
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * The header file for the MMheap class. MMheap is a templated class with its
- * data type templated as DataType and std::less is used to determine
- * relationships between nodes in the structure
+ * Declaration of the PerfectHash class. This class initializes the primary
+ * hash tables using the hashing methods provided by the HashGen class and
+ * creates secondary back up tables in case of collisions.
  */
 
 #ifndef PERFECTHASH_H
 #define PERFECTHASH_H
 
-#include <iostream>
-#include <vector>
-
 #include "BackupHash.h"
 
+
 class PerfectHash {
-
 public:
-
 
     /* ******************** Constructors ******************** */
 
-    /* MMheap() - Default constructor
+    /* PerfectHash() - Default constructor
      * Preconditions: None
-     * Postconditions: None */
+     * Postconditions: Initializes the containers for the hash tables, its
+       member variables and the hash generator, and maps the inputted vector
+       of file data */
 
-    PerfectHash(int);
+    PerfectHash(std::vector<Pair *>);
 
+    /* ******************** Constructors ******************** */
 
-    /* MMheap() - Default constructor
+    /* PerfectHash() - Default destructor
      * Preconditions: None
-     * Postconditions: None */
+     * Postconditions: Frees memory allocated by the containers and hash
+       generator objects */
 
     ~PerfectHash();
 
+    /* ******************** Public methods ******************** */
+
+    /* Stats()
+     * Preconditions: None
+     * Postconditions: Prints out the statistics on the hash tables */
+
+    void Stats();
+
+    /* Value()
+     * Preconditions: None
+     * Postconditions: Prints and returns the coordinates mapped with the
+       inputted city */
+
     std::string Value(std::string);
-
-    void Map(std::string, std::string);
-
-    big_int GetCollisions() { return collisions; }
 
 private:
 
-//    int Hash(std::string);
-//
-//    big_int RandomInt(int, big_int);
-//
-//    unsigned long HashFunc(int);
+    /* ******************** Private methods ******************** */
 
-    std::vector<Pair *> table;
-    std::vector<BackupHash *> backups;
+    /* Map()
+     * Preconditions: None
+     * Postconditions: Maps cities with their locations in the custom hash
+       table containers */
+
+    void Map(Pair *);
+
+    /* InitHash()
+     * Preconditions: None
+     * Postconditions: Generates initial seed and hash values */
+
+    void InitHash();
+
+    /* ******************** Private attributes ******************** */
+
+    HashGen *generator;
+    std::vector<Pair *> primaryTable;
+    std::vector<BackupHash *> backupTable;
+
     int m_size;
-    unsigned int tries;
-    big_int collisions;
+    big_int c, a, b;
 
 };
-
 
 #endif

@@ -1,70 +1,64 @@
-/* File:    main.cpp
+/* File:    Project5.cpp
  * Project: CMSC 341: Project 5, Spring 2016
  * Author:  Sabbir Ahmed
- * Date:    4/23/16
+ * Date:    5/11/16
  * Section: 02
  * E-mail:  sabbir1@umbc.edu
  *
- * Driver script to test the MMheap class
+ * Driver script to test the PerfectHash class.
  */
 
+#include <fstream>  // for file IO
+
+#include "Pair.h"
 #include "PerfectHash.h"
 
-#include <fstream>
-
+// for testing the lookup of Value()
+const std::string SEARCH_FOR_CITY = "Ringgold, GA";
 const int EXPECTED_ARGC = 2;
-const std::string SEARCH_FOR_CITY = "Torrington, WY";
+
 
 int main(int argc, char **argv) {
 
-    std::string fileName;
+    std::string filename;
+    // temporary vector to hold all file data
+    std::vector<Pair *> *cities = new std::vector<Pair *>;
 
     if (argc == EXPECTED_ARGC) {
-        fileName = argv[1];
+
+        filename = argv[1];
+
     } else {
+
         std::cout << "Not enough command line arguments." << std::endl;
-        return 0;
+        return 1;
+
     }
 
-    std::ifstream file(fileName.c_str());
-    int numCities = 0;
+    std::ifstream file(filename.c_str());
 
     if (file.good()) {
-        std::string data;
-        std::vector<std::string> *fileData = new std::vector<std::string>;
-        std::string coords;
 
-        while (getline(file, data)) {
-            fileData->push_back(data);
-            numCities++;
+        std::string city, coords;
+
+        while (getline(file, city) && getline(file, coords)) {
+            cities->push_back(new Pair(city, coords));
         }
-
-        numCities = numCities / 2;
-
-        PerfectHash *table = new PerfectHash(numCities);
-
-        for (int i = 0; i < fileData->size() - 1; i++) {
-            table->Map((*fileData)[i], (*fileData)[i + 1]);
-//            std::cout << table->Value((*fileData)[i]) << std::endl;
-        }
-
-        std::cout << table->GetCollisions() << std::endl;
-        std::cout << table->Value(SEARCH_FOR_CITY) << std::endl;
-
-        delete table;
-        table = NULL;
-        delete fileData;
-        fileData = NULL;
-
-    } else {
-
-        std::cout << "File was not opened." << std::endl;
-        return 0;
 
     }
 
+    // instantiate PerfectHash object
+    PerfectHash *primaryHash = new PerfectHash(*cities);
 
-    std::cout << numCities << " cities found" << std::endl;
+    // print out statistics on the table
+    primaryHash->Stats();
 
-    return 0;
+    // look up the value mapped to the key
+    primaryHash->Value(SEARCH_FOR_CITY);
+
+    delete cities;
+    cities = NULL;
+    delete primaryHash;
+    primaryHash = NULL;
+
 }

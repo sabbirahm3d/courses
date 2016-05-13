@@ -1,131 +1,110 @@
+/* File:    BackupHash.h
+ * Project: CMSC 341: Project 5, Spring 2016
+ * Author:  Sabbir Ahmed
+ * Date:    5/11/16
+ * Section: 02
+ * E-mail:  sabbir1@umbc.edu
+ *
+ * Declaration of the BackupHash class. This class implements the secondary
+ * hash tables that stores and values after collisions in the primary hash
+ * table in the perfect hashing scheme.
+ */
+
 #ifndef BACKUPHASH_H
 #define BACKUPHASH_H
 
-#include <cstdlib>
-#include <iostream>
-#include <math.h>
-#include <time.h>
-#include <stdlib.h>
 #include <vector>
 
 #include "Pair.h"
-//#include "PerfectHash.h"
-
-#define PRIME1 16890581
-#define PRIME2 17027399
-
-typedef unsigned long big_int;
+#include "HashGen.h"
 
 class BackupHash {
 public:
 
-/* ******************** Constructors ******************** */
+    /* ******************** Constructors ******************** */
 
-/* MMheap() - Default constructor
- * Initializes the heap vector */
+    /* BackupHash() - Default constructor
+     * Preconditions: None
+     * Postconditions: Initializes member variables and the hash generator */
 
-    BackupHash(int size) : m_size(size), tries(0) {
+    BackupHash();
 
-        for (int i = 0; i < m_size; i++) {
-            table.push_back(NULL);
-        }
+    /* ******************** Destructors ******************** */
 
-    }
+    /* ~BackupHash() - Default destructor
+     * Preconditions: None
+     * Postconditions: Frees memory allocated by the containers and hash
+       generator objects */
 
+    ~BackupHash();
 
-    ~BackupHash() {
+    /* ******************** Public methods ******************** */
 
-        for (unsigned int i = 0; i < table.size(); i++)
-            if (table[i] != NULL) {
-                delete table[i];
-            }
+    /* Enqueue()
+     * Preconditions: None
+     * Postconditions: Appends to the temporary vector of Pair objects waiting
+       to be mapped */
 
-        table.resize(0);
+    void Enqueue(Pair *);
 
-    }
+    /* InitTable()
+     * Preconditions: None
+     * Postconditions: Initialize the secondary table with the number of
+       buckets and other member variables */
 
-    static unsigned long Hash(std::string, int);
+    void InitTable();
 
-    static big_int RandomInt(int, big_int);
+    /* Dump()
+     * Preconditions: None
+     * Postconditions: Prints out the current values stored in the container */
 
-    static unsigned long HashFunc(int, int);
+    void Dump();
 
-//    big_int Hash(std::string city) {
-//
-//        big_int c = RandomInt(1, PRIME2);
-//        int sum = 0;
-//
-//        for (unsigned int i = 0; i < city.size(); ++i) {
-//            sum += (int) (pow(c, i) * city[i]);
-//        }
-//
-//        return HashFunc(sum % PRIME2);
-//
-//    }
-//
-//
-//    big_int RandomInt(int lower, big_int upper) {
-//
-//        srand(tries);
-////    tries++;
-//        return rand() % upper + lower;
-//
-//    }
-//
-//
-//    big_int HashFunc(int value) {
-//
-//        big_int a = RandomInt(1, PRIME1);
-//        big_int b = RandomInt(0, PRIME1 - 1);
-//
-//        return ((big_int) (a * value + b) % PRIME1) % m_size;
-//
-//    }
+    /* Value()
+     * Preconditions: None
+     * Postconditions: Prints and returns the coordinates mapped with the
+       inputted city */
 
-    std::string Value(std::string city) {
+    std::string Value(std::string);
 
-        big_int hash = Hash(city, m_size);
+    /* Size()
+     * Preconditions: None
+     * Postconditions: Returns size of the temporary vector of all the Pairs
+       passed */
 
-        while (table[hash] != NULL && (table[hash])->GetCity() != city) {
-            hash = Hash(city, m_size);
-        }
+    unsigned int Size();
 
-        if (table[hash] == NULL)
-            return "";
+    /* Tries()
+     * Preconditions: None
+     * Postconditions: Returns number of hash functions attempted */
 
-        else {
-            std::cout << "backupKey: " << hash << std::endl << city << ": ";
-            return table[hash]->GetCoords();
-        }
-
-    }
-
-
-    void Map(std::string city, std::string coords) {
-
-        big_int hash = Hash(city, m_size);
-
-        if (table[hash] != NULL && table[hash]->GetCity() != city) {
-            hash = Hash(city, m_size);
-        }
-
-        if (table[hash] != NULL)
-            delete table[hash];
-
-        table[hash] = new Pair(city, coords);
-
-        std::cout << "backup used" << std::endl;
-
-    }
+    unsigned int Tries();
 
 private:
 
-    std::vector<Pair *> table;
-    int m_size;
-    unsigned int tries;
+    /* ******************** Private methods ******************** */
 
+    /* Map()
+     * Preconditions: None
+     * Postconditions: Maps cities with their locations in the custom hash
+       table containers, and returns true if mapped without collisions */
+
+    bool Map();
+
+    /* Rehash()
+     * Preconditions: None
+     * Postconditions: Increments seed and hash values */
+
+    void Rehash();
+
+    /* ******************** Private attributes ******************** */
+
+    HashGen *generator;
+    std::vector<Pair *> temp, backupTable;
+
+    big_int c, a, b;
+    unsigned int tries, m_size, bucketSize;
 
 };
-
 
 #endif
