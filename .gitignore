@@ -1,0 +1,10 @@
+# Jupyter temps
+.ipynb_checkpoints
+
+# Python compiled
+__pycache__/
+*.pyc
+
+# PIP and virtualenv
+pip-selfcheck.json
+.venv/
