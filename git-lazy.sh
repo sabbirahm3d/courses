@@ -1,5 +1,14 @@
 #!/bin/sh
+
 cd DS-DC-13
-git pull
-cd ..
-git add -A
+echo "Attempting git pull..."
+
+if git pull | grep 'Already up-to-date.'; then
+   true
+
+else
+    cd ..
+    git add -A
+    git status
+
+fi
