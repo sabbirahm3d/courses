@@ -8,6 +8,7 @@ if git pull | grep 'Already up-to-date.'; then
 
 else
     cd ..
+    cp -r -n DS-DC-13/* copy/
     git add -A
     git status
 
