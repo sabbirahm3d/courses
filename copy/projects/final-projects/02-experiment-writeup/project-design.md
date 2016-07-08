@@ -39,21 +39,19 @@ audio features and metadata for one million contemporary popular music tracks
 - [musiXmatch Dataset](http://labrosa.ee.columbia.edu/millionsong/musixmatch): 
 lyrics mapping to 23.8% of the songs from the Million Song Dataset
 
-The following datasets are being scraped manually:
-- Charted: songs that hit the Billboard Year-End Hot 100 Singles charts scraped from Wikipedia
-
-**Usage**
+The following datasets are being manipulated and/ or scraped manually:
 - **charted_**: generated from scraping Wikipedia and Billboard, contains list of all charted songs from 1961 - 2010, along with year
 - **charted2_**: generated from scraping Wikipedia and Billboard, contains list of all charted songs from 2011 - 2015, along with year
 - charted: charted_ mapped with the lyrics bag of words of the songs extracted from MetroLyrics
 - charted2: charted2_ mapped with the lyrics bag of words of the songs extracted from MetroLyrics
 - MSD_: 1% (10000) randomly selected songs subset from the MSD, containing only track_id and year
-- mxm: musiXmatch dataset, contains all 23.8% of the MSD with mapping to their lyrics bag of words
+- **mxm**: musiXmatch dataset, contains all 23.8% of the MSD with mapping to their lyrics bag of words
 - MSD_mxm: intersection of MSD_ and mxm
 - uncharted: randomly selected songs from MSD_mxm, with mapping to their release years and lyrics bag of words (only covers 1961 - 2010)
 - uncharted2: ?
-- data: final dataset merging both the charted and uncharted sets, containing year, lyrics bag of words, and the other analyses
+- final: final dataset merging both the charted and uncharted sets, containing year, lyrics bag of words, and the other analyses
 
+**Bold** represents completion of dataset
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
@@ -75,16 +73,16 @@ The following datasets are being scraped manually:
   </tr>
   <tr>
     <td class="tg-s6z2">Year</td>
-    <td class="tg-s6z2">MillionSongsSubset,intersected charted songs</td>
-    <td class="tg-s6z2">MillionSongsSubset,random uncharted songs</td>
-    <td class="tg-s6z2">Wikipedia,during list generation</td>
+    <td class="tg-s6z2">MillionSongsSubset, intersected charted songs</td>
+    <td class="tg-s6z2">MillionSongsSubset, random uncharted songs</td>
+    <td class="tg-s6z2">Wikipedia, during list generation</td>
     <td class="tg-s6z2">?</td>
   </tr>
   <tr>
     <td class="tg-s6z2">Lyrics</td>
-    <td class="tg-s6z2">musiXmatch + DataWaves,intersected charted songs</td>
-    <td class="tg-s6z2">musiXmatch,random uncharted songs</td>
-    <td class="tg-s6z2">DataWaves,MetroLyrics</td>
+    <td class="tg-s6z2">musiXmatch + DataWaves, intersected charted songs</td>
+    <td class="tg-s6z2">musiXmatch + DataWaves, random uncharted songs</td>
+    <td class="tg-s6z2">DataWaves, MetroLyrics</td>
     <td class="tg-s6z2">?</td>
   </tr>
 </table>
