@@ -53,6 +53,7 @@ The following datasets are being manipulated and/ or scraped manually:
 
 **Bold** represents completion of dataset
 
+<html>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
@@ -86,7 +87,7 @@ The following datasets are being manipulated and/ or scraped manually:
     <td class="tg-s6z2">?</td>
   </tr>
 </table>
-
+</html>
 **For a continuously updated list of datasets to be used, check out the repository for the
 [project](https://github.com/kug3lblitz/Heat-Replay/tree/master/src/data).**
 
