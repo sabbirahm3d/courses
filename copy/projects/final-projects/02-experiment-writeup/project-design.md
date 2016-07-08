@@ -8,8 +8,7 @@ dataframe that will consist of songs that charted and those that did not chart, 
 the set, along with the bag of words version of their lyrics and the analyses on them, such as sentiment analysis, 
 frequency of obscene words, frequency of words pertaining to certain themes, total number of unique words, etc. and 
 the year they charted. The dataframe will also include the last column 'charted', a binary variable that corresponds
-to the chart status of the song. Since the distribution of the charted and uncharted songs will be even, the dataframe
-ill be shuffled through some k folds cross validation and then trained through a logistic regression model.
+to the chart status of the song.
 
 ### Drafted structure of features
 
@@ -51,7 +50,9 @@ The following datasets are being manipulated and/ or scraped manually:
 - uncharted2: ?
 - final: final dataset merging both the charted and uncharted sets, containing year, lyrics bag of words, and the other analyses
 
-**Bold** represents completion of dataset
+**Bold** denotes completion of dataset
+
+The following is a summary of the compilation process for the several datasets:
 
 <html>
 <table class="tg">
@@ -82,6 +83,9 @@ The following datasets are being manipulated and/ or scraped manually:
   </tr>
 </table>
 </html>
+
+'?' denotes an unresolved solution to obtain dataset.
+
 **For a continuously updated list of datasets to be used, check out the repository for the
 [project](https://github.com/kug3lblitz/Heat-Replay/tree/master/src/data).**
 
@@ -103,8 +107,9 @@ thus will have to be scraped manually.
 
 ### Outcomes
 
-I am hoping to create several outputs corresponding to the different features in the final dataframe that can
-clearly distinguish between the categorical values (charted or uncharted). My model does not have to be very
-complicated... it can be several charts visualizing how each features affect the categorization of the songs.
-The project needs to be able to represent the data points fairly and that should allow an obvious trend among
+Since the distribution of the charted and uncharted songs will be even, the dataframe will be shuffled 
+through some k folds cross validation and then trained through a logistic regression model. I am hoping to 
+create several outputs corresponding to the different features in the final dataframe that can clearly distinguish
+between the categorical values (charted or uncharted). My model does not have to be very complicated... it can be
+several charts visualizing how each features affect the categorization of the songs. The project needs to be able to represent the data points fairly and that should allow an obvious trend among
 the charts.
