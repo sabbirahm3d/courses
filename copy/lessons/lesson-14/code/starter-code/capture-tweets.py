@@ -4,7 +4,7 @@ import sys
 import twitter
 
 if __name__ == '__main__':
-    results = twitter.retrieve_tweets(topic=sys.args[1])
+    results = twitter.retrieve_tweets(topic=sys.argv[1])
     out = open('captured-tweets.txt', 'ab')
     # The tweet is stored with key 'text',
     i = 0
