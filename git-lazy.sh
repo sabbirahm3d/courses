@@ -1,27 +1,20 @@
 #!/bin/sh
 
-cd DS-DC-13
-echo "Synchronizing class repo..."
+class=DS-DC-13
+project=Heat-Replay
 
-if git pull | grep 'Already up-to-date.'; then
-   true
-fi
+git_pull() {
+    cd $1
+    echo "Synchronizing $1"
+    if git pull | grep 'Already up-to-date.'; then
+        true
+    fi
+    cd ..
+}
 
-cd ..
+git_pull $class
+git_pull $project
 
-cp -r -n DS-DC-13/* copy/
-
-git add -A
-
-cd Heat-Replay
-
-echo "Synchronizing project..."
-
-if git pull | grep 'Already up-to-date.'; then
-   true
-fi
-
-cd ..
-
+cp -r -n $class/* copy/
 git add -A
 git status
