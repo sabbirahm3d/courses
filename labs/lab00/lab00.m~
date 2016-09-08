@@ -31,7 +31,7 @@ complex_exp_2;
 % hold off
 
 % figure
-% plot(t_2, natural_response, 'LineWidth',2)
+% plot(t_2, natural_response, 'LineWidth',4)
 % axis([0 5 -3 3])
 % title('Exponentially Decaying Sinusoid')
 % xlabel('Time (s)') % x-axis label
@@ -40,27 +40,20 @@ complex_exp_2;
 
 x = t_3;
 
+% y1 = real();
 subplot(2,2,1)
-plot(x, real(complex_exp_1), x, real(complex_exp_2), 'LineWidth', 2)
-title('Real Parts');
-xlabel('Time (s)'); % x-axis label
-ylabel('Value'); % y-axis label
-grid on;
+plot(x,real(complex_exp_1), x, real(complex_exp_2))
+title('Real Parts')
 
+y2 = sin(2*x);
 subplot(2,2,2)
-plot(x, imag(complex_exp_1), x, imag(complex_exp_2), 'LineWidth', 2)
+plot(x,y2)
 title('Imaginary Parts')
-xlabel('Time (s)') % x-axis label
-ylabel('Value') % y-axis label
-grid on;
 
-c_t = (complex_exp_1 + complex_exp_2) / 2;
+y3 = sin(4*x);
 subplot(2,2,3)
-plot(x, abs(c_t - cos(0.71*x)), 'LineWidth', 2)
-title('Error Function')
-xlabel('Time (s)') % x-axis label
-ylabel('Value') % y-axis label
-grid on;
+plot(x,y3)
+title('Error')
 
 
 diary diary_file.txt
