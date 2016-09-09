@@ -28,4 +28,4 @@ title('Unit Pulse + 3')
 
 subplot(3,3,9)
 plot(pulse_5)
-title('Unit Pulse - 2')
+title('Unit Pulse - 3')
