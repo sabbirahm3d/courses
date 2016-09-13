@@ -19,3 +19,8 @@ sum_of_y_1 / numel(y_1) == mean(y_1)
 y_1_anon = @(t) (2 * cos(2*pi.*t));
 y_1_anon(t);
 integral(y_1_anon, 0, 10)
+
+% c.
+syms x
+f = sin(5*x);
+diff(f)
