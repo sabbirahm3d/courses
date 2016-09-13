@@ -4,8 +4,8 @@
 t = 0 : 0.005 : 10;
 signal = 2 * cos(2*pi.*t);
 
-% verify data type of array generated
 % b.
+% verify data type of array generated
 class(signal);
 
 sum_of_signal = 0;
@@ -17,16 +17,13 @@ end
 sum_of_signal / numel(signal) == mean(signal)
 
 % c.
-% syms x
-% y_1_anon = @(t) (2 * cos(2*pi.*t));
-% y_1_anon(t);
-% integ_y_1 = integral(y_1_anon, 0, 10)
-
-% d.
 syms t;
 signal_func = 2*cos(2*pi*t);
-d_signal = diff(signal_func, t, 1);
+int(signal_func, t, 0, 10)
 int_signal = int(signal_func, t);
+
+% d.
+d_signal = diff(signal_func, t, 1);
 
 % e.
 figure
