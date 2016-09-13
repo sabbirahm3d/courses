@@ -20,8 +20,11 @@ fplot(t,x);
 subplot(212);
 fplot(t,int_x);
 
-% % c
-% syms t k T
-% x = sum(dirac(t-k*T));
-% figure
-% fplot(k,x)
+% c
+figure
+n = [1 2 3 0 2 5 0 1];
+f = zeros(length(n));
+for i = 1 : length(n)
+    f(i) = delta_comb(n(i));
+end
+stem(f)
