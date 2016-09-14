@@ -18,7 +18,9 @@ sum_of_signal = 0;
 for index = 1:numel(signal)
     sum_of_signal = sum_of_signal + signal(index);
 end
-sum_of_signal / numel(signal) == mean(signal)
+av_func = sum_of_signal / numel(signal);
+av_func == mean(signal)
+av_func
 
 % c.
 syms t;
