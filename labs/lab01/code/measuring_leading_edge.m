@@ -21,6 +21,11 @@ Standard_Deviation = std(rand_pulses);
 
 stats = table(Count, Minimum, Maximum, Mean, Standard_Deviation);
 
+figure;
+histogram(rand_pulses);
+ylabel('Frequency');
+xlabel('Value');
+title('Random Pulses with a 0.1 second Sampling Rate')
 writetable(stats, 'stats.csv');
 
 
@@ -48,7 +53,9 @@ Standard_Deviation = std(rand_pulses);
 
 stats = table(Count, Minimum, Maximum, Mean, Standard_Deviation);
 
+figure;
+histogram(rand_pulses);
+ylabel('Frequency');
+xlabel('Value');
+title('Random Pulses with a 0.05 second Sampling Rate')
 writetable(stats, 'stats_1.csv');
-
-
-
