@@ -67,12 +67,24 @@ def plot_ideal_IV(title, fig_name, piecewise=False):
     fig.savefig(fig_path + fig_name)
 
 
+def plot_in_out(fig_name):
+
+    fig, ax = plt.subplots(nrows=1, ncols=1)
+    fig.suptitle('Input/Output Voltages', fontsize=20)
+    plt.ylabel('Output Voltage (V)')
+    plt.xlabel('Input Voltage (V)')
+    plt.plot(df['V_in'], df['V_out'], '-b')
+    fig.savefig(fig_path + fig_name)
+
+
 if __name__ == '__main__':
 
-    plot_data_IV('Vd_1', 'Id_1', 'I-V Curve of Figure 1',
-                 'figure3.png', 'Turn-on voltage')
-    plot_data_IV('Vd_2', 'Id_2', 'I-V Curve of Figure 2',
-                 'figure4.png', 'Breakdown voltage')
+    # plot_data_IV('Vd_1', 'Id_1', 'I-V Curve of Figure 1',
+    #              'figure3.png', 'Turn-on voltage')
+    # plot_data_IV('Vd_2', 'Id_2', 'I-V Curve of Figure 2',
+    #              'figure4.png', 'Breakdown voltage')
 
-    plot_ideal_IV('Ideal Diode Model', 'ideal.png')
-    plot_ideal_IV('Piecewise Linear Diode Model', 'piecewise.png', True)
+    # plot_ideal_IV('Ideal Diode Model', 'ideal.png')
+    # plot_ideal_IV('Piecewise Linear Diode Model', 'piecewise.png', True)
+
+    plot_in_out('in_out_volt.png')
