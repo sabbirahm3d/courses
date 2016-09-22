@@ -79,12 +79,12 @@ def plot_in_out(fig_name):
 
 if __name__ == '__main__':
 
-    # plot_data_IV('Vd_1', 'Id_1', 'I-V Curve of Figure 1',
-    #              'figure3.png', 'Turn-on voltage')
-    # plot_data_IV('Vd_2', 'Id_2', 'I-V Curve of Figure 2',
-    #              'figure4.png', 'Breakdown voltage')
+    plot_data_IV('Vd_1', 'Id_1', 'I-V Curve of Figure 1',
+                 'figure3.png', 'Turn-on voltage')
+    plot_data_IV('Vd_2', 'Id_2', 'I-V Curve of Figure 2',
+                 'figure4.png', 'Breakdown voltage')
 
-    # plot_ideal_IV('Ideal Diode Model', 'ideal.png')
-    # plot_ideal_IV('Piecewise Linear Diode Model', 'piecewise.png', True)
+    plot_ideal_IV('Ideal Diode Model', 'ideal.png')
+    plot_ideal_IV('Piecewise Linear Diode Model', 'piecewise.png', True)
 
     plot_in_out('in_out_volt.png')
