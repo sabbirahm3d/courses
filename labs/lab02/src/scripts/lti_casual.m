@@ -8,9 +8,8 @@ t = 0:0.05:2;
 m = 2;
 n = 3;
 
-% x = @(t) (2*t);
-x_1 = rand(-5)
-y = filter(b, a, t);
+x = @(t) (2*t);
+y = filter(b, a, x(t));
 
 % testing linearity
 
