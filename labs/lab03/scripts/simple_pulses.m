@@ -7,10 +7,11 @@ x = pulse(t, 1);
 h = pulse(t, 1);
 n = t(end);
 
-y_n = zeros(length(x));
+y_hat = zeros(length(x));
 
 for index = 1 : 0.01: x(end)
-    y_n(index) = y_n(index) + (pulse(n-index, 1) * pulse(index, 1));
+    y_hat(index) = (pulse(n-index, 1) + pulse(index, 1));
 end;
 
-plot(t, y_n);
+% plot(t, y_hat)
+plot(t, pulse(n-t, 1)+pulse(t, 1));
