@@ -1,3 +1,5 @@
+# because testing your code on Python before MATLAB is the cool thing to do
+
 import matplotlib.pyplot as plt
 from numpy import arange, convolve, zeros_like
 
@@ -13,30 +15,24 @@ def pulse(t, T):
 
 
 x = [pulse(i, 1) for i in t]
-h = [-pulse(-i, 1) for i in t]
+h = [pulse(i, 1) for i in t]
 
 yhat = zeros_like(t)
 n = int(t[-1])
 
 for i in xrange(len(t)):
     for j in xrange(i + 1):
-        yhat[i] += x[j] + h[i - j]
+        yhat[i] += x[j] * h[i - j]
 
 
 fig, ax = plt.subplots(nrows=1, ncols=1)
-# ax.set_ylim([-1, 1])
-fig.suptitle('title', fontsize=20)
-plt.ylabel('Diode Current (mA)')
-plt.xlabel('Diode Voltage (V)')
+fig.suptitle('Iteration Convolution Test', fontsize=20)
 plt.plot(yhat, '-r', label='I-V curve')
-fig.savefig('test.png')
+fig.savefig('iteration.png')
 
 print min(convolve(x, h))
 
 fig, ax = plt.subplots(nrows=1, ncols=1)
-# ax.set_ylim([-1, 1])
-fig.suptitle('title', fontsize=20)
-plt.ylabel('Diode Current (mA)')
-plt.xlabel('Diode Voltage (V)')
+fig.suptitle('NumPy Convolution Test', fontsize=20)
 plt.plot(convolve(x, h), '-r', label='I-V curve')
-fig.savefig('test1.png')
+fig.savefig('numpy.png')
