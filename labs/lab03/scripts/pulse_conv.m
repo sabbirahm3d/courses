@@ -1,4 +1,4 @@
-function pulse_conv(t, x, h, sec)
+function pulse_conv(t, x, h)
 
     y_hat = zeros(length(t));
 
@@ -8,8 +8,10 @@ function pulse_conv(t, x, h, sec)
         end;
     end;
 
-    plot_conv(t, x, '$$x(t)$$', ['3.', sec, '_1']);
-    plot_conv(t, h, '$$h(t)$$', ['3.', sec, '_2']);
-    plot_conv(t, y_hat, '$$\hat{y} = \sum_{k=-\infty}^{\infty}{x_{n-k}h_{k}}$$', ['3.', sec, '_3']);
+    figure;
+    plot_conv(t, x, '$$x(t)$$', '1');
+    plot_conv(t, h, '$$h(t)$$', '2');
+    plot_conv(t, y_hat, '$$\hat{y} = \sum_{k=-\infty}^{\infty}{x_{n-k}h_{k}}$$', '3');
+    xlabel('Time (s)');
 
 end
