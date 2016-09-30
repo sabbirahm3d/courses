@@ -1,7 +1,7 @@
 % pulse_conv
 % creates the pulses to plotted
 
-function pulse_conv(t, x, h, y_int)
+function pulse_conv(t, x, h, y_int, conv_scale)
 
     y_hat = zeros(length(t));
 
@@ -24,7 +24,7 @@ function pulse_conv(t, x, h, y_int)
     figure;
     plot_conv(t, x, '$$x(t)$$', '311');
     plot_conv(t, h, '$$h(t)$$', '312');
-    plot_conv([], conv(x, h, 'same'), 'conv(x, h)', '313');
+    plot_conv([], conv(x, h, conv_scale), 'conv(x, h)', '313');
     xlabel('Time (s)');
     
 end
