@@ -14,6 +14,7 @@ def plotify(dataset, title, src, circuit, num, fig_name):
 
     data_points = import_dataset(dataset)
     x, y1, y2 = list(data_points)
+
     plot_waves(x=data_points[x], y1=data_points[y1], y2=data_points[y2],
                src=src, circuit=circuit, num=num,
                title=title, fig_name=fig_name)
