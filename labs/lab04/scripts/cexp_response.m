@@ -22,10 +22,12 @@ function response = cexp_response(h,t,f,ifploton)
     pulse = @(t, T) (u(t) - u(t - T));
     x = @(t, f) (exp(2j*pi*f*t).*u(t));
 
-    figure;
-    for index = 1 : numel(f)
-        plot(t2, dt*abs(conv(x(t, f(index)), h)));
-        title(['Frequency: ' num2str(freq(index))])
+    if ifploton
+        figure;
+        for index = 1 : numel(f)
+            plot(t2, dt*abs(conv(x(t, f(index)), h)));
+            title(['Frequency: ' num2str(freq(index))])
+        end
     end
-
+        
 end
