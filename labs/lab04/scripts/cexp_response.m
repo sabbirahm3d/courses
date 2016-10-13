@@ -16,17 +16,36 @@ function response = cexp_response(h,t,f,ifploton)
     %  response (1 x M) array of complex outputs representing the steady state output at each 
     %   of the M frequencies.
 
-    t2 = -2 : dt : 20;
-
-    u = @(t) (t >= 0);
-    pulse = @(t, T) (u(t) - u(t - T));
     x = @(t, f) (exp(2j*pi*f*t).*u(t));
+    
+    figure;
+    for index = 1 : numel(f) / 2
 
-    if ifploton
-        figure;
-        for index = 1 : numel(f)
-            plot(t2, dt*abs(conv(x(t, f(index)), h)));
-            title(['Frequency: ' num2str(freq(index))])
+        subplot(['41' num2str(index)]);
+        y = dt*abs(conv(x(t, f(index)), h));
+
+        transient = t(h ~= 0);
+
+        plot(t2, y);
+        title(['Frequency: ' num2str(f(index))])
+        if xlimit
+            xlim([transient(end) 10])
+            ylim([0 0.25])
+        end
+    end
+
+    figure;
+    for index = numel(f) / 2 + 1 : numel(f)
+        subplot(['41' num2str(index - 4)]);
+        y = dt*abs(conv(x(t, freq(index)), h));
+
+        transient = t(h ~= 0);
+
+        plot(t2, y);
+        title(['Frequency: ' num2str(f(index))])
+        if xlimit
+            xlim([transient(end) 10])
+            ylim([0 0.25])
         end
     end
         
