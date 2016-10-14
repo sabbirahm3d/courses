@@ -1,4 +1,5 @@
 *.m~
 .venv/
-~$*.docx
 *.db
+~*
+*.tmp
