@@ -7,7 +7,7 @@ function ghetto_plot(x, dt, t, t2, freq, h, xlimit)
         y = dt*abs(conv(x(t, freq(index)), h));
 
         plot(t2, y);
-        title(['Frequency: ' num2str(freq(index))])
+        title(['Frequency: ' num2str(freq(index)) ' Hz'] , 'FontSize', 16)
         if xlimit
             xlim([0 10])
         end
@@ -19,7 +19,7 @@ function ghetto_plot(x, dt, t, t2, freq, h, xlimit)
         y = dt*abs(conv(x(t, freq(index)), h));
 
         plot(t2, y);
-        title(['Frequency: ' num2str(freq(index))])
+        title(['Frequency: ' num2str(freq(index)) ' Hz'] , 'FontSize', 16)
         if xlimit
             xlim([0 10])
         end
