@@ -11,7 +11,9 @@ function ghetto_plot(x, dt, t, t2, freq, h, xlimit)
         if xlimit
             xlim([0 10])
         end
+        ylabel('Units')
     end
+    xlabel('Time (s)')
 
     figure;
     for index = numel(freq) / 2 + 1 : numel(freq)
@@ -23,6 +25,8 @@ function ghetto_plot(x, dt, t, t2, freq, h, xlimit)
         if xlimit
             xlim([0 10])
         end
+        ylabel('Units')
     end
+    xlabel('Time (s)')
     
 end
