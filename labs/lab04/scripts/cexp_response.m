@@ -16,37 +16,47 @@ function response = cexp_response(h,t,f,ifploton)
     %  response (1 x M) array of complex outputs representing the steady state output at each 
     %   of the M frequencies.
 
-    x = @(t, f) (exp(2j*pi*f*t).*u(t));
+    % existing conditions for the convolution response
+    dt = 1/1000;  % for scaling the responses
+    u = @(t) (t >= 0);  % unit step
+    x = @(t, f) (exp(2j*pi*f*t).*u(t));  % exponential input
     
-    figure;
-    for index = 1 : numel(f) / 2
+    response = zeros(1, length(f));  % (1 x M) array of output responses
+    
+    % iterate through the array of frequencies
+    for index = 1 : numel(f)
 
-        subplot(['41' num2str(index)]);
-        y = dt*abs(conv(x(t, f(index)), h));
+        y = conv(x(t, f(index)), h);
 
-        transient = t(h ~= 0);
+        mag = dt*abs(y);  % magnitude of convolution
 
-        plot(t2, y);
-        title(['Frequency: ' num2str(f(index))])
-        if xlimit
-            xlim([transient(end) 10])
-            ylim([0 0.25])
-        end
+        % strip out all the zero values leaving only the transient and
+        % steady state
+        steady_state = mag(mag > 0);
+
+        r = mode(steady_state);  % real value of steady state
+        index_steady = find(mag == r, 1);  % index of steady state value
+
+        phase = dt*angle(y);  % phase angle of convolution
+        theta = phase(index_steady);  % phase angle of steady state
+
+        % complex response of steady state
+        response(index) = r.*exp(1j*theta);
+
     end
 
-    figure;
-    for index = numel(f) / 2 + 1 : numel(f)
-        subplot(['41' num2str(index - 4)]);
-        y = dt*abs(conv(x(t, freq(index)), h));
+    if ifploton
+        figure;
 
-        transient = t(h ~= 0);
+        subplot(211);
+        plot(f, abs(response), '-r');
+        title('Magnitude of responses');
 
-        plot(t2, y);
-        title(['Frequency: ' num2str(f(index))])
-        if xlimit
-            xlim([transient(end) 10])
-            ylim([0 0.25])
-        end
-    end
+        subplot(212);
+        plot(f, angle(response));
+        title('Phase angle of responses');
         
+        xlabel('Frequency (Hz)');
+    end
+    
 end

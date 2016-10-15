@@ -22,3 +22,10 @@ ghetto_plot(x, dt, t, t3, freq, h(h ~= 0), 1)
 % 3.2 a less simple filter
 h2 = @(t) (h.*exp(15j*pi*t));
 ghetto_plot(x, dt, t, t2, freq, h2(t), 1)
+
+cexp_response(h, t, freq, 1);
+cexp_response(h2(t), t, freq, 1);
+
+g = 0:0.1:50;
+cexp_response(h, t, g, 1);
+cexp_response(h2(t), t, g, 1);
