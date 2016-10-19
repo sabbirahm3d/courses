@@ -42,7 +42,7 @@ def plot_waves(df, title, fig_name):
                 bbox_inches='tight')
 
 
-if __name__ == '__main__':
+def plot_part_c():
 
     df = import_dataset('c.csv')
 
@@ -53,17 +53,20 @@ if __name__ == '__main__':
 
     plot_waves(df, 'Simulated BJT Characteristic Curve', 'test')
 
-    # new_df = df[df['v_cc'] == 10]
-    # print new_df.head()
 
-    # df = import_dataset('a.csv')
-    # df['i_c'] = abs(df['v_cc'] - df['v_ce']) / 2200
-    # df.drop('v_be', axis=1, inplace=True)
+if __name__ == '__main__':
 
-    # v_bb, v_cc, v_ce, i_c = list(df)
+    plot_part_c()
 
-    # df1 = import_dataset('b.csv')
-    # df1['i_c'] = df1['i_c'] / 1000
+    df = import_dataset('a.csv')
+
+    df['i_c'] = abs(df['v_cc'] - df['v_ce']) / 2200
+    df.drop('v_be', axis=1, inplace=True)
+    print df.tail()
+    plot_waves(df, 'Simulated BJT Characteristic Curve', 'test1')
+
+    df1 = import_dataset('b.csv')
+    df1['i_c'] = df1['i_c'] / 1000
     # v_bb1, v_cc1, v_ce1, i_c1 = list(df1)
 
     # print df1.head()
