@@ -19,17 +19,40 @@ function [  ] = polezero_plot( b,a,s_or_z,ROC)
     % This first version should display an error message with no other output
     % if s_or_z = 'z', that is, the z­plane implementation will be provided at
     % a later time.
-    %
 
-    coef = @(c, i, s) (c*s^i);
+    if s_or_z == 'z'
+        error('Z-plane not implemented yet');
 
-    syms s;
-    numerator = poly2sym(b, s);
-    denominator = poly2sym(a, s);
-    H = (numerator/denominator);
-    
-    h = matlabFunction(H);
-    t = -10:1/1000:50;
-    plot(h(t))
-    
+    elseif s_or_z == 's'
+
+        zeros_ = roots(b);
+        poles_ = roots(a);
+        data_points = cat(1, zeros_, poles_);
+
+        [~, idx] = sort(imag(data_points));
+        sorted_imag = imag(data_points(idx));
+
+        [im_min, im_max] = deal(sorted_imag(1) - 1, sorted_imag(end) + 1);
+
+        hold on;
+
+        positive_area = area(ROC, [im_max, im_max]);
+        negative_area = area(ROC, [im_min, im_min]);
+        set(positive_area, 'FaceColor', 'g');
+        set(negative_area, 'FaceColor', 'g');
+        alpha(0.5);
+
+        plot(zeros_, 'or');
+        plot(poles_, 'xb');
+        ylabel('$$\j\omega=Im(s)$$', 'Interpreter', 'latex', 'FontSize', 18);
+        xlabel('$$\sigma=Re(s)$$', 'Interpreter', 'latex', 'FontSize', 18);
+        title('Pole-Zero Plot', 'FontSize', 16);
+
+        hold off;
+
+    else
+        error('Select a valid plane to plot');
+
+    end
+
 end
