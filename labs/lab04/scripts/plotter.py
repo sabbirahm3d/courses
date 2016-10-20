@@ -88,4 +88,11 @@ def plot_part_c():
 if __name__ == '__main__':
 
     # plot_part_c()
-    plot_part_a()
+    # plot_part_a()
+    df = import_dataset('a.csv')
+
+    df['i_c'] = abs(df['v_cc'] - df['v_ce']) / 2200
+    df['i_b'] = abs(df['v_bb']) / 220000
+    beta = df['i_c'].mean() / df['i_b'].mean()
+
+    print beta
