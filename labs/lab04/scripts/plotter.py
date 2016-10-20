@@ -17,7 +17,7 @@ def import_dataset(dataset):
     return df
 
 
-def plot_waves(df, title, fig_name):
+def plot_waves(df, load_line_df, title, fig_name):
 
     sns.set_style(style='darkgrid')
     fig, ax = plt.subplots(nrows=1, ncols=1)
@@ -31,15 +31,46 @@ def plot_waves(df, title, fig_name):
                  c=next(color),
                  label=r'$i_b = {}\ A$'.format(i_b))
 
+    plt.plot(load_line_df[load_line_df['v_cc'] == 10]['v_ce'],
+             load_line_df[load_line_df['v_cc'] == 10]['i_c'],
+             label=r'$Load\ line$')
+
     plt.title(title, fontsize=20)
-    plt.ylabel(r'$Collector\ Current,\ i_{C}\ (mA)$')
+    plt.ylabel(r'$Collector\ Current,\ i_{C}\ (A)$')
     plt.xlabel(r'$Collector-Emitter\ Voltage,\ V_{CE}\ (V)$')
+
+    plt.fill_between(df[df['v_bb'] == 3.0]['v_ce'],
+                     df[df['v_bb'] == 3.0]['i_c'],
+                     0, facecolor='yellow', alpha=0.5)
+    plt.fill_between(df[df['v_cc'] == 10]['v_ce'],
+                     df[df['v_cc'] == 10]['i_c'],
+                     0, facecolor='yellow', alpha=0.5)
+    plt.fill_between(df['v_cc'],
+                     0, -0.001, facecolor='blue', alpha=0.5)
+
+    plt.text(4, 0.0008, 'Forward active', fontsize=15)
+    plt.text(4, -0.0005, 'Cutoff', fontsize=15)
+    plt.text(0, 0.0045, 'Saturation', fontsize=15)
+
     plt.xlim(0, 10)
     lgd = ax.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0.)
 
     fig.savefig(fig_path + fig_name + '.png',
                 bbox_extra_artists=(lgd,),
                 bbox_inches='tight')
+
+
+def plot_part_a():
+
+    df = import_dataset('a.csv')
+
+    df['i_c'] = abs(df['v_cc'] - df['v_ce']) / 2200
+    df.drop('v_be', axis=1, inplace=True)
+
+    load_line_df = import_dataset('b.csv')
+    load_line_df['i_c'] = load_line_df['i_c'] / 1000
+
+    plot_waves(df, load_line_df, 'BJT Characteristic Curve', 'fig2')
 
 
 def plot_part_c():
@@ -51,25 +82,10 @@ def plot_part_c():
         df.drop('neg i_c', axis=1, inplace=True)
         df.to_csv(path_join(BASE_DIR, 'data', 'c.csv'), index=False)
 
-    plot_waves(df, 'Simulated BJT Characteristic Curve', 'test')
+    plot_waves(df, df, 'Simulated BJT Characteristic Curve', 'fig3')
 
 
 if __name__ == '__main__':
 
-    plot_part_c()
-
-    df = import_dataset('a.csv')
-
-    df['i_c'] = abs(df['v_cc'] - df['v_ce']) / 2200
-    df.drop('v_be', axis=1, inplace=True)
-    print df.tail()
-    plot_waves(df, 'Simulated BJT Characteristic Curve', 'test1')
-
-    df1 = import_dataset('b.csv')
-    df1['i_c'] = df1['i_c'] / 1000
-    # v_bb1, v_cc1, v_ce1, i_c1 = list(df1)
-
-    # print df1.head()
-
-    # plot_waves(df1[v_ce1], df1[i_c1], df[v_ce], df[i_c],
-    #            'Simulated BJT Characteristic Curve', 'test2')
+    # plot_part_c()
+    plot_part_a()
