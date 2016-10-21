@@ -49,9 +49,10 @@ function [  ] = polezero_plot( b,a,s_or_z,ROC)
             sorted_real= real(data_points(idx));
             zoom = 1;
             if any(ROC == -inf)
-                [re_min, re_max] = deal(ceil(sorted_real(1)) - 1, ROC(end));                
-            elseif any(ROC == inf)
-                [re_min, re_max] = deal(ROC(1), ceil(sorted_real(end)) + 1);
+                [re_min, re_max] = deal(ceil(sorted_real(1)) - 1, ROC(end));
+            end
+            if any(ROC == inf)
+                [re_min, re_max] = deal(ROC(1), ceil(sorted_real(end)) + 3);
             end
         end
         
@@ -72,7 +73,7 @@ function [  ] = polezero_plot( b,a,s_or_z,ROC)
 
         % if zooming in is required to fit the region of convergence
         if zoom
-            xlim([re_min, re_max]);
+            xlim([re_min - 1, re_max]);
         end
 
         % convert the coefficients into a symbolic polynomial, casted into
