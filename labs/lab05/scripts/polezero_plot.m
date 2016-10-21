@@ -1,9 +1,8 @@
-function [  ] = polezero_plot( b,a,s_or_z,ROC)
+function [  ] = polezero_plot(b, a, s_or_z, ROC)
     % function [  ] = polezero_plot( b,a,s_or_z,ROC)
     % Creates a pole­zero plot in either the s­domain or z­domain based on
     % the M­th order numerator polynomial with coefficients in b and the N­th
     % order denominator polynomial with coefficients in a
-    % EFCL 11/5/2014
     %
     % Calling Parameters
     %   b:  1 x (M+1) array of numerator coefficients, with b(1) being the
