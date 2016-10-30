@@ -53,11 +53,13 @@ title('$$w(t)=\int_{-\infty}^{t} x(\tau)d\tau$$', 'Interpreter', 'latex', 'FontS
 % 1.7
 subplot(413);
 plot(t, r(t, 2), 'LineWidth', 2);
+text(-1.75, 50, '$$\alpha=2$$', 'Interpreter', 'latex', 'FontSize', 12);
 title('$$r(t)=\mathrm{e}^{-\alpha t}u(t+2)$$', 'Interpreter', 'latex', 'FontSize', 14);
 
 % 1.8
 subplot(414);
 plot(t, s(t, 2), 'LineWidth', 2);
+text(3.4, 50, '$$\alpha=2$$', 'Interpreter', 'latex', 'FontSize', 12);
 title('$$s(t)=r(2-t)$$', 'Interpreter', 'latex', 'FontSize', 14);
 
 xlabel('Time (s)');
