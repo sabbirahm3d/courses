@@ -15,7 +15,7 @@ xlabel('Time (s)');
 
 figure;
 r = dt*conv(b3(t), b3(-t));
-plot(t2,r, 'LineWidth', 2);
+plot(t2, r, 'LineWidth', 2);
 title('$$r_{b_{3}b_{3}}(\tau)=\int_{-\infty}^{\infty}b_{3}(\tau)b_{3}(t+\tau)d\tau$$',...
     'Interpreter', 'latex', 'FontSize', 14);
 ylabel('Units');
