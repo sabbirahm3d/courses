@@ -1,6 +1,7 @@
 dt = 0.01;
 t = -5:dt:5;
 t2 = 0:dt:20;
+t3 = 0:dt:10;
 r1 = 1000;
 r2 = 1000;
 c = 250e-6;
@@ -22,13 +23,13 @@ h1 = @(t) (1-exp(-4*t));
 h2 = @(t) (4*exp(-4*t));
 
 figure;
-plot(t, y(t))
+plot(t3, y(t3))
 title('Unit-step Response');
 ylabel('Units');
 xlabel('Time (s)');
 
 figure;
-plot(t, h2(t))
+plot(t3, h2(t3))
 title('Unit-impulse Response');
 ylabel('Units');
 xlabel('Time (s)');
