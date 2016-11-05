@@ -1,15 +1,18 @@
-dt = 1/10000;
-t = 0 : dt : 10;
-T = 4;
-
-u = @(t) (t > 0);
-p = @(t, T) (u(t) - u(t-T));
-
-x = zeros(1, 7*length(t));
-
-for kn = 1:7
-    k = kn -4;
-    x(kn) = p(t+0.5 - k*t, 1);
+% computing the coefficients
+x = zeros(length(t), 1);
+for kn = 1:11
+    k = kn * T - 8;
+    x(:,kn) = p(t + 0.5 - k);
 end
 
-plot(sum(x), 'LineWidth', 2)
+figure;
+plot(t, sum(x, 2))
+xlabel('Time');
+ylabel('Amplitude');
+title('$$x(t) = \sum_{n=-N}^{N}{p(t-nT)}$$', 'Interpreter', 'latex', 'FontSize', 15);
+
+k = [-800:800];
+ck = (1/T).* sinc(k/T);
+figure;
+plot(k, real(ck))
+
