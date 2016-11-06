@@ -1,5 +1,5 @@
 xhat = zeros(1, length(t));
-K=[10 50];
+K=[10 50 100 200 400 800];
 
 estimates = zeros(length(t), length(K));
 
