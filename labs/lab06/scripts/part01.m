@@ -8,7 +8,8 @@ end
 x = sum(x, 2)';
 
 figure;
-plot(t, x)
+plot(t, x, 'LineWidth', 1);
+ylim([0 1.5]);
 xlabel('Time');
 ylabel('Amplitude');
 title('$$x(t) = \sum_{n=-3}^{3}{p(t-nT)}$$', 'Interpreter', 'latex', 'FontSize', 15);
