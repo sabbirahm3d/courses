@@ -17,6 +17,9 @@ title('$$x(t) = \sum_{n=-3}^{3}{p(t-nT)}$$', 'Interpreter', 'latex', 'FontSize',
 k = -800:800;
 ck = (1/T).* sinc(k/T);
 figure;
-plot(k, real(ck));
+plot(k, real(ck), 'LineWidth', 1);
+xlabel('Time');
+ylabel('Amplitude');
+title('$$c_{k} = \int_{-0.5}^{0.5}{x(t)e^{-j\omega_o kt}dt}$$', 'Interpreter', 'latex', 'FontSize', 15);
 
-synthesize(x, 'x', K, estimates, t, T, mse, mse_k)
+% synthesize(x, 'x', K, estimates, t, T, mse, mse_k)
