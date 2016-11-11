@@ -24,19 +24,22 @@ function synthesize(waveform, wave_name, K, estimates, t, T, mse, mse_k)
 
     figure;
     plot(K, mse_k, '-r')
-    xlabel('K Estimates');
+    xlabel('Estimates');
     ylabel('Amplitude');
     title('Mean Squared Error against the K Estimators', 'FontSize', 15);
 
-    figure;
-    title(['Gibbs Phenomenon demonstration of k=', num2str(K(i))], 'FontSize', 15);
+        figure;
     for i = 1 : length(K)
+        hor_plot = 3;
+        if i <= hor_plot
+            hor_plot = 1;
+        end
+        hor_plot = 2;
+        subplot(['3', num2str(hor_plot), num2str(i)]);
         plot(t, estimates(1:end, i));
         xlim([0.45 0.55]);
-        subplot(['61', num2str(i)]);
+        xlabel('Time');
+        ylabel(['k = ', num2str(K(i)), ' estimates']);
     end
-    xlim([0.45 0.55]);
-    xlabel('Time');
-    ylabel('Amplitude');
 
 end
