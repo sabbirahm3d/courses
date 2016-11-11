@@ -22,4 +22,4 @@ xlabel('Time');
 ylabel('Amplitude');
 title('$$c_{k} = \int_{-0.5}^{0.5}{x(t)e^{-j\omega_o kt}dt}$$', 'Interpreter', 'latex', 'FontSize', 15);
 
-% synthesize(x, 'x', K, estimates, t, T, mse, mse_k)
+synthesize(x, 'x', K, estimates, t, T, mse, mse_k)
