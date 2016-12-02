@@ -26,10 +26,3 @@ stem(angle(fft(x)), '-r', 'LineWidth', 2);
 title('Phase of FFT(x)', 'FontSize', 14);
 ylabel('Angle');
 xlabel('Frequency');
-
-N = length(x);
-if ~mod(N, 2)
-    n = linspace(0,N-1,N);
-    k = n';
-    M = exp((-2 * 1j * pi)/N);    
-end
