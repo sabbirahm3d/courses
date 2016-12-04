@@ -13,7 +13,9 @@ f_c = 5.0049;
 
 u = @(t) (t >= 0);
 p = @(t) (u(t) - u(t-tau));
+
 c = @(t) (exp(1j*2*pi*f_c*t));
+m = @(t) (cos(2*pi*f_c*t));
 
 p1 = @(t) (p(t + tau/2));
 p2 = @(t) (p(t));
@@ -22,3 +24,11 @@ p3 = @(t) (p(t + tau));
 theory_p1 = @(f) (tau*sinc(f*tau));
 theory_p2 = @(f) (exp(-1j*pi*tau*f)*tau.*sinc(f*tau));
 theory_p3 = @(f) (exp(1j*pi*tau*f)*tau.*sinc(f*tau));
+
+theory_x1 = @(f) (tau.*sinc((f-f_c)*tau));
+theory_x2 = @(f) (exp(-1j*pi*tau*f)*tau.*sinc((f-f_c)*tau));
+theory_x3 = @(f) (exp(1j*pi*tau*f)*tau.*sinc((f-f_c)*tau));
+
+theory_w1 = @(f) (1/2*(tau.*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
+theory_w2 = @(f) (1/2*exp(-1j*pi*tau*f).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
+theory_w3 = @(f) (1/2*exp(1j*pi*tau*f).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
