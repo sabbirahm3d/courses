@@ -38,8 +38,8 @@ grid on;
 
 subplot(3,1,3);
 % remove erroneous phase shift due to first sample not at t=0
-P1adj = exp(j*2*pi*min(t)*f).*P1;
- 
+P1adj = exp(1j*2*pi*min(t)*f).*P1;
+
 plot(f,angle(P1adj)/pi,'b',f,angle(theory_p1)/pi,'r:','LineWidth',2);
 xlim([-10, 10]);
 ylabel('Angle(P1adj)/\pi');
