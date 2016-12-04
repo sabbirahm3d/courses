@@ -15,18 +15,18 @@ function plot_fft(func_array, theory, func_str, theory_str)
     figure;
     subplot(3,1,1);
     plot(funshifted, abs(P1), f, abs(theory), 'r:','LineWidth',2);
-    ylabel('|P_1(f)|');
+    ylabel('Magnitude');
     xlim([0 1000]);
-    legend_str = legend(['$$abs(fft(p_{', func_str, '}(t)))$$'], theory_str);
+    legend_str = legend(['$$abs(fft(', func_str, '(t)))$$'], theory_str);
     set(legend_str, 'Interpreter', 'latex', 'FontSize', 12)
     grid on;
 
     subplot(3,1,2);
     P1 = fftshift(P1); % use fftshift to reorder
     plot(f,abs(P1),f,abs(theory),'r:','LineWidth',2); % use the shifted version
-    ylabel('|P_1(f)|');
+    ylabel('Magnitude');
     xlim([-10 10]);
-    legend_str = legend(['$$abs(fft(p_{', func_str, '}(t)))$$'], theory_str);
+    legend_str = legend(['$$abs(fft(', func_str, '(t)))$$'], theory_str);
     set(legend_str, 'Interpreter', 'latex', 'FontSize', 12)
     grid on;
 
@@ -35,9 +35,9 @@ function plot_fft(func_array, theory, func_str, theory_str)
     P1adj = exp(1j*2*pi*min(t)*f).*P1;
 
     plot(f,angle(P1adj)/pi, f, angle(theory)/pi, 'r:', 'LineWidth', 2);
-    ylabel('Angle(P1adj)/\pi');
+    ylabel('Phase');
     xlabel('Frequency in Hz');
-    legend_str = legend(['$$angle(fft(p_{', func_str, '}(t)))$$'], theory_str);
+    legend_str = legend(['$$angle(fft(', func_str, '(t)))$$'], theory_str);
     set(legend_str, 'Interpreter', 'latex', 'FontSize', 12)
     xlim([-10, 10]);
     grid on;
