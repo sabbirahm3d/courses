@@ -26,9 +26,9 @@ theory_p2 = @(f) (exp(-1j*pi*tau*f)*tau.*sinc(f*tau));
 theory_p3 = @(f) (exp(1j*pi*tau*f)*tau.*sinc(f*tau));
 
 theory_x1 = @(f) (tau.*sinc((f-f_c)*tau));
-theory_x2 = @(f) (exp(-1j*pi*tau*f)*tau.*sinc((f-f_c)*tau));
-theory_x3 = @(f) (exp(1j*pi*tau*f)*tau.*sinc((f-f_c)*tau));
+theory_x2 = @(f) (exp(-1j*pi*tau*(f-f_c))*tau.*sinc((f-f_c)*tau));
+theory_x3 = @(f) (exp(1j*pi*tau*(f-f_c))*tau.*sinc((f-f_c)*tau));
 
 theory_w1 = @(f) (1/2*(tau.*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
-theory_w2 = @(f) (1/2*exp(-1j*pi*tau*f).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
-theory_w3 = @(f) (1/2*exp(1j*pi*tau*f).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
+theory_w2 = @(f) (1/2*exp(-1j*pi*tau*(f-f_c)).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
+theory_w3 = @(f) (1/2*exp(1j*pi*tau*(f-f_c)).*(tau*sinc((f-f_c)*tau)+tau.*sinc((f+f_c)*tau)));
