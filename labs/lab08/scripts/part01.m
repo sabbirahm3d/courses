@@ -15,7 +15,7 @@ plot_fft(m(t).*p1(t), theory_w1(f), 'w_{1}',...
     '$$\frac{1}{2}\tau (sinc((f-f_{c})\tau) + sinc((f+f_{c})\tau))$$');
 
 plot_fft(m(t).*p2(t), theory_w2(f), 'w_{2}',...
-    '$$\frac{1}{2}\tau e^{-j\pi (f-f_c)\tau} (sinc((f-f_{c})\tau) + sinc((f+f_{c})\tau))$$');
+    '$$\frac{1}{2}\tau (e^{-j\pi (f-f_c)\tau}sinc((f-f_{c})\tau) + e^{-j\pi (f+f_c)\tau}sinc((f+f_{c})\tau))$$');
 
 plot_fft(m(t).*p3(t), theory_w3(f), 'w_{3}',...
-    '$$\frac{1}{2}\tau e^{j\pi (f-f_c)\tau} (sinc((f-f_{c})\tau) + sinc((f+f_{c})\tau))$$');
+    '$$\frac{1}{2}\tau (e^{j\pi (f-f_c)\tau}sinc((f-f_{c})\tau) + e^{j\pi (f+f_c)\tau}sinc((f+f_{c})\tau))$$');
