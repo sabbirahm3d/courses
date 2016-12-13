@@ -21,7 +21,7 @@ y = sin(2 * pi * f * x / Fs)
 
 def final_gain():
 
-    plt.plot(1000 * df["t"], 2763 * df["v"], 'r-',
+    plt.plot(1000 * df["t"], 1000 * df["v"], 'r-',
              label=r"$Output\ voltage,\ v_{o}$")
     plt.plot(1000 * df["t"], 1000 * 0.001 * y, 'b-',
              label=r"$Input\ voltage,\ v_{i}$")
@@ -31,22 +31,7 @@ def final_gain():
     plt.xlabel(r'$Time\ (ms)$')
 
 
-def audio_max():
-
-    # plt.plot(1000 * df["t"], 5000 * df["v"], 'r-',
-    #          label=r"$Output\ voltage,\ v_{o}$")
-    plt.plot(1000 * df["t"], 0.001 * y, 'b-',
-             label=r"$Input\ voltage,\ v_{i}$")
-    plt.plot(1000 * df["t"], 2.4 * y, 'r-',
-             label=r"$Input\ voltage,\ v_{i}$")
-
-    plt.title("Final Circuit Gain", fontsize=20)
-    plt.ylabel(r'$Voltage\ (mV)$')
-    plt.xlabel(r'$Time\ (ms)$')
-
-
-# final_gain()
-audio_max()
+final_gain()
 lgd = ax.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0.)
-fig.savefig(path.join(fig_path, 'audio_max.png'),
+fig.savefig(path.join(fig_path, 'final_gain.png'),
             bbox_extra_artists=(lgd,), bbox_inches='tight')
