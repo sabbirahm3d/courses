@@ -13,8 +13,8 @@ t0 = -0.05:dt:0.05;
 
 fsa=1000;
 dt=1/fsa;
-t=[-4096:4095]*dt; % an array with 2^M points, but starting at M=-4096
-NFFT = length(t);
+t3=[-4096:4095]*dt; % an array with 2^M points, but starting at M=-4096
+NFFT = length(t3);
 trecord = NFFT*dt; % total measurement time
 fresolution = 1/trecord; % the resolution is 1/(measurement time)
 df = fresolution; %...which is also the frequency resolution
