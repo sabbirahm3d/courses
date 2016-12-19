@@ -49,13 +49,13 @@ ylabel('$$x(t) = d(t)cos(2\pi f_{c}t)$$', 'interpreter', 'latex', ...
 xlabel('Time (s)');
 
 subplot(223);
-plot(f, angle(fft_d), 'r-', 'linewidth', 2);
+plot(f, angle(fft_d), 'color', [0 0.6 0], 'linewidth', 2);
 xlim([-102e3 -98e3]);
 ylabel('Phase of X(f)');
 xlabel('Frequency (Hz)');
 
 subplot(224);
-plot(f, angle(fft_d), 'r-', 'linewidth', 2);
+plot(f, angle(fft_d), 'color', [0 0.6 0], 'linewidth', 2);
 xlim([98e3 102e3]);
 ylabel('Phase of X(f)');
 xlabel('Frequency (Hz)');
