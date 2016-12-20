@@ -1,12 +1,21 @@
-b = [1 2 5];
-a = [1.0000 7.0000 14.8125 12.8750 6.5000];
+a_p = 3;
+a_s = 64;
+f_p = 10e3;
+f_s = 50e3;
+n = 5;
 
-w_c = 2*pi*10e3;
+nu_s = f_s/f_p;
+epsilon = (10^(a_p/10)-1)^(1/2);
+nu_3 = (1/epsilon)^(1/n);
 
+theta = zeros(1, n);
+s = zeros(1, n);
 
+for k = 1:n
+    theta(k) = (2*(k-1)+n-1)*pi/(2*n);
+    s(k) = nu_3*exp(-1j*theta(k));
+end
 
-% polezero_plot(b,a,'s',[-1 inf]);
-
-w = logspace(-1,2);
-figure;
-freqs(b,a,w);
+w_c = prod(s, 2)^(1/n);
+w_cn = w_c^n;
+s;
