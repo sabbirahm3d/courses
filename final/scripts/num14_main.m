@@ -27,21 +27,22 @@ h = freqs(b,a,w); %// Output of freqs
 mag = 20*log10(abs(h)); %// Magnitude in dB
 pha = (180/pi)*angle(h); %// Phase in degrees
 
-%// Declare points
-wpt = [600, 7500];
-mpt = [20, -71];
+% %// Declare points
+% wpt = [600, 7500];
+% mpt = [20, -71];
 
 %// Plot the magnitude as well as markers
 figure;
 subplot(2,1,1);
-semilogx(w, mag, wpt, mpt, 'ro');
+semilogx(w, -mag, 'linewidth', 2);
+ylim([-20 0])
 xlabel('Frequency');
 ylabel('Magnitude (dB)');
 grid;
 
 %// Plot phase
 subplot(2,1,2);
-semilogx(w, pha);
+semilogx(w, pha, 'color', [0 0.6 0], 'linewidth', 2);
 xlabel('Frequency');
 ylabel('Phase (Degrees)');
 grid;
