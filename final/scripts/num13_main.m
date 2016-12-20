@@ -18,4 +18,4 @@ end
 
 w_c = prod(s, 2)^(1/n);
 w_cn = w_c^n;
-s;
+s
