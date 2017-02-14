@@ -28,6 +28,7 @@ legend([p4; p5; p6], 'y_1(x, t)', 'y_2(x, t)', 'y_s(x, t)');
 hold off;
 
 diary log.txt;
+
 z1 = 3 - 5j;
 log(z1)
 
@@ -36,4 +37,5 @@ exp(z2)
 
 z3 = 3 * exp(1j*pi/6);
 exp(z3)
+
 diary off;
