@@ -59,15 +59,15 @@ V_vec_L = V_vec_L - [Ccomp, V_vec_L(1:1001-Ndelay)];  % load voltage
 
 % Plotting
 figure;
-subplot(2,2,1), plot(time,I_vec_g,'LineWidth',2); 
+subplot(2,2,1), plot(time,I_vec_g, '-r','LineWidth',2); 
     title('Generator Current'), xlabel('time (sec)'), 
-    ylabel('current (amps)'), axis([0.0, Total_Time, -0.2, 0.2])
+    ylabel('current (amps)'), axis([0.0, Total_Time, -0.5, 1.5])
 subplot(2,2,2), plot(time,V_vec_g,'LineWidth',2); 
     title('Generator Voltage'), xlabel('time (sec)'), 
-    ylabel('voltage (volts)'), axis([0.0, Total_Time, 0.0, 20.0])
-subplot(2,2,3), plot(time,I_vec_L,'LineWidth',2); 
+    ylabel('voltage (volts)'), axis([0.0, Total_Time, -50, 50])
+subplot(2,2,3), plot(time,I_vec_L, '-r', 'LineWidth',2); 
     title('Load Current'), xlabel('time (sec)'), 
-    ylabel('current (amps)'), axis([0.0, Total_Time, -0.2, 0.2])
+    ylabel('current (amps)'), axis([0.0, Total_Time, -0.5, 1.5])
 subplot(2,2,4), plot(time,V_vec_L,'LineWidth',2); 
     title('Load Voltage'), xlabel('time (sec)'), 
-    ylabel('voltage (volts)'), axis([0.0, Total_Time, 0.0, 20.0])
+    ylabel('voltage (volts)'), axis([0.0, Total_Time, -50, 50])
