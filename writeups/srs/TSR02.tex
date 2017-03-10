@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\setcounter{secnumdepth}{2}
+\linespread{1.3}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+%-----------------------------------------------------------
+%Custom commands
+
+%header command
+\newcommand{\header}[5]{
+\begin{centering}
+\parbox{6.8in}{
+\begin{flushright}
+\begin{spacing}{.8}
+{\fontfamily{cmss}{\large{\textbf{#1}}\\}}
+\small{#2\\
+#3\\
+#4\\
+#5}\\
+\end{spacing}
+\end{flushright}
+\vspace{-7.5mm}
+}\\
+\rule{\textwidth}{0.5pt}\\
+\vspace{-4mm}
+\end{centering}
+}
+
+%document info command
+\newcommand{\documentinfo}[5]{
+\begin{centering}
+\parbox{6.8in}{
+\begin{spacing}{1}
+\begin{flushleft}
+\begin{tabular}{l l}
+\fontfamily{cmss}{\textbf{DOC \#: }} & #1 \\
+\fontfamily{cmss}{\textbf{DATE: }} & #2 \\
+\fontfamily{cmss}{\textbf{TO: }} & #3 \\
+\fontfamily{cmss}{\textbf{FROM: }} & #4 \\
+\fontfamily{cmss}{\textbf{SUBJECT: }} & #5 \\
+\end{tabular}\\
+\rule{\textwidth}{1pt}
+\end{flushleft}
+\end{spacing}
+}
+\end{centering}
+}
+
+%-----------------------------------------------------------
+%Technote Start
+
+\begin{document}
+\header{CMPE349}{Landing System Project}{MLS Ground Receiver}{1000 Hilltop Cir}{Catonsville, MD 21250}
+
+\documentinfo{TSR02}{March 10, 2017}{Dr. LaBerge}{Brian Weber}{MGR Original Specs}
+
+\section{Warning and Error Communication to the Executive Monitor}
+The MGR is responsible for gathering data from a digital signal received from the ACME front-end and passing it on to the Executive Monitor. If for any reason the MGR is not able to send the required data to the executive monitor, a proper warning flag shall be raised to the executive monitor informing the executive monitor of the error. Specifics on for what reasons and within what time period pilots should be informed of warnings relevant to the MGR are specified in sections 2.2.2.1.2 - 2.2.2.1.4 of RTCA DO-177. In order for the executive monitor to issue these warnings to the pilot in the required time period, the MGR shall meet the additional requirements outlined in this section. The intention of these warnings is to give the executive monitor as much detail as possible as quickly as possible about errors, so that it may interpret this information and decide when to inform the pilot.
+
+\subsection{Distinguishability}
+\begin{enumerate}
+
+	\item At the minimum, separate warning flags shall be raised to distinguish hardware failure, signal loss, the varying degrees of signal degradation explained in point \ref{OCI} of section  \ref{signal warning}, and the signal degradation described in point \ref{alternative} of section \ref{signal warning}.
+
+	\item A separate warning flag should be raised for each condition listed in this section in order to communicate as much information as possible to make troubleshooting easier.
+
+\end{enumerate}
+
+\subsection{Hardware Failure}
+
+\begin{enumerate}
+
+	\item If the MGR stops receiving a signal altogether from the ACME front-end, a hardware warning flag shall be raised to the executive monitor within [$100\mu s$].   
+
+	\item If the ACME front-end informs the MGR of a hardware error, the warning flag shall be propagated to the executive monitor within [$100\mu s$].
+
+	\item If some part of the MGR fails, and the MGR is successfully able to catch the failure, the MGR should raise a hardware warning flag to the executive monitor within [$100\mu s$].
+
+	\item The origin of the hardware error should be communicated to the executive monitor.
+
+\end{enumerate}
+
+\subsection{Signal Loss/Degradation}\label{signal warning}
+
+\begin{enumerate}
+
+	\item If a signal which is not carrying positional data is received from the ACME front-end for the duration of [1] signal frame, a signal loss warning flag shall be raised to the executive monitor within [$100\mu s$] until a signal frame with valid positional data is received.
+
+	\item \label{OCI} The MGR shall communicate to the executive monitor, and distinguish between, when $55\%$, $75\%$, or $100\%$ of the OCI signal exceeds the primary signal by 1dB or more \textbf{for each signal frame} until a signal frame with a valid OCI signal is received.
+
+	\item \label{alternative} If an alternate signal exceeds the primary signal by 1dB, a signal degradation warning flag shall be raised \textbf{for each signal frame} until a signal frame with valid a alternate signal is received.
+
+\end{enumerate}
+
+\subsection{Warning Flag Lowering}
+
+\begin{enumerate}
+
+	\item A warning flag shall be lowered only when the condition causing the flag stops.
+
+	\item The warning flag shall be lowered within [$100\mu s$] of when the condition causing the flag stops.
+
+\end{enumerate}
+
+\end{document}
