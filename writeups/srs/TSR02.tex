@@ -74,16 +74,15 @@
 
 \header{CMPE349}{Precision Landing System Project}{MLS Ground Receiver}{1000 Hilltop Cir}{Catonsville, MD 21250}
 
-\documentinfo{TSR02}{March 10, 2017}{Dr. LaBerge}{Group M}{MGR Original Specs}
+\documentinfo{TSR02}{March 10, 2017}{Dr. LaBerge}{Group M}{MGR Original Specs Draft}
 
 	\section{Introduction}
 	The Microwave Landing System Ground-Based Receiver (MGR) is responsible for gathering and processing data from digital signals received from the ACME front-end and to be passed on to the Executive Monitor. For the smooth transfer of both the preprocessed and processed data, several specifications are required to be met. This document highlights and elaborates on those requirements.
 
 	\section{XMON Message Format}
-	The signals that the MGR provides to the executive monitor are given in section 2.2 of DO-177, and the format for the data words for input to the executive monitor is given in section 2.3-5.3 of FAA-E-2721/12.\\
-	The MGR shall provide at least one of the following angle output signals to the executive monitor: visual, electrical guidance output B, electrical guidance output A, and basic electrical output. The accuracy of the guidance provided by the MGR shall be in terms of path following error (PFE) and control monitor noise (CMN), which are explained in detail in Appendix E of DO-177. The guidance provided by the MGR shall not contain a PFE or, with a 95\% probability, a CMN that exceeds the tolerances listed in table 2-1 of DO-177.\\
-	The MLS Ground receiver shall provide the elevation angle data as well as any warning flags determined by signal degradation due to interference to the executive monitor in the following formats (described in sections 2.3-5.3 of FAA-E2721/12).
-
+	The signals that the MGR provides to the executive monitor are given in section 2.2 of DO-177. The format for the data words for input to the executive monitor is given in section 2.3-5.3 of FAA-E-2721/12.\\
+	The MGR shall provide at least one of the following angle output signals to the executive monitor: visual, electrical guidance output B, electrical guidance output A, and basic electrical output. The accuracy of the guidance provided by the MGR shall be in terms of path following error (PFE) and control monitor noise (CMN), which are elaborated in Appendix E of DO-177. The guidance provided by the MGR shall not contain a PFE or, with a 95\% probability, a CMN that exceeds the tolerances listed in table 2-1 of DO-177.\\
+	The MLS Ground receiver shall provide the elevation angle data, and any warning flags determined by signal degradation due to interference to the executive monitor in the following formats (described in sections 2.3-5.3 of FAA-E2721/12):
 		\begin{enumerate}
 
 			\item Function preamble
@@ -186,7 +185,7 @@
 	In addition to the EMC compliance, the equipment throughout the system shall operate normally in non-ideal climate conditions.
 
 		\subsection{Category II}
-		The International Civil Aviation Organization (ICAO) classifies precision landing system approaches based on their decision height, minimum runway visual range and minimum guidance altitude. The categories are named Category I through III, with the dependecy on the system increasing and the error window decreasing as the name increments. A Category II landing system is required here because of Mordant's foggy and low-visibility climate. The system shall comply within the minimum parameters for the error window as specified by Category II systems in Table 1:
+		The International Civil Aviation Organization (ICAO) classifies precision landing system approaches based on their decision height, minimum runway visual range and minimum guidance altitude. The categories are named Category I through III, with the dependency on the system increasing and the error window decreasing as the name increments. A Category II landing system is required in Mordant because of its foggy and low-visibility climate. The system shall comply within the minimum parameters for the error window as specified by Category II systems in Table 1:
 
 		\renewcommand{\arraystretch}{1.5}
 		\setlength{\tabcolsep}{18pt}
@@ -204,7 +203,7 @@
 		\end{table}
 
 		\subsection{Earthquakes}
-		The equipment shall be functional during the course of an earthquake, or other violent and destructive tremors, in its vicinity.
+		The equipment shall be functional during the course of an earthquake, or other violent and destructive tremors.
 
 
 \end{document}
