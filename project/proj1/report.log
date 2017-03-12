@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.27)  12 MAR 2017 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.27)  12 MAR 2017 19:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -153,6 +153,18 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 143.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count109
+\FV@InFile=\read1
+\FV@TabBox=\box30
+\c@FancyVerbLine=\count110
+\FV@StepNumber=\count111
+\FV@OutFile=\write3
+)
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -167,9 +179,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count109
-\Gm@cntv=\count110
-\c@Gm@tempcnt=\count111
+\Gm@cnth=\count112
+\Gm@cntv=\count113
+\c@Gm@tempcnt=\count114
 \Gm@bindingoffset=\dimen118
 \Gm@wd@mp=\dimen119
 \Gm@odd@mp=\dimen120
@@ -180,6 +192,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen125
 \Gm@dimlist=\toks21
 )
+Package color Info: Redefining color black on input line 35.
+
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -191,31 +205,31 @@ File: lstlang3.sty 2015/06/04 1.6 listings language file
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
+\scratchcounter=\count115
 \scratchdimen=\dimen126
-\scratchbox=\box30
-\nofMPsegments=\count113
-\nofMParguments=\count114
+\scratchbox=\box31
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count115
+\MPscratchCnt=\count118
 \MPscratchDim=\dimen127
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -261,7 +275,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count118
+\c@lstlisting=\count121
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -300,35 +314,81 @@ e
 <hist.png, id=1, 481.8pt x 481.8pt>
 File: hist.png Graphic file (type png)
  <use hist.png>
-Package pdftex.def Info: hist.png used on input line 112.
+Package pdftex.def Info: hist.png used on input line 102.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Overfull \hbox (1.48767pt too wide) in paragraph at lines 144--145
+[]\OT1/cmr/m/n/10 Maximum| 
+ []
+
+
+Overfull \hbox (2.31972pt too wide) in paragraph at lines 140--149
+ [][] 
+ []
+
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./hist.png>]
-(./report.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<relfreq.png, id=13, 481.8pt x 481.8pt>
+File: relfreq.png Graphic file (type png)
+ <use relfreq.png>
+Package pdftex.def Info: relfreq.png used on input line 171.
+(pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <./hist.png>] [3 <./relfreq.png>]
+<charcurve1.png, id=22, 481.8pt x 481.8pt>
+File: charcurve1.png Graphic file (type png)
+ <use charcurve1.png>
+Package pdftex.def Info: charcurve1.png used on input line 211.
+(pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
+
+<charcurve2.png, id=23, 481.8pt x 481.8pt>
+File: charcurve2.png Graphic file (type png)
+ <use charcurve2.png>
+Package pdftex.def Info: charcurve2.png used on input line 231.
+(pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./charcurve1.png (PNG copy)>] <charcurve3.png, id=27, 481.8pt x 481.8pt>
+File: charcurve3.png Graphic file (type png)
+
+<use charcurve3.png>
+Package pdftex.def Info: charcurve3.png used on input line 250.
+(pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5 <./charcurve2.png (PNG copy)>] [6 <./charcurve3.png (PNG copy)>] [7]
+[8] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4968 strings out of 494953
- 66693 string characters out of 6180977
- 175338 words of memory out of 5000000
- 8201 multiletter control sequences out of 15000+600000
- 9336 words of font info for 34 fonts, out of 8000000 for 9000
+ 5367 strings out of 494953
+ 72857 string characters out of 6180977
+ 186767 words of memory out of 5000000
+ 8590 multiletter control sequences out of 15000+600000
+ 9650 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,6n,40p,289b,1636s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on report.pdf (2 pages, 90022 bytes).
+ 38i,10n,40p,342b,1636s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
+sc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on report.pdf (8 pages, 151031 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

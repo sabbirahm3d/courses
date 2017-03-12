@@ -26,31 +26,46 @@
 \usepackage{amsmath} % Required for some math elements 
 \usepackage{listings}
 \usepackage{color}
+\usepackage{fancyvrb}
 \usepackage[margin=1in]{geometry}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{black}{rgb}{0,0,0}
 
 \lstset{frame=tb,
-  language=R,
-  aboveskip=3mm,
-  belowskip=3mm,
-  showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  breaklines=true,
-  breakatwhitespace=true,
-  tabsize=3
+    language=R,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=3
 }
-\setlength\parindent{0pt} % Removes all indentation from paragraphs
 
-\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}
+{
+    fontsize=\footnotesize,
+    frame=lines,  % top and bottom rule only
+    framesep=2em, % separation between frame and text
+    rulecolor=\color{black},
+    label=\fbox{\color{black}main.R},
+    labelposition=topline,
+    commentchar=*        % comment character
+}
+
+% Make numbering in the enumerate environment by letter rather than number
+\renewcommand{\labelenumi}{\alph{enumi}.}
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -64,35 +79,9 @@
 
     \maketitle % Insert the title, author and date
 
-    % If you wish to include an abstract, uncomment the lines below
-    % \begin{abstract}
-    % Abstract text
-    % \end{abstract}
-
-    %----------------------------------------------------------------------------------------
-    %	SECTION 1
-    %----------------------------------------------------------------------------------------
-
-    \section{Objective}
-    To determine the atomic weight of magnesium via its reaction with oxygen and to study the stoichiometry of the reaction (as defined in \ref{definitions}):
-
-        \subsection{Definitions}
-        \label{definitions}
-            \begin{description}
-                \item[Stoichiometry]
-                The relationship between the relative quantities of substances taking part in a reaction or forming a compound, typically a ratio of whole integers.
-                \item[Atomic mass]
-                The mass of an atom of a chemical element expressed in atomic mass units. It is approximately equivalent to the number of protons and neutrons in the atom (the mass number) or to the average number allowing for the relative abundances of different isotopes. 
-            \end{description} 
-
-    %----------------------------------------------------------------------------------------
-    %	SECTION 2
-    %----------------------------------------------------------------------------------------
-
     \section{Part 1}
         1000 random numbers were generated using a Bernoulli random variable with n = 20, p = 0.4
 \begin{lstlisting}
-    # main.R
     # initializing variables
     x <- 20
     N <- 1000
@@ -101,21 +90,22 @@
 \end{lstlisting}
 
         \subsection{Distribution}
-            Distribution of the data was plotted with a histogram using ggplot2
+            Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist}.
 \begin{lstlisting}
     # plot a histogram
-    ggplot() + aes(generatedData) + geom_histogram(binwidth=1, colour="black", fill="white")
+    ggplot() + aes(generatedData) + 
+        geom_histogram(binwidth=1, color="black", fill="white") + labs(y="Count")
 \end{lstlisting}
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{hist} % Include the image placeholder.png
-                    \caption{Histogram of the Generated Data}
+                    \includegraphics[width=0.6\textwidth]{hist.png}
+                    \caption{Histogram of the Generated Data} \label{fig:hist}
                 \end{center}
             \end{figure}
 
         \subsection{Mean, Variance, and Standard Deviation}
-            The mean, variance and standard deviation of the data were computed with the following snippet
+            The mean, variance and standard deviation of the data were computed with the following snippet to generate Table 1:
 \begin{lstlisting}
     # print out the mean, variance and standard deviation
     paste("Mean:", signif(mean(generatedData), digits=4),
@@ -123,11 +113,150 @@
         "| Standard Deviation:", signif(sqrt(var(generatedData)), digits=4))
 \end{lstlisting}
 
+        \renewcommand{\arraystretch}{1.5}
+        \setlength{\tabcolsep}{18pt}
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|}
+                 \hline
+                 \multicolumn{3}{|c|}{Table 1: Statistics} \\
+                 \hline
+                 Mean & Variance & Standard Deviation\\
+                 \hline
+                 8.000 & 5.000 & 2.222\\
+                 \hline
+            \end{tabular}
+        \end{table}
+
         \subsection{Summary}
-            Summary statistics were generated with the following snippet
+            Summary statistics were generated with the following snippet to generate Table 2:
 \begin{lstlisting}
     # print out the summary statistics
     summary(generatedData)
 \end{lstlisting}
+
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+                 \hline
+                 \multicolumn{6}{|c|}{Table 2: Summary Statistics} \\
+                 \hline
+                   Minimum & 1st Quar. &  Median & Mean & 3rd Quar. & Maximum \\
+                 \hline
+                 2.000 & 6.000 & 8.000 & 7.931 & 9.000 & 15.000\\
+                 \hline
+            \end{tabular}
+        \end{table}
+
+        \subsection{Relative Frequencies}
+            The frequencies and relative frequencies of the generate data were computed with the following snippet:
+\begin{lstlisting}
+    # frequencies
+    ftable(generatedData)
+
+    # relative frequencies
+    ftable(generatedData)/N
+\end{lstlisting}
+
+            The relative frequencies were then plotted in a barplot as in Figure \ref{fig:relfreq}:
+\begin{lstlisting}
+    # generate barplot of the relative frequencies
+    ggplot(data=relfreq, aes(x=generatedData, y=Freq)) + 
+        geom_bar(color="black", fill="white", stat="identity") +
+        labs(y="Relative Frequency")
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{relfreq.png}
+                    \caption{Relative Frequencies of the Generated Data} \label{fig:relfreq}
+                \end{center}
+            \end{figure}
+
+        \subsection{Binomial Table}
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    \section{Part 2}
+    A very large batch of components has arrived at a distributor. The batch can be characterized as acceptable only if the proportion of defective components is at most 0.10. The distributor decides to randomly select 10 components and to accept the batch only if the number of defective components in the sample is at most 2.
+
+        \subsection{Probability}
+            The probabilities of accepting the lot were computed with the proportion of defective components as p = 0.01, 0.05, 0.10, 0.20, 0.25.
+
+\begin{lstlisting}
+    # generate binomial probabilities
+    signif(pbinom(2, size=10, prob=0.01), digits=4)
+    signif(pbinom(2, size=10, prob=0.05), digits=4)
+    signif(pbinom(2, size=10, prob=0.10), digits=4)
+    signif(pbinom(2, size=10, prob=0.20), digits=4)
+    signif(pbinom(2, size=10, prob=0.25), digits=4)
+\end{lstlisting}
+
+
+        \subsection{Characteristic Curve}
+            The characteristic curve for the acceptance sampling plan was generated as Figure \ref{fig:charcurve1} with the following snippet:
+
+\begin{lstlisting}
+    # plot the charactersitic curve
+    ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
+        labs(x="p", y="P(Acceptance)")
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{charcurve1.png}
+                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve1}
+                \end{center}
+            \end{figure}
+
+
+        \subsection{Probability with Different Maximum Acceptable Sample}
+            The probabilities of accepting the lot were computed with the same proportions of defective components with the maximum sample changed to 1 and its characteristic curve was plotted as Figure \ref{fig:charcurve2}
+
+\begin{lstlisting}
+    # generate binomial probabilities
+    signif(pbinom(1, size=10, prob=0.01), digits=4)
+    signif(pbinom(1, size=10, prob=0.05), digits=4)
+    signif(pbinom(1, size=10, prob=0.10), digits=4)
+    signif(pbinom(1, size=10, prob=0.20), digits=4)
+    signif(pbinom(1, size=10, prob=0.25), digits=4)
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{charcurve2.png}
+                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve2}
+                \end{center}
+            \end{figure}
+
+        \subsection{Probability with Different Sample Size}
+            The probabilities of accepting the lot were computed with the same proportions of defective components with the sample size changed to 15 and its characteristic curve was plotted as Figure \ref{fig:charcurve3}
+
+\begin{lstlisting}
+    # generate binomial probabilities
+    signif(pbinom(1, size=15, prob=0.01), digits=4)
+    signif(pbinom(1, size=15, prob=0.05), digits=4)
+    signif(pbinom(1, size=15, prob=0.10), digits=4)
+    signif(pbinom(1, size=15, prob=0.20), digits=4)
+    signif(pbinom(1, size=15, prob=0.25), digits=4)
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{charcurve3.png}
+                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve3}
+                \end{center}
+            \end{figure}
+
+        \subsection{Outcomes}
+            The second characteristic curve (part (C), Figure \ref{fig:charcurve2}) seems to be the most satisfactory because of its near linear relationship between the proportion and their probability.
+
+    \newpage
+    \VerbatimInput{main.R}
+
 
 \end{document}

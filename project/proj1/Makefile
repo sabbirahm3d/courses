@@ -5,7 +5,7 @@ all: compute convert
 
 .PHONY: compute
 compute:
-	# run the R script to compute all
+	# compile the R script
 	@Rscript main.R
 
 .PHONY: convert

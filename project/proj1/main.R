@@ -8,7 +8,8 @@ generatedData <- rbinom(N, x, p)
 # a
 png(filename="hist.png")
 ggplot() + aes(generatedData) + 
-  geom_histogram(binwidth=1, colour="black", fill="white")
+    geom_histogram(binwidth=1, color="black", fill="white") +
+    labs(y="Count")
 dev.off()
 
 # b
@@ -21,15 +22,14 @@ paste("Mean:", signif(mean(generatedData), digits=4),
 # c
 # print out the summary statistics
 summary(generatedData)
-relfreq <- as.vector(ftable(generatedData))/N
-
-ftable(generatedData)/N
 
 # d
+relfreq <- ftable(generatedData)/N
+relfreq <- as.data.frame(relfreq)
 png(filename="relfreq.png")
-barplot(relfreq, ylab="y")
-# ggplot() + aes(x=c(1:length(relfreq))) + 
-#   geom_histogram(y=relfreq, binwidth=1, colour="black", fill="white")
+ggplot(data=relfreq, aes(x=generatedData, y=Freq)) + 
+    geom_bar(color="black", fill="white", stat="identity") +
+    labs(y="Relative Frequency")
 dev.off()
 
 # e
@@ -38,53 +38,60 @@ dev.off()
 # 3.58
 # a
 
-bnom_df <- data.frame(
-    p=c(0.05, 0.10, 0.20, 0.25), 
+# generate binomial probabilities
+bnomDF <- data.frame(
+    p=c(0.01, 0.05, 0.10, 0.20, 0.25), 
     px=c(
+        signif(pbinom(2, size=10, prob=0.01), digits=4),
         signif(pbinom(2, size=10, prob=0.05), digits=4),
         signif(pbinom(2, size=10, prob=0.10), digits=4),
         signif(pbinom(2, size=10, prob=0.20), digits=4),
         signif(pbinom(2, size=10, prob=0.25), digits=4)
     )
 )
-print(bnom_df)
+print(bnomDF)
 
 # b
 
 png(filename="charcurve1.png")
-ggplot(bnom_df, aes(x=p, y=px)) + geom_line() + geom_point(colour="red")
+ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
+    labs(x="p", y="P(Acceptance)")
 dev.off()
 
 # c
 
-bnom_df <- data.frame(
-    p=c(0.05, 0.10, 0.20, 0.25), 
+bnomDF <- data.frame(
+    p=c(0.01, 0.05, 0.10, 0.20, 0.25), 
     px=c(
+        signif(pbinom(1, size=10, prob=0.01), digits=4),
         signif(pbinom(1, size=10, prob=0.05), digits=4),
         signif(pbinom(1, size=10, prob=0.10), digits=4),
         signif(pbinom(1, size=10, prob=0.20), digits=4),
         signif(pbinom(1, size=10, prob=0.25), digits=4)
     )
 )
-print(bnom_df)
+print(bnomDF)
 
 png(filename="charcurve2.png")
-ggplot(bnom_df, aes(x=p, y=px)) + geom_line() + geom_point(colour="red")
+ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
+    labs(x="p", y="P(Acceptance)")
 dev.off()
 
 # d
 
-bnom_df <- data.frame(
-    p=c(0.05, 0.10, 0.20, 0.25), 
+bnomDF <- data.frame(
+    p=c(0.01, 0.05, 0.10, 0.20, 0.25), 
     px=c(
+        signif(pbinom(2, size=15, prob=0.01), digits=4),
         signif(pbinom(2, size=15, prob=0.05), digits=4),
         signif(pbinom(2, size=15, prob=0.10), digits=4),
         signif(pbinom(2, size=15, prob=0.20), digits=4),
         signif(pbinom(2, size=15, prob=0.25), digits=4)
     )
 )
-print(bnom_df)
+print(bnomDF)
 
 png(filename="charcurve3.png")
-ggplot(bnom_df, aes(x=p, y=px)) + geom_line() + geom_point(colour="red")
+ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
+    labs(x="p", y="P(Acceptance)")
 dev.off()
