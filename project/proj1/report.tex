@@ -82,7 +82,7 @@
     \section{Part 1}
         1000 random numbers were generated using a Bernoulli random variable with n = 20, p = 0.4
 \begin{lstlisting}
-    # initializing variables
+    # initialize parameters for binomial distribution
     x <- 20
     N <- 1000
     p <- 0.4
@@ -123,7 +123,7 @@
                  \hline
                  Mean & Variance & Standard Deviation\\
                  \hline
-                 8.000 & 5.000 & 2.222\\
+                 7.953 & 4.832 & 2.198\\
                  \hline
             \end{tabular}
         \end{table}
@@ -143,7 +143,7 @@
                  \hline
                    Minimum & 1st Quar. &  Median & Mean & 3rd Quar. & Maximum \\
                  \hline
-                 2.000 & 6.000 & 8.000 & 7.931 & 9.000 & 15.000\\
+                 1.000 & 7.000 & 8.000 & 7.953 & 9.000 & 15.000\\
                  \hline
             \end{tabular}
         \end{table}
@@ -176,14 +176,17 @@
         \subsection{Binomial Table}
             The cumulative probability $P(X=x)$ of the relative frequencies were computed with the following snippet to generate Figure \ref{fig:cumProb}:
 \begin{lstlisting}
-    
-    # accumulate the cumulative probability of the relative frequencies
-    cumProb <- 0
+    # print out the cumulative probability to compare with the binomial 
+    # distribution table
+    cumProb <- 0  # initialize binomial cumulative probability
+
+    # iterate through the entire dataframe
     for (i in 1:(nrow(relfreq))) {
         cumProb=cumProb+relfreq[i, "Freq"]
         print(
             paste0(
-                "b(", relfreq[i, "generatedData"], ', ', x, ', ', p, ") -> ",  cumProb
+                "b(", relfreq[i, "generatedData"], ', ', x, ', ', p, ") -> ",
+                cumProb
             )
         )
     }
@@ -212,12 +215,15 @@
             The probabilities of accepting the lot were computed with the proportion of defective components as p = 0.01, 0.05, 0.10, 0.20, 0.25.
 
 \begin{lstlisting}
-    # generate binomial probabilities
-    signif(pbinom(2, size=10, prob=0.01), digits=4)
-    signif(pbinom(2, size=10, prob=0.05), digits=4)
-    signif(pbinom(2, size=10, prob=0.10), digits=4)
-    signif(pbinom(2, size=10, prob=0.20), digits=4)
-    signif(pbinom(2, size=10, prob=0.25), digits=4)
+    # initialize variables
+    probs <- c(0.01, 0.05, 0.10, 0.20, 0.25)
+    proportions <- rep(0, times=length(probs))
+
+    # generate binomial probabilities with b(2, 10, p)
+    for (i in 1:length(proportions)) {
+        proportions[i] = signif(pbinom(2, size=10, prob=probs[i]), digits=4)
+    }
+    bnomDF <- data.frame(p=probs, px=proportions)
 \end{lstlisting}
 
 
@@ -225,7 +231,7 @@
             The characteristic curve for the acceptance sampling plan was generated as Figure \ref{fig:charcurve1} with the following snippet:
 
 \begin{lstlisting}
-    # plot the charactersitic curve
+    # plot the characteristic curve
     ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
         labs(x="p", y="P(Acceptance)")
 \end{lstlisting}
@@ -233,7 +239,7 @@
             \begin{figure}[h]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/charcurve1.png}
-                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve1}
+                    \caption{Relative Frequencies of the Generated Data (Part A)} \label{fig:charcurve1}
                 \end{center}
             \end{figure}
 
@@ -242,18 +248,17 @@
             The probabilities of accepting the lot were computed with the same proportions of defective components with the maximum sample changed to 1 and its characteristic curve was plotted as Figure \ref{fig:charcurve2}
 
 \begin{lstlisting}
-    # generate binomial probabilities
-    signif(pbinom(1, size=10, prob=0.01), digits=4)
-    signif(pbinom(1, size=10, prob=0.05), digits=4)
-    signif(pbinom(1, size=10, prob=0.10), digits=4)
-    signif(pbinom(1, size=10, prob=0.20), digits=4)
-    signif(pbinom(1, size=10, prob=0.25), digits=4)
+    # generate binomial probabilities with b(1, 10, p)
+    for (i in 1:length(proportions)) {
+        proportions[i] = signif(pbinom(1, size=10, prob=probs[i]), digits=4)
+    }
+    bnomDF <- data.frame(p=probs, px=proportions)
 \end{lstlisting}
 
             \begin{figure}[h]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/charcurve2.png}
-                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve2}
+                    \caption{Relative Frequencies of the Generated Data (Part C)} \label{fig:charcurve2}
                 \end{center}
             \end{figure}
 
@@ -261,24 +266,24 @@
             The probabilities of accepting the lot were computed with the same proportions of defective components with the sample size changed to 15 and its characteristic curve was plotted as Figure \ref{fig:charcurve3}
 
 \begin{lstlisting}
-    # generate binomial probabilities
-    signif(pbinom(1, size=15, prob=0.01), digits=4)
-    signif(pbinom(1, size=15, prob=0.05), digits=4)
-    signif(pbinom(1, size=15, prob=0.10), digits=4)
-    signif(pbinom(1, size=15, prob=0.20), digits=4)
-    signif(pbinom(1, size=15, prob=0.25), digits=4)
+    # generate binomial probabilities with b(2, 15, p)
+    for (i in 1:length(proportions)) {
+        proportions[i] = signif(pbinom(2, size=15, prob=probs[i]), digits=4)
+    }
+    bnomDF <- data.frame(p=probs, px=proportions)
 \end{lstlisting}
 
             \begin{figure}[h]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/charcurve3.png}
-                    \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve3}
+                    \caption{Relative Frequencies of the Generated Data (Part D)} \label{fig:charcurve3}
                 \end{center}
             \end{figure}
 
         \subsection{Outcomes}
-            The second characteristic curve (part (C), Figure \ref{fig:charcurve2}) seems to be the most satisfactory because of its near linear relationship between the proportion and their probability.
+            The second characteristic curve (Part C, Figure \ref{fig:charcurve2}) seems to be the most satisfactory because of its near linear relationship between the proportion and their probability.
 
+    \clearpage
     \newpage
     \VerbatimInput{main.R}
 
