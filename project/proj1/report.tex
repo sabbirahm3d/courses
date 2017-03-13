@@ -99,7 +99,7 @@
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{hist.png}
+                    \includegraphics[width=0.6\textwidth]{figures/hist.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist}
                 \end{center}
             \end{figure}
@@ -168,18 +168,42 @@
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{relfreq.png}
+                    \includegraphics[width=0.6\textwidth]{figures/relfreq.png}
                     \caption{Relative Frequencies of the Generated Data} \label{fig:relfreq}
                 \end{center}
             \end{figure}
 
         \subsection{Binomial Table}
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            The cumulative probability $P(X=x)$ of the relative frequencies were computed with the following snippet to generate Figure \ref{fig:cumProb}:
+\begin{lstlisting}
+    
+    # accumulate the cumulative probability of the relative frequencies
+    cumProb <- 0
+    for (i in 1:(nrow(relfreq))) {
+        cumProb=cumProb+relfreq[i, "Freq"]
+        print(
+            paste0(
+                "b(", relfreq[i, "generatedData"], ', ', x, ', ', p, ") -> ",  cumProb
+            )
+        )
+    }
+\end{lstlisting}
+
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{figures/binom_table.png}
+                    \caption{Cumulative Binomial Probability Table from the Textbook} \label{fig:binom_table}
+                \end{center}
+            \end{figure}
+
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.4\textwidth]{figures/cumProb.png}
+                    \caption{Cumulative Binomial Probability Generated} \label{fig:cumProb}
+                \end{center}
+            \end{figure}
 
     \section{Part 2}
     A very large batch of components has arrived at a distributor. The batch can be characterized as acceptable only if the proportion of defective components is at most 0.10. The distributor decides to randomly select 10 components and to accept the batch only if the number of defective components in the sample is at most 2.
@@ -208,7 +232,7 @@
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{charcurve1.png}
+                    \includegraphics[width=0.6\textwidth]{figures/charcurve1.png}
                     \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve1}
                 \end{center}
             \end{figure}
@@ -228,7 +252,7 @@
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{charcurve2.png}
+                    \includegraphics[width=0.6\textwidth]{figures/charcurve2.png}
                     \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve2}
                 \end{center}
             \end{figure}
@@ -247,7 +271,7 @@
 
             \begin{figure}[h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{charcurve3.png}
+                    \includegraphics[width=0.6\textwidth]{figures/charcurve3.png}
                     \caption{Relative Frequencies of the Generated Data} \label{fig:charcurve3}
                 \end{center}
             \end{figure}

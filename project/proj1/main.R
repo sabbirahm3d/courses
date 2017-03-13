@@ -6,7 +6,7 @@ p <- 0.4
 generatedData <- rbinom(N, x, p)
 
 # a
-png(filename="hist.png")
+png(filename="figures/hist.png")
 ggplot() + aes(generatedData) + 
     geom_histogram(binwidth=1, color="black", fill="white") +
     labs(y="Count")
@@ -26,7 +26,7 @@ summary(generatedData)
 # d
 relfreq <- ftable(generatedData)/N
 relfreq <- as.data.frame(relfreq)
-png(filename="relfreq.png")
+png(filename="figures/relfreq.png")
 ggplot(data=relfreq, aes(x=generatedData, y=Freq)) + 
     geom_bar(color="black", fill="white", stat="identity") +
     labs(y="Relative Frequency")
@@ -34,6 +34,15 @@ dev.off()
 
 # e
 
+cumProb <- 0
+for (i in 1:(nrow(relfreq))) {
+    cumProb=cumProb+relfreq[i, "Freq"]
+    print(
+        paste0(
+            "b(", relfreq[i, "generatedData"], ', ', x, ', ', p, ") -> ",  cumProb
+        )
+    )
+}
 
 # 3.58
 # a
@@ -53,7 +62,7 @@ print(bnomDF)
 
 # b
 
-png(filename="charcurve1.png")
+png(filename="figures/charcurve1.png")
 ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
     labs(x="p", y="P(Acceptance)")
 dev.off()
@@ -72,7 +81,7 @@ bnomDF <- data.frame(
 )
 print(bnomDF)
 
-png(filename="charcurve2.png")
+png(filename="figures/charcurve2.png")
 ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
     labs(x="p", y="P(Acceptance)")
 dev.off()
@@ -91,7 +100,7 @@ bnomDF <- data.frame(
 )
 print(bnomDF)
 
-png(filename="charcurve3.png")
+png(filename="figures/charcurve3.png")
 ggplot(bnomDF, aes(x=p, y=px)) + geom_line() + geom_point(color="red") +
     labs(x="p", y="P(Acceptance)")
 dev.off()

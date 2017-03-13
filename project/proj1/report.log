@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.27)  12 MAR 2017 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.27)  12 MAR 2017 21:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -311,10 +311,10 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<hist.png, id=1, 481.8pt x 481.8pt>
-File: hist.png Graphic file (type png)
- <use hist.png>
-Package pdftex.def Info: hist.png used on input line 102.
+<figures/hist.png, id=1, 481.8pt x 481.8pt>
+File: figures/hist.png Graphic file (type png)
+ <use figures/hist.png>
+Package pdftex.def Info: figures/hist.png used on input line 102.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
 
@@ -333,62 +333,87 @@ Overfull \hbox (2.31972pt too wide) in paragraph at lines 140--149
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<relfreq.png, id=13, 481.8pt x 481.8pt>
-File: relfreq.png Graphic file (type png)
- <use relfreq.png>
-Package pdftex.def Info: relfreq.png used on input line 171.
+<figures/relfreq.png, id=13, 481.8pt x 481.8pt>
+File: figures/relfreq.png Graphic file (type png)
+ <use figures/relfreq.png>
+Package pdftex.def Info: figures/relfreq.png used on input line 171.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[2 <./hist.png>] [3 <./relfreq.png>]
-<charcurve1.png, id=22, 481.8pt x 481.8pt>
-File: charcurve1.png Graphic file (type png)
- <use charcurve1.png>
-Package pdftex.def Info: charcurve1.png used on input line 211.
+[2 <./figures/hist.png>]
+<figures/binom_table.png, id=18, 932.48375pt x 634.37pt>
+File: figures/binom_table.png Graphic file (type png)
+
+<use figures/binom_table.png>
+Package pdftex.def Info: figures/binom_table.png used on input line 195.
+(pdftex.def)             Requested size: 281.85587pt x 191.74506pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/cumProb.png, id=19, 274.02374pt x 244.915pt>
+File: figures/cumProb.png Graphic file (type png)
+
+<use figures/cumProb.png>
+Package pdftex.def Info: figures/cumProb.png used on input line 203.
+(pdftex.def)             Requested size: 187.89914pt x 167.94139pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <./figures/relfreq.png>] [4 <./figures/binom_table.png> <./figures/cumProb.p
+ng>] <figures/charcurve1.png, id=28, 481.8pt x 481.8pt>
+File: figures/charcurve1.png Graphic file (type png)
+
+<use figures/charcurve1.png>
+Package pdftex.def Info: figures/charcurve1.png used on input line 235.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
-<charcurve2.png, id=23, 481.8pt x 481.8pt>
-File: charcurve2.png Graphic file (type png)
- <use charcurve2.png>
-Package pdftex.def Info: charcurve2.png used on input line 231.
+<figures/charcurve2.png, id=29, 481.8pt x 481.8pt>
+File: figures/charcurve2.png Graphic file (type png)
+
+<use figures/charcurve2.png>
+Package pdftex.def Info: figures/charcurve2.png used on input line 255.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./charcurve1.png (PNG copy)>] <charcurve3.png, id=27, 481.8pt x 481.8pt>
-File: charcurve3.png Graphic file (type png)
+[5 <./figures/charcurve1.png (PNG copy)>]
+<figures/charcurve3.png, id=33, 481.8pt x 481.8pt>
+File: figures/charcurve3.png Graphic file (type png)
 
-<use charcurve3.png>
-Package pdftex.def Info: charcurve3.png used on input line 250.
+<use figures/charcurve3.png>
+Package pdftex.def Info: figures/charcurve3.png used on input line 274.
 (pdftex.def)             Requested size: 281.85587pt x 281.86288pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5 <./charcurve2.png (PNG copy)>] [6 <./charcurve3.png (PNG copy)>] [7]
-[8] (./report.aux) ) 
+[6 <./figures/charcurve2.png (PNG copy)>] [7 <./figures/charcurve3.png (PNG cop
+y)>] [8] [9] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 5367 strings out of 494953
- 72857 string characters out of 6180977
+ 5384 strings out of 494953
+ 73323 string characters out of 6180977
  186767 words of memory out of 5000000
- 8590 multiletter control sequences out of 15000+600000
+ 8604 multiletter control sequences out of 15000+600000
  9650 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,10n,40p,342b,1636s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
-sc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on report.pdf (8 pages, 151031 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on report.pdf (9 pages, 298276 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
