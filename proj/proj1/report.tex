@@ -9,11 +9,12 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 
-\addtolength{\oddsidemargin}{-.875in}
-\addtolength{\evensidemargin}{-.875in}
+% margins and widths
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\evensidemargin}{-0.75in}
 \addtolength{\textwidth}{1.75in}
 
-\addtolength{\topmargin}{-.75in}
+\addtolength{\topmargin}{-0.75in}
 \addtolength{\textheight}{1.75in}
 
 % headers / footers
@@ -28,14 +29,15 @@
 \cftsetindents{section}{0.1in}{0.5in}
 \cftsetindents{subsection}{0.65in}{0.5in}
 
+% content
 \begin{document}
 
-    \input{cover}
+    \input{00-cover}
     \tableofcontents
-    \input{intro}
-    \input{overview}
-    \input{decoding}
-    \input{clock}
-    \input{memory}
+    \input{01-intro}
+    \input{02-overview}
+    \input{03-decoding}
+    \input{04-clock}
+    \input{05-memory}
 
 \end{document}
