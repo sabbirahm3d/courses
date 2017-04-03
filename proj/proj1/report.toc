@@ -1,3 +1,0 @@
-\select@language {english}
-\contentsline {section}{Introduction}{2}
-\contentsline {section}{ayy lmao}{3}

@@ -1,10 +1,9 @@
 # Makefile to ease trivial tasks for the project
-DOCFILE="$(shell find -name "*.tex")"
 
 .PHONY: convert
 convert:
 	# convert LaTex file to PDF
-	@sudo pdflatex $(DOCFILE)
+	@sudo pdflatex report.tex
 	@sudo chown -R $(USER) .
 
 
