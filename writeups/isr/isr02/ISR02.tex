@@ -5,6 +5,8 @@
 \usepackage[letterpaper, margin=1in]{geometry}
 \usepackage{graphicx}
 
+\usepackage{xparse}
+
 \setcounter{secnumdepth}{2}
 \linespread{1.3}
 
@@ -25,6 +27,17 @@
 \setlength{\voffset}{0.1in}
 
 % custom commands
+\ExplSyntaxOn
+
+\NewDocumentCommand{\makeenumerate}{ m }
+ {
+  \begin{enumerate}
+	  \clist_map_inline:nn { #1 } { \item ##1 }
+  \end{enumerate}
+ }
+
+\ExplSyntaxOff
+
 
 % header command
 \newcommand{\header}[5]{
@@ -83,10 +96,37 @@
 
 		\item Only international flights departing from major airports in the northern regions of the United States are considered; contributions from other airports are negligible.
 
+		The airports that are considered as major contributors are listed below:
+
+			\begin{table}[h]
+				\centering
+				\begin{tabular*}{300pt}{@{\extracolsep{\fill}} c c c c c}
+
+					BOS & JFK & NWK & PHL & IAD \\
+					CHT & ATL & ORD & STL & DFW \\
+					LAX & SEA & SFX
+
+				\end{tabular*}
+			\end{table}
+
+		The airports with minor contribution to the North Atlantic air traffic are listed below:
+
+			\begin{table}[h]
+			\centering
+				\begin{tabular*}{100pt}{@{\extracolsep{\fill}} c c c }
+
+					MIA & CLE & YUL \\
+					TOR & DEN & PAX \\
+
+				\end{tabular*}
+			\end{table}
+
 	\end{itemize}
 
 	\section{Calculations}
 	Data on air traffic were obtained from various sources. These statistics were used to generate the variations or the bounds of the estimate.
+
+		\subsection{Passenger Information}
 
 
 
