@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+
+\setcounter{secnumdepth}{2}
+\linespread{1.3}
+
+% -----------------------------------------------------------
+% margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+% custom commands
+
+% header command
+\newcommand{\header}[5]{
+	\begin{centering}
+		\parbox{6.8in}{
+			\begin{flushright}
+				\begin{spacing}{.8}{
+					\fontfamily{cmss}{\large{\textbf{#1}}\\}}
+					\small{
+						#2\\
+					}
+				\end{spacing}
+			\end{flushright}
+		\vspace{-7.5mm}
+		}\\
+		\rule{\textwidth}{0.5pt}\\
+		\vspace{-4mm}
+	\end{centering}
+}
+
+% document info command
+\newcommand{\documentinfo}[5]{
+	\begin{centering}
+		\parbox{6.8in}{
+		\begin{spacing}{1}
+			\begin{flushleft}
+				\begin{tabular}{l l}
+					\fontfamily{cmss}{\textbf{DOC \#: }} & #1 \\
+					\fontfamily{cmss}{\textbf{DATE: }} & #2 \\
+					\fontfamily{cmss}{\textbf{BY: }} & #3 \\
+				\end{tabular}\\
+				\rule{\textwidth}{1pt}
+			\end{flushleft}
+		\end{spacing}
+		}
+	\end{centering}
+}
+
+% content
+
+\begin{document}
+
+	\header{CMPE349}{Aircraft Traffic in North Atlantic}{}{}
+
+	\documentinfo{ISR02}{\today}{Sabbir Ahmed}{}
+
+	\section{Introduction}
+	A satellite communication system that will service aircraft flying in oceanic airspace (out of line of sight of land) is to be developed. This note will predict a conservative but reasonable Fermi estimate of the number of aircraft flying over the North Atlantic in the peak busy hour.
+ 
+	\section{Assumptions}
+	The estimation of the number of aircraft will utilize the principles of Fermi problems, which require justified assumptions based on little to no data. Several assumptions are considered in this scenario and are listed as follows:
+
+	\begin{itemize}
+
+		\item The number of aircrafts flying over to Europe equals the number of aircrafts flying back to the United States.
+
+		\item Only international flights departing from major airports in the northern regions of the United States are considered; contributions from other airports are negligible.
+
+	\end{itemize}
+
+	\section{Calculations}
+	Data on air traffic were obtained from various sources. These statistics were used to generate the variations or the bounds of the estimate.
+
+
+
+\end{document}
