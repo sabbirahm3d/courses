@@ -102,9 +102,9 @@
 				\centering
 				\begin{tabular*}{300pt}{@{\extracolsep{\fill}} c c c c c}
 
-					BOS & JFK & NWK & PHL & IAD \\
-					CHT & ATL & ORD & STL & DFW \\
-					LAX & SEA & SFX
+					ATL & BOS & CHT & DFW & IAD \\
+					JFK & LAX & NWK & ORD & PHL  \\
+					SEA & SFX & STL
 
 				\end{tabular*}
 			\end{table}
@@ -115,19 +115,54 @@
 			\centering
 				\begin{tabular*}{100pt}{@{\extracolsep{\fill}} c c c }
 
-					MIA & CLE & YUL \\
-					TOR & DEN & PAX \\
+					CLE & DEN & MIA \\
+					PAX & TOR & YUL
 
 				\end{tabular*}
 			\end{table}
+
+		\item Aircraft (not just international aircraft) depart busy airports about once every two minutes in the busy hour.
+
+		\item There are more domestic than international flights in the United States.
+
+		\item The large airports contribute to at least 80\% of the total flights in the United States, and the selected airports at least 75\%.
+
+		\item Contributions to air traffic from flights between midnight and dawn are less significant when compared to daytime flights.
 
 	\end{itemize}
 
 	\section{Calculations}
 	Data on air traffic were obtained from various sources. These statistics were used to generate the variations or the bounds of the estimate.
 
+		\begin{itemize}
+
+			\item There are 23,911 commercial flights every day \cite{faa}
+
+			\item There are almost 3 times more domestic flights than international in the United States \cite{domvsintl}
+
+		\end{itemize}
+
+		\subsection{Airport Data}
+
 		\subsection{Passenger Information}
 
+
+	\begin{thebibliography}{9}
+
+		\bibitem{faa}
+		Air Traffic By The Numbers,
+		\\\texttt{https://www.faa.gov/air\_{}traffic/by\_{}the\_{}numbers}
+
+		\bibitem{domvsintl}
+		2016 Traffic Data for U.S Airlines and Foreign Airlines U.S. Flights,
+		\\\texttt{https://www.rita.dot.gov/bts/press\_{}releases/bts017\_{}17}
+
+		\bibitem{totalpassengers}
+		All Carriers - All Airports
+		\\\texttt{https://www.transtats.bts.gov/Data\_{}Elements.aspx}
+
+
+	\end{thebibliography}
 
 
 \end{document}
