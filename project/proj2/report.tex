@@ -21,8 +21,7 @@
 
 \documentclass{article}
 \usepackage{fixltx2e}
-\usepackage{graphicx} % Required for the inclusion of images
-\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{graphicx, wrapfig} % Required for the inclusion of images
 \usepackage{amsmath} % Required for some math elements 
 \usepackage{listings}
 \usepackage{color}
@@ -48,7 +47,7 @@
     stringstyle=\color{mauve},
     breaklines=true,
     breakatwhitespace=true,
-    tabsize=3,
+    tabsize=4,
     escapechar={\?}
 }
 
@@ -79,6 +78,7 @@
 
     \maketitle % Insert the title, author and date
 
+    % ------------------------------ Part 1 ------------------------------
     \section{Part 1}
         1000 random samples of size 40 were generated from normal distribution with mean $\mu$ = 3 and standard deviation $\sigma$ = 2.
 
@@ -87,30 +87,117 @@
     N <- 40  # size
     mu <- 3  # mean
     sigma <- 2  # standard deviation
-
-    samp_means <- c()  # initialize empty array
+    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
     # generate 1000 samples
-    for (i in 1:1000){
+    for (i in 1:NUMSAMPS){
         generatedData <- rnorm(N, mu, sigma)
         # store the sample means in vector
         sampMeans[i] = mean(generatedData)
+
+        if (i == 1) {
+            firstMean = mean(generatedData)
+            firstStd = sd(generatedData)
+        }
+
     }
 \end{lstlisting}
 
-    \input{part1}
+        \input{part1}
 
         \subsection{Distribution}
-            Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist}.
+            Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist1}.
 \begin{lstlisting}
-    # plot a histogram
-    ggplot() + aes(generatedData) + 
-        geom_histogram(binwidth=1, color="black", fill="white") + labs(y="Count")
+    ggplot() + aes(sampMeans) + 
+        geom_histogram(binwidth=0.1, color="black", fill="white") +
+        labs(y="Count", x="Sample Means")
 \end{lstlisting}
 
             \begin{figure}[h]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/hist1.png}
-                    \caption{Histogram of the Generated Data} \label{fig:hist}
+                    \caption{Histogram of the Generated Data} \label{fig:hist1}
+                \end{center}
+            \end{figure}
+
+
+    % ------------------------------ Part 2 ------------------------------
+    \section{Part 2}
+        1000 random samples of size 15 were generated from a binomial distribution with n = 10 and standard deviation p = 0.15.
+
+\begin{lstlisting}
+    # initialize parameters for binomial distribution
+    N <- 15
+    n <- 10
+    p <- 0.15
+    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
+    for (i in 1:NUMSAMPS){
+        generatedData <- rbinom(N, n, p)
+        sampMeans[i] = mean(generatedData)
+
+        if (i == 1) {
+            firstMean = mean(generatedData)
+            firstStd = sd(generatedData)
+        }
+
+    }
+\end{lstlisting}
+
+        \input{part2}
+
+        \subsection{Distribution}
+            Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist2}.
+\begin{lstlisting}
+    # plot a histogram of the data
+    ggplot() + aes(sampMeans) + 
+        geom_histogram(binwidth=0.2, color="black", fill="white") +
+        labs(y="Count", x="Sample Means")
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{figures/hist2.png}
+                    \caption{Histogram of the Generated Data} \label{fig:hist2}
+                \end{center}
+            \end{figure}
+
+
+    % ------------------------------ Part 3 ------------------------------
+    \section{Part 3}
+        1000 random samples of size 120 were generated from a binomial distribution with n = 10 and standard deviation p = 0.15.
+
+\begin{lstlisting}
+    # initialize parameters for binomial distribution
+    N <- 120
+    n <- 10
+    p <- 0.15
+    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
+    for (i in 1:NUMSAMPS){
+        generatedData <- rbinom(N, n, p)
+        sampMeans[i] = mean(generatedData)
+
+        if (i == 1) {
+            firstMean = mean(generatedData)
+            firstStd = sd(generatedData)
+        }
+
+    }
+\end{lstlisting}
+
+        \input{part3}
+
+        \subsection{Distribution}
+            Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist3}.
+\begin{lstlisting}
+    # plot a histogram of the data
+    ggplot() + aes(sampMeans) + 
+        geom_histogram(binwidth=0.1, color="black", fill="white") +
+        labs(y="Count", x="Sample Means")
+\end{lstlisting}
+
+            \begin{figure}[h]
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{figures/hist3.png}
+                    \caption{Histogram of the Generated Data} \label{fig:hist3}
                 \end{center}
             \end{figure}
 

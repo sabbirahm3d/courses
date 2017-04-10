@@ -4,23 +4,36 @@
 # WARNINGS OR ERRORS IN OTHER SYSTEMS
 
 library(ggplot2)  # for generating high quality plots
-set.seed(124)
+set.seed(124)  # seed the random generators
 
+# LaTex template for the output
 outputTemplate <- "\\subsection{Output}
+
+    The first sample mean and standard deviation were computed:
+
+    \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
+
+    All the samples were then used to find the sample mean and standard deviation:
 
     \\begin{table}[h]
         \\centering
-        \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c}
+        \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c c}
 
-        \\textbf{Actual}: & \\textbf{Theoretical}: \\\\
-        $\\mu$: %1.0f  & $\\mu$: %1.0f \\\\
-        E($\\overline{X}$): %.4f & E($\\overline{X}$): %.4f \\\\
-        $\\sigma$: %1.0f & $\\sigma$: %1.0f \\\\
-        $\\sigma$\\textsubscript{$\\overline{X}$}: %.3f & $\\sigma$\\textsubscript{$\\overline{X}$}: %.3f \\\\
+        & \\textbf{Actual} & \\textbf{Theoretical} \\\\
+        \\hline
+        $\\mu$ & %.3f  & %.3f \\\\
+        E($\\overline{X}$) & %.3f & %.3f \\\\
+        $\\sigma$ & %.3f & %.3f \\\\
+        $\\sigma$\\textsubscript{$\\overline{X}$} & %.3f & %.3f \\\\
 
         \\end{tabular*}
     \\end{table}
 "
+
+# global variables
+NUMSAMPS <- 1000
+firstMean <- 0
+firstStd <- 0
 
 # ------------------------------ Part 1 ------------------------------
 
@@ -29,20 +42,29 @@ N <- 40  # size
 mu <- 3  # mean
 sigma <- 2  # standard deviation
 
-sampMeans <- c()  # initialize empty array
+sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
+firstMean <- 0
+firstStd <- 0
+
 # generate 1000 samples
-for (i in 1:1000){
+for (i in 1:NUMSAMPS){
     generatedData <- rnorm(N, mu, sigma)
     # store the sample means in vector
     sampMeans[i] = mean(generatedData)
-}
 
+    if (i == 1) {
+        firstMean = mean(generatedData)
+        firstStd = sd(generatedData)
+    }
+
+}
 
 # save output
 sink("part1.tex", append=FALSE, split=FALSE)
 cat(
     sprintf(
         outputTemplate,
+        firstMean, firstStd,
         mu, mu,
         mean(sampMeans), mean(sampMeans),
         sigma, sigma,
@@ -66,21 +88,25 @@ dev.off()
 N <- 15
 n <- 10
 p <- 0.15
-sampMeans <- c()
-for (i in 1:1000){
+
+sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
+for (i in 1:NUMSAMPS){
     generatedData <- rbinom(N, n, p)
     sampMeans[i] = mean(generatedData)
+
+    if (i == 1) {
+        firstMean = mean(generatedData)
+        firstStd = sd(generatedData)
+    }
+
 }
-
-
-# save output
-sink("part2.out", append=FALSE, split=FALSE)
 
 # save output
 sink("part2.tex", append=FALSE, split=FALSE)
 cat(
     sprintf(
         outputTemplate,
+        firstMean, firstStd,
         n*p, n*p,
         mean(sampMeans), mean(sampMeans),
         n*p*(1-p), n*p*(1-p),
@@ -105,21 +131,25 @@ dev.off()
 N <- 120
 n <- 10
 p <- 0.15
-sampMeans <- c()
-for (i in 1:1000){
-    generatedData <- rbinom(n, N, p)
+
+sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
+for (i in 1:NUMSAMPS){
+    generatedData <- rbinom(N, n, p)
     sampMeans[i] = mean(generatedData)
+
+    if (i == 1) {
+        firstMean = mean(generatedData)
+        firstStd = sd(generatedData)
+    }
+
 }
-
-
-# save output
-sink("part3.out", append=FALSE, split=FALSE)
 
 # save output
 sink("part3.tex", append=FALSE, split=FALSE)
 cat(
     sprintf(
         outputTemplate,
+        firstMean, firstStd,
         n*p, n*p,
         mean(sampMeans), mean(sampMeans),
         n*p*(1-p), n*p*(1-p),
@@ -132,7 +162,7 @@ png(filename="figures/hist3.png")
 
 # plot a histogram of the data
 ggplot() + aes(sampMeans) + 
-    geom_histogram(binwidth=0.3, color="black", fill="white") +
+    geom_histogram(binwidth=0.1, color="black", fill="white") +
     labs(y="Count", x="Sample Means")
 
 dev.off()
