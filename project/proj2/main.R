@@ -58,10 +58,10 @@ firstStd <- 0
 for (i in 1:NUMSAMPS){
     generatedData <- rnorm(N, mu, sigma)
     # store the sample means in vector
-    sampMeans[i] = mean(generatedData)
+    sampMeans[i] = sum(generatedData)/N
 
     if (i == 1) {
-        firstMean = mean(generatedData)
+        firstMean = sum(generatedData)/N
         firstStd = sigma/sqrt(N)
     }
 
@@ -75,7 +75,7 @@ cat(
         firstMean, firstStd,
         "\\mu", "\\mu", "\\sigma", "\\frac{\\sigma}{\\sqrt{n}}",
         mu, mu,
-        mean(sampMeans), mu,
+        sum(sampMeans)/NUMSAMPS, mu,
         sigma, sigma,
         sd(sampMeans), sigma/sqrt(N)
     )
@@ -101,11 +101,11 @@ p <- 0.15
 sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
 for (i in 1:NUMSAMPS){
     generatedData <- rbinom(N, n, p)
-    sampMeans[i] = mean(generatedData)
+    sampMeans[i] = sum(generatedData)/N
 
     if (i == 1) {
-        firstMean = mean(generatedData)
-        firstStd = sd(generatedData)
+        firstMean = sum(generatedData)/N
+        firstStd = n*p*(1-p)/sqrt(N)
     }
 
 }
@@ -118,7 +118,7 @@ cat(
         firstMean, firstStd,
         "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
         n*p, n*p,
-        mean(sampMeans), n*p,
+        sum(sampMeans)/NUMSAMPS, n*p,
         n*p*(1-p), n*p*(1-p),
         sd(sampMeans), n*p*(1-p)/sqrt(N)
     )
@@ -145,11 +145,11 @@ p <- 0.15
 sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
 for (i in 1:NUMSAMPS){
     generatedData <- rbinom(N, n, p)
-    sampMeans[i] = mean(generatedData)
+    sampMeans[i] = sum(generatedData)/N
 
     if (i == 1) {
-        firstMean = mean(generatedData)
-        firstStd = n*p*(1-p)/N
+        firstMean = sum(generatedData)/N
+        firstStd = n*p*(1-p)/sqrt(N)
     }
 
 }
@@ -162,7 +162,7 @@ cat(
         firstMean, firstStd,
         "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
         n*p, n*p,
-        mean(sampMeans), n*p,
+        sum(sampMeans)/NUMSAMPS, n*p,
         n*p*(1-p), n*p*(1-p),
         sd(sampMeans), n*p*(1-p)/sqrt(N)
     )
