@@ -13,7 +13,15 @@ outputTemplate <- "\\subsection{Output}
 
     \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
 
-    All the samples were then used to find the sample mean and standard deviation:
+    All the samples were then used to find the sample mean and standard
+    deviation. The theoretical values were also computed based on the
+    relationships:
+
+    \\[ \\mu = %s \\]
+    \\[ E(\\overline{X}) = %s \\]
+    \\[ \\sigma = %s \\]
+    \\[ \\sigma_{\\overline{X}} = %s \\]
+
 
     \\begin{table}[h]
         \\centering
@@ -54,7 +62,7 @@ for (i in 1:NUMSAMPS){
 
     if (i == 1) {
         firstMean = mean(generatedData)
-        firstStd = sd(generatedData)
+        firstStd = sigma/sqrt(N)
     }
 
 }
@@ -65,8 +73,9 @@ cat(
     sprintf(
         outputTemplate,
         firstMean, firstStd,
+        "\\mu", "\\mu", "\\sigma", "\\frac{\\sigma}{\\sqrt{n}}",
         mu, mu,
-        mean(sampMeans), mean(sampMeans),
+        mean(sampMeans), mu,
         sigma, sigma,
         sd(sampMeans), sigma/sqrt(N)
     )
@@ -107,10 +116,11 @@ cat(
     sprintf(
         outputTemplate,
         firstMean, firstStd,
+        "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
         n*p, n*p,
-        mean(sampMeans), mean(sampMeans),
+        mean(sampMeans), n*p,
         n*p*(1-p), n*p*(1-p),
-        sd(sampMeans), sd(sampMeans)
+        sd(sampMeans), n*p*(1-p)/sqrt(N)
     )
 )
 sink()
@@ -139,7 +149,7 @@ for (i in 1:NUMSAMPS){
 
     if (i == 1) {
         firstMean = mean(generatedData)
-        firstStd = sd(generatedData)
+        firstStd = n*p*(1-p)/N
     }
 
 }
@@ -150,10 +160,11 @@ cat(
     sprintf(
         outputTemplate,
         firstMean, firstStd,
+        "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
         n*p, n*p,
-        mean(sampMeans), mean(sampMeans),
+        mean(sampMeans), n*p,
         n*p*(1-p), n*p*(1-p),
-        sd(sampMeans), sd(sampMeans)
+        sd(sampMeans), n*p*(1-p)/sqrt(N)
     )
 )
 sink()

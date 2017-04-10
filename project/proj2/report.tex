@@ -15,17 +15,13 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass{article}
+
+% packages
 \usepackage{fixltx2e}
-\usepackage{graphicx, wrapfig} % Required for the inclusion of images
-\usepackage{amsmath} % Required for some math elements 
-\usepackage{listings}
-\usepackage{color}
-\usepackage{fancyvrb}
+\usepackage{color, graphicx, wrapfig}
+\usepackage{amsmath}  % required for some math elements 
+\usepackage{fancyvrb, listings}  % for code verbatim and console outputs
 \usepackage[margin=1in]{geometry}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -51,13 +47,14 @@
     escapechar={\?}
 }
 
-\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\parindent{0pt} % removes all indentation from paragraphs
+
 % redefine \VerbatimInput
 \RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}
 {
     fontsize=\footnotesize,
     frame=lines,  % top and bottom rule only
-    framesep=2em, % separation between frame and text
+    framesep=2em,  % separation between frame and text
     rulecolor=\color{black},
     label=\fbox{\color{black}main.R},
     labelposition=topline,
@@ -70,9 +67,9 @@
 %	DOCUMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Project 2 \\ STAT 355} % Title
-\author{Sabbir \textsc{Ahmed}} % Author name
-\date{\today} % Date for the report
+\title{Project 2 \\ STAT 355}  % Title
+\author{Sabbir \textsc{Ahmed}}  % Author name
+\date{\today}  % Date for the report
 
 \begin{document}
 
@@ -200,6 +197,9 @@
                     \caption{Histogram of the Generated Data} \label{fig:hist3}
                 \end{center}
             \end{figure}
+
+
+    \section{Conclusion}
 
     \clearpage
     \newpage
