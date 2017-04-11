@@ -4,14 +4,14 @@
 # WARNINGS OR ERRORS IN OTHER SYSTEMS
 
 library(ggplot2)  # for generating high quality plots
-set.seed(124)  # seed the random generators
+# set.seed(124)  # seed the random generators
 
 # LaTex template for the output
 outputTemplate <- "\\subsection{Output}
 
     The first sample mean and standard deviation were computed:
 
-    \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
+    \\[ E(\\overline{X}) = %.5f, \\ \\sigma_{\\overline{X}} = %.5f \\]
 
     All the samples were then used to find the sample mean and standard
     deviation. The theoretical values were also computed based on the
@@ -22,26 +22,104 @@ outputTemplate <- "\\subsection{Output}
     \\[ \\sigma = %s \\]
     \\[ \\sigma_{\\overline{X}} = %s \\]
 
-
     \\begin{table}[h]
         \\centering
         \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c c}
 
         & \\textbf{Actual} & \\textbf{Theoretical} \\\\
         \\hline
-        $\\mu$ & %.3f  & %.3f \\\\
-        E($\\overline{X}$) & %.3f & %.3f \\\\
-        $\\sigma$ & %.3f & %.3f \\\\
-        $\\sigma$\\textsubscript{$\\overline{X}$} & %.3f & %.3f \\\\
+        $\\mu$ & %.5f  & %.5f \\\\
+        E($\\overline{X}$) & %.5f & %.5f \\\\
+        $\\sigma$ & %.5f & %.5f \\\\
+        $\\sigma$\\textsubscript{$\\overline{X}$} & %.5f & %.5f \\\\
 
         \\end{tabular*}
     \\end{table}
 "
 
 # global variables
-NUMSAMPS <- 1000
-firstMean <- 0
-firstStd <- 0
+NUMSAMPS <- 1000  # number of random samples per distribution
+
+randDist <- function(N, a, b, distType, outputFile) {
+
+    # initialize variables to hold data for the first sample
+    firstMean <- firstStd <- 0
+    mu <- sigma <- n <- p <- 0
+    sampMeans <- generatedData <- rep(0, times=NUMSAMPS)  # initialize empty array
+
+    if (distType == "normal") {
+        mu <- a
+        sigma <- b
+    } else if (distType == "binomial") {
+        n <- a
+        p <- b
+    }
+
+    # generate 1000 samples
+    for (i in 1:NUMSAMPS) {
+        if (distType == "normal") {
+            generatedData <- rnorm(N, mu, sigma)
+        } else if (distType == "binomial") {
+            generatedData <- rbinom(N, n, p)
+        }
+        # store the sample means in vector
+        sampMeans[i] = sum(generatedData)/N
+
+        if (i == 1) {
+            firstMean = sum(generatedData)/N
+            if (distType == "normal") {
+                firstStd = sigma/sqrt(N)
+            } else if (distType == "binomial") {
+                firstStd = sqrt(n*p*(1-p)/N)
+            }
+        }
+
+    }
+
+    outputData <- ''
+
+    if (distType == "normal") {
+        outputData <- sprintf(
+                outputTemplate,
+                firstMean, firstStd,
+                "\\mu", "\\mu", "\\sigma", "\\frac{\\sigma}{\\sqrt{n}}",
+                mu, mu,
+                sum(sampMeans)/NUMSAMPS, mu,
+                sigma, sigma,
+                sd(sampMeans), sigma/sqrt(N)
+        )
+    } else if (distType == "binomial") {
+        outputData <- sprintf(
+                outputTemplate,
+                firstMean, firstStd,
+                "np", "np", "\\sqrt{np(1-p)}", "\\sqrt{\\frac{np(1-p)}{N}}",
+                n*p, n*p,
+                sum(sampMeans)/NUMSAMPS, n*p,
+                sqrt(n*p*(1-p)), sqrt(n*p*(1-p)),
+                sd(sampMeans), sqrt(n*p*(1-p)/N)
+        )
+    }
+
+    # dump output to LaTex modules
+    sink(outputFile, append=FALSE, split=FALSE)
+    cat(outputData)
+    sink()
+
+    return(sampMeans)
+
+}
+
+
+plotHist <- function(sampMeans, figureFile, binwidth) {
+
+    # plot a histogram of the data
+    histPlot <- ggplot() + aes(sampMeans) + 
+        geom_histogram(binwidth=binwidth, color="black", fill="white") +
+        labs(y="Count", x="Sample Means")
+
+    ggsave(filename=paste0("figures/", figureFile), plot=histPlot)
+
+}
 
 # ------------------------------ Part 1 ------------------------------
 
@@ -50,45 +128,8 @@ N <- 40  # size
 mu <- 3  # mean
 sigma <- 2  # standard deviation
 
-sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-firstMean <- 0
-firstStd <- 0
-
-# generate 1000 samples
-for (i in 1:NUMSAMPS){
-    generatedData <- rnorm(N, mu, sigma)
-    # store the sample means in vector
-    sampMeans[i] = sum(generatedData)/N
-
-    if (i == 1) {
-        firstMean = sum(generatedData)/N
-        firstStd = sigma/sqrt(N)
-    }
-
-}
-
-# save output
-sink("part1.tex", append=FALSE, split=FALSE)
-cat(
-    sprintf(
-        outputTemplate,
-        firstMean, firstStd,
-        "\\mu", "\\mu", "\\sigma", "\\frac{\\sigma}{\\sqrt{n}}",
-        mu, mu,
-        sum(sampMeans)/NUMSAMPS, mu,
-        sigma, sigma,
-        sd(sampMeans), sigma/sqrt(N)
-    )
-)
-sink()
-
-png(filename="figures/hist1.png")
-# plot a histogram of the data
-ggplot() + aes(sampMeans) + 
-    geom_histogram(binwidth=0.1, color="black", fill="white") +
-    labs(y="Count", x="Sample Means")
-
-dev.off()
+sampMeans <- randDist(N, mu, sigma, "normal", "part1.tex")
+plotHist(sampMeans, "hist1.png", 0.1)
 
 
 # ------------------------------ Part 2 ------------------------------
@@ -98,41 +139,8 @@ N <- 15
 n <- 10
 p <- 0.15
 
-sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-for (i in 1:NUMSAMPS){
-    generatedData <- rbinom(N, n, p)
-    sampMeans[i] = sum(generatedData)/N
-
-    if (i == 1) {
-        firstMean = sum(generatedData)/N
-        firstStd = n*p*(1-p)/sqrt(N)
-    }
-
-}
-
-# save output
-sink("part2.tex", append=FALSE, split=FALSE)
-cat(
-    sprintf(
-        outputTemplate,
-        firstMean, firstStd,
-        "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
-        n*p, n*p,
-        sum(sampMeans)/NUMSAMPS, n*p,
-        n*p*(1-p), n*p*(1-p),
-        sd(sampMeans), n*p*(1-p)/sqrt(N)
-    )
-)
-sink()
-
-png(filename="figures/hist2.png")
-
-# plot a histogram of the data
-ggplot() + aes(sampMeans) + 
-    geom_histogram(binwidth=0.2, color="black", fill="white") +
-    labs(y="Count", x="Sample Means")
-
-dev.off()
+sampMeans <- randDist(N, n, p, "binomial", "part2.tex")
+plotHist(sampMeans, "hist2.png", 0.1)
 
 
 # ------------------------------ Part 3 ------------------------------
@@ -142,38 +150,5 @@ N <- 120
 n <- 10
 p <- 0.15
 
-sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-for (i in 1:NUMSAMPS){
-    generatedData <- rbinom(N, n, p)
-    sampMeans[i] = sum(generatedData)/N
-
-    if (i == 1) {
-        firstMean = sum(generatedData)/N
-        firstStd = n*p*(1-p)/sqrt(N)
-    }
-
-}
-
-# save output
-sink("part3.tex", append=FALSE, split=FALSE)
-cat(
-    sprintf(
-        outputTemplate,
-        firstMean, firstStd,
-        "np", "np", "np(1-p)", "\\frac{np(1-p)}{\\sqrt{n}}",
-        n*p, n*p,
-        sum(sampMeans)/NUMSAMPS, n*p,
-        n*p*(1-p), n*p*(1-p),
-        sd(sampMeans), n*p*(1-p)/sqrt(N)
-    )
-)
-sink()
-
-png(filename="figures/hist3.png")
-
-# plot a histogram of the data
-ggplot() + aes(sampMeans) + 
-    geom_histogram(binwidth=0.1, color="black", fill="white") +
-    labs(y="Count", x="Sample Means")
-
-dev.off()
+sampMeans <- randDist(N, n, p, "binomial", "part3.tex")
+plotHist(sampMeans, "hist3.png", 0.025)
