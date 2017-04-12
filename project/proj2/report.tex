@@ -50,8 +50,7 @@
 \setlength\parindent{0pt} % removes all indentation from paragraphs
 
 % redefine \VerbatimInput
-\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}
-{
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
     fontsize=\footnotesize,
     frame=lines,  % top and bottom rule only
     framesep=2em,  % separation between frame and text
@@ -84,19 +83,9 @@
     N <- 40  # size
     mu <- 3  # mean
     sigma <- 2  # standard deviation
-    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-    # generate 1000 samples
-    for (i in 1:NUMSAMPS){
-        generatedData <- rnorm(N, mu, sigma)
-        # store the sample means in vector
-        sampMeans[i] = mean(generatedData)
 
-        if (i == 1) {
-            firstMean = mean(generatedData)
-            firstStd = sd(generatedData)
-        }
-
-    }
+    sampMeans <- randDist(N, mu, sigma, "normal", "part1.tex")
+    plotHist(sampMeans, "hist1.png", 0.1)
 \end{lstlisting}
 
         \input{part1}
@@ -109,13 +98,14 @@
         labs(y="Count", x="Sample Means")
 \end{lstlisting}
 
-            \begin{figure}[h]
+            \begin{figure}[h!]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/hist1.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist1}
                 \end{center}
             \end{figure}
 
+    \clearpage
 
     % ------------------------------ Part 2 ------------------------------
     \section{Part 2}
@@ -126,17 +116,9 @@
     N <- 15
     n <- 10
     p <- 0.15
-    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-    for (i in 1:NUMSAMPS){
-        generatedData <- rbinom(N, n, p)
-        sampMeans[i] = mean(generatedData)
 
-        if (i == 1) {
-            firstMean = mean(generatedData)
-            firstStd = sd(generatedData)
-        }
-
-    }
+    sampMeans <- randDist(N, n, p, "binomial", "part2.tex")
+    plotHist(sampMeans, "hist2.png", 0.1)
 \end{lstlisting}
 
         \input{part2}
@@ -146,17 +128,18 @@
 \begin{lstlisting}
     # plot a histogram of the data
     ggplot() + aes(sampMeans) + 
-        geom_histogram(binwidth=0.2, color="black", fill="white") +
+        geom_histogram(binwidth=0.1, color="black", fill="white") +
         labs(y="Count", x="Sample Means")
 \end{lstlisting}
 
-            \begin{figure}[h]
+            \begin{figure}[h!]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/hist2.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist2}
                 \end{center}
             \end{figure}
 
+    \clearpage
 
     % ------------------------------ Part 3 ------------------------------
     \section{Part 3}
@@ -167,17 +150,9 @@
     N <- 120
     n <- 10
     p <- 0.15
-    sampMeans <- rep(0, times=NUMSAMPS)  # initialize empty array
-    for (i in 1:NUMSAMPS){
-        generatedData <- rbinom(N, n, p)
-        sampMeans[i] = mean(generatedData)
 
-        if (i == 1) {
-            firstMean = mean(generatedData)
-            firstStd = sd(generatedData)
-        }
-
-    }
+    sampMeans <- randDist(N, n, p, "binomial", "part3.tex")
+    plotHist(sampMeans, "hist3.png", 0.025)
 \end{lstlisting}
 
         \input{part3}
@@ -187,23 +162,26 @@
 \begin{lstlisting}
     # plot a histogram of the data
     ggplot() + aes(sampMeans) + 
-        geom_histogram(binwidth=0.1, color="black", fill="white") +
+        geom_histogram(binwidth=0.025, color="black", fill="white") +
         labs(y="Count", x="Sample Means")
 \end{lstlisting}
 
-            \begin{figure}[h]
+            \begin{figure}[h!]
                 \begin{center}
                     \includegraphics[width=0.6\textwidth]{figures/hist3.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist3}
                 \end{center}
             \end{figure}
 
+    \clearpage
 
     \section{Conclusion}
+    The sample means for the normal and binomial distributions all generated normal distributions. The Part 1 distribution (Figure \ref{fig:hist1}) demonstrates a normal sample mean distribution. The theoretical sample mean and standard deviation appear very close to the computed values.
+
+    For the binomial distributions, it can be observed that the distribution with the larger sample size of 150 per random sample yielded sample mean and standard deviation values much closer to their theoretical values. The larger sample size also generated a normal distribution of sample means for the binomial distribution.
 
     \clearpage
     \newpage
     \VerbatimInput{main.R}
-
 
 \end{document}
