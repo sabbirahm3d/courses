@@ -15,11 +15,12 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass{article}
+\documentclass[paper=a4, fontsize=11pt]{article}
 
 % packages
 \usepackage{fixltx2e}
-\usepackage{color, graphicx, wrapfig}
+\usepackage[pdftex]{graphicx}
+\usepackage{color, wrapfig}
 \usepackage{amsmath}  % required for some math elements 
 \usepackage{fancyvrb, listings}  % for code verbatim and console outputs
 \usepackage[margin=1in]{geometry}
@@ -60,7 +61,7 @@
 }
 
 % Make numbering in the enumerate environment by letter rather than number
-\renewcommand{\labelenumi}{\alph{enumi}.}
+% \renewcommand{\labelenumi}{\alph{enumi}.}
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -98,14 +99,13 @@
         labs(y="Count", x="Sample Means")
 \end{lstlisting}
 
-            \begin{figure}[h!]
+            \begin{figure}[!h]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{figures/hist1.png}
+                    \includegraphics[width=0.5\textwidth]{figures/hist1.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist1}
                 \end{center}
             \end{figure}
 
-    \clearpage
 
     % ------------------------------ Part 2 ------------------------------
     \section{Part 2}
@@ -134,12 +134,11 @@
 
             \begin{figure}[h!]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{figures/hist2.png}
+                    \includegraphics[width=0.5\textwidth]{figures/hist2.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist2}
                 \end{center}
             \end{figure}
 
-    \clearpage
 
     % ------------------------------ Part 3 ------------------------------
     \section{Part 3}
@@ -168,12 +167,11 @@
 
             \begin{figure}[h!]
                 \begin{center}
-                    \includegraphics[width=0.6\textwidth]{figures/hist3.png}
+                    \includegraphics[width=0.5\textwidth]{figures/hist3.png}
                     \caption{Histogram of the Generated Data} \label{fig:hist3}
                 \end{center}
             \end{figure}
 
-    \clearpage
 
     \section{Conclusion}
     The sample means for the normal and binomial distributions all generated normal distributions. The Part 1 distribution (Figure \ref{fig:hist1}) demonstrates a normal sample mean distribution. The theoretical sample mean and standard deviation appear very close to the computed values.\\
@@ -183,7 +181,7 @@
 
 
 
-    The normal distributions generated from the various distributions essentially demonstrated the central limit theorem, which implies a given distribution with a mean $\mu$ and standard deviation $\sigma$, the sampling distribution of the mean approaches a normal distribution with a mean ($E(\overline{X})$) and a standard deviation $\sqrt{\frac{\sigma}{N}}$ as N, the sample size, increases. \cite{wolfram}
+    The normal distributions generated from the various distributions essentially demonstrated the central limit theorem, which implies a given distribution with a mean $\mu$ and standard deviation $\sigma$, the sampling distribution of the mean approaches a normal distribution with a mean ($E(\overline{X})$) and a standard deviation $\frac{\sigma}{\sqrt{N}}$ as N, the sample size, increases. \cite{wolfram}
 
     \begin{thebibliography}{9}
 
