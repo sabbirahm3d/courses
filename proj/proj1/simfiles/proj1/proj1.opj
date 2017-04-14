@@ -10,6 +10,25 @@
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (CRYSTAL
+      (FullPartName "CRYSTAL.Normal")
+      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (MAX235
+      (FullPartName "MAX235.Normal")
+      (LibraryName
+         "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\LINEDRIVERRECEIVER.OLB")
+      (DeviceIndex "0"))
+    ("CONN DSUB 9-P"
+      (FullPartName "CONN DSUB 9-P.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
     ("HEADER 7X2"
       (FullPartName "HEADER 7X2.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
@@ -21,9 +40,6 @@
     (8254
       (FullPartName "8254.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MISC.OLB")
-      (DeviceIndex "0"))
-    (GND
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (0
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
@@ -39,9 +55,6 @@
     ("HEADER 15X2"
       (FullPartName "HEADER 15X2.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
-      (DeviceIndex "0"))
-    (OFFPAGELEFT-L
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (82C55
       (FullPartName "82C55.Normal")
@@ -63,7 +76,7 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
-      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "PAGE7"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "PAGE1"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -93,9 +106,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 104 1126 104 534")
-        (Scroll "329 477")
-        (Zoom "316")
+        (Placement "44 0 1 -1 -1 -8 -31 104 1126 104 534")
+        (Scroll "0 93")
+        (Zoom "158")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -104,10 +117,20 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 130 1152 130 560")
-        (Scroll "759 328")
+        (Scroll "391 328")
         (Zoom "200")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "PAGE1")))
+      (Page "PAGE1"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 156 1178 156 586")
+        (Scroll "607 16")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE8")))
   (LastUsedLibraryBrowseDirectory "E:\proj1\library"))
