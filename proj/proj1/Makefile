@@ -4,7 +4,7 @@ all: cache_convert changeown
 
 
 .PHONY: cache_convert convert1 convert2
-cache_convert: convert1 convert2
+cache_convert: convert1 convert2  # PDFLatex uses cache for better conversion
 convert1 convert2:
 	# convert LaTex file to PDF
 	@sudo pdflatex report.tex
