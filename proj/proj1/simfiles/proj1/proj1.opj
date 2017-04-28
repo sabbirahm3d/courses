@@ -2,7 +2,77 @@
   (ProjectVersion "19981106")
   (ProjectType "PCB")
   (Folder "Design Resources"
-    (Folder "Library")
+    (Folder "Library"
+      (File ".\library\amplifier.olb"
+        (Type "Schematic Library"))
+      (File ".\library\arithmetic.olb"
+        (Type "Schematic Library"))
+      (File ".\library\atod.olb"
+        (Type "Schematic Library"))
+      (File ".\library\busdrivertransceiver.olb"
+        (Type "Schematic Library"))
+      (File ".\library\capsym.olb"
+        (Type "Schematic Library"))
+      (File ".\library\connector.olb"
+        (Type "Schematic Library"))
+      (File ".\library\counter.olb"
+        (Type "Schematic Library"))
+      (File ".\library\discrete.olb"
+        (Type "Schematic Library"))
+      (File ".\library\dram.olb"
+        (Type "Schematic Library"))
+      (File ".\library\electromechanical.olb"
+        (Type "Schematic Library"))
+      (File ".\library\fifo.olb"
+        (Type "Schematic Library"))
+      (File ".\library\filter.olb"
+        (Type "Schematic Library"))
+      (File ".\library\fpga.olb"
+        (Type "Schematic Library"))
+      (File ".\library\gate.olb"
+        (Type "Schematic Library"))
+      (File ".\library\latch.olb"
+        (Type "Schematic Library"))
+      (File ".\library\linedriverreceiver.olb"
+        (Type "Schematic Library"))
+      (File ".\library\mechanical.olb"
+        (Type "Schematic Library"))
+      (File ".\library\microcontroller.olb"
+        (Type "Schematic Library"))
+      (File ".\library\microprocessor.olb"
+        (Type "Schematic Library"))
+      (File ".\library\misc.olb"
+        (Type "Schematic Library"))
+      (File ".\library\misc2.olb"
+        (Type "Schematic Library"))
+      (File ".\library\misc3.olb"
+        (Type "Schematic Library"))
+      (File ".\library\misclinear.olb"
+        (Type "Schematic Library"))
+      (File ".\library\miscmemory.olb"
+        (Type "Schematic Library"))
+      (File ".\library\miscpower.olb"
+        (Type "Schematic Library"))
+      (File ".\library\muxdecoder.olb"
+        (Type "Schematic Library"))
+      (File ".\library\opamp.olb"
+        (Type "Schematic Library"))
+      (File ".\library\passivefilter.olb"
+        (Type "Schematic Library"))
+      (File ".\library\pld.olb"
+        (Type "Schematic Library"))
+      (File ".\library\prom.olb"
+        (Type "Schematic Library"))
+      (File ".\library\regulator.olb"
+        (Type "Schematic Library"))
+      (File ".\library\shiftregister.olb"
+        (Type "Schematic Library"))
+      (File ".\library\sram.olb"
+        (Type "Schematic Library"))
+      (File ".\library\transistor.olb"
+        (Type "Schematic Library"))
+      (File "..\datasheets\8086_parts.olb"
+        (Type "Schematic Library")))
     (NoModify)
     (File ".\proj1.dsn"
       (Type "Schematic Design"))
@@ -37,29 +107,56 @@
     (DRC_Type_Mismatch "TRUE")
     (DRC_Visible_Power_pins "FALSE")
     (DRC_Report_Unused_Part_Packages "TRUE")
-    (DRC_Check_Name_Prop_For_HierBlocks "FALSE"))
+    (DRC_Check_Name_Prop_For_HierBlocks "FALSE")
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
   (Folder "Outputs"
     (File ".\proj1.drc"
       (Type "Report")))
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
-    (8259A
-      (FullPartName "8259A.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MISC.OLB")
+    (74ALS374
+      (FullPartName "74ALS374.Normal")
+      (LibraryName
+         "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
       (DeviceIndex "0"))
     (VCC
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
+    (RESISTOR
+      (FullPartName "RESISTOR.Normal")
+      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    ("7 Segment LED"
+      (FullPartName "7 Segment LED.Normal")
+      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\DATASHEETS\8086_PARTS.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (POT
+      (FullPartName "POT.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (LCD
+      (FullPartName "LCD.Normal")
+      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\8086_PARTS.OLB")
+      (DeviceIndex "0"))
     (OFFPAGELEFT-L
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    ("HEADER 7X2"
+      (FullPartName "HEADER 7X2.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    (8259A
+      (FullPartName "8259A.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MISC.OLB")
       (DeviceIndex "0"))
     (CRYSTAL
       (FullPartName "CRYSTAL.Normal")
       (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
-      (DeviceIndex "0"))
-    (GND
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (MAX235
       (FullPartName "MAX235.Normal")
@@ -68,10 +165,6 @@
       (DeviceIndex "0"))
     ("CONN DSUB 9-P"
       (FullPartName "CONN DSUB 9-P.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
-      (DeviceIndex "0"))
-    ("HEADER 7X2"
-      (FullPartName "HEADER 7X2.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
       (DeviceIndex "0"))
     (16L8
@@ -118,7 +211,7 @@
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "09-pic"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -126,43 +219,44 @@
         (Placement "44 0 1 -1 -1 -8 -31 0 200 0 387"))
       (Tab 0))
     (Doc
-      (Type "COrSchematicDoc")
+      (Type "COrPartDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 26 1126 26 310")
-        (Scroll "256 198")
-        (Zoom "200")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "04-memory"))
+        (Placement "44 0 1 -1 -1 -8 -31 234 878 234 737")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "908 258")
+        (Zoom "300"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\DATASHEETS\8086_PARTS.OLB")
+      (Package "7 Segment LED"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 104 1178 104 364")
-        (Scroll "517 91")
-        (Zoom "200")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "08-uart"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 130 1204 130 390")
-        (Scroll "504 689")
-        (Zoom "200")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "02-buffers"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 1022 0 372")
-        (Scroll "-2 140")
+        (Placement "44 0 1 -1 -1 -8 -31 182 1119 182 685")
+        (Scroll "0 130")
         (Zoom "100")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "03-decoding")))
+      (Page "10-lcd_led"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 104 800 104 534")
+        (Scroll "6 532")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "11-led"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 130 826 130 560")
+        (Scroll "277 0")
+        (Zoom "171")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "09-pic")))
   (LastUsedLibraryBrowseDirectory "E:\proj1\library"))
