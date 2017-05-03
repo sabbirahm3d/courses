@@ -116,10 +116,13 @@
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
-    (GND
+    (OFFPAGELEFT-L
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
-    (OFFPAGELEFT-L
+    (VCC
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (GND
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (RESISTOR
@@ -143,9 +146,6 @@
     (16L8
       (FullPartName "16L8.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\PLD.OLB")
-      (DeviceIndex "0"))
-    (VCC
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (R-PACK
       (FullPartName "R-PACK.Normal")
@@ -224,7 +224,7 @@
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "04-memory"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -235,8 +235,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 156 1449 156 684")
-        (Scroll "358 718")
-        (Zoom "206")
+        (Scroll "-123 0")
+        (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -244,9 +244,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 208 1501 208 736")
-        (Scroll "744 0")
-        (Zoom "206")
+        (Placement "44 0 1 -1 -1 -8 -31 182 1475 182 710")
+        (Scroll "-123 0")
+        (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -254,9 +254,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 234 1527 234 762")
-        (Scroll "-123 0")
-        (Zoom "103")
+        (Placement "44 0 1 -1 -1 -8 -31 208 1501 208 736")
+        (Scroll "393 0")
+        (Zoom "206")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -265,8 +265,28 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 260 1553 260 788")
-        (Scroll "1664 1232")
-        (Zoom "412")
+        (Scroll "-123 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "03-decoding"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 1293 0 528")
+        (Scroll "0 50")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "10-misc_ppis"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 26 1319 26 554")
+        (Scroll "0 128")
+        (Zoom "206")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")

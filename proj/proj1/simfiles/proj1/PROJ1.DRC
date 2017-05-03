@@ -1,147 +1,103 @@
-Date and Time : 05/03/17 14:15:19
+Date and Time : 05/03/17 17:12:48
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
 --------------------------------------------------
 Checking Electrical Rules 
 WARNING(ORCAP-1829): Possible pin type conflict U28,SP/E\N\  Bidirectional Connected to Power
-                    SCHEMATIC1, 09-pic  (6.90, 5.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U18,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (5.90, 2.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U20,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (12.50, 0.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U17,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.30, 0.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U19,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.30, 3.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U38,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (2.00, 0.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U37,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (11.60, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U39,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 6.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U34,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 2.20) 
-WARNING(ORCAP-1829): Possible pin type conflict U32,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 0.40) 
-WARNING(ORCAP-1829): Possible pin type conflict U18,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (5.90, 3.40) 
-WARNING(ORCAP-1829): Possible pin type conflict U20,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (12.40, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U17,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.20, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U19,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.20, 6.60) 
+                    SCHEMATIC1, 09-pic  (6.10, 4.20) 
+WARNING(ORCAP-1829): Possible pin type conflict U39,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 8.00) 
+WARNING(ORCAP-1829): Possible pin type conflict U34,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 3.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U37,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (11.70, 3.30) 
+WARNING(ORCAP-1829): Possible pin type conflict U38,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (2.00, 1.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U32,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 1.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U30,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (5.10, 4.10) 
+WARNING(ORCAP-1829): Possible pin type conflict U16,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 04-memory  (7.40, 5.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U13,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 04-memory  (5.30, 5.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U15,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 04-memory  (7.40, 3.00) 
+WARNING(ORCAP-1829): Possible pin type conflict U12,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 04-memory  (5.30, 3.00) 
+WARNING(ORCAP-1829): Possible pin type conflict U14,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 04-memory  (3.00, 2.60) 
+WARNING(ORCAP-1829): Possible pin type conflict U23,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 07-pit  (4.90, 3.00) 
+WARNING(ORCAP-1829): Possible pin type conflict U24,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 07-pit  (2.00, 2.90) 
 WARNING(ORCAP-1829): Possible pin type conflict U26,GND  Power Connected to Bidirectional
                     SCHEMATIC1, 08-uart  (7.20, 1.90) 
 WARNING(ORCAP-1829): Possible pin type conflict U25,GND  Power Connected to Bidirectional
                     SCHEMATIC1, 08-uart  (4.00, 3.70) 
 WARNING(ORCAP-1829): Possible pin type conflict U27,GND  Power Connected to Bidirectional
                     SCHEMATIC1, 08-uart  (1.70, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U38,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (2.00, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U37,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (11.70, 3.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U39,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 8.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U34,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U32,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U30,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (5.10, 4.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U3,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (7.50, 1.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U5,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (4.10, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U4,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (2.20, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U6,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (5.70, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U8,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 4.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U7,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 5.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U23,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (4.90, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U24,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (2.00, 2.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U29,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 09-pic  (2.70, 5.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U28,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 09-pic  (6.20, 6.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U35,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 09-pic  (5.20, 3.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U22,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (4.60, 1.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U21,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (1.80, 4.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U9,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (3.40, 3.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U11,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (5.50, 6.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U10,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (5.50, 3.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U13,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (5.30, 5.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U16,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (7.40, 5.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U12,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (5.30, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U15,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (7.40, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U14,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (3.00, 2.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U1,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (7.30, 4.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U1,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (7.20, 4.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U1,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (7.20, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U2,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (5.40, 4.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U2,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (5.30, 2.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U35,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (5.40, 5.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U35,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 01-8086  (5.40, 5.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U22,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (1.70, 1.70) 
 WARNING(ORCAP-1829): Possible pin type conflict U21,VCC  Power Connected to Bidirectional
                     SCHEMATIC1, 06-keyboard  (1.80, 3.20) 
-WARNING(ORCAP-1829): Possible pin type conflict U8,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 3.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U3,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (7.40, 0.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U4,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (1.00, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U7,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 4.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U6,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (4.50, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U5,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (2.90, 2.10) 
-ERROR(ORCAP-1628): Possible pin type conflict U4,Q0  3 State Connected to Output
-                    SCHEMATIC1, 02-buffers  (1.10, 1.50) 
-WARNING(ORCAP-1831): Unconnected pin U3,A4 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.70) 
-WARNING(ORCAP-1831): Unconnected pin U3,A5 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.80) 
-WARNING(ORCAP-1831): Unconnected pin U3,A6 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.90) 
-WARNING(ORCAP-1831): Unconnected pin U3,A7 
-                    SCHEMATIC1, 02-buffers  (6.80, 1.00) 
-WARNING(ORCAP-1831): Unconnected pin U3,A8 
-                    SCHEMATIC1, 02-buffers  (6.80, 1.10) 
-WARNING(ORCAP-1831): Unconnected pin U14,I7 
-                    SCHEMATIC1, 04-memory  (2.40, 2.20) 
-WARNING(ORCAP-1831): Unconnected pin U14,I8 
-                    SCHEMATIC1, 04-memory  (2.40, 2.30) 
-WARNING(ORCAP-1831): Unconnected pin U14,I9 
-                    SCHEMATIC1, 04-memory  (2.40, 2.40) 
-WARNING(ORCAP-1831): Unconnected pin U14,I10 
-                    SCHEMATIC1, 04-memory  (2.40, 2.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U22,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 06-keyboard  (1.70, 1.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U21,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 06-keyboard  (1.80, 4.30) 
+WARNING(ORCAP-1829): Possible pin type conflict U22,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 06-keyboard  (4.60, 1.60) 
+WARNING(ORCAP-1829): Possible pin type conflict U20,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (12.40, 3.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U19,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (8.20, 6.60) 
+WARNING(ORCAP-1829): Possible pin type conflict U17,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (8.20, 3.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U18,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (5.90, 3.40) 
+WARNING(ORCAP-1829): Possible pin type conflict U23,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 07-pit  (4.90, 1.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U24,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 07-pit  (2.00, 1.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U11,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 03-decoding  (5.40, 4.30) 
+WARNING(ORCAP-1829): Possible pin type conflict U10,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 03-decoding  (5.40, 1.40) 
+WARNING(ORCAP-1829): Possible pin type conflict U9,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 03-decoding  (3.40, 2.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U11,VPP  Power Connected to Bidirectional
+                    SCHEMATIC1, 03-decoding  (4.90, 6.60) 
+WARNING(ORCAP-1829): Possible pin type conflict U10,VPP  Power Connected to Bidirectional
+                    SCHEMATIC1, 03-decoding  (4.90, 3.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U5,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (4.10, 1.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U6,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (5.70, 1.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U7,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (6.40, 5.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U3,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (7.50, 1.50) 
+WARNING(ORCAP-1829): Possible pin type conflict U8,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (6.40, 4.30) 
+WARNING(ORCAP-1829): Possible pin type conflict U4,GND  Power Connected to Bidirectional
+                    SCHEMATIC1, 02-buffers  (2.40, 1.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U20,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (12.50, 0.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U19,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (8.30, 3.90) 
+WARNING(ORCAP-1829): Possible pin type conflict U17,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (8.30, 0.80) 
+WARNING(ORCAP-1829): Possible pin type conflict U18,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 05-ppi  (5.90, 2.30) 
+WARNING(ORCAP-1829): Possible pin type conflict U39,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 6.70) 
+WARNING(ORCAP-1829): Possible pin type conflict U34,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 2.20) 
+WARNING(ORCAP-1829): Possible pin type conflict U37,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (11.60, 2.10) 
+WARNING(ORCAP-1829): Possible pin type conflict U38,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (2.00, 0.60) 
+WARNING(ORCAP-1829): Possible pin type conflict U32,VCC  Power Connected to Bidirectional
+                    SCHEMATIC1, 10-misc_ppis  (4.50, 0.40) 
 WARNING(ORCAP-1831): Unconnected pin U20,R\D\ 
                     SCHEMATIC1, 05-ppi  (11.90, 2.20) 
 WARNING(ORCAP-1831): Unconnected pin U20,W\R\ 
@@ -160,10 +116,6 @@ WARNING(ORCAP-1831): Unconnected pin U17,W\R\
                     SCHEMATIC1, 05-ppi  (7.70, 2.30) 
 WARNING(ORCAP-1831): Unconnected pin U17,RESET 
                     SCHEMATIC1, 05-ppi  (7.70, 2.10) 
-WARNING(ORCAP-1831): Unconnected pin U26,E\N\ 
-                    SCHEMATIC1, 08-uart  (7.00, 2.50) 
-WARNING(ORCAP-1831): Unconnected pin U26,SD 
-                    SCHEMATIC1, 08-uart  (7.10, 2.50) 
 WARNING(ORCAP-1831): Unconnected pin U25,C\T\S\ 
                     SCHEMATIC1, 08-uart  (3.30, 2.50) 
 WARNING(ORCAP-1831): Unconnected pin U25,A\D\S\ 
@@ -176,753 +128,45 @@ WARNING(ORCAP-1831): Unconnected pin U25,RD
                     SCHEMATIC1, 08-uart  (3.30, 2.90) 
 WARNING(ORCAP-1831): Unconnected pin U39,CLK 
                     SCHEMATIC1, 10-misc_ppis  (3.90, 7.70) 
-WARNING(ORCAP-1608): Net has no driving source N30951 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.40) 
-WARNING(ORCAP-1608): Net has no driving source N30953 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source MISC 
-                    SCHEMATIC1, 02-buffers  (6.60, 0.30) 
-WARNING(ORCAP-1608): Net has no driving source N30955 
-                    SCHEMATIC1, 02-buffers  (6.80, 0.60) 
-WARNING(ORCAP-1608): Net has no driving source BHE 
-                    SCHEMATIC1, 03-decoding  (2.80, 3.30) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 03-decoding  (2.70, 2.90) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.60) 
-WARNING(ORCAP-1608): Net has no driving source M/IO 
-                    SCHEMATIC1, 03-decoding  (2.30, 3.40) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 03-decoding  (4.90, 1.50) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.90) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source BWE 
-                    SCHEMATIC1, 03-decoding  (4.90, 3.40) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 03-decoding  (4.90, 1.70) 
-WARNING(ORCAP-1608): Net has no driving source A19 
-                    SCHEMATIC1, 03-decoding  (2.70, 3.10) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 03-decoding  (4.90, 1.90) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.50) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.00) 
-WARNING(ORCAP-1608): Net has no driving source A17 
-                    SCHEMATIC1, 03-decoding  (4.90, 3.10) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 03-decoding  (4.90, 1.80) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.10) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.40) 
-WARNING(ORCAP-1608): Net has no driving source A18 
-                    SCHEMATIC1, 03-decoding  (2.70, 3.00) 
 WARNING(ORCAP-1608): Net has no driving source BWR 
-                    SCHEMATIC1, 03-decoding  (2.80, 3.20) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 03-decoding  (4.90, 2.20) 
-WARNING(ORCAP-1608): Net has no driving source BRD 
-                    SCHEMATIC1, 03-decoding  (4.90, 3.30) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 03-decoding  (4.90, 1.60) 
-WARNING(ORCAP-1608): Net has no driving source A16 
-                    SCHEMATIC1, 03-decoding  (4.90, 3.00) 
+                    SCHEMATIC1, 03-decoding  (2.60, 3.60) 
 WARNING(ORCAP-1608): Net has no driving source BHE 
-                    SCHEMATIC1, 04-memory  (2.10, 2.00) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 04-memory  (6.70, 4.30) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 04-memory  (6.70, 4.80) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 04-memory  (6.70, 4.00) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 04-memory  (6.70, 1.90) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 04-memory  (6.70, 1.00) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 04-memory  (6.70, 4.10) 
-WARNING(ORCAP-1608): Net has no driving source A16 
-                    SCHEMATIC1, 04-memory  (2.40, 1.70) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 04-memory  (6.70, 4.40) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 04-memory  (6.70, 1.10) 
-WARNING(ORCAP-1608): Net has no driving source BWE 
-                    SCHEMATIC1, 04-memory  (6.80, 5.30) 
-WARNING(ORCAP-1608): Net has no driving source M/IO 
-                    SCHEMATIC1, 04-memory  (2.40, 2.10) 
-WARNING(ORCAP-1608): Net has no driving source BRD 
-                    SCHEMATIC1, 04-memory  (4.70, 2.50) 
-WARNING(ORCAP-1608): Net has no driving source BWR 
-                    SCHEMATIC1, 04-memory  (2.40, 1.90) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 04-memory  (6.70, 4.20) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 04-memory  (6.70, 5.00) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 04-memory  (6.70, 2.00) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 04-memory  (6.70, 3.90) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 04-memory  (4.60, 4.50) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 04-memory  (6.70, 4.90) 
-WARNING(ORCAP-1608): Net has no driving source A17 
-                    SCHEMATIC1, 04-memory  (2.40, 1.80) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 04-memory  (4.60, 3.60) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.10) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.90) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.20) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.60) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.90) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.50) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.40) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.00) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.80) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.70) 
-WARNING(ORCAP-1608): Net has no driving source \IOWC 
-                    SCHEMATIC1, 06-keyboard  (4.40, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.90) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.40) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.60) 
-WARNING(ORCAP-1608): Net has no driving source N62307 
-                    SCHEMATIC1, 06-keyboard  (2.90, 5.90) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.80) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.80) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 06-keyboard  (2.70, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.40) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.50) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.30) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.60) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.50) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.20) 
-WARNING(ORCAP-1608): Net has no driving source PCLK 
-                    SCHEMATIC1, 06-keyboard  (3.80, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.00) 
+                    SCHEMATIC1, 03-decoding  (2.60, 3.70) 
 WARNING(ORCAP-1608): Net has no driving source \IORC 
                     SCHEMATIC1, 06-keyboard  (4.10, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.70) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.10) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 07-pit  (4.10, 1.60) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 07-pit  (1.40, 2.10) 
+WARNING(ORCAP-1608): Net has no driving source N62307 
+                    SCHEMATIC1, 06-keyboard  (2.90, 5.90) 
+WARNING(ORCAP-1608): Net has no driving source \IOWC 
+                    SCHEMATIC1, 06-keyboard  (4.40, 2.30) 
+WARNING(ORCAP-1608): Net has no driving source PCLK 
+                    SCHEMATIC1, 06-keyboard  (3.80, 2.30) 
 WARNING(ORCAP-1608): Net has no driving source \IORC 
                     SCHEMATIC1, 07-pit  (4.30, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 07-pit  (2.80, 2.00) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 07-pit  (1.40, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 07-pit  (4.10, 1.70) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 07-pit  (1.40, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 07-pit  (2.80, 2.10) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 07-pit  (1.40, 2.00) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 07-pit  (1.40, 2.60) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 07-pit  (1.40, 2.20) 
 WARNING(ORCAP-1608): Net has no driving source \IOWC 
                     SCHEMATIC1, 07-pit  (4.30, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 07-pit  (1.40, 2.40) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 07-pit  (1.40, 1.90) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 07-pit  (2.80, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 07-pit  (1.40, 2.50) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 07-pit  (1.40, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 07-pit  (2.80, 2.20) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 08-uart  (1.00, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 08-uart  (2.30, 2.20) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 08-uart  (1.00, 2.40) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 08-uart  (1.00, 2.00) 
 WARNING(ORCAP-1608): Net has no driving source \IOWC 
                     SCHEMATIC1, 08-uart  (3.30, 3.30) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 08-uart  (1.00, 2.20) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 08-uart  (3.00, 1.70) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 08-uart  (3.00, 1.60) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 08-uart  (1.00, 2.90) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 08-uart  (1.00, 2.50) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 08-uart  (3.00, 1.50) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 08-uart  (2.30, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 08-uart  (2.30, 2.10) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 08-uart  (1.00, 2.10) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 08-uart  (1.00, 2.80) 
 WARNING(ORCAP-1608): Net has no driving source \IORC 
                     SCHEMATIC1, 08-uart  (3.30, 3.00) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 08-uart  (1.00, 2.60) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 08-uart  (1.00, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source M/\IO 
-                    SCHEMATIC1, 09-pic  (2.10, 4.70) 
-WARNING(ORCAP-1608): Net has no driving source A4 
-                    SCHEMATIC1, 09-pic  (2.10, 5.10) 
-WARNING(ORCAP-1608): Net has no driving source A14 
-                    SCHEMATIC1, 09-pic  (3.50, 5.20) 
-WARNING(ORCAP-1608): Net has no driving source A9 
-                    SCHEMATIC1, 09-pic  (2.10, 5.60) 
-WARNING(ORCAP-1608): Net has no driving source A12 
-                    SCHEMATIC1, 09-pic  (3.50, 5.00) 
-WARNING(ORCAP-1608): Net has no driving source A6 
-                    SCHEMATIC1, 09-pic  (2.10, 5.30) 
-WARNING(ORCAP-1608): Net has no driving source A5 
-                    SCHEMATIC1, 09-pic  (2.10, 5.20) 
-WARNING(ORCAP-1608): Net has no driving source A8 
-                    SCHEMATIC1, 09-pic  (2.10, 5.50) 
-WARNING(ORCAP-1608): Net has no driving source A10 
-                    SCHEMATIC1, 09-pic  (3.50, 4.80) 
-WARNING(ORCAP-1608): Net has no driving source A1 
-                    SCHEMATIC1, 09-pic  (5.60, 5.40) 
-WARNING(ORCAP-1608): Net has no driving source A11 
-                    SCHEMATIC1, 09-pic  (3.50, 4.90) 
-WARNING(ORCAP-1608): Net has no driving source A2 
-                    SCHEMATIC1, 09-pic  (2.10, 4.90) 
-WARNING(ORCAP-1608): Net has no driving source A15 
-                    SCHEMATIC1, 09-pic  (3.50, 5.30) 
-WARNING(ORCAP-1608): Net has no driving source \RD 
-                    SCHEMATIC1, 09-pic  (5.60, 5.70) 
-WARNING(ORCAP-1608): Net has no driving source A13 
-                    SCHEMATIC1, 09-pic  (3.50, 5.10) 
-WARNING(ORCAP-1608): Net has no driving source A7 
-                    SCHEMATIC1, 09-pic  (2.10, 5.40) 
-WARNING(ORCAP-1608): Net has no driving source \WR 
-                    SCHEMATIC1, 09-pic  (5.60, 5.80) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 09-pic  (2.10, 4.80) 
 WARNING(ORCAP-1608): Net has no driving source 8254 (OUT2) 
-                    SCHEMATIC1, 09-pic  (5.60, 4.60) 
-WARNING(ORCAP-1608): Net has no driving source A3 
-                    SCHEMATIC1, 09-pic  (2.10, 5.00) 
-WARNING(ORCAP-1608): Net has no driving source N LCD CE 
-                    SCHEMATIC1, 10-misc_ppis  (3.90, 4.30) 
+                    SCHEMATIC1, 09-pic  (4.80, 3.00) 
 WARNING(ORCAP-1608): Net has no driving source \SEL 
                     SCHEMATIC1, 10-misc_ppis  (11.00, 3.10) 
-WARNING(ORCAP-1608): Net has no driving source A0 
-                    SCHEMATIC1, 04-memory  (2.40, 1.60) 
+WARNING(ORCAP-1608): Net has no driving source N LCD CE 
+                    SCHEMATIC1, 10-misc_ppis  (3.90, 4.30) 
+WARNING(ORCAP-1608): Net has no driving source BRD 
+                    SCHEMATIC1, 03-decoding  (4.30, 6.20) 
+WARNING(ORCAP-1608): Net has no driving source BWE 
+                    SCHEMATIC1, 03-decoding  (4.40, 6.30) 
 
 Checking For Unconnected Bus Nets
-WARNING(ORCAP-1602): Bus has multiple names with conflicting ranges. A[19:0] 
-                    SCHEMATIC1, 10-misc_ppis  (3.70, 4.10) 
-ERROR(ORCAP-1592): Bus has no name and therefore defines no signals. N30897 
-                    SCHEMATIC1, 02-buffers  (6.60, 0.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector M/\IO 
-                    SCHEMATIC1, 02-buffers  (8.20, 0.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \RD 
-                    SCHEMATIC1, 02-buffers  (8.20, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \WR 
-                    SCHEMATIC1, 02-buffers  (8.20, 0.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 03-decoding  (6.20, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 03-decoding  (6.20, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 03-decoding  (6.20, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 03-decoding  (6.20, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 03-decoding  (6.20, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 03-decoding  (6.20, 1.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 03-decoding  (6.20, 1.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 03-decoding  (6.20, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector BHE 
-                    SCHEMATIC1, 04-memory  (2.10, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 04-memory  (8.00, 1.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 04-memory  (8.00, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 04-memory  (6.70, 4.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 04-memory  (8.00, 1.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 04-memory  (6.70, 4.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 04-memory  (6.70, 4.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 04-memory  (6.70, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 04-memory  (6.70, 1.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 04-memory  (6.70, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A16 
-                    SCHEMATIC1, 04-memory  (2.40, 1.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 04-memory  (6.70, 4.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 04-memory  (6.70, 1.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector BWE 
-                    SCHEMATIC1, 04-memory  (6.80, 5.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector M/IO 
-                    SCHEMATIC1, 04-memory  (2.40, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector BRD 
-                    SCHEMATIC1, 04-memory  (4.70, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector BWR 
-                    SCHEMATIC1, 04-memory  (2.40, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 04-memory  (8.00, 3.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 04-memory  (8.00, 1.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 04-memory  (6.70, 4.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 04-memory  (5.90, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 04-memory  (6.70, 5.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 04-memory  (6.70, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 04-memory  (6.70, 3.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 04-memory  (8.00, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 04-memory  (4.60, 4.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 04-memory  (6.70, 4.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A17 
-                    SCHEMATIC1, 04-memory  (2.40, 1.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 04-memory  (8.00, 3.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 04-memory  (4.60, 3.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 05-ppi  (7.70, 0.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 05-ppi  (5.30, 2.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 05-ppi  (5.10, 0.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 05-ppi  (5.30, 3.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 05-ppi  (7.70, 1.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 06-keyboard  (1.80, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 06-keyboard  (2.20, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 06-keyboard  (2.30, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 06-keyboard  (2.00, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 06-keyboard  (2.70, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 06-keyboard  (2.50, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 06-keyboard  (2.40, 3.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 06-keyboard  (2.40, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 06-keyboard  (1.90, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 06-keyboard  (2.10, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 06-keyboard  (1.10, 3.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 06-keyboard  (1.10, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 07-pit  (4.10, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 07-pit  (1.40, 2.10) 
 WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IORC 
                     SCHEMATIC1, 07-pit  (4.30, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 07-pit  (2.80, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 07-pit  (1.40, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 07-pit  (4.10, 1.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 07-pit  (5.80, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 07-pit  (1.40, 2.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 07-pit  (2.80, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 07-pit  (5.80, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 07-pit  (1.40, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 07-pit  (1.40, 2.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 07-pit  (1.40, 2.20) 
 WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IOWC 
                     SCHEMATIC1, 07-pit  (4.30, 2.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 07-pit  (5.80, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 07-pit  (1.40, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 07-pit  (1.40, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 07-pit  (2.80, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 07-pit  (1.40, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 07-pit  (5.80, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 07-pit  (5.80, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 07-pit  (1.40, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 07-pit  (5.80, 2.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 07-pit  (5.80, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 07-pit  (5.80, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 07-pit  (2.80, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector PCLK 
-                    SCHEMATIC1, 08-uart  (3.30, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 08-uart  (1.00, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 08-uart  (2.30, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 08-uart  (1.00, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 08-uart  (4.80, 1.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 08-uart  (1.00, 2.00) 
 WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IOWC 
                     SCHEMATIC1, 08-uart  (3.30, 3.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 08-uart  (1.00, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 08-uart  (3.00, 1.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 08-uart  (3.00, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 08-uart  (1.00, 2.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 08-uart  (4.80, 1.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 08-uart  (1.00, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 08-uart  (3.00, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 08-uart  (4.80, 2.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 08-uart  (2.30, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 08-uart  (4.80, 2.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 08-uart  (2.30, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 08-uart  (4.80, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 08-uart  (1.00, 2.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 08-uart  (1.00, 2.80) 
 WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IORC 
                     SCHEMATIC1, 08-uart  (3.30, 3.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 08-uart  (4.80, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 08-uart  (4.80, 2.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 08-uart  (4.80, 2.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 08-uart  (1.00, 2.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 08-uart  (1.00, 2.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D5 
-                    SCHEMATIC1, 09-pic  (7.10, 5.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector M/\IO 
-                    SCHEMATIC1, 09-pic  (2.10, 4.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 09-pic  (2.10, 5.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 09-pic  (3.50, 5.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 09-pic  (2.10, 5.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 09-pic  (3.50, 5.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D6 
-                    SCHEMATIC1, 09-pic  (7.10, 5.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 09-pic  (2.10, 5.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 09-pic  (2.10, 5.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 09-pic  (2.10, 5.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D4 
-                    SCHEMATIC1, 09-pic  (7.10, 4.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 09-pic  (3.50, 4.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D1 
-                    SCHEMATIC1, 09-pic  (7.10, 4.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 09-pic  (5.60, 5.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 09-pic  (3.50, 4.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 09-pic  (2.10, 4.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 09-pic  (3.50, 5.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \RD 
-                    SCHEMATIC1, 09-pic  (5.60, 5.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 09-pic  (3.50, 5.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D3 
-                    SCHEMATIC1, 09-pic  (7.10, 4.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D7 
-                    SCHEMATIC1, 09-pic  (7.10, 5.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 09-pic  (2.10, 5.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \WR 
-                    SCHEMATIC1, 09-pic  (5.60, 5.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 09-pic  (2.10, 4.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D0 
-                    SCHEMATIC1, 09-pic  (7.10, 4.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector D2 
-                    SCHEMATIC1, 09-pic  (7.10, 4.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 09-pic  (2.10, 5.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 04-memory  (2.40, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 1.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A13 
-                    SCHEMATIC1, 02-buffers  (3.20, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 10-misc_ppis  (3.90, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A1 
-                    SCHEMATIC1, 02-buffers  (5.20, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 10-misc_ppis  (3.70, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A18 
-                    SCHEMATIC1, 02-buffers  (1.30, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 10-misc_ppis  (3.90, 4.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A2 
-                    SCHEMATIC1, 02-buffers  (5.10, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A6 
-                    SCHEMATIC1, 02-buffers  (4.70, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 10-misc_ppis  (3.70, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A16 
-                    SCHEMATIC1, 02-buffers  (1.50, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 0.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A0 
-                    SCHEMATIC1, 02-buffers  (5.30, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.60) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A9 
-                    SCHEMATIC1, 02-buffers  (3.60, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A3 
-                    SCHEMATIC1, 02-buffers  (5.00, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.40) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A7 
-                    SCHEMATIC1, 02-buffers  (4.60, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A4 
-                    SCHEMATIC1, 02-buffers  (4.90, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 1.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A15 
-                    SCHEMATIC1, 02-buffers  (3.00, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 1.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A14 
-                    SCHEMATIC1, 02-buffers  (3.10, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A8 
-                    SCHEMATIC1, 02-buffers  (3.70, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 10-misc_ppis  (3.70, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A19 
-                    SCHEMATIC1, 02-buffers  (1.20, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 1.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A12 
-                    SCHEMATIC1, 02-buffers  (3.30, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 0.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A10 
-                    SCHEMATIC1, 02-buffers  (3.50, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 10-misc_ppis  (1.40, 1.20) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A5 
-                    SCHEMATIC1, 02-buffers  (4.80, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 10-misc_ppis  (2.80, 0.90) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A11 
-                    SCHEMATIC1, 02-buffers  (3.40, 1.50) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A[19:0] 
-                    SCHEMATIC1, 10-misc_ppis  (3.70, 4.10) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector A17 
-                    SCHEMATIC1, 02-buffers  (1.40, 1.50) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected M/IO 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected M/IO 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected A[19:0] 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected A[19:0] 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected M/IO 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected M/IO 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected A[19:0] 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
-WARNING(ORCAP-1595): Two wires/busses of different nets intersect visually, yet nets are not connected A[19:0] 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.40) 
+WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector PCLK 
+                    SCHEMATIC1, 08-uart  (3.30, 1.90) 
