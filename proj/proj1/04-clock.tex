@@ -9,4 +9,11 @@ The 8184A Clock Generator is an ancillary component to the 8086. This system clo
             \end{center}
         \end{figure}
 
-    \subsection{Reset}
+    \subsection{Clock Speed}
+    The 8086 internal clock has a frequency of 5 MHz ($\frac{1}{3}$ of CLK). The external crystal typically oscillates at 15 MHz.
+
+    \subsection{RESET Operation}
+    Correct reset timing requires that the RESET input to the 8086 becomes a logic 1 in 4 clock cycles and remain high for at least 50 $\mu S$. The reset switch is implemented in a RC circuit with typical resistance of $100 \ k\Omega$ and $10 \ \mu F$.
+
+    \subsection{Pinouts}
+    Refer to Appendix \ref{appendix:pinouts} for the pinouts of the chip.
