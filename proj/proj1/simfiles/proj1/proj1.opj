@@ -116,12 +116,40 @@
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
-    (R-PACK
-      (FullPartName "R-PACK.Normal")
+    (RESISTOR
+      (FullPartName "RESISTOR.Normal")
+      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    (LED
+      (FullPartName "LED.Normal")
       (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0"))
     (GND
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (74ALS374
+      (FullPartName "74ALS374.Normal")
+      (LibraryName
+         "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
+      (DeviceIndex "0"))
+    (74LS374
+      (FullPartName "74LS374.Normal")
+      (LibraryName
+         "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
+      (DeviceIndex "0"))
+    (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (16L8
+      (FullPartName "16L8.Normal")
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\PLD.OLB")
+      (DeviceIndex "0"))
+    (VCC
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (R-PACK
+      (FullPartName "R-PACK.Normal")
+      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0"))
     (74LS244
       (FullPartName "74LS244.Normal")
@@ -132,13 +160,6 @@
       (FullPartName "74ALS244.Normal")
       (LibraryName
          "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
-      (DeviceIndex "0"))
-    (VCC
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
-      (DeviceIndex "0"))
-    (RESISTOR
-      (FullPartName "RESISTOR.Normal")
-      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0"))
     ("SW DIP-12"
       (FullPartName "SW DIP-12.Normal")
@@ -160,11 +181,6 @@
       (FullPartName "CONN TRBLK 2.Normal")
       (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\CONNECTOR.OLB")
       (DeviceIndex "0"))
-    (74ALS374
-      (FullPartName "74ALS374.Normal")
-      (LibraryName
-         "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
-      (DeviceIndex "0"))
     ("7 Segment LED"
       (FullPartName "7 Segment LED.Normal")
       (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\DATASHEETS\8086_PARTS.OLB")
@@ -176,9 +192,6 @@
     (LCD
       (FullPartName "LCD.Normal")
       (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\8086_PARTS.OLB")
-      (DeviceIndex "0"))
-    (OFFPAGELEFT-L
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     ("HEADER 7X2"
       (FullPartName "HEADER 7X2.Normal")
@@ -201,20 +214,9 @@
       (FullPartName "CONN DSUB 9-P.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
       (DeviceIndex "0"))
-    (16L8
-      (FullPartName "16L8.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\PLD.OLB")
-      (DeviceIndex "0"))
     (8254
       (FullPartName "8254.Normal")
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MISC.OLB")
-      (DeviceIndex "0"))
-    (0
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
-      (DeviceIndex "0"))
-    ("SW TACT-SPST-2"
-      (FullPartName "SW TACT-SPST-2.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0")))
   (GlobalState
     (FileView
@@ -226,53 +228,33 @@
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 387"))
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 387"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 130 1130 130 658")
-        (Scroll "-114 -7")
+        (Placement "44 0 1 -1 -1 -8 -31 234 1527 234 762")
+        (Scroll "-37 0")
+        (Zoom "77")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "10-misc_ppis"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 1293 0 528")
+        (Scroll "-123 0")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "10-lcd"))
+      (Page "11-power"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 156 1156 156 684")
-        (Scroll "0 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "12-dips"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 182 1182 182 710")
-        (Scroll "0 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "11-led"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 234 1234 234 762")
-        (Scroll "0 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "09-pic"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 260 1260 260 788")
-        (Scroll "0 0")
+        (Placement "44 0 1 -1 -1 -8 -31 26 1319 26 554")
+        (Scroll "-123 0")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
