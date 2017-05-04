@@ -1,172 +1,66 @@
-Date and Time : 05/03/17 17:12:48
+Date and Time : 05/04/17 14:46:10
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
 --------------------------------------------------
 Checking Electrical Rules 
-WARNING(ORCAP-1829): Possible pin type conflict U28,SP/E\N\  Bidirectional Connected to Power
-                    SCHEMATIC1, 09-pic  (6.10, 4.20) 
-WARNING(ORCAP-1829): Possible pin type conflict U39,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 8.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U34,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U37,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (11.70, 3.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U38,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (2.00, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U32,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U30,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (5.10, 4.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U16,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (7.40, 5.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U13,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (5.30, 5.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U15,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (7.40, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U12,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (5.30, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U14,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 04-memory  (3.00, 2.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U23,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (4.90, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U24,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (2.00, 2.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U26,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 08-uart  (7.20, 1.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U25,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 08-uart  (4.00, 3.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U27,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 08-uart  (1.70, 3.00) 
-WARNING(ORCAP-1829): Possible pin type conflict U21,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (1.80, 3.20) 
-WARNING(ORCAP-1829): Possible pin type conflict U22,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (1.70, 1.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U21,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (1.80, 4.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U22,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 06-keyboard  (4.60, 1.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U20,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (12.40, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U19,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.20, 6.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U17,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.20, 3.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U18,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (5.90, 3.40) 
-WARNING(ORCAP-1829): Possible pin type conflict U23,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (4.90, 1.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U24,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 07-pit  (2.00, 1.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U11,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (5.40, 4.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U10,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (5.40, 1.40) 
-WARNING(ORCAP-1829): Possible pin type conflict U9,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (3.40, 2.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U11,VPP  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (4.90, 6.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U10,VPP  Power Connected to Bidirectional
-                    SCHEMATIC1, 03-decoding  (4.90, 3.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U5,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (4.10, 1.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U6,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (5.70, 1.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U7,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 5.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U3,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (7.50, 1.50) 
-WARNING(ORCAP-1829): Possible pin type conflict U8,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (6.40, 4.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U4,GND  Power Connected to Bidirectional
-                    SCHEMATIC1, 02-buffers  (2.40, 1.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U20,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (12.50, 0.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U19,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.30, 3.90) 
-WARNING(ORCAP-1829): Possible pin type conflict U17,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (8.30, 0.80) 
-WARNING(ORCAP-1829): Possible pin type conflict U18,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 05-ppi  (5.90, 2.30) 
-WARNING(ORCAP-1829): Possible pin type conflict U39,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 6.70) 
-WARNING(ORCAP-1829): Possible pin type conflict U34,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 2.20) 
-WARNING(ORCAP-1829): Possible pin type conflict U37,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (11.60, 2.10) 
-WARNING(ORCAP-1829): Possible pin type conflict U38,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (2.00, 0.60) 
-WARNING(ORCAP-1829): Possible pin type conflict U32,VCC  Power Connected to Bidirectional
-                    SCHEMATIC1, 10-misc_ppis  (4.50, 0.40) 
-WARNING(ORCAP-1831): Unconnected pin U20,R\D\ 
-                    SCHEMATIC1, 05-ppi  (11.90, 2.20) 
-WARNING(ORCAP-1831): Unconnected pin U20,W\R\ 
-                    SCHEMATIC1, 05-ppi  (11.90, 2.30) 
-WARNING(ORCAP-1831): Unconnected pin U20,RESET 
-                    SCHEMATIC1, 05-ppi  (11.90, 2.10) 
-WARNING(ORCAP-1831): Unconnected pin U19,R\D\ 
-                    SCHEMATIC1, 05-ppi  (7.70, 5.30) 
-WARNING(ORCAP-1831): Unconnected pin U19,W\R\ 
-                    SCHEMATIC1, 05-ppi  (7.70, 5.40) 
-WARNING(ORCAP-1831): Unconnected pin U19,RESET 
-                    SCHEMATIC1, 05-ppi  (7.70, 5.20) 
-WARNING(ORCAP-1831): Unconnected pin U17,R\D\ 
-                    SCHEMATIC1, 05-ppi  (7.70, 2.20) 
-WARNING(ORCAP-1831): Unconnected pin U17,W\R\ 
-                    SCHEMATIC1, 05-ppi  (7.70, 2.30) 
-WARNING(ORCAP-1831): Unconnected pin U17,RESET 
-                    SCHEMATIC1, 05-ppi  (7.70, 2.10) 
-WARNING(ORCAP-1831): Unconnected pin U25,C\T\S\ 
-                    SCHEMATIC1, 08-uart  (3.30, 2.50) 
 WARNING(ORCAP-1831): Unconnected pin U25,A\D\S\ 
-                    SCHEMATIC1, 08-uart  (3.30, 2.40) 
+                    SCHEMATIC1, 08-uart  (3.80, 2.40) 
 WARNING(ORCAP-1831): Unconnected pin U25,MR 
-                    SCHEMATIC1, 08-uart  (3.30, 2.80) 
-WARNING(ORCAP-1831): Unconnected pin U25,WR 
-                    SCHEMATIC1, 08-uart  (3.30, 3.20) 
-WARNING(ORCAP-1831): Unconnected pin U25,RD 
-                    SCHEMATIC1, 08-uart  (3.30, 2.90) 
-WARNING(ORCAP-1831): Unconnected pin U39,CLK 
-                    SCHEMATIC1, 10-misc_ppis  (3.90, 7.70) 
-WARNING(ORCAP-1608): Net has no driving source BWR 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.60) 
-WARNING(ORCAP-1608): Net has no driving source BHE 
-                    SCHEMATIC1, 03-decoding  (2.60, 3.70) 
-WARNING(ORCAP-1608): Net has no driving source \IORC 
-                    SCHEMATIC1, 06-keyboard  (4.10, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source N62307 
-                    SCHEMATIC1, 06-keyboard  (2.90, 5.90) 
-WARNING(ORCAP-1608): Net has no driving source \IOWC 
-                    SCHEMATIC1, 06-keyboard  (4.40, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source PCLK 
-                    SCHEMATIC1, 06-keyboard  (3.80, 2.30) 
-WARNING(ORCAP-1608): Net has no driving source \IORC 
-                    SCHEMATIC1, 07-pit  (4.30, 2.70) 
-WARNING(ORCAP-1608): Net has no driving source \IOWC 
-                    SCHEMATIC1, 07-pit  (4.30, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source \IOWC 
-                    SCHEMATIC1, 08-uart  (3.30, 3.30) 
-WARNING(ORCAP-1608): Net has no driving source \IORC 
-                    SCHEMATIC1, 08-uart  (3.30, 3.00) 
-WARNING(ORCAP-1608): Net has no driving source 8254 (OUT2) 
-                    SCHEMATIC1, 09-pic  (4.80, 3.00) 
-WARNING(ORCAP-1608): Net has no driving source \SEL 
-                    SCHEMATIC1, 10-misc_ppis  (11.00, 3.10) 
-WARNING(ORCAP-1608): Net has no driving source N LCD CE 
-                    SCHEMATIC1, 10-misc_ppis  (3.90, 4.30) 
-WARNING(ORCAP-1608): Net has no driving source BRD 
-                    SCHEMATIC1, 03-decoding  (4.30, 6.20) 
+                    SCHEMATIC1, 08-uart  (3.80, 2.80) 
 WARNING(ORCAP-1608): Net has no driving source BWE 
-                    SCHEMATIC1, 03-decoding  (4.40, 6.30) 
+                    SCHEMATIC1, 04-sram  (6.80, 2.60) 
+WARNING(ORCAP-1608): Net has no driving source \SEL 
+                    SCHEMATIC1, 10-misc_ppis  (11.40, 3.40) 
 
 Checking For Unconnected Bus Nets
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IORC 
-                    SCHEMATIC1, 07-pit  (4.30, 2.70) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IOWC 
-                    SCHEMATIC1, 07-pit  (4.30, 2.80) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IOWC 
-                    SCHEMATIC1, 08-uart  (3.30, 3.30) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector \IORC 
-                    SCHEMATIC1, 08-uart  (3.30, 3.00) 
-WARNING(ORCAP-1611): Two nets in same schematic have the same name, but there is no off-page connector PCLK 
-                    SCHEMATIC1, 08-uart  (3.30, 1.90) 
+
+Checking Physical Rules 
+
+
+Checking Pins and Pin Connections
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+
+INFO(ORCAP-2242): Checking Incorrect Pin Group Assignment
+
+Report for Invalid References
+
+Report for Duplicate References
+
+--------------------------------------------------
+Checking Entire Design: PROJ1 
+--------------------------------------------------
+
+Checking Power Pin Visibility  
+
+Checking Normal Convert View Sync  
+INFO(ORCAP-36105): Checking Missing Pin Numbers  
+
+Checking Device with Zero pins  
+INFO(ORCAP-36101): Checking Missing PCB Footprint Property  
+
+INFO(ORCAP-2211): Check High Speed Properties Syntax
+
+INFO(ORCAP-2212): Check Power Ground Mismatch
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? VCC  VCC  GND  
+                    SCHEMATIC1, 03-flash_mem  (4.50, 3.70) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U10,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (4.90, 3.70) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U11,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (4.90, 6.60) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U13,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (4.70, 5.60) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U12,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (4.70, 2.90) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U16,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (6.80, 5.60) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U15,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (6.80, 2.90) 
+
+Reporting Unused Refdes in multiple part packages
+Part	                       Quantity	                       Reference
+-----------------------------------------------------------------------------------------
+   74LS14	                       4	                       U35: F  E  D  C  

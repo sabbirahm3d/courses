@@ -78,11 +78,11 @@
       (Type "Schematic Design"))
     (DRC_Scope "0")
     (DRC_Action "0")
-    (DRC_Create_Warnings "FALSE")
+    (DRC_Create_Warnings "TRUE")
     (DRC_View_Output "FALSE")
     (DRC_Run_Electrical_Rules "TRUE")
-    (DRC_Run_Physical_Rules "FALSE")
-    (DRC_Report_File "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DRC")
+    (DRC_Run_Physical_Rules "TRUE")
+    (DRC_Report_File "E:\CMPE310\proj\proj1\simfiles\proj1\PROJ1.DRC")
     (DRC_Check_Ports "FALSE")
     (DRC_Check_Off-Page_Connectors "FALSE")
     (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
@@ -119,15 +119,15 @@
     (OFFPAGELEFT-L
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
+    (RESISTOR
+      (FullPartName "RESISTOR.Normal")
+      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
     (VCC
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (GND
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
-      (DeviceIndex "0"))
-    (RESISTOR
-      (FullPartName "RESISTOR.Normal")
-      (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
       (DeviceIndex "0"))
     (LED
       (FullPartName "LED.Normal")
@@ -223,72 +223,11 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
-      (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "04-memory"))
+      (Path "Outputs"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
         (Placement "44 2 3 -1 -1 -8 -31 0 200 0 387"))
-      (Tab 0))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 156 1449 156 684")
-        (Scroll "-123 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "09-pic"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 182 1475 182 710")
-        (Scroll "-123 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "01-8086"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 208 1501 208 736")
-        (Scroll "393 0")
-        (Zoom "206")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "02-buffers"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 260 1553 260 788")
-        (Scroll "-123 0")
-        (Zoom "103")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "03-decoding"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 0 1293 0 528")
-        (Scroll "0 50")
-        (Zoom "100")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "10-misc_ppis"))
-    (Doc
-      (Type "COrSchematicDoc")
-      (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 26 1319 26 554")
-        (Scroll "0 128")
-        (Zoom "206")
-        (Occurrence "/"))
-      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
-      (Schematic "SCHEMATIC1")
-      (Page "04-memory")))
+      (Tab 0)))
   (LastUsedLibraryBrowseDirectory "E:\proj1\library"))
