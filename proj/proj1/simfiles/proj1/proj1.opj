@@ -223,7 +223,8 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
-      (Path "Outputs"))
+      (Path "Outputs")
+      (Select "Design Resources" ".\proj1.dsn"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
