@@ -8,6 +8,8 @@
 \usepackage{tocloft}
 \usepackage{fancyhdr}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage{fancyvrb}  % for code verbatim and console outputs
+\usepackage[dvipsnames]{xcolor}
 
 % margins and widths
 \addtolength{\oddsidemargin}{-0.75in}
@@ -16,9 +18,6 @@
 
 \addtolength{\topmargin}{-0.75in}
 \addtolength{\textheight}{1.75in}
-
-% replace '\\' with `\n' to get rid of tab in new paragraphs
-\newcommand{\n}{\newline\newline}
 
 % headers / footers
 \pagestyle{fancy}
@@ -32,8 +31,27 @@
 \cftsetindents{section}{0.1in}{0.5in}
 \cftsetindents{subsection}{0.65in}{0.5in}
 
+% custom commands
+% replace '\\' with `\n' to get rid of tab in new paragraphs
+\newcommand{\n}{\newline\newline}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{black}{rgb}{0,0,0}
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\small,
+ commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
 % content
 \begin{document}
+
+    \VerbatimInput{hello.asm}
 
     \input{00-cover}
     \tableofcontents
