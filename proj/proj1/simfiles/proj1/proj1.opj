@@ -82,7 +82,7 @@
     (DRC_View_Output "FALSE")
     (DRC_Run_Electrical_Rules "TRUE")
     (DRC_Run_Physical_Rules "TRUE")
-    (DRC_Report_File "E:\CMPE310\proj\proj1\simfiles\proj1\PROJ1.DRC")
+    (DRC_Report_File "F:\CMPE310\proj\proj1\simfiles\proj1\PROJ1.DRC")
     (DRC_Check_Ports "FALSE")
     (DRC_Check_Off-Page_Connectors "FALSE")
     (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
@@ -116,18 +116,18 @@
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
+    (GND
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
     (OFFPAGELEFT-L
+      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VCC
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (RESISTOR
       (FullPartName "RESISTOR.Normal")
       (LibraryName "C:\USERS\SABBIR1\DOWNLOADS\310\LIBRARY\DISCRETE.OLB")
-      (DeviceIndex "0"))
-    (VCC
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
-      (DeviceIndex "0"))
-    (GND
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
     (LED
       (FullPartName "LED.Normal")
@@ -221,14 +221,16 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" ".\proj1.dsn")
-      (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
+      (Path "Design Resources" "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn")
+      (Path "Design Resources" "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn"
+         "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn"))
+      (Select "Design Resources"
+         "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn" "SCHEMATIC1" "11-led"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 387"))
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 387"))
       (Tab 0)))
   (LastUsedLibraryBrowseDirectory "E:\proj1\library"))

@@ -1,17 +1,9 @@
-Date and Time : 05/04/17 14:49:19
+Date and Time : 05/05/17 12:49:59
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
 --------------------------------------------------
 Checking Electrical Rules 
-WARNING(ORCAP-1831): Unconnected pin U25,A\D\S\ 
-                    SCHEMATIC1, 08-uart  (3.80, 2.40) 
-WARNING(ORCAP-1831): Unconnected pin U25,MR 
-                    SCHEMATIC1, 08-uart  (3.80, 2.80) 
-WARNING(ORCAP-1608): Net has no driving source BWE 
-                    SCHEMATIC1, 03-flash_mem  (4.90, 3.40) 
-WARNING(ORCAP-1608): Net has no driving source \SEL 
-                    SCHEMATIC1, 10-misc_ppis  (11.40, 3.40) 
 
 Checking For Unconnected Bus Nets
 
@@ -46,7 +38,7 @@ INFO(ORCAP-2211): Check High Speed Properties Syntax
 
 INFO(ORCAP-2212): Check Power Ground Mismatch
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? VCC  VCC  GND  
-                    SCHEMATIC1, 03-flash_mem  (4.50, 6.60) 
+                    SCHEMATIC1, 11-led  (5.70, 1.70) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U10,VPP  VPP  GND
                     SCHEMATIC1, 03-flash_mem  (4.90, 3.70) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U11,VPP  VPP  GND
