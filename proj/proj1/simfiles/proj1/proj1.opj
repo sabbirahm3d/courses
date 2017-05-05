@@ -109,13 +109,51 @@
     (DRC_Report_Unused_Part_Packages "TRUE")
     (DRC_Check_Name_Prop_For_HierBlocks "FALSE")
     (BuildFileAddedOrDeleted "x")
-    (CompileFileAddedOrDeleted "x"))
+    (CompileFileAddedOrDeleted "x")
+    ("Create Allegro Netlist" "TRUE")
+    ("Allegro Netlist Directory" "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\ALLEGRO")
+    ("View Allegro Netlist Files" "FALSE")
+    ("Allegro Netlist Create DCF File" "FALSE")
+    ("Update Allegro Board" "FALSE")
+    ("Allegro Netlist Output Board File" "allegro\PROJ1.brd")
+    ("Allegro Netlist Remove Etch" "FALSE")
+    ("Allegro Netlist Place Changed Component" "ALWAYS_REPLACE")
+    ("Allegro Netlist Open Board in Allegro" "ALLEGRO")
+    ("Allegro Setup Backup Versions" "3")
+    ("Allegro Setup Output Warnings" "TRUE")
+    ("Allegro Setup Ignore Constraints" "FALSE")
+    ("Allegro Setup Part Type Length" "31")
+    ("Allegro Netlist Combine Property String" "PCB Footprint")
+    ("Allegro Netlist Ignore Fixed Property" "FALSE")
+    ("Allegro Netlist User Defined Property" "FALSE")
+    (Netlist_TAB "0"))
   (Folder "Outputs"
     (File ".\proj1.drc"
-      (Type "Report")))
+      (Type "Report"))
+    (File ".\allegro\pstxnet.dat"
+      (Type "Report")
+      (DisplayName "pstxnet.dat"))
+    (File ".\allegro\pstxprt.dat"
+      (Type "Report")
+      (DisplayName "pstxprt.dat"))
+    (File ".\allegro\pstchip.dat"
+      (Type "Report")
+      (DisplayName "pstchip.dat")))
   (Folder "Referenced Projects")
   (MPSSessionName "sabbir1")
   (PartMRUSelector
+    ("SW DIP-12"
+      (FullPartName "SW DIP-12.Normal")
+      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    ("SW DIP-12/SM"
+      (FullPartName "SW DIP-12/SM.Normal")
+      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
+      (DeviceIndex "0"))
+    ("HEADER 30x2/SM"
+      (FullPartName "HEADER 30x2/SM.Normal")
+      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
     (GND
       (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
       (DeviceIndex "0"))
@@ -161,10 +199,6 @@
       (LibraryName
          "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\BUSDRIVERTRANSCEIVER.OLB")
       (DeviceIndex "0"))
-    ("SW DIP-12"
-      (FullPartName "SW DIP-12.Normal")
-      (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
-      (DeviceIndex "0"))
     (CAP
       (FullPartName "CAP.Normal")
       (LibraryName "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\LIBRARY\DISCRETE.OLB")
@@ -209,28 +243,49 @@
       (FullPartName "MAX235.Normal")
       (LibraryName
          "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\LINEDRIVERRECEIVER.OLB")
-      (DeviceIndex "0"))
-    ("CONN DSUB 9-P"
-      (FullPartName "CONN DSUB 9-P.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
-      (DeviceIndex "0"))
-    (8254
-      (FullPartName "8254.Normal")
-      (LibraryName "C:\CADENCE\SPB_16.6\TOOLS\CAPTURE\LIBRARY\MISC.OLB")
       (DeviceIndex "0")))
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources" "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn")
-      (Path "Design Resources" "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn"
-         "SCHEMATIC1")
+      (Path "Design Resources" ".\proj1.dsn")
+      (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources"
-         "F:\CMPE310\proj\proj1\simfiles\proj1\proj1.dsn" "SCHEMATIC1" "11-led"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "02-buffers"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 0 200 0 387"))
-      (Tab 0)))
-  (LastUsedLibraryBrowseDirectory "E:\proj1\library"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 234 1171 234 738")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "06-keyboard"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 937 0 504")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "01-8086"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 26 963 26 530")
+        (Scroll "-7 3")
+        (Zoom "116")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "02-buffers")))
+  (LastUsedLibraryBrowseDirectory "E:\proj1\library")
+  (ISPCBBASICLICENSE "false"))

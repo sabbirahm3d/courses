@@ -1,0 +1,678 @@
+\t (00:00:02) allegro 16.6 P004 (v16-6-112G) Windows 32
+\t (00:00:02)     Journal start - Fri May 05 14:31:32 2017
+\t (00:00:02)         Host=ITE242PC08 User=sabbir1 Pid=17432 CPUs=8
+\t (00:00:02) 
+\t (00:00:05) Starting new design...
+\i (00:00:05) trapsize 1084
+\i (00:00:05) trapsize 1051
+\i (00:00:05) trapsize 1089
+\i (00:00:05) trapsize 1138
+\i (00:00:05) trapsize 907
+\i (00:00:05) trapsize 1138
+\i (00:00:05) generaledit 
+\i (00:00:09) netin 
+\i (00:00:13) setwindow form.niparams
+\i (00:00:13) FORM niparams capture_netlist YES 
+\i (00:00:14) FORM niparams browse  
+\i (00:00:23) fillin "F:/CMPE310/proj/proj1/simfiles/proj1/Allegro"
+\i (00:00:25) FORM niparams import  
+\t (00:00:25) Starting Cadence Logic Import...
+\w (00:00:26) WARNING(SPMHGE-269): netrev had warnings, use Viewlog to review the log file.
+\t (00:00:26) Opening existing design...
+\i (00:00:26) setwindow pcb
+\i (00:00:26) trapsize 1138
+\i (00:00:27) generaledit 
+\i (00:00:31) setwindow text
+\i (00:00:31) close 
+\i (00:00:46) setwindow pcb
+\i (00:00:46) xsection 
+   (00:00:46) Loading cmds.cxt 
+   (00:00:47) Loading floor.cxt 
+   (00:00:47) Loading skillExt.cxt 
+   (00:00:47) Loading axlcore.cxt 
+\i (00:00:49) setwindow form.fplyrstack
+\i (00:00:49) FORM fplyrstack lsgrid cell 3,name 
+\i (00:00:53) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:00:54) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Below' 
+   (00:00:54) Loading signal.cxt 
+\i (00:00:54) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:00:55) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Below' 
+\i (00:00:55) FORM fplyrstack lsgrid rprepopup 4,name 
+\i (00:00:56) FORM fplyrstack lsgrid rpopup 4,name 'Add Layer Below' 
+\i (00:00:57) FORM fplyrstack lsgrid rprepopup 4,name 
+\i (00:00:58) FORM fplyrstack lsgrid rpopup 4,name 'Add Layer Below' 
+\i (00:00:59) FORM fplyrstack lsgrid cell 4,name 
+\i (00:01:01) FORM fplyrstack lsgrid change 4,name GND 
+\i (00:01:02) FORM fplyrstack lsgrid cell 1,name 
+\i (00:01:02) FORM fplyrstack lsgrid cell 2,name 
+\i (00:01:02) FORM fplyrstack lsgrid cell 3,name 
+\i (00:01:03) FORM fplyrstack lsgrid cell 4,name 
+\i (00:01:03) FORM fplyrstack lsgrid cell 5,name 
+\i (00:01:03) FORM fplyrstack lsgrid cell 6,name 
+\i (00:01:06) FORM fplyrstack lsgrid change 6,name POWER 
+\i (00:01:06) FORM fplyrstack lsgrid lprepopup 6,type 
+\i (00:01:06) FORM fplyrstack lsgrid cell 6,type 
+\i (00:01:07) FORM fplyrstack lsgrid change 6,type PLANE 
+\i (00:01:08) FORM fplyrstack lsgrid lprepopup 4,type 
+\i (00:01:08) FORM fplyrstack lsgrid cell 4,type 
+\i (00:01:10) FORM fplyrstack lsgrid change 4,type PLANE 
+\i (00:01:21) FORM fplyrstack done  
+\i (00:01:21) setwindow pcb
+\i (00:01:21) generaledit 
+\i (00:01:38) prmed 
+\i (00:01:40) setwindow form.prmedit
+\i (00:01:40) FORM prmedit design  
+\i (00:01:50) FORM prmedit x -500.0 
+\i (00:01:53) FORM prmedit y -500.0 
+\i (00:01:56) FORM prmedit width 15000.0 
+\i (00:01:59) FORM prmedit height 15000.0 
+\i (00:02:04) FORM prmedit lock_direction 90 
+\i (00:02:06) FORM prmedit done  
+\i (00:02:06) setwindow pcb
+\i (00:02:06) trapsize 1004
+\i (00:02:06) generaledit 
+\i (00:02:27) board outline 
+   (00:02:27) Loading fputil.cxt 
+\i (00:02:29) setwindow form.fpbdoutline
+\i (00:02:29) FORM fpbdoutline fpboplacerect YES 
+\i (00:02:36) FORM fpbdoutline fpboclearance '100.0 MIL' 
+\i (00:02:40) FORM fpbdoutline fpboplacewdt '12000.0 MIL' 
+\i (00:02:54) FORM fpbdoutline fpboplacehgt '12000.0 MIL' 
+\i (00:02:54) setwindow pcb
+\i (00:02:54) pick grid -379.5 -419.7
+\t (00:02:54) last pick:  -400.0  -400.0
+\i (00:02:57) shape add rect 
+\i (00:03:09) setwindow form.mini
+\i (00:03:09) FORM mini class ROUTE KEEPIN 
+\i (00:03:21) setwindow pcb
+\i (00:03:21) shape add rect 
+\i (00:03:27) zoom in 1 
+\i (00:03:27) setwindow pcb
+\i (00:03:27) zoom in 11447.8 11447.8
+\i (00:03:27) trapsize 502
+\i (00:03:31) pick grid 11477.9 11518.1
+\t (00:03:31) last pick:  11500.0  11500.0
+\i (00:03:32) zoom out 1 
+\i (00:03:32) setwindow pcb
+\i (00:03:32) zoom out 11477.9 11518.1
+\i (00:03:32) trapsize 1004
+\i (00:03:37) pick grid -259.0 -279.1
+\t (00:03:37) last pick:  -300.0  -300.0
+\i (00:03:47) save 
+\i (00:03:47) generaledit 
+\i (00:03:49) place manual 
+\i (00:03:59) setwindow form.plc_manual
+\i (00:03:59) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:03:59) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:03:59) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:04:37) FORM plc_manual categories Components by net group 
+\i (00:04:38) FORM plc_manual tree 'MULTISEL YES' 'Components by net group' 
+\i (00:04:38) FORM plc_manual tree  'Components by net group' 
+\i (00:04:39) FORM plc_manual tree 'MULTISEL YES' 'Components by net group' 
+\i (00:04:41) FORM plc_manual categories Package symbols 
+\i (00:04:43) FORM plc_manual categories Mechanical symbols 
+\i (00:04:45) FORM plc_manual categories Format symbols 
+\i (00:04:46) FORM plc_manual categories Components by refdes 
+\i (00:04:52) FORM plc_manual tree 'MULTISEL YES' Y1 'Components by refdes' 
+\t (00:04:52) Placing Y1 / CRYSTAL_XTAL_FOX_CRYSTAL / XTAL_FOX on Top.
+\i (00:04:52) FORM plc_manual tree  Y1 'Components by refdes' 
+\i (00:04:53) FORM plc_manual tree 'MULTISEL NO' Y1 'Components by refdes' 
+\i (00:05:01) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:05:01) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:05:01) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:05:03) FORM plc_manual tree 'MULTISEL NO' U1 'Components by refdes' 
+\i (00:05:04) FORM plc_manual tree 'MULTISEL YES' U2 'Components by refdes' 
+\t (00:05:04) Placing U2 / 8284A_DIP10018W300L900_8284A_GN / DIP10018W300L900 on Top.
+\i (00:05:04) FORM plc_manual tree  U2 'Components by refdes' 
+\i (00:05:08) FORM plc_manual tree 'MULTISEL NO' U2 'Components by refdes' 
+\i (00:05:10) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:05:10) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:05:10) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:06:07) FORM plc_manual tree  R1 'Components by refdes' 
+\i (00:06:39) FORM plc_manual advanced_settings  
+\i (00:06:42) FORM plc_manual placement_list  
+\i (00:06:49) setwindow pcb
+\i (00:06:49) zoom in 1 
+\i (00:06:49) setwindow pcb
+\i (00:06:49) zoom in 483.9 10403.6
+\i (00:06:49) trapsize 502
+\i (00:06:50) zoom in 1 
+\i (00:06:50) setwindow pcb
+\i (00:06:50) zoom in 484.0 10403.6
+\i (00:06:50) trapsize 251
+\i (00:06:52) zoom out 1 
+\i (00:06:52) setwindow pcb
+\i (00:06:52) zoom out 504.1 10348.4
+\i (00:06:52) trapsize 502
+\i (00:06:52) zoom in 1 
+\i (00:06:52) setwindow pcb
+\i (00:06:52) zoom in 504.0 10348.4
+\i (00:06:52) trapsize 251
+\i (00:06:53) zoom in 1 
+\i (00:06:53) setwindow pcb
+\i (00:06:53) zoom in 504.1 10348.4
+\i (00:06:53) trapsize 126
+\i (00:06:54) zoom out 1 
+\i (00:06:54) setwindow pcb
+\i (00:06:54) zoom out 549.3 10348.4
+\i (00:06:54) trapsize 251
+\i (00:06:54) zoom out 1 
+\i (00:06:54) setwindow pcb
+\i (00:06:54) zoom out 549.3 10348.5
+\i (00:06:54) trapsize 502
+\i (00:06:55) zoom out 1 
+\i (00:06:55) setwindow pcb
+\i (00:06:55) zoom out 348.5 9565.3
+\i (00:06:55) trapsize 1004
+\i (00:06:56) zoom out 1 
+\i (00:06:56) setwindow pcb
+\i (00:06:56) zoom out 1086.3 6046.2
+\i (00:06:56) trapsize 1004
+\i (00:06:56) zoom out 1 
+\i (00:06:56) setwindow pcb
+\i (00:06:56) zoom out 1086.3 6046.2
+\i (00:06:56) trapsize 1004
+\i (00:07:02) setwindow form.plc_manual
+\i (00:07:02) FORM plc_manual tree 'MULTISEL NO' U1 'Components by refdes' 
+\i (00:07:02) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:07:06) FORM plc_manual tree 'MULTISEL YES' SW1 'Components by refdes' 
+\t (00:07:06) Placing SW1 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:07:06) FORM plc_manual tree  SW1 'Components by refdes' 
+\i (00:07:07) FORM plc_manual tree 'MULTISEL YES' SW2 'Components by refdes' 
+\i (00:07:07) FORM plc_manual tree  SW2 'Components by refdes' 
+\i (00:07:08) FORM plc_manual tree 'MULTISEL YES' SW3 'Components by refdes' 
+\i (00:07:08) FORM plc_manual tree  SW3 'Components by refdes' 
+\i (00:07:09) FORM plc_manual tree 'MULTISEL YES' SW4 'Components by refdes' 
+\i (00:07:09) FORM plc_manual tree  SW4 'Components by refdes' 
+\i (00:07:23) FORM plc_manual tree 'MULTISEL NO' SW1 'Components by refdes' 
+\t (00:07:23) Placing SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:07:23) FORM plc_manual tree  SW1 'Components by refdes' 
+\i (00:07:24) FORM plc_manual tree 'MULTISEL YES' SW5 'Components by refdes' 
+\i (00:07:24) FORM plc_manual tree  SW5 'Components by refdes' 
+\i (00:07:25) FORM plc_manual tree 'MULTISEL YES' SW6 'Components by refdes' 
+\i (00:07:25) FORM plc_manual tree  SW6 'Components by refdes' 
+\i (00:07:26) FORM plc_manual tree 'MULTISEL YES' SW7 'Components by refdes' 
+\i (00:07:26) FORM plc_manual tree  SW7 'Components by refdes' 
+\i (00:07:27) FORM plc_manual tree 'MULTISEL YES' SW8 'Components by refdes' 
+\i (00:07:27) FORM plc_manual tree  SW8 'Components by refdes' 
+\i (00:07:28) FORM plc_manual tree 'MULTISEL YES' SW9 'Components by refdes' 
+\i (00:07:28) FORM plc_manual tree  SW9 'Components by refdes' 
+\i (00:07:29) FORM plc_manual tree 'MULTISEL YES' SW10 'Components by refdes' 
+\i (00:07:29) FORM plc_manual tree  SW10 'Components by refdes' 
+\i (00:07:29) FORM plc_manual tree 'MULTISEL YES' SW11 'Components by refdes' 
+\i (00:07:29) FORM plc_manual tree  SW11 'Components by refdes' 
+\i (00:07:30) FORM plc_manual tree 'MULTISEL YES' SW12 'Components by refdes' 
+\i (00:07:30) FORM plc_manual tree  SW12 'Components by refdes' 
+\i (00:07:31) FORM plc_manual tree 'MULTISEL YES' SW13 'Components by refdes' 
+\i (00:07:31) FORM plc_manual tree  SW13 'Components by refdes' 
+\i (00:07:32) FORM plc_manual tree 'MULTISEL YES' SW14 'Components by refdes' 
+\i (00:07:32) FORM plc_manual tree  SW14 'Components by refdes' 
+\i (00:07:32) FORM plc_manual tree 'MULTISEL YES' SW15 'Components by refdes' 
+\i (00:07:32) FORM plc_manual tree  SW15 'Components by refdes' 
+\i (00:07:33) FORM plc_manual tree 'MULTISEL YES' SW16 'Components by refdes' 
+\i (00:07:33) FORM plc_manual tree  SW16 'Components by refdes' 
+\i (00:07:33) FORM plc_manual tree 'MULTISEL YES' SW17 'Components by refdes' 
+\i (00:07:33) FORM plc_manual tree  SW17 'Components by refdes' 
+\i (00:07:34) FORM plc_manual tree 'MULTISEL YES' SW18 'Components by refdes' 
+\i (00:07:34) FORM plc_manual tree  SW18 'Components by refdes' 
+\i (00:07:36) FORM plc_manual tree 'MULTISEL YES' SW19 'Components by refdes' 
+\i (00:07:36) FORM plc_manual tree  SW19 'Components by refdes' 
+\i (00:07:42) setwindow pcb
+\i (00:07:42) zoom in 1 
+\i (00:07:42) setwindow pcb
+\i (00:07:42) zoom in 1829.3 584.3
+\i (00:07:42) trapsize 502
+\i (00:07:42) zoom out 1 
+\i (00:07:42) setwindow pcb
+\i (00:07:42) zoom out 1829.4 584.4
+\i (00:07:42) trapsize 1004
+\i (00:07:44) zoom in 1 
+\i (00:07:44) setwindow pcb
+\i (00:07:44) zoom in 1106.4 805.2
+\i (00:07:44) trapsize 502
+\i (00:07:45) zoom out 1 
+\i (00:07:45) setwindow pcb
+\i (00:07:45) zoom out 1096.4 805.2
+\i (00:07:45) trapsize 1004
+\i (00:08:31) zoom in 1 
+\i (00:08:31) setwindow pcb
+\i (00:08:31) zoom in 9058.2 524.1
+\i (00:08:31) trapsize 502
+\i (00:08:35) zoom out 1 
+\i (00:08:35) setwindow pcb
+\i (00:08:35) zoom out 8967.9 1990.0
+\i (00:08:35) trapsize 1004
+\i (00:08:36) zoom in 1 
+\i (00:08:36) setwindow pcb
+\i (00:08:36) zoom in 10363.5 524.1
+\i (00:08:36) trapsize 502
+\i (00:08:37) zoom out 1 
+\i (00:08:37) setwindow pcb
+\i (00:08:37) zoom out 7783.1 524.1
+\i (00:08:37) trapsize 1004
+\i (00:08:38) zoom in 1 
+\i (00:08:38) setwindow pcb
+\i (00:08:38) zoom in 10363.5 524.1
+\i (00:08:38) trapsize 502
+\i (00:08:39) zoom out 1 
+\i (00:08:39) setwindow pcb
+\i (00:08:39) zoom out 9981.9 1347.4
+\i (00:08:39) trapsize 1004
+\i (00:08:40) zoom in 1 
+\i (00:08:40) setwindow pcb
+\i (00:08:40) zoom in 11126.5 -218.9
+\i (00:08:40) trapsize 502
+\i (00:08:43) zoom in 1 
+\i (00:08:43) setwindow pcb
+\i (00:08:43) zoom in 7431.7 2612.5
+\i (00:08:43) trapsize 251
+\i (00:08:46) zoom in 1 
+\i (00:08:46) setwindow pcb
+\i (00:08:46) zoom in 7266.1 2657.7
+\i (00:08:46) trapsize 126
+\i (00:08:53) zoom out 1 
+\i (00:08:53) setwindow pcb
+\i (00:08:53) zoom out 6267.2 2901.2
+\i (00:08:53) trapsize 251
+\i (00:08:54) zoom out 1 
+\i (00:08:54) setwindow pcb
+\i (00:08:54) zoom out 6518.1 2640.2
+\i (00:08:54) trapsize 502
+\i (00:08:58) pick grid 7321.3 1538.2
+\t (00:08:58) last pick:  7300.0  1500.0
+\t (00:08:58) Placing SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:00) zoom in 1 
+\i (00:09:00) setwindow pcb
+\i (00:09:00) zoom in 7943.8 1508.0
+\i (00:09:00) trapsize 251
+\i (00:09:06) pick grid 7948.8 1513.0
+\t (00:09:06) last pick:  7900.0  1500.0
+\t (00:09:06) Placing SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:10) pick grid 8506.0 1452.8
+\t (00:09:10) last pick:  8500.0  1500.0
+\t (00:09:10) Placing SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:12) pick grid 9053.2 1503.0
+\t (00:09:12) last pick:  9100.0  1500.0
+\t (00:09:12) Placing SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:22) pick grid 7301.2 940.7
+\t (00:09:22) last pick:  7300.0  900.0
+\t (00:09:22) Placing SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:25) pick grid 7853.4 900.6
+\t (00:09:25) last pick:  7900.0  900.0
+\t (00:09:25) Placing SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:26) pick grid 8546.2 865.4
+\t (00:09:26) last pick:  8500.0  900.0
+\t (00:09:26) Placing SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:28) pick grid 9148.6 905.6
+\t (00:09:28) last pick:  9100.0  900.0
+\t (00:09:28) Placing SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:28) zoom out 1 
+\i (00:09:28) setwindow pcb
+\i (00:09:28) zoom out 9138.6 905.6
+\i (00:09:28) trapsize 502
+\i (00:09:29) zoom out 1 
+\i (00:09:29) setwindow pcb
+\i (00:09:29) zoom out 9138.5 905.6
+\i (00:09:29) trapsize 1004
+\i (00:09:29) zoom out 1 
+\i (00:09:29) setwindow pcb
+\i (00:09:29) zoom out 15463.9 1106.4
+\i (00:09:29) trapsize 1004
+\i (00:09:29) zoom in 1 
+\i (00:09:29) setwindow pcb
+\i (00:09:29) zoom in 15463.9 1106.4
+\i (00:09:29) trapsize 502
+\i (00:09:29) zoom in 1 
+\i (00:09:29) setwindow pcb
+\i (00:09:29) zoom in 9178.7 1106.4
+\i (00:09:29) trapsize 251
+\i (00:09:31) zoom out 1 
+\i (00:09:31) setwindow pcb
+\i (00:09:31) zoom out 9178.8 1106.4
+\i (00:09:31) trapsize 502
+\i (00:09:31) zoom in 1 
+\i (00:09:31) setwindow pcb
+\i (00:09:31) zoom in 9178.7 1106.4
+\i (00:09:31) trapsize 251
+\i (00:09:32) zoom out 1 
+\i (00:09:32) setwindow pcb
+\i (00:09:32) zoom out 9178.8 1106.4
+\i (00:09:32) trapsize 502
+\i (00:09:32) zoom in 1 
+\i (00:09:32) setwindow pcb
+\i (00:09:32) zoom in 9178.7 1106.4
+\i (00:09:32) trapsize 251
+\i (00:09:33) zoom out 1 
+\i (00:09:33) setwindow pcb
+\i (00:09:33) zoom out 9178.8 1106.4
+\i (00:09:33) trapsize 502
+\i (00:09:33) zoom in 1 
+\i (00:09:33) setwindow pcb
+\i (00:09:33) zoom in 9178.7 1106.4
+\i (00:09:33) trapsize 251
+\i (00:09:35) zoom out 1 
+\i (00:09:35) setwindow pcb
+\i (00:09:35) zoom out 8802.2 2577.3
+\i (00:09:35) trapsize 502
+\i (00:09:39) zoom in 1 
+\i (00:09:39) setwindow pcb
+\i (00:09:39) zoom in 7291.2 202.8
+\i (00:09:39) trapsize 251
+\i (00:09:43) pick grid 7301.2 348.4
+\t (00:09:43) last pick:  7300.0  300.0
+\t (00:09:43) Placing SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:46) pick grid 7948.8 258.0
+\t (00:09:46) last pick:  7900.0  300.0
+\t (00:09:46) Placing SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:49) pick grid 8450.8 258.0
+\t (00:09:49) last pick:  8500.0  300.0
+\t (00:09:49) Placing SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:50) pick grid 9053.2 263.0
+\t (00:09:50) last pick:  9100.0  300.0
+\t (00:09:50) Placing SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:09:50) zoom out 1 
+\i (00:09:50) setwindow pcb
+\i (00:09:50) zoom out 9078.3 263.0
+\i (00:09:50) trapsize 502
+\i (00:09:53) zoom in 1 
+\i (00:09:53) setwindow pcb
+\i (00:09:53) zoom in 7261.1 -228.9
+\i (00:09:53) trapsize 251
+\e (00:10:00) Command not found: ~A
+\i (00:10:08) pick grid 7256.1 -168.6
+\t (00:10:08) last pick:  7300.0  -200.0
+\t (00:10:08) Placing SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:10:10) pick grid 7928.8 -248.9
+\t (00:10:10) last pick:  7900.0  -200.0
+\t (00:10:10) Placing SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:10:11) pick grid 8450.9 -198.7
+\t (00:10:11) last pick:  8500.0  -200.0
+\t (00:10:11) Placing SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:10:13) pick grid 9058.3 -193.7
+\t (00:10:13) last pick:  9100.0  -200.0
+\t (00:10:13) Placing SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:10:18) pick grid 6553.3 308.3
+\t (00:10:18) last pick:  6600.0  300.0
+\t (00:10:18) Placing SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:10:20) pick grid 6573.3 -143.5
+\t (00:10:20) last pick:  6600.0  -100.0
+\i (00:10:24) pick grid 6668.7 2010.1
+\t (00:10:24) last pick:  6700.0  2000.0
+\i (00:10:26) pick grid 6518.1 1663.7
+\t (00:10:26) last pick:  6500.0  1700.0
+\i (00:10:34) pick grid 6829.4 2210.9
+\t (00:10:34) last pick:  6800.0  2200.0
+\i (00:10:37) pick grid 6995.0 2010.1
+\t (00:10:37) last pick:  7000.0  2000.0
+\i (00:10:39) pick grid 7512.1 1583.4
+\t (00:10:39) last pick:  7500.0  1600.0
+\t (00:10:39) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:10:39) last pick:  7300.0  1500.0
+\i (00:10:41) pick grid 7251.1 1503.1
+\t (00:10:41) last pick:  7300.0  1500.0
+\i (00:10:44) pick grid 7100.5 2090.4
+\t (00:10:44) last pick:  7100.0  2100.0
+\i (00:10:45) pick grid 6593.4 1528.2
+\t (00:10:45) last pick:  6600.0  1500.0
+\i (00:11:02) pick grid 6929.8 2482.0
+\t (00:11:02) last pick:  6900.0  2500.0
+\i (00:11:03) pick grid 6452.9 2341.4
+\t (00:11:03) last pick:  6500.0  2300.0
+\i (00:11:06) setwindow form.plc_manual
+\i (00:11:06) FORM plc_manual done  
+\i (00:11:06) setwindow pcb
+\i (00:11:06) generaledit 
+\i (00:11:07) drag_start grid 6799.2 2075.4
+\i (00:11:08) drag_stop 9946.8 -3.0
+\i (00:11:10) drag_start grid 7406.7 1563.3
+\i (00:11:10) drag_stop grid 7286.2 1643.6
+\i (00:11:11) drag_start grid 7286.2 1668.7
+\i (00:11:11) drag_stop grid 7220.9 1693.8
+\i (00:11:12) drag_start grid 6899.6 1939.8
+\i (00:11:12) roam y 16
+\i (00:11:12) drag_stop 9389.6 -444.8
+\i (00:11:13) pick grid 6382.6 1513.0
+\t (00:11:13) last pick:  6400.0  1500.0
+\i (00:11:13) drag_start grid 6317.3 2025.1
+\i (00:11:14) roam x 64
+\i (00:11:14) roam x 16
+\i (00:11:14) roam x 64
+\i (00:11:14) roam x 16
+\i (00:11:14) roam x 16
+\i (00:11:14) drag_stop 10127.5 -103.4
+\i (00:11:17) pick grid 6698.8 1392.6
+\t (00:11:17) last pick:  6700.0  1400.0
+\i (00:11:20) place manual 
+\i (00:11:30) setwindow form.plc_manual
+\i (00:11:30) FORM plc_manual cancel  
+\i (00:11:30) setwindow pcb
+\i (00:11:30) generaledit 
+\i (00:11:31) drag_start grid 6447.8 2296.2
+\i (00:11:31) roam x 16
+\i (00:11:33) drag_stop 10413.7 -148.6
+\i (00:11:35) prepopup 9254.0 885.5
+\i (00:11:39) pick grid 7692.8 2436.7
+\t (00:11:39) last pick:  7700.0  2400.0
+\i (00:11:41) save 
+\i (00:11:46) fillin no 
+\i (00:11:48) fillin "menu_cancel"
+\i (00:11:48) generaledit 
+\i (00:11:49) pick grid 7361.4 2587.3
+\t (00:11:49) last pick:  7400.0  2600.0
+\i (00:11:54) pick grid 6442.8 2748.0
+\t (00:11:54) last pick:  6400.0  2700.0
+\i (00:11:58) move 
+\t (00:11:58) Select element(s) to move.
+\i (00:12:00) drag_start grid 7401.6 1523.1
+\i (00:12:01) drag_stop 7291.2 1723.9
+\t (00:12:01) last pick:  7300.0  1500.0
+\t (00:12:01) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:01) Pick new location for the element(s).
+\i (00:12:03) undo 
+\i (00:12:03) trapsize 251
+\i (00:12:03) generaledit 
+\i (00:12:04) drag_start grid 6257.0 2366.4
+\i (00:12:04) drag_stop 10142.6 -434.8
+\i (00:12:06) drag_start grid 7999.0 1603.4
+\i (00:12:06) drag_stop grid 7828.3 1809.2
+\i (00:12:07) pick grid 6708.8 2105.4
+\t (00:12:07) last pick:  6700.0  2100.0
+\i (00:12:07) drag_start grid 6618.5 1824.3
+\i (00:12:08) drag_stop 9510.0 -58.3
+\i (00:12:10) move 
+\i (00:12:12) pick grid 7316.3 1653.6
+\t (00:12:12) last pick:  7300.0  1700.0
+\t (00:12:12) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:12) Pick new location for the element(s).
+\i (00:12:14) pick grid 7948.8 2311.2
+\t (00:12:14) last pick:  7900.0  2300.0
+\i (00:12:14) generaledit 
+\i (00:12:16) pick grid 7060.2 1884.5
+\t (00:12:16) last pick:  7100.0  1900.0
+\i (00:12:18) save_as 
+\i (00:12:22) fillin "proj1.brd"
+\i (00:12:22) generaledit 
+\i (00:12:24) pick grid 6487.9 1678.7
+\t (00:12:24) last pick:  6500.0  1700.0
+\i (00:12:28) move 
+\t (00:12:28) Select element(s) to move.
+\i (00:12:29) drag_start grid 7075.3 1272.1
+\i (00:12:30) drag_stop 7486.9 258.0
+\i (00:12:31) drag_start grid 7316.3 940.7
+\i (00:12:31) drag_stop 7311.2 815.2
+\i (00:12:33) drag_start grid 7060.2 1477.9
+\i (00:12:33) drag_stop 7727.9 22.1
+\i (00:12:35) move 
+\t (00:12:35) Select element(s) to move.
+\i (00:12:36) drag_start grid 7336.3 1021.1
+\i (00:12:36) drag_stop 7336.3 920.7
+\t (00:12:36) last pick:  7200.0  900.0
+\t (00:12:36) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:36) Pick new location for the element(s).
+\i (00:12:38) pick grid 7150.6 965.8
+\t (00:12:38) last pick:  7200.0  1000.0
+\i (00:12:39) drag_start grid 7050.2 1392.6
+\i (00:12:39) drag_stop 7542.2 82.3
+\i (00:12:40) drag_start grid 7331.3 1056.2
+\i (00:12:41) drag_stop 7361.4 694.8
+\i (00:12:42) move 
+\t (00:12:42) Select element(s) to move.
+\i (00:12:43) drag_start grid 7095.4 1292.1
+\i (00:12:44) drag_stop 7376.5 443.8
+\i (00:12:45) drag_start grid 7381.5 890.5
+\i (00:12:45) drag_stop 7371.5 679.7
+\i (00:12:46) drag_start grid 6869.5 1718.9
+\i (00:12:46) drag_stop 7281.1 579.3
+\i (00:12:47) pick grid 7286.1 1091.3
+\t (00:12:47) last pick:  7300.0  1100.0
+\t (00:12:47) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:47) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:12:47) Pick new location for the element(s).
+\i (00:12:51) pick grid 7256.0 1016.0
+\t (00:12:51) last pick:  7300.0  1000.0
+\i (00:12:52) zoom out 1 
+\i (00:12:52) setwindow pcb
+\i (00:12:52) zoom out 7145.6 1001.0
+\i (00:12:52) trapsize 502
+\i (00:13:00) pick grid 3917.7 5102.4
+\t (00:13:00) last pick:  3900.0  5100.0
+\i (00:13:01) save 
+\i (00:13:03) fillin yes 
+\i (00:13:03) generaledit 
+\i (00:13:07) place manual 
+\i (00:14:05) setwindow form.plc_manual
+\i (00:14:05) FORM plc_manual tree 'MULTISEL YES' U22 'Components by refdes' 
+\t (00:14:05) Placing U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025 on Top.
+\i (00:14:05) FORM plc_manual tree  U22 'Components by refdes' 
+\i (00:14:21) setwindow pcb
+\i (00:14:21) zoom in 1 
+\i (00:14:21) setwindow pcb
+\i (00:14:21) zoom in 7100.4 2943.8
+\i (00:14:21) trapsize 251
+\i (00:14:22) zoom out 1 
+\i (00:14:22) setwindow pcb
+\i (00:14:22) zoom out 7100.4 2943.8
+\i (00:14:22) trapsize 502
+\i (00:14:31) setwindow form.plc_manual
+\i (00:14:31) FORM plc_manual tree  R1 'Components by refdes' 
+\i (00:14:33) setwindow pcb
+\i (00:14:33) prepopup 5483.9 3566.3
+\i (00:14:35) rotate 
+\t (00:14:35) Spin the element(s).
+\i (00:14:39) iangle 90.000
+\t (00:14:39) last angle:  +90.000 Degrees
+\i (00:14:53) prepopup 6186.7 694.8
+\i (00:14:54) rotate 
+\t (00:14:54) Spin the element(s).
+\i (00:14:58) iangle 270.000
+\t (00:14:58) last angle:  +270.000 Degrees
+\i (00:15:00) prepopup 5765.1 2753.0
+\i (00:15:02) rotate 
+\t (00:15:02) Spin the element(s).
+\i (00:15:03) iangle -90.000
+\t (00:15:03) last angle:  +270.000 Degrees
+\i (00:15:06) prepopup 6076.3 1809.2
+\i (00:15:08) rotate 
+\t (00:15:08) Spin the element(s).
+\i (00:15:12) iangle -90.000
+\t (00:15:12) last angle:  +270.000 Degrees
+\i (00:15:23) prepopup 6477.9 3496.0
+\i (00:15:25) oops 
+\t (00:15:25) last angle:  +270.000 Degrees
+\i (00:15:26) prepopup 8124.5 2030.1
+\i (00:15:30) pick grid 6929.7 1879.5
+\t (00:15:30) last pick:  6900.0  1900.0
+\i (00:15:45) pick grid 6718.9 3084.3
+\t (00:15:45) last pick:  6700.0  3100.0
+\i (00:15:46) pick grid 9901.6 945.8
+\t (00:15:46) last pick:  9900.0  900.0
+\t (00:15:46) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:15:46) last pick:  9700.0  900.0
+\i (00:15:55) pick grid 9730.9 875.5
+\t (00:15:55) last pick:  9700.0  900.0
+\i (00:16:10) prepopup 7311.2 975.9
+\i (00:16:11) pick grid 7190.8 965.9
+\t (00:16:11) last pick:  7200.0  1000.0
+\t (00:16:11) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:16:11) last pick:  7200.0  900.0
+\i (00:16:16) pick grid 7170.7 855.4
+\t (00:16:16) last pick:  7200.0  900.0
+\i (00:16:16) prepopup 7230.9 945.8
+\i (00:16:25) prepopup 7351.4 805.2
+\i (00:16:26) pick grid 7261.0 955.8
+\t (00:16:26) last pick:  7300.0  1000.0
+\t (00:16:26) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:16:26) last pick:  7200.0  900.0
+\i (00:16:27) pick grid 7150.6 885.5
+\t (00:16:27) last pick:  7200.0  900.0
+\i (00:16:36) zoom in 1 
+\i (00:16:36) setwindow pcb
+\i (00:16:36) zoom in 8927.7 1708.8
+\i (00:16:36) trapsize 251
+\i (00:16:37) zoom out 1 
+\i (00:16:37) setwindow pcb
+\i (00:16:37) zoom out 8927.8 1708.8
+\i (00:16:37) trapsize 502
+\i (00:16:48) zoom in 1 
+\i (00:16:48) setwindow pcb
+\i (00:16:48) zoom in 11186.7 443.8
+\i (00:16:48) trapsize 251
+\i (00:16:49) zoom out 1 
+\i (00:16:49) setwindow pcb
+\i (00:16:49) zoom out 10092.4 489.0
+\i (00:16:49) trapsize 502
+\i (00:16:55) setwindow form.plc_manual
+\i (00:16:55) FORM plc_manual done  
+\i (00:16:55) setwindow pcb
+\i (00:16:55) generaledit 
+\i (00:16:58) drag_start grid 6909.6 2893.6
+\i (00:16:59) drag_stop 11146.6 -198.8
+\i (00:17:00) move 
+\i (00:17:02) pick grid 8054.2 1076.3
+\t (00:17:02) last pick:  8100.0  1100.0
+\t (00:17:02) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:17:02) Pick new location for the element(s).
+\i (00:17:09) pick grid 8646.6 1086.3
+\t (00:17:09) last pick:  8600.0  1100.0
+\i (00:17:09) generaledit 
+\i (00:17:10) pick grid 8124.5 82.3
+\t (00:17:10) last pick:  8100.0  100.0
+\i (00:17:11) drag_start grid 10835.3 92.4
+\i (00:17:13) drag_stop 8315.3 684.7
+\i (00:17:15) move 
+\i (00:17:17) pick grid 8506.0 473.9
+\t (00:17:17) last pick:  85

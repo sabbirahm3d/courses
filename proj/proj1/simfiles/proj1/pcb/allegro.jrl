@@ -1,0 +1,182 @@
+\t (00:00:02) allegro 16.6 P004 (v16-6-112G) Windows 32
+\t (00:00:02)     Journal start - Fri May 05 14:51:36 2017
+\t (00:00:02)         Host=ITE242PC08 User=sabbir1 Pid=27272 CPUs=8
+\t (00:00:02) 
+\t (00:00:04) Opening existing design...
+\d (00:00:04) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
+\i (00:00:04) trapsize 627
+\i (00:00:04) trapsize 608
+\i (00:00:05) trapsize 630
+\i (00:00:05) trapsize 502
+\i (00:00:05) trapsize 502
+\i (00:00:05) generaledit 
+\i (00:00:06) open 
+\i (00:00:09) fillin "proj1.brd"
+\t (00:00:09) Opening existing design...
+\i (00:00:09) trapsize 502
+\d (00:00:09) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
+\i (00:00:09) generaledit 
+\i (00:00:15) place manual 
+\i (00:00:17) setwindow form.plc_manual
+\i (00:00:17) FORM plc_manual cancel  
+\i (00:00:17) setwindow pcb
+\i (00:00:17) generaledit 
+\i (00:00:41) save 
+\i (00:00:42) fillin yes 
+\i (00:00:42) generaledit 
+\i (00:02:43) place manual 
+\i (00:05:14) Net Ale 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Gnd 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad2 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Mio 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Rd 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Wr 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Dtr 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Den 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) refdes U3 
+\t (00:05:14) Placing U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:05:14) refdes U4 
+\i (00:05:14) refdes U5 
+\i (00:05:14) refdes U6 
+\i (00:05:14) refdes U7 
+\i (00:05:14) refdes U8 
+\i (00:05:14) Net Wrx 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Rdx 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Miox 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) refdes J10 
+\t (00:05:14) Placing J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60 on Top.
+\i (00:05:14) Net D11 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D12 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D13 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D14 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D15 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D8 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D9 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D10 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D1 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D2 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D3 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D4 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D5 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D6 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D7 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A16 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A17 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A18 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A19 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A8 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A9 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A10 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A11 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A12 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A13 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A14 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A15 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A0 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A1 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A2 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A3 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A4 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A5 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A6 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net A7 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad17 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad18 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad19 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad16 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Bhex 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad1 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad15 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad8 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad9 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad10 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad11 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad12 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad13 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad14 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad3 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad4 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad5 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad6 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad7 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Ad0 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net Bhe 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) Net D0 
+\t (00:05:14) Nets are not selectable at this time.
+\i (00:05:14) xname_flush 
+\i (00:05:42) setwindow form.plc_manual
+\i (00:05:42) FORM plc_manual cancel  
+\i (00:05:42) setwindow pcb
+\i (00:05:42) generaledit 
+\i (00:05:43) save 
+\i (00:05:45) fillin yes 
+\i (00:05:45) generaledit 
+\i (00:05:46) exit 
+\t (00:05:46)     Journal end - Fri May 05 14:57:20 2017

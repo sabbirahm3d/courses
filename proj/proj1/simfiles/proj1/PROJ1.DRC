@@ -1,4 +1,4 @@
-Date and Time : 05/05/17 12:49:59
+Date and Time : 05/05/17 14:09:24
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
@@ -38,11 +38,7 @@ INFO(ORCAP-2211): Check High Speed Properties Syntax
 
 INFO(ORCAP-2212): Check Power Ground Mismatch
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? VCC  VCC  GND  
-                    SCHEMATIC1, 11-led  (5.70, 1.70) 
-QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U10,VPP  VPP  GND
-                    SCHEMATIC1, 03-flash_mem  (4.90, 3.70) 
-QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U11,VPP  VPP  GND
-                    SCHEMATIC1, 03-flash_mem  (4.90, 6.60) 
+                    SCHEMATIC1, 04-sram  (4.70, 2.90) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U12,VCC  VCC  GND
                     SCHEMATIC1, 04-sram  (4.70, 2.90) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U13,VCC  VCC  GND
@@ -51,6 +47,10 @@ QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U15,VCC  VCC
                     SCHEMATIC1, 04-sram  (6.80, 2.90) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U16,VCC  VCC  GND
                     SCHEMATIC1, 04-sram  (6.80, 5.60) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U10,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (5.30, 3.20) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U11,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (5.30, 6.10) 
 
 Reporting Unused Refdes in multiple part packages
 Part	                       Quantity	                       Reference

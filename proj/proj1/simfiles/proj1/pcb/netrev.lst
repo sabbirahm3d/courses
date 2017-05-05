@@ -1,0 +1,83 @@
+(---------------------------------------------------------------------)
+(                                                                     )
+(    Allegro Netrev Import Logic                                      )
+(                                                                     )
+(    Drawing          : unnamed.brd                                   )
+(    Software Version : 16.6P004                                      )
+(    Date/Time        : Fri May 05 14:31:55 2017                      )
+(                                                                     )
+(---------------------------------------------------------------------)
+
+
+------ Directives ------
+
+RIPUP_ETCH FALSE;
+RIPUP_DELETE_FIRST_SEGMENT FALSE;
+RIPUP_RETAIN_BONDWIRE FALSE;
+RIPUP_SYMBOLS ALWAYS;
+Missing symbol has error FALSE;
+SCHEMATIC_DIRECTORY 'F:/CMPE310/proj/proj1/simfiles/proj1/Allegro';
+BOARD_DIRECTORY '';
+OLD_BOARD_NAME 'C:/SPB_Data/unnamed.brd';
+NEW_BOARD_NAME 'C:/SPB_Data/unnamed.brd';
+
+CmdLine: netrev -$ -i F:/CMPE310/proj/proj1/simfiles/proj1/Allegro -y 1 C:/SPB_Data/#Taaaaab17432.tmp
+
+------ Preparing to read pst files ------
+
+Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat 
+   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat (00:00:00.03)
+Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat 
+   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat (00:00:00.00)
+Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxnet.dat 
+   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxnet.dat (00:00:00.00)
+
+------ Oversights/Warnings/Errors ------
+
+
+#1   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
+
+WARNING(SPMHNI-194): Symbol 'TYCO100VH14J' for device 'HEADER 7X2_TYCO100VH14J_HEADER' not found in PSMPATH or must be "dbdoctor"ed.
+
+------ Library Paths ------
+MODULEPATH =  . 
+           C:/Cadence/SPB_16.6/share/local/pcb/modules 
+
+PSMPATH =  F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+           F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+
+PADPATH =  F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+           F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+
+
+------ Summary Statistics ------
+
+
+netrev run on May 5 14:31:55 2017
+   DESIGN NAME : 'PROJ1'
+   PACKAGING ON Sep 10 2012 04:46:09
+
+   COMPILE 'logic'
+   CHECK_PIN_NAMES OFF
+   CROSS_REFERENCE OFF
+   FEEDBACK OFF
+   INCREMENTAL OFF
+   INTERFACE_TYPE PHYSICAL
+   MAX_ERRORS 500
+   MERGE_MINIMUM 5
+   NET_NAME_CHARS '#%&()*+-./:=>?@[]^_`|'
+   NET_NAME_LENGTH 24
+   OVERSIGHTS ON
+   REPLACE_CHECK OFF
+   SINGLE_NODE_NETS ON
+   SPLIT_MINIMUM 0
+   SUPPRESS   20
+   WARNINGS ON
+
+ No error detected
+ No oversight detected
+  1 warnings detected
+
+cpu time      0:00:39
+elapsed time  0:00:00
+
