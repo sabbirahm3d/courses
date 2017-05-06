@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U40
--- Architecture of PLD used to decode address and control lines to the LCD and
--- DIP switches
+-- Architecture used to decode address and control lines to the LCD and DIP 
+-- switches
 --
 ------------------------------------------------------------------------------
 

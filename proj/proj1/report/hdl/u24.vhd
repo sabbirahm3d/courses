@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U24
--- Architecture of PLD used to decode address and control lines to the
+-- Architecture used to decode address and control lines to the
 -- programmable interval counter
 --
 ------------------------------------------------------------------------------

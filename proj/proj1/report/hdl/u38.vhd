@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U38
--- Architecture of PLD used to decode address and control lines to the LEDs
+-- Architecture used to decode address and control lines to the LEDs
 --
 ------------------------------------------------------------------------------
 

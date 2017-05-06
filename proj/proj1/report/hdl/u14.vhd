@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U14
--- Architecture of PLD used to decode address and control lines to the SRAM
+-- Architecture used to decode address and control lines to the SRAM
 --
 ------------------------------------------------------------------------------
 

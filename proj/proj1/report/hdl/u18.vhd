@@ -1,8 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U18
--- Architecture of PLD used to decode address and control lines to the PPI
--- chips
+-- Architecture used to decode address and control lines to the PPI chips
 --
 ------------------------------------------------------------------------------
 

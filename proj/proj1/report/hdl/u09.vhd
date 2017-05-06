@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U9
--- Architecture of PLD used to decode address and control lines to the CMOS
+-- Architecture used to decode address and control lines to the CMOS
 -- flash memory
 --
 ------------------------------------------------------------------------------

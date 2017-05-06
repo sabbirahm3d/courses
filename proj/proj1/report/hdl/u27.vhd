@@ -1,8 +1,7 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U27
--- Architecture of PLD used to decode address and control lines to the
--- programmable interval counter
+-- Architecture used to decode address and control lines to the UART
 --
 ------------------------------------------------------------------------------
 

@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------
 --
 -- Module: DECODER_U29
--- Architecture of PLD used to decode address and control lines to the
--- keyboard
+-- Architecture used to decode address and control lines to the interrupt
+-- controller
 --
 ------------------------------------------------------------------------------
 
