@@ -1,16 +1,17 @@
 \section{Memory Architecture}
+The board implemented in this document consists of 128 kB of SRAM and 256 kB of CMOS flash memory.
 
     \subsection{Static Random Access Memory - CY7C199}
-
-    \subsection{Interfacing Memory Banks with the Microprocessor}
+    Static RAM, or SRAM, is a type of volatile memory where bits are stored as long as power is supplied. They are ideal for cache memory because of their fast access times as low as 10 ns. CY7C199 SRAM chips are used to implement the SRAM on this system.
 
     \subsection{Addressing}
+    The SRAM implemented in the system is composed of 32k $\times$ 8 CY7C199 SRAM chips decoded into two banks, with the lowest address at 0x00000.
 
     \subsection{CMOS Flash Memory - 28F010}
-
-    \subsection{Flash Memory Implementation}
+    Flash memory, or electrically erasable programmable ROM (EEPROM), is a type of non-volatile memory which maintains its state even after loss of power. Writing to this memory is much slower than a normal RAM, and it is used to store setup information. 28F010 CMOS chips are used to implement the flash memory on this system.
 
     \subsection{Addressing Flash Memory}
+    The flash memory implemented in the system is composed of 128k $\times$ 8 28F010 CMOS chips decoded into two banks, with the highest address at 0xFFFFF.
 
     \subsection{Pinouts}
     Refer to Appendix \ref{appendix:pinouts} for the pinouts of the chips.
