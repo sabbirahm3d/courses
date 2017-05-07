@@ -1,15 +1,12 @@
 \newpage
-
 \section{LEDs and DIP Switches}
+2 common-anode seven-segment LEDs with a decimal point segment, 8 standalone LEDs and 8 DIP switches are also connected to and integrated into the system. 
 
     \subsection{Seven-Segment LEDs}
-
-    \subsection{Addressing}
+    74LS374 latches decoded at 0x00CE and 0x00CF are used to interface the 7-segment LEDs.
 
     \subsection{LEDs}
-
-    \subsection{Addressing}
+    A 74LS374 latch decoded at 0x00CC is used to interface the 7-segment LEDs.
 
     \subsection{DIP Switches}
-
-    \subsection{Addressing}
+    A 74LS244 buffer decoded at 0x00CA is used to interface the 8 DIP switches.
