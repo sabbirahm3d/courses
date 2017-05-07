@@ -1,7 +1,13 @@
-\newpage
 \section{Programmable Peripheral Interface}
+The 82C55A is a popular interfacing component that can interface any TTL-compatible I/O device to the microprocessor. The chip is used to interface the keyboard and the LCD controller in the system.
 
     \subsection{Addressing}
+    The 3 82C55 chips are decoded at the following port addresses respectively:
 
-    \subsection{Assembly Implementation and Programming of the 8255}
+        \begin{itemize}
+            \item 0x000F (control register), 0x000D, 0x000B, 0x0009
+            \item 0x000E (control register), 0x000C, 0x000A, 0x0008
+            \item 0x0007 (control register), 0x0005, 0x0003, 0x0001
+        \end{itemize}
 
+    \subsection{Assembly Implementation and Programming of the 82C55A}
