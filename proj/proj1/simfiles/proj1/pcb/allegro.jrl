@@ -1,472 +1,4218 @@
 \t (00:00:02) allegro 16.6 P004 (v16-6-112G) Windows 32
-\t (00:00:02)     Journal start - Mon May 08 11:37:18 2017
-\t (00:00:02)         Host=ITE375PC13 User=sabbir1 Pid=24412 CPUs=8
+\t (00:00:02)     Journal start - Mon May 08 15:54:31 2017
+\t (00:00:02)         Host=ITE375PC13 User=sabbir1 Pid=9048 CPUs=8
 \t (00:00:02) 
 \t (00:00:04) Opening existing design...
-\d (00:00:04) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
-\i (00:00:04) trapsize 1159
-\i (00:00:05) trapsize 1108
-\i (00:00:05) trapsize 1168
-\i (00:00:05) trapsize 845
-\i (00:00:05) trapsize 845
+\d (00:00:04) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1_redo.brd
+\i (00:00:04) trapsize 467
+\i (00:00:04) trapsize 459
+\i (00:00:05) trapsize 469
+\i (00:00:05) trapsize 406
+\i (00:00:05) trapsize 406
 \i (00:00:05) generaledit 
-\i (00:01:12) open 
-\i (00:01:20) fillin "proj1.brd"
-\t (00:01:20) Opening existing design...
-\i (00:01:20) trapsize 845
-\d (00:01:21) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
-\i (00:01:21) generaledit 
-\i (00:01:26) netin 
-\i (00:01:29) setwindow form.niparams
-\i (00:01:29) FORM niparams import  
-\t (00:01:29) Starting Cadence Logic Import...
-\w (00:01:30) WARNING(SPMHGE-269): netrev had warnings, use Viewlog to review the log file.
-\t (00:01:30) Opening existing design...
+\i (00:00:07) new 
+\i (00:00:21) newdrawfillin "proj1.brd" "Board"
+\t (00:00:21) Starting new design...
+\i (00:00:21) trapsize 813
+\i (00:00:21) trapsize 813
+\i (00:00:21) generaledit 
+\i (00:00:27) cmgr 
+\i (00:00:28) generaledit 
+\i (00:00:30) setwindow cmgr
+\i (00:00:30) cm newView ( worksheet 55:Physical "56:Physical Constraint Set" "57:All Layers" "58:All Layers" )
+\i (00:00:33) cm scope Design "proj1"
+\i (00:00:33) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_LINE_WIDTH 20 7
+\i (00:00:33) cm endUndoBlock
+\i (00:00:34) cm putValue ( "Physical CSet" "DEFAULT" ) MAX_LINE_WIDTH 20 7
+\i (00:00:34) cm endUndoBlock
+\i (00:00:35) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_NECK_WIDTH 20 7
+\i (00:00:35) cm endUndoBlock
+\i (00:00:37) cm exit
+\i (00:00:38) setwindow pcb
+\i (00:00:38) pick grid 5090.5 7560.7
+\t (00:00:38) last pick:  5100.0  7600.0
+\i (00:00:44) xsection 
+   (00:00:44) Loading cmds.cxt 
+   (00:00:44) Loading floor.cxt 
+   (00:00:44) Loading skillExt.cxt 
+   (00:00:44) Loading axlcore.cxt 
+\i (00:00:45) setwindow form.fplyrstack
+\i (00:00:45) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:00:46) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Above' 
+   (00:00:46) Loading signal.cxt 
+\i (00:00:46) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:00:47) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Above' 
+\i (00:00:48) FORM fplyrstack lsgrid rprepopup 4,name 
+\i (00:00:48) FORM fplyrstack lsgrid rpopup 4,name 'Add Layer Above' 
+\i (00:00:49) FORM fplyrstack lsgrid rprepopup 5,name 
+\i (00:00:50) FORM fplyrstack lsgrid rpopup 5,name 'Add Layer Below' 
+\i (00:00:51) FORM fplyrstack lsgrid cell 4,name 
+\i (00:00:52) FORM fplyrstack lsgrid change 4,name GND 
+\i (00:00:53) FORM fplyrstack lsgrid cell 6,name 
+\i (00:00:56) FORM fplyrstack lsgrid change 6,name POWER 
+\i (00:00:56) FORM fplyrstack lsgrid lprepopup 6,type 
+\i (00:00:56) FORM fplyrstack lsgrid cell 6,type 
+\i (00:00:57) FORM fplyrstack lsgrid change 6,type PLANE 
+\i (00:00:58) FORM fplyrstack lsgrid lprepopup 4,type 
+\i (00:00:58) FORM fplyrstack lsgrid cell 4,type 
+\i (00:00:59) FORM fplyrstack lsgrid change 4,type PLANE 
+\i (00:01:01) FORM fplyrstack done  
+\i (00:01:01) setwindow pcb
+\i (00:01:01) generaledit 
+\i (00:01:14) board outline 
+   (00:01:14) Loading fputil.cxt 
+\i (00:01:16) setwindow form.fpbdoutline
+\i (00:01:16) FORM fpbdoutline fpboplacerect YES 
+\i (00:01:20) FORM fpbdoutline fpboplacewdt '12000.0 MIL' 
+\i (00:01:23) FORM fpbdoutline fpboplacehgt '12000.0 MIL' 
+\i (00:01:30) FORM fpbdoutline fpboclearance '100.0 MIL' 
 \i (00:01:30) setwindow pcb
-\i (00:01:30) trapsize 845
-\i (00:01:31) generaledit 
-\i (00:01:35) setwindow text
-\i (00:01:35) close 
-\i (00:01:38) setwindow pcb
-\i (00:01:38) place manual 
-\i (00:01:44) setwindow form.plc_manual
-\i (00:01:44) FORM plc_manual cancel  
-\i (00:01:44) setwindow pcb
-\i (00:01:44) generaledit 
-\i (00:01:46) trapsize 405
-\i (00:01:54) zoom out 1 
-\i (00:01:54) setwindow pcb
-\i (00:01:54) zoom out 8281.1 1381.1
-\i (00:01:54) trapsize 813
-\i (00:01:55) zoom in 1 
-\i (00:01:55) setwindow pcb
-\i (00:01:55) zoom in 17100.2 3270.3
-\i (00:01:55) trapsize 406
+\i (00:01:30) pick grid 491.3 -61.2
+\t (00:01:30) last pick:  500.0  -100.0
+\i (00:01:33) shape add rect 
+\i (00:01:41) setwindow form.mini
+\i (00:01:41) FORM mini class ROUTE KEEPIN 
+\i (00:01:45) setwindow pcb
+\i (00:01:45) shape add rect 
+\i (00:01:46) zoom in 1 
+\i (00:01:46) setwindow pcb
+\i (00:01:46) zoom in 783.9 11639.8
+\i (00:01:46) trapsize 406
+\i (00:01:46) zoom in 1 
+\i (00:01:46) setwindow pcb
+\i (00:01:46) zoom in 141.9 11639.8
+\i (00:01:46) trapsize 203
+\i (00:01:49) pick grid 601.1 11798.3
+\t (00:01:49) last pick:  600.0  11800.0
+\i (00:01:49) zoom out 1 
+\i (00:01:49) setwindow pcb
+\i (00:01:49) zoom out 710.8 11599.2
+\i (00:01:49) trapsize 406
+\i (00:01:49) zoom out 1 
+\i (00:01:49) setwindow pcb
+\i (00:01:49) zoom out 1312.0 11558.6
+\i (00:01:49) trapsize 813
+\i (00:01:49) zoom out 1 
+\i (00:01:49) setwindow pcb
+\i (00:01:49) zoom out 3189.1 11379.7
+\i (00:01:49) trapsize 813
+\i (00:01:49) zoom out 1 
+\i (00:01:49) setwindow pcb
+\i (00:01:49) zoom out 3237.8 11347.2
+\i (00:01:49) trapsize 813
+\i (00:01:51) zoom in 1 
+\i (00:01:51) setwindow pcb
+\i (00:01:51) zoom in 12468.6 -175.0
+\i (00:01:51) trapsize 406
+\i (00:01:54) pick grid 12371.1 -45.0
+\t (00:01:54) last pick:  12400.0  0.0
 \i (00:01:55) zoom out 1 
 \i (00:01:55) setwindow pcb
-\i (00:01:55) zoom out 8300.1 3270.4
+\i (00:01:55) zoom out 8397.6 1815.8
 \i (00:01:55) trapsize 813
-\i (00:01:56) zoom out 1 
-\i (00:01:56) setwindow pcb
-\i (00:01:56) zoom out 8828.3 1937.7
-\i (00:01:56) trapsize 813
-\i (00:02:00) zoom in 1 
+\i (00:01:58) place manual 
+\i (00:02:00) setwindow form.plc_manual
+\i (00:02:00) FORM plc_manual cancel  
 \i (00:02:00) setwindow pcb
-\i (00:02:00) zoom in 6293.1 1937.7
-\i (00:02:00) trapsize 406
-\i (00:02:00) zoom out 1 
-\i (00:02:00) setwindow pcb
-\i (00:02:00) zoom out 5220.5 3116.0
-\i (00:02:00) trapsize 813
-\i (00:02:01) zoom in 1 
-\i (00:02:01) setwindow pcb
-\i (00:02:01) zoom in 10941.0 4294.1
-\i (00:02:01) trapsize 406
-\i (00:02:02) zoom out 1 
-\i (00:02:02) setwindow pcb
-\i (00:02:02) zoom out 5464.2 3246.0
-\i (00:02:02) trapsize 813
-\i (00:02:02) zoom out 1 
-\i (00:02:02) setwindow pcb
-\i (00:02:02) zoom out 11428.5 2197.7
-\i (00:02:02) trapsize 813
-\i (00:02:03) zoom in 1 
-\i (00:02:03) setwindow pcb
-\i (00:02:03) zoom in 10177.1 345.1
-\i (00:02:03) trapsize 406
-\i (00:02:09) place manual 
-\i (00:03:22) setwindow form.plc_manual
-\i (00:03:22) FORM plc_manual cancel  
-\i (00:03:22) setwindow pcb
-\i (00:03:22) generaledit 
-\i (00:03:24) save_as 
-\i (00:03:43) fillin "proj1.brd"
-\i (00:03:43) generaledit 
-\i (00:03:47) zoom in 1 
-\i (00:03:47) setwindow pcb
-\i (00:03:47) zoom in 5683.6 865.2
-\i (00:03:47) trapsize 203
-\i (00:03:47) zoom in 1 
-\i (00:03:47) setwindow pcb
-\i (00:03:47) zoom in 5683.6 869.3
-\i (00:03:47) trapsize 102
-\i (00:03:47) zoom out 1 
-\i (00:03:47) setwindow pcb
-\i (00:03:47) zoom out 5683.6 873.3
-\i (00:03:47) trapsize 203
-\i (00:03:47) zoom out 1 
-\i (00:03:47) setwindow pcb
-\i (00:03:47) zoom out 5683.6 873.4
-\i (00:03:47) trapsize 406
-\i (00:04:08) place manual 
-\i (00:04:10) setwindow form.plc_manual
-\i (00:04:10) FORM plc_manual cancel  
-\i (00:04:10) setwindow pcb
-\i (00:04:10) generaledit 
-\i (00:04:14) quickplace 
-\i (00:04:19) setwindow form.quickplc
-\i (00:04:19) FORM quickplc place_by_room YES 
-\i (00:04:21) FORM quickplc place_part_num YES 
-\i (00:04:23) FORM quickplc part_num_browse  
-\i (00:04:24) fillin "menu_cancel"
-\i (00:04:26) FORM quickplc place_net_name YES 
-\i (00:04:29) FORM quickplc place_by_property YES 
-\i (00:04:33) FORM quickplc cancel  
-\i (00:04:33) setwindow pcb
-\i (00:04:33) generaledit 
-\i (00:04:36) place manual 
-\i (00:04:41) setwindow form.plc_manual
-\i (00:04:41) FORM plc_manual tree 'MULTISEL YES' U21 'Components by refdes' 
-\t (00:04:41) Placing U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
-\i (00:04:41) FORM plc_manual tree  U21 'Components by refdes' 
-\i (00:04:42) FORM plc_manual tree 'MULTISEL YES' U22 'Components by refdes' 
-\i (00:04:42) FORM plc_manual tree  U22 'Components by refdes' 
-\i (00:04:52) setwindow pcb
-\i (00:04:52) pick grid 4407.9 3246.1
-\t (00:04:52) last pick:  4400.0  3200.0
-\t (00:04:52) Placing U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025 on Top.
-\i (00:05:25) zoom in 1 
-\i (00:05:25) setwindow pcb
-\i (00:05:25) zoom in 4928.0 3164.8
-\i (00:05:25) trapsize 203
-\i (00:05:26) zoom in 1 
-\i (00:05:26) setwindow pcb
-\i (00:05:26) zoom in 4932.1 3229.8
-\i (00:05:26) trapsize 102
-\i (00:05:28) zoom out 1 
-\i (00:05:28) setwindow pcb
-\i (00:05:28) zoom out 4844.8 2738.2
-\i (00:05:28) trapsize 203
-\i (00:05:28) zoom out 1 
-\i (00:05:28) setwindow pcb
-\i (00:05:28) zoom out 4852.9 2738.2
-\i (00:05:28) trapsize 406
-\i (00:06:13) zoom out 1 
-\i (00:06:14) setwindow pcb
-\i (00:06:14) zoom out 5708.1 1844.4
-\i (00:06:14) trapsize 813
-\i (00:06:15) zoom in 1 
-\i (00:06:15) setwindow pcb
-\i (00:06:15) zoom in 4781.7 247.6
-\i (00:06:15) trapsize 406
-\i (00:06:40) pick grid 4294.1 442.6
-\t (00:06:40) last pick:  4300.0  400.0
-\i (00:06:42) pick grid 8462.6 2214.0
-\t (00:06:42) last pick:  8500.0  2200.0
-\t (00:06:42) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:06:42) last pick:  8400.0  2100.0
-\i (00:06:48) pick grid 8389.5 2149.0
-\t (00:06:48) last pick:  8400.0  2100.0
-\i (00:06:52) pick grid 4822.3 686.4
-\t (00:06:52) last pick:  4800.0  700.0
-\t (00:06:52) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
-\t (00:06:52) last pick:  4300.0  400.0
-\i (00:07:03) pick grid 4911.7 540.1
-\t (00:07:03) last pick:  4900.0  500.0
-\i (00:07:04) pick grid 8478.9 2189.6
-\t (00:07:04) last pick:  8500.0  2200.0
-\t (00:07:04) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:07:04) last pick:  8400.0  2100.0
-\i (00:07:09) pick grid 4846.7 2311.5
-\t (00:07:09) last pick:  4800.0  2300.0
-\i (00:07:12) pick grid 5196.1 702.6
-\t (00:07:12) last pick:  5200.0  700.0
-\t (00:07:12) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
-\t (00:07:12) last pick:  4900.0  500.0
-\i (00:07:15) pick grid 4854.8 393.8
-\t (00:07:15) last pick:  4900.0  400.0
-\i (00:07:17) pick grid 4879.2 2384.6
-\t (00:07:17) last pick:  4900.0  2400.0
-\t (00:07:17) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:07:17) last pick:  4800.0  2300.0
-\i (00:07:20) pick grid 4838.6 2165.2
-\t (00:07:20) last pick:  4800.0  2200.0
-\i (00:07:21) pick grid 4952.3 3294.7
-\t (00:07:21) last pick:  5000.0  3300.0
-\t (00:07:21) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
-\t (00:07:21) last pick:  4400.0  3200.0
-\i (00:07:23) pick grid 5943.7 3172.8
-\t (00:07:23) last pick:  5900.0  3200.0
-\i (00:07:49) zoom in 1 
-\i (00:07:49) setwindow pcb
-\i (00:07:49) zoom in 8730.8 783.9
-\i (00:07:49) trapsize 203
-\i (00:07:50) zoom out 1 
-\i (00:07:50) setwindow pcb
-\i (00:07:50) zoom out 7272.2 1068.3
-\i (00:07:50) trapsize 406
-\i (00:07:52) pick grid 9072.1 2206.0
-\t (00:07:52) last pick:  9100.0  2200.0
-\t (00:07:52) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:07:52) last pick:  9000.0  2100.0
-\i (00:07:56) pick grid 5545.5 2189.7
-\t (00:07:56) last pick:  5500.0  2200.0
-\i (00:07:59) pick grid 5610.5 2254.7
-\t (00:07:59) last pick:  5600.0  2300.0
-\t (00:07:59) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:07:59) last pick:  5500.0  2200.0
-\i (00:08:06) pick grid 5545.5 2189.7
-\t (00:08:06) last pick:  5500.0  2200.0
-\i (00:08:07) pick grid 5610.5 2197.9
-\t (00:08:07) last pick:  5600.0  2200.0
-\t (00:08:07) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:07) last pick:  5500.0  2200.0
-\i (00:08:08) pick grid 8982.7 2149.1
-\t (00:08:08) last pick:  9000.0  2100.0
-\i (00:08:09) pick grid 4984.9 2230.4
-\t (00:08:09) last pick:  5000.0  2200.0
-\t (00:08:09) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:09) last pick:  4800.0  2200.0
-\i (00:08:11) pick grid 8357.0 2149.1
-\t (00:08:11) last pick:  8400.0  2100.0
-\i (00:08:12) pick grid 5903.1 515.8
-\t (00:08:12) last pick:  5900.0  500.0
-\t (00:08:12) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
-\t (00:08:12) last pick:  4900.0  400.0
-\i (00:08:20) pick grid 8446.4 2921.0
-\t (00:08:20) last pick:  8400.0  2900.0
-\i (00:08:25) pick grid 7828.9 922.1
-\t (00:08:25) last pick:  7800.0  900.0
-\t (00:08:25) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:25) last pick:  7700.0  900.0
-\i (00:08:28) pick grid 8722.7 4546.2
-\t (00:08:28) last pick:  8700.0  4500.0
-\i (00:08:32) pick grid 7828.9 418.3
-\t (00:08:32) last pick:  7800.0  400.0
-\t (00:08:32) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:32) last pick:  7700.0  300.0
-\i (00:08:36) pick grid 9340.3 4456.8
-\t (00:08:36) last pick:  9300.0  4500.0
-\i (00:08:37) pick grid 8828.3 4554.3
-\t (00:08:37) last pick:  8800.0  4600.0
-\t (00:08:37) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:37) last pick:  8700.0  4500.0
-\i (00:08:43) pick grid 8316.4 4343.1
-\t (00:08:43) last pick:  8300.0  4300.0
-\i (00:08:44) pick grid 9405.3 4505.6
-\t (00:08:44) last pick:  9400.0  4500.0
-\t (00:08:44) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:44) last pick:  9300.0  4500.0
-\i (00:08:48) pick grid 8844.6 4286.2
-\t (00:08:48) last pick:  8800.0  4300.0
-\i (00:08:49) pick grid 8519.6 4375.6
-\t (00:08:49) last pick:  8500.0  4400.0
-\t (00:08:49) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:49) last pick:  8300.0  4300.0
-\i (00:08:51) pick grid 8673.9 4245.5
-\t (00:08:51) last pick:  8700.0  4200.0
-\i (00:08:52) pick grid 8698.3 4237.4
-\t (00:08:52) last pick:  8700.0  4200.0
-\t (00:08:52) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:52) last pick:  8700.0  4200.0
-\i (00:08:54) pick grid 8446.4 4302.4
-\t (00:08:54) last pick:  8400.0  4300.0
-\i (00:08:56) pick grid 8478.9 4343.1
-\t (00:08:56) last pick:  8500.0  4300.0
-\t (00:08:56) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:08:56) last pick:  8400.0  4300.0
-\i (00:08:59) pick grid 7650.1 3473.6
-\t (00:08:59) last pick:  7700.0  3500.0
-\i (00:09:01) pick grid 8958.3 4367.4
-\t (00:09:01) last pick:  9000.0  4400.0
-\t (00:09:01) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:01) last pick:  8800.0  4300.0
-\i (00:09:03) pick grid 10762.3 3546.7
-\t (00:09:03) last pick:  10800.0  3500.0
-\i (00:09:08) pick grid 10892.3 3538.6
-\t (00:09:08) last pick:  10900.0  3500.0
-\t (00:09:08) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:08) last pick:  10800.0  3500.0
-\i (00:09:10) pick grid 7195.1 3546.7
-\t (00:09:10) last pick:  7200.0  3500.0
-\i (00:09:13) pick grid 10396.6 2141.0
-\t (00:09:13) last pick:  10400.0  2100.0
-\t (00:09:13) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:13) last pick:  10200.0  2100.0
-\i (00:09:19) pick grid 8568.3 4042.4
-\t (00:09:19) last pick:  8600.0  4000.0
-\i (00:09:21) pick grid 10307.2 1547.8
-\t (00:09:21) last pick:  10300.0  1500.0
-\t (00:09:21) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:21) last pick:  10200.0  1500.0
-\i (00:09:24) pick grid 9145.2 3977.4
-\t (00:09:24) last pick:  9100.0  4000.0
-\i (00:09:27) pick grid 8682.1 4034.3
-\t (00:09:27) last pick:  8700.0  4000.0
-\t (00:09:27) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:27) last pick:  8600.0  4000.0
-\i (00:09:28) pick grid 9844.1 4001.8
-\t (00:09:28) last pick:  9800.0  4000.0
-\i (00:09:29) pick grid 9112.7 4083.0
-\t (00:09:29) last pick:  9100.0  4100.0
-\t (00:09:29) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:29) last pick:  9100.0  4000.0
-\i (00:09:32) pick grid 8470.8 4042.4
-\t (00:09:32) last pick:  8500.0  4000.0
-\i (00:09:33) pick grid 9941.6 4034.3
-\t (00:09:33) last pick:  9900.0  4000.0
-\t (00:09:33) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:33) last pick:  9800.0  4000.0
-\i (00:09:34) pick grid 9242.7 4018.0
-\t (00:09:34) last pick:  9200.0  4000.0
-\i (00:09:43) pick grid 10347.8 962.7
-\t (00:09:43) last pick:  10300.0  1000.0
-\t (00:09:43) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:43) last pick:  10200.0  900.0
-\i (00:09:45) pick grid 9762.8 4034.3
-\t (00:09:45) last pick:  9800.0  4000.0
-\i (00:09:48) pick grid 9909.1 4026.1
-\t (00:09:48) last pick:  9900.0  4000.0
-\t (00:09:48) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:48) last pick:  9800.0  4000.0
-\i (00:09:52) pick grid 7154.4 2961.7
-\t (00:09:52) last pick:  7200.0  3000.0
-\i (00:09:58) pick grid 8389.5 2092.2
-\t (00:09:58) last pick:  8400.0  2100.0
-\t (00:09:58) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:09:58) last pick:  8400.0  2100.0
-\i (00:10:02) pick grid 7195.1 2344.1
-\t (00:10:02) last pick:  7200.0  2300.0
-\i (00:10:03) pick grid 7260.1 3059.2
-\t (00:10:03) last pick:  7300.0  3100.0
-\t (00:10:03) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:03) last pick:  7200.0  3000.0
-\i (00:10:04) pick grid 7243.8 2921.0
-\t (00:10:04) last pick:  7200.0  2900.0
-\i (00:10:06) pick grid 8511.4 1588.4
-\t (00:10:06) last pick:  8500.0  1600.0
-\t (00:10:06) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:06) last pick:  8400.0  1500.0
-\i (00:10:07) pick grid 7195.1 1742.8
-\t (00:10:07) last pick:  7200.0  1700.0
-\i (00:10:08) pick grid 8527.7 1003.4
-\t (00:10:08) last pick:  8500.0  1000.0
-\t (00:10:08) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:08) last pick:  8400.0  900.0
-\i (00:10:09) pick grid 7243.8 1133.4
-\t (00:10:09) last pick:  7200.0  1100.0
-\i (00:10:11) pick grid 8576.4 377.7
-\t (00:10:11) last pick:  8600.0  400.0
-\t (00:10:11) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:11) last pick:  8400.0  300.0
-\i (00:10:12) pick grid 7235.7 450.8
-\t (00:10:12) last pick:  7200.0  500.0
-\i (00:10:13) pick grid 9104.6 2100.4
-\t (00:10:13) last pick:  9100.0  2100.0
-\t (00:10:13) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:13) last pick:  9000.0  2100.0
-\i (00:10:17) pick grid 8097.0 2254.7
-\t (00:10:17) last pick:  8100.0  2300.0
-\i (00:10:18) pick grid 9340.3 3969.3
-\t (00:10:18) last pick:  9300.0  4000.0
-\t (00:10:18) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:18) last pick:  9200.0  4000.0
-\i (00:10:20) pick grid 8942.1 2189.7
-\t (00:10:20) last pick:  8900.0  2200.0
-\i (00:10:21) pick grid 8714.6 3993.6
-\t (00:10:21) last pick:  8700.0  4000.0
-\t (00:10:21) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:21) last pick:  8500.0  4000.0
-\i (00:10:23) pick grid 8137.7 1685.9
-\t (00:10:23) last pick:  8100.0  1700.0
-\i (00:10:44) pick grid 9055.9 296.4
-\t (00:10:44) last pick:  9100.0  300.0
-\t (00:10:44) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:44) last pick:  9000.0  300.0
-\i (00:10:47) pick grid 8145.8 467.1
-\t (00:10:47) last pick:  8100.0  500.0
-\i (00:10:48) pick grid 9064.0 938.4
-\t (00:10:48) last pick:  9100.0  900.0
-\t (00:10:48) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:48) last pick:  9000.0  900.0
-\i (00:10:49) pick grid 8186.4 1149.6
-\t (00:10:49) last pick:  8200.0  1100.0
-\i (00:10:50) pick grid 8340.8 1141.5
-\t (00:10:50) last pick:  8300.0  1100.0
-\t (00:10:50) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:50) last pick:  8200.0  1100.0
-\i (00:10:51) pick grid 8145.8 1133.4
-\t (00:10:51) last pick:  8100.0  1100.0
-\i (00:10:53) pick grid 9055.9 2222.2
-\t (00:10:53) last pick:  9100.0  2200.0
-\t (00:10:53) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:53) last pick:  8900.0  2200.0
-\i (00:10:54) pick grid 8942.1 2336.0
-\t (00:10:54) last pick:  8900.0  2300.0
-\i (00:10:55) pick grid 9072.1 1629.1
-\t (00:10:55) last pick:  9100.0  1600.0
-\t (00:10:55) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:55) last pick:  9000.0  1500.0
-\i (00:10:56) pick grid 8942.1 1759.1
-\t (00:10:56) last pick:  8900.0  1800.0
-\i (00:10:57) pick grid 10347.8 312.7
-\t (00:10:57) last pick:  10300.0  300.0
-\t (00:10:57) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:10:57) last pick:  10200.0  300.0
-\i (00:10:59) pick grid 8942.1 1230.9
-\t (00:10:59) last pick:  8900.0  1200.0
-\i (00:11:00) pick grid 9738.4 328.9
-\t (00:11:00) last pick:  9700.0  300.0
-\t (00:11:00) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:00) last pick:  9600.0  300.0
-\i (00:11:02) pick grid 8942.1 507.7
-\t (00:11:02) last pick:  8900.0  500.0
-\i (00:11:05) pick grid 9762.8 922.1
-\t (00:11:05) last pick:  9800.0  900.0
-\t (00:11:05) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:05) last pick:  9600.0  900.0
-\i (00:11:06) pick grid 9681.5 548.3
-\t (00:11:06) last pick:  9700.0  500.0
-\i (00:11:07) pick grid 9657.2 1458.4
-\t (00:11:07) last pick:  9700.0  1500.0
-\t (00:11:07) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:07) last pick:  8900.0  1200.0
-\i (00:11:09) pick grid 8942.1 1149.6
-\t (00:11:09) last pick:  8900.0  1100.0
-\i (00:11:10) pick grid 9754.7 1547.8
-\t (00:11:10) last pick:  9800.0  1500.0
-\t (00:11:10) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:10) last pick:  9600.0  1500.0
-\i (00:11:11) pick grid 9746.5 1092.8
-\t (00:11:11) last pick:  9700.0  1100.0
-\i (00:11:12) pick grid 9665.3 2116.6
-\t (00:11:12) last pick:  9700.0  2100.0
-\t (00:11:12) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:12) last pick:  9600.0  2100.0
-\i (00:11:13) pick grid 9730.3 1750.9
-\t (00:11:13) last pick:  9700.0  1800.0
-\i (00:11:14) pick grid 7308.8 3002.3
-\t (00:11:14) last pick:  7300.0  3000.0
-\t (00:11:14) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:14) last pick:  7200.0  2900.0
-\i (00:11:16) pick grid 9746.5 2254.7
-\t (00:11:16) last pick:  9700.0  2300.0
-\i (00:11:19) pick grid 6398.7 3262.3
-\t (00:11:19) last pick:  6400.0  3300.0
-\t (00:11:19) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
-\t (00:11:19) last pick:  5900.0  3200.0
-\i (00:11:21) pick grid 5643.1 3156.7
-\t (00:11:21) last pick:  5600.0  3200.0
-\i (00:11:22) pick grid 7162.6 3514.2
-\t (00:11:22) last pick:  7200.0  3500.0
-\t (00:11:22) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:22) last pick:  7200.0  3500.0
-\i (00:11:24) pick grid 7178.8 2945.4
-\t (00:11:24) last pick:  7200.0  2900.0
-\i (00:11:24) pick grid 7674.5 3489.9
-\t (00:11:24) last pick:  7700.0  3500.0
-\t (00:11:24) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
-\t (00:11:24) last pick:  7700.0  3500.0
-\i (00:11:26) pick grid 7755.7 2904.8
-\t (00:11:26) last pick:  7800.0  2900.0
-\i (00:11:50) setwindow form.plc_manual
-\i (00:11:50) FORM plc_manual cancel  
-\i (00:11:50) setwindow pcb
-\i (00:11:50) generaledit 
-\i (00:11:51) pick grid 7845.1 3530.5
-\t (00:11:51) last pick:  7800.0  3500.0
-\i (00:11:54) save 
-\i (00:11:57) fillin yes 
-\i (00:11:57) generaledit 
-\i (00:11:59) exit 
-\t (00:12:00)     Journal end - Mon May 08 11:49:16 2017
+\i (00:02:00) generaledit 
+\i (00:02:03) netin 
+\i (00:02:04) setwindow form.niparams
+\i (00:02:04) FORM niparams capture_netlist YES 
+\i (00:02:06) FORM niparams browse  
+\i (00:02:09) fillin "F:/CMPE310/proj/proj1/simfiles/proj1/Allegro"
+\i (00:02:10) FORM niparams import  
+\t (00:02:10) Starting Cadence Logic Import...
+\t (00:02:11) Opening existing design...
+\i (00:02:11) setwindow pcb
+\i (00:02:11) trapsize 813
+\i (00:02:12) generaledit 
+\i (00:02:14) place manual 
+\i (00:02:35) setwindow form.plc_manual
+\i (00:02:35) FORM plc_manual tree 'MULTISEL YES' SW2 'Components by refdes' 
+\t (00:02:35) Placing SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:02:35) FORM plc_manual tree  SW2 'Components by refdes' 
+\i (00:02:36) FORM plc_manual tree 'MULTISEL YES' SW3 'Components by refdes' 
+\i (00:02:36) FORM plc_manual tree  SW3 'Components by refdes' 
+\i (00:02:36) FORM plc_manual tree 'MULTISEL YES' SW4 'Components by refdes' 
+\i (00:02:36) FORM plc_manual tree  SW4 'Components by refdes' 
+\i (00:02:37) FORM plc_manual tree 'MULTISEL YES' SW5 'Components by refdes' 
+\i (00:02:37) FORM plc_manual tree  SW5 'Components by refdes' 
+\i (00:02:37) FORM plc_manual tree 'MULTISEL YES' SW6 'Components by refdes' 
+\i (00:02:37) FORM plc_manual tree  SW6 'Components by refdes' 
+\i (00:02:38) FORM plc_manual tree 'MULTISEL YES' SW7 'Components by refdes' 
+\i (00:02:38) FORM plc_manual tree  SW7 'Components by refdes' 
+\i (00:02:39) FORM plc_manual tree 'MULTISEL YES' SW8 'Components by refdes' 
+\i (00:02:39) FORM plc_manual tree  SW8 'Components by refdes' 
+\i (00:02:40) FORM plc_manual tree 'MULTISEL YES' SW9 'Components by refdes' 
+\i (00:02:40) FORM plc_manual tree  SW9 'Components by refdes' 
+\i (00:02:40) FORM plc_manual tree 'MULTISEL YES' SW10 'Components by refdes' 
+\i (00:02:40) FORM plc_manual tree  SW10 'Components by refdes' 
+\i (00:02:41) FORM plc_manual tree 'MULTISEL YES' SW11 'Components by refdes' 
+\i (00:02:41) FORM plc_manual tree  SW11 'Components by refdes' 
+\i (00:02:42) FORM plc_manual tree 'MULTISEL YES' SW12 'Components by refdes' 
+\i (00:02:42) FORM plc_manual tree  SW12 'Components by refdes' 
+\i (00:02:42) FORM plc_manual tree 'MULTISEL YES' SW13 'Components by refdes' 
+\i (00:02:42) FORM plc_manual tree  SW13 'Components by refdes' 
+\i (00:02:43) FORM plc_manual tree 'MULTISEL YES' SW14 'Components by refdes' 
+\i (00:02:43) FORM plc_manual tree  SW14 'Components by refdes' 
+\i (00:02:43) FORM plc_manual tree 'MULTISEL YES' SW15 'Components by refdes' 
+\i (00:02:43) FORM plc_manual tree  SW15 'Components by refdes' 
+\i (00:02:44) FORM plc_manual tree 'MULTISEL YES' SW16 'Components by refdes' 
+\i (00:02:44) FORM plc_manual tree  SW16 'Components by refdes' 
+\i (00:02:44) FORM plc_manual tree 'MULTISEL YES' SW17 'Components by refdes' 
+\i (00:02:44) FORM plc_manual tree  SW17 'Components by refdes' 
+\i (00:02:46) FORM plc_manual tree 'MULTISEL YES' SW18 'Components by refdes' 
+\i (00:02:46) FORM plc_manual tree  SW18 'Components by refdes' 
+\i (00:02:46) FORM plc_manual tree 'MULTISEL YES' SW19 'Components by refdes' 
+\i (00:02:46) FORM plc_manual tree  SW19 'Components by refdes' 
+\i (00:02:48) setwindow pcb
+\i (00:02:48) zoom in 1 
+\i (00:02:48) setwindow pcb
+\i (00:02:48) zoom in 10177.1 1563.9
+\i (00:02:48) trapsize 406
+\i (00:02:48) zoom out 1 
+\i (00:02:48) setwindow pcb
+\i (00:02:48) zoom out 6504.3 1945.9
+\i (00:02:48) trapsize 813
+\i (00:02:50) zoom in 1 
+\i (00:02:50) setwindow pcb
+\i (00:02:50) zoom in 11233.5 247.6
+\i (00:02:50) trapsize 406
+\i (00:02:50) zoom in 1 
+\i (00:02:50) setwindow pcb
+\i (00:02:50) zoom in 5366.7 247.6
+\i (00:02:50) trapsize 203
+\i (00:02:50) zoom out 1 
+\i (00:02:50) setwindow pcb
+\i (00:02:50) zoom out 6402.8 605.1
+\i (00:02:50) trapsize 406
+\i (00:02:51) zoom in 1 
+\i (00:02:51) setwindow pcb
+\i (00:02:51) zoom in 10217.8 -85.5
+\i (00:02:51) trapsize 203
+\i (00:02:53) zoom out 1 
+\i (00:02:53) setwindow pcb
+\i (00:02:53) zoom out 9811.5 909.9
+\i (00:02:53) trapsize 406
+\i (00:02:57) pick grid 8397.7 2750.3
+\t (00:02:57) last pick:  8400.0  2800.0
+\t (00:02:57) Placing SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:02:58) pick grid 8950.2 2807.2
+\t (00:02:58) last pick:  9000.0  2800.0
+\t (00:02:58) Placing SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:01) pick grid 9551.5 2815.3
+\t (00:03:01) last pick:  9600.0  2800.0
+\t (00:03:01) Placing SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:03) pick grid 10152.8 2823.4
+\t (00:03:03) last pick:  10200.0  2800.0
+\t (00:03:03) Placing SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:05) pick grid 8446.4 2230.2
+\t (00:03:05) last pick:  8400.0  2200.0
+\t (00:03:05) Placing SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:07) pick grid 8950.2 2222.1
+\t (00:03:07) last pick:  9000.0  2200.0
+\t (00:03:07) Placing SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:08) pick grid 9551.5 2246.5
+\t (00:03:08) last pick:  9600.0  2200.0
+\t (00:03:08) Placing SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:09) pick grid 10209.7 2246.5
+\t (00:03:09) last pick:  10200.0  2200.0
+\t (00:03:09) Placing SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:13) pick grid 8405.8 1555.8
+\t (00:03:13) last pick:  8400.0  1600.0
+\t (00:03:13) Placing SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:14) pick grid 8950.2 1563.9
+\t (00:03:14) last pick:  9000.0  1600.0
+\t (00:03:14) Placing SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:15) pick grid 9649.0 1563.9
+\t (00:03:15) last pick:  9600.0  1600.0
+\t (00:03:15) Placing SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:16) pick grid 10169.1 1555.8
+\t (00:03:16) last pick:  10200.0  1600.0
+\t (00:03:16) Placing SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:18) pick grid 8446.4 954.5
+\t (00:03:18) last pick:  8400.0  1000.0
+\t (00:03:18) Placing SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:19) pick grid 8950.2 1003.3
+\t (00:03:19) last pick:  9000.0  1000.0
+\t (00:03:19) Placing SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:20) pick grid 9567.8 995.1
+\t (00:03:20) last pick:  9600.0  1000.0
+\t (00:03:20) Placing SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:21) pick grid 10152.8 1003.3
+\t (00:03:21) last pick:  10200.0  1000.0
+\t (00:03:21) Placing SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:24) pick grid 7780.1 1555.8
+\t (00:03:24) last pick:  7800.0  1600.0
+\t (00:03:24) Placing SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:03:25) pick grid 7763.9 946.4
+\t (00:03:25) last pick:  7800.0  900.0
+\i (00:03:35) setwindow form.plc_manual
+\i (00:03:35) FORM plc_manual tree 'MULTISEL YES' U21 'Components by refdes' 
+\t (00:03:35) Placing U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:03:35) FORM plc_manual tree  U21 'Components by refdes' 
+\i (00:03:36) FORM plc_manual tree 'MULTISEL YES' U22 'Components by refdes' 
+\i (00:03:36) FORM plc_manual tree  U22 'Components by refdes' 
+\i (00:03:44) setwindow pcb
+\i (00:03:44) pick grid 3156.6 1572.1
+\t (00:03:44) last pick:  3200.0  1600.0
+\t (00:03:44) Placing U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025 on Top.
+\i (00:03:46) prepopup 4700.5 2019.0
+\i (00:03:47) rotate 
+\t (00:03:47) Spin the element(s).
+\i (00:03:50) iangle 90.000
+\t (00:03:50) last angle:  +90.000 Degrees
+\i (00:03:52) pick grid 7251.9 832.6
+\t (00:03:52) last pick:  7300.0  800.0
+\i (00:03:54) pick grid 3920.4 1710.2
+\t (00:03:54) last pick:  3900.0  1700.0
+\t (00:03:54) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:03:54) last pick:  3200.0  1600.0
+\i (00:03:58) pick grid 5155.5 2344.0
+\t (00:03:58) last pick:  5200.0  2300.0
+\i (00:04:06) setwindow form.plc_manual
+\i (00:04:06) FORM plc_manual done  
+\i (00:04:06) setwindow pcb
+\i (00:04:06) generaledit 
+\i (00:04:07) drag_start grid 4708.6 4432.3
+\i (00:04:08) drag_stop 11769.9 296.3
+\i (00:04:10) move 
+\i (00:04:11) pick grid 5691.8 2498.4
+\t (00:04:11) last pick:  5700.0  2500.0
+\t (00:04:11) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:04:11) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:04:11) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:11) Pick new location for the element(s).
+\i (00:04:15) pick grid 7373.8 1945.8
+\t (00:04:15) last pick:  7400.0  1900.0
+\i (00:04:15) generaledit 
+\i (00:04:16) pick grid 9055.9 2953.4
+\t (00:04:16) last pick:  9100.0  3000.0
+\i (00:04:20) place manual 
+\i (00:04:22) pick grid 9616.5 1052.0
+\t (00:04:22) last pick:  9600.0  1100.0
+\t (00:04:22) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:22) last pick:  9500.0  1000.0
+\i (00:04:23) pick grid 9608.4 954.5
+\t (00:04:23) last pick:  9600.0  1000.0
+\i (00:04:24) pick grid 9632.8 353.2
+\t (00:04:24) last pick:  9600.0  400.0
+\t (00:04:24) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:24) last pick:  9500.0  300.0
+\i (00:04:25) pick grid 9649.0 369.5
+\t (00:04:25) last pick:  9600.0  400.0
+\i (00:04:26) setwindow form.plc_manual
+\i (00:04:26) FORM plc_manual done  
+\i (00:04:27) setwindow pcb
+\i (00:04:27) generaledit 
+\i (00:04:29) place manual 
+\i (00:04:31) pick grid 8844.6 1043.9
+\t (00:04:31) last pick:  8800.0  1000.0
+\t (00:04:31) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:04:31) last pick:  9000.0  200.0
+\i (00:04:34) pick grid 9161.5 434.5
+\t (00:04:34) last pick:  9200.0  400.0
+\i (00:04:35) pick grid 7585.1 1767.1
+\t (00:04:35) last pick:  7600.0  1800.0
+\t (00:04:35) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:04:35) last pick:  6900.0  1700.0
+\i (00:04:37) pick grid 7243.8 1945.8
+\t (00:04:37) last pick:  7200.0  1900.0
+\i (00:04:40) setwindow form.plc_manual
+\i (00:04:40) FORM plc_manual done  
+\i (00:04:40) setwindow pcb
+\i (00:04:40) generaledit 
+\i (00:04:41) drag_start grid 6926.9 2855.9
+\i (00:04:43) drag_stop 12298.0 174.4
+\i (00:04:45) move 
+\i (00:04:46) pick grid 8958.3 1905.2
+\t (00:04:46) last pick:  9000.0  1900.0
+\t (00:04:46) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:04:46) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:04:46) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:46) Pick new location for the element(s).
+\i (00:04:47) pick grid 8641.4 1824.0
+\t (00:04:47) last pick:  8600.0  1800.0
+\i (00:04:47) generaledit 
+\i (00:04:53) pick grid 8397.7 1872.7
+\t (00:04:53) last pick:  8400.0  1900.0
+\i (00:04:54) drag_start grid 6512.5 2782.8
+\i (00:04:55) drag_stop 12224.9 166.3
+\i (00:04:57) move 
+\i (00:04:58) pick grid 8722.7 1783.3
+\t (00:04:58) last pick:  8700.0  1800.0
+\t (00:04:58) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:04:58) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:04:58) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:04:58) Pick new location for the element(s).
+\i (00:05:00) pick grid 8446.4 1759.0
+\t (00:05:00) last pick:  8400.0  1800.0
+\i (00:05:00) generaledit 
+\i (00:05:02) drag_start grid 6073.7 2709.7
+\i (00:05:03) drag_stop 12046.1 141.9
+\i (00:05:05) move 
+\i (00:05:07) pick grid 8194.5 1864.6
+\t (00:05:07) last pick:  8200.0  1900.0
+\t (00:05:07) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:05:07) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:05:07) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:05:07) Pick new location for the element(s).
+\i (00:05:08) pick grid 8251.4 1856.5
+\t (00:05:08) last pick:  8300.0  1900.0
+\i (00:05:08) generaledit 
+\i (00:05:10) pick grid 7723.2 3067.2
+\t (00:05:10) last pick:  7700.0  3100.0
+\i (00:05:16) auto_route 
+\w (00:05:16) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\w (00:05:16) Xtalk table in drawing F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd does not exist. For xtalk estimation or xtalk DRC update, xtalk tables must be generated.
+   (00:05:16) Loading vse.cxt 
+\i (00:05:17) setwindow form.vse_armain
+\i (00:05:17) FORM vse_armain routing_passes  
+\i (00:05:18) FORM vse_armain route_passlist cell 3,3 
+\i (00:05:23) FORM vse_armain route_passlist change 3,3 5 
+\i (00:05:23) FORM vse_armain router_setup  
+\i (00:05:27) FORM vse_armain execute  
+\i (00:05:31) FORM vse_armain close  
+\i (00:05:31) setwindow pcb
+\i (00:05:31) generaledit 
+\i (00:06:38) zoom out 1 
+\i (00:06:38) setwindow pcb
+\i (00:06:38) zoom out 5204.3 3904.1
+\i (00:06:38) trapsize 813
+\i (00:06:38) zoom out 1 
+\i (00:06:38) setwindow pcb
+\i (00:06:38) zoom out 10047.1 8162.0
+\i (00:06:38) trapsize 813
+\i (00:06:43) place manual 
+\i (00:06:47) setwindow form.plc_manual
+\i (00:06:47) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:06:47) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:06:47) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:06:48) FORM plc_manual tree 'MULTISEL YES' U2 'Components by refdes' 
+\i (00:06:48) FORM plc_manual tree  U2 'Components by refdes' 
+\i (00:06:50) setwindow pcb
+\i (00:06:50) zoom in 1 
+\i (00:06:50) setwindow pcb
+\i (00:06:50) zoom in 1482.7 10242.1
+\i (00:06:50) trapsize 406
+\i (00:06:56) pick grid 1035.8 10851.6
+\t (00:06:56) last pick:  1000.0  10900.0
+\t (00:06:56) Placing U2 / 8284A_DIP10018W300L900_8284A_GN / DIP10018W300L900 on Top.
+\i (00:06:59) pick grid 3351.6 11249.8
+\t (00:06:59) last pick:  3400.0  11200.0
+\i (00:07:12) setwindow form.plc_manual
+\i (00:07:12) FORM plc_manual tree 'MULTISEL YES' U35 'Components by refdes' 
+\t (00:07:12) Placing U35 / 74LS14_DIP10014W300L700_74LS14_ / DIP10014W300L700 on Top.
+\i (00:07:12) FORM plc_manual tree  U35 'Components by refdes' 
+\i (00:07:23) setwindow pcb
+\i (00:07:23) pick grid 2547.1 10404.7
+\t (00:07:23) last pick:  2500.0  10400.0
+\i (00:07:39) setwindow form.plc_manual
+\i (00:07:39) FORM plc_manual tree 'MULTISEL YES' C28 'Components by refdes' 
+\t (00:07:39) Placing C28 / CAP_CPCYL1D200LS100031_CAP / CPCYL1D200LS100031 on Top.
+\i (00:07:39) FORM plc_manual tree  C28 'Components by refdes' 
+\i (00:07:41) setwindow pcb
+\i (00:07:41) pick grid 2547.1 10071.5
+\t (00:07:41) last pick:  2500.0  10100.0
+\i (00:07:46) setwindow form.plc_manual
+\i (00:07:46) FORM plc_manual tree 'MULTISEL YES' D1 'Components by refdes' 
+\t (00:07:46) Placing D1 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:07:46) FORM plc_manual tree  D1 'Components by refdes' 
+\i (00:07:46) FORM plc_manual tree 'MULTISEL YES' D2 'Components by refdes' 
+\i (00:07:46) FORM plc_manual tree  D2 'Components by refdes' 
+\i (00:07:48) setwindow pcb
+\i (00:07:48) zoom in 1 
+\i (00:07:48) setwindow pcb
+\i (00:07:48) zoom in 4724.8 11030.4
+\i (00:07:48) trapsize 203
+\i (00:07:52) pick grid 4509.5 11453.0
+\t (00:07:52) last pick:  4500.0  11500.0
+\t (00:07:52) Placing D2 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:07:55) zoom out 1 
+\i (00:07:55) setwindow pcb
+\i (00:07:55) zoom out 2348.0 9267.2
+\i (00:07:55) trapsize 406
+\i (00:07:56) zoom in 1 
+\i (00:07:56) setwindow pcb
+\i (00:07:56) zoom in 1645.2 10274.7
+\i (00:07:56) trapsize 203
+\i (00:07:58) pick grid 1852.4 10360.1
+\t (00:07:58) last pick:  1900.0  10400.0
+\i (00:08:15) setwindow form.plc_manual
+\i (00:08:15) FORM plc_manual tree 'MULTISEL YES' SW21 'Components by refdes' 
+\t (00:08:15) Placing SW21 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:08:15) FORM plc_manual tree  SW21 'Components by refdes' 
+\i (00:08:20) setwindow pcb
+\i (00:08:20) pick grid 1872.7 9953.8
+\t (00:08:20) last pick:  1900.0  10000.0
+\i (00:08:25) setwindow form.plc_manual
+\i (00:08:25) FORM plc_manual tree 'MULTISEL YES' SW1 'Components by refdes' 
+\t (00:08:25) Placing SW1 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:08:25) FORM plc_manual tree  SW1 'Components by refdes' 
+\i (00:08:28) setwindow pcb
+\i (00:08:28) pick grid 4708.6 10953.3
+\t (00:08:28) last pick:  4700.0  11000.0
+\i (00:08:30) setwindow form.plc_manual
+\i (00:08:30) FORM plc_manual done  
+\i (00:08:30) setwindow pcb
+\i (00:08:30) generaledit 
+\i (00:08:34) auto_route 
+\i (00:08:35) setwindow form.vse_armain
+\i (00:08:35) FORM vse_armain execute  
+\i (00:08:39) FORM vse_armain close  
+\i (00:08:39) setwindow pcb
+\i (00:08:39) generaledit 
+\i (00:08:41) drc update 
+\t (00:08:41) Performing DRC...
+\t (00:08:41) Multithreaded DRC update (8 threads).
+\t (00:08:41) No DRC errors detected.
+\i (00:08:41) generaledit 
+\i (00:08:43) zoom out 1 
+\i (00:08:43) setwindow pcb
+\i (00:08:43) zoom out 1815.8 8462.7
+\i (00:08:43) trapsize 406
+\i (00:08:43) zoom out 1 
+\i (00:08:43) setwindow pcb
+\i (00:08:43) zoom out 3587.2 8552.0
+\i (00:08:43) trapsize 813
+\i (00:08:45) zoom in 1 
+\i (00:08:45) setwindow pcb
+\i (00:08:45) zoom in 3497.8 5480.5
+\i (00:08:45) trapsize 406
+\i (00:08:46) zoom out 1 
+\i (00:08:46) setwindow pcb
+\i (00:08:46) zoom out 3140.3 8495.2
+\i (00:08:46) trapsize 813
+\i (00:08:47) zoom in 1 
+\i (00:08:47) setwindow pcb
+\i (00:08:47) zoom in 3351.6 11103.5
+\i (00:08:47) trapsize 406
+\i (00:08:59) place manual 
+\i (00:09:03) setwindow form.plc_manual
+\i (00:09:03) FORM plc_manual tree 'MULTISEL YES' Y1 'Components by refdes' 
+\t (00:09:03) Placing Y1 / CRYSTAL_XTAL_FOX_CRYSTAL / XTAL_FOX on Top.
+\i (00:09:03) FORM plc_manual tree  Y1 'Components by refdes' 
+\i (00:09:04) setwindow pcb
+\i (00:09:04) zoom in 1 
+\i (00:09:04) setwindow pcb
+\i (00:09:04) zoom in 3595.3 10461.6
+\i (00:09:04) trapsize 203
+\i (00:09:05) zoom out 1 
+\i (00:09:05) setwindow pcb
+\i (00:09:05) zoom out 3526.3 10758.2
+\i (00:09:05) trapsize 406
+\i (00:09:07) zoom in 1 
+\i (00:09:07) setwindow pcb
+\i (00:09:07) zoom in 3424.7 10774.5
+\i (00:09:07) trapsize 203
+\i (00:09:09) pick grid 3449.1 10831.4
+\t (00:09:09) last pick:  3400.0  10800.0
+\i (00:09:13) setwindow form.plc_manual
+\i (00:09:13) FORM plc_manual tree 'MULTISEL YES' C1 'Components by refdes' 
+\t (00:09:13) Placing C1 / CAPACITOR_CPCYL1D200LS100031_10 / CPCYL1D200LS100031 on Top.
+\i (00:09:13) FORM plc_manual tree  C1 'Components by refdes' 
+\i (00:09:17) setwindow pcb
+\i (00:09:17) pick grid 5342.4 11152.4
+\t (00:09:17) last pick:  5300.0  11200.0
+\i (00:09:29) setwindow form.plc_manual
+\i (00:09:29) FORM plc_manual tree 'MULTISEL YES' R1 'Components by refdes' 
+\t (00:09:29) Placing R1 / RESISTOR_AX300X100028_10K / AX300X100028 on Top.
+\i (00:09:29) FORM plc_manual tree  R1 'Components by refdes' 
+\i (00:09:31) FORM plc_manual tree 'MULTISEL YES' R6 'Components by refdes' 
+\i (00:09:31) FORM plc_manual tree  R6 'Components by refdes' 
+\i (00:09:34) setwindow pcb
+\i (00:09:34) zoom in 1 
+\i (00:09:34) setwindow pcb
+\i (00:09:34) zoom in 4692.4 10555.1
+\i (00:09:34) trapsize 102
+\i (00:09:34) zoom out 1 
+\i (00:09:34) setwindow pcb
+\i (00:09:34) zoom out 4694.4 10553.1
+\i (00:09:34) trapsize 203
+\i (00:09:36) pick grid 5263.2 11451.0
+\t (00:09:36) last pick:  5300.0  11500.0
+\t (00:09:36) Placing R6 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:09:36) pick grid dbl 5251.1 11491.6
+\t (00:09:36) last pick:  5300.0  11500.0
+\i (00:09:38) pick grid 5466.4 11483.5
+\t (00:09:38) last pick:  5500.0  11500.0
+\t (00:09:38) Moving R6 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:09:38) last pick:  5300.0  11500.0
+\i (00:09:41) pick grid 2333.9 9752.7
+\t (00:09:41) last pick:  2300.0  9800.0
+\i (00:09:42) setwindow form.plc_manual
+\i (00:09:42) FORM plc_manual done  
+\i (00:09:42) setwindow pcb
+\i (00:09:42) generaledit 
+\i (00:09:46) auto_route 
+\i (00:09:47) setwindow form.vse_armain
+\i (00:09:47) FORM vse_armain execute  
+\i (00:09:55) FORM vse_armain close  
+\i (00:09:55) setwindow pcb
+\i (00:09:55) generaledit 
+\i (00:09:55) zoom out 1 
+\i (00:09:55) setwindow pcb
+\i (00:09:55) zoom out 4897.6 10390.6
+\i (00:09:55) trapsize 406
+\i (00:09:56) zoom out 1 
+\i (00:09:56) setwindow pcb
+\i (00:09:56) zoom out 5927.5 8155.9
+\i (00:09:56) trapsize 813
+\i (00:09:56) zoom out 1 
+\i (00:09:56) setwindow pcb
+\i (00:09:56) zoom out 12192.3 5025.5
+\i (00:09:56) trapsize 813
+\i (00:09:57) zoom in 1 
+\i (00:09:57) setwindow pcb
+\i (00:09:57) zoom in 6520.6 6260.6
+\i (00:09:57) trapsize 406
+\i (00:09:59) zoom out 1 
+\i (00:09:59) setwindow pcb
+\i (00:09:59) zoom out 3343.4 8966.4
+\i (00:09:59) trapsize 813
+\i (00:10:00) zoom in 1 
+\i (00:10:00) setwindow pcb
+\i (00:10:00) zoom in 2181.5 11298.5
+\i (00:10:00) trapsize 406
+\i (00:10:01) save 
+\i (00:10:02) fillin yes 
+\i (00:10:02) generaledit 
+\i (00:10:25) place manual 
+\i (00:10:29) setwindow form.plc_manual
+\i (00:10:29) FORM plc_manual tree 'MULTISEL YES' U3 'Components by refdes' 
+\t (00:10:29) Placing U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:10:29) FORM plc_manual tree  U3 'Components by refdes' 
+\i (00:10:30) FORM plc_manual tree 'MULTISEL YES' U4 'Components by refdes' 
+\i (00:10:30) FORM plc_manual tree  U4 'Components by refdes' 
+\i (00:10:31) FORM plc_manual tree 'MULTISEL YES' U5 'Components by refdes' 
+\i (00:10:31) FORM plc_manual tree  U5 'Components by refdes' 
+\i (00:10:31) FORM plc_manual tree 'MULTISEL YES' U6 'Components by refdes' 
+\i (00:10:31) FORM plc_manual tree  U6 'Components by refdes' 
+\i (00:10:36) setwindow pcb
+\i (00:10:36) prepopup 11127.8 10835.4
+\i (00:10:38) rotate 
+\t (00:10:38) Spin the element(s).
+\i (00:10:39) iangle 90.000
+\t (00:10:39) last angle:  +90.000 Degrees
+\i (00:10:42) pick grid 11729.1 10746.0
+\t (00:10:42) last pick:  11700.0  10700.0
+\t (00:10:42) Placing U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:10:44) prepopup 10510.3 9722.2
+\i (00:10:45) rotate 
+\t (00:10:45) Spin the element(s).
+\i (00:10:46) iangle 90.000
+\t (00:10:46) last angle:  +90.000 Degrees
+\i (00:10:48) pick grid 11729.1 9551.5
+\t (00:10:48) last pick:  11700.0  9600.0
+\t (00:10:48) Placing U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:10:49) prepopup 10737.8 8942.1
+\i (00:10:50) rotate 
+\t (00:10:50) Spin the element(s).
+\i (00:10:51) iangle 90.000
+\t (00:10:51) last angle:  +90.000 Degrees
+\i (00:10:53) pick grid 11680.4 8454.6
+\t (00:10:53) last pick:  11700.0  8500.0
+\t (00:10:53) Placing U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:10:54) prepopup 10022.8 8381.4
+\i (00:10:56) rotate 
+\t (00:10:56) Spin the element(s).
+\i (00:10:56) iangle 90.000
+\t (00:10:56) last angle:  +90.000 Degrees
+\i (00:10:58) pick grid 11656.0 7406.3
+\t (00:10:58) last pick:  11700.0  7400.0
+\i (00:11:57) setwindow form.plc_manual
+\i (00:11:57) FORM plc_manual tree 'MULTISEL YES' U7 'Components by refdes' 
+\t (00:11:57) Placing U7 / 74LS245_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:11:57) FORM plc_manual tree  U7 'Components by refdes' 
+\i (00:11:57) FORM plc_manual tree 'MULTISEL YES' U8 'Components by refdes' 
+\i (00:11:57) FORM plc_manual tree  U8 'Components by refdes' 
+\i (00:12:05) setwindow pcb
+\i (00:12:05) pick grid 9982.1 11257.9
+\t (00:12:05) last pick:  10000.0  11300.0
+\t (00:12:05) Placing U8 / 74LS245_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:12:08) pick grid 8795.8 11257.9
+\t (00:12:08) last pick:  8800.0  11300.0
+\i (00:12:16) setwindow form.plc_manual
+\i (00:12:16) FORM plc_manual tree 'MULTISEL YES' J10 'Components by refdes' 
+\t (00:12:16) Placing J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60 on Top.
+\i (00:12:16) FORM plc_manual tree  J10 'Components by refdes' 
+\i (00:12:18) setwindow pcb
+\i (00:12:18) prepopup 5074.2 8503.3
+\i (00:12:19) rotate 
+\t (00:12:19) Spin the element(s).
+\i (00:12:21) iangle 90.000
+\t (00:12:21) last angle:  +90.000 Degrees
+\i (00:12:23) pick grid 12111.0 7845.1
+\t (00:12:23) last pick:  12100.0  7800.0
+\i (00:12:25) pick grid 12070.4 7536.4
+\t (00:12:25) last pick:  12100.0  7500.0
+\t (00:12:25) Moving J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60.
+\t (00:12:25) last pick:  12100.0  7800.0
+\i (00:12:27) pick grid 12078.5 7853.3
+\t (00:12:27) last pick:  12100.0  7900.0
+\i (00:12:38) setwindow form.plc_manual
+\i (00:12:38) FORM plc_manual done  
+\i (00:12:38) setwindow pcb
+\i (00:12:38) generaledit 
+\i (00:12:41) save 
+\i (00:12:42) fillin yes 
+\i (00:12:42) generaledit 
+\i (00:12:47) auto_route 
+\i (00:12:49) setwindow form.vse_armain
+\i (00:12:49) FORM vse_armain execute  
+\i (00:12:59) setwindow pcb
+\i (00:12:59) drc update 
+\t (00:12:59) Performing DRC...
+\t (00:12:59) Multithreaded DRC update (8 threads).
+\t (00:12:59) No DRC errors detected.
+\i (00:12:59) generaledit 
+\i (00:13:10) auto_route 
+\i (00:13:13) setwindow form.vse_armain
+\i (00:13:13) FORM vse_armain close  
+\i (00:13:13) setwindow pcb
+\i (00:13:13) generaledit 
+\i (00:13:14) zoom out 1 
+\i (00:13:14) setwindow pcb
+\i (00:13:14) zoom out 8478.9 8739.0
+\i (00:13:14) trapsize 813
+\i (00:13:17) save 
+\i (00:13:18) fillin yes 
+\i (00:13:18) generaledit 
+\i (00:13:43) place manual 
+\i (00:13:49) setwindow form.plc_manual
+\i (00:13:49) FORM plc_manual tree 'MULTISEL YES' U12 'Components by refdes' 
+\t (00:13:49) Placing U12 / CY7C199_DIP10028W300L1400_CY7C1 / DIP10028W300L1400 on Top.
+\i (00:13:49) FORM plc_manual tree  U12 'Components by refdes' 
+\i (00:13:50) FORM plc_manual tree 'MULTISEL YES' U13 'Components by refdes' 
+\i (00:13:50) FORM plc_manual tree  U13 'Components by refdes' 
+\i (00:13:51) FORM plc_manual tree 'MULTISEL YES' U15 'Components by refdes' 
+\i (00:13:51) FORM plc_manual tree  U15 'Components by refdes' 
+\i (00:13:51) FORM plc_manual tree 'MULTISEL YES' U16 'Components by refdes' 
+\i (00:13:51) FORM plc_manual tree  U16 'Components by refdes' 
+\i (00:13:54) setwindow pcb
+\i (00:13:54) zoom in 1 
+\i (00:13:54) setwindow pcb
+\i (00:13:54) zoom in 1645.2 1092.6
+\i (00:13:54) trapsize 406
+\i (00:13:56) zoom out 1 
+\i (00:13:56) setwindow pcb
+\i (00:13:56) zoom out 1060.1 1295.8
+\i (00:13:56) trapsize 813
+\i (00:13:58) zoom in 1 
+\i (00:13:58) setwindow pcb
+\i (00:13:58) zoom in 978.9 1108.9
+\i (00:13:58) trapsize 406
+\i (00:14:00) zoom out 1 
+\i (00:14:00) setwindow pcb
+\i (00:14:00) zoom out 881.4 938.3
+\i (00:14:00) trapsize 813
+\i (00:14:03) zoom in 1 
+\i (00:14:03) setwindow pcb
+\i (00:14:03) zoom in 913.9 215.1
+\i (00:14:03) trapsize 406
+\i (00:14:09) pick grid 848.9 150.1
+\t (00:14:09) last pick:  800.0  200.0
+\t (00:14:09) Placing U13 / CY7C199_DIP10028W300L1400_CY7C1 / DIP10028W300L1400 on Top.
+\i (00:14:11) pick grid 2449.6 190.8
+\t (00:14:11) last pick:  2400.0  200.0
+\t (00:14:11) Placing U15 / CY7C199_DIP10028W300L1400_CY7C1 / DIP10028W300L1400 on Top.
+\i (00:14:22) pick grid 848.9 946.4
+\t (00:14:22) last pick:  800.0  900.0
+\t (00:14:22) Placing U16 / CY7C199_DIP10028W300L1400_CY7C1 / DIP10028W300L1400 on Top.
+\i (00:14:28) pick grid 2425.2 946.4
+\t (00:14:28) last pick:  2400.0  900.0
+\i (00:14:32) setwindow form.plc_manual
+\i (00:14:32) FORM plc_manual tree 'MULTISEL YES' U14 'Components by refdes' 
+\t (00:14:32) Placing U14 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000 on Top.
+\i (00:14:32) FORM plc_manual tree  U14 'Components by refdes' 
+\i (00:14:36) setwindow pcb
+\i (00:14:36) prepopup 808.2 1604.6
+\i (00:14:38) rotate 
+\t (00:14:38) Spin the element(s).
+\i (00:14:39) iangle 90.000
+\t (00:14:39) last angle:  +90.000 Degrees
+\i (00:14:41) pick grid 4261.6 247.6
+\t (00:14:41) last pick:  4300.0  200.0
+\i (00:14:51) setwindow form.plc_manual
+\i (00:14:51) FORM plc_manual done  
+\i (00:14:51) setwindow pcb
+\i (00:14:51) generaledit 
+\i (00:14:52) save 
+\i (00:14:53) fillin yes 
+\i (00:14:53) generaledit 
+\i (00:14:57) auto_route 
+\i (00:14:59) setwindow form.vse_armain
+\i (00:14:59) FORM vse_armain execute  
+\i (00:15:07) FORM vse_armain close  
+\i (00:15:07) setwindow pcb
+\i (00:15:07) generaledit 
+\i (00:15:10) drc update 
+\t (00:15:10) Performing DRC...
+\t (00:15:10) Multithreaded DRC update (8 threads).
+\t (00:15:10) No DRC errors detected.
+\i (00:15:10) generaledit 
+\i (00:15:13) save 
+\i (00:15:15) fillin yes 
+\i (00:15:15) generaledit 
+\i (00:15:59) place manual 
+\i (00:16:06) setwindow form.plc_manual
+\i (00:16:06) FORM plc_manual tree 'MULTISEL YES' U10 'Components by refdes' 
+\t (00:16:06) Placing U10 / 28F010_DIP10032W600L1600_28F010 / DIP10032W600L1600 on Top.
+\i (00:16:06) FORM plc_manual tree  U10 'Components by refdes' 
+\i (00:16:06) FORM plc_manual tree 'MULTISEL YES' U11 'Components by refdes' 
+\i (00:16:06) FORM plc_manual tree  U11 'Components by refdes' 
+\i (00:16:19) setwindow pcb
+\i (00:16:19) pick grid 751.4 1954.0
+\t (00:16:19) last pick:  800.0  2000.0
+\t (00:16:19) Placing U11 / 28F010_DIP10032W600L1600_28F010 / DIP10032W600L1600 on Top.
+\i (00:16:23) pick grid 759.5 3156.6
+\t (00:16:23) last pick:  800.0  3200.0
+\i (00:16:26) setwindow form.plc_manual
+\i (00:16:26) FORM plc_manual tree 'MULTISEL YES' U9 'Components by refdes' 
+\t (00:16:26) Placing U9 / 16L8_8_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:16:26) FORM plc_manual tree  U9 'Components by refdes' 
+\i (00:16:27) setwindow pcb
+\i (00:16:27) prepopup 3408.5 3432.9
+\i (00:16:28) rotate 
+\t (00:16:28) Spin the element(s).
+\i (00:16:29) iangle 90.000
+\t (00:16:29) last angle:  +90.000 Degrees
+\i (00:16:34) pick grid 3148.4 2856.0
+\t (00:16:34) last pick:  3100.0  2900.0
+\i (00:16:36) setwindow form.plc_manual
+\i (00:16:36) FORM plc_manual done  
+\i (00:16:36) setwindow pcb
+\i (00:16:36) generaledit 
+\i (00:16:38) save 
+\i (00:16:39) fillin yes 
+\i (00:16:39) generaledit 
+\i (00:16:43) auto_route 
+\i (00:16:46) setwindow form.vse_armain
+\i (00:16:46) FORM vse_armain execute  
+\i (00:16:57) FORM vse_armain results  
+\i (00:17:07) setwindow form.vse_progress
+\i (00:17:07) FORM vse_progress close  
+\i (00:17:10) setwindow form.vse_armain
+\i (00:17:10) FORM vse_armain results  
+\i (00:17:20) setwindow form.vse_progress
+\i (00:17:20) FORM vse_progress close  
+\i (00:17:21) setwindow form.vse_armain
+\i (00:17:21) FORM vse_armain close  
+\i (00:17:21) setwindow pcb
+\i (00:17:21) generaledit 
+\i (00:17:23) drc update 
+\t (00:17:23) Performing DRC...
+\t (00:17:23) Multithreaded DRC update (8 threads).
+\t (00:17:23) No DRC errors detected.
+\i (00:17:23) generaledit 
+\i (00:17:26) save 
+\i (00:17:27) fillin yes 
+\i (00:17:27) generaledit 
+\i (00:17:44) zoom out 1 
+\i (00:17:44) setwindow pcb
+\i (00:17:44) zoom out 4026.0 2636.6
+\i (00:17:44) trapsize 813
+\i (00:18:06) place manual 
+\i (00:18:12) setwindow form.plc_manual
+\i (00:18:12) FORM plc_manual tree 'MULTISEL YES' U17 'Components by refdes' 
+\t (00:18:12) Placing U17 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025 on Top.
+\i (00:18:12) FORM plc_manual tree  U17 'Components by refdes' 
+\i (00:18:23) FORM plc_manual tree 'MULTISEL YES' U19 'Components by refdes' 
+\i (00:18:23) FORM plc_manual tree  U19 'Components by refdes' 
+\i (00:18:24) FORM plc_manual tree 'MULTISEL YES' U20 'Components by refdes' 
+\i (00:18:24) FORM plc_manual tree  U20 'Components by refdes' 
+\i (00:18:29) setwindow pcb
+\i (00:18:29) zoom in 1 
+\i (00:18:29) setwindow pcb
+\i (00:18:29) zoom in 962.6 4619.2
+\i (00:18:29) trapsize 406
+\i (00:18:33) pick grid 848.9 4204.8
+\t (00:18:33) last pick:  800.0  4200.0
+\t (00:18:33) Placing U19 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025 on Top.
+\i (00:18:38) prepopup 1474.5 6057.4
+\i (00:18:39) rotate 
+\t (00:18:39) Spin the element(s).
+\i (00:18:40) iangle 90.000
+\t (00:18:40) last angle:  +90.000 Degrees
+\i (00:18:43) pick grid 2701.5 6650.6
+\t (00:18:43) last pick:  2700.0  6700.0
+\t (00:18:43) Placing U20 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025 on Top.
+\i (00:18:45) prepopup 2205.9 5675.5
+\i (00:18:46) rotate 
+\t (00:18:46) Spin the element(s).
+\i (00:18:48) iangle 90.000
+\t (00:18:48) last angle:  +90.000 Degrees
+\i (00:18:51) zoom out 1 
+\i (00:18:51) setwindow pcb
+\i (00:18:51) zoom out 3912.2 6731.9
+\i (00:18:51) trapsize 813
+\i (00:18:53) pick grid 3936.6 7430.7
+\t (00:18:53) last pick:  3900.0  7400.0
+\i (00:18:54) pick grid 2311.5 4521.7
+\t (00:18:54) last pick:  2300.0  4500.0
+\t (00:18:54) Moving U17 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:18:54) last pick:  800.0  4200.0
+\i (00:18:55) prepopup 2230.2 4570.4
+\i (00:18:56) rotate 
+\t (00:18:56) Spin the element(s).
+\i (00:18:57) iangle 90.000
+\t (00:18:57) last angle:  90.000 Degrees
+\i (00:19:00) pick grid 2669.0 4245.4
+\t (00:19:00) last pick:  2700.0  4200.0
+\i (00:19:02) zoom out 1 
+\i (00:19:02) setwindow pcb
+\i (00:19:02) zoom out 3546.6 6748.1
+\i (00:19:02) trapsize 813
+\i (00:19:04) zoom out 1 
+\i (00:19:04) setwindow pcb
+\i (00:19:04) zoom out 3042.8 5236.7
+\i (00:19:04) trapsize 813
+\i (00:19:05) zoom in 1 
+\i (00:19:05) setwindow pcb
+\i (00:19:05) zoom in 3010.3 2717.8
+\i (00:19:05) trapsize 406
+\i (00:19:10) pick grid 2522.8 4537.9
+\t (00:19:10) last pick:  2500.0  4500.0
+\t (00:19:10) Moving U17 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:10) last pick:  2700.0  4200.0
+\i (00:19:13) zoom out 1 
+\i (00:19:13) setwindow pcb
+\i (00:19:13) zoom out 4318.5 2457.8
+\i (00:19:13) trapsize 813
+\i (00:19:15) zoom in 1 
+\i (00:19:15) setwindow pcb
+\i (00:19:15) zoom in 4700.4 1466.4
+\i (00:19:15) trapsize 406
+\i (00:19:22) pick grid 4034.1 1856.4
+\t (00:19:22) last pick:  4000.0  1900.0
+\i (00:19:24) pick grid 2539.0 6837.5
+\t (00:19:24) last pick:  2500.0  6800.0
+\t (00:19:24) Moving U19 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:24) last pick:  2700.0  6700.0
+\i (00:19:27) pick grid 5049.8 1880.8
+\t (00:19:27) last pick:  5000.0  1900.0
+\i (00:19:29) zoom out 1 
+\i (00:19:29) setwindow pcb
+\i (00:19:29) zoom out 4781.7 2173.3
+\i (00:19:29) trapsize 813
+\i (00:19:32) pick grid 3660.3 8617.0
+\t (00:19:32) last pick:  3700.0  8600.0
+\t (00:19:32) Moving U20 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:32) last pick:  3900.0  7400.0
+\i (00:19:37) pick grid 6065.5 1872.7
+\t (00:19:37) last pick:  6100.0  1900.0
+\i (00:19:38) zoom in 1 
+\i (00:19:38) setwindow pcb
+\i (00:19:38) zoom in 5204.2 1954.0
+\i (00:19:38) trapsize 406
+\i (00:19:42) pick grid 4676.1 3497.9
+\t (00:19:42) last pick:  4700.0  3500.0
+\t (00:19:42) Moving U19 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:42) last pick:  5000.0  1900.0
+\i (00:19:43) pick grid 5350.5 4692.3
+\t (00:19:43) last pick:  5400.0  4700.0
+\i (00:19:45) pick grid 5253.0 5163.6
+\t (00:19:45) last pick:  5300.0  5200.0
+\t (00:19:45) Moving U19 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:45) last pick:  5400.0  4700.0
+\i (00:19:49) pick grid 1409.5 4147.9
+\t (00:19:49) last pick:  1400.0  4100.0
+\i (00:19:52) zoom out 1 
+\i (00:19:52) setwindow pcb
+\i (00:19:52) zoom out 5626.8 2977.8
+\i (00:19:52) trapsize 813
+\i (00:19:53) zoom in 1 
+\i (00:19:53) setwindow pcb
+\i (00:19:53) zoom in 6699.3 1060.1
+\i (00:19:53) trapsize 406
+\i (00:19:55) pick grid 5651.1 3473.5
+\t (00:19:55) last pick:  5700.0  3500.0
+\t (00:19:55) Moving U20 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:19:55) last pick:  6100.0  1900.0
+\i (00:19:59) pick grid 6057.4 954.5
+\t (00:19:59) last pick:  6100.0  1000.0
+\i (00:20:00) pick grid 5829.9 2595.9
+\t (00:20:00) last pick:  5800.0  2600.0
+\t (00:20:00) Moving U20 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:20:00) last pick:  6100.0  1000.0
+\i (00:20:05) pick grid 6244.3 597.0
+\t (00:20:05) last pick:  6200.0  600.0
+\i (00:20:06) prepopup 6089.9 613.3
+\i (00:20:08) pick grid 5919.3 686.4
+\t (00:20:08) last pick:  5900.0  700.0
+\t (00:20:08) Moving U20 / 82C55_DIP10040W600L2025_82C55_G / DIP10040W600L2025.
+\t (00:20:08) last pick:  6200.0  600.0
+\i (00:20:09) prepopup 6041.2 629.5
+\i (00:20:10) rotate 
+\t (00:20:10) Spin the element(s).
+\i (00:20:15) iangle 270.000
+\t (00:20:15) last angle:  0.000 Degrees
+\i (00:20:18) pick grid 5456.1 467.0
+\t (00:20:18) last pick:  5500.0  500.0
+\i (00:20:29) setwindow form.plc_manual
+\i (00:20:29) FORM plc_manual done  
+\i (00:20:29) setwindow pcb
+\i (00:20:29) generaledit 
+\i (00:20:36) auto_route 
+\i (00:20:37) setwindow form.vse_armain
+\i (00:20:37) FORM vse_armain execute  
+\i (00:20:45) FORM vse_armain results  
+\i (00:20:47) setwindow form.vse_progress
+\i (00:20:47) FORM vse_progress close  
+\i (00:20:50) setwindow form.vse_armain
+\i (00:20:50) FORM vse_armain close  
+\i (00:20:50) setwindow pcb
+\i (00:20:50) generaledit 
+\i (00:20:53) drc update 
+\t (00:20:54) Performing DRC...
+\t (00:20:54) Multithreaded DRC update (8 threads).
+\t (00:20:54) No DRC errors detected.
+\i (00:20:54) generaledit 
+\i (00:20:56) save 
+\i (00:20:57) fillin yes 
+\i (00:20:58) generaledit 
+\i (00:20:58) zoom in 1 
+\i (00:20:58) setwindow pcb
+\i (00:20:58) zoom in 7048.8 1003.3
+\i (00:20:58) trapsize 203
+\i (00:21:00) zoom out 1 
+\i (00:21:00) setwindow pcb
+\i (00:21:00) zoom out 7101.6 1060.2
+\i (00:21:00) trapsize 406
+\i (00:21:16) place manual 
+\i (00:21:21) setwindow form.plc_manual
+\i (00:21:21) FORM plc_manual tree 'MULTISEL YES' J1 'Components by refdes' 
+\t (00:21:21) Placing J1 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30 on Top.
+\i (00:21:21) FORM plc_manual tree  J1 'Components by refdes' 
+\i (00:21:22) FORM plc_manual tree 'MULTISEL YES' J8 'Components by refdes' 
+\i (00:21:22) FORM plc_manual tree  J8 'Components by refdes' 
+\i (00:21:22) FORM plc_manual tree 'MULTISEL YES' J9 'Components by refdes' 
+\i (00:21:22) FORM plc_manual tree  J9 'Components by refdes' 
+\i (00:21:24) setwindow pcb
+\i (00:21:24) zoom out 1 
+\i (00:21:24) setwindow pcb
+\i (00:21:24) zoom out 2270.9 4984.9
+\i (00:21:24) trapsize 813
+\i (00:21:26) prepopup 1482.7 7885.7
+\i (00:21:27) rotate 
+\t (00:21:27) Spin the element(s).
+\i (00:21:28) iangle 90.000
+\t (00:21:28) last angle:  +90.000 Degrees
+\i (00:21:29) zoom in 1 
+\i (00:21:29) setwindow pcb
+\i (00:21:29) zoom in 995.1 7999.5
+\i (00:21:29) trapsize 406
+\i (00:21:31) pick grid 1019.5 7845.1
+\t (00:21:31) last pick:  1000.0  7800.0
+\t (00:21:31) Placing J8 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30 on Top.
+\i (00:21:32) prepopup 2279.0 7828.9
+\i (00:21:34) rotate 
+\t (00:21:34) Spin the element(s).
+\i (00:21:37) iangle 90.000
+\t (00:21:37) last angle:  +90.000 Degrees
+\i (00:21:40) pick grid 2002.7 7357.6
+\t (00:21:40) last pick:  2000.0  7400.0
+\t (00:21:40) Placing J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30 on Top.
+\i (00:21:40) pick grid dbl 2019.0 7365.7
+\t (00:21:40) last pick:  2000.0  7400.0
+\i (00:21:42) pick grid 897.6 9340.3
+\t (00:21:42) last pick:  900.0  9300.0
+\t (00:21:42) Moving J1 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (00:21:42) last pick:  1000.0  7800.0
+\i (00:21:47) pick grid 954.5 7357.6
+\t (00:21:47) last pick:  1000.0  7400.0
+\i (00:21:48) pick grid 1929.6 8852.7
+\t (00:21:48) last pick:  1900.0  8900.0
+\t (00:21:48) Moving J8 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (00:21:48) last pick:  2000.0  7400.0
+\i (00:21:50) pick grid 1750.8 7373.9
+\t (00:21:50) last pick:  1800.0  7400.0
+\i (00:21:51) pick grid 2303.4 7544.5
+\t (00:21:51) last pick:  2300.0  7500.0
+\t (00:21:51) Moving J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (00:21:51) last pick:  2000.0  7400.0
+\i (00:21:52) prepopup 2295.2 7552.6
+\i (00:21:53) rotate 
+\t (00:21:53) Spin the element(s).
+\i (00:21:54) iangle 90.000
+\t (00:21:54) last angle:  90.000 Degrees
+\i (00:21:56) pick grid 2604.0 7357.6
+\t (00:21:56) last pick:  2600.0  7400.0
+\i (00:21:57) zoom out 1 
+\i (00:21:57) setwindow pcb
+\i (00:21:57) zoom out 3473.5 5675.6
+\i (00:21:57) trapsize 813
+\i (00:21:58) zoom in 1 
+\i (00:21:58) setwindow pcb
+\i (00:21:58) zoom in 6309.3 686.3
+\i (00:21:58) trapsize 406
+\i (00:22:01) zoom out 1 
+\i (00:22:01) setwindow pcb
+\i (00:22:01) zoom out 2522.8 3660.4
+\i (00:22:01) trapsize 813
+\i (00:22:02) zoom in 1 
+\i (00:22:02) setwindow pcb
+\i (00:22:02) zoom in 2522.8 7641.9
+\i (00:22:02) trapsize 406
+\i (00:22:05) setwindow form.plc_manual
+\i (00:22:05) FORM plc_manual done  
+\i (00:22:05) setwindow pcb
+\i (00:22:05) generaledit 
+\i (00:22:06) save 
+\i (00:22:08) fillin yes 
+\i (00:22:08) generaledit 
+\i (00:22:11) auto_route 
+\i (00:22:13) setwindow form.vse_armain
+\i (00:22:13) FORM vse_armain execute  
+\i (00:22:22) FORM vse_armain results  
+\i (00:22:26) setwindow form.vse_progress
+\i (00:22:26) FORM vse_progress close  
+\i (00:22:27) setwindow form.vse_armain
+\i (00:22:27) FORM vse_armain close  
+\i (00:22:27) setwindow pcb
+\i (00:22:27) generaledit 
+\i (00:22:30) drc update 
+\t (00:22:30) Performing DRC...
+\t (00:22:30) Multithreaded DRC update (8 threads).
+\t (00:22:30) No DRC errors detected.
+\i (00:22:30) generaledit 
+\i (00:22:32) save 
+\i (00:22:34) fillin yes 
+\i (00:22:34) generaledit 
+\i (00:22:44) place manual 
+\i (00:22:51) setwindow form.plc_manual
+\i (00:22:51) FORM plc_manual tree 'MULTISEL YES' U18 'Components by refdes' 
+\t (00:22:51) Placing U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000 on Top.
+\i (00:22:51) FORM plc_manual tree  U18 'Components by refdes' 
+\i (00:22:53) setwindow pcb
+\i (00:22:53) zoom out 1 
+\i (00:22:53) setwindow pcb
+\i (00:22:53) zoom out 2214.0 4407.9
+\i (00:22:53) trapsize 813
+\i (00:22:56) zoom in 1 
+\i (00:22:56) setwindow pcb
+\i (00:22:56) zoom in 4684.2 1823.9
+\i (00:22:56) trapsize 406
+\i (00:23:01) pick grid 4245.4 1417.7
+\t (00:23:01) last pick:  4200.0  1400.0
+\i (00:23:04) pick grid 4789.8 1604.6
+\t (00:23:04) last pick:  4800.0  1600.0
+\t (00:23:04) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:04) last pick:  4200.0  1400.0
+\i (00:23:09) pick grid 1645.2 4277.9
+\t (00:23:09) last pick:  1600.0  4300.0
+\i (00:23:11) prepopup 2392.7 4310.4
+\i (00:23:12) pick grid 1962.1 4440.4
+\t (00:23:12) last pick:  2000.0  4400.0
+\t (00:23:12) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:12) last pick:  1600.0  4300.0
+\i (00:23:13) prepopup 1880.8 4334.8
+\i (00:23:14) rotate 
+\t (00:23:14) Spin the element(s).
+\i (00:23:16) iangle 90.000
+\t (00:23:16) last angle:  90.000 Degrees
+\i (00:23:17) pick grid 1921.5 4042.3
+\t (00:23:17) last pick:  1900.0  4000.0
+\i (00:23:19) pick grid 1791.4 4180.4
+\t (00:23:19) last pick:  1800.0  4200.0
+\t (00:23:19) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:19) last pick:  1900.0  4000.0
+\i (00:23:20) pick grid 2051.5 4017.9
+\t (00:23:20) last pick:  2100.0  4000.0
+\i (00:23:22) zoom in 1 
+\i (00:23:22) setwindow pcb
+\i (00:23:22) zoom in 2539.0 4001.7
+\i (00:23:22) trapsize 203
+\i (00:23:23) pick grid 1958.0 4399.9
+\t (00:23:23) last pick:  2000.0  4400.0
+\t (00:23:23) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:23) last pick:  2100.0  4000.0
+\i (00:23:25) pick grid 2075.8 4148.0
+\t (00:23:25) last pick:  2100.0  4100.0
+\i (00:23:26) pick grid 2075.8 4143.9
+\t (00:23:26) last pick:  2100.0  4100.0
+\t (00:23:26) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:26) last pick:  2100.0  4100.0
+\i (00:23:27) pick grid 2075.8 4152.1
+\t (00:23:27) last pick:  2100.0  4200.0
+\i (00:23:28) pick grid 2075.8 4184.6
+\t (00:23:28) last pick:  2100.0  4200.0
+\t (00:23:28) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:28) last pick:  2100.0  4200.0
+\i (00:23:31) pick grid 2250.5 4034.2
+\t (00:23:31) last pick:  2300.0  4000.0
+\i (00:23:32) pick grid 2226.2 4074.9
+\t (00:23:32) last pick:  2200.0  4100.0
+\t (00:23:32) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:32) last pick:  2300.0  4000.0
+\i (00:23:33) pick grid 2352.1 4034.2
+\t (00:23:33) last pick:  2400.0  4000.0
+\i (00:23:34) pick grid 2392.7 4018.0
+\t (00:23:34) last pick:  2400.0  4000.0
+\t (00:23:34) Moving U18 / 16L8_DIP10020W300L1000_16L8_GND / DIP10020W300L1000.
+\t (00:23:34) last pick:  2400.0  4000.0
+\i (00:23:35) pick grid 2453.7 4013.9
+\t (00:23:35) last pick:  2500.0  4000.0
+\i (00:23:42) setwindow form.plc_manual
+\i (00:23:42) FORM plc_manual done  
+\i (00:23:42) setwindow pcb
+\i (00:23:42) generaledit 
+\i (00:23:46) auto_route 
+\i (00:23:47) setwindow form.vse_armain
+\i (00:23:47) FORM vse_armain execute  
+\i (00:23:56) FORM vse_armain results  
+\i (00:23:58) setwindow form.vse_progress
+\i (00:23:58) FORM vse_progress close  
+\i (00:23:59) setwindow form.vse_armain
+\i (00:23:59) FORM vse_armain close  
+\i (00:24:00) setwindow pcb
+\i (00:24:00) generaledit 
+\i (00:24:01) drc update 
+\t (00:24:01) Performing DRC...
+\t (00:24:01) Multithreaded DRC update (8 threads).
+\t (00:24:01) No DRC errors detected.
+\i (00:24:01) generaledit 
+\i (00:24:04) save 
+\i (00:24:05) fillin yes 
+\i (00:24:05) generaledit 
+\i (00:24:06) zoom out 1 
+\i (00:24:06) setwindow pcb
+\i (00:24:06) zoom out 2587.8 2677.2
+\i (00:24:06) trapsize 406
+\i (00:24:07) zoom out 1 
+\i (00:24:07) setwindow pcb
+\i (00:24:07) zoom out 5374.9 4286.2
+\i (00:24:07) trapsize 813
+\i (00:24:10) zoom in 1 
+\i (00:24:10) setwindow pcb
+\i (00:24:10) zoom in 3091.5 1661.4
+\i (00:24:10) trapsize 406
+\i (00:24:27) place manual 
+\i (00:24:31) setwindow form.plc_manual
+\i (00:24:31) FORM plc_manual tree 'MULTISEL YES' U23 'Components by refdes' 
+\t (00:24:31) Placing U23 / 8254_DIP10024W600L1200_8254_GND / DIP10024W600L1200 on Top.
+\i (00:24:31) FORM plc_manual tree  U23 'Components by refdes' 
+\i (00:24:32) FORM plc_manual tree 'MULTISEL YES' U24 'Components by refdes' 
+\i (00:24:32) FORM plc_manual tree  U24 'Components by refdes' 
+\i (00:24:38) setwindow pcb
+\i (00:24:38) pick grid 11160.3 5813.6
+\t (00:24:38) last pick:  11200.0  5800.0
+\t (00:24:38) Placing U24 / 16L8_1_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:24:41) pick grid 10144.6 5846.1
+\t (00:24:41) last pick:  10100.0  5800.0
+\i (00:24:44) zoom in 1 
+\i (00:24:44) setwindow pcb
+\i (00:24:44) zoom in 11647.9 5675.5
+\i (00:24:44) trapsize 203
+\i (00:24:48) prepopup 11887.7 5890.8
+\i (00:24:49) pick grid 11798.3 5931.5
+\t (00:24:49) last pick:  11800.0  5900.0
+\t (00:24:49) Moving U23 / 8254_DIP10024W600L1200_8254_GND / DIP10024W600L1200.
+\t (00:24:49) last pick:  11200.0  5800.0
+\i (00:24:50) prepopup 11509.8 5736.5
+\i (00:24:51) rotate 
+\t (00:24:51) Spin the element(s).
+\i (00:24:52) iangle 90.000
+\t (00:24:52) last angle:  90.000 Degrees
+\i (00:24:54) zoom out 1 
+\i (00:24:54) setwindow pcb
+\i (00:24:54) zoom out 12009.6 5358.6
+\i (00:24:54) trapsize 406
+\i (00:24:55) zoom in 1 
+\i (00:24:55) setwindow pcb
+\i (00:24:55) zoom in 12046.1 5789.3
+\i (00:24:55) trapsize 203
+\i (00:24:57) zoom out 1 
+\i (00:24:57) setwindow pcb
+\i (00:24:57) zoom out 11969.0 5781.2
+\i (00:24:57) trapsize 406
+\i (00:24:59) pick grid 12046.1 5756.9
+\t (00:24:59) last pick:  12000.0  5800.0
+\i (00:25:00) zoom in 1 
+\i (00:25:00) setwindow pcb
+\i (00:25:00) zoom in 11818.6 6423.2
+\i (00:25:00) trapsize 203
+\i (00:25:03) pick grid 10941.0 5919.4
+\t (00:25:03) last pick:  10900.0  5900.0
+\t (00:25:03) Moving U24 / 16L8_1_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:25:03) last pick:  10100.0  5800.0
+\i (00:25:03) prepopup 10941.0 5907.2
+\i (00:25:05) rotate 
+\t (00:25:05) Spin the element(s).
+\i (00:25:05) iangle 90.000
+\t (00:25:05) last angle:  90.000 Degrees
+\i (00:25:07) pick grid 11152.3 5785.3
+\t (00:25:07) last pick:  11200.0  5800.0
+\i (00:25:21) setwindow form.plc_manual
+\i (00:25:21) FORM plc_manual tree 'MULTISEL YES' J4 'Components by refdes' 
+\t (00:25:21) Placing J4 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7 on Top.
+\i (00:25:21) FORM plc_manual tree  J4 'Components by refdes' 
+\i (00:25:24) setwindow pcb
+\i (00:25:24) pick grid 8649.6 6195.7
+\t (00:25:24) last pick:  8600.0  6200.0
+\i (00:25:25) prepopup 8344.9 6163.2
+\i (00:25:27) pick grid 8243.3 6240.4
+\t (00:25:27) last pick:  8200.0  6200.0
+\t (00:25:27) Moving J4 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:25:27) last pick:  8600.0  6200.0
+\i (00:25:28) prepopup 8275.8 6211.9
+\i (00:25:29) rotate 
+\t (00:25:29) Spin the element(s).
+\i (00:25:31) iangle 90.000
+\t (00:25:31) last angle:  90.000 Degrees
+\i (00:25:52) zoom out 1 
+\i (00:25:52) setwindow pcb
+\i (00:25:52) zoom out 9356.5 5976.3
+\i (00:25:52) trapsize 406
+\i (00:26:00) pick grid 2855.9 4871.1
+\t (00:26:00) last pick:  2900.0  4900.0
+\i (00:26:02) zoom in 1 
+\i (00:26:02) setwindow pcb
+\i (00:26:02) zoom in 3660.4 4513.6
+\i (00:26:02) trapsize 203
+\i (00:26:06) pick grid 2860.0 4806.2
+\t (00:26:06) last pick:  2900.0  4800.0
+\t (00:26:06) Moving J4 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:26:06) last pick:  2900.0  4900.0
+\i (00:26:08) pick grid 2864.1 4952.4
+\t (00:26:08) last pick:  2900.0  5000.0
+\i (00:26:10) setwindow form.plc_manual
+\i (00:26:10) FORM plc_manual done  
+\i (00:26:10) setwindow pcb
+\i (00:26:10) generaledit 
+\i (00:26:14) auto_route 
+\i (00:26:16) setwindow form.vse_armain
+\i (00:26:16) FORM vse_armain execute  
+\i (00:26:25) FORM vse_armain results  
+\i (00:26:27) setwindow form.vse_progress
+\i (00:26:27) FORM vse_progress close  
+\i (00:26:29) setwindow form.vse_armain
+\i (00:26:29) FORM vse_armain close  
+\i (00:26:29) setwindow pcb
+\i (00:26:29) generaledit 
+\i (00:26:31) drc update 
+\t (00:26:31) Performing DRC...
+\t (00:26:31) Multithreaded DRC update (8 threads).
+\t (00:26:31) No DRC errors detected.
+\i (00:26:31) generaledit 
+\i (00:26:33) save 
+\i (00:26:56) fillin yes 
+\i (00:26:56) generaledit 
+\i (00:27:35) zoom out 1 
+\i (00:27:35) setwindow pcb
+\i (00:27:35) zoom out 4806.1 4424.3
+\i (00:27:35) trapsize 406
+\i (00:27:35) zoom out 1 
+\i (00:27:35) setwindow pcb
+\i (00:27:35) zoom out 5943.7 4245.5
+\i (00:27:36) trapsize 813
+\i (00:28:43) place manual 
+\i (00:28:48) setwindow form.plc_manual
+\i (00:28:48) FORM plc_manual tree 'MULTISEL YES' U25 'Components by refdes' 
+\t (00:28:48) Placing U25 / PC16550D_DIP10040W600L2025_PC16 / DIP10040W600L2025 on Top.
+\i (00:28:48) FORM plc_manual tree  U25 'Components by refdes' 
+\i (00:28:49) FORM plc_manual tree 'MULTISEL YES' U26 'Components by refdes' 
+\i (00:28:49) FORM plc_manual tree  U26 'Components by refdes' 
+\i (00:28:50) FORM plc_manual tree 'MULTISEL YES' U27 'Components by refdes' 
+\i (00:28:50) FORM plc_manual tree  U27 'Components by refdes' 
+\i (00:28:50) setwindow pcb
+\i (00:28:50) zoom in 1 
+\i (00:28:50) setwindow pcb
+\i (00:28:50) zoom in 12159.8 3644.1
+\i (00:28:50) trapsize 406
+\i (00:28:51) zoom out 1 
+\i (00:28:51) setwindow pcb
+\i (00:28:51) zoom out 6236.2 3481.6
+\i (00:28:51) trapsize 813
+\i (00:28:55) zoom in 1 
+\i (00:28:55) setwindow pcb
+\i (00:28:55) zoom in 10550.9 2815.3
+\i (00:28:55) trapsize 406
+\i (00:29:02) prepopup 9917.1 2799.1
+\i (00:29:03) rotate 
+\t (00:29:03) Spin the element(s).
+\i (00:29:06) iangle 90.000
+\t (00:29:06) last angle:  +90.000 Degrees
+\i (00:29:13) pick grid 12265.4 2644.7
+\t (00:29:13) last pick:  12300.0  2600.0
+\t (00:29:13) Placing U26 / MAX235_DIP10024W600L1200_MAX235 / DIP10024W600L1200 on Top.
+\i (00:29:17) prepopup 9974.0 2977.9
+\i (00:29:18) rotate 
+\t (00:29:18) Spin the element(s).
+\i (00:29:19) iangle 90.000
+\t (00:29:19) last angle:  +90.000 Degrees
+\i (00:29:28) pick grid 11054.7 2856.0
+\t (00:29:28) last pick:  11100.0  2900.0
+\t (00:29:28) Placing U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:29:30) zoom out 1 
+\i (00:29:30) setwindow pcb
+\i (00:29:30) zoom out 3197.2 1913.4
+\i (00:29:30) trapsize 813
+\i (00:29:32) zoom in 1 
+\i (00:29:32) setwindow pcb
+\i (00:29:32) zoom in 5058.0 263.8
+\i (00:29:32) trapsize 406
+\i (00:29:35) prepopup 4554.2 166.3
+\i (00:29:36) rotate 
+\t (00:29:36) Spin the element(s).
+\i (00:29:37) iangle 90.000
+\t (00:29:37) last angle:  +90.000 Degrees
+\i (00:29:39) pick grid 5058.0 141.9
+\t (00:29:39) last pick:  5100.0  100.0
+\i (00:29:41) zoom in 1 
+\i (00:29:41) setwindow pcb
+\i (00:29:41) zoom in 5350.5 718.8
+\i (00:29:41) trapsize 203
+\i (00:29:42) zoom out 1 
+\i (00:29:42) setwindow pcb
+\i (00:29:42) zoom out 4785.8 678.2
+\i (00:29:42) trapsize 406
+\i (00:29:43) zoom in 1 
+\i (00:29:43) setwindow pcb
+\i (00:29:43) zoom in 3961.0 198.9
+\i (00:29:43) trapsize 203
+\i (00:29:48) pick grid 5021.4 540.2
+\t (00:29:48) last pick:  5000.0  500.0
+\t (00:29:48) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:29:48) last pick:  5100.0  100.0
+\i (00:29:49) pick grid 5123.0 247.7
+\t (00:29:49) last pick:  5100.0  200.0
+\i (00:29:50) pick grid 5049.9 532.1
+\t (00:29:50) last pick:  5000.0  500.0
+\t (00:29:50) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:29:50) last pick:  5100.0  200.0
+\i (00:29:53) pick grid 5082.4 146.1
+\t (00:29:53) last pick:  5100.0  100.0
+\i (00:29:53) zoom out 1 
+\i (00:29:53) setwindow pcb
+\i (00:29:53) zoom out 4940.2 296.4
+\i (00:29:53) trapsize 406
+\i (00:29:54) zoom in 1 
+\i (00:29:54) setwindow pcb
+\i (00:29:54) zoom in 4830.5 36.5
+\i (00:29:54) trapsize 203
+\i (00:29:55) pick grid 5074.3 239.7
+\t (00:29:55) last pick:  5100.0  200.0
+\t (00:29:55) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:29:55) last pick:  5100.0  100.0
+\i (00:29:58) pick grid 5143.4 150.3
+\t (00:29:58) last pick:  5100.0  200.0
+\i (00:30:01) pick grid 5009.3 560.6
+\t (00:30:01) last pick:  5000.0  600.0
+\t (00:30:01) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:01) last pick:  5100.0  200.0
+\i (00:30:03) pick grid 8970.6 2547.4
+\t (00:30:03) last pick:  9000.0  2500.0
+\i (00:30:05) zoom out 1 
+\i (00:30:05) setwindow pcb
+\i (00:30:05) zoom out 8024.0 2027.3
+\i (00:30:05) trapsize 406
+\i (00:30:05) zoom in 1 
+\i (00:30:05) setwindow pcb
+\i (00:30:05) zoom in 10437.2 3246.0
+\i (00:30:05) trapsize 203
+\i (00:30:06) pick grid 8901.5 2986.0
+\t (00:30:06) last pick:  8900.0  3000.0
+\t (00:30:06) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:06) last pick:  9000.0  2500.0
+\i (00:30:08) pick grid 9506.8 2851.9
+\t (00:30:08) last pick:  9500.0  2900.0
+\i (00:30:10) pick grid 9389.0 3075.3
+\t (00:30:10) last pick:  9400.0  3100.0
+\t (00:30:10) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:10) last pick:  9500.0  2900.0
+\i (00:30:12) pick grid 10209.7 2949.4
+\t (00:30:12) last pick:  10200.0  2900.0
+\i (00:30:15) zoom in 1 
+\i (00:30:15) setwindow pcb
+\i (00:30:15) zoom in 10356.0 2571.5
+\i (00:30:15) trapsize 102
+\i (00:30:16) zoom out 1 
+\i (00:30:16) setwindow pcb
+\i (00:30:16) zoom out 10376.3 2652.8
+\i (00:30:16) trapsize 203
+\i (00:30:18) pick grid 10043.1 3112.0
+\t (00:30:18) last pick:  10000.0  3100.0
+\t (00:30:18) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:18) last pick:  10200.0  2900.0
+\i (00:30:18) prepopup 10043.1 3112.0
+\i (00:30:21) rotate 
+\t (00:30:21) Spin the element(s).
+\i (00:30:23) iangle 90.000
+\t (00:30:23) last angle:  180.000 Degrees
+\i (00:30:25) pick grid 11355.4 4546.2
+\t (00:30:25) last pick:  11400.0  4500.0
+\i (00:30:26) zoom in 1 
+\i (00:30:26) setwindow pcb
+\i (00:30:26) zoom in 11172.6 4257.7
+\i (00:30:26) trapsize 102
+\i (00:30:27) pick grid 11056.8 4322.7
+\t (00:30:27) last pick:  11100.0  4300.0
+\t (00:30:27) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:27) last pick:  11400.0  4500.0
+\i (00:30:30) pick grid 10748.0 4450.7
+\t (00:30:30) last pick:  10700.0  4500.0
+\i (00:30:31) zoom out 1 
+\i (00:30:31) setwindow pcb
+\i (00:30:31) zoom out 10959.3 4290.2
+\i (00:30:31) trapsize 203
+\i (00:30:32) zoom out 1 
+\i (00:30:32) setwindow pcb
+\i (00:30:32) zoom out 11418.5 3506.2
+\i (00:30:32) trapsize 406
+\i (00:30:33) zoom in 1 
+\i (00:30:33) setwindow pcb
+\i (00:30:33) zoom in 12314.3 4960.5
+\i (00:30:33) trapsize 203
+\i (00:30:34) pick grid 10668.9 4314.5
+\t (00:30:34) last pick:  10700.0  4300.0
+\t (00:30:34) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:34) last pick:  10700.0  4500.0
+\i (00:30:38) pick grid 12269.6 4948.4
+\t (00:30:38) last pick:  12300.0  4900.0
+\i (00:30:39) zoom in 1 
+\i (00:30:39) setwindow pcb
+\i (00:30:39) zoom in 11920.2 4700.5
+\i (00:30:39) trapsize 102
+\i (00:30:40) pick grid 11908.0 4771.6
+\t (00:30:40) last pick:  11900.0  4800.0
+\t (00:30:40) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:40) last pick:  12300.0  4900.0
+\i (00:30:42) pick grid 12253.3 4958.5
+\t (00:30:42) last pick:  12300.0  5000.0
+\i (00:30:44) pick grid 12198.5 4887.4
+\t (00:30:44) last pick:  12200.0  4900.0
+\t (00:30:44) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:44) last pick:  12300.0  5000.0
+\i (00:30:46) pick grid 12001.4 4946.3
+\t (00:30:46) last pick:  12000.0  4900.0
+\i (00:30:47) pick grid 11893.8 4796.0
+\t (00:30:47) last pick:  11900.0  4800.0
+\t (00:30:47) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:47) last pick:  12000.0  4900.0
+\i (00:30:48) pick grid 11749.5 4869.1
+\t (00:30:48) last pick:  11700.0  4900.0
+\i (00:30:49) pick grid 11684.5 4793.9
+\t (00:30:49) last pick:  11700.0  4800.0
+\t (00:30:49) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:30:49) last pick:  11700.0  4900.0
+\i (00:30:54) pick grid 10544.9 4401.9
+\t (00:30:54) last pick:  10500.0  4400.0
+\i (00:31:01) pick grid 9852.2 4219.1
+\t (00:31:01) last pick:  9900.0  4200.0
+\t (00:31:01) Moving U27 / 16L8_2_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:31:01) last pick:  10500.0  4400.0
+\i (00:31:03) pick grid 10398.7 4548.1
+\t (00:31:03) last pick:  10400.0  4500.0
+\i (00:31:06) zoom out 1 
+\i (00:31:06) setwindow pcb
+\i (00:31:06) zoom out 10827.3 3764.0
+\i (00:31:06) trapsize 203
+\i (00:31:07) zoom out 1 
+\i (00:31:07) setwindow pcb
+\i (00:31:07) zoom out 11188.8 3500.0
+\i (00:31:07) trapsize 406
+\i (00:31:08) zoom out 1 
+\i (00:31:08) setwindow pcb
+\i (00:31:08) zoom out 11152.3 3556.8
+\i (00:31:08) trapsize 813
+\i (00:31:09) zoom in 1 
+\i (00:31:09) setwindow pcb
+\i (00:31:09) zoom in 12306.1 2441.5
+\i (00:31:10) trapsize 406
+\i (00:31:12) setwindow form.plc_manual
+\i (00:31:12) FORM plc_manual done  
+\i (00:31:12) setwindow pcb
+\i (00:31:12) generaledit 
+\i (00:31:16) auto_route 
+\i (00:31:18) setwindow form.vse_armain
+\i (00:31:18) FORM vse_armain execute  
+\i (00:31:26) FORM vse_armain results  
+\i (00:31:28) setwindow form.vse_progress
+\i (00:31:28) FORM vse_progress close  
+\i (00:31:29) setwindow form.vse_armain
+\i (00:31:29) FORM vse_armain close  
+\i (00:31:29) setwindow pcb
+\i (00:31:29) generaledit 
+\i (00:31:32) drc update 
+\t (00:31:32) Performing DRC...
+\t (00:31:32) Multithreaded DRC update (8 threads).
+\t (00:31:32) No DRC errors detected.
+\i (00:31:32) generaledit 
+\i (00:31:34) save 
+\i (00:31:36) fillin yes 
+\i (00:31:36) generaledit 
+\i (00:31:45) place manual 
+\i (00:31:49) setwindow form.plc_manual
+\i (00:31:49) FORM plc_manual tree 'MULTISEL YES' J5 'Components by refdes' 
+\t (00:31:49) Placing J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9 on Top.
+\i (00:31:49) FORM plc_manual tree  J5 'Components by refdes' 
+\i (00:31:53) setwindow pcb
+\i (00:31:53) pick grid 9055.8 3798.5
+\t (00:31:53) last pick:  9100.0  3800.0
+\i (00:31:54) zoom in 1 
+\i (00:31:54) setwindow pcb
+\i (00:31:54) zoom in 10315.3 3156.6
+\i (00:31:54) trapsize 203
+\i (00:31:57) pick grid 9120.9 3542.6
+\t (00:31:57) last pick:  9100.0  3500.0
+\t (00:31:57) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:31:57) last pick:  9100.0  3800.0
+\i (00:31:58) pick grid 9352.5 3428.8
+\t (00:31:58) last pick:  9400.0  3400.0
+\i (00:31:59) pick grid 9299.7 3116.0
+\t (00:31:59) last pick:  9300.0  3100.0
+\t (00:31:59) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:31:59) last pick:  9400.0  3400.0
+\i (00:32:02) pick grid 8653.7 3241.9
+\t (00:32:02) last pick:  8700.0  3200.0
+\i (00:32:03) zoom out 1 
+\i (00:32:03) setwindow pcb
+\i (00:32:03) zoom out 8893.4 2791.0
+\i (00:32:03) trapsize 406
+\i (00:32:04) zoom out 1 
+\i (00:32:04) setwindow pcb
+\i (00:32:04) zoom out 9259.0 2465.9
+\i (00:32:04) trapsize 813
+\i (00:32:05) zoom in 1 
+\i (00:32:05) setwindow pcb
+\i (00:32:05) zoom in 10567.2 1190.1
+\i (00:32:05) trapsize 406
+\i (00:32:06) zoom in 1 
+\i (00:32:06) setwindow pcb
+\i (00:32:06) zoom in 8137.6 2124.6
+\i (00:32:06) trapsize 203
+\i (00:32:07) zoom out 1 
+\i (00:32:07) setwindow pcb
+\i (00:32:07) zoom out 7089.4 2409.1
+\i (00:32:07) trapsize 406
+\i (00:32:11) pick grid 8747.1 2766.6
+\t (00:32:11) last pick:  8700.0  2800.0
+\t (00:32:11) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:32:11) last pick:  8700.0  3200.0
+\i (00:32:13) zoom in 1 
+\i (00:32:13) setwindow pcb
+\i (00:32:13) zoom in 2100.2 6016.9
+\i (00:32:13) trapsize 203
+\i (00:32:20) pick grid 2348.1 6199.7
+\t (00:32:20) last pick:  2300.0  6200.0
+\i (00:32:20) prepopup 2250.5 5935.6
+\i (00:32:22) pick grid 2120.5 5947.8
+\t (00:32:22) last pick:  2100.0  5900.0
+\t (00:32:22) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:32:22) last pick:  2300.0  6200.0
+\i (00:32:22) prepopup 2140.8 5927.5
+\i (00:32:24) rotate 
+\t (00:32:24) Spin the element(s).
+\i (00:32:24) iangle 90.000
+\t (00:32:24) last angle:  90.000 Degrees
+\i (00:32:28) zoom in 1 
+\i (00:32:28) setwindow pcb
+\i (00:32:28) zoom in 1783.3 5659.3
+\i (00:32:28) trapsize 102
+\i (00:32:28) zoom out 1 
+\i (00:32:28) setwindow pcb
+\i (00:32:28) zoom out 1783.3 5659.4
+\i (00:32:28) trapsize 203
+\i (00:32:29) zoom out 1 
+\i (00:32:29) setwindow pcb
+\i (00:32:29) zoom out 1779.3 5655.3
+\i (00:32:29) trapsize 406
+\i (00:32:31) zoom out 1 
+\i (00:32:31) setwindow pcb
+\i (00:32:31) zoom out 4757.3 1275.5
+\i (00:32:31) trapsize 813
+\i (00:32:33) zoom in 1 
+\i (00:32:33) setwindow pcb
+\i (00:32:33) zoom in 7479.4 361.3
+\i (00:32:33) trapsize 406
+\i (00:32:40) pick grid 4659.8 2847.8
+\t (00:32:40) last pick:  4700.0  2800.0
+\i (00:32:42) pick grid 4700.4 3034.7
+\t (00:32:42) last pick:  4700.0  3000.0
+\t (00:32:42) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:32:42) last pick:  4700.0  2800.0
+\i (00:32:45) pick grid 1653.3 5708.1
+\t (00:32:45) last pick:  1700.0  5700.0
+\i (00:32:46) pick grid 1669.6 5708.1
+\t (00:32:46) last pick:  1700.0  5700.0
+\t (00:32:46) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:32:46) last pick:  1700.0  5700.0
+\i (00:32:53) pick grid 2116.5 5350.5
+\t (00:32:53) last pick:  2100.0  5400.0
+\i (00:32:55) setwindow form.plc_manual
+\i (00:32:55) FORM plc_manual done  
+\i (00:32:55) setwindow pcb
+\i (00:32:55) generaledit 
+\i (00:33:00) auto_route 
+\i (00:33:01) setwindow form.vse_armain
+\i (00:33:01) FORM vse_armain execute  
+\i (00:33:09) FORM vse_armain results  
+\i (00:33:11) setwindow form.vse_progress
+\i (00:33:11) FORM vse_progress close  
+\i (00:33:12) setwindow form.vse_armain
+\i (00:33:12) FORM vse_armain close  
+\i (00:33:12) setwindow pcb
+\i (00:33:12) generaledit 
+\i (00:33:14) drc update 
+\t (00:33:14) Performing DRC...
+\t (00:33:14) Multithreaded DRC update (8 threads).
+\t (00:33:14) DRC done; 1 errors detected.
+\i (00:33:14) generaledit 
+\i (00:33:16) zoom in 1 
+\i (00:33:16) setwindow pcb
+\i (00:33:16) zoom in 2595.9 5935.6
+\i (00:33:16) trapsize 203
+\i (00:33:18) zoom in 1 
+\i (00:33:18) setwindow pcb
+\i (00:33:18) zoom in 2591.9 6146.9
+\i (00:33:18) trapsize 102
+\i (00:33:22) drag_start grid 2531.0 6226.2
+\i (00:33:22) move 
+\t (00:33:22) last pick:  2100.0  5400.0
+\t (00:33:22) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:33:22) Pick new location for the element(s).
+\i (00:33:26) drag_stop grid 2008.9 5403.4
+\i (00:33:26) generaledit 
+\i (00:33:29) drag_start grid 2441.6 5868.6
+\i (00:33:30) drag_stop 2518.8 5864.6
+\i (00:33:32) drag_start grid 2518.8 6077.9
+\i (00:33:32) drag_stop 2543.2 6077.9
+\i (00:33:35) drag_start grid 2399.0 6236.3
+\i (00:33:35) slide 
+\t (00:33:35) Selected item not valid for current operation, ignored: Horizontal Line Segment "Package Geometry/Assembly_Top"
+\t (00:33:35) No valid items selected for the current operation, exiting.
+\i (00:33:35) generaledit 
+\i (00:33:35) drag_stop grid 2457.9 6236.3
+\i (00:33:36) drag_start grid 2466.0 6236.3
+\i (00:33:36) move 
+\t (00:33:36) last pick:  2000.0  5400.0
+\t (00:33:36) Moving J5 / CONN DSUB 9-P_DSUBRP318TM9_CONN / DSUBRP318TM9.
+\t (00:33:36) Pick new location for the element(s).
+\i (00:33:47) drag_stop grid 1970.3 5462.4
+\i (00:33:47) generaledit 
+\i (00:33:51) drag_start grid 2386.8 5907.2
+\i (00:33:52) drag_stop 2388.8 5884.9
+\i (00:33:53) zoom out 1 
+\i (00:33:53) setwindow pcb
+\i (00:33:53) zoom out 2409.1 5698.0
+\i (00:33:53) trapsize 203
+\i (00:34:00) auto_route 
+\i (00:34:02) setwindow form.vse_armain
+\i (00:34:02) FORM vse_armain execute  
+\i (00:34:08) FORM vse_armain results  
+\i (00:34:12) setwindow form.vse_progress
+\i (00:34:12) FORM vse_progress close  
+\i (00:34:13) setwindow form.vse_armain
+\i (00:34:13) FORM vse_armain close  
+\i (00:34:13) setwindow pcb
+\i (00:34:13) generaledit 
+\i (00:34:16) drc update 
+\t (00:34:16) Performing DRC...
+\t (00:34:16) Multithreaded DRC update (8 threads).
+\t (00:34:16) No DRC errors detected.
+\i (00:34:16) generaledit 
+\i (00:34:23) save 
+\i (00:34:24) fillin yes 
+\i (00:34:24) generaledit 
+\i (00:34:45) zoom out 1 
+\i (00:34:45) setwindow pcb
+\i (00:34:45) zoom out 4172.4 4548.2
+\i (00:34:45) trapsize 406
+\i (00:34:45) zoom out 1 
+\i (00:34:45) setwindow pcb
+\i (00:34:45) zoom out 5383.0 4548.3
+\i (00:34:45) trapsize 813
+\i (00:34:45) zoom out 1 
+\i (00:34:45) setwindow pcb
+\i (00:34:45) zoom out 11266.0 4164.1
+\i (00:34:45) trapsize 813
+\i (00:34:49) zoom in 1 
+\i (00:34:49) setwindow pcb
+\i (00:34:49) zoom in 5301.7 1515.2
+\i (00:34:49) trapsize 406
+\i (00:34:53) zoom out 1 
+\i (00:34:53) setwindow pcb
+\i (00:34:53) zoom out 4537.9 2010.9
+\i (00:34:53) trapsize 813
+\i (00:35:13) place manual 
+\i (00:35:20) setwindow form.plc_manual
+\i (00:35:20) FORM plc_manual tree 'MULTISEL YES' U28 'Components by refdes' 
+\t (00:35:20) Placing U28 / 8259A_DIP10028W600L1400_8259A_G / DIP10028W600L1400 on Top.
+\i (00:35:20) FORM plc_manual tree  U28 'Components by refdes' 
+\i (00:35:21) FORM plc_manual tree 'MULTISEL YES' U29 'Components by refdes' 
+\i (00:35:21) FORM plc_manual tree  U29 'Components by refdes' 
+\i (00:35:32) setwindow pcb
+\i (00:35:32) zoom in 1 
+\i (00:35:32) setwindow pcb
+\i (00:35:32) zoom in 4472.9 3481.6
+\i (00:35:32) trapsize 406
+\i (00:35:33) zoom out 1 
+\i (00:35:33) setwindow pcb
+\i (00:35:33) zoom out 4602.9 4099.1
+\i (00:35:33) trapsize 813
+\i (00:35:47) zoom in 1 
+\i (00:35:47) setwindow pcb
+\i (00:35:47) zoom in 4554.2 5903.0
+\i (00:35:47) trapsize 406
+\i (00:35:54) zoom out 1 
+\i (00:35:54) setwindow pcb
+\i (00:35:54) zoom out 4310.4 5829.9
+\i (00:35:54) trapsize 813
+\i (00:35:55) zoom in 1 
+\i (00:35:55) setwindow pcb
+\i (00:35:55) zoom in 4310.4 4099.1
+\i (00:35:56) trapsize 406
+\i (00:35:58) prepopup 4416.0 4091.0
+\i (00:35:59) rotate 
+\t (00:35:59) Spin the element(s).
+\i (00:36:00) iangle 90.000
+\t (00:36:00) last angle:  +90.000 Degrees
+\i (00:36:07) zoom out 1 
+\i (00:36:07) setwindow pcb
+\i (00:36:07) zoom out 5098.6 3782.3
+\i (00:36:07) trapsize 813
+\i (00:36:10) zoom in 1 
+\i (00:36:10) setwindow pcb
+\i (00:36:10) zoom in 5545.5 2587.8
+\i (00:36:10) trapsize 406
+\i (00:36:12) pick grid 5179.8 3757.9
+\t (00:36:12) last pick:  5200.0  3800.0
+\t (00:36:12) Placing U29 / 16L8_3_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:36:16) pick grid 4546.0 6033.1
+\t (00:36:16) last pick:  4500.0  6000.0
+\i (00:36:17) zoom in 1 
+\i (00:36:17) setwindow pcb
+\i (00:36:17) zoom in 4854.8 3806.6
+\i (00:36:17) trapsize 203
+\i (00:36:20) pick grid 5041.7 4688.3
+\t (00:36:20) last pick:  5000.0  4700.0
+\t (00:36:20) Moving U28 / 8259A_DIP10028W600L1400_8259A_G / DIP10028W600L1400.
+\t (00:36:20) last pick:  5200.0  3800.0
+\i (00:36:22) zoom out 1 
+\i (00:36:22) setwindow pcb
+\i (00:36:22) zoom out 5232.7 4082.9
+\i (00:36:22) trapsize 406
+\i (00:36:23) zoom out 1 
+\i (00:36:23) setwindow pcb
+\i (00:36:23) zoom out 5350.5 4473.0
+\i (00:36:23) trapsize 813
+\i (00:36:27) zoom in 1 
+\i (00:36:27) setwindow pcb
+\i (00:36:27) zoom in 8779.5 2961.5
+\i (00:36:27) trapsize 406
+\i (00:36:28) prepopup 8665.8 2977.8
+\i (00:36:29) rotate 
+\t (00:36:29) Spin the element(s).
+\i (00:36:32) iangle 180.000
+\t (00:36:32) last angle:  270.000 Degrees
+\i (00:36:41) pick grid 8763.3 3692.9
+\t (00:36:41) last pick:  8800.0  3700.0
+\i (00:36:44) pick grid 4684.2 6090.0
+\t (00:36:44) last pick:  4700.0  6100.0
+\t (00:36:44) Moving U29 / 16L8_3_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:36:44) last pick:  4500.0  6000.0
+\i (00:36:44) prepopup 4692.3 4416.1
+\i (00:36:46) rotate 
+\t (00:36:46) Spin the element(s).
+\i (00:36:47) iangle 90.000
+\t (00:36:47) last angle:  90.000 Degrees
+\i (00:36:53) pick grid 4944.2 3969.2
+\t (00:36:53) last pick:  4900.0  4000.0
+\i (00:36:55) zoom in 1 
+\i (00:36:55) setwindow pcb
+\i (00:36:55) zoom in 9348.3 3213.5
+\i (00:36:55) trapsize 203
+\i (00:37:44) setwindow form.plc_manual
+\i (00:37:44) FORM plc_manual done  
+\i (00:37:44) setwindow pcb
+\i (00:37:44) generaledit 
+\i (00:37:47) save 
+\i (00:37:50) fillin yes 
+\i (00:37:50) generaledit 
+\i (00:37:55) pick grid 9165.6 3497.9
+\t (00:37:55) last pick:  9200.0  3500.0
+\i (00:37:55) prepopup 9165.6 3497.9
+\i (00:37:57) pop dyn_option_select @:@Delete 
+\i (00:37:57) delete 
+\i (00:37:57) generaledit 
+\i (00:38:02) zoom out 1 
+\i (00:38:02) setwindow pcb
+\i (00:38:02) zoom out 9401.2 2652.9
+\i (00:38:02) trapsize 406
+\i (00:38:03) zoom in 1 
+\i (00:38:03) setwindow pcb
+\i (00:38:03) zoom in 8958.3 2262.8
+\i (00:38:03) trapsize 203
+\i (00:38:10) prepopup 9173.7 2888.5
+\i (00:38:13) pop dyn_option_select @:@Delete 
+\i (00:38:13) delete 
+\i (00:38:13) generaledit 
+\i (00:38:15) prepopup 9202.1 2721.9
+\i (00:38:17) pop dyn_option_select @:@Delete 
+\i (00:38:17) delete 
+\i (00:38:17) generaledit 
+\i (00:38:19) prepopup 9852.2 2526.9
+\i (00:38:20) pop dyn_option_select @:@Delete 
+\i (00:38:20) delete 
+\i (00:38:20) generaledit 
+\i (00:38:25) auto_route 
+\i (00:38:27) setwindow form.vse_armain
+\i (00:38:27) FORM vse_armain execute  
+\i (00:38:41) FORM vse_armain results  
+\i (00:38:43) setwindow form.vse_progress
+\i (00:38:43) FORM vse_progress close  
+\i (00:38:44) setwindow form.vse_armain
+\i (00:38:44) FORM vse_armain close  
+\i (00:38:45) setwindow pcb
+\i (00:38:45) generaledit 
+\i (00:38:47) drc update 
+\t (00:38:47) Performing DRC...
+\t (00:38:47) Multithreaded DRC update (8 threads).
+\t (00:38:47) No DRC errors detected.
+\i (00:38:47) generaledit 
+\i (00:38:50) save 
+\i (00:38:50) fillin yes 
+\i (00:38:51) generaledit 
+\i (00:38:51) zoom out 1 
+\i (00:38:51) setwindow pcb
+\i (00:38:51) zoom out 8158.0 3656.4
+\i (00:38:51) trapsize 406
+\i (00:38:52) zoom out 1 
+\i (00:38:52) setwindow pcb
+\i (00:38:52) zoom out 4887.4 1454.3
+\i (00:38:52) trapsize 813
+\i (00:38:54) zoom in 1 
+\i (00:38:54) setwindow pcb
+\i (00:38:54) zoom in 4944.2 507.6
+\i (00:38:54) trapsize 406
+\i (00:39:06) place manual 
+\i (00:39:20) setwindow form.plc_manual
+\i (00:39:20) FORM plc_manual tree 'MULTISEL YES' J6 'Components by refdes' 
+\t (00:39:20) Placing J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7 on Top.
+\i (00:39:20) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:39:37) setwindow pcb
+\i (00:39:37) prepopup 9291.4 3506.0
+\i (00:39:38) rotate 
+\t (00:39:38) Spin the element(s).
+\i (00:39:40) iangle 90.000
+\t (00:39:40) last angle:  +90.000 Degrees
+\i (00:39:48) zoom in 1 
+\i (00:39:48) setwindow pcb
+\i (00:39:48) zoom in 3717.2 5407.4
+\i (00:39:48) trapsize 203
+\i (00:39:48) zoom out 1 
+\i (00:39:48) setwindow pcb
+\i (00:39:48) zoom out 3680.7 5387.1
+\i (00:39:48) trapsize 406
+\i (00:39:50) zoom out 1 
+\i (00:39:50) setwindow pcb
+\i (00:39:50) zoom out 3042.8 5704.0
+\i (00:39:50) trapsize 813
+\i (00:39:53) zoom in 1 
+\i (00:39:53) setwindow pcb
+\i (00:39:53) zoom in 4164.1 6699.3
+\i (00:39:53) trapsize 406
+\i (00:40:00) pick grid 3213.4 7544.4
+\t (00:40:00) last pick:  3200.0  7500.0
+\i (00:40:03) zoom in 1 
+\i (00:40:03) setwindow pcb
+\i (00:40:03) zoom in 3449.1 7633.8
+\i (00:40:03) trapsize 203
+\i (00:40:08) pick grid 3099.7 7353.5
+\t (00:40:08) last pick:  3100.0  7400.0
+\t (00:40:08) Moving J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:40:08) last pick:  3200.0  7500.0
+\i (00:40:22) pick grid 3002.2 7552.6
+\t (00:40:22) last pick:  3000.0  7600.0
+\i (00:40:24) zoom in 1 
+\i (00:40:24) setwindow pcb
+\i (00:40:24) zoom in 3424.8 7869.5
+\i (00:40:24) trapsize 102
+\i (00:40:27) zoom out 1 
+\i (00:40:27) setwindow pcb
+\i (00:40:27) zoom out 3026.6 7315.0
+\i (00:40:27) trapsize 203
+\i (00:40:30) zoom in 1 
+\i (00:40:30) setwindow pcb
+\i (00:40:30) zoom in 3209.5 6985.9
+\i (00:40:30) trapsize 102
+\i (00:40:34) pick grid 2837.8 7258.1
+\t (00:40:34) last pick:  2800.0  7300.0
+\t (00:40:34) Moving J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:40:34) last pick:  3000.0  7600.0
+\i (00:40:35) pick grid 2837.8 7258.1
+\t (00:40:35) last pick:  2800.0  7300.0
+\i (00:40:36) pick grid 2910.9 7292.7
+\t (00:40:36) last pick:  2900.0  7300.0
+\t (00:40:36) Moving J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:40:36) last pick:  2800.0  7300.0
+\i (00:40:38) pick grid 3049.1 7290.6
+\t (00:40:38) last pick:  3000.0  7300.0
+\i (00:40:39) setwindow form.plc_manual
+\i (00:40:39) FORM plc_manual done  
+\i (00:40:40) setwindow pcb
+\i (00:40:40) generaledit 
+\i (00:40:41) prepopup 2860.1 6971.7
+\i (00:40:43) pop dyn_option_select @:@Delete 
+\i (00:40:43) delete 
+\i (00:40:43) generaledit 
+\i (00:40:44) prepopup 2821.5 6949.4
+\i (00:40:45) pop dyn_option_select @:@Delete 
+\i (00:40:45) delete 
+\i (00:40:45) generaledit 
+\i (00:40:46) prepopup 2807.3 6923.0
+\i (00:40:48) pop dyn_option_select @:@Delete 
+\i (00:40:48) delete 
+\i (00:40:48) generaledit 
+\i (00:40:50) prepopup 2947.5 6876.2
+\i (00:40:52) pop dyn_option_select @:@Delete 
+\i (00:40:52) delete 
+\i (00:40:52) generaledit 
+\i (00:40:56) prepopup 2827.6 7891.9
+\i (00:40:58) pop dyn_option_select @:@Delete 
+\i (00:40:58) delete 
+\i (00:40:58) generaledit 
+\i (00:41:00) prepopup 2837.8 8235.2
+\i (00:41:01) pop dyn_option_select '@:@Add vertex' 
+\i (00:41:01) add vertex 
+\i (00:41:03) prepopup 2854.0 8253.5
+\i (00:41:05) oops 
+\i (00:41:05) generaledit 
+\i (00:41:05) prepopup 2821.5 8251.5
+\i (00:41:07) pop dyn_option_select @:@Delete 
+\i (00:41:07) delete 
+\i (00:41:07) generaledit 
+\i (00:41:08) prepopup 2829.7 8267.7
+\i (00:41:09) pop dyn_option_select @:@Delete 
+\i (00:41:09) delete 
+\i (00:41:09) generaledit 
+\i (00:41:10) prepopup 2819.5 8198.7
+\i (00:41:11) pop dyn_option_select @:@Delete 
+\i (00:41:11) delete 
+\i (00:41:11) generaledit 
+\i (00:41:12) prepopup 2799.2 8296.2
+\i (00:41:13) pop dyn_option_select @:@Delete 
+\i (00:41:13) delete 
+\i (00:41:13) generaledit 
+\i (00:41:14) zoom out 1 
+\i (00:41:14) setwindow pcb
+\i (00:41:14) zoom out 2955.6 7083.4
+\i (00:41:14) trapsize 203
+\i (00:41:16) zoom in 1 
+\i (00:41:16) setwindow pcb
+\i (00:41:16) zoom in 2764.7 6417.2
+\i (00:41:16) trapsize 102
+\i (00:41:17) zoom in 1 
+\i (00:41:17) setwindow pcb
+\i (00:41:17) zoom in 2756.6 6472.0
+\i (00:41:17) trapsize 51
+\i (00:41:19) zoom in 1 
+\i (00:41:19) setwindow pcb
+\i (00:41:19) zoom in 2789.1 6459.8
+\i (00:41:19) trapsize 25
+\i (00:41:22) zoom out 1 
+\i (00:41:22) setwindow pcb
+\i (00:41:22) zoom out 2876.5 6622.4
+\i (00:41:22) trapsize 51
+\i (00:41:23) zoom out 1 
+\i (00:41:23) setwindow pcb
+\i (00:41:23) zoom out 2889.6 6425.3
+\i (00:41:23) trapsize 102
+\i (00:41:24) zoom out 1 
+\i (00:41:24) setwindow pcb
+\i (00:41:24) zoom out 2934.3 6689.4
+\i (00:41:24) trapsize 203
+\i (00:41:37) place manual 
+\i (00:41:39) pick grid 2808.3 7323.3
+\t (00:41:39) last pick:  2800.0  7300.0
+\t (00:41:39) Moving J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (00:41:39) last pick:  3000.0  7300.0
+\i (00:41:49) pick grid 2954.6 7453.3
+\t (00:41:49) last pick:  3000.0  7500.0
+\i (00:41:50) zoom in 1 
+\i (00:41:50) setwindow pcb
+\i (00:41:50) zoom in 2930.2 6734.2
+\i (00:41:50) trapsize 102
+\i (00:41:55) setwindow form.plc_manual
+\i (00:41:55) FORM plc_manual done  
+\i (00:41:55) setwindow pcb
+\i (00:41:55) generaledit 
+\i (00:41:56) prepopup 2840.8 7112.0
+\i (00:41:58) pop dyn_option_select @:@Delete 
+\i (00:41:58) delete 
+\i (00:41:58) generaledit 
+\i (00:41:58) prepopup 2810.3 7150.6
+\i (00:41:59) pop dyn_option_select @:@Delete 
+\i (00:41:59) delete 
+\i (00:41:59) generaledit 
+\i (00:42:00) prepopup 2808.3 7177.0
+\i (00:42:01) pop dyn_option_select @:@Delete 
+\i (00:42:01) delete 
+\i (00:42:01) generaledit 
+\i (00:42:02) zoom out 1 
+\i (00:42:02) setwindow pcb
+\i (00:42:02) zoom out 2826.6 7136.4
+\i (00:42:02) trapsize 203
+\i (00:42:03) zoom in 1 
+\i (00:42:03) setwindow pcb
+\i (00:42:03) zoom in 2785.9 8005.9
+\i (00:42:03) trapsize 102
+\i (00:42:04) zoom out 1 
+\i (00:42:04) setwindow pcb
+\i (00:42:04) zoom out 2901.7 7841.4
+\i (00:42:04) trapsize 203
+\i (00:42:05) zoom out 1 
+\i (00:42:05) setwindow pcb
+\i (00:42:05) zoom out 2913.8 8020.2
+\i (00:42:05) trapsize 406
+\i (00:42:06) zoom in 1 
+\i (00:42:06) setwindow pcb
+\i (00:42:06) zoom in 2847.9 8442.7
+\i (00:42:06) trapsize 203
+\i (00:42:07) zoom in 1 
+\i (00:42:07) setwindow pcb
+\i (00:42:07) zoom in 2856.1 8154.3
+\i (00:42:07) trapsize 102
+\i (00:42:09) prepopup 2817.5 7999.9
+\i (00:42:10) pop dyn_option_select @:@Delete 
+\i (00:42:10) delete 
+\i (00:42:10) generaledit 
+\i (00:42:11) prepopup 2831.7 8093.3
+\i (00:42:12) pop dyn_option_select @:@Delete 
+\i (00:42:12) delete 
+\i (00:42:12) generaledit 
+\i (00:42:12) zoom out 1 
+\i (00:42:12) setwindow pcb
+\i (00:42:12) zoom out 2805.3 8099.4
+\i (00:42:12) trapsize 203
+\i (00:42:14) zoom in 1 
+\i (00:42:14) setwindow pcb
+\i (00:42:14) zoom in 2902.8 8566.7
+\i (00:42:14) trapsize 102
+\i (00:42:15) prepopup 2809.3 8453.0
+\i (00:42:16) pop dyn_option_select @:@Delete 
+\i (00:42:16) delete 
+\i (00:42:16) generaledit 
+\i (00:42:17) prepopup 2833.7 8491.6
+\i (00:42:18) pop dyn_option_select @:@Delete 
+\i (00:42:18) delete 
+\i (00:42:18) generaledit 
+\i (00:42:19) prepopup 2852.0 8400.2
+\i (00:42:20) pop dyn_option_select @:@Delete 
+\i (00:42:20) delete 
+\i (00:42:20) generaledit 
+\i (00:42:26) auto_route 
+\i (00:42:29) setwindow form.vse_armain
+\i (00:42:29) FORM vse_armain execute  
+\i (00:42:43) FORM vse_armain close  
+\i (00:42:43) setwindow pcb
+\i (00:42:43) generaledit 
+\i (00:42:45) drc update 
+\t (00:42:45) Performing DRC...
+\t (00:42:45) Multithreaded DRC update (8 threads).
+\t (00:42:45) No DRC errors detected.
+\i (00:42:45) generaledit 
+\i (00:42:47) save 
+\i (00:42:49) fillin yes 
+\i (00:42:49) generaledit 
+\i (00:42:49) zoom out 1 
+\i (00:42:49) setwindow pcb
+\i (00:42:49) zoom out 3800.7 7437.2
+\i (00:42:49) trapsize 203
+\i (00:43:12) zoom out 1 
+\i (00:43:12) setwindow pcb
+\i (00:43:12) zoom out 3296.8 6742.5
+\i (00:43:12) trapsize 406
+\i (00:43:13) zoom out 1 
+\i (00:43:13) setwindow pcb
+\i (00:43:13) zoom out 5253.2 6685.7
+\i (00:43:13) trapsize 813
+\i (00:43:35) place manual 
+\i (00:43:40) setwindow form.plc_manual
+\i (00:43:40) FORM plc_manual tree 'MULTISEL YES' C29 'Components by refdes' 
+\t (00:43:40) Placing C29 / CAP_CPCYL1D200LS100031_CAP / CPCYL1D200LS100031 on Top.
+\i (00:43:40) FORM plc_manual tree  C29 'Components by refdes' 
+\i (00:43:43) FORM plc_manual tree 'MULTISEL YES' D3 'Components by refdes' 
+\i (00:43:43) FORM plc_manual tree  D3 'Components by refdes' 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 1 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 2945.3 8942.0
+\i (00:43:44) trapsize 406
+\i (00:43:44) zoom in 1 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 1230.8 8942.0
+\i (00:43:44) trapsize 203
+\i (00:43:44) zoom in 1 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 1238.9 8946.1
+\i (00:43:44) trapsize 102
+\i (00:43:45) zoom out 1 
+\i (00:43:45) setwindow pcb
+\i (00:43:45) zoom out 1673.7 9035.5
+\i (00:43:45) trapsize 203
+\i (00:43:45) zoom out 1 
+\i (00:43:45) setwindow pcb
+\i (00:43:45) zoom out 1685.9 9003.0
+\i (00:43:45) trapsize 406
+\i (00:43:47) zoom in 1 
+\i (00:43:47) setwindow pcb
+\i (00:43:47) zoom in 2839.7 9969.9
+\i (00:43:47) trapsize 203
+\i (00:43:52) pick grid 2847.9 10083.7
+\t (00:43:52) last pick:  2800.0  10100.0
+\t (00:43:52) Placing D3 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:43:55) pick grid 3343.5 10067.4
+\t (00:43:55) last pick:  3300.0  10100.0
+\i (00:44:12) setwindow form.plc_manual
+\i (00:44:12) FORM plc_manual tree 'MULTISEL YES' SW22 'Components by refdes' 
+\t (00:44:12) Placing SW22 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:44:12) FORM plc_manual tree  SW22 'Components by refdes' 
+\i (00:44:15) setwindow pcb
+\i (00:44:15) pick grid 4026.1 9949.6
+\t (00:44:15) last pick:  4000.0  9900.0
+\i (00:44:17) pick grid 4058.6 10034.9
+\t (00:44:17) last pick:  4100.0  10000.0
+\t (00:44:17) Moving SW22 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645.
+\t (00:44:17) last pick:  4000.0  9900.0
+\i (00:44:19) prepopup 4038.3 9945.6
+\i (00:44:20) rotate 
+\t (00:44:20) Spin the element(s).
+\i (00:44:21) iangle 90.000
+\t (00:44:21) last angle:  90.000 Degrees
+\i (00:44:22) pick grid 4152.0 9892.7
+\t (00:44:22) last pick:  4200.0  9900.0
+\i (00:44:25) pick grid 4062.7 10034.9
+\t (00:44:25) last pick:  4100.0  10000.0
+\t (00:44:25) Moving SW22 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645.
+\t (00:44:25) last pick:  4200.0  9900.0
+\i (00:44:26) prepopup 3757.9 9559.6
+\i (00:44:28) rotate 
+\t (00:44:28) Spin the element(s).
+\i (00:44:29) iangle -90.000
+\t (00:44:29) last angle:  0.000 Degrees
+\i (00:44:33) pick grid 3753.9 9510.8
+\t (00:44:33) last pick:  3800.0  9500.0
+\i (00:44:34) pick grid 3806.7 9567.7
+\t (00:44:34) last pick:  3800.0  9600.0
+\t (00:44:34) Moving SW22 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645.
+\t (00:44:34) last pick:  3800.0  9500.0
+\i (00:44:37) pick grid 3652.3 9535.2
+\t (00:44:37) last pick:  3700.0  9500.0
+\i (00:44:44) setwindow form.plc_manual
+\i (00:44:44) FORM plc_manual tree 'MULTISEL YES' R17 'Components by refdes' 
+\t (00:44:44) Placing R17 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:44:44) FORM plc_manual tree  R17 'Components by refdes' 
+\i (00:44:46) FORM plc_manual tree 'MULTISEL YES' R7 'Components by refdes' 
+\t (00:44:46) Placing R7 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:44:46) FORM plc_manual tree  R7 'Components by refdes' 
+\i (00:44:49) setwindow pcb
+\i (00:44:49) pick grid 3185.1 9653.0
+\t (00:44:49) last pick:  3200.0  9700.0
+\t (00:44:49) Placing R17 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:44:52) zoom out 1 
+\i (00:44:52) setwindow pcb
+\i (00:44:52) zoom out 6939.2 9023.3
+\i (00:44:52) trapsize 406
+\i (00:44:53) zoom out 1 
+\i (00:44:53) setwindow pcb
+\i (00:44:53) zoom out 9348.4 6658.7
+\i (00:44:53) trapsize 813
+\i (00:44:53) zoom out 1 
+\i (00:44:53) setwindow pcb
+\i (00:44:53) zoom out 18920.4 3026.5
+\i (00:44:53) trapsize 813
+\i (00:44:56) zoom in 1 
+\i (00:44:56) setwindow pcb
+\i (00:44:56) zoom in 9510.8 2019.0
+\i (00:44:56) trapsize 406
+\i (00:44:57) zoom in 1 
+\i (00:44:57) setwindow pcb
+\i (00:44:57) zoom in 5407.4 2262.8
+\i (00:44:57) trapsize 203
+\i (00:45:00) prepopup 8986.8 1990.6
+\i (00:45:02) rotate 
+\t (00:45:02) Spin the element(s).
+\i (00:45:03) iangle 90.000
+\t (00:45:03) last angle:  +90.000 Degrees
+\i (00:45:06) pick grid 9299.6 1848.4
+\t (00:45:06) last pick:  9300.0  1800.0
+\i (00:45:10) setwindow form.plc_manual
+\i (00:45:10) FORM plc_manual done  
+\i (00:45:10) setwindow pcb
+\i (00:45:10) generaledit 
+\i (00:45:10) zoom out 1 
+\i (00:45:10) setwindow pcb
+\i (00:45:10) zoom out 4846.7 3079.5
+\i (00:45:10) trapsize 406
+\i (00:45:12) zoom out 1 
+\i (00:45:12) setwindow pcb
+\i (00:45:12) zoom out 2985.9 6662.9
+\i (00:45:12) trapsize 813
+\i (00:45:14) zoom in 1 
+\i (00:45:14) setwindow pcb
+\i (00:45:14) zoom in 4050.4 8747.0
+\i (00:45:14) trapsize 406
+\i (00:45:18) drc update 
+\t (00:45:18) Performing DRC...
+\t (00:45:18) Multithreaded DRC update (8 threads).
+\t (00:45:18) No DRC errors detected.
+\i (00:45:18) generaledit 
+\i (00:45:22) auto_route 
+\i (00:45:23) setwindow form.vse_armain
+\i (00:45:23) FORM vse_armain execute  
+\i (00:45:35) FORM vse_armain close  
+\i (00:45:35) setwindow pcb
+\i (00:45:35) generaledit 
+\i (00:45:37) drc update 
+\t (00:45:37) Performing DRC...
+\t (00:45:37) Multithreaded DRC update (8 threads).
+\t (00:45:37) No DRC errors detected.
+\i (00:45:37) generaledit 
+\i (00:45:39) save 
+\i (00:45:40) fillin yes 
+\i (00:45:40) generaledit 
+\i (00:45:48) place manual 
+\i (00:46:34) setwindow form.plc_manual
+\i (00:46:34) FORM plc_manual tree 'MULTISEL YES' R9 'Components by refdes' 
+\t (00:46:34) Placing R9 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:46:34) FORM plc_manual tree  R9 'Components by refdes' 
+\i (00:46:34) FORM plc_manual tree 'MULTISEL YES' R10 'Components by refdes' 
+\i (00:46:34) FORM plc_manual tree  R10 'Components by refdes' 
+\i (00:46:35) FORM plc_manual tree 'MULTISEL YES' R11 'Components by refdes' 
+\i (00:46:35) FORM plc_manual tree  R11 'Components by refdes' 
+\i (00:46:35) FORM plc_manual tree 'MULTISEL YES' R12 'Components by refdes' 
+\i (00:46:35) FORM plc_manual tree  R12 'Components by refdes' 
+\i (00:46:36) FORM plc_manual tree 'MULTISEL YES' R13 'Components by refdes' 
+\i (00:46:36) FORM plc_manual tree  R13 'Components by refdes' 
+\i (00:46:36) FORM plc_manual tree 'MULTISEL YES' R14 'Components by refdes' 
+\i (00:46:36) FORM plc_manual tree  R14 'Components by refdes' 
+\i (00:46:37) FORM plc_manual tree 'MULTISEL YES' R15 'Components by refdes' 
+\i (00:46:37) FORM plc_manual tree  R15 'Components by refdes' 
+\i (00:46:38) FORM plc_manual tree 'MULTISEL YES' R16 'Components by refdes' 
+\i (00:46:38) FORM plc_manual tree  R16 'Components by refdes' 
+\i (00:46:39) setwindow pcb
+\i (00:46:39) prepopup 5545.5 9218.3
+\i (00:46:40) rotate 
+\t (00:46:40) Spin the element(s).
+\i (00:46:41) iangle 90.000
+\t (00:46:41) last angle:  +90.000 Degrees
+\i (00:46:42) pick grid 5342.4 9185.8
+\t (00:46:42) last pick:  5300.0  9200.0
+\t (00:46:43) Placing R10 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:46:43) prepopup 5789.3 9055.8
+\i (00:46:45) rotate 
+\t (00:46:45) Spin the element(s).
+\i (00:46:46) iangle 90.000
+\t (00:46:46) last angle:  +90.000 Degrees
+\i (00:46:47) pick grid 5643.0 9193.9
+\t (00:46:47) last pick:  5600.0  9200.0
+\t (00:46:47) Placing R11 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:46:48) prepopup 6138.7 9193.9
+\i (00:46:49) rotate 
+\t (00:46:49) Spin the element(s).
+\i (00:46:50) iangle 90.000
+\t (00:46:50) last angle:  +90.000 Degrees
+\i (00:46:50) pick grid 6049.3 9193.9
+\t (00:46:50) last pick:  6000.0  9200.0
+\t (00:46:50) Placing R12 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:46:51) prepopup 6406.8 9047.7
+\i (00:46:52) rotate 
+\t (00:46:52) Spin the element(s).
+\i (00:46:53) iangle 90.000
+\t (00:46:53) last angle:  +90.000 Degrees
+\i (00:46:56) pick grid 6349.9 9258.9
+\t (00:46:56) last pick:  6300.0  9300.0
+\t (00:46:56) Placing R13 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:46:56) zoom in 1 
+\i (00:46:56) setwindow pcb
+\i (00:46:56) zoom in 6366.2 9258.9
+\i (00:46:56) trapsize 203
+\i (00:46:57) prepopup 6658.7 9039.5
+\i (00:46:59) rotate 
+\t (00:46:59) Spin the element(s).
+\i (00:47:00) iangle 90.000
+\t (00:47:00) last angle:  +90.000 Degrees
+\i (00:47:01) pick grid 6740.0 9153.3
+\t (00:47:01) last pick:  6700.0  9200.0
+\t (00:47:01) Placing R14 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:47:01) prepopup 7142.2 8998.9
+\i (00:47:03) rotate 
+\t (00:47:03) Spin the element(s).
+\i (00:47:04) iangle 90.000
+\t (00:47:04) last angle:  +90.000 Degrees
+\i (00:47:05) pick grid 7146.3 9202.1
+\t (00:47:05) last pick:  7100.0  9200.0
+\t (00:47:05) Placing R15 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:47:06) prepopup 7268.2 8836.4
+\i (00:47:07) rotate 
+\t (00:47:07) Spin the element(s).
+\i (00:47:08) iangle 90.000
+\t (00:47:08) last angle:  +90.000 Degrees
+\i (00:47:10) pick grid 7548.5 9234.6
+\t (00:47:10) last pick:  7500.0  9200.0
+\t (00:47:10) Placing R16 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:47:11) prepopup 7511.9 8751.1
+\i (00:47:12) rotate 
+\t (00:47:12) Spin the element(s).
+\i (00:47:13) iangle 90.000
+\t (00:47:13) last angle:  +90.000 Degrees
+\i (00:47:14) pick grid 7853.2 9234.6
+\t (00:47:14) last pick:  7900.0  9200.0
+\i (00:47:17) pick grid 6268.7 9421.4
+\t (00:47:17) last pick:  6300.0  9400.0
+\t (00:47:17) Moving R12 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:17) last pick:  6300.0  9300.0
+\i (00:47:18) pick grid 6370.3 9246.7
+\t (00:47:18) last pick:  6400.0  9200.0
+\i (00:47:19) pick grid 5330.2 9315.8
+\t (00:47:19) last pick:  5300.0  9300.0
+\t (00:47:19) Moving R9 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:19) last pick:  5300.0  9200.0
+\i (00:47:21) pick grid 4716.7 9246.7
+\t (00:47:21) last pick:  4700.0  9200.0
+\i (00:47:22) pick grid 5626.8 9356.4
+\t (00:47:22) last pick:  5600.0  9400.0
+\t (00:47:22) Moving R10 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:22) last pick:  5600.0  9200.0
+\i (00:47:24) pick grid 5049.9 9214.2
+\t (00:47:24) last pick:  5000.0  9200.0
+\i (00:47:25) pick grid 5943.7 9328.0
+\t (00:47:25) last pick:  5900.0  9300.0
+\t (00:47:25) Moving R11 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:25) last pick:  6000.0  9200.0
+\i (00:47:26) pick grid 5346.4 9210.2
+\t (00:47:26) last pick:  5300.0  9200.0
+\i (00:47:27) pick grid 6366.2 9319.9
+\t (00:47:27) last pick:  6400.0  9300.0
+\t (00:47:27) Moving R12 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:27) last pick:  6400.0  9200.0
+\i (00:47:28) pick grid 5647.1 9214.2
+\t (00:47:28) last pick:  5600.0  9200.0
+\i (00:47:29) pick grid 6679.1 9303.6
+\t (00:47:29) last pick:  6700.0  9300.0
+\t (00:47:29) Moving R13 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:29) last pick:  6700.0  9200.0
+\i (00:47:31) pick grid 5947.7 9230.5
+\t (00:47:31) last pick:  5900.0  9200.0
+\i (00:47:32) pick grid 7089.4 9271.1
+\t (00:47:32) last pick:  7100.0  9300.0
+\t (00:47:32) Moving R14 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:32) last pick:  7100.0  9200.0
+\i (00:47:33) pick grid 6248.4 9242.7
+\t (00:47:33) last pick:  6200.0  9200.0
+\i (00:47:34) pick grid 7475.4 9336.1
+\t (00:47:34) last pick:  7500.0  9300.0
+\t (00:47:34) Moving R15 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:34) last pick:  7500.0  9200.0
+\i (00:47:35) pick grid 6549.0 9222.4
+\t (00:47:35) last pick:  6500.0  9200.0
+\i (00:47:36) pick grid 7889.8 9319.9
+\t (00:47:36) last pick:  7900.0  9300.0
+\t (00:47:36) Moving R16 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:47:36) last pick:  7900.0  9200.0
+\i (00:47:38) pick grid 6849.7 9214.2
+\t (00:47:38) last pick:  6800.0  9200.0
+\i (00:47:55) setwindow form.plc_manual
+\i (00:47:55) FORM plc_manual tree 'MULTISEL YES' D4 'Components by refdes' 
+\t (00:47:55) Placing D4 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:47:55) FORM plc_manual tree  D4 'Components by refdes' 
+\i (00:47:55) FORM plc_manual tree 'MULTISEL YES' D5 'Components by refdes' 
+\i (00:47:55) FORM plc_manual tree  D5 'Components by refdes' 
+\i (00:47:56) FORM plc_manual tree 'MULTISEL YES' D6 'Components by refdes' 
+\i (00:47:56) FORM plc_manual tree  D6 'Components by refdes' 
+\i (00:47:56) FORM plc_manual tree 'MULTISEL YES' D7 'Components by refdes' 
+\i (00:47:56) FORM plc_manual tree  D7 'Components by refdes' 
+\i (00:47:57) FORM plc_manual tree 'MULTISEL YES' D8 'Components by refdes' 
+\i (00:47:57) FORM plc_manual tree  D8 'Components by refdes' 
+\i (00:47:58) FORM plc_manual tree 'MULTISEL YES' D9 'Components by refdes' 
+\i (00:47:58) FORM plc_manual tree  D9 'Components by refdes' 
+\i (00:47:58) FORM plc_manual tree 'MULTISEL YES' D10 'Components by refdes' 
+\i (00:47:58) FORM plc_manual tree  D10 'Components by refdes' 
+\i (00:47:59) FORM plc_manual tree 'MULTISEL YES' D11 'Components by refdes' 
+\i (00:47:59) FORM plc_manual tree  D11 'Components by refdes' 
+\i (00:48:05) setwindow pcb
+\i (00:48:05) pick grid 6748.1 9990.2
+\t (00:48:05) last pick:  6700.0  10000.0
+\t (00:48:05) Placing D5 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:07) pick grid 6406.8 9953.7
+\t (00:48:07) last pick:  6400.0  10000.0
+\t (00:48:07) Placing D6 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:08) pick grid 6146.8 9998.4
+\t (00:48:08) last pick:  6100.0  10000.0
+\t (00:48:08) Placing D7 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:09) pick grid 5846.2 10002.4
+\t (00:48:09) last pick:  5800.0  10000.0
+\t (00:48:09) Placing D8 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:10) pick grid 5549.6 9994.3
+\t (00:48:10) last pick:  5500.0  10000.0
+\t (00:48:10) Placing D9 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:11) pick grid 5244.9 9986.2
+\t (00:48:11) last pick:  5200.0  10000.0
+\t (00:48:11) Placing D10 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:12) pick grid 4948.3 9982.1
+\t (00:48:12) last pick:  4900.0  10000.0
+\t (00:48:12) Placing D11 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:48:13) pick grid 4647.6 9994.3
+\t (00:48:13) last pick:  4600.0  10000.0
+\i (00:48:25) setwindow form.plc_manual
+\i (00:48:25) FORM plc_manual tree 'MULTISEL YES' U39 'Components by refdes' 
+\t (00:48:25) Placing U39 / 74LS374_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:48:25) FORM plc_manual tree  U39 'Components by refdes' 
+\i (00:48:33) setwindow pcb
+\i (00:48:33) trapsize 423
+\i (00:48:37) trapsize 203
+\i (00:48:38) zoom out 1 
+\i (00:48:38) setwindow pcb
+\i (00:48:38) zoom out 5614.6 8836.4
+\i (00:48:38) trapsize 406
+\i (00:48:38) zoom out 1 
+\i (00:48:38) setwindow pcb
+\i (00:48:38) zoom out 3855.4 8259.5
+\i (00:48:38) trapsize 813
+\i (00:48:40) zoom in 1 
+\i (00:48:40) setwindow pcb
+\i (00:48:40) zoom in 4976.7 1287.6
+\i (00:48:40) trapsize 406
+\i (00:48:42) zoom out 1 
+\i (00:48:42) setwindow pcb
+\i (00:48:42) zoom out 4318.5 1328.3
+\i (00:48:42) trapsize 813
+\i (00:48:43) zoom in 1 
+\i (00:48:43) setwindow pcb
+\i (00:48:43) zoom in 5155.5 36.3
+\i (00:48:43) trapsize 406
+\i (00:48:45) zoom in 1 
+\i (00:48:45) setwindow pcb
+\i (00:48:45) zoom in 4472.9 150.1
+\i (00:48:45) trapsize 203
+\i (00:48:53) pick grid 4351.1 203.0
+\t (00:48:53) last pick:  4400.0  200.0
+\i (00:48:55) zoom in 1 
+\i (00:48:55) setwindow pcb
+\i (00:48:55) zoom in 5167.7 446.7
+\i (00:48:55) trapsize 102
+\i (00:48:56) zoom out 1 
+\i (00:48:56) setwindow pcb
+\i (00:48:56) zoom out 5289.6 357.4
+\i (00:48:56) trapsize 203
+\i (00:48:58) setwindow form.plc_manual
+\i (00:48:58) FORM plc_manual done  
+\i (00:48:58) setwindow pcb
+\i (00:48:58) generaledit 
+\i (00:49:00) zoom in 1 
+\i (00:49:00) setwindow pcb
+\i (00:49:00) zoom in 4359.2 138.0
+\i (00:49:00) trapsize 102
+\i (00:49:03) prepopup 4438.4 268.0
+\i (00:49:04) pop dyn_option_select @:@Delete 
+\i (00:49:04) delete 
+\i (00:49:04) generaledit 
+\i (00:49:06) prepopup 4401.8 404.1
+\i (00:49:08) pop dyn_option_select @:@Delete 
+\i (00:49:08) delete 
+\i (00:49:08) generaledit 
+\i (00:49:16) zoom in 1 
+\i (00:49:16) setwindow pcb
+\i (00:49:16) zoom in 4416.1 302.5
+\i (00:49:16) trapsize 51
+\i (00:49:19) prepopup 4352.1 371.6
+\i (00:49:22) pop dyn_option_select @:@Delete 
+\i (00:49:22) delete 
+\i (00:49:22) generaledit 
+\i (00:49:27) prepopup 4465.9 511.8
+\i (00:49:29) prepopup 4459.8 587.9
+\i (00:49:30) prepopup 4458.8 683.4
+\i (00:49:31) pick grid 4464.9 699.7
+\t (00:49:31) last pick:  4500.0  700.0
+\i (00:49:32) prepopup 4464.9 699.7
+\i (00:49:33) pop dyn_option_select @:@Delete 
+\i (00:49:33) delete 
+\i (00:49:33) generaledit 
+\i (00:49:36) pick grid 4350.1 336.0
+\t (00:49:36) last pick:  4400.0  300.0
+\i (00:49:36) prepopup 4350.1 336.0
+\i (00:49:39) pop dyn_option_select @:@Delete 
+\i (00:49:39) delete 
+\i (00:49:39) generaledit 
+\i (00:49:40) zoom out 1 
+\i (00:49:40) setwindow pcb
+\i (00:49:40) zoom out 4477.0 272.0
+\i (00:49:40) trapsize 102
+\i (00:49:42) zoom in 1 
+\i (00:49:42) setwindow pcb
+\i (00:49:42) zoom in 4469.0 172.6
+\i (00:49:42) trapsize 51
+\i (00:49:44) prepopup 4360.3 198.0
+\i (00:49:46) pop dyn_option_select @:@Delete 
+\i (00:49:46) delete 
+\i (00:49:46) generaledit 
+\i (00:49:50) prepopup 5309.0 571.8
+\i (00:49:51) pop dyn_option_select @:@Delete 
+\i (00:49:51) delete 
+\i (00:49:51) generaledit 
+\i (00:49:52) prepopup 5277.5 594.1
+\i (00:49:53) pop dyn_option_select @:@Delete 
+\i (00:49:53) delete 
+\i (00:49:53) generaledit 
+\i (00:49:56) zoom out 1 
+\i (00:49:56) setwindow pcb
+\i (00:49:56) zoom out 4413.1 382.8
+\i (00:49:56) trapsize 102
+\i (00:50:00) pick grid 5266.3 269.1
+\t (00:50:00) last pick:  5300.0  300.0
+\i (00:50:04) drc update 
+\t (00:50:04) Performing DRC...
+\t (00:50:04) Multithreaded DRC update (8 threads).
+\t (00:50:04) DRC done; 1 errors detected.
+\i (00:50:04) generaledit 
+\i (00:50:12) place manual 
+\i (00:50:16) pick grid 5292.8 275.2
+\t (00:50:16) last pick:  5300.0  300.0
+\t (00:50:16) Moving U39 / 74LS374_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:50:16) last pick:  4400.0  200.0
+\i (00:50:30) zoom out 1 
+\i (00:50:30) setwindow pcb
+\i (00:50:30) zoom out 4459.9 92.4
+\i (00:50:30) trapsize 203
+\i (00:50:31) zoom out 1 
+\i (00:50:31) setwindow pcb
+\i (00:50:31) zoom out 4435.4 153.3
+\i (00:50:31) trapsize 406
+\i (00:50:39) zoom in 1 
+\i (00:50:39) setwindow pcb
+\i (00:50:39) zoom in 4603.1 1369.0
+\i (00:50:39) trapsize 203
+\i (00:50:43) pick grid 4647.8 1247.1
+\t (00:50:43) last pick:  4600.0  1200.0
+\i (00:50:44) zoom in 1 
+\i (00:50:44) setwindow pcb
+\i (00:50:44) zoom in 4798.2 1442.1
+\i (00:50:44) trapsize 102
+\i (00:50:47) setwindow form.plc_manual
+\i (00:50:47) FORM plc_manual done  
+\i (00:50:47) setwindow pcb
+\i (00:50:47) generaledit 
+\i (00:50:48) prepopup 4460.9 1488.8
+\i (00:50:50) pop dyn_option_select @:@Delete 
+\i (00:50:50) delete 
+\i (00:50:50) generaledit 
+\i (00:50:51) prepopup 4473.1 1218.6
+\i (00:50:53) pop dyn_option_select @:@Delete 
+\i (00:50:53) delete 
+\i (00:50:53) generaledit 
+\i (00:50:55) prepopup 5383.2 1417.7
+\i (00:50:56) pop dyn_option_select @:@Delete 
+\i (00:50:56) delete 
+\i (00:50:56) generaledit 
+\i (00:50:58) prepopup 5501.1 1324.3
+\i (00:51:00) pop dyn_option_select @:@Delete 
+\i (00:51:00) delete 
+\i (00:51:00) generaledit 
+\i (00:51:03) zoom out 1 
+\i (00:51:03) setwindow pcb
+\i (00:51:03) zoom out 5549.8 1096.8
+\i (00:51:03) trapsize 203
+\i (00:51:04) zoom in 1 
+\i (00:51:04) setwindow pcb
+\i (00:51:04) zoom in 5541.6 1104.8
+\i (00:51:04) trapsize 102
+\i (00:51:06) zoom in 1 
+\i (00:51:06) setwindow pcb
+\i (00:51:06) zoom in 5671.7 1056.1
+\i (00:51:06) trapsize 51
+\i (00:51:07) zoom in 1 
+\i (00:51:07) setwindow pcb
+\i (00:51:07) zoom in 5615.9 1095.7
+\i (00:51:07) trapsize 25
+\i (00:51:12) zoom out 1 
+\i (00:51:12) setwindow pcb
+\i (00:51:12) zoom out 5554.9 1153.1
+\i (00:51:13) trapsize 51
+\i (00:51:20) zoom out 1 
+\i (00:51:20) setwindow pcb
+\i (00:51:20) zoom out 5482.8 1072.9
+\i (00:51:20) trapsize 102
+\i (00:51:20) zoom out 1 
+\i (00:51:20) setwindow pcb
+\i (00:51:20) zoom out 5490.8 1081.1
+\i (00:51:20) trapsize 203
+\i (00:51:22) zoom in 1 
+\i (00:51:22) setwindow pcb
+\i (00:51:22) zoom in 5897.1 938.9
+\i (00:51:22) trapsize 102
+\i (00:51:22) zoom in 1 
+\i (00:51:22) setwindow pcb
+\i (00:51:22) zoom in 5897.1 938.9
+\i (00:51:22) trapsize 51
+\i (00:51:25) prepopup 5548.7 1120.8
+\i (00:51:26) pop dyn_option_select @:@Delete 
+\i (00:51:26) delete 
+\i (00:51:26) generaledit 
+\i (00:51:31) prepopup 5604.6 1146.2
+\i (00:51:32) pop dyn_option_select @:@Delete 
+\i (00:51:32) delete 
+\i (00:51:32) generaledit 
+\i (00:51:33) zoom out 1 
+\i (00:51:33) setwindow pcb
+\i (00:51:33) zoom out 5304.9 1073.0
+\i (00:51:33) trapsize 102
+\i (00:51:33) zoom out 1 
+\i (00:51:33) setwindow pcb
+\i (00:51:33) zoom out 5114.0 876.0
+\i (00:51:33) trapsize 203
+\i (00:51:33) zoom out 1 
+\i (00:51:33) setwindow pcb
+\i (00:51:33) zoom out 5438.9 831.3
+\i (00:51:33) trapsize 406
+\i (00:51:35) zoom in 1 
+\i (00:51:35) setwindow pcb
+\i (00:51:35) zoom in 4229.3 343.7
+\i (00:51:35) trapsize 203
+\i (00:51:40) place manual 
+\i (00:51:42) pick grid 4883.5 1375.7
+\t (00:51:42) last pick:  4900.0  1400.0
+\t (00:51:42) Moving U39 / 74LS374_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:51:42) last pick:  4600.0  1200.0
+\i (00:51:45) pick grid 4546.3 1302.6
+\t (00:51:45) last pick:  4500.0  1300.0
+\i (00:51:46) zoom in 1 
+\i (00:51:46) setwindow pcb
+\i (00:51:46) zoom in 4725.0 1546.3
+\i (00:51:46) trapsize 102
+\i (00:51:46) zoom in 1 
+\i (00:51:46) setwindow pcb
+\i (00:51:46) zoom in 4706.8 1540.3
+\i (00:51:46) trapsize 51
+\i (00:51:48) setwindow form.plc_manual
+\i (00:51:48) FORM plc_manual done  
+\i (00:51:48) setwindow pcb
+\i (00:51:48) generaledit 
+\i (00:51:49) zoom out 1 
+\i (00:51:49) setwindow pcb
+\i (00:51:49) zoom out 5349.8 1312.8
+\i (00:51:49) trapsize 102
+\i (00:51:51) zoom in 1 
+\i (00:51:51) setwindow pcb
+\i (00:51:51) zoom in 5394.5 1294.4
+\i (00:51:51) trapsize 51
+\i (00:51:52) prepopup 5496.1 1308.6
+\i (00:51:53) pop dyn_option_select @:@Delete 
+\i (00:51:53) delete 
+\i (00:51:53) generaledit 
+\i (00:51:55) prepopup 5482.9 1601.2
+\i (00:51:56) pop dyn_option_select @:@Delete 
+\i (00:51:56) delete 
+\i (00:51:56) generaledit 
+\i (00:51:57) prepopup 5475.8 1627.6
+\i (00:51:58) pop dyn_option_select @:@Delete 
+\i (00:51:58) delete 
+\i (00:51:58) generaledit 
+\i (00:52:05) auto_route 
+\i (00:52:06) setwindow form.vse_armain
+\i (00:52:06) FORM vse_armain execute  
+\i (00:53:06) FORM vse_armain close  
+\i (00:53:06) setwindow pcb
+\i (00:53:06) generaledit 
+\i (00:53:08) drc update 
+\t (00:53:08) Performing DRC...
+\t (00:53:08) Multithreaded DRC update (8 threads).
+\t (00:53:08) DRC done; 2 errors detected.
+\i (00:53:08) generaledit 
+\i (00:53:10) zoom out 1 
+\i (00:53:10) setwindow pcb
+\i (00:53:10) zoom out 4786.1 1395.0
+\i (00:53:10) trapsize 102
+\i (00:53:10) zoom out 1 
+\i (00:53:10) setwindow pcb
+\i (00:53:10) zoom out 4776.0 1088.2
+\i (00:53:10) trapsize 203
+\i (00:53:11) zoom out 1 
+\i (00:53:11) setwindow pcb
+\i (00:53:11) zoom out 4556.5 1222.3
+\i (00:53:11) trapsize 406
+\i (00:53:12) zoom out 1 
+\i (00:53:12) setwindow pcb
+\i (00:53:12) zoom out 5106.9 1011.0
+\i (00:53:12) trapsize 813
+\i (00:53:14) zoom in 1 
+\i (00:53:14) setwindow pcb
+\i (00:53:14) zoom in 4017.9 133.8
+\i (00:53:14) trapsize 406
+\i (00:53:14) zoom in 1 
+\i (00:53:14) setwindow pcb
+\i (00:53:14) zoom in 3684.7 215.1
+\i (00:53:14) trapsize 203
+\i (00:53:16) zoom out 1 
+\i (00:53:16) setwindow pcb
+\i (00:53:16) zoom out 4716.7 284.1
+\i (00:53:16) trapsize 406
+\i (00:53:17) zoom out 1 
+\i (00:53:17) setwindow pcb
+\i (00:53:17) zoom out 5748.7 284.2
+\i (00:53:17) trapsize 813
+\i (00:53:18) zoom in 1 
+\i (00:53:18) setwindow pcb
+\i (00:53:18) zoom in 10420.9 1401.4
+\i (00:53:18) trapsize 406
+\i (00:53:25) zoom out 1 
+\i (00:53:25) setwindow pcb
+\i (00:53:25) zoom out 7861.3 2051.5
+\i (00:53:25) trapsize 813
+\i (00:53:25) zoom out 1 
+\i (00:53:25) setwindow pcb
+\i (00:53:25) zoom out 15816.4 2409.0
+\i (00:53:25) trapsize 813
+\i (00:53:26) zoom in 1 
+\i (00:53:26) setwindow pcb
+\i (00:53:26) zoom in 5480.5 52.5
+\i (00:53:26) trapsize 406
+\i (00:53:30) zoom in 1 
+\i (00:53:30) setwindow pcb
+\i (00:53:30) zoom in 6244.3 889.5
+\i (00:53:30) trapsize 203
+\i (00:53:32) zoom out 1 
+\i (00:53:32) setwindow pcb
+\i (00:53:32) zoom out 6532.8 926.1
+\i (00:53:32) trapsize 406
+\i (00:53:41) zoom out 1 
+\i (00:53:41) setwindow pcb
+\i (00:53:41) zoom out 10981.7 3079.4
+\i (00:53:41) trapsize 813
+\i (00:53:46) zoom in 1 
+\i (00:53:46) setwindow pcb
+\i (00:53:46) zoom in 11964.8 2750.3
+\i (00:53:46) trapsize 406
+\i (00:53:47) zoom in 1 
+\i (00:53:47) setwindow pcb
+\i (00:53:47) zoom in 11851.0 3148.5
+\i (00:53:47) trapsize 203
+\i (00:53:51) zoom out 1 
+\i (00:53:51) setwindow pcb
+\i (00:53:51) zoom out 11115.7 2750.4
+\i (00:53:51) trapsize 406
+\i (00:53:52) zoom out 1 
+\i (00:53:52) setwindow pcb
+\i (00:53:52) zoom out 4619.2 2425.4
+\i (00:53:52) trapsize 813
+\i (00:53:53) zoom in 1 
+\i (00:53:53) setwindow pcb
+\i (00:53:53) zoom in 3627.8 247.6
+\i (00:53:53) trapsize 406
+\i (00:53:55) zoom in 1 
+\i (00:53:55) setwindow pcb
+\i (00:53:55) zoom in 5285.5 312.6
+\i (00:53:55) trapsize 203
+\i (00:53:59) zoom out 1 
+\i (00:53:59) setwindow pcb
+\i (00:53:59) zoom out 6159.1 962.7
+\i (00:53:59) trapsize 406
+\i (00:54:03) zoom in 1 
+\i (00:54:03) setwindow pcb
+\i (00:54:03) zoom in 5773.1 190.7
+\i (00:54:03) trapsize 203
+\i (00:54:05) zoom out 1 
+\i (00:54:05) setwindow pcb
+\i (00:54:05) zoom out 5151.5 328.9
+\i (00:54:05) trapsize 406
+\i (00:54:06) zoom out 1 
+\i (00:54:06) setwindow pcb
+\i (00:54:06) zoom out 5773.1 3879.8
+\i (00:54:06) trapsize 813
+\i (00:54:08) save 
+\i (00:54:10) fillin yes 
+\i (00:54:10) generaledit 
+\i (00:54:16) drc update 
+\t (00:54:16) Performing DRC...
+\t (00:54:16) Multithreaded DRC update (8 threads).
+\t (00:54:16) DRC done; 2 errors detected.
+\i (00:54:16) generaledit 
+\i (00:54:17) zoom in 1 
+\i (00:54:17) setwindow pcb
+\i (00:54:17) zoom in 7008.1 4570.4
+\i (00:54:17) trapsize 406
+\i (00:54:18) zoom in 1 
+\i (00:54:18) setwindow pcb
+\i (00:54:18) zoom in 3254.1 4570.4
+\i (00:54:18) trapsize 203
+\i (00:54:21) zoom out 1 
+\i (00:54:21) setwindow pcb
+\i (00:54:21) zoom out 3928.6 3977.2
+\i (00:54:21) trapsize 406
+\i (00:54:25) zoom in 1 
+\i (00:54:25) setwindow pcb
+\i (00:54:25) zoom in 2303.4 8170.1
+\i (00:54:25) trapsize 203
+\i (00:54:25) zoom in 1 
+\i (00:54:25) setwindow pcb
+\i (00:54:25) zoom in 2571.5 8202.7
+\i (00:54:25) trapsize 102
+\i (00:54:27) zoom in 1 
+\i (00:54:27) setwindow pcb
+\i (00:54:27) zoom in 2496.3 8186.4
+\i (00:54:27) trapsize 51
+\i (00:54:37) prepopup 2444.6 8244.3
+\i (00:54:39) pop dyn_option_select @:@Delete 
+\i (00:54:39) delete 
+\i (00:54:39) generaledit 
+\i (00:54:41) prepopup 2534.0 8244.3
+\i (00:54:42) pop dyn_option_select @:@Delete 
+\i (00:54:42) delete 
+\i (00:54:42) generaledit 
+\i (00:54:43) prepopup 2550.2 8245.3
+\i (00:54:44) pop dyn_option_select @:@Delete 
+\i (00:54:44) delete 
+\i (00:54:44) generaledit 
+\i (00:54:49) prepopup 2467.9 8233.2
+\i (00:54:51) pick grid 2325.7 8255.5
+\t (00:54:51) last pick:  2300.0  8300.0
+\i (00:54:54) prepopup 2498.4 8260.6
+\i (00:54:55) pop dyn_option_select @:@Delete 
+\i (00:54:55) delete 
+\i (00:54:55) generaledit 
+\i (00:54:57) prepopup 2473.0 8231.1
+\i (00:54:59) pick grid 2342.0 8216.9
+\t (00:54:59) last pick:  2300.0  8200.0
+\i (00:55:02) zoom out 1 
+\i (00:55:02) setwindow pcb
+\i (00:55:02) zoom out 2771.6 8064.5
+\i (00:55:02) trapsize 102
+\i (00:55:03) zoom out 1 
+\i (00:55:03) setwindow pcb
+\i (00:55:03) zoom out 3007.3 8054.4
+\i (00:55:03) trapsize 203
+\i (00:55:06) zoom out 1 
+\i (00:55:06) setwindow pcb
+\i (00:55:06) zoom out 3019.5 7481.6
+\i (00:55:06) trapsize 406
+\i (00:55:09) zoom out 1 
+\i (00:55:09) setwindow pcb
+\i (00:55:09) zoom out 8844.8 10634.5
+\i (00:55:09) trapsize 813
+\i (00:55:11) zoom in 1 
+\i (00:55:11) setwindow pcb
+\i (00:55:11) zoom in 11282.2 2831.5
+\i (00:55:11) trapsize 406
+\i (00:55:13) zoom in 1 
+\i (00:55:13) setwindow pcb
+\i (00:55:13) zoom in 12208.6 2636.5
+\i (00:55:13) trapsize 203
+\i (00:55:15) zoom in 1 
+\i (00:55:15) setwindow pcb
+\i (00:55:15) zoom in 11229.5 4103.3
+\i (00:55:15) trapsize 102
+\i (00:55:17) zoom out 1 
+\i (00:55:17) setwindow pcb
+\i (00:55:17) zoom out 11229.4 4103.3
+\i (00:55:17) trapsize 203
+\i (00:55:18) zoom in 1 
+\i (00:55:18) setwindow pcb
+\i (00:55:18) zoom in 10973.6 4712.8
+\i (00:55:18) trapsize 102
+\i (00:55:20) zoom out 1 
+\i (00:55:20) setwindow pcb
+\i (00:55:20) zoom out 10973.6 4712.8
+\i (00:55:20) trapsize 203
+\i (00:55:21) zoom out 1 
+\i (00:55:21) setwindow pcb
+\i (00:55:21) zoom out 8284.0 3372.2
+\i (00:55:21) trapsize 406
+\i (00:55:22) zoom out 1 
+\i (00:55:22) setwindow pcb
+\i (00:55:22) zoom out 4334.8 3372.1
+\i (00:55:22) trapsize 813
+\i (00:55:23) zoom in 1 
+\i (00:55:23) setwindow pcb
+\i (00:55:23) zoom in 2197.7 8665.8
+\i (00:55:23) trapsize 406
+\i (00:55:24) zoom in 1 
+\i (00:55:24) setwindow pcb
+\i (00:55:24) zoom in 2140.8 7788.2
+\i (00:55:24) trapsize 203
+\i (00:55:29) auto_route 
+\i (00:55:30) setwindow form.vse_armain
+\i (00:55:30) FORM vse_armain execute  
+\i (00:55:44) FORM vse_armain results  
+\i (00:55:51) setwindow form.vse_progress
+\i (00:55:51) FORM vse_progress close  
+\i (00:55:52) setwindow form.vse_armain
+\i (00:55:52) FORM vse_armain close  
+\i (00:55:52) setwindow pcb
+\i (00:55:52) generaledit 
+\i (00:55:54) drc update 
+\t (00:55:54) Performing DRC...
+\t (00:55:54) Multithreaded DRC update (8 threads).
+\t (00:55:54) DRC done; 2 errors detected.
+\i (00:55:54) generaledit 
+\i (00:55:56) zoom in 1 
+\i (00:55:56) setwindow pcb
+\i (00:55:56) zoom in 2409.0 8109.2
+\i (00:55:56) trapsize 102
+\i (00:55:56) zoom in 1 
+\i (00:55:56) setwindow pcb
+\i (00:55:56) zoom in 2549.1 8168.1
+\i (00:55:56) trapsize 51
+\i (00:56:00) zoom out 1 
+\i (00:56:00) setwindow pcb
+\i (00:56:00) zoom out 2754.3 8137.7
+\i (00:56:00) trapsize 102
+\i (00:56:00) zoom out 1 
+\i (00:56:00) setwindow pcb
+\i (00:56:00) zoom out 2754.3 8137.7
+\i (00:56:00) trapsize 203
+\i (00:56:02) zoom in 1 
+\i (00:56:02) setwindow pcb
+\i (00:56:02) zoom in 2981.8 7682.7
+\i (00:56:02) trapsize 102
+\i (00:56:03) zoom in 1 
+\i (00:56:03) setwindow pcb
+\i (00:56:03) zoom in 2506.4 7715.2
+\i (00:56:03) trapsize 51
+\i (00:56:04) zoom out 1 
+\i (00:56:04) setwindow pcb
+\i (00:56:04) zoom out 2519.6 7754.8
+\i (00:56:04) trapsize 102
+\i (00:56:05) zoom out 1 
+\i (00:56:05) setwindow pcb
+\i (00:56:05) zoom out 2706.5 7557.8
+\i (00:56:05) trapsize 203
+\i (00:56:06) zoom out 1 
+\i (00:56:06) setwindow pcb
+\i (00:56:06) zoom out 4039.1 7102.7
+\i (00:56:06) trapsize 406
+\i (00:56:07) zoom out 1 
+\i (00:56:07) setwindow pcb
+\i (00:56:07) zoom out 3164.8 6517.6
+\i (00:56:07) trapsize 813
+\i (00:56:10) zoom in 1 
+\i (00:56:10) setwindow pcb
+\i (00:56:10) zoom in 2149.0 621.3
+\i (00:56:10) trapsize 406
+\i (00:56:11) zoom in 1 
+\i (00:56:11) setwindow pcb
+\i (00:56:11) zoom in 2230.2 499.5
+\i (00:56:11) trapsize 203
+\i (00:56:13) zoom out 1 
+\i (00:56:13) setwindow pcb
+\i (00:56:13) zoom out 2652.8 637.6
+\i (00:56:13) trapsize 406
+\i (00:56:14) zoom in 1 
+\i (00:56:14) setwindow pcb
+\i (00:56:14) zoom in 1425.8 215.1
+\i (00:56:14) trapsize 203
+\i (00:56:19) zoom out 1 
+\i (00:56:19) setwindow pcb
+\i (00:56:19) zoom out 3875.7 702.7
+\i (00:56:19) trapsize 406
+\i (00:56:20) zoom in 1 
+\i (00:56:20) setwindow pcb
+\i (00:56:20) zoom in 11859.2 743.2
+\i (00:56:20) trapsize 203
+\i (00:56:21) zoom out 1 
+\i (00:56:21) setwindow pcb
+\i (00:56:21) zoom out 11847.0 775.7
+\i (00:56:21) trapsize 406
+\i (00:56:22) zoom in 1 
+\i (00:56:22) setwindow pcb
+\i (00:56:22) zoom in 10746.0 4968.6
+\i (00:56:22) trapsize 203
+\i (00:56:24) zoom out 1 
+\i (00:56:24) setwindow pcb
+\i (00:56:24) zoom out 11237.6 4525.8
+\i (00:56:24) trapsize 406
+\i (00:56:25) zoom in 1 
+\i (00:56:25) setwindow pcb
+\i (00:56:25) zoom in 11794.2 5915.2
+\i (00:56:25) trapsize 203
+\i (00:56:26) zoom out 1 
+\i (00:56:26) setwindow pcb
+\i (00:56:26) zoom out 11725.1 5903.0
+\i (00:56:26) trapsize 406
+\i (00:56:30) zoom in 1 
+\i (00:56:30) setwindow pcb
+\i (00:56:30) zoom in 11087.3 4099.1
+\i (00:56:30) trapsize 203
+\i (00:56:33) zoom out 1 
+\i (00:56:33) setwindow pcb
+\i (00:56:33) zoom out 11079.2 4107.3
+\i (00:56:33) trapsize 406
+\i (00:56:35) zoom in 1 
+\i (00:56:35) setwindow pcb
+\i (00:56:35) zoom in 4936.1 1360.8
+\i (00:56:35) trapsize 203
+\i (00:56:37) zoom in 1 
+\i (00:56:37) setwindow pcb
+\i (00:56:37) zoom in 5561.8 1048.0
+\i (00:56:37) trapsize 102
+\i (00:56:39) zoom out 1 
+\i (00:56:39) setwindow pcb
+\i (00:56:39) zoom out 5545.6 1054.1
+\i (00:56:39) trapsize 203
+\i (00:56:39) zoom out 1 
+\i (00:56:39) setwindow pcb
+\i (00:56:39) zoom out 5545.6 1054.2
+\i (00:56:39) trapsize 406
+\i (00:56:42) zoom out 1 
+\i (00:56:42) setwindow pcb
+\i (00:56:42) zoom out 2709.7 6490.3
+\i (00:56:42) trapsize 813
+\i (00:56:44) zoom in 1 
+\i (00:56:44) setwindow pcb
+\i (00:56:44) zoom in 11932.3 11249.7
+\i (00:56:44) trapsize 406
+\i (00:56:47) zoom in 1 
+\i (00:56:47) setwindow pcb
+\i (00:56:47) zoom in 11826.7 10697.2
+\i (00:56:47) trapsize 203
+\i (00:56:48) zoom out 1 
+\i (00:56:48) setwindow pcb
+\i (00:56:48) zoom out 11895.8 10762.3
+\i (00:56:48) trapsize 406
+\i (00:56:50) zoom in 1 
+\i (00:56:50) setwindow pcb
+\i (00:56:50) zoom in 1133.3 10380.4
+\i (00:56:50) trapsize 203
+\i (00:56:52) zoom out 1 
+\i (00:56:52) setwindow pcb
+\i (00:56:52) zoom out 1815.9 8767.5
+\i (00:56:52) trapsize 406
+\i (00:56:52) zoom in 1 
+\i (00:56:52) setwindow pcb
+\i (00:56:52) zoom in 2441.5 7654.2
+\i (00:56:52) trapsize 203
+\i (00:56:53) zoom in 1 
+\i (00:56:53) setwindow pcb
+\i (00:56:53) zoom in 2449.7 7902.1
+\i (00:56:53) trapsize 102
+\i (00:57:07) zoom out 1 
+\i (00:57:07) setwindow pcb
+\i (00:57:07) zoom out 2594.0 8976.8
+\i (00:57:07) trapsize 203
+\i (00:57:09) zoom out 1 
+\i (00:57:09) setwindow pcb
+\i (00:57:09) zoom out 2593.9 6843.7
+\i (00:57:09) trapsize 406
+\i (00:57:10) zoom in 1 
+\i (00:57:10) setwindow pcb
+\i (00:57:10) zoom in 2465.9 6145.0
+\i (00:57:10) trapsize 203
+\i (00:57:12) pick grid 2429.4 6531.0
+\t (00:57:12) last pick:  2400.0  6500.0
+\i (00:57:18) move 
+\t (00:57:18) Select element(s) to move.
+\i (00:57:21) pick grid 2409.1 6612.3
+\t (00:57:21) last pick:  2400.0  6600.0
+\t (00:57:21) last pick:  2600.0  7400.0
+\t (00:57:21) Moving J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (00:57:21) Pick new location for the element(s).
+\i (00:57:25) pick grid 2636.6 6852.0
+\t (00:57:25) last pick:  2600.0  6900.0
+\i (00:57:27) zoom in 1 
+\i (00:57:27) setwindow pcb
+\i (00:57:27) zoom in 2661.0 7526.4
+\i (00:57:27) trapsize 102
+\i (00:57:28) pick grid 2195.8 7619.9
+\t (00:57:28) last pick:  2200.0  7600.0
+\i (00:57:32) prepopup 2433.5 6874.4
+\i (00:57:35) pick grid 2145.0 7461.4
+\t (00:57:35) last pick:  2100.0  7500.0
+\i (00:57:36) pick grid 2145.0 7461.4
+\t (00:57:36) last pick:  2100.0  7500.0
+\i (00:57:38) prepopup 2421.3 6959.7
+\i (00:57:40) pick grid 2216.1 7376.1
+\t (00:57:40) last pick:  2200.0  7400.0
+\i (00:57:41) prepopup 2183.6 6959.7
+\i (00:57:44) pick grid 2145.0 7422.8
+\t (00:57:44) last pick:  2100.0  7400.0
+\i (00:57:45) prepopup 2126.7 7268.5
+\i (00:57:46) pick grid 2126.7 7343.6
+\t (00:57:46) last pick:  2100.0  7300.0
+\i (00:57:47) drag_start grid 2126.7 7343.6
+\i (00:57:47) drag_stop 2165.3 7327.4
+\i (00:57:50) prepopup 2451.7 6951.6
+\i (00:57:52) prepopup 3583.2 7140.5
+\i (00:57:53) prepopup 3587.3 7148.6
+\i (00:57:54) pick grid 3589.3 7166.9
+\t (00:57:54) last pick:  3600.0  7200.0
+\t (00:57:54) last pick:  3600.0  7200.0
+\t (00:57:54) Element has no origin, using pick.
+\t (00:57:54) Pick new location for the element(s).
+\i (00:57:54) pick grid 3589.3 7166.9
+\t (00:57:54) last pick:  3600.0  7200.0
+\i (00:57:55) prepopup 3589.3 7166.9
+\i (00:57:57) pick grid 2010.9 7638.2
+\t (00:57:57) last pick:  2000.0  7600.0
+\i (00:57:59) place manual 
+\i (00:58:01) setwindow form.plc_manual
+\i (00:58:01) FORM plc_manual cancel  
+\i (00:58:01) setwindow pcb
+\i (00:58:01) generaledit 
+\i (00:58:02) prepopup 3065.2 7108.0
+\i (00:58:04) prepopup 2140.9 6963.7
+\i (00:58:06) pick grid 2047.5 6963.7
+\t (00:58:06) last pick:  2000.0  7000.0
+\i (00:58:07) prepopup 2073.9 6963.7
+\i (00:58:09) pop dyn_option_select @:@Delete 
+\i (00:58:09) delete 
+\i (00:58:09) generaledit 
+\i (00:58:10) prepopup 2145.0 6939.4
+\i (00:58:11) pop dyn_option_select @:@Delete 
+\i (00:58:12) delete 
+\i (00:58:12) generaledit 
+\i (00:58:13) prepopup 2130.8 6919.1
+\i (00:58:15) pop dyn_option_select @:@Delete 
+\i (00:58:15) delete 
+\i (00:58:15) generaledit 
+\i (00:58:16) prepopup 2086.1 7229.9
+\i (00:58:17) pop dyn_option_select @:@Delete 
+\i (00:58:17) delete 
+\i (00:58:17) generaledit 
+\i (00:58:19) prepopup 2092.2 7181.1
+\i (00:58:20) pop dyn_option_select @:@Delete 
+\i (00:58:20) delete 
+\i (00:58:20) generaledit 
+\i (00:58:21) prepopup 2167.3 7252.2
+\i (00:58:22) pop dyn_option_select @:@Delete 
+\i (00:58:22) delete 
+\i (00:58:22) generaledit 
+\i (00:58:25) prepopup 2130.8 7193.3
+\i (00:58:26) pop dyn_option_select @:@Delete 
+\i (00:58:26) delete 
+\i (00:58:26) generaledit 
+\i (00:58:29) prepopup 2661.0 7286.7
+\i (00:58:30) pop dyn_option_select @:@Delete 
+\i (00:58:30) delete 
+\i (00:58:30) generaledit 
+\i (00:58:31) prepopup 2502.5 7345.6
+\i (00:58:32) pop dyn_option_select @:@Delete 
+\i (00:58:32) delete 
+\i (00:58:32) generaledit 
+\i (00:58:35) prepopup 2500.5 7455.3
+\i (00:58:36) pop dyn_option_select @:@Delete 
+\i (00:58:36) delete 
+\i (00:58:36) generaledit 
+\i (00:58:38) prepopup 2443.6 7794.6
+\i (00:58:39) pop dyn_option_select @:@Delete 
+\i (00:58:39) delete 
+\i (00:58:39) generaledit 
+\i (00:58:40) prepopup 2571.6 7745.8
+\i (00:58:41) pop dyn_option_select @:@Delete 
+\i (00:58:41) delete 
+\i (00:58:41) generaledit 
+\i (00:58:42) prepopup 2620.3 7845.4
+\i (00:58:43) pop dyn_option_select @:@Delete 
+\i (00:58:43) delete 
+\i (00:58:43) generaledit 
+\i (00:58:44) prepopup 2618.3 7942.9
+\i (00:58:45) pop dyn_option_select @:@Delete 
+\i (00:58:45) delete 
+\i (00:58:45) generaledit 
+\i (00:58:46) prepopup 2628.5 8042.4
+\i (00:58:47) pop dyn_option_select @:@Delete 
+\i (00:58:47) delete 
+\i (00:58:47) generaledit 
+\i (00:58:48) prepopup 2685.3 8196.8
+\i (00:58:49) pop dyn_option_select @:@Delete 
+\i (00:58:49) delete 
+\i (00:58:49) generaledit 
+\i (00:58:50) prepopup 2673.2 8308.5
+\i (00:58:51) pop dyn_option_select @:@Delete 
+\i (00:58:51) delete 
+\i (00:58:51) generaledit 
+\i (00:58:52) prepopup 2490.3 8253.7
+\i (00:58:54) pop dyn_option_select @:@Delete 
+\i (00:58:54) delete 
+\i (00:58:54) generaledit 
+\i (00:58:56) prepopup 2500.5 8054.6
+\i (00:58:57) pop dyn_option_select @:@Delete 
+\i (00:58:57) delete 
+\i (00:58:57) generaledit 
+\i (00:58:58) prepopup 2606.1 8072.9
+\i (00:59:00) prepopup 2596.0 8048.5
+\i (00:59:01) prepopup 2598.0 8060.7
+\i (00:59:01) pick grid 2598.0 8062.7
+\t (00:59:01) last pick:  2600.0  8100.0
+\i (00:59:02) prepopup 2596.0 8052.6
+\i (00:59:03) pick grid 2577.7 8028.2
+\t (00:59:03) last pick:  2600.0  8000.0
+\i (00:59:04) prepopup 2506.6 7949.0
+\i (00:59:05) pop dyn_option_select @:@Delete 
+\i (00:59:05) delete 
+\i (00:59:06) generaledit 
+\i (00:59:07) prepopup 2504.6 7841.3
+\i (00:59:08) pop dyn_option_select @:@Delete 
+\i (00:59:08) delete 
+\i (00:59:08) generaledit 
+\i (00:59:09) prepopup 2492.4 7743.8
+\i (00:59:10) pop dyn_option_select @:@Delete 
+\i (00:59:10) delete 
+\i (00:59:10) generaledit 
+\i (00:59:11) prepopup 2504.6 7636.1
+\i (00:59:12) pick grid 2468.0 7597.5
+\t (00:59:12) last pick:  2500.0  7600.0
+\i (00:59:14) zoom in 1 
+\i (00:59:14) setwindow pcb
+\i (00:59:14) zoom in 2504.6 7628.0
+\i (00:59:14) trapsize 51
+\i (00:59:15) prepopup 2503.6 7627.0
+\i (00:59:16) pick grid 2504.6 7634.1
+\t (00:59:16) last pick:  2500.0  7600.0
+\i (00:59:17) prepopup 2501.5 7612.8
+\i (00:59:18) prepopup 2504.6 7643.3
+\i (00:59:19) pick grid 2500.5 7647.3
+\t (00:59:19) last pick:  2500.0  7600.0
+\i (00:59:20) prepopup 2495.4 7647.3
+\i (00:59:21) pop dyn_option_select @:@Delete 
+\i (00:59:21) delete 
+\i (00:59:21) generaledit 
+\i (00:59:22) prepopup 2597.0 7844.4
+\i (00:59:23) pop dyn_option_select @:@Delete 
+\i (00:59:23) delete 
+\i (00:59:23) generaledit 
+\i (00:59:25) pick grid 2601.1 7953.1
+\t (00:59:25) last pick:  2600.0  8000.0
+\i (00:59:25) prepopup 2601.1 7953.1
+\i (00:59:26) pop dyn_option_select @:@Delete 
+\i (00:59:27) delete 
+\i (00:59:27) generaledit 
+\i (00:59:28) prepopup 2603.1 8049.5
+\i (00:59:29) pop dyn_option_select @:@Delete 
+\i (00:59:29) delete 
+\i (00:59:29) generaledit 
+\i (00:59:29) zoom out 1 
+\i (00:59:29) setwindow pcb
+\i (00:59:29) zoom out 2604.1 7847.4
+\i (00:59:29) trapsize 102
+\i (00:59:31) prepopup 2445.7 6880.5
+\i (00:59:33) pop dyn_option_select @:@Delete 
+\i (00:59:33) delete 
+\i (00:59:33) generaledit 
+\i (00:59:34) zoom out 1 
+\i (00:59:34) setwindow pcb
+\i (00:59:34) zoom out 2457.9 6667.2
+\i (00:59:34) trapsize 203
+\i (00:59:35) zoom in 1 
+\i (00:59:35) setwindow pcb
+\i (00:59:35) zoom in 2547.2 8540.2
+\i (00:59:35) trapsize 102
+\i (00:59:36) prepopup 2630.5 8651.9
+\i (00:59:37) pop dyn_option_select '@:@Add vertex' 
+\i (00:59:37) add vertex 
+\i (00:59:39) prepopup 2620.3 8684.4
+\i (00:59:40) oops 
+\i (00:59:40) generaledit 
+\i (00:59:41) prepopup 2640.6 8653.9
+\i (00:59:43) pop dyn_option_select @:@Delete 
+\i (00:59:43) delete 
+\i (00:59:43) generaledit 
+\i (00:59:45) prepopup 2504.5 8696.6
+\i (00:59:46) pop dyn_option_select @:@Delete 
+\i (00:59:46) delete 
+\i (00:59:46) generaledit 
+\i (00:59:47) zoom out 1 
+\i (00:59:47) setwindow pcb
+\i (00:59:47) zoom out 2583.7 8599.1
+\i (00:59:47) trapsize 203
+\i (00:59:53) auto_route 
+\i (00:59:57) setwindow form.vse_armain
+\i (00:59:57) FORM vse_armain execute  
+\i (01:00:07) FORM vse_armain close  
+\i (01:00:07) setwindow pcb
+\i (01:00:07) generaledit 
+\i (01:00:10) drc update 
+\t (01:00:10) Performing DRC...
+\t (01:00:10) Multithreaded DRC update (8 threads).
+\t (01:00:10) DRC done; 2 errors detected.
+\i (01:00:10) generaledit 
+\i (01:00:11) zoom out 1 
+\i (01:00:11) setwindow pcb
+\i (01:00:11) zoom out 3510.1 7221.7
+\i (01:00:11) trapsize 406
+\i (01:00:12) zoom out 1 
+\i (01:00:12) setwindow pcb
+\i (01:00:12) zoom out 3311.1 5734.7
+\i (01:00:12) trapsize 813
+\i (01:00:13) zoom in 1 
+\i (01:00:13) setwindow pcb
+\i (01:00:13) zoom in 3725.4 653.8
+\i (01:00:13) trapsize 406
+\i (01:00:15) zoom in 1 
+\i (01:00:15) setwindow pcb
+\i (01:00:15) zoom in 2725.9 6114.3
+\i (01:00:15) trapsize 203
+\i (01:00:16) zoom in 1 
+\i (01:00:16) setwindow pcb
+\i (01:00:16) zoom in 2717.8 6029.0
+\i (01:00:16) trapsize 102
+\i (01:00:17) zoom in 1 
+\i (01:00:17) setwindow pcb
+\i (01:00:17) zoom in 2683.3 5955.8
+\i (01:00:17) trapsize 51
+\i (01:00:20) prepopup 2683.3 5978.2
+\i (01:00:24) pick grid 2563.5 5932.5
+\t (01:00:24) last pick:  2600.0  5900.0
+\i (01:00:26) zoom out 1 
+\i (01:00:26) setwindow pcb
+\i (01:00:26) zoom out 2670.1 6002.6
+\i (01:00:26) trapsize 102
+\i (01:00:28) zoom out 1 
+\i (01:00:28) setwindow pcb
+\i (01:00:28) zoom out 2920.1 5720.3
+\i (01:00:28) trapsize 203
+\i (01:00:31) zoom out 1 
+\i (01:00:31) setwindow pcb
+\i (01:00:31) zoom out 2997.1 5496.8
+\i (01:00:31) trapsize 406
+\i (01:00:32) zoom in 1 
+\i (01:00:32) setwindow pcb
+\i (01:00:32) zoom in 3416.7 6106.2
+\i (01:00:32) trapsize 203
+\i (01:00:36) zoom in 1 
+\i (01:00:36) setwindow pcb
+\i (01:00:36) zoom in 2787.0 6098.1
+\i (01:00:36) trapsize 102
+\i (01:00:48) place manual 
+\t (01:00:48) Selected item not valid for current operation, ignored: Text "Dsub/Rp.318/Tm/9"
+\t (01:00:48) No valid items selected for the current operation, exiting.
+\i (01:00:48) generaledit 
+\i (01:00:53) move 
+\t (01:00:53) last pick:  2568.1  5610.0
+\t (01:00:53) Pick new location for the element(s).
+\i (01:01:00) prepopup 2409.1 6008.7
+\i (01:01:01) cancel 
+\i (01:01:01) generaledit 
+\i (01:01:06) zoom out 1 
+\i (01:01:06) setwindow pcb
+\i (01:01:06) zoom out 2516.8 5970.1
+\i (01:01:06) trapsize 203
+\i (01:01:07) zoom out 1 
+\i (01:01:07) setwindow pcb
+\i (01:01:07) zoom out 2082.0 5811.8
+\i (01:01:07) trapsize 406
+\i (01:01:09) zoom in 1 
+\i (01:01:09) setwindow pcb
+\i (01:01:09) zoom in 2270.9 7347.5
+\i (01:01:09) trapsize 203
+\i (01:01:11) zoom out 1 
+\i (01:01:11) setwindow pcb
+\i (01:01:11) zoom out 2860.1 6880.3
+\i (01:01:11) trapsize 406
+\i (01:01:26) move 
+\t (01:01:26) last pick:  2568.1  5610.0
+\t (01:01:26) Pick new location for the element(s).
+\i (01:01:28) prepopup 2401.0 9025.6
+\i (01:01:29) cancel 
+\i (01:01:29) generaledit 
+\i (01:01:30) pick grid 2425.3 9131.2
+\t (01:01:30) last pick:  2400.0  9100.0
+\i (01:01:31) pick grid 2409.1 8952.4
+\t (01:01:31) last pick:  2400.0  9000.0
+\i (01:01:33) move 
+\t (01:01:33) last pick:  2400.0  9000.0
+\t (01:01:33) Element has no origin, using pick.
+\t (01:01:33) Pick new location for the element(s).
+\i (01:01:37) zoom out 1 
+\i (01:01:37) setwindow pcb
+\i (01:01:37) zoom out 2287.2 9058.1
+\i (01:01:37) trapsize 813
+\i (01:01:43) pick grid 2262.7 9462.1
+\t (01:01:43) last pick:  2300.0  9500.0
+\i (01:01:43) generaledit 
+\i (01:01:44) zoom out 1 
+\i (01:01:44) setwindow pcb
+\i (01:01:44) zoom out 2734.0 8568.3
+\i (01:01:44) trapsize 813
+\i (01:01:44) zoom in 1 
+\i (01:01:44) setwindow pcb
+\i (01:01:44) zoom in 2685.3 8584.5
+\i (01:01:44) trapsize 406
+\i (01:01:45) zoom in 1 
+\i (01:01:45) setwindow pcb
+\i (01:01:45) zoom in 2287.1 8714.6
+\i (01:01:45) trapsize 203
+\i (01:01:51) undo 
+\i (01:01:51) trapsize 406
+\i (01:01:51) generaledit 
+\i (01:01:53) zoom out 1 
+\i (01:01:53) setwindow pcb
+\i (01:01:53) zoom out 2449.7 8473.0
+\i (01:01:53) trapsize 813
+\i (01:01:53) zoom in 1 
+\i (01:01:53) setwindow pcb
+\i (01:01:53) zoom in 5090.5 11103.5
+\i (01:01:53) trapsize 406
+\i (01:01:53) zoom in 1 
+\i (01:01:53) setwindow pcb
+\i (01:01:53) zoom in 2149.0 10981.6
+\i (01:01:53) trapsize 203
+\i (01:01:54) zoom out 1 
+\i (01:01:54) setwindow pcb
+\i (01:01:54) zoom out 2193.7 10924.8
+\i (01:01:54) trapsize 406
+\i (01:01:56) zoom in 1 
+\i (01:01:56) setwindow pcb
+\i (01:01:56) zoom in 2384.6 8893.3
+\i (01:01:56) trapsize 203
+\i (01:01:58) pick grid 2230.2 9198.1
+\t (01:01:58) last pick:  2200.0  9200.0
+\i (01:02:00) pick grid 2543.1 9112.7
+\t (01:02:00) last pick:  2500.0  9100.0
+\i (01:02:03) place manual 
+\i (01:02:04) pick grid 2510.6 9019.3
+\t (01:02:04) last pick:  2500.0  9000.0
+\t (01:02:04) Moving J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (01:02:04) last pick:  2600.0  6900.0
+\i (01:02:18) pick grid 2352.1 7377.9
+\t (01:02:18) last pick:  2400.0  7400.0
+\i (01:02:19) zoom out 1 
+\i (01:02:19) setwindow pcb
+\i (01:02:19) zoom out 2709.6 7776.1
+\i (01:02:19) trapsize 406
+\i (01:02:23) pick grid 3099.7 8442.3
+\t (01:02:23) last pick:  3100.0  8400.0
+\t (01:02:23) Moving J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7.
+\t (01:02:23) last pick:  3000.0  7500.0
+\i (01:02:27) pick grid 3034.7 8157.9
+\t (01:02:27) last pick:  3000.0  8200.0
+\i (01:02:28) zoom out 1 
+\i (01:02:28) setwindow pcb
+\i (01:02:28) zoom out 1287.7 6865.9
+\i (01:02:28) trapsize 813
+\i (01:02:29) zoom in 1 
+\i (01:02:29) setwindow pcb
+\i (01:02:29) zoom in 1547.7 5350.5
+\i (01:02:29) trapsize 406
+\i (01:02:33) zoom in 1 
+\i (01:02:33) setwindow pcb
+\i (01:02:33) zoom in 1433.9 8332.7
+\i (01:02:33) trapsize 203
+\i (01:02:34) zoom out 1 
+\i (01:02:34) setwindow pcb
+\i (01:02:34) zoom out 1344.6 8357.1
+\i (01:02:34) trapsize 406
+\i (01:02:35) zoom in 1 
+\i (01:02:35) setwindow pcb
+\i (01:02:35) zoom in 1084.5 9283.4
+\i (01:02:35) trapsize 203
+\i (01:02:37) zoom out 1 
+\i (01:02:37) setwindow pcb
+\i (01:02:37) zoom out 1393.3 8905.6
+\i (01:02:37) trapsize 406
+\i (01:02:38) zoom in 1 
+\i (01:02:38) setwindow pcb
+\i (01:02:38) zoom in 670.1 9896.9
+\i (01:02:38) trapsize 203
+\i (01:02:39) pick grid 1653.4 9015.3
+\t (01:02:39) last pick:  1700.0  9000.0
+\t (01:02:39) Moving J8 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (01:02:39) last pick:  1800.0  7400.0
+\i (01:02:42) pick grid 1653.4 7430.8
+\t (01:02:42) last pick:  1700.0  7400.0
+\i (01:02:44) pick grid 2396.9 8995.0
+\t (01:02:44) last pick:  2400.0  9000.0
+\t (01:02:44) Moving J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (01:02:44) last pick:  2400.0  7400.0
+\i (01:02:46) pick grid 2405.0 7353.6
+\t (01:02:46) last pick:  2400.0  7400.0
+\i (01:02:49) setwindow form.plc_manual
+\i (01:02:49) FORM plc_manual done  
+\i (01:02:49) setwindow pcb
+\i (01:02:49) generaledit 
+\i (01:02:50) zoom in 1 
+\i (01:02:50) setwindow pcb
+\i (01:02:50) zoom in 3274.4 8462.8
+\i (01:02:50) trapsize 102
+\i (01:02:51) pick grid 3225.7 8450.6
+\t (01:02:51) last pick:  3200.0  8500.0
+\i (01:02:52) prepopup 3223.7 8517.7
+\i (01:02:53) pop dyn_option_select @:@Delete 
+\i (01:02:53) delete 
+\i (01:02:53) generaledit 
+\i (01:02:54) prepopup 3164.8 8375.5
+\i (01:02:56) pop dyn_option_select @:@Delete 
+\i (01:02:56) delete 
+\i (01:02:56) generaledit 
+\i (01:02:57) prepopup 3193.2 8198.7
+\i (01:02:58) pop dyn_option_select @:@Delete 
+\i (01:02:58) delete 
+\i (01:02:58) generaledit 
+\i (01:02:59) prepopup 3197.3 7896.1
+\i (01:03:00) pop dyn_option_select @:@Delete 
+\i (01:03:00) delete 
+\i (01:03:00) generaledit 
+\i (01:03:01) prepopup 3156.6 7847.3
+\i (01:03:03) pop dyn_option_select @:@Delete 
+\i (01:03:03) delete 
+\i (01:03:03) generaledit 
+\i (01:03:05) prepopup 3172.9 7800.6
+\i (01:03:06) pop dyn_option_select @:@Delete 
+\i (01:03:06) delete 
+\i (01:03:06) generaledit 
+\i (01:03:08) prepopup 3252.1 8308.4
+\i (01:03:10) pop dyn_option_select @:@Delete 
+\i (01:03:10) delete 
+\i (01:03:10) generaledit 
+\i (01:03:12) zoom out 1 
+\i (01:03:12) setwindow pcb
+\i (01:03:12) zoom out 2490.3 7627.9
+\i (01:03:12) trapsize 203
+\i (01:03:13) zoom out 1 
+\i (01:03:13) setwindow pcb
+\i (01:03:13) zoom out 1852.5 7376.0
+\i (01:03:13) trapsize 406
+\i (01:03:14) zoom out 1 
+\i (01:03:14) setwindow pcb
+\i (01:03:14) zoom out 1978.3 7798.6
+\i (01:03:14) trapsize 813
+\i (01:03:16) zoom in 1 
+\i (01:03:16) setwindow pcb
+\i (01:03:16) zoom in 1921.5 5756.8
+\i (01:03:16) trapsize 406
+\i (01:03:17) zoom in 1 
+\i (01:03:17) setwindow pcb
+\i (01:03:17) zoom in 2067.7 6536.9
+\i (01:03:17) trapsize 203
+\i (01:03:19) zoom in 1 
+\i (01:03:19) setwindow pcb
+\i (01:03:19) zoom in 1612.7 6951.4
+\i (01:03:19) trapsize 102
+\i (01:03:20) prepopup 1665.5 6969.7
+\i (01:03:21) pop dyn_option_select @:@Delete 
+\i (01:03:22) delete 
+\i (01:03:22) generaledit 
+\i (01:03:23) prepopup 1643.2 6896.6
+\i (01:03:24) pop dyn_option_select @:@Delete 
+\i (01:03:24) delete 
+\i (01:03:24) generaledit 
+\i (01:03:24) prepopup 1590.4 6898.6
+\i (01:03:25) pop dyn_option_select @:@Delete 
+\i (01:03:26) delete 
+\i (01:03:26) generaledit 
+\i (01:03:27) prepopup 1622.9 6898.6
+\i (01:03:28) pop dyn_option_select @:@Delete 
+\i (01:03:28) delete 
+\i (01:03:28) generaledit 
+\i (01:03:29) prepopup 1566.0 7284.6
+\i (01:03:30) pop dyn_option_select @:@Delete 
+\i (01:03:30) delete 
+\i (01:03:30) generaledit 
+\i (01:03:32) zoom in 1 
+\i (01:03:32) setwindow pcb
+\i (01:03:32) zoom in 1639.1 7398.3
+\i (01:03:32) trapsize 51
+\i (01:03:34) zoom out 1 
+\i (01:03:34) setwindow pcb
+\i (01:03:34) zoom out 1598.5 7451.1
+\i (01:03:34) trapsize 102
+\i (01:03:34) zoom out 1 
+\i (01:03:34) setwindow pcb
+\i (01:03:34) zoom out 1541.6 7388.2
+\i (01:03:34) trapsize 203
+\i (01:03:37) zoom out 1 
+\i (01:03:37) setwindow pcb
+\i (01:03:37) zoom out 1618.7 7384.2
+\i (01:03:37) trapsize 406
+\i (01:03:38) zoom out 1 
+\i (01:03:38) setwindow pcb
+\i (01:03:38) zoom out 1620.9 7384.3
+\i (01:03:38) trapsize 813
+\i (01:03:39) zoom in 1 
+\i (01:03:39) setwindow pcb
+\i (01:03:39) zoom in 1190.1 9884.6
+\i (01:03:39) trapsize 406
+\i (01:03:40) zoom in 1 
+\i (01:03:40) setwindow pcb
+\i (01:03:40) zoom in 1750.8 8446.4
+\i (01:03:40) trapsize 203
+\i (01:03:47) zoom in 1 
+\i (01:03:47) setwindow pcb
+\i (01:03:47) zoom in 2482.1 7012.3
+\i (01:03:47) trapsize 102
+\i (01:03:49) prepopup 2498.4 7057.0
+\i (01:03:51) pop dyn_option_select @:@Delete 
+\i (01:03:51) delete 
+\i (01:03:51) generaledit 
+\i (01:03:52) prepopup 2293.2 6992.0
+\i (01:03:53) pop dyn_option_select @:@Delete 
+\i (01:03:53) delete 
+\i (01:03:53) generaledit 
+\i (01:03:55) prepopup 2317.6 7215.5
+\i (01:03:57) pop dyn_option_select @:@Delete 
+\i (01:03:57) delete 
+\i (01:03:57) generaledit 
+\i (01:03:59) prepopup 2427.3 8056.5
+\i (01:04:00) pop dyn_option_select @:@Delete 
+\i (01:04:00) delete 
+\i (01:04:00) generaledit 
+\i (01:04:02) prepopup 2102.3 8245.4
+\i (01:04:02) pop dyn_option_select @:@Delete 
+\i (01:04:03) delete 
+\i (01:04:03) generaledit 
+\i (01:04:04) prepopup 2112.4 8149.9
+\i (01:04:05) pop dyn_option_select @:@Delete 
+\i (01:04:05) delete 
+\i (01:04:05) generaledit 
+\i (01:04:09) prepopup 2435.4 8168.2
+\i (01:04:10) pop dyn_option_select '@:@Add vertex' 
+\i (01:04:10) add vertex 
+\i (01:04:12) prepopup 2433.4 8180.4
+\i (01:04:13) oops 
+\i (01:04:13) generaledit 
+\i (01:04:14) prepopup 2437.5 8233.2
+\i (01:04:15) pop dyn_option_select @:@Delete 
+\i (01:04:15) delete 
+\i (01:04:15) generaledit 
+\i (01:04:17) prepopup 2453.7 8101.2
+\i (01:04:18) pop dyn_option_select @:@Delete 
+\i (01:04:18) delete 
+\i (01:04:18) generaledit 
+\i (01:04:21) zoom out 1 
+\i (01:04:21) setwindow pcb
+\i (01:04:21) zoom out 1824.0 7625.8
+\i (01:04:21) trapsize 203
+\i (01:04:23) zoom in 1 
+\i (01:04:23) setwindow pcb
+\i (01:04:23) zoom in 1360.8 7776.2
+\i (01:04:23) trapsize 102
+\i (01:04:24) zoom out 1 
+\i (01:04:24) setwindow pcb
+\i (01:04:24) zoom out 1415.6 7388.2
+\i (01:04:24) trapsize 203
+\i (01:04:26) zoom in 1 
+\i (01:04:26) setwindow pcb
+\i (01:04:26) zoom in 2488.3 8464.8
+\i (01:04:26) trapsize 102
+\i (01:04:28) prepopup 2368.5 8472.9
+\i (01:04:29) pop dyn_option_select @:@Delete 
+\i (01:04:29) delete 
+\i (01:04:29) generaledit 
+\i (01:04:30) zoom out 1 
+\i (01:04:30) setwindow pcb
+\i (01:04:30) zoom out 2275.0 8164.1
+\i (01:04:30) trapsize 203
+\i (01:04:30) zoom out 1 
+\i (01:04:30) setwindow pcb
+\i (01:04:30) zoom out 2047.6 8034.2
+\i (01:04:30) trapsize 406
+\i (01:04:31) zoom in 1 
+\i (01:04:31) setwindow pcb
+\i (01:04:31) zoom in 1198.3 7798.6
+\i (01:04:31) trapsize 203
+\i (01:04:32) zoom in 1 
+\i (01:04:32) setwindow pcb
+\i (01:04:32) zoom in 1198.3 7660.4
+\i (01:04:32) trapsize 102
+\i (01:04:34) prepopup 1647.3 7500.0
+\i (01:04:36) pop dyn_option_select @:@Delete 
+\i (01:04:36) delete 
+\i (01:04:36) generaledit 
+\i (01:04:38) prepopup 1517.3 8206.9
+\i (01:04:39) pop dyn_option_select @:@Delete 
+\i (01:04:39) delete 
+\i (01:04:39) generaledit 
+\i (01:04:41) prepopup 1639.2 8306.4
+\i (01:04:42) pop dyn_option_select @:@Delete 
+\i (01:04:42) delete 
+\i (01:04:42) generaledit 
+\i (01:04:43) prepopup 1637.1 8397.9
+\i (01:04:44) pop dyn_option_select @:@Delete 
+\i (01:04:44) delete 
+\i (01:04:44) generaledit 
+\i (01:04:45) prepopup 1639.2 8501.5
+\i (01:04:46) pop dyn_option_select @:@Delete 
+\i (01:04:46) delete 
+\i (01:04:46) generaledit 
+\i (01:04:49) prepopup 1700.1 8641.6
+\i (01:04:50) pop dyn_option_select @:@Delete 
+\i (01:04:50) delete 
+\i (01:04:50) generaledit 
+\i (01:04:51) prepopup 1696.1 8653.8
+\i (01:04:52) pop dyn_option_select @:@Delete 
+\i (01:04:52) delete 
+\i (01:04:53) generaledit 
+\i (01:04:53) prepopup 1643.2 8796.0
+\i (01:04:54) pop dyn_option_select @:@Delete 
+\i (01:04:54) delete 
+\i (01:04:54) generaledit 
+\i (01:04:57) prepopup 1645.3 7906.3
+\i (01:04:58) pop dyn_option_select @:@Delete 
+\i (01:04:58) delete 
+\i (01:04:58) generaledit 
+\i (01:04:59) prepopup 1637.1 8003.8
+\i (01:05:00) pop dyn_option_select @:@Delete 
+\i (01:05:00) delete 
+\i (01:05:00) generaledit 
+\i (01:05:01) prepopup 1641.2 8103.3
+\i (01:05:02) pop dyn_option_select @:@Delete 
+\i (01:05:02) delete 
+\i (01:05:02) generaledit 
+\i (01:05:03) prepopup 1645.3 8217.1
+\i (01:05:04) pop dyn_option_select @:@Delete 
+\i (01:05:04) delete 
+\i (01:05:04) generaledit 
+\i (01:05:07) prepopup 1649.3 7404.5
+\i (01:05:08) pop dyn_option_select @:@Delete 
+\i (01:05:08) delete 
+\i (01:05:08) generaledit 
+\i (01:05:10) prepopup 1742.8 7601.6
+\i (01:05:12) pop dyn_option_select @:@Delete 
+\i (01:05:12) delete 
+\i (01:05:12) generaledit 
+\i (01:05:13) prepopup 1663.6 7684.8
+\i (01:05:15) pick grid 1651.4 7644.2
+\t (01:05:15) last pick:  1700.0  7600.0
+\i (01:05:16) prepopup 1643.2 7703.1
+\i (01:05:17) pop dyn_option_select @:@Delete 
+\i (01:05:17) delete 
+\i (01:05:17) generaledit 
+\i (01:05:18) prepopup 1643.2 7804.7
+\i (01:05:19) pop dyn_option_select @:@Delete 
+\i (01:05:19) delete 
+\i (01:05:19) generaledit 
+\i (01:05:20) zoom out 1 
+\i (01:05:20) setwindow pcb
+\i (01:05:20) zoom out 1618.9 7353.7
+\i (01:05:20) trapsize 203
+\i (01:05:22) zoom out 1 
+\i (01:05:22) setwindow pcb
+\i (01:05:22) zoom out 1752.9 7349.7
+\i (01:05:22) trapsize 406
+\i (01:05:23) zoom in 1 
+\i (01:05:23) setwindow pcb
+\i (01:05:23) zoom in 1466.4 6935.3
+\i (01:05:23) trapsize 203
+\i (01:05:23) zoom in 1 
+\i (01:05:23) setwindow pcb
+\i (01:05:23) zoom in 1722.4 7211.6
+\i (01:05:23) trapsize 102
+\i (01:05:26) zoom out 1 
+\i (01:05:26) setwindow pcb
+\i (01:05:26) zoom out 1872.7 7534.6
+\i (01:05:26) trapsize 203
+\i (01:05:28) zoom out 1 
+\i (01:05:28) setwindow pcb
+\i (01:05:28) zoom out 1872.7 7534.6
+\i (01:05:28) trapsize 406
+\i (01:05:30) zoom out 1 
+\i (01:05:30) setwindow pcb
+\i (01:05:30) zoom out 2709.7 7177.2
+\i (01:05:30) trapsize 813
+\i (01:05:31) zoom in 1 
+\i (01:05:31) setwindow pcb
+\i (01:05:31) zoom in 2571.5 4066.6
+\i (01:05:31) trapsize 406
+\i (01:05:32) zoom in 1 
+\i (01:05:32) setwindow pcb
+\i (01:05:32) zoom in 2457.7 5391.1
+\i (01:05:32) trapsize 203
+\i (01:05:33) zoom out 1 
+\i (01:05:33) setwindow pcb
+\i (01:05:33) zoom out 2457.8 5391.1
+\i (01:05:33) trapsize 406
+\i (01:05:33) zoom out 1 
+\i (01:05:33) setwindow pcb
+\i (01:05:33) zoom out 2457.8 5391.1
+\i (01:05:33) trapsize 813
+\i (01:05:34) zoom in 1 
+\i (01:05:34) setwindow pcb
+\i (01:05:34) zoom in 1921.5 8909.5
+\i (01:05:34) trapsize 406
+\i (01:05:34) zoom in 1 
+\i (01:05:34) setwindow pcb
+\i (01:05:34) zoom in 2230.2 8032.0
+\i (01:05:34) trapsize 203
+\i (01:05:36) zoom in 1 
+\i (01:05:36) setwindow pcb
+\i (01:05:36) zoom in 1543.6 7414.5
+\i (01:05:36) trapsize 102
+\i (01:05:38) prepopup 1574.1 7443.0
+\i (01:05:39) pop dyn_option_select @:@Delete 
+\i (01:05:39) delete 
+\i (01:05:39) generaledit 
+\i (01:05:40) prepopup 1555.8 7540.5
+\i (01:05:41) pop dyn_option_select @:@Delete 
+\i (01:05:41) delete 
+\i (01:05:42) generaledit 
+\i (01:05:52) prepopup 1622.9 7394.2
+\i (01:05:54) prepopup 1602.6 7392.2
+\i (01:05:54) prepopup 1584.3 7398.3
+\i (01:05:56) pick grid 2045.4 7404.4
+\t (01:05:56) last pick:  2000.0  7400.0
+\i (01:05:59) zoom out 1 
+\i (01:05:59) setwindow pcb
+\i (01:05:59) zoom out 2291.2 7961.0
+\i (01:05:59) trapsize 203
+\i (01:06:08) auto_route 
+\i (01:06:09) setwindow form.vse_armain
+\i (01:06:09) FORM vse_armain execute  
+\i (01:06:25) FORM vse_armain close  
+\i (01:06:25) setwindow pcb
+\i (01:06:25) generaledit 
+\i (01:06:28) drc update 
+\t (01:06:28) Performing DRC...
+\t (01:06:28) Multithreaded DRC update (8 threads).
+\t (01:06:28) DRC done; 6 errors detected.
+\i (01:06:28) generaledit 
+\i (01:06:32) zoom out 1 
+\i (01:06:32) setwindow pcb
+\i (01:06:32) zoom out 2104.3 7989.4
+\i (01:06:32) trapsize 406
+\i (01:06:32) zoom out 1 
+\i (01:06:32) setwindow pcb
+\i (01:06:32) zoom out 4846.7 6339.9
+\i (01:06:32) trapsize 813
+\i (01:06:36) zoom in 1 
+\i (01:06:36) setwindow pcb
+\i (01:06:36) zoom in 2327.7 8454.5
+\i (01:06:36) trapsize 406
+\i (01:06:37) zoom in 1 
+\i (01:06:37) setwindow pcb
+\i (01:06:37) zoom in 2742.1 8129.5
+\i (01:06:37) trapsize 203
+\i (01:06:38) zoom in 1 
+\i (01:06:38) setwindow pcb
+\i (01:06:38) zoom in 2465.9 8117.3
+\i (01:06:38) trapsize 102
+\i (01:06:42) zoom out 1 
+\i (01:06:42) setwindow pcb
+\i (01:06:42) zoom out 2256.7 8093.0
+\i (01:06:42) trapsize 203
+\i (01:06:43) zoom out 1 
+\i (01:06:43) setwindow pcb
+\i (01:06:43) zoom out 1553.8 7991.4
+\i (01:06:43) trapsize 406
+\i (01:06:43) zoom in 1 
+\i (01:06:43) setwindow pcb
+\i (01:06:43) zoom in 1141.4 6992.0
+\i (01:06:44) trapsize 203
+\i (01:06:44) zoom in 1 
+\i (01:06:44) setwindow pcb
+\i (01:06:44) zoom in 1531.4 7223.6
+\i (01:06:44) trapsize 102
+\i (01:06:45) zoom out 1 
+\i (01:06:45) setwindow pcb
+\i (01:06:45) zoom out 1604.6 7365.8
+\i (01:06:45) trapsize 203
+\i (01:06:48) zoom out 1 
+\i (01:06:48) setwindow pcb
+\i (01:06:48) zoom out 2425.3 8117.5
+\i (01:06:48) trapsize 406
+\i (01:06:51) zoom out 1 
+\i (01:06:51) setwindow pcb
+\i (01:06:51) zoom out 2035.2 3420.8
+\i (01:06:51) trapsize 813
+\i (01:06:52) zoom in 1 
+\i (01:06:52) setwindow pcb
+\i (01:06:52) zoom in 4034.1 345.1
+\i (01:06:52) trapsize 406
+\i (01:06:53) zoom in 1 
+\i (01:06:53) setwindow pcb
+\i (01:06:53) zoom in 3977.2 158.2
+\i (01:06:53) trapsize 203
+\i (01:06:54) zoom out 1 
+\i (01:06:54) setwindow pcb
+\i (01:06:54) zoom out 3091.5 312.6
+\i (01:06:54) trapsize 406
+\i (01:06:58) zoom in 1 
+\i (01:06:58) setwindow pcb
+\i (01:06:58) zoom in 11956.7 3018.5
+\i (01:06:58) trapsize 203
+\i (01:06:59) zoom out 1 
+\i (01:06:59) setwindow pcb
+\i (01:06:59) zoom out 11249.8 3396.4
+\i (01:06:59) trapsize 406
+\i (01:07:01) zoom in 1 
+\i (01:07:01) setwindow pcb
+\i (01:07:01) zoom in 11217.3 5529.3
+\i (01:07:01) trapsize 203
+\i (01:07:02) zoom out 1 
+\i (01:07:02) setwindow pcb
+\i (01:07:02) zoom out 11201.1 5488.7
+\i (01:07:02) trapsize 406
+\i (01:07:03) zoom out 1 
+\i (01:07:03) setwindow pcb
+\i (01:07:03) zoom out 5504.9 4505.5
+\i (01:07:03) trapsize 813
+\i (01:07:04) zoom in 1 
+\i (01:07:04) setwindow pcb
+\i (01:07:04) zoom in 2327.7 8698.3
+\i (01:07:04) trapsize 406
+\i (01:07:21) place manual 
+\i (01:07:24) pick grid 2254.6 9210.3
+\t (01:07:24) last pick:  2300.0  9200.0
+\t (01:07:24) Moving J9 / HEADER 15X2_TYCO100VH30_HEADER / TYCO100VH30.
+\t (01:07:24) last pick:  2400.0  7400.0
+\i (01:07:30) pick grid 2344.0 7308.8
+\t (01:07:30) last pick:  2300.0  7300.0
+\i (01:07:32) setwindow form.plc_manual
+\i (01:07:32) FORM plc_manual done  
+\i (01:07:32) setwindow pcb
+\i (01:07:32) generaledit 
+\i (01:07:33) zoom in 1 
+\i (01:07:33) setwindow pcb
+\i (01:07:33) zoom in 2157.1 7447.0
+\i (01:07:33) trapsize 203
+\i (01:07:34) zoom in 1 
+\i (01:07:34) setwindow pcb
+\i (01:07:34) zoom in 2181.5 7491.7
+\i (01:07:34) trapsize 102
+\i (01:07:35) prepopup 2100.3 7306.8
+\i (01:07:37) pop dyn_option_select @:@Delete 
+\i (01:07:37) delete 
+\i (01:07:37) generaledit 
+\i (01:07:38) prepopup 2153.1 7327.1
+\i (01:07:39) pop dyn_option_select @:@Delete 
+\i (01:07:39) delete 
+\i (01:07:39) generaledit 
+\i (01:07:40) prepopup 2203.9 7337.3
+\i (01:07:42) pop dyn_option_select @:@Delete 
+\i (01:07:42) delete 
+\i (01:07:42) generaledit 
+\i (01:07:43) prepopup 2169.4 7353.5
+\i (01:07:44) pop dyn_option_select @:@Delete 
+\i (01:07:44) delete 
+\i (01:07:44) generaledit 
+\i (01:07:45) prepopup 2112.5 7266.2
+\i (01:07:46) pop dyn_option_select @:@Delete 
+\i (01:07:46) delete 
+\i (01:07:46) generaledit 
+\i (01:07:48) prepopup 2293.3 7349.5
+\i (01:07:49) pop dyn_option_select @:@Delete 
+\i (01:07:49) delete 
+\i (01:07:49) generaledit 
+\i (01:07:51) prepopup 2157.2 7436.8
+\i (01:07:52) pop dyn_option_select @:@Delete 
+\i (01:07:52) delete 
+\i (01:07:52) generaledit 
+\i (01:07:53) prepopup 2291.3 7554.7
+\i (01:07:54) pop dyn_option_select @:@Delete 
+\i (01:07:54) delete 
+\i (01:07:54) generaledit 
+\i (01:07:57) prepopup 2226.2 7839.1
+\i (01:07:58) pop dyn_option_select @:@Delete 
+\i (01:07:58) delete 
+\i (01:07:58) generaledit 
+\i (01:07:59) prepopup 2340.0 8015.8
+\i (01:08:00) pop dyn_option_select @:@Delete 
+\i (01:08:00) delete 
+\i (01:08:00) generaledit 
+\i (01:08:02) prepopup 2303.4 8052.4
+\i (01:08:03) pop dyn_option_select @:@Delete 
+\i (01:08:03) delete 
+\i (01:08:03) generaledit 
+\i (01:08:04) prepopup 2169.4 8056.4
+\i (01:08:05) pop dyn_option_select @:@Delete 
+\i (01:08:05) delete 
+\i (01:08:05) generaledit 
+\i (01:08:07) prepopup 2340.0 7991.4
+\i (01:08:08) pick grid 2301.4 7985.3
+\t (01:08:08) last pick:  2300.0  8000.0
+\i (01:08:10) prepopup 2344.1 7991.4
+\i (01:08:11) pop dyn_option_select @:@Delete 
+\i (01:08:11) delete 
+\i (01:08:11) generaledit 
+\i (01:08:12) prepopup 2301.4 7739.5
+\i (01:08:13) pop dyn_option_select @:@Delete 
+\i (01:08:13) delete 
+\i (01:08:13) generaledit 
+\i (01:08:15) prepopup 2250.6 7493.7
+\i (01:08:17) pop dyn_option_select @:@Delete 
+\i (01:08:17) delete 
+\i (01:08:17) generaledit 
+\i (01:08:18) prepopup 2250.6 7497.8
+\i (01:08:19) pop dyn_option_select @:@Delete 
+\i (01:08:19) delete 
+\i (01:08:19) generaledit 
+\i (01:08:21) prepopup 2340.0 7696.9
+\i (01:08:22) pick grid 2384.7 7729.4
+\t (01:08:22) last pick:  2400.0  7700.0
+\i (01:08:24) prepopup 2354.2 7703.0
+\i (01:08:25) pop dyn_option_select @:@Delete 
+\i (01:08:25) delete 
+\i (01:08:25) generaledit 
+\i (01:08:27) prepopup 2252.7 7900.0
+\i (01:08:28) pop dyn_option_select @:@Delete 
+\i (01:08:28) delete 
+\i (01:08:28) generaledit 
+\i (01:08:30) prepopup 2171.4 6933.0
+\i (01:08:32) pop dyn_option_select @:@Delete 
+\i (01:08:32) delete 
+\i (01:08:32) generaledit 
+\i (01:08:33) prepopup 2348.1 6894.5
+\i (01:08:34) pop dyn_option_select @:@Delete 
+\i (01:08:34) delete 
+\i (01:08:34) generaledit 
+\i (01:08:37) prepopup 2258.8 7075.2
+\i (01:08:39) pop dyn_option_select @:@Delete 
+\i (01:08:39) delete 
+\i (01:08:39) generaledit 
+\i (01:08:39) zoom out 1 
+\i (01:08:39) setwindow pcb
+\i (01:08:39) zoom out 2122.6 7286.5
+\i (01:08:39) trapsize 203
+\i (01:08:40) zoom in 1 
+\i (01:08:40) setwindow pcb
+\i (01:08:40) zoom in 2459.9 8696.4
+\i (01:08:40) trapsize 102
+\i (01:08:42) prepopup 2244.6 8493.3
+\i (01:08:43) pop dyn_option_select @:@Delete 
+\i (01:08:43) delete 
+\i (01:08:43) generaledit 
+\i (01:08:44) prepopup 2242.6 8401.9
+\i (01:08:45) pop dyn_option_select @:@Delete 
+\i (01:08:45) delete 
+\i (01:08:45) generaledit 
+\i (01:08:47) prepopup 2240.6 8661.9
+\i (01:08:48) pop dyn_option_select @:@Delete 
+\i (01:08:48) delete 
+\i (01:08:48) generaledit 
+\i (01:08:49) prepopup 2340.1 8700.5
+\i (01:08:51) pick grid 2118.7 8635.5
+\t (01:08:51) last pick:  2100.0  8600.0
+\i (01:08:52) prepopup 2354.3 8700.5
+\i (01:08:53) pop dyn_option_select @:@Delete 
+\i (01:08:53) delete 
+\i (01:08:53) generaledit 
+\i (01:08:55) prepopup 2348.2 8605.0
+\i (01:08:56) pop dyn_option_select @:@Delete 
+\i (01:08:56) delete 
+\i (01:08:56) generaledit 
+\i (01:08:58) prepopup 2342.1 8300.3
+\i (01:08:59) pick grid 2250.7 8308.4
+\t (01:08:59) last pick:  2300.0  8300.0
+\i (01:09:00) zoom in 1 
+\i (01:09:00) setwindow pcb
+\i (01:09:00) zoom in 2498.6 8300.3
+\i (01:09:00) trapsize 51
+\i (01:09:02) prepopup 2345.2 8298.3
+\i (01:09:03) pick grid 2325.9 8334.9
+\t (01:09:03) last pick:  2300.0  8300.0
+\i (01:09:04) prepopup 2370.6 8270.9
+\i (01:09:05) pop dyn_option_select @:@Delete 
+\i (01:09:06) delete 
+\i (01:09:06) generaledit 
+\i (01:09:07) prepopup 2345.2 8301.4
+\i (01:09:08) pop dyn_option_select @:@Delete 
+\i (01:09:08) delete 
+\i (01:09:09) generaledit 
+\i (01:09:09) zoom out 1 
+\i (01:09:09) setwindow pcb
+\i (01:09:09) zoom out 2354.4 8280.0
+\i (01:09:09) trapsize 102
+\i (01:09:10) zoom out 1 
+\i (01:09:10) setwindow pcb
+\i (01:09:10) zoom out 2441.7 7886.0
+\i (01:09:10) trapsize 203
+\i (01:09:11) zoom out 1 
+\i (01:09:11) setwindow pcb
+\i (01:09:11) zoom out 2372.5 7544.7
+\i (01:09:11) trapsize 406
+\i (01:09:13) zoom in 1 
+\i (01:09:13) setwindow pcb
+\i (01:09:13) zoom in 2596.0 7016.5
+\i (01:09:13) trapsize 203
+\i (01:09:18) auto_route 
+\i (01:09:20) setwindow form.vse_armain
+\i (01:09:20) FORM vse_armain execute  
+\i (01:09:31) FORM vse_armain close  
+\i (01:09:31) setwindow pcb
+\i (01:09:31) generaledit 
+\i (01:09:33) drc update 
+\t (01:09:33) Performing DRC...
+\t (01:09:33) Multithreaded DRC update (8 threads).
+\t (01:09:33) No DRC errors detected.
+\i (01:09:33) generaledit 
+\i (01:09:35) save 
+\i (01:09:37) fillin yes 
+\i (01:09:37) generaledit 
+\i (01:09:45) place manual 
+\i (01:10:02) setwindow form.plc_manual
+\i (01:10:02) FORM plc_manual cancel  
+\i (01:10:02) setwindow pcb
+\i (01:10:02) generaledit 
+\i (01:10:04) save 
+\i (01:10:06) fillin yes 
+\i (01:10:06) generaledit 
+\i (01:10:06) zoom out 1 
+\i (01:10:06) setwindow pcb
+\i (01:10:06) zoom out 4615.3 8292.3
+\i (01:10:06) trapsize 406
+\i (01:10:07) zoom out 1 
+\i (01:10:07) setwindow pcb
+\i (01:10:07) zoom out 6634.6 8292.2
+\i (01:10:07) trapsize 813
+\i (01:10:07) zoom out 1 
+\i (01:10:07) setwindow pcb
+\i (01:10:07) zoom out 13768.7 6406.8
+\i (01:10:07) trapsize 813
+\i (01:10:10) exit 
+\t (01:10:10)     Journal end - Mon May 08 17:04:39 2017

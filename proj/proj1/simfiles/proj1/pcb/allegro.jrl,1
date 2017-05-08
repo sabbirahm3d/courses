@@ -1,3399 +1,2039 @@
-\t (00:00:35) allegro 16.6 P004 (v16-6-112G) Windows 32
-\t (00:00:35)     Journal start - Mon May 08 10:23:03 2017
-\t (00:00:35)         Host=ITE375PC13 User=sabbir1 Pid=26076 CPUs=8
-\t (00:00:35) 
-\d (00:00:35) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
-\i (00:00:35) generaledit 
-\i (00:04:19) place manual 
-\i (00:07:46) Net D11 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D12 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D13 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D14 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D15 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D8 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D9 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D10 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D1 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D2 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D3 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D4 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D5 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D6 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) Net D7 
-\t (00:07:46) Nets are not selectable at this time.
-\i (00:07:46) xname_flush 
-\i (00:08:22) Net A16 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A17 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A18 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A19 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A8 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A9 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A10 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A11 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A12 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A13 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A14 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A15 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A0 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A1 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A2 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A3 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A4 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A5 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A6 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) Net A7 
-\t (00:08:22) Nets are not selectable at this time.
-\i (00:08:22) xname_flush 
-\i (00:08:26) refdes J10 
-\e (00:08:26) Cannot load symbol 'TYCO100VH60'
-\i (00:08:26) xname_flush 
-\i (00:08:32) refdes J10 
-\i (00:08:32) xname_flush 
-\i (00:08:59) refdes J10.52 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.50 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.48 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.46 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.44 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.60 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.58 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.56 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) refdes J10.54 
-\t (00:08:59) Pins are not selectable at this time.
-\i (00:08:59) xname_flush 
-\i (00:09:01) refdes J10.52 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.50 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.48 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.46 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.44 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.60 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.58 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.56 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) refdes J10.54 
-\t (00:09:01) Pins are not selectable at this time.
-\i (00:09:01) xname_flush 
-\i (00:09:03) refdes J10.52 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.50 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.48 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.46 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.60 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.58 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.56 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) refdes J10.54 
-\t (00:09:03) Pins are not selectable at this time.
-\i (00:09:03) xname_flush 
-\i (00:09:06) xname_flush 
-\i (00:09:22) refdes J10.52 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.50 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.48 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.46 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.60 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.58 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.56 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) refdes J10.54 
-\t (00:09:22) Pins are not selectable at this time.
-\i (00:09:22) xname_flush 
-\i (00:09:25) xname_flush 
-\i (00:11:22) xname_flush 
-\i (00:11:24) xname_flush 
-\i (00:11:26) xname_flush 
-\i (00:11:28) xname_flush 
-\i (00:11:46) xname_flush 
-\i (00:11:48) xname_flush 
-\i (00:11:50) xname_flush 
-\i (00:11:52) xname_flush 
-\i (00:12:08) refdes U37 
-\i (00:12:08) Net N362638 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362654 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362650 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362646 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362642 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net Gnd 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362662 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362658 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D2 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D1 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D0 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D4 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D3 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D7 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D6 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net D5 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N362810 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) refdes R18 
-\i (00:12:08) Net N362842 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) refdes R19 
-\i (00:12:08) refdes R20 
-\i (00:12:08) refdes R21 
-\i (00:12:08) refdes R23 
-\i (00:12:08) refdes R22 
-\i (00:12:08) refdes R24 
-\i (00:12:08) refdes R25 
-\i (00:12:08) refdes U30 
-\i (00:12:08) Net A2 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A1 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) refdes R2 
-\i (00:12:08) Net N363730 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net Mio 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A12-a15 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A0 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) refdes U40 
-\i (00:12:08) Net A4 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A3 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A6 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A5 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A9 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A8 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A7 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A10 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net A11 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) Net N366051 
-\t (00:12:08) Nets are not selectable at this time.
-\i (00:12:08) refdes Sw24 
-\i (00:12:08) xname_flush 
-\i (00:13:10) refdes J10.20 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.18 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.16 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.30 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.28 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.26 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.24 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) refdes J10.22 
-\t (00:13:10) Pins are not selectable at this time.
-\i (00:13:10) xname_flush 
-\i (00:13:12) xname_flush 
-\i (00:14:13) xname_flush 
-\i (00:14:18) xname_flush 
-\i (00:14:19) xname_flush 
-\i (00:14:25) xname_flush 
-\i (00:14:28) xname_flush 
-\i (00:14:34) xname_flush 
-\i (00:14:36) xname_flush 
-\i (00:14:36) xname_flush 
-\i (00:14:39) xname_flush 
-\i (00:15:00) xname_flush 
-\i (00:15:02) xname_flush 
-\i (00:15:18) refdes J10.52 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.50 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.48 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.46 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.60 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.58 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.56 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) refdes J10.54 
-\t (00:15:18) Pins are not selectable at this time.
-\i (00:15:18) xname_flush 
-\i (00:15:20) xname_flush 
-\i (00:15:34) refdes J10 
-\i (00:15:34) xname_flush 
-\i (00:15:40) Net D12 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D13 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D14 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D15 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D8 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D9 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D10 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) Net D11 
-\t (00:15:40) Nets are not selectable at this time.
-\i (00:15:40) xname_flush 
-\i (00:15:50) refdes J10 
-\i (00:15:50) xname_flush 
-\i (00:15:55) refdes J10.52 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.50 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.48 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.46 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.60 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.58 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.56 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) refdes J10.54 
-\t (00:15:55) Pins are not selectable at this time.
-\i (00:15:55) xname_flush 
-\i (00:16:03) xname_flush 
-\i (00:16:15) refdes J10.52 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.50 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.48 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.60 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.58 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.56 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) refdes J10.54 
-\t (00:16:15) Pins are not selectable at this time.
-\i (00:16:15) xname_flush 
-\i (00:16:28) xname_flush 
-\i (00:17:09) refdes J10.52 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.50 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.48 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.60 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.58 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.56 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) refdes J10.54 
-\t (00:17:09) Pins are not selectable at this time.
-\i (00:17:09) xname_flush 
-\i (00:17:14) xname_flush 
-\i (00:17:20) refdes J10.52 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.50 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.48 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.60 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.58 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.56 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) refdes J10.54 
-\t (00:17:20) Pins are not selectable at this time.
-\i (00:17:20) xname_flush 
-\i (00:17:24) xname_flush 
-\i (00:17:29) refdes J10 
-\i (00:17:29) xname_flush 
-\i (00:17:33) refdes J10.52 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.50 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.48 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.60 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.58 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.56 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) refdes J10.54 
-\t (00:17:33) Pins are not selectable at this time.
-\i (00:17:33) xname_flush 
-\i (00:17:36) xname_flush 
-\i (00:17:51) refdes J10 
-\i (00:17:51) xname_flush 
-\i (00:17:54) refdes J10.52 
-\t (00:17:54) Pins are not selectable at this time.
-\i (00:17:54) refdes J10.50 
-\t (00:17:54) Pins are not selectable at this time.
-\i (00:17:54) refdes J10.48 
-\t (00:17:54) Pins are not selectable at this time.
-\i (00:17:54) refdes J10.60 
-\t (00:17:54) Pins are not selectable at this time.
-\i (00:17:54) refdes J10.58 
-\t (00:17:55) Pins are not selectable at this time.
-\i (00:17:55) refdes J10.56 
-\t (00:17:55) Pins are not selectable at this time.
-\i (00:17:55) refdes J10.54 
-\t (00:17:55) Pins are not selectable at this time.
-\i (00:17:55) xname_flush 
-\i (00:17:57) xname_flush 
-\i (00:18:57) refdes J10 
-\i (00:18:57) xname_flush 
-\i (00:19:14) refdes J10.52 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.50 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.48 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.46 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.60 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.58 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.56 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) refdes J10.54 
-\t (00:19:14) Pins are not selectable at this time.
-\i (00:19:14) xname_flush 
-\i (00:19:18) xname_flush 
-\i (00:19:26) refdes J10 
-\i (00:19:26) xname_flush 
-\i (00:19:34) refdes J10.52 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.50 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.48 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.46 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.60 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.58 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.56 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) refdes J10.54 
-\t (00:19:34) Pins are not selectable at this time.
-\i (00:19:34) xname_flush 
-\i (00:19:37) xname_flush 
-\i (00:20:04) refdes J10.20 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.18 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.16 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.30 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.28 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.26 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.24 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) refdes J10.22 
-\t (00:20:04) Pins are not selectable at this time.
-\i (00:20:04) xname_flush 
-\i (00:20:07) xname_flush 
-\i (00:20:45) xname_flush 
-\i (00:20:52) refdes J10.7 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.5 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.3 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.1 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.23 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.21 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.19 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.17 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.15 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.13 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.11 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.9 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.39 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.37 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.35 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.33 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.31 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.29 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.27 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) refdes J10.25 
-\t (00:20:52) Pins are not selectable at this time.
-\i (00:20:52) xname_flush 
-\i (00:20:54) xname_flush 
-\i (00:21:08) Net Gnd 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) Net Mio 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) Net Rd 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) Net Wr 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) refdes U3 
-\i (00:21:08) Net Wrx 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) Net Rdx 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) Net Miox 
-\t (00:21:08) Nets are not selectable at this time.
-\i (00:21:08) refdes J10 
-\i (00:21:08) xname_flush 
-\i (00:21:10) Net Gnd 
-\t (00:21:10) Nets are not selectable at this time.
-\i (00:21:10) refdes U3 
-\i (00:21:10) Net Wrx 
-\t (00:21:10) Nets are not selectable at this time.
-\i (00:21:10) Net Rdx 
-\t (00:21:10) Nets are not selectable at this time.
-\i (00:21:10) Net Miox 
-\t (00:21:10) Nets are not selectable at this time.
-\i (00:21:10) xname_flush 
-\i (00:21:14) Net Gnd 
-\t (00:21:14) Nets are not selectable at this time.
-\i (00:21:14) xname_flush 
-\i (00:21:17) refdes U3 
-\i (00:21:17) Net Wrx 
-\t (00:21:17) Nets are not selectable at this time.
-\i (00:21:17) Net Rdx 
-\t (00:21:17) Nets are not selectable at this time.
-\i (00:21:17) Net Miox 
-\t (00:21:17) Nets are not selectable at this time.
-\i (00:21:17) xname_flush 
-\i (00:21:23) Net Gnd 
-\t (00:21:23) Nets are not selectable at this time.
-\i (00:21:23) xname_flush 
-\i (00:21:28) Net Mio 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) Net Rd 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) Net Wr 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) refdes U3 
-\i (00:21:28) Net Wrx 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) Net Rdx 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) Net Miox 
-\t (00:21:28) Nets are not selectable at this time.
-\i (00:21:28) xname_flush 
-\i (00:21:30) Net Gnd 
-\t (00:21:30) Nets are not selectable at this time.
-\i (00:21:30) refdes U3 
-\i (00:21:30) Net Wrx 
-\t (00:21:30) Nets are not selectable at this time.
-\i (00:21:30) Net Rdx 
-\t (00:21:30) Nets are not selectable at this time.
-\i (00:21:30) Net Miox 
-\t (00:21:30) Nets are not selectable at this time.
-\i (00:21:30) xname_flush 
-\i (00:21:43) Net Gnd 
-\t (00:21:43) Nets are not selectable at this time.
-\i (00:21:43) xname_flush 
-\i (00:21:44) Net Gnd 
-\t (00:21:44) Nets are not selectable at this time.
-\i (00:21:44) xname_flush 
-\i (00:21:46) Net Gnd 
-\t (00:21:46) Nets are not selectable at this time.
-\i (00:21:46) xname_flush 
-\i (00:22:20) Net Wr 
-\t (00:22:20) Nets are not selectable at this time.
-\i (00:22:20) xname_flush 
-\i (00:22:24) Net Rd 
-\t (00:22:24) Nets are not selectable at this time.
-\i (00:22:24) xname_flush 
-\i (00:22:27) Net Mio 
-\t (00:22:27) Nets are not selectable at this time.
-\i (00:22:27) xname_flush 
-\i (00:22:59) Net Wr 
-\t (00:22:59) Nets are not selectable at this time.
-\i (00:22:59) Net Mio 
-\t (00:22:59) Nets are not selectable at this time.
-\i (00:22:59) Net Rd 
-\t (00:22:59) Nets are not selectable at this time.
-\i (00:22:59) xname_flush 
-\i (00:23:03) Net Wr 
-\t (00:23:03) Nets are not selectable at this time.
-\i (00:23:03) Net Mio 
-\t (00:23:03) Nets are not selectable at this time.
-\i (00:23:03) Net Rd 
-\t (00:23:03) Nets are not selectable at this time.
-\i (00:23:03) xname_flush 
-\i (00:23:07) Net Wr 
-\t (00:23:07) Nets are not selectable at this time.
-\i (00:23:07) Net Mio 
-\t (00:23:07) Nets are not selectable at this time.
-\i (00:23:07) Net Rd 
-\t (00:23:07) Nets are not selectable at this time.
-\i (00:23:07) xname_flush 
-\i (00:28:01) setwindow form.plc_manual
-\i (00:28:01) FORM plc_manual cancel  
-\i (00:28:01) setwindow pcb
-\i (00:28:01) generaledit 
-\i (00:28:58) xhilite 
-\i (00:28:58) xrefdes J4 
-\t (00:28:58) Can not select unplaced component J4.
-\t (00:28:58) Can not select unplaced component J4.
-\i (00:28:58) xname_flush 
-\i (00:28:58) done 
-\i (00:28:58) generaledit 
-\i (00:29:07) xdehilite 
-\i (00:29:07) xrefdes J4 
-\t (00:29:07) Can not select unplaced component J4.
-\t (00:29:07) Can not select unplaced component J4.
-\i (00:29:07) xname_flush 
-\i (00:29:07) done 
-\i (00:29:07) generaledit 
-\i (00:29:26) xhilite 
-\i (00:29:26) xNet N73567 
-\i (00:29:26) xname_flush 
-\t (00:29:26) Net "N73567" highlighted.
-\i (00:29:26) done 
-\i (00:29:26) generaledit 
-\i (00:29:29) xdehilite 
-\i (00:29:29) xNet N73567 
-\i (00:29:29) xname_flush 
-\t (00:29:29) Net "N73567" dehighlighted.
-\i (00:29:29) done 
-\i (00:29:29) xhilite 
-\i (00:29:29) xNet N73567 
-\i (00:29:29) xname_flush 
-\t (00:29:29) Net "N73567" highlighted.
-\i (00:29:29) done 
-\i (00:29:29) generaledit 
-\i (00:29:33) xdehilite 
-\i (00:29:33) xNet N73567 
-\i (00:29:33) xname_flush 
-\t (00:29:33) Net "N73567" dehighlighted.
-\i (00:29:33) done 
-\i (00:29:33) generaledit 
-\i (00:29:33) xhilite 
-\i (00:29:34) xNet N73567 
-\i (00:29:34) xname_flush 
-\t (00:29:34) Net "N73567" highlighted.
-\i (00:29:34) done 
-\i (00:29:34) generaledit 
-\i (00:29:35) xdehilite 
-\i (00:29:35) xNet N73567 
-\i (00:29:35) xname_flush 
-\t (00:29:35) Net "N73567" dehighlighted.
-\i (00:29:35) done 
-\i (00:29:35) generaledit 
-\i (00:29:37) xhilite 
-\i (00:29:37) xNet N72839 
-\i (00:29:37) xname_flush 
-\t (00:29:37) Net "N72839" highlighted.
-\i (00:29:37) done 
-\i (00:29:37) generaledit 
-\i (00:29:40) xdehilite 
-\i (00:29:40) xNet N72839 
-\i (00:29:40) xname_flush 
-\t (00:29:40) Net "N72839" dehighlighted.
-\i (00:29:40) done 
-\i (00:29:40) xhilite 
-\i (00:29:40) xNet N72827 
-\i (00:29:40) xname_flush 
-\t (00:29:40) Net "N72827" highlighted.
-\i (00:29:40) done 
-\i (00:29:40) generaledit 
-\i (00:29:42) xdehilite 
-\i (00:29:42) xNet N72827 
-\i (00:29:42) xname_flush 
-\t (00:29:42) Net "N72827" dehighlighted.
-\i (00:29:42) done 
-\i (00:29:42) xhilite 
-\i (00:29:42) xNet N73545 
-\i (00:29:42) xname_flush 
-\t (00:29:42) Net "N73545" highlighted.
-\i (00:29:42) done 
-\i (00:29:42) generaledit 
-\i (00:29:45) xdehilite 
-\i (00:29:45) xNet N73545 
-\i (00:29:45) xname_flush 
-\t (00:29:45) Net "N73545" dehighlighted.
-\i (00:29:45) done 
-\i (00:29:45) xhilite 
-\i (00:29:45) xNet N72816 
-\i (00:29:45) xname_flush 
-\t (00:29:45) Net "N72816" highlighted.
-\i (00:29:45) done 
-\i (00:29:45) generaledit 
-\i (00:29:47) xdehilite 
-\i (00:29:47) xNet N72816 
-\i (00:29:47) xname_flush 
-\t (00:29:47) Net "N72816" dehighlighted.
-\i (00:29:47) done 
-\i (00:29:47) xhilite 
-\i (00:29:47) xNet N72812 
-\i (00:29:47) xname_flush 
-\t (00:29:47) Net "N72812" highlighted.
-\i (00:29:47) done 
-\i (00:29:47) generaledit 
-\i (00:29:50) xdehilite 
-\i (00:29:50) xNet N72812 
-\i (00:29:50) xname_flush 
-\t (00:29:50) Net "N72812" dehighlighted.
-\i (00:29:50) done 
-\i (00:29:50) xhilite 
-\i (00:29:50) xNet N72808 
-\i (00:29:50) xname_flush 
-\t (00:29:50) Net "N72808" highlighted.
-\i (00:29:50) done 
-\i (00:29:50) generaledit 
-\i (00:30:37) xhilite 
-\i (00:30:37) xNet Gnd 
-\i (00:30:37) xname_flush 
-\i (00:30:37) trapsize 41
-\t (00:30:37) Net "Gnd" highlighted.
-\i (00:30:37) done 
-\i (00:30:37) generaledit 
-\i (00:30:38) xdehilite 
-\i (00:30:38) xNet Gnd 
-\i (00:30:38) xname_flush 
-\t (00:30:38) Net "Gnd" dehighlighted.
-\i (00:30:38) done 
-\i (00:30:38) generaledit 
-\i (00:35:11) xdehilite 
-\i (00:35:11) xNet N72808 
-\i (00:35:11) xname_flush 
-\t (00:35:11) Net "N72808" dehighlighted.
-\i (00:35:11) done 
-\i (00:35:11) generaledit 
-\i (00:35:22) xhilite 
-\i (00:35:22) xname_flush 
-\i (00:35:22) done 
-\i (00:35:22) generaledit 
-\i (00:35:39) xhilite 
-\i (00:35:39) xNet N72852 
-\i (00:35:39) xname_flush 
-\t (00:35:39) Net "N72852" highlighted.
-\i (00:35:39) done 
-\i (00:35:39) generaledit 
-\i (00:35:40) xhilite 
-\i (00:35:40) xNet N72503 
-\i (00:35:40) xname_flush 
-\t (00:35:40) Net "N72503" highlighted.
-\i (00:35:40) done 
-\i (00:35:40) generaledit 
-\i (00:35:43) xhilite 
-\i (00:35:43) xNet N72839 
-\i (00:35:43) xname_flush 
-\t (00:35:43) Net "N72839" highlighted.
-\i (00:35:43) done 
-\i (00:35:43) generaledit 
-\i (00:35:44) xhilite 
-\i (00:35:44) xNet N72827 
-\i (00:35:44) xname_flush 
-\t (00:35:44) Net "N72827" highlighted.
-\i (00:35:44) done 
-\i (00:35:44) generaledit 
-\i (00:35:44) xdehilite 
-\i (00:35:44) xNet N72839 
-\i (00:35:44) xNet N72827 
-\i (00:35:44) xname_flush 
-\t (00:35:44) Net "N72839" dehighlighted.
-\t (00:35:44) Net "N72827" dehighlighted.
-\i (00:35:44) done 
-\i (00:35:44) generaledit 
-\i (00:35:45) xhilite 
-\i (00:35:45) xNet N72839 
-\i (00:35:45) xname_flush 
-\t (00:35:45) Net "N72839" highlighted.
-\i (00:35:45) done 
-\i (00:35:45) generaledit 
-\i (00:35:46) xhilite 
-\i (00:35:46) xNet N72827 
-\i (00:35:46) xname_flush 
-\t (00:35:46) Net "N72827" highlighted.
-\i (00:35:46) done 
-\i (00:35:46) generaledit 
-\i (00:35:47) xhilite 
-\i (00:35:47) xNet N73545 
-\i (00:35:47) xname_flush 
-\t (00:35:47) Net "N73545" highlighted.
-\i (00:35:47) done 
-\i (00:35:47) generaledit 
-\i (00:35:48) xhilite 
-\i (00:35:48) xNet N72816 
-\i (00:35:48) xname_flush 
-\t (00:35:48) Net "N72816" highlighted.
-\i (00:35:48) done 
-\i (00:35:48) generaledit 
-\i (00:35:48) xhilite 
-\i (00:35:48) xNet N72812 
-\i (00:35:48) xname_flush 
-\t (00:35:48) Net "N72812" highlighted.
-\i (00:35:48) done 
-\i (00:35:48) generaledit 
-\i (00:35:49) xhilite 
-\i (00:35:49) xNet N72808 
-\i (00:35:49) xname_flush 
-\t (00:35:49) Net "N72808" highlighted.
-\i (00:35:49) done 
-\i (00:35:49) generaledit 
-\i (00:35:52) xhilite 
-\i (00:35:52) xrefdes J4 
-\t (00:35:52) Can not select unplaced component J4.
-\t (00:35:52) Can not select unplaced component J4.
-\i (00:35:52) xname_flush 
-\i (00:35:52) done 
-\i (00:35:52) generaledit 
-\i (00:35:55) xdehilite 
-\i (00:35:55) xrefdes J4 
-\t (00:35:55) Can not select unplaced component J4.
-\t (00:35:55) Can not select unplaced component J4.
-\i (00:35:55) xname_flush 
-\i (00:35:55) done 
-\i (00:35:55) generaledit 
-\i (00:35:56) xhilite 
-\i (00:35:56) xrefdes J4 
-\t (00:35:56) Can not select unplaced component J4.
-\t (00:35:56) Can not select unplaced component J4.
-\i (00:35:56) xname_flush 
-\i (00:35:56) done 
-\i (00:35:56) generaledit 
-\i (00:36:06) xdehilite 
-\i (00:36:06) xrefdes J4 
-\t (00:36:06) Can not select unplaced component J4.
-\t (00:36:06) Can not select unplaced component J4.
-\i (00:36:06) xname_flush 
-\i (00:36:06) done 
-\i (00:36:06) generaledit 
-\i (00:36:13) xhilite 
-\i (00:36:13) xname_flush 
-\i (00:36:13) done 
+\t (00:00:03) allegro 16.6 P004 (v16-6-112G) Windows 32
+\t (00:00:03)     Journal start - Mon May 08 15:06:06 2017
+\t (00:00:03)         Host=ITE375PC13 User=sabbir1 Pid=1016 CPUs=8
+\t (00:00:03) 
+\t (00:00:05) Opening existing design...
+\d (00:00:05) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd
+\i (00:00:06) trapsize 467
+\i (00:00:06) trapsize 459
+\i (00:00:06) trapsize 469
+\i (00:00:06) trapsize 406
+\i (00:00:06) trapsize 406
+\i (00:00:06) generaledit 
+\i (00:00:07) zoom out 1 
+\i (00:00:07) setwindow pcb
+\i (00:00:07) zoom out 5114.9 2685.3
+\i (00:00:08) trapsize 813
+\i (00:00:08) zoom in 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom in 8097.0 4586.7
+\i (00:00:08) trapsize 406
+\i (00:00:10) save 
+\i (00:00:11) fillin yes 
+\i (00:00:11) generaledit 
+\i (00:00:18) cmgr 
+\i (00:00:18) generaledit 
+\i (00:00:21) setwindow cmgr
+\i (00:00:21) cm newView ( worksheet 55:Physical 61:Net "62:All Layers" "63:All Layers" )
+\i (00:00:22) cm newView ( worksheet 55:Physical "56:Physical Constraint Set" "57:All Layers" "58:All Layers" )
+\i (00:00:25) cm scope Design "proj1"
+\i (00:00:25) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_LINE_WIDTH 20 7
+\i (00:00:25) cm endUndoBlock
+\i (00:00:26) cm putValue ( "Physical CSet" "DEFAULT" ) MAX_LINE_WIDTH 20 7
+\i (00:00:26) cm endUndoBlock
+\i (00:00:27) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_NECK_WIDTH 20 7
+\i (00:00:27) cm endUndoBlock
+\i (00:00:30) cm exit
+\i (00:00:37) setwindow pcb
+\i (00:00:37) auto_route 
+\w (00:00:37) Xtalk table in drawing F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd does not exist. For xtalk estimation or xtalk DRC update, xtalk tables must be generated.
+   (00:00:38) Loading cmds.cxt 
+   (00:00:38) Loading vse.cxt 
+   (00:00:38) Loading axlcore.cxt 
+\i (00:00:46) setwindow form.vse_armain
+\i (00:00:46) FORM vse_armain execute  
+\i (00:01:29) FORM vse_armain routing_passes  
+\i (00:01:58) FORM vse_armain route_passlist cell 3,3 
+\i (00:02:02) FORM vse_armain route_passlist change 3,3 5 
+\i (00:02:02) FORM vse_armain execute  
+\i (00:02:20) FORM vse_armain close  
+\i (00:02:20) setwindow pcb
+\i (00:02:20) generaledit 
+\i (00:02:21) zoom out 1 
+\i (00:02:21) setwindow pcb
+\i (00:02:21) zoom out 4082.9 3879.8
+\i (00:02:21) trapsize 813
+\i (00:02:23) save 
+\i (00:02:25) fillin yes 
+\i (00:02:25) generaledit 
+\i (00:02:28) save 
+\i (00:02:29) fillin yes 
+\i (00:02:30) generaledit 
+\i (00:02:30) zoom in 1 
+\i (00:02:30) setwindow pcb
+\i (00:02:30) zoom in 3465.3 1303.9
+\i (00:02:30) trapsize 406
+\i (00:02:31) zoom out 1 
+\i (00:02:31) setwindow pcb
+\i (00:02:31) zoom out 2587.8 1905.3
+\i (00:02:31) trapsize 813
+\i (00:02:32) zoom in 1 
+\i (00:02:32) setwindow pcb
+\i (00:02:32) zoom in 1238.9 1157.6
+\i (00:02:32) trapsize 406
+\i (00:02:34) zoom out 1 
+\i (00:02:34) setwindow pcb
+\i (00:02:34) zoom out 2457.7 4180.4
+\i (00:02:34) trapsize 813
+\i (00:02:43) place manual 
+\i (00:03:01) setwindow form.plc_manual
+\i (00:03:01) FORM plc_manual tree 'MULTISEL YES' D3 'Components by refdes' 
+\t (00:03:01) Placing D3 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:03:01) FORM plc_manual tree  D3 'Components by refdes' 
+\i (00:03:04) FORM plc_manual tree 'MULTISEL YES' R7 'Components by refdes' 
+\i (00:03:04) FORM plc_manual tree  R7 'Components by refdes' 
+\i (00:03:06) FORM plc_manual tree 'MULTISEL YES' R17 'Components by refdes' 
+\i (00:03:06) FORM plc_manual tree  R17 'Components by refdes' 
+\i (00:03:11) setwindow pcb
+\i (00:03:11) pick grid 6878.1 6358.1
+\t (00:03:11) last pick:  6900.0  6400.0
+\t (00:03:11) Placing R7 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:03:14) zoom in 1 
+\i (00:03:14) setwindow pcb
+\i (00:03:14) zoom in 7056.9 5821.8
+\i (00:03:14) trapsize 406
+\i (00:03:14) zoom in 1 
+\i (00:03:14) setwindow pcb
+\i (00:03:14) zoom in 3278.4 5821.8
+\i (00:03:14) trapsize 203
+\i (00:03:15) zoom out 1 
+\i (00:03:15) setwindow pcb
+\i (00:03:15) zoom out 3591.3 5704.0
+\i (00:03:15) trapsize 406
+\i (00:03:22) zoom out 1 
+\i (00:03:22) setwindow pcb
+\i (00:03:22) zoom out 6975.7 6053.5
+\i (00:03:22) trapsize 813
+\i (00:03:23) zoom in 1 
+\i (00:03:23) setwindow pcb
+\i (00:03:23) zoom in 8178.2 5106.7
+\i (00:03:23) trapsize 406
+\i (00:03:23) zoom in 1 
+\i (00:03:23) setwindow pcb
+\i (00:03:23) zoom in 3465.3 5090.5
+\i (00:03:23) trapsize 203
+\i (00:03:26) pick grid 7052.9 6073.8
+\t (00:03:26) last pick:  7100.0  6100.0
+\t (00:03:26) Placing R17 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:03:27) zoom in 1 
+\i (00:03:27) setwindow pcb
+\i (00:03:27) zoom in 4363.3 5825.9
+\i (00:03:27) trapsize 102
+\i (00:03:27) zoom out 1 
+\i (00:03:27) setwindow pcb
+\i (00:03:27) zoom out 4170.3 5809.7
+\i (00:03:27) trapsize 203
+\i (00:03:28) zoom out 1 
+\i (00:03:28) setwindow pcb
+\i (00:03:28) zoom out 3711.2 5748.8
+\i (00:03:28) trapsize 406
+\i (00:03:30) zoom in 1 
+\i (00:03:30) setwindow pcb
+\i (00:03:30) zoom in 3904.1 8080.9
+\i (00:03:30) trapsize 203
+\i (00:03:32) pick grid 3749.8 8101.3
+\t (00:03:32) last pick:  3700.0  8100.0
+\i (00:03:45) setwindow form.plc_manual
+\i (00:03:45) FORM plc_manual tree 'MULTISEL YES' J6 'Components by refdes' 
+\e (00:03:45) Cannot load symbol 'TYCO100VH14J'
+\i (00:03:45) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:03:50) FORM plc_manual tree 'MULTISEL YES' R2 'Components by refdes' 
+\i (00:03:50) FORM plc_manual tree  R2 'Components by refdes' 
+\i (00:03:51) FORM plc_manual tree 'MULTISEL NO' J6 'Components by refdes' 
+\t (00:03:51) Placing R2 / POT_VRES1_POT / VRES1 on Top.
+\i (00:03:51) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:03:54) FORM plc_manual tree 'MULTISEL YES' J6 'Components by refdes' 
+\e (00:03:54) Cannot load symbol 'TYCO100VH14J'
+\i (00:03:56) FORM plc_manual tree 'MULTISEL NO' R2 'Components by refdes' 
+\i (00:03:56) FORM plc_manual tree  R2 'Components by refdes' 
+\i (00:03:57) FORM plc_manual tree 'MULTISEL NO' J6 'Components by refdes' 
+\i (00:03:57) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:04:35) FORM plc_manual tree 'MULTISEL YES' U31 'Components by refdes' 
+\t (00:04:35) Placing U31 / 7 SEGMENT LED_LED_HDSP_H101_7 S / LED_HDSP_H101 on Top.
+\i (00:04:35) FORM plc_manual tree  U31 'Components by refdes' 
+\i (00:04:36) FORM plc_manual tree 'MULTISEL YES' U32 'Components by refdes' 
+\i (00:04:36) FORM plc_manual tree  U32 'Components by refdes' 
+\i (00:04:36) FORM plc_manual tree 'MULTISEL YES' U33 'Components by refdes' 
+\i (00:04:36) FORM plc_manual tree  U33 'Components by refdes' 
+\i (00:04:37) FORM plc_manual tree 'MULTISEL YES' U34 'Components by refdes' 
+\i (00:04:37) FORM plc_manual tree  U34 'Components by refdes' 
+\i (00:04:39) setwindow pcb
+\i (00:04:39) pick grid 4034.2 6264.8
+\t (00:04:39) last pick:  4000.0  6300.0
+\t (00:04:39) Placing U32 / 74ALS374_DIP10020W300L1000_74AL / DIP10020W300L1000 on Top.
+\i (00:04:40) pick grid 3810.7 5748.9
+\t (00:04:40) last pick:  3800.0  5700.0
+\t (00:04:40) Placing U33 / 7 SEGMENT LED_LED_HDSP_H101_7 S / LED_HDSP_H101 on Top.
+\i (00:04:41) zoom out 1 
+\i (00:04:41) setwindow pcb
+\i (00:04:41) zoom out 3802.6 5748.9
+\i (00:04:41) trapsize 406
+\i (00:04:41) zoom out 1 
+\i (00:04:41) setwindow pcb
+\i (00:04:41) zoom out 4603.0 5058.1
+\i (00:04:41) trapsize 813
+\i (00:04:41) zoom out 1 
+\i (00:04:41) setwindow pcb
+\i (00:04:41) zoom out 9673.3 1628.9
+\i (00:04:41) trapsize 813
+\i (00:04:42) zoom in 1 
+\i (00:04:42) setwindow pcb
+\i (00:04:42) zoom in 4489.2 3384.1
+\i (00:04:42) trapsize 406
+\i (00:04:44) pick grid 3944.7 4806.1
+\t (00:04:44) last pick:  3900.0  4800.0
+\t (00:04:44) Placing U34 / 74ALS374_DIP10020W300L1000_74AL / DIP10020W300L1000 on Top.
+\i (00:04:46) pick grid 3749.7 4009.8
+\t (00:04:46) last pick:  3700.0  4000.0
+\i (00:04:50) pick grid 4253.5 6471.9
+\t (00:04:50) last pick:  4300.0  6500.0
+\t (00:04:50) Moving U31 / 7 SEGMENT LED_LED_HDSP_H101_7 S / LED_HDSP_H101.
+\t (00:04:50) last pick:  4000.0  6300.0
+\i (00:04:52) pick grid 4578.5 6317.5
+\t (00:04:52) last pick:  4600.0  6300.0
+\i (00:04:52) pick grid 4375.4 5854.3
+\t (00:04:52) last pick:  4400.0  5900.0
+\t (00:04:52) Moving U32 / 74ALS374_DIP10020W300L1000_74AL / DIP10020W300L1000.
+\t (00:04:52) last pick:  3800.0  5700.0
+\i (00:04:54) pick grid 2571.5 6155.0
+\t (00:04:54) last pick:  2600.0  6200.0
+\i (00:04:55) pick grid 4724.8 6536.9
+\t (00:04:55) last pick:  4700.0  6500.0
+\t (00:04:56) Moving U31 / 7 SEGMENT LED_LED_HDSP_H101_7 S / LED_HDSP_H101.
+\t (00:04:56) last pick:  4600.0  6300.0
+\i (00:04:58) pick grid 1848.3 6049.4
+\t (00:04:58) last pick:  1800.0  6000.0
+\i (00:04:59) pick grid 4139.8 5066.2
+\t (00:04:59) last pick:  4100.0  5100.0
+\t (00:04:59) Moving U33 / 7 SEGMENT LED_LED_HDSP_H101_7 S / LED_HDSP_H101.
+\t (00:04:59) last pick:  3900.0  4800.0
+\i (00:04:59) pick grid 3806.6 6057.5
+\t (00:04:59) last pick:  3800.0  6100.0
+\i (00:05:00) pick grid 4188.5 4123.6
+\t (00:05:00) last pick:  4200.0  4100.0
+\t (00:05:00) Moving U34 / 74ALS374_DIP10020W300L1000_74AL / DIP10020W300L1000.
+\t (00:05:00) last pick:  3700.0  4000.0
+\i (00:05:02) pick grid 3701.0 5456.2
+\t (00:05:02) last pick:  3700.0  5500.0
+\i (00:05:07) setwindow form.plc_manual
+\i (00:05:07) FORM plc_manual done  
+\i (00:05:07) setwindow pcb
+\i (00:05:07) generaledit 
+\i (00:05:08) save 
+\i (00:05:09) fillin yes 
+\i (00:05:09) generaledit 
+\i (00:05:16) auto_route 
+\i (00:05:19) setwindow form.vse_armain
+\i (00:05:19) FORM vse_armain router_setup  
+\i (00:05:21) FORM vse_armain execute  
+\i (00:05:40) FORM vse_armain routing_passes  
+\i (00:05:43) FORM vse_armain close  
+\i (00:05:43) setwindow pcb
+\i (00:05:43) generaledit 
+\i (00:05:49) save 
+\i (00:05:51) fillin yes 
+\i (00:05:51) generaledit 
+\i (00:06:01) place manual 
+\i (00:06:06) setwindow form.plc_manual
+\i (00:06:06) FORM plc_manual tree 'MULTISEL YES' J6 'Components by refdes' 
+\e (00:06:06) Cannot load symbol 'TYCO100VH14J'
+\i (00:06:06) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:07:15) setwindow pcb
+\i (00:07:15) refdes J6 
+\i (00:07:15) xname_flush 
+\i (00:07:31) refdes U38 
+\i (00:07:31) xname_flush 
+\i (00:07:39) refdes J6 
+\i (00:07:39) xname_flush 
+\i (00:07:49) setwindow form.plc_manual
+\i (00:07:49) FORM plc_manual cancel  
+\i (00:07:49) setwindow pcb
+\i (00:07:49) generaledit 
+\i (00:07:50) save 
+\i (00:07:51) fillin yes 
+\i (00:07:51) generaledit 
+\i (00:07:54) zoom out 1 
+\i (00:07:54) setwindow pcb
+\i (00:07:54) zoom out 4066.6 3116.0
+\i (00:07:54) trapsize 813
+\i (00:09:02) netin 
+\i (00:09:05) setwindow form.niparams
+\i (00:09:05) FORM niparams import  
+\t (00:09:05) Starting Cadence Logic Import...
+\t (00:09:07) Opening existing design...
+\i (00:09:07) setwindow pcb
+\i (00:09:07) trapsize 813
+\i (00:09:08) generaledit 
+\i (00:09:12) place manual 
+\i (00:09:15) setwindow form.plc_manual
+\i (00:09:15) FORM plc_manual tree 'MULTISEL YES' J6 'Components by refdes' 
+\t (00:09:15) Placing J6 / HEADER 7X2_TYCO100VH14J7_HEADER / TYCO100VH14J7 on Top.
+\i (00:09:15) FORM plc_manual tree  J6 'Components by refdes' 
+\i (00:09:17) setwindow pcb
+\i (00:09:17) zoom in 1 
+\i (00:09:17) setwindow pcb
+\i (00:09:17) zoom in 5188.0 5334.2
+\i (00:09:17) trapsize 406
+\i (00:09:28) pick grid 653.8 7788.2
+\t (00:09:28) last pick:  700.0  7800.0
+\i (00:09:36) zoom out 1 
+\i (00:09:36) setwindow pcb
+\i (00:09:36) zoom out 4407.9 3189.0
+\i (00:09:36) trapsize 813
+\i (00:09:39) zoom in 1 
+\i (00:09:39) setwindow pcb
+\i (00:09:39) zoom in 6975.6 1352.7
+\i (00:09:39) trapsize 406
+\i (00:10:51) setwindow form.plc_manual
+\i (00:10:51) FORM plc_manual tree 'MULTISEL YES' R19 'Components by refdes' 
+\t (00:10:51) Placing R19 / RESISTOR_AX300X100028_10K / AX300X100028 on Top.
+\i (00:10:51) FORM plc_manual tree  R19 'Components by refdes' 
+\i (00:10:51) FORM plc_manual tree 'MULTISEL YES' R18 'Components by refdes' 
+\t (00:10:51) Placing R18 / RESISTOR_AX300X100028_10K / AX300X100028 on Top.
+\i (00:10:51) FORM plc_manual tree  R18 'Components by refdes' 
+\i (00:10:52) FORM plc_manual tree 'MULTISEL YES' R16 'Components by refdes' 
+\t (00:10:52) Placing R16 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:10:52) FORM plc_manual tree  R16 'Components by refdes' 
+\i (00:10:55) FORM plc_manual tree 'MULTISEL NO' R19 'Components by refdes' 
+\i (00:10:55) FORM plc_manual tree  R19 'Components by refdes' 
+\i (00:10:56) FORM plc_manual tree 'MULTISEL NO' R18 'Components by refdes' 
+\i (00:10:56) FORM plc_manual tree  R18 'Components by refdes' 
+\i (00:10:56) FORM plc_manual tree 'MULTISEL NO' R16 'Components by refdes' 
+\i (00:10:56) FORM plc_manual tree  R16 'Components by refdes' 
+\i (00:10:58) FORM plc_manual tree 'MULTISEL YES' R9 'Components by refdes' 
+\t (00:10:58) Placing R9 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:10:58) FORM plc_manual tree  R9 'Components by refdes' 
+\i (00:10:58) FORM plc_manual tree 'MULTISEL YES' R10 'Components by refdes' 
+\i (00:10:58) FORM plc_manual tree  R10 'Components by refdes' 
+\i (00:10:59) FORM plc_manual tree 'MULTISEL YES' R11 'Components by refdes' 
+\i (00:10:59) FORM plc_manual tree  R11 'Components by refdes' 
+\i (00:10:59) FORM plc_manual tree 'MULTISEL YES' R12 'Components by refdes' 
+\i (00:10:59) FORM plc_manual tree  R12 'Components by refdes' 
+\i (00:11:00) FORM plc_manual tree 'MULTISEL YES' R13 'Components by refdes' 
+\i (00:11:00) FORM plc_manual tree  R13 'Components by refdes' 
+\i (00:11:00) FORM plc_manual tree 'MULTISEL YES' R14 'Components by refdes' 
+\i (00:11:00) FORM plc_manual tree  R14 'Components by refdes' 
+\i (00:11:01) FORM plc_manual tree 'MULTISEL YES' R15 'Components by refdes' 
+\i (00:11:01) FORM plc_manual tree  R15 'Components by refdes' 
+\i (00:11:01) FORM plc_manual tree 'MULTISEL YES' R16 'Components by refdes' 
+\i (00:11:01) FORM plc_manual tree  R16 'Components by refdes' 
+\i (00:11:04) setwindow pcb
+\i (00:11:04) zoom out 1 
+\i (00:11:04) setwindow pcb
+\i (00:11:04) zoom out 6553.1 3067.2
+\i (00:11:04) trapsize 813
+\i (00:11:08) zoom in 1 
+\i (00:11:08) setwindow pcb
+\i (00:11:08) zoom in 7739.4 4229.1
+\i (00:11:08) trapsize 406
+\i (00:11:08) zoom in 1 
+\i (00:11:08) setwindow pcb
+\i (00:11:08) zoom in 3619.7 4229.2
+\i (00:11:08) trapsize 203
+\i (00:11:09) zoom out 1 
+\i (00:11:09) setwindow pcb
+\i (00:11:09) zoom out 4830.5 4143.9
+\i (00:11:09) trapsize 406
+\i (00:11:16) pick grid 6512.5 4452.6
+\t (00:11:16) last pick:  6500.0  4500.0
+\t (00:11:16) Placing R10 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:17) zoom in 1 
+\i (00:11:17) setwindow pcb
+\i (00:11:17) zoom in 6593.8 4225.1
+\i (00:11:17) trapsize 203
+\i (00:11:19) pick grid 6549.1 4310.4
+\t (00:11:19) last pick:  6500.0  4300.0
+\t (00:11:19) Placing R11 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:20) pick grid 6536.9 4147.9
+\t (00:11:20) last pick:  6500.0  4100.0
+\t (00:11:20) Placing R12 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:21) pick grid 6536.9 3948.8
+\t (00:11:21) last pick:  6500.0  3900.0
+\t (00:11:21) Placing R13 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:21) pick grid 6532.8 3749.7
+\t (00:11:21) last pick:  6500.0  3700.0
+\t (00:11:21) Placing R14 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:22) zoom out 1 
+\i (00:11:22) setwindow pcb
+\i (00:11:22) zoom out 6541.0 3623.8
+\i (00:11:22) trapsize 406
+\i (00:11:23) zoom in 1 
+\i (00:11:23) setwindow pcb
+\i (00:11:23) zoom in 6723.8 2949.4
+\i (00:11:23) trapsize 203
+\i (00:11:25) pick grid 6549.1 3420.7
+\t (00:11:25) last pick:  6500.0  3400.0
+\t (00:11:25) Placing R15 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:25) zoom out 1 
+\i (00:11:25) setwindow pcb
+\i (00:11:25) zoom out 6536.9 3205.3
+\i (00:11:25) trapsize 406
+\i (00:11:26) zoom in 1 
+\i (00:11:26) setwindow pcb
+\i (00:11:26) zoom in 6626.3 2604.1
+\i (00:11:26) trapsize 203
+\i (00:11:30) pick grid 6488.2 3152.6
+\t (00:11:30) last pick:  6500.0  3200.0
+\t (00:11:30) Placing R16 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:11:31) pick grid 6500.4 2953.5
+\t (00:11:31) last pick:  6500.0  3000.0
+\i (00:11:33) pick grid 6748.2 3384.2
+\t (00:11:33) last pick:  6700.0  3400.0
+\t (00:11:33) Moving R14 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:33) last pick:  6500.0  3400.0
+\i (00:11:34) pick grid 6492.3 3453.2
+\t (00:11:34) last pick:  6500.0  3500.0
+\i (00:11:35) pick grid 6602.0 3201.3
+\t (00:11:35) last pick:  6600.0  3200.0
+\t (00:11:35) Moving R15 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:35) last pick:  6500.0  3200.0
+\i (00:11:36) pick grid 6549.1 3254.1
+\t (00:11:36) last pick:  6500.0  3300.0
+\i (00:11:37) pick grid 6695.4 4477.1
+\t (00:11:37) last pick:  6700.0  4500.0
+\t (00:11:37) Moving R9 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:37) last pick:  6500.0  4500.0
+\i (00:11:38) zoom out 1 
+\i (00:11:38) setwindow pcb
+\i (00:11:38) zoom out 6484.1 5175.9
+\i (00:11:38) trapsize 406
+\i (00:11:41) pick grid 6528.8 5549.6
+\t (00:11:41) last pick:  6500.0  5500.0
+\i (00:11:41) zoom in 1 
+\i (00:11:42) setwindow pcb
+\i (00:11:42) zoom in 6528.8 5492.8
+\i (00:11:42) trapsize 203
+\i (00:11:43) pick grid 6581.6 4294.3
+\t (00:11:43) last pick:  6600.0  4300.0
+\t (00:11:43) Moving R10 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:43) last pick:  6500.0  4300.0
+\i (00:11:44) pick grid 6484.1 5151.6
+\t (00:11:44) last pick:  6500.0  5200.0
+\i (00:11:45) pick grid 6679.1 4058.6
+\t (00:11:45) last pick:  6700.0  4100.0
+\t (00:11:45) Moving R11 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:45) last pick:  6500.0  4100.0
+\i (00:11:46) pick grid 6536.9 4850.9
+\t (00:11:46) last pick:  6500.0  4900.0
+\i (00:11:47) pick grid 6577.5 3883.9
+\t (00:11:47) last pick:  6600.0  3900.0
+\t (00:11:47) Moving R12 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:47) last pick:  6500.0  3900.0
+\i (00:11:49) pick grid 6524.7 4550.2
+\t (00:11:49) last pick:  6500.0  4600.0
+\i (00:11:50) pick grid 6610.0 3741.7
+\t (00:11:50) last pick:  6600.0  3700.0
+\t (00:11:50) Moving R13 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:50) last pick:  6500.0  3700.0
+\i (00:11:52) pick grid 6545.0 4253.7
+\t (00:11:52) last pick:  6500.0  4300.0
+\i (00:11:52) pick grid 6658.8 3489.8
+\t (00:11:52) last pick:  6700.0  3500.0
+\t (00:11:52) Moving R14 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:52) last pick:  6500.0  3500.0
+\i (00:11:53) pick grid 6520.7 3953.0
+\t (00:11:53) last pick:  6500.0  4000.0
+\i (00:11:54) pick grid 6585.7 3302.9
+\t (00:11:54) last pick:  6600.0  3300.0
+\t (00:11:54) Moving R15 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:54) last pick:  6500.0  3300.0
+\i (00:11:55) pick grid 6532.8 3652.4
+\t (00:11:55) last pick:  6500.0  3700.0
+\i (00:11:56) pick grid 6630.3 2973.9
+\t (00:11:56) last pick:  6600.0  3000.0
+\t (00:11:56) Moving R16 / RESISTOR_AX300X100028_RESISTOR / AX300X100028.
+\t (00:11:56) last pick:  6500.0  3000.0
+\i (00:11:57) pick grid 6549.1 3355.8
+\t (00:11:57) last pick:  6500.0  3400.0
+\i (00:12:37) setwindow form.plc_manual
+\i (00:12:37) FORM plc_manual tree 'MULTISEL YES' D4 'Components by refdes' 
+\t (00:12:37) Placing D4 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:37) FORM plc_manual tree  D4 'Components by refdes' 
+\i (00:12:43) FORM plc_manual tree 'MULTISEL YES' D5 'Components by refdes' 
+\i (00:12:43) FORM plc_manual tree  D5 'Components by refdes' 
+\i (00:12:43) FORM plc_manual tree 'MULTISEL YES' D6 'Components by refdes' 
+\i (00:12:43) FORM plc_manual tree  D6 'Components by refdes' 
+\i (00:12:44) FORM plc_manual tree 'MULTISEL YES' D7 'Components by refdes' 
+\i (00:12:44) FORM plc_manual tree  D7 'Components by refdes' 
+\i (00:12:44) FORM plc_manual tree 'MULTISEL YES' D8 'Components by refdes' 
+\i (00:12:44) FORM plc_manual tree  D8 'Components by refdes' 
+\i (00:12:45) FORM plc_manual tree 'MULTISEL YES' D9 'Components by refdes' 
+\i (00:12:45) FORM plc_manual tree  D9 'Components by refdes' 
+\i (00:12:45) FORM plc_manual tree 'MULTISEL YES' D10 'Components by refdes' 
+\i (00:12:45) FORM plc_manual tree  D10 'Components by refdes' 
+\i (00:12:46) FORM plc_manual tree 'MULTISEL YES' D11 'Components by refdes' 
+\i (00:12:46) FORM plc_manual tree  D11 'Components by refdes' 
+\i (00:12:48) setwindow pcb
+\i (00:12:48) pick grid 7065.1 3376.1
+\t (00:12:48) last pick:  7100.0  3400.0
+\t (00:12:48) Placing D5 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:49) pick grid 7101.6 3652.4
+\t (00:12:49) last pick:  7100.0  3700.0
+\t (00:12:49) Placing D6 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:50) pick grid 7057.0 3953.0
+\t (00:12:50) last pick:  7100.0  4000.0
+\t (00:12:50) Placing D7 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:52) pick grid 7061.0 4302.4
+\t (00:12:52) last pick:  7100.0  4300.0
+\t (00:12:52) Placing D8 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:53) pick grid 7069.1 4550.2
+\t (00:12:53) last pick:  7100.0  4600.0
+\t (00:12:53) Placing D9 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:54) pick grid 7061.0 4850.9
+\t (00:12:54) last pick:  7100.0  4900.0
+\t (00:12:54) Placing D10 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:55) pick grid 7040.7 5151.6
+\t (00:12:55) last pick:  7000.0  5200.0
+\t (00:12:55) Placing D11 / LED_CYLD225LS100031_LED / CYLD225LS100031 on Top.
+\i (00:12:57) pick grid 7052.9 5492.8
+\t (00:12:57) last pick:  7100.0  5500.0
+\i (00:12:57) pick grid 7032.6 5188.1
+\t (00:12:57) last pick:  7000.0  5200.0
+\t (00:12:58) Moving D10 / LED_CYLD225LS100031_LED / CYLD225LS100031.
+\t (00:12:58) last pick:  7000.0  5200.0
+\i (00:12:58) pick grid 7052.9 5188.1
+\t (00:12:58) last pick:  7100.0  5200.0
+\i (00:13:08) setwindow form.plc_manual
+\i (00:13:08) FORM plc_manual tree 'MULTISEL YES' U39 'Components by refdes' 
+\t (00:13:08) Placing U39 / 74LS374_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:13:08) FORM plc_manual tree  U39 'Components by refdes' 
+\i (00:13:13) setwindow pcb
+\i (00:13:13) prepopup 7585.1 4432.4
+\i (00:13:14) rotate 
+\t (00:13:14) Spin the element(s).
+\i (00:13:15) iangle 90.000
+\t (00:13:15) last angle:  +90.000 Degrees
+\i (00:13:16) prepopup 8292.1 4420.2
+\i (00:13:18) rotate 
+\t (00:13:18) Spin the element(s).
+\i (00:13:19) iangle 90.000
+\t (00:13:19) last angle:  +90.000 Degrees
+\i (00:13:20) prepopup 7930.5 4806.2
+\i (00:13:21) rotate 
+\t (00:13:21) Spin the element(s).
+\i (00:13:22) iangle 90.000
+\t (00:13:22) last angle:  +90.000 Degrees
+\i (00:13:25) pick grid 8036.1 4249.6
+\t (00:13:25) last pick:  8000.0  4200.0
+\i (00:13:27) pick grid 7849.2 4038.3
+\t (00:13:27) last pick:  7800.0  4000.0
+\t (00:13:27) Moving U39 / 74LS374_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:13:27) last pick:  8000.0  4200.0
+\i (00:13:27) prepopup 7926.4 4148.0
+\i (00:13:28) rotate 
+\t (00:13:28) Spin the element(s).
+\i (00:13:29) iangle 90.000
+\t (00:13:29) last angle:  270.000 Degrees
+\i (00:13:32) pick grid 7820.8 5050.0
+\t (00:13:32) last pick:  7800.0  5100.0
+\i (00:13:57) setwindow form.plc_manual
+\i (00:13:57) FORM plc_manual tree 'MULTISEL YES' U38 'Components by refdes' 
+\t (00:13:57) Placing U38 / 16L8_10_DIP10020W300L1000_16L8_ / DIP10020W300L1000 on Top.
+\i (00:13:57) FORM plc_manual tree  U38 'Components by refdes' 
+\i (00:14:02) setwindow pcb
+\i (00:14:02) pick grid 5281.5 3948.9
+\t (00:14:02) last pick:  5300.0  3900.0
+\i (00:14:05) setwindow form.plc_manual
+\i (00:14:05) FORM plc_manual done  
+\i (00:14:05) setwindow pcb
+\i (00:14:05) generaledit 
+\i (00:14:12) pick grid 6516.6 5578.2
+\t (00:14:12) last pick:  6525.0  5575.0
+\i (00:14:13) save 
+\i (00:14:15) fillin yes 
+\i (00:14:15) generaledit 
+\i (00:14:18) auto_route 
+\i (00:14:28) setwindow form.vse_armain
+\i (00:14:28) FORM vse_armain execute  
+\i (00:14:46) FORM vse_armain close  
+\i (00:14:47) setwindow pcb
+\i (00:14:47) generaledit 
+\i (00:14:53) drc update 
+\t (00:14:53) Performing DRC...
+\t (00:14:53) Multithreaded DRC update (8 threads).
+\t (00:14:53) DRC done; 139 errors detected.
+\i (00:14:53) generaledit 
+\i (00:15:01) zoom out 1 
+\i (00:15:01) setwindow pcb
+\i (00:15:01) zoom out 5350.5 3233.9
+\i (00:15:01) trapsize 406
+\i (00:15:02) zoom out 1 
+\i (00:15:02) setwindow pcb
+\i (00:15:02) zoom out 5805.6 3745.8
+\i (00:15:02) trapsize 813
+\i (00:15:04) zoom in 1 
+\i (00:15:04) setwindow pcb
+\i (00:15:04) zoom in 2457.7 1758.9
+\i (00:15:04) trapsize 406
+\i (00:15:05) zoom in 1 
+\i (00:15:05) setwindow pcb
+\i (00:15:05) zoom in 1799.6 2140.9
+\i (00:15:05) trapsize 203
+\i (00:15:07) zoom in 1 
+\i (00:15:07) setwindow pcb
+\i (00:15:07) zoom in 820.4 1754.9
+\i (00:15:07) trapsize 102
+\i (00:15:07) zoom in 1 
+\i (00:15:07) setwindow pcb
+\i (00:15:07) zoom in 917.9 1893.1
+\i (00:15:07) trapsize 51
+\i (00:15:13) pick grid 1102.8 1894.1
+\t (00:15:13) last pick:  1100.0  1900.0
+\i (00:15:17) drag_start grid 1099.7 1929.7
+\i (00:15:17) slide 
+\t (00:15:17) Waiting for the destination pick.
+\i (00:15:17) drag_stop grid 1131.2 1927.6
+\t (00:15:17) DRC errors detected.
+\i (00:15:17) generaledit 
+\i (00:15:19) pick grid 1105.8 1935.8
+\t (00:15:19) last pick:  1100.0  1925.0
+\i (00:15:23) zoom out 1 
+\i (00:15:23) setwindow pcb
+\i (00:15:23) zoom out 1208.4 1976.4
+\i (00:15:23) trapsize 102
+\i (00:15:25) zoom in 1 
+\i (00:15:25) setwindow pcb
+\i (00:15:25) zoom in 1031.7 2419.2
+\i (00:15:25) trapsize 51
+\i (00:15:27) drag_start grid 995.2 2478.1
+\i (00:15:28) drag_stop 996.2 2507.6
+\i (00:15:30) drag_start grid 1018.5 2477.1
+\i (00:15:30) drag_stop grid 1020.6 2500.5
+\i (00:15:31) zoom out 1 
+\i (00:15:31) setwindow pcb
+\i (00:15:31) zoom out 1190.2 2262.8
+\i (00:15:31) trapsize 102
+\i (00:15:31) zoom out 1 
+\i (00:15:31) setwindow pcb
+\i (00:15:31) zoom out 1190.2 2262.8
+\i (00:15:31) trapsize 203
+\i (00:15:32) zoom out 1 
+\i (00:15:32) setwindow pcb
+\i (00:15:32) zoom out 1275.5 2262.8
+\i (00:15:32) trapsize 406
+\i (00:15:32) zoom out 1 
+\i (00:15:32) setwindow pcb
+\i (00:15:32) zoom out 3051.0 2262.8
+\i (00:15:32) trapsize 813
+\i (00:15:40) save 
+\i (00:15:41) fillin yes 
+\i (00:15:42) generaledit 
+\i (00:15:44) new 
+\i (00:15:54) newdrawfillin "proj1_redo.brd" "Board"
+\t (00:15:54) Starting new design...
+\i (00:15:55) trapsize 813
+\i (00:15:55) trapsize 813
+\i (00:15:55) generaledit 
+\i (00:15:58) save 
+\i (00:15:58) generaledit 
+\i (00:16:02) netin 
+\i (00:16:03) setwindow form.niparams
+\i (00:16:03) FORM niparams capture_netlist YES 
+\i (00:16:06) FORM niparams browse  
+\i (00:16:15) fillin "F:/CMPE310/proj/proj1/simfiles/proj1/Allegro"
+\i (00:16:17) FORM niparams import  
+\t (00:16:17) Starting Cadence Logic Import...
+\t (00:16:18) Opening existing design...
+\i (00:16:18) setwindow pcb
+\i (00:16:18) trapsize 813
+\i (00:16:19) generaledit 
+\i (00:16:32) enved 
+\i (00:16:33) generaledit 
+\i (00:16:37) setwindow form.prfedit
+\i (00:16:37) FORM prfedit treelist  Library Paths 
+\i (00:16:40) FORM prfedit psmpath  
+\i (00:16:44) FORM prfedit done  
+\i (00:16:59) setwindow pcb
+\i (00:16:59) xsection 
+   (00:16:59) Loading floor.cxt 
+   (00:16:59) Loading skillExt.cxt 
+\i (00:17:02) setwindow form.fplyrstack
+\i (00:17:02) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:17:03) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Above' 
+   (00:17:03) Loading signal.cxt 
+\i (00:17:03) FORM fplyrstack lsgrid rprepopup 3,name 
+\i (00:17:04) FORM fplyrstack lsgrid rpopup 3,name 'Add Layer Above' 
+\i (00:17:04) FORM fplyrstack lsgrid rprepopup 4,name 
+\i (00:17:05) FORM fplyrstack lsgrid rpopup 4,name 'Add Layer Above' 
+\i (00:17:06) FORM fplyrstack lsgrid rprepopup 4,name 
+\i (00:17:06) FORM fplyrstack lsgrid rpopup 4,name 'Add Layer Above' 
+\i (00:17:13) FORM fplyrstack lsgrid cell 4,name 
+\i (00:17:15) FORM fplyrstack lsgrid change 4,name GND 
+\i (00:17:16) FORM fplyrstack lsgrid cell 1,name 
+\i (00:17:16) FORM fplyrstack lsgrid cell 2,name 
+\i (00:17:17) FORM fplyrstack lsgrid cell 3,name 
+\i (00:17:17) FORM fplyrstack lsgrid cell 4,name 
+\i (00:17:17) FORM fplyrstack lsgrid cell 5,name 
+\i (00:17:17) FORM fplyrstack lsgrid cell 6,name 
+\i (00:17:19) FORM fplyrstack lsgrid change 6,name POWER 
+\i (00:17:26) FORM fplyrstack lsgrid lprepopup 6,type 
+\i (00:17:26) FORM fplyrstack lsgrid cell 6,type 
+\i (00:17:26) FORM fplyrstack lsgrid change 6,type PLANE 
+\i (00:17:28) FORM fplyrstack lsgrid lprepopup 4,type 
+\i (00:17:28) FORM fplyrstack lsgrid cell 4,type 
+\i (00:17:29) FORM fplyrstack lsgrid change 4,type PLANE 
+\i (00:17:30) FORM fplyrstack done  
+\i (00:17:30) setwindow pcb
+\i (00:17:30) generaledit 
+\i (00:17:40) prmed 
+\i (00:17:54) setwindow form.prmedit
+\i (00:17:54) FORM prmedit design  
+\i (00:18:09) FORM prmedit lock_direction 90 
+\i (00:18:20) FORM prmedit done  
+\i (00:18:20) setwindow pcb
+\i (00:18:20) generaledit 
+\i (00:18:32) board outline 
+   (00:18:32) Loading fputil.cxt 
+\i (00:18:40) setwindow form.fpbdoutline
+\i (00:18:40) FORM fpbdoutline fpboclearance '100.0 MIL' 
+\i (00:18:44) FORM fpbdoutline fpboplacerect YES 
+\i (00:18:53) FORM fpbdoutline fpboplacewdt '12000.0 MIL' 
+\i (00:18:57) FORM fpbdoutline fpboplacehgt '12000.0 MIL' 
+\i (00:19:12) setwindow pcb
+\i (00:19:12) pick grid 231.3 -321.2
+\t (00:19:12) last pick:  200.0  -300.0
+\i (00:19:20) shape add rect 
+\i (00:19:34) setwindow form.mini
+\i (00:19:34) FORM mini class ROUTE KEEPIN 
+\i (00:19:46) setwindow pcb
+\i (00:19:46) shape add rect 
+\i (00:19:51) zoom in 1 
+\i (00:19:51) setwindow pcb
+\i (00:19:51) zoom in 410.1 11461.0
+\i (00:19:51) trapsize 406
+\i (00:19:52) zoom in 1 
+\i (00:19:52) setwindow pcb
+\i (00:19:52) zoom in 296.3 11607.3
+\i (00:19:52) trapsize 203
+\i (00:19:52) zoom in 1 
+\i (00:19:52) setwindow pcb
+\i (00:19:52) zoom in 296.4 11607.3
+\i (00:19:52) trapsize 102
+\i (00:19:56) pick grid 300.4 11597.1
+\t (00:19:56) last pick:  300.0  11600.0
+\i (00:19:56) zoom out 1 
+\i (00:19:56) setwindow pcb
+\i (00:19:56) zoom out 300.4 11597.1
+\i (00:19:56) trapsize 203
+\i (00:19:56) zoom out 1 
+\i (00:19:56) setwindow pcb
+\i (00:19:56) zoom out 300.5 11597.2
+\i (00:19:56) trapsize 406
+\i (00:19:56) zoom out 1 
+\i (00:19:56) setwindow pcb
+\i (00:19:56) zoom out 312.6 11597.2
+\i (00:19:56) trapsize 813
+\i (00:19:57) zoom out 1 
+\i (00:19:57) setwindow pcb
+\i (00:19:57) zoom out 1125.1 11672.3
+\i (00:19:57) trapsize 813
+\i (00:19:59) zoom in 1 
+\i (00:19:59) setwindow pcb
+\i (00:19:59) zoom in 12176.1 -272.5
+\i (00:19:59) trapsize 406
+\i (00:20:02) zoom in 1 
+\i (00:20:02) setwindow pcb
+\i (00:20:02) zoom in 12102.9 -215.6
+\i (00:20:02) trapsize 203
+\i (00:20:07) pick grid 12094.9 -199.3
+\t (00:20:07) last pick:  12100.0  -200.0
+\i (00:20:13) save 
+\i (00:20:15) fillin yes 
+\i (00:20:15) generaledit 
+\i (00:20:16) zoom out 1 
+\i (00:20:16) setwindow pcb
+\i (00:20:16) zoom out 8978.7 1129.2
+\i (00:20:16) trapsize 406
+\i (00:20:17) zoom out 1 
+\i (00:20:17) setwindow pcb
+\i (00:20:17) zoom out 5854.3 2360.3
+\i (00:20:17) trapsize 813
+\i (00:20:29) place manual 
+\i (00:20:55) setwindow form.plc_manual
+\i (00:20:55) FORM plc_manual tree 'MULTISEL YES' SW2 'Components by refdes' 
+\t (00:20:55) Placing SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:20:55) FORM plc_manual tree  SW2 'Components by refdes' 
+\i (00:20:55) FORM plc_manual tree 'MULTISEL YES' SW3 'Components by refdes' 
+\i (00:20:55) FORM plc_manual tree  SW3 'Components by refdes' 
+\i (00:20:56) FORM plc_manual tree 'MULTISEL YES' SW4 'Components by refdes' 
+\i (00:20:56) FORM plc_manual tree  SW4 'Components by refdes' 
+\i (00:20:57) FORM plc_manual tree 'MULTISEL YES' SW5 'Components by refdes' 
+\i (00:20:57) FORM plc_manual tree  SW5 'Components by refdes' 
+\i (00:20:57) FORM plc_manual tree 'MULTISEL YES' SW6 'Components by refdes' 
+\i (00:20:57) FORM plc_manual tree  SW6 'Components by refdes' 
+\i (00:20:58) FORM plc_manual tree 'MULTISEL YES' SW7 'Components by refdes' 
+\i (00:20:58) FORM plc_manual tree  SW7 'Components by refdes' 
+\i (00:20:58) FORM plc_manual tree 'MULTISEL YES' SW8 'Components by refdes' 
+\i (00:20:58) FORM plc_manual tree  SW8 'Components by refdes' 
+\i (00:20:59) FORM plc_manual tree 'MULTISEL YES' SW9 'Components by refdes' 
+\i (00:20:59) FORM plc_manual tree  SW9 'Components by refdes' 
+\i (00:21:00) FORM plc_manual tree 'MULTISEL YES' SW10 'Components by refdes' 
+\i (00:21:00) FORM plc_manual tree  SW10 'Components by refdes' 
+\i (00:21:00) FORM plc_manual tree 'MULTISEL YES' SW11 'Components by refdes' 
+\i (00:21:00) FORM plc_manual tree  SW11 'Components by refdes' 
+\i (00:21:01) FORM plc_manual tree 'MULTISEL YES' SW12 'Components by refdes' 
+\i (00:21:01) FORM plc_manual tree  SW12 'Components by refdes' 
+\i (00:21:01) FORM plc_manual tree 'MULTISEL YES' SW13 'Components by refdes' 
+\i (00:21:01) FORM plc_manual tree  SW13 'Components by refdes' 
+\i (00:21:03) FORM plc_manual tree 'MULTISEL YES' SW14 'Components by refdes' 
+\i (00:21:03) FORM plc_manual tree  SW14 'Components by refdes' 
+\i (00:21:03) FORM plc_manual tree 'MULTISEL YES' SW15 'Components by refdes' 
+\i (00:21:03) FORM plc_manual tree  SW15 'Components by refdes' 
+\i (00:21:04) FORM plc_manual tree 'MULTISEL NO' SW15 'Components by refdes' 
+\i (00:21:05) FORM plc_manual tree 'MULTISEL YES' SW15 'Components by refdes' 
+\i (00:21:05) FORM plc_manual tree 'MULTISEL YES' SW16 'Components by refdes' 
+\i (00:21:05) FORM plc_manual tree  SW16 'Components by refdes' 
+\i (00:21:07) FORM plc_manual tree 'MULTISEL YES' SW17 'Components by refdes' 
+\i (00:21:07) FORM plc_manual tree  SW17 'Components by refdes' 
+\i (00:21:07) FORM plc_manual tree 'MULTISEL YES' SW18 'Components by refdes' 
+\i (00:21:07) FORM plc_manual tree  SW18 'Components by refdes' 
+\i (00:21:08) FORM plc_manual tree 'MULTISEL YES' SW19 'Components by refdes' 
+\i (00:21:08) FORM plc_manual tree  SW19 'Components by refdes' 
+\i (00:21:09) setwindow pcb
+\i (00:21:09) zoom in 1 
+\i (00:21:09) setwindow pcb
+\i (00:21:09) zoom in 11558.5 426.3
+\i (00:21:09) trapsize 406
+\i (00:21:09) zoom in 1 
+\i (00:21:09) setwindow pcb
+\i (00:21:09) zoom in 5529.3 426.4
+\i (00:21:09) trapsize 203
+\i (00:21:09) zoom in 1 
+\i (00:21:09) setwindow pcb
+\i (00:21:09) zoom in 5529.3 426.4
+\i (00:21:09) trapsize 102
+\i (00:21:10) zoom out 1 
+\i (00:21:10) setwindow pcb
+\i (00:21:10) zoom out 5681.7 491.4
+\i (00:21:10) trapsize 203
+\i (00:21:10) zoom out 1 
+\i (00:21:10) setwindow pcb
+\i (00:21:10) zoom out 5681.7 495.5
+\i (00:21:10) trapsize 406
+\i (00:21:10) zoom out 1 
+\i (00:21:10) setwindow pcb
+\i (00:21:10) zoom out 6991.9 747.3
+\i (00:21:10) trapsize 813
+\i (00:21:13) zoom in 1 
+\i (00:21:13) setwindow pcb
+\i (00:21:13) zoom in 11704.8 -142.5
+\i (00:21:13) trapsize 406
+\i (00:21:15) zoom in 1 
+\i (00:21:15) setwindow pcb
+\i (00:21:15) zoom in 11404.1 3.8
+\i (00:21:15) trapsize 203
+\i (00:21:16) zoom out 1 
+\i (00:21:16) setwindow pcb
+\i (00:21:16) zoom out 10721.6 174.5
+\i (00:21:16) trapsize 406
+\i (00:21:16) zoom out 1 
+\i (00:21:16) setwindow pcb
+\i (00:21:16) zoom out 10226.0 -110.0
+\i (00:21:16) trapsize 813
+\i (00:21:17) zoom in 1 
+\i (00:21:17) setwindow pcb
+\i (00:21:17) zoom in 11867.3 -353.7
+\i (00:21:17) trapsize 406
+\i (00:21:18) zoom in 1 
+\i (00:21:18) setwindow pcb
+\i (00:21:18) zoom in 11729.1 -288.7
+\i (00:21:18) trapsize 203
+\i (00:21:20) zoom in 1 
+\i (00:21:20) setwindow pcb
+\i (00:21:20) zoom in 11838.9 -252.1
+\i (00:21:20) trapsize 102
+\i (00:21:21) zoom out 1 
+\i (00:21:21) setwindow pcb
+\i (00:21:21) zoom out 10362.1 446.7
+\i (00:21:21) trapsize 203
+\i (00:21:22) zoom out 1 
+\i (00:21:22) setwindow pcb
+\i (00:21:22) zoom out 10278.7 418.2
+\i (00:21:22) trapsize 406
+\i (00:21:24) pick grid 8227.0 1637.1
+\t (00:21:24) last pick:  8200.0  1600.0
+\t (00:21:24) Placing SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:26) zoom in 1 
+\i (00:21:26) setwindow pcb
+\i (00:21:26) zoom in 8722.7 1588.3
+\i (00:21:26) trapsize 203
+\i (00:21:29) pick grid 8734.9 1608.7
+\t (00:21:29) last pick:  8700.0  1600.0
+\t (00:21:29) Placing SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:38) pick grid 9173.7 1600.5
+\t (00:21:38) last pick:  9200.0  1600.0
+\t (00:21:38) Placing SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:41) pick grid 9685.7 1604.6
+\t (00:21:41) last pick:  9700.0  1600.0
+\t (00:21:41) Placing SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:49) pick grid 8182.4 1035.8
+\t (00:21:49) last pick:  8200.0  1000.0
+\t (00:21:49) Placing SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:56) pick grid 8698.4 991.1
+\t (00:21:56) last pick:  8700.0  1000.0
+\t (00:21:56) Placing SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:21:58) pick grid 9198.1 978.9
+\t (00:21:58) last pick:  9200.0  1000.0
+\t (00:21:58) Placing SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:00) pick grid 9706.0 999.2
+\t (00:22:00) last pick:  9700.0  1000.0
+\t (00:22:00) Placing SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:00) zoom out 1 
+\i (00:22:00) setwindow pcb
+\i (00:22:00) zoom out 9706.0 999.2
+\i (00:22:00) trapsize 406
+\i (00:22:01) zoom in 1 
+\i (00:22:01) setwindow pcb
+\i (00:22:01) zoom in 8129.5 430.5
+\i (00:22:01) trapsize 203
+\i (00:22:04) pick grid 8182.4 442.7
+\t (00:22:04) last pick:  8200.0  400.0
+\t (00:22:04) Placing SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:06) pick grid 8739.0 385.8
+\t (00:22:06) last pick:  8700.0  400.0
+\t (00:22:06) Placing SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:09) pick grid 9218.4 394.0
+\t (00:22:09) last pick:  9200.0  400.0
+\t (00:22:09) Placing SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:11) pick grid 9742.5 398.0
+\t (00:22:11) last pick:  9700.0  400.0
+\t (00:22:11) Placing SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:11) zoom out 1 
+\i (00:22:11) setwindow pcb
+\i (00:22:11) zoom out 9689.7 463.0
+\i (00:22:11) trapsize 406
+\i (00:22:12) zoom out 1 
+\i (00:22:12) setwindow pcb
+\i (00:22:12) zoom out 9397.1 885.6
+\i (00:22:12) trapsize 813
+\i (00:22:12) zoom out 1 
+\i (00:22:12) setwindow pcb
+\i (00:22:12) zoom out 19407.9 913.9
+\i (00:22:12) trapsize 813
+\i (00:22:15) pick grid 6650.6 491.3
+\t (00:22:15) last pick:  6700.0  500.0
+\t (00:22:15) Placing SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:18) pick grid 7251.9 442.6
+\t (00:22:18) last pick:  7300.0  400.0
+\t (00:22:18) Placing SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:18) pick grid 6033.0 491.3
+\t (00:22:18) last pick:  6000.0  500.0
+\t (00:22:18) Placing SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:19) pick grid 5090.5 507.6
+\t (00:22:19) last pick:  5100.0  500.0
+\t (00:22:19) Placing SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:22:21) zoom in 1 
+\i (00:22:21) setwindow pcb
+\i (00:22:21) zoom in 9982.1 182.6
+\i (00:22:21) trapsize 406
+\i (00:22:21) zoom in 1 
+\i (00:22:21) setwindow pcb
+\i (00:22:21) zoom in 4732.9 320.7
+\i (00:22:21) trapsize 203
+\i (00:22:21) zoom out 1 
+\i (00:22:21) setwindow pcb
+\i (00:22:21) zoom out 4737.0 377.6
+\i (00:22:22) trapsize 406
+\i (00:22:26) setwindow form.plc_manual
+\i (00:22:26) FORM plc_manual done  
+\i (00:22:26) setwindow pcb
+\i (00:22:26) generaledit 
+\i (00:22:28) drag_start grid 4765.5 3042.8
+\i (00:22:29) drag_stop 10697.3 206.9
+\i (00:22:30) move 
+\i (00:22:31) pick grid 8397.7 1661.4
+\t (00:22:31) last pick:  8400.0  1700.0
+\t (00:22:31) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:31) Pick new location for the element(s).
+\i (00:22:32) pick grid 8373.3 2230.2
+\t (00:22:32) last pick:  8400.0  2200.0
+\i (00:22:32) generaledit 
+\i (00:22:33) pick grid 6683.1 2295.3
+\t (00:22:33) last pick:  6700.0  2300.0
+\i (00:22:34) pick grid 7390.1 954.5
+\t (00:22:34) last pick:  7400.0  1000.0
+\i (00:22:36) move 
+\t (00:22:36) last pick:  7261.0  947.0
+\t (00:22:36) Pick new location for the element(s).
+\i (00:22:37) pick grid 7422.6 1003.3
+\t (00:22:37) last pick:  7400.0  1000.0
+\i (00:22:37) generaledit 
+\i (00:22:38) pick grid 7357.6 995.1
+\t (00:22:38) last pick:  7400.0  1000.0
+\i (00:22:44) place manual 
+\i (00:22:46) pick grid 7479.5 962.6
+\t (00:22:46) last pick:  7500.0  1000.0
+\t (00:22:46) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:22:46) last pick:  7300.0  900.0
+\i (00:22:59) pick grid 8706.5 296.3
+\t (00:22:59) last pick:  8700.0  300.0
+\i (00:23:00) pick grid 6837.5 987.0
+\t (00:23:00) last pick:  6800.0  1000.0
+\t (00:23:00) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:00) last pick:  6700.0  1000.0
+\i (00:23:02) pick grid 8202.7 304.4
+\t (00:23:02) last pick:  8200.0  300.0
+\i (00:23:04) pick grid 6016.8 1011.4
+\t (00:23:04) last pick:  6000.0  1000.0
+\t (00:23:04) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:04) last pick:  6000.0  1000.0
+\i (00:23:07) pick grid 9267.1 312.6
+\t (00:23:07) last pick:  9300.0  300.0
+\i (00:23:09) pick grid 9405.3 328.8
+\t (00:23:09) last pick:  9400.0  300.0
+\t (00:23:09) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:09) last pick:  9300.0  300.0
+\i (00:23:10) pick grid 9250.9 288.2
+\t (00:23:10) last pick:  9300.0  300.0
+\i (00:23:11) pick grid 9348.4 369.5
+\t (00:23:11) last pick:  9300.0  400.0
+\t (00:23:11) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:11) last pick:  9300.0  300.0
+\i (00:23:12) pick grid 9202.1 288.2
+\t (00:23:12) last pick:  9200.0  300.0
+\i (00:23:14) pick grid 5309.9 1076.4
+\t (00:23:14) last pick:  5300.0  1100.0
+\t (00:23:14) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:14) last pick:  5100.0  1000.0
+\i (00:23:15) pick grid 9714.0 296.3
+\t (00:23:15) last pick:  9700.0  300.0
+\i (00:23:27) setwindow form.plc_manual
+\i (00:23:27) FORM plc_manual tree 'MULTISEL YES' SW18 'Components by refdes' 
+\t (00:23:27) Placing SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:23:27) FORM plc_manual tree  SW18 'Components by refdes' 
+\i (00:23:28) FORM plc_manual tree 'MULTISEL YES' SW19 'Components by refdes' 
+\i (00:23:28) FORM plc_manual tree  SW19 'Components by refdes' 
+\i (00:23:38) setwindow pcb
+\i (00:23:38) pick grid 7560.7 897.6
+\t (00:23:38) last pick:  7600.0  900.0
+\t (00:23:38) Placing SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645 on Top.
+\i (00:23:40) pick grid 7585.1 280.1
+\t (00:23:40) last pick:  7600.0  300.0
+\i (00:23:42) pick grid 7642.0 987.0
+\t (00:23:42) last pick:  7600.0  1000.0
+\t (00:23:42) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:42) last pick:  7600.0  900.0
+\i (00:23:44) pick grid 7674.5 889.5
+\t (00:23:44) last pick:  7700.0  900.0
+\i (00:23:45) pick grid 7642.0 467.0
+\t (00:23:45) last pick:  7600.0  500.0
+\t (00:23:45) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:23:45) last pick:  7600.0  300.0
+\i (00:23:47) pick grid 7682.6 304.4
+\t (00:23:47) last pick:  7700.0  300.0
+\i (00:24:00) setwindow form.plc_manual
+\i (00:24:00) FORM plc_manual tree 'MULTISEL YES' U21 'Components by refdes' 
+\t (00:24:00) Placing U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000 on Top.
+\i (00:24:00) FORM plc_manual tree  U21 'Components by refdes' 
+\i (00:24:00) FORM plc_manual tree 'MULTISEL YES' U22 'Components by refdes' 
+\i (00:24:00) FORM plc_manual tree  U22 'Components by refdes' 
+\i (00:24:04) setwindow pcb
+\i (00:24:04) pick grid 4440.4 223.2
+\t (00:24:04) last pick:  4400.0  200.0
+\t (00:24:04) Placing U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025 on Top.
+\i (00:24:07) prepopup 5025.5 930.1
+\i (00:24:08) rotate 
+\t (00:24:08) Spin the element(s).
+\i (00:24:11) iangle 90.000
+\t (00:24:11) last angle:  +90.000 Degrees
+\i (00:24:13) pick grid 6918.8 109.4
+\t (00:24:13) last pick:  6900.0  100.0
+\i (00:24:18) setwindow form.plc_manual
+\i (00:24:18) FORM plc_manual done  
+\i (00:24:18) setwindow pcb
+\i (00:24:18) generaledit 
+\i (00:24:23) save 
+\i (00:24:25) fillin yes 
+\i (00:24:25) generaledit 
+\i (00:24:31) cmgr 
+\i (00:24:32) generaledit 
+\i (00:24:34) setwindow cmgr
+\i (00:24:34) cm newView ( worksheet 55:Physical "56:Physical Constraint Set" "57:All Layers" "58:All Layers" )
+\i (00:24:37) cm scope Design "proj1_redo"
+\i (00:24:37) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_LINE_WIDTH 20 7
+\i (00:24:37) cm endUndoBlock
+\i (00:24:38) cm putValue ( "Physical CSet" "DEFAULT" ) MAX_LINE_WIDTH 20 7
+\i (00:24:38) cm endUndoBlock
+\i (00:24:39) cm putValue ( "Physical CSet" "DEFAULT" ) MIN_NECK_WIDTH 20 7
+\i (00:24:39) cm endUndoBlock
+\i (00:24:47) cm exit
+\i (00:24:55) setwindow pcb
+\i (00:24:55) auto_route 
+\w (00:24:55) WARNING(SPMHUT-48): Scaled value has been rounded off.
+\i (00:24:57) setwindow form.vse_armain
+\i (00:24:57) FORM vse_armain routing_passes  
+\i (00:24:59) FORM vse_armain route_passlist cell 3,3 
+\i (00:25:02) FORM vse_armain route_passlist change 3,3 5 
+\i (00:25:02) FORM vse_armain router_setup  
+\i (00:25:03) FORM vse_armain execute  
+\i (00:25:09) FORM vse_armain close  
+\i (00:25:09) setwindow pcb
+\i (00:25:09) generaledit 
+\i (00:25:12) drc update 
+\t (00:25:12) Performing DRC...
+\t (00:25:12) Multithreaded DRC update (8 threads).
+\t (00:25:12) No DRC errors detected.
+\i (00:25:12) generaledit 
+\i (00:25:23) save 
+\i (00:25:25) fillin yes 
+\i (00:25:25) generaledit 
+\i (00:25:47) place manual 
+\i (00:25:51) setwindow form.plc_manual
+\i (00:25:51) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:25:51) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:25:51) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:25:51) FORM plc_manual tree 'MULTISEL YES' U2 'Components by refdes' 
+\i (00:25:51) FORM plc_manual tree  U2 'Components by refdes' 
+\i (00:25:52) FORM plc_manual done  
+\i (00:25:52) setwindow pcb
+\i (00:25:52) generaledit 
+\i (00:25:53) zoom out 1 
+\i (00:25:53) setwindow pcb
+\i (00:25:53) zoom out 60.7 4147.9
+\i (00:25:53) trapsize 813
+\i (00:25:56) zoom in 1 
+\i (00:25:56) setwindow pcb
+\i (00:25:56) zoom in 653.8 11087.2
+\i (00:25:56) trapsize 406
+\i (00:25:56) zoom in 1 
+\i (00:25:56) setwindow pcb
+\i (00:25:56) zoom in 85.0 11087.2
+\i (00:25:56) trapsize 203
+\i (00:25:57) pick grid 702.6 11266.0
+\t (00:25:57) last pick:  700.0  11300.0
+\i (00:26:01) place manual 
+\i (00:26:05) setwindow form.plc_manual
+\i (00:26:05) FORM plc_manual tree 'MULTISEL YES' U1 'Components by refdes' 
+\t (00:26:05) Placing U1 / 8086MIN_DIP10040W600L2025_8086M / DIP10040W600L2025 on Top.
+\i (00:26:05) FORM plc_manual tree  U1 'Components by refdes' 
+\i (00:26:05) FORM plc_manual tree 'MULTISEL YES' U2 'Components by refdes' 
+\i (00:26:05) FORM plc_manual tree  U2 'Components by refdes' 
+\i (00:26:09) setwindow pcb
+\i (00:26:09) pick grid 783.8 10022.8
+\t (00:26:09) last pick:  800.0  10000.0
+\t (00:26:09) Placing U2 / 8284A_DIP10018W300L900_8284A_GN / DIP10018W300L900 on Top.
+\i (00:26:13) pick grid 751.3 9425.5
+\t (00:26:13) last pick:  800.0  9400.0
+\i (00:26:27) setwindow form.plc_manual
+\i (00:26:27) FORM plc_manual tree 'MULTISEL YES' U35 'Components by refdes' 
+\t (00:26:27) Placing U35 / 74LS14_DIP10014W300L700_74LS14_ / DIP10014W300L700 on Top.
+\i (00:26:27) FORM plc_manual tree  U35 'Components by refdes' 
+\i (00:26:30) setwindow pcb
+\i (00:26:30) pick grid 2291.2 9303.6
+\t (00:26:30) last pick:  2300.0  9300.0
+\i (00:28:50) setwindow form.plc_manual
+\i (00:28:50) FORM plc_manual tree 'MULTISEL YES' R6 'Components by refdes' 
+\t (00:28:50) Placing R6 / RESISTOR_AX300X100028_RESISTOR / AX300X100028 on Top.
+\i (00:28:50) FORM plc_manual tree  R6 'Components by refdes' 
+\i (00:28:53) setwindow pcb
+\i (00:28:53) pick grid 1994.6 9007.0
+\t (00:28:53) last pick:  2000.0  9000.0
+\i (00:28:56) setwindow form.plc_manual
+\i (00:28:56) FORM plc_manual tree 'MULTISEL YES' D2 'Components by refdes' 
+\t (00:28:56) Placing D2 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:28:56) FORM plc_manual tree  D2 'Components by refdes' 
+\i (00:29:00) setwindow pcb
+\i (00:29:00) prepopup 1482.7 8868.9
+\i (00:29:02) rotate 
+\t (00:29:02) Spin the element(s).
+\i (00:29:04) iangle 90.000
+\t (00:29:04) last angle:  +90.000 Degrees
+\i (00:29:06) prepopup 1795.5 8816.1
+\i (00:29:07) rotate 
+\t (00:29:07) Spin the element(s).
+\i (00:29:09) iangle 270.000
+\t (00:29:09) last angle:  +270.000 Degrees
+\i (00:29:12) prepopup 1905.2 8795.8
+\i (00:29:12) rotate 
+\t (00:29:12) Spin the element(s).
+\i (00:29:15) iangle 270.000
+\t (00:29:15) last angle:  +270.000 Degrees
+\i (00:29:17) prepopup 1819.9 8897.3
+\i (00:29:19) rotate 
+\t (00:29:19) Spin the element(s).
+\i (00:29:21) iangle 90.000
+\t (00:29:21) last angle:  +90.000 Degrees
+\i (00:29:25) pick grid 1925.5 8677.9
+\t (00:29:25) last pick:  1900.0  8700.0
+\i (00:29:26) prepopup 2238.3 8657.6
+\i (00:29:28) pick grid 2100.2 8669.8
+\t (00:29:28) last pick:  2100.0  8700.0
+\t (00:29:28) Moving D2 / DIODE_DAX1DO35_DIODE / DAX1DO35.
+\t (00:29:28) last pick:  1900.0  8700.0
+\i (00:29:28) prepopup 2055.5 8637.3
+\i (00:29:29) rotate 
+\t (00:29:29) Spin the element(s).
+\i (00:29:31) iangle 180.000
+\t (00:29:31) last angle:  180.000 Degrees
+\i (00:29:33) pick grid 2368.4 8637.3
+\t (00:29:33) last pick:  2400.0  8600.0
+\i (00:29:57) setwindow form.plc_manual
+\i (00:29:57) FORM plc_manual tree 'MULTISEL YES' C1 'Components by refdes' 
+\t (00:29:57) Placing C1 / CAPACITOR_CPCYL1D200LS100031_10 / CPCYL1D200LS100031 on Top.
+\i (00:29:57) FORM plc_manual tree  C1 'Components by refdes' 
+\i (00:30:00) setwindow pcb
+\i (00:30:00) pick grid 1486.7 9059.9
+\t (00:30:00) last pick:  1500.0  9100.0
+\i (00:30:16) setwindow form.plc_manual
+\i (00:30:16) FORM plc_manual tree 'MULTISEL YES' R1 'Components by refdes' 
+\t (00:30:16) Placing R1 / RESISTOR_AX300X100028_10K / AX300X100028 on Top.
+\i (00:30:16) FORM plc_manual tree  R1 'Components by refdes' 
+\i (00:30:19) setwindow pcb
+\i (00:30:19) pick grid 1803.6 9722.1
+\t (00:30:19) last pick:  1800.0  9700.0
+\i (00:30:26) setwindow form.plc_manual
+\i (00:30:26) FORM plc_manual tree 'MULTISEL YES' D1 'Components by refdes' 
+\t (00:30:26) Placing D1 / DIODE_DAX1DO35_DIODE / DAX1DO35 on Top.
+\i (00:30:26) FORM plc_manual tree  D1 'Components by refdes' 
+\i (00:30:28) setwindow pcb
+\i (00:30:28) pick grid 1738.6 9340.2
+\t (00:30:28) last pick:  1700.0  9300.0
+\i (00:30:34) setwindow form.plc_manual
+\i (00:30:34) FORM plc_manual tree 'MULTISEL YES' Y1 'Components by refdes' 
+\t (00:30:34) Placing Y1 / CRYSTAL_XTAL_FOX_CRYSTAL / XTAL_FOX on Top.
+\i (00:30:34) FORM plc_manual tree  Y1 'Components by refdes' 
+\i (00:30:40) setwindow pcb
+\i (00:30:40) pick grid 767.6 9839.9
+\t (00:30:40) last pick:  800.0  9800.0
+\i (00:30:42) pick grid 804.2 9811.5
+\t (00:30:42) last pick:  800.0  9800.0
+\t (00:30:42) Moving Y1 / CRYSTAL_XTAL_FOX_CRYSTAL / XTAL_FOX.
+\t (00:30:42) last pick:  800.0  9800.0
+\i (00:30:43) prepopup 783.8 9811.5
+\i (00:30:44) rotate 
+\t (00:30:44) Spin the element(s).
+\i (00:30:45) iangle 90.000
+\t (00:30:45) last angle:  90.000 Degrees
+\i (00:30:48) pick grid 475.1 9449.9
+\t (00:30:48) last pick:  500.0  9400.0
+\i (00:31:18) setwindow form.plc_manual
+\i (00:31:18) FORM plc_manual tree 'MULTISEL YES' SW1 'Components by refdes' 
+\t (00:31:18) Placing SW1 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:31:18) FORM plc_manual tree  SW1 'Components by refdes' 
+\i (00:31:22) setwindow pcb
+\i (00:31:22) pick grid 3258.1 9535.2
+\t (00:31:22) last pick:  3300.0  9500.0
+\i (00:31:30) setwindow form.plc_manual
+\i (00:31:30) FORM plc_manual tree 'MULTISEL YES' SW21 'Components by refdes' 
+\t (00:31:30) Placing SW21 / SW TACT-SPST-2/SM_PTS645_SW TAC / PTS645 on Top.
+\i (00:31:30) FORM plc_manual tree  SW21 'Components by refdes' 
+\i (00:31:32) setwindow pcb
+\i (00:31:32) pick grid 2912.8 8803.9
+\t (00:31:32) last pick:  2900.0  8800.0
+\i (00:31:34) setwindow form.plc_manual
+\i (00:31:34) FORM plc_manual done  
+\i (00:31:34) setwindow pcb
+\i (00:31:34) generaledit 
+\i (00:31:35) save 
+\i (00:31:36) fillin yes 
+\i (00:31:37) generaledit 
+\i (00:31:45) auto_route 
+\i (00:31:47) setwindow form.vse_armain
+\i (00:31:47) FORM vse_armain execute  
+\i (00:31:52) FORM vse_armain close  
+\i (00:31:52) setwindow pcb
+\i (00:31:52) generaledit 
+\i (00:31:56) drc update 
+\t (00:31:56) Performing DRC...
+\t (00:31:56) Multithreaded DRC update (8 threads).
+\t (00:31:56) No DRC errors detected.
+\i (00:31:56) generaledit 
+\i (00:32:10) save 
+\i (00:32:11) fillin yes 
+\i (00:32:11) generaledit 
+\i (00:32:15) place manual 
+\i (00:32:52) setwindow form.plc_manual
+\i (00:32:52) FORM plc_manual tree 'MULTISEL YES' U3 'Components by refdes' 
+\t (00:32:52) Placing U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:32:52) FORM plc_manual tree  U3 'Components by refdes' 
+\i (00:32:52) FORM plc_manual tree 'MULTISEL YES' U4 'Components by refdes' 
+\i (00:32:52) FORM plc_manual tree  U4 'Components by refdes' 
+\i (00:32:53) FORM plc_manual tree 'MULTISEL YES' U5 'Components by refdes' 
+\i (00:32:53) FORM plc_manual tree  U5 'Components by refdes' 
+\i (00:32:53) FORM plc_manual tree 'MULTISEL YES' U6 'Components by refdes' 
+\i (00:32:53) FORM plc_manual tree  U6 'Components by refdes' 
+\i (00:33:00) setwindow pcb
+\i (00:33:00) pick grid 739.1 11079.1
+\t (00:33:00) last pick:  700.0  11100.0
+\t (00:33:00) Placing U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:33:02) pick grid 1819.9 11099.4
+\t (00:33:02) last pick:  1800.0  11100.0
+\t (00:33:02) Placing U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:33:03) pick grid 2912.8 11119.7
+\t (00:33:03) last pick:  2900.0  11100.0
+\t (00:33:03) Placing U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000 on Top.
+\i (00:33:05) pick grid 4091.0 11111.6
+\t (00:33:05) last pick:  4100.0  11100.0
+\i (00:33:12) auto_route 
+\i (00:33:13) setwindow form.vse_armain
+\i (00:33:13) FORM vse_armain execute  
+\i (00:33:18) FORM vse_armain execute  
+\i (00:33:20) FORM vse_armain execute  
+\i (00:33:24) FORM vse_armain execute  
+\i (00:33:26) FORM vse_armain close  
+\i (00:33:26) setwindow pcb
+\i (00:33:26) generaledit 
+\i (00:33:43) save 
+\i (00:33:44) fillin yes 
+\i (00:33:44) generaledit 
+\i (00:33:45) zoom out 1 
+\i (00:33:45) setwindow pcb
+\i (00:33:45) zoom out 3757.9 9974.0
+\i (00:33:45) trapsize 406
+\i (00:33:46) zoom out 1 
+\i (00:33:46) setwindow pcb
+\i (00:33:46) zoom out 4944.2 7617.5
+\i (00:33:46) trapsize 813
+\i (00:33:48) zoom in 1 
+\i (00:33:48) setwindow pcb
+\i (00:33:48) zoom in 5984.3 2506.5
+\i (00:33:48) trapsize 406
+\i (00:33:50) zoom out 1 
+\i (00:33:50) setwindow pcb
+\i (00:33:50) zoom out 3294.7 2847.8
+\i (00:33:50) trapsize 813
+\i (00:33:50) zoom in 1 
+\i (00:33:50) setwindow pcb
+\i (00:33:50) zoom in 2945.3 10843.4
+\i (00:33:50) trapsize 406
+\i (00:33:55) place manual 
+\i (00:33:57) pick grid 4448.5 11209.1
+\t (00:33:57) last pick:  4400.0  11200.0
+\t (00:33:57) Moving U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:33:57) last pick:  4100.0  11100.0
+\i (00:33:59) pick grid 11006.0 11087.2
+\t (00:33:59) last pick:  11000.0  11100.0
+\i (00:34:02) pick grid 3286.6 11201.0
+\t (00:34:02) last pick:  3300.0  11200.0
+\t (00:34:02) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:02) last pick:  2900.0  11100.0
+\i (00:34:06) pick grid 11006.0 10477.8
+\t (00:34:06) last pick:  11000.0  10500.0
+\i (00:34:08) pick grid 2335.9 11127.8
+\t (00:34:08) last pick:  2300.0  11100.0
+\t (00:34:08) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:08) last pick:  1800.0  11100.0
+\i (00:34:11) pick grid 10997.8 9860.2
+\t (00:34:11) last pick:  11000.0  9900.0
+\i (00:34:12) pick grid 1125.1 11201.0
+\t (00:34:12) last pick:  1100.0  11200.0
+\t (00:34:12) Moving U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000.
+\t (00:34:12) last pick:  700.0  11100.0
+\i (00:34:13) prepopup 10615.9 8942.0
+\i (00:34:14) rotate 
+\t (00:34:14) Spin the element(s).
+\i (00:34:15) iangle 90.000
+\t (00:34:15) last angle:  90.000 Degrees
+\i (00:34:17) pick grid 11834.8 8308.2
+\t (00:34:17) last pick:  11800.0  8300.0
+\i (00:34:18) pick grid 11257.9 9917.1
+\t (00:34:18) last pick:  11300.0  9900.0
+\t (00:34:18) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:18) last pick:  11000.0  9900.0
+\i (00:34:18) prepopup 10867.8 9648.9
+\i (00:34:20) rotate 
+\t (00:34:20) Spin the element(s).
+\i (00:34:21) iangle 90.000
+\t (00:34:21) last angle:  90.000 Degrees
+\i (00:34:22) pick grid 11721.0 9405.2
+\t (00:34:22) last pick:  11700.0  9400.0
+\i (00:34:23) pick grid 11257.9 10648.4
+\t (00:34:23) last pick:  11300.0  10600.0
+\t (00:34:23) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:23) last pick:  11000.0  10500.0
+\i (00:34:24) prepopup 10071.5 10095.9
+\i (00:34:25) rotate 
+\t (00:34:25) Spin the element(s).
+\i (00:34:25) iangle 90.000
+\t (00:34:25) last angle:  90.000 Degrees
+\i (00:34:27) pick grid 10307.1 8267.6
+\t (00:34:27) last pick:  10300.0  8300.0
+\i (00:34:28) pick grid 11721.0 8755.1
+\t (00:34:28) last pick:  11700.0  8800.0
+\t (00:34:28) Moving U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000.
+\t (00:34:28) last pick:  11800.0  8300.0
+\i (00:34:29) pick grid 11737.3 7520.0
+\t (00:34:29) last pick:  11700.0  7500.0
+\i (00:34:29) pick grid 11639.8 9714.0
+\t (00:34:29) last pick:  11600.0  9700.0
+\t (00:34:29) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:29) last pick:  11700.0  9400.0
+\i (00:34:31) pick grid 11647.9 8657.6
+\t (00:34:31) last pick:  11600.0  8700.0
+\i (00:34:32) pick grid 10217.8 8682.0
+\t (00:34:32) last pick:  10200.0  8700.0
+\t (00:34:32) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:32) last pick:  10300.0  8300.0
+\i (00:34:33) pick grid 11566.6 9860.2
+\t (00:34:33) last pick:  11600.0  9900.0
+\i (00:34:34) pick grid 11355.4 11168.4
+\t (00:34:34) last pick:  11400.0  11200.0
+\t (00:34:34) Moving U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:34) last pick:  11000.0  11100.0
+\i (00:34:34) prepopup 9665.2 10437.1
+\i (00:34:35) rotate 
+\t (00:34:35) Spin the element(s).
+\i (00:34:36) iangle 90.000
+\t (00:34:36) last angle:  90.000 Degrees
+\i (00:34:37) pick grid 10250.3 10128.4
+\t (00:34:37) last pick:  10300.0  10100.0
+\i (00:34:38) pick grid 11599.1 8145.7
+\t (00:34:38) last pick:  11600.0  8100.0
+\t (00:34:38) Moving U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000.
+\t (00:34:38) last pick:  11700.0  7500.0
+\i (00:34:40) pick grid 11899.8 7365.6
+\t (00:34:40) last pick:  11900.0  7400.0
+\i (00:34:40) pick grid 11469.1 9096.4
+\t (00:34:40) last pick:  11500.0  9100.0
+\t (00:34:40) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:40) last pick:  11600.0  8700.0
+\i (00:34:44) pick grid 11891.7 8487.0
+\t (00:34:44) last pick:  11900.0  8500.0
+\i (00:34:45) pick grid 11314.7 10185.2
+\t (00:34:45) last pick:  11300.0  10200.0
+\t (00:34:45) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:45) last pick:  11600.0  9900.0
+\i (00:34:47) pick grid 11916.0 9592.1
+\t (00:34:47) last pick:  11900.0  9600.0
+\i (00:34:47) pick grid 10225.9 10429.0
+\t (00:34:47) last pick:  10200.0  10400.0
+\t (00:34:47) Moving U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:47) last pick:  10300.0  10100.0
+\i (00:34:49) pick grid 11859.2 10640.3
+\t (00:34:49) last pick:  11900.0  10600.0
+\i (00:34:51) pick grid 11761.6 7918.2
+\t (00:34:51) last pick:  11800.0  7900.0
+\t (00:34:51) Moving U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000.
+\t (00:34:51) last pick:  11900.0  7400.0
+\i (00:34:52) pick grid 11932.3 7211.2
+\t (00:34:52) last pick:  11900.0  7200.0
+\i (00:34:53) zoom in 1 
+\i (00:34:53) setwindow pcb
+\i (00:34:53) zoom in 11631.6 7568.8
+\i (00:34:53) trapsize 203
+\i (00:34:54) pick grid 11684.5 8698.3
+\t (00:34:54) last pick:  11700.0  8700.0
+\t (00:34:54) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:54) last pick:  11900.0  8500.0
+\i (00:34:55) pick grid 11887.6 8275.8
+\t (00:34:55) last pick:  11900.0  8300.0
+\i (00:34:56) zoom out 1 
+\i (00:34:56) setwindow pcb
+\i (00:34:56) zoom out 11838.9 8279.8
+\i (00:34:56) trapsize 406
+\i (00:34:57) pick grid 11713.0 9848.2
+\t (00:34:57) last pick:  11700.0  9800.0
+\t (00:34:57) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:34:57) last pick:  11900.0  9600.0
+\i (00:34:59) pick grid 11875.5 9401.2
+\t (00:34:59) last pick:  11900.0  9400.0
+\i (00:35:00) pick grid 11794.2 10855.7
+\t (00:35:00) last pick:  11800.0  10900.0
+\t (00:35:00) Moving U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:35:00) last pick:  11900.0  10600.0
+\i (00:35:02) pick grid 11899.9 10473.8
+\t (00:35:02) last pick:  11900.0  10500.0
+\i (00:35:05) setwindow form.plc_manual
+\i (00:35:05) FORM plc_manual done  
+\i (00:35:05) setwindow pcb
+\i (00:35:05) generaledit 
+\i (00:35:10) auto_route 
+\i (00:35:11) setwindow form.vse_armain
+\i (00:35:11) FORM vse_armain execute  
+\i (00:35:17) FORM vse_armain close  
+\i (00:35:17) setwindow pcb
+\i (00:35:17) generaledit 
+\i (00:35:31) drc update 
+\t (00:35:31) Performing DRC...
+\t (00:35:31) Multithreaded DRC update (8 threads).
+\t (00:35:31) No DRC errors detected.
+\i (00:35:31) generaledit 
+\i (00:35:36) place manual 
+\i (00:35:37) zoom in 1 
+\i (00:35:37) setwindow pcb
+\i (00:35:37) zoom in 11891.7 10140.7
+\i (00:35:37) trapsize 203
+\i (00:35:39) zoom out 1 
+\i (00:35:39) setwindow pcb
+\i (00:35:39) zoom out 11469.2 9953.9
+\i (00:35:39) trapsize 406
+\i (00:35:40) zoom in 1 
+\i (00:35:40) setwindow pcb
+\i (00:35:40) zoom in 11721.1 9474.4
+\i (00:35:40) trapsize 203
+\i (00:35:41) zoom out 1 
+\i (00:35:41) setwindow pcb
+\i (00:35:41) zoom out 11676.5 9754.8
+\i (00:35:41) trapsize 406
+\i (00:35:42) zoom in 1 
+\i (00:35:42) setwindow pcb
+\i (00:35:42) zoom in 11932.4 10916.7
+\i (00:35:42) trapsize 203
+\i (00:35:44) zoom out 1 
+\i (00:35:44) setwindow pcb
+\i (00:35:44) zoom out 11664.2 10717.7
+\i (00:35:44) trapsize 406
+\i (00:35:47) pick grid 11696.7 10961.4
+\t (00:35:47) last pick:  11700.0  11000.0
+\t (00:35:47) Moving U6 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:35:47) last pick:  11900.0  10500.0
+\i (00:35:50) pick grid 11534.2 10457.7
+\t (00:35:50) last pick:  11500.0  10500.0
+\i (00:35:51) pick grid 11761.7 9888.9
+\t (00:35:51) last pick:  11800.0  9900.0
+\t (00:35:51) Moving U5 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:35:51) last pick:  11900.0  9400.0
+\i (00:35:53) pick grid 11485.5 9425.7
+\t (00:35:53) last pick:  11500.0  9400.0
+\i (00:35:53) pick grid 11818.6 8670.0
+\t (00:35:53) last pick:  11800.0  8700.0
+\t (00:35:53) Moving U4 / 74LS373_DIP10020W300L1000_74LS3 / DIP10020W300L1000.
+\t (00:35:53) last pick:  11900.0  8300.0
+\i (00:35:55) pick grid 11493.6 8312.5
+\t (00:35:55) last pick:  11500.0  8300.0
+\i (00:35:56) pick grid 11721.1 7654.3
+\t (00:35:56) last pick:  11700.0  7700.0
+\t (00:35:56) Moving U3 / 74LS244_DIP10020W300L1000_74LS2 / DIP10020W300L1000.
+\t (00:35:56) last pick:  11900.0  7200.0
+\i (00:35:58) pick grid 11501.7 7199.2
+\t (00:35:58) last pick:  11500.0  7200.0
+\i (00:36:01) setwindow form.plc_manual
+\i (00:36:01) FORM plc_manual done  
+\i (00:36:01) setwindow pcb
+\i (00:36:01) generaledit 
+\i (00:36:06) auto_route 
+\i (00:36:07) setwindow form.vse_armain
+\i (00:36:07) FORM vse_armain execute  
+\i (00:36:13) FORM vse_armain close  
+\i (00:36:13) setwindow pcb
 \i (00:36:13) generaledit 
-\i (00:36:14) xdehilite 
-\i (00:36:14) xname_flush 
-\i (00:36:14) done 
-\i (00:36:14) generaledit 
-\i (00:36:16) xhilite 
-\i (00:36:16) xname_flush 
-\i (00:36:16) done 
-\i (00:36:16) generaledit 
-\i (00:36:19) xdehilite 
-\i (00:36:19) xname_flush 
-\i (00:36:19) done 
-\i (00:36:19) generaledit 
-\i (00:36:31) xhilite 
-\i (00:36:31) xNet N72839 
-\i (00:36:31) xname_flush 
-\t (00:36:31) Net "N72839" highlighted.
-\i (00:36:31) done 
-\i (00:36:31) generaledit 
-\i (00:36:32) xdehilite 
-\i (00:36:32) xNet N72839 
-\i (00:36:32) xname_flush 
-\t (00:36:32) Net "N72839" dehighlighted.
-\i (00:36:32) done 
-\i (00:36:32) generaledit 
-\i (00:36:32) xhilite 
-\i (00:36:32) xNet N72827 
-\i (00:36:32) xname_flush 
-\t (00:36:32) Net "N72827" highlighted.
-\i (00:36:32) done 
-\i (00:36:32) generaledit 
-\i (00:36:33) xdehilite 
-\i (00:36:33) xNet N72827 
-\i (00:36:33) xname_flush 
-\t (00:36:33) Net "N72827" dehighlighted.
-\i (00:36:33) done 
-\i (00:36:33) generaledit 
-\i (00:36:34) xhilite 
-\i (00:36:34) xNet N73545 
-\i (00:36:34) xname_flush 
-\t (00:36:34) Net "N73545" highlighted.
-\i (00:36:34) done 
-\i (00:36:34) generaledit 
-\i (00:36:35) xdehilite 
-\i (00:36:35) xNet N73545 
-\i (00:36:35) xname_flush 
-\t (00:36:35) Net "N73545" dehighlighted.
-\i (00:36:35) done 
-\i (00:36:35) generaledit 
-\i (00:36:36) xhilite 
-\i (00:36:36) xNet N72816 
-\i (00:36:36) xname_flush 
-\t (00:36:36) Net "N72816" highlighted.
-\i (00:36:36) done 
-\i (00:36:36) generaledit 
-\i (00:36:37) xdehilite 
-\i (00:36:37) xNet N72816 
-\i (00:36:37) xname_flush 
-\t (00:36:37) Net "N72816" dehighlighted.
-\i (00:36:37) done 
-\i (00:36:37) generaledit 
-\i (00:36:38) xhilite 
-\i (00:36:38) xNet N72812 
-\i (00:36:38) xname_flush 
-\t (00:36:38) Net "N72812" highlighted.
-\i (00:36:38) done 
-\i (00:36:38) generaledit 
-\i (00:36:39) xdehilite 
-\i (00:36:39) xNet N72812 
-\i (00:36:39) xname_flush 
-\t (00:36:39) Net "N72812" dehighlighted.
-\i (00:36:39) done 
-\i (00:36:39) generaledit 
-\i (00:36:41) xhilite 
-\i (00:36:41) xNet N72808 
-\i (00:36:41) xname_flush 
-\t (00:36:41) Net "N72808" highlighted.
-\i (00:36:41) done 
-\i (00:36:41) generaledit 
-\i (00:36:48) xdehilite 
-\i (00:36:48) xNet N72808 
-\i (00:36:48) xname_flush 
-\t (00:36:48) Net "N72808" dehighlighted.
-\i (00:36:48) done 
-\i (00:36:48) generaledit 
-\i (00:36:52) xhilite 
-\i (00:36:53) xNet N72839 
-\i (00:36:53) xNet N72827 
-\i (00:36:53) xNet N73545 
-\i (00:36:53) xNet N72816 
-\i (00:36:53) xNet N72812 
-\i (00:36:53) xNet N72808 
-\i (00:36:53) xname_flush 
-\t (00:36:53) Net "N72839" highlighted.
-\t (00:36:53) Net "N72827" highlighted.
-\t (00:36:53) Net "N73545" highlighted.
-\t (00:36:53) Net "N72816" highlighted.
-\t (00:36:53) Net "N72812" highlighted.
-\t (00:36:53) Net "N72808" highlighted.
-\i (00:36:53) done 
-\i (00:36:53) generaledit 
-\i (00:36:53) xdehilite 
-\i (00:36:53) xNet N72839 
-\i (00:36:53) xNet N72827 
-\i (00:36:53) xNet N73545 
-\i (00:36:53) xNet N72816 
-\i (00:36:53) xNet N72812 
-\i (00:36:53) xNet N72808 
-\i (00:36:53) xname_flush 
-\t (00:36:53) Net "N72839" dehighlighted.
-\t (00:36:53) Net "N72827" dehighlighted.
-\t (00:36:53) Net "N73545" dehighlighted.
-\t (00:36:53) Net "N72816" dehighlighted.
-\t (00:36:53) Net "N72812" dehighlighted.
-\t (00:36:53) Net "N72808" dehighlighted.
-\i (00:36:53) done 
-\i (00:36:53) generaledit 
-\i (00:36:54) xhilite 
-\i (00:36:54) xNet N72839 
-\i (00:36:54) xname_flush 
-\t (00:36:54) Net "N72839" highlighted.
-\i (00:36:54) done 
-\i (00:36:54) generaledit 
-\i (00:36:56) xdehilite 
-\i (00:36:56) xNet N72839 
-\i (00:36:56) xname_flush 
-\t (00:36:56) Net "N72839" dehighlighted.
-\i (00:36:56) done 
-\i (00:36:56) generaledit 
-\i (00:36:57) xhilite 
-\i (00:36:57) xNet N72839 
-\i (00:36:57) xNet N72827 
-\i (00:36:57) xNet N73545 
-\i (00:36:57) xNet N72816 
-\i (00:36:57) xNet N72812 
-\i (00:36:57) xNet N72808 
-\i (00:36:57) xname_flush 
-\t (00:36:57) Net "N72839" highlighted.
-\t (00:36:57) Net "N72827" highlighted.
-\t (00:36:57) Net "N73545" highlighted.
-\t (00:36:57) Net "N72816" highlighted.
-\t (00:36:57) Net "N72812" highlighted.
-\t (00:36:57) Net "N72808" highlighted.
-\i (00:36:57) done 
-\i (00:36:57) generaledit 
-\i (00:37:08) xhilite 
-\i (00:37:08) xNet N72827 
-\i (00:37:08) xname_flush 
-\t (00:37:08) Net "N72827" highlighted.
-\i (00:37:08) done 
-\i (00:37:08) generaledit 
-\i (00:37:10) xhilite 
-\i (00:37:10) xNet N73545 
-\i (00:37:10) xname_flush 
-\t (00:37:10) Net "N73545" highlighted.
-\i (00:37:10) done 
-\i (00:37:10) generaledit 
-\i (00:37:10) xhilite 
-\i (00:37:10) xNet N72816 
-\i (00:37:10) xname_flush 
-\t (00:37:10) Net "N72816" highlighted.
-\i (00:37:10) done 
-\i (00:37:10) generaledit 
-\i (00:37:11) xhilite 
-\i (00:37:11) xNet N72812 
-\i (00:37:11) xname_flush 
-\t (00:37:11) Net "N72812" highlighted.
-\i (00:37:11) done 
-\i (00:37:11) generaledit 
-\i (00:37:12) xhilite 
-\i (00:37:12) xNet N72808 
-\i (00:37:12) xname_flush 
-\t (00:37:12) Net "N72808" highlighted.
-\i (00:37:12) done 
-\i (00:37:12) generaledit 
-\i (00:37:12) xdehilite 
-\i (00:37:12) xNet N72808 
-\i (00:37:12) xname_flush 
-\t (00:37:12) Net "N72808" dehighlighted.
-\i (00:37:12) done 
-\i (00:37:12) generaledit 
-\i (00:37:13) xhilite 
-\i (00:37:13) xNet N72808 
-\i (00:37:13) xname_flush 
-\t (00:37:13) Net "N72808" highlighted.
-\i (00:37:13) done 
-\i (00:37:13) generaledit 
-\i (00:37:18) xhilite 
-\i (00:37:18) xrefdes J4 
-\t (00:37:18) Can not select unplaced component J4.
-\t (00:37:18) Can not select unplaced component J4.
-\i (00:37:18) xname_flush 
-\i (00:37:18) done 
-\i (00:37:18) generaledit 
-\i (00:37:20) xdehilite 
-\i (00:37:20) xrefdes J4 
-\t (00:37:20) Can not select unplaced component J4.
-\t (00:37:20) Can not select unplaced component J4.
-\i (00:37:20) xname_flush 
-\i (00:37:20) done 
-\i (00:37:20) generaledit 
-\i (00:37:22) xhilite 
-\i (00:37:22) xname_flush 
-\i (00:37:22) done 
-\i (00:37:22) generaledit 
-\i (00:37:23) xhilite 
-\i (00:37:23) xname_flush 
-\i (00:37:23) done 
-\i (00:37:23) generaledit 
-\i (00:37:32) xhilite 
-\i (00:37:32) xname_flush 
-\i (00:37:32) done 
-\i (00:37:32) generaledit 
-\i (00:40:26) xhilite 
-\i (00:40:26) xNet Mio 
-\i (00:40:26) xname_flush 
-\t (00:40:26) Net "Mio" highlighted.
-\i (00:40:26) done 
-\i (00:40:26) generaledit 
-\i (00:40:27) xdehilite 
-\i (00:40:27) xNet Mio 
-\i (00:40:27) xname_flush 
-\t (00:40:27) Net "Mio" dehighlighted.
-\i (00:40:27) done 
-\i (00:40:27) generaledit 
-\i (00:40:44) xhilite 
-\i (00:40:44) xNet Mio 
-\i (00:40:44) xNet A12-a15 
-\i (00:40:44) xNet A0 
-\i (00:40:44) xrefdes U40 
-\t (00:40:44) Can not select unplaced component U40.
-\t (00:40:44) Can not select unplaced component U40.
-\i (00:40:44) xNet A1 
-\i (00:40:44) xNet A4 
-\i (00:40:44) xNet A3 
-\i (00:40:44) xNet A2 
-\i (00:40:44) xNet A6 
-\i (00:40:44) xNet A5 
-\i (00:40:44) xNet A9 
-\i (00:40:44) xNet A8 
-\i (00:40:44) xNet A7 
-\i (00:40:44) xNet A10 
-\i (00:40:44) xNet A11 
-\i (00:40:44) xNet N362810 
-\i (00:40:44) xNet N366051 
-\i (00:40:44) xname_flush 
-\t (00:40:44) 16 Net(s) highlighted.
-\i (00:40:44) done 
-\i (00:40:44) xhilite 
-\i (00:40:44) xname_flush 
-\i (00:40:44) done 
-\i (00:40:44) xhilite 
-\i (00:40:44) xname_flush 
-\i (00:40:44) done 
-\i (00:40:44) generaledit 
-\i (00:40:44) xdehilite 
-\i (00:40:44) xNet Mio 
-\i (00:40:44) xNet A12-a15 
-\i (00:40:44) xNet A0 
-\i (00:40:44) xrefdes U40 
-\t (00:40:44) Can not select unplaced component U40.
-\t (00:40:44) Can not select unplaced component U40.
-\i (00:40:44) xNet A1 
-\i (00:40:44) xNet A4 
-\i (00:40:44) xNet A3 
-\i (00:40:44) xNet A2 
-\i (00:40:44) xNet A6 
-\i (00:40:44) xNet A5 
-\i (00:40:44) xNet A9 
-\i (00:40:44) xNet A8 
-\i (00:40:44) xNet A7 
-\i (00:40:44) xNet A10 
-\i (00:40:44) xNet A11 
-\i (00:40:44) xNet N362810 
-\i (00:40:44) xNet N366051 
-\i (00:40:44) xname_flush 
-\t (00:40:44) 16 Net(s) dehighlighted.
-\i (00:40:44) done 
-\i (00:40:44) generaledit 
-\i (00:40:50) xhilite 
-\i (00:40:50) xrefdes U30 
-\t (00:40:50) Can not select unplaced component U30.
-\t (00:40:50) Can not select unplaced component U30.
-\i (00:40:50) xNet Gnd 
-\i (00:40:50) xNet A2 
-\i (00:40:50) xNet A1 
-\i (00:40:50) xNet N363730 
-\i (00:40:50) xNet Mio 
-\i (00:40:50) xNet A0 
-\i (00:40:50) xrefdes U40 
-\t (00:40:50) Can not select unplaced component U40.
-\t (00:40:50) Can not select unplaced component U40.
-\i (00:40:50) xNet A4 
-\i (00:40:50) xNet A3 
-\i (00:40:50) xNet A6 
-\i (00:40:50) xNet A5 
-\i (00:40:50) xNet A9 
-\i (00:40:50) xNet A8 
-\i (00:40:50) xNet A7 
-\i (00:40:50) xNet A10 
-\i (00:40:50) xNet A11 
-\i (00:40:50) xNet N366051 
-\i (00:40:50) xNet D4 
-\i (00:40:50) xNet D3 
-\i (00:40:50) xNet D2 
-\i (00:40:50) xNet D1 
-\i (00:40:50) xNet D0 
-\i (00:40:50) xNet D7 
-\i (00:40:50) xNet D6 
-\i (00:40:50) xNet D5 
-\i (00:40:50) xname_flush 
-\t (00:40:50) 24 Net(s) highlighted.
-\i (00:40:50) done 
-\i (00:40:50) generaledit 
-\i (00:40:57) xdehilite 
-\i (00:40:57) xrefdes U30 
-\t (00:40:57) Can not select unplaced component U30.
-\t (00:40:57) Can not select unplaced component U30.
-\i (00:40:57) xNet A2 
-\i (00:40:57) xNet A1 
-\i (00:40:57) xNet N363730 
-\i (00:40:57) xNet Mio 
-\i (00:40:57) xNet A0 
-\i (00:40:57) xrefdes U40 
-\t (00:40:57) Can not select unplaced component U40.
-\t (00:40:57) Can not select unplaced component U40.
-\i (00:40:57) xNet A4 
-\i (00:40:57) xNet A3 
-\i (00:40:57) xNet A6 
-\i (00:40:57) xNet A5 
-\i (00:40:57) xNet A9 
-\i (00:40:57) xNet A8 
-\i (00:40:57) xNet A7 
-\i (00:40:57) xNet A10 
-\i (00:40:57) xNet A11 
-\i (00:40:57) xNet N366051 
-\i (00:40:57) xNet D4 
-\i (00:40:57) xNet D3 
-\i (00:40:57) xNet D2 
-\i (00:40:57) xNet D1 
-\i (00:40:57) xNet D0 
-\i (00:40:57) xNet D7 
-\i (00:40:57) xNet D6 
-\i (00:40:57) xNet D5 
-\i (00:40:57) xname_flush 
-\t (00:40:57) 23 Net(s) dehighlighted.
-\i (00:40:57) done 
-\i (00:40:57) generaledit 
-\i (00:41:02) xhilite 
-\i (00:41:02) xrefdes U30 
-\t (00:41:02) Can not select unplaced component U30.
-\t (00:41:02) Can not select unplaced component U30.
-\i (00:41:02) xNet Gnd 
-\i (00:41:02) xNet A2 
-\i (00:41:02) xNet A1 
-\i (00:41:02) xrefdes R2 
-\t (00:41:02) Can not select unplaced component R2.
-\t (00:41:02) Can not select unplaced component R2.
-\i (00:41:02) xNet N363730 
-\i (00:41:02) xNet Mio 
-\i (00:41:02) xNet A12-a15 
-\i (00:41:02) xNet A0 
-\i (00:41:02) xrefdes U40 
-\t (00:41:02) Can not select unplaced component U40.
-\t (00:41:02) Can not select unplaced component U40.
-\i (00:41:02) xNet A4 
-\i (00:41:02) xNet A3 
-\i (00:41:02) xNet A6 
-\i (00:41:02) xNet A5 
-\i (00:41:02) xNet A9 
-\i (00:41:02) xNet A8 
-\i (00:41:02) xNet A7 
-\i (00:41:02) xNet A10 
-\i (00:41:02) xNet A11 
-\i (00:41:02) xNet N362810 
-\i (00:41:02) xNet N366051 
-\i (00:41:02) xNet D4 
-\i (00:41:02) xNet D3 
-\i (00:41:02) xNet D2 
-\i (00:41:02) xNet D1 
-\i (00:41:02) xNet D0 
-\i (00:41:02) xNet D7 
-\i (00:41:02) xNet D6 
-\i (00:41:02) xNet D5 
-\i (00:41:02) xname_flush 
-\t (00:41:02) 26 Net(s) highlighted.
-\i (00:41:02) done 
-\i (00:41:02) generaledit 
-\i (00:41:24) xdehilite 
-\i (00:41:24) xrefdes U30 
-\t (00:41:24) Can not select unplaced component U30.
-\t (00:41:24) Can not select unplaced component U30.
-\i (00:41:24) xNet Gnd 
-\i (00:41:24) xNet A2 
-\i (00:41:24) xNet A1 
-\i (00:41:24) xrefdes R2 
-\t (00:41:24) Can not select unplaced component R2.
-\t (00:41:24) Can not select unplaced component R2.
-\i (00:41:24) xNet N363730 
-\i (00:41:24) xNet Mio 
-\i (00:41:24) xNet A12-a15 
-\i (00:41:24) xNet A0 
-\i (00:41:24) xrefdes U40 
-\t (00:41:24) Can not select unplaced component U40.
-\t (00:41:24) Can not select unplaced component U40.
-\i (00:41:24) xNet A4 
-\i (00:41:24) xNet A3 
-\i (00:41:24) xNet A6 
-\i (00:41:24) xNet A5 
-\i (00:41:24) xNet A9 
-\i (00:41:24) xNet A8 
-\i (00:41:24) xNet A7 
-\i (00:41:24) xNet A10 
-\i (00:41:24) xNet A11 
-\i (00:41:24) xNet N362810 
-\i (00:41:24) xNet N366051 
-\i (00:41:24) xNet D4 
-\i (00:41:24) xNet D3 
-\i (00:41:24) xNet D2 
-\i (00:41:24) xNet D1 
-\i (00:41:24) xNet D0 
-\i (00:41:24) xNet D7 
-\i (00:41:24) xNet D6 
-\i (00:41:24) xNet D5 
-\i (00:41:24) xname_flush 
-\t (00:41:24) 26 Net(s) dehighlighted.
-\i (00:41:24) done 
-\i (00:41:24) generaledit 
-\i (00:41:25) xhilite 
-\i (00:41:25) xname_flush 
-\i (00:41:25) done 
-\i (00:41:25) generaledit 
-\i (00:41:31) xhilite 
-\i (00:41:31) xNet N362810 
-\i (00:41:31) xname_flush 
-\t (00:41:31) Net "N362810" highlighted.
-\i (00:41:31) done 
+\i (00:36:24) save 
+\i (00:36:26) fillin yes 
+\i (00:36:26) generaledit 
+\i (00:36:39) place manual 
+\i (00:36:44) setwindow form.plc_manual
+\i (00:36:44) FORM plc_manual tree 'MULTISEL YES' U7 'Components by refdes' 
+\t (00:36:44) Placing U7 / 74LS245_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:36:44) FORM plc_manual tree  U7 'Components by refdes' 
+\i (00:36:45) FORM plc_manual tree 'MULTISEL YES' U8 'Components by refdes' 
+\i (00:36:45) FORM plc_manual tree  U8 'Components by refdes' 
+\i (00:36:48) FORM plc_manual tree 'MULTISEL YES' J10 'Components by refdes' 
+\t (00:36:48) Placing J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60 on Top.
+\i (00:36:48) FORM plc_manual tree  J10 'Components by refdes' 
+\i (00:36:52) FORM plc_manual tree 'MULTISEL NO' J10 'Components by refdes' 
+\t (00:36:52) Placing U7 / 74LS245_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:37:00) setwindow pcb
+\i (00:37:00) pick grid 1498.9 11059.0
+\t (00:37:00) last pick:  1500.0  11100.0
+\t (00:37:00) Placing U8 / 74LS245_DIP10020W300L1000_74LS2 / DIP10020W300L1000 on Top.
+\i (00:37:02) pick grid 2693.4 11124.0
+\t (00:37:02) last pick:  2700.0  11100.0
+\i (00:37:05) setwindow form.plc_manual
+\i (00:37:05) FORM plc_manual tree 'MULTISEL YES' J10 'Components by refdes' 
+\t (00:37:05) Placing J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60 on Top.
+\i (00:37:08) setwindow pcb
+\i (00:37:08) prepopup 5789.3 9255.0
+\i (00:37:09) rotate 
+\t (00:37:09) Spin the element(s).
+\i (00:37:11) iangle 90.000
+\t (00:37:11) last angle:  +90.000 Degrees
+\i (00:37:15) pick grid 10981.7 8523.7
+\t (00:37:15) last pick:  11000.0  8500.0
+\i (00:37:17) setwindow form.plc_manual
+\i (00:37:17) FORM plc_manual done  
+\i (00:37:17) setwindow pcb
+\i (00:37:17) generaledit 
+\i (00:37:23) auto_route 
+\i (00:37:24) setwindow form.vse_armain
+\i (00:37:24) FORM vse_armain execute  
+\i (00:37:30) FORM vse_armain execute  
+\i (00:37:33) FORM vse_armain execute  
+\i (00:37:37) FORM vse_armain close  
+\i (00:37:37) setwindow pcb
+\i (00:37:37) generaledit 
+\i (00:37:49) drc update 
+\t (00:37:49) Performing DRC...
+\t (00:37:49) Multithreaded DRC update (8 threads).
+\t (00:37:49) DRC done; 1 errors detected.
+\i (00:37:49) generaledit 
+\i (00:37:53) zoom out 1 
+\i (00:37:53) setwindow pcb
+\i (00:37:53) zoom out 8097.0 6354.2
+\i (00:37:53) trapsize 813
+\i (00:37:54) zoom in 1 
+\i (00:37:54) setwindow pcb
+\i (00:37:54) zoom in 7251.9 1108.9
+\i (00:37:54) trapsize 406
+\i (00:37:56) zoom out 1 
+\i (00:37:56) setwindow pcb
+\i (00:37:56) zoom out 9291.4 2246.5
+\i (00:37:56) trapsize 813
+\i (00:37:57) zoom in 1 
+\i (00:37:57) setwindow pcb
+\i (00:37:57) zoom in 11607.3 10892.2
+\i (00:37:57) trapsize 406
+\i (00:38:02) place manual 
+\i (00:38:04) pick grid 10892.2 11891.7
+\t (00:38:04) last pick:  10900.0  11900.0
+\t (00:38:04) Moving J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60.
+\t (00:38:04) last pick:  11000.0  8500.0
+\i (00:38:08) pick grid 10916.6 7658.2
+\t (00:38:08) last pick:  10900.0  7700.0
+\i (00:38:10) setwindow form.plc_manual
+\i (00:38:10) FORM plc_manual done  
+\i (00:38:10) setwindow pcb
+\i (00:38:10) generaledit 
+\i (00:38:18) auto_route 
+\i (00:38:19) setwindow form.vse_armain
+\i (00:38:19) FORM vse_armain execute  
+\i (00:38:31) FORM vse_armain execute  
+\i (00:38:48) FORM vse_armain execute  
+\i (00:38:53) FORM vse_armain close  
+\i (00:38:53) setwindow pcb
+\i (00:38:53) generaledit 
+\i (00:38:56) drc update 
+\t (00:38:56) Performing DRC...
+\t (00:38:56) Multithreaded DRC update (8 threads).
+\t (00:38:56) DRC done; 1 errors detected.
+\i (00:38:56) generaledit 
+\i (00:38:59) zoom out 1 
+\i (00:38:59) setwindow pcb
+\i (00:38:59) zoom out 7073.1 6203.7
+\i (00:38:59) trapsize 813
+\i (00:39:03) zoom in 1 
+\i (00:39:03) setwindow pcb
+\i (00:39:03) zoom in 10047.1 2880.3
+\i (00:39:03) trapsize 406
+\i (00:39:04) zoom out 1 
+\i (00:39:04) setwindow pcb
+\i (00:39:04) zoom out 9876.5 6764.4
+\i (00:39:04) trapsize 813
+\i (00:39:05) zoom in 1 
+\i (00:39:05) setwindow pcb
+\i (00:39:05) zoom in 11607.3 9770.9
+\i (00:39:05) trapsize 406
+\i (00:39:13) place manual 
+\i (00:39:15) pick grid 10810.9 9470.3
+\t (00:39:15) last pick:  10800.0  9500.0
+\t (00:39:15) Moving J10 / HEADER 30X2/SM_TYCO100VH60_HEAD / TYCO100VH60.
+\t (00:39:15) last pick:  10900.0  7700.0
+\i (00:39:19) pick grid 11859.2 7707.0
+\t (00:39:19) last pick:  11900.0  7700.0
+\i (00:39:24) auto_route 
+\i (00:39:25) setwindow form.vse_armain
+\i (00:39:25) FORM vse_armain execute  
+\i (00:39:33) FORM vse_armain close  
+\i (00:39:33) setwindow pcb
+\i (00:39:33) generaledit 
+\i (00:39:36) drc update 
+\t (00:39:36) Performing DRC...
+\t (00:39:36) Multithreaded DRC update (8 threads).
+\t (00:39:36) No DRC errors detected.
+\i (00:39:36) generaledit 
+\i (00:39:39) save 
+\i (00:39:40) fillin yes 
+\i (00:39:40) generaledit 
+\i (00:39:58) zoom out 1 
+\i (00:39:59) setwindow pcb
+\i (00:39:59) zoom out 4521.7 6374.4
+\i (00:39:59) trapsize 813
+\i (00:40:10) drag_start grid 10047.1 2717.8
+\i (00:40:12) drag_stop 4229.1 52.5
+\i (00:40:14) move 
+\i (00:40:16) pick grid 6748.1 1368.9
+\t (00:40:16) last pick:  6700.0  1400.0
+\t (00:40:16) Moving U21 / 16L8_0_DIP10020W300L1000_16L8_G / DIP10020W300L1000.
+\t (00:40:16) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:40:16) Moving SW19 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW18 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW14 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW10 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW6 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW15 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW11 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW7 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW3 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW16 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW12 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW8 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW17 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW13 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW9 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Moving SW5 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:40:16) Pick new location for the element(s).
+\i (00:40:22) pick grid 8487.0 1303.9
+\t (00:40:22) last pick:  8500.0  1300.0
+\i (00:40:22) generaledit 
+\i (00:40:26) auto_route 
+\i (00:40:27) setwindow form.vse_armain
+\i (00:40:27) FORM vse_armain execute  
+\i (00:40:34) FORM vse_armain execute  
+\i (00:40:40) FORM vse_armain close  
+\i (00:40:40) setwindow pcb
+\i (00:40:40) generaledit 
+\i (00:40:42) drc update 
+\t (00:40:42) Performing DRC...
+\t (00:40:42) Multithreaded DRC update (8 threads).
+\t (00:40:42) DRC done; 5 errors detected.
+\i (00:40:42) generaledit 
+\i (00:40:47) zoom in 1 
+\i (00:40:48) setwindow pcb
+\i (00:40:48) zoom in 10095.9 1385.2
+\i (00:40:48) trapsize 406
+\i (00:40:50) zoom out 1 
+\i (00:40:50) setwindow pcb
+\i (00:40:50) zoom out 8942.0 1458.3
+\i (00:40:50) trapsize 813
+\i (00:40:52) zoom in 1 
+\i (00:40:52) setwindow pcb
+\i (00:40:52) zoom in 10079.6 1368.9
+\i (00:40:52) trapsize 406
+\i (00:40:54) zoom in 1 
+\i (00:40:54) setwindow pcb
+\i (00:40:54) zoom in 9616.5 1889.0
+\i (00:40:54) trapsize 203
+\i (00:40:55) pick grid 9515.0 2023.1
+\t (00:40:55) last pick:  9500.0  2000.0
+\i (00:40:56) zoom out 1 
+\i (00:40:56) setwindow pcb
+\i (00:40:56) zoom out 9665.3 1905.3
+\i (00:40:56) trapsize 406
+\i (00:40:56) zoom in 1 
+\i (00:40:56) setwindow pcb
+\i (00:40:56) zoom in 8877.1 1799.7
+\i (00:40:56) trapsize 203
+\i (00:40:58) pick grid 9515.0 1986.6
+\t (00:40:58) last pick:  9500.0  2000.0
+\i (00:41:01) prepopup 9506.9 1986.6
+\i (00:41:04) pop dyn_option_select @:@Delete 
+\i (00:41:04) delete 
+\i (00:41:04) generaledit 
+\i (00:41:05) pick grid 8913.7 1783.4
+\t (00:41:05) last pick:  8900.0  1800.0
+\i (00:41:06) prepopup 8913.7 1783.4
+\i (00:41:08) pop dyn_option_select @:@Delete 
+\i (00:41:08) delete 
+\i (00:41:08) generaledit 
+\i (00:41:09) prepopup 9502.8 2275.0
+\i (00:41:10) pop dyn_option_select @:@Delete 
+\i (00:41:11) delete 
+\i (00:41:11) generaledit 
+\i (00:41:11) prepopup 8930.0 2283.2
+\i (00:41:13) pop dyn_option_select @:@Delete 
+\i (00:41:13) delete 
+\i (00:41:13) generaledit 
+\i (00:41:14) prepopup 8511.5 2266.9
+\i (00:41:15) pop dyn_option_select @:@Delete 
+\i (00:41:15) delete 
+\i (00:41:15) generaledit 
+\i (00:41:17) pick grid 8483.0 2283.2
+\t (00:41:17) last pick:  8500.0  2300.0
+\i (00:41:17) prepopup 8483.0 2283.2
+\i (00:41:19) pop dyn_option_select @:@Delete 
+\i (00:41:19) delete 
+\i (00:41:19) generaledit 
+\i (00:41:20) zoom out 1 
+\i (00:41:20) setwindow pcb
+\i (00:41:20) zoom out 9450.0 1405.6
+\i (00:41:20) trapsize 406
+\i (00:41:22) zoom out 1 
+\i (00:41:22) setwindow pcb
+\i (00:41:22) zoom out 9527.2 1600.6
+\i (00:41:22) trapsize 813
+\i (00:41:23) zoom in 1 
+\i (00:41:23) setwindow pcb
+\i (00:41:23) zoom in 10713.4 296.3
+\i (00:41:23) trapsize 406
+\i (00:41:26) prepopup 9494.6 1604.6
+\i (00:41:28) pop dyn_option_select @:@Delete 
+\i (00:41:28) delete 
+\i (00:41:28) generaledit 
+\i (00:41:30) prepopup 8925.8 1564.0
+\i (00:41:31) pop dyn_option_select @:@Delete 
+\i (00:41:31) delete 
 \i (00:41:31) generaledit 
-\i (00:41:34) xhilite 
-\i (00:41:34) xrefdes U30 
-\t (00:41:34) Can not select unplaced component U30.
-\t (00:41:34) Can not select unplaced component U30.
-\i (00:41:34) xNet Gnd 
-\i (00:41:34) xNet A2 
-\i (00:41:34) xNet A1 
-\i (00:41:34) xrefdes R2 
-\t (00:41:34) Can not select unplaced component R2.
-\t (00:41:34) Can not select unplaced component R2.
-\i (00:41:34) xNet N363730 
-\i (00:41:34) xNet Mio 
-\i (00:41:34) xNet A12-a15 
-\i (00:41:34) xNet A0 
-\i (00:41:34) xrefdes U40 
-\t (00:41:34) Can not select unplaced component U40.
-\t (00:41:34) Can not select unplaced component U40.
-\i (00:41:34) xNet A4 
-\i (00:41:34) xNet A3 
-\i (00:41:34) xNet A6 
-\i (00:41:34) xNet A5 
-\i (00:41:34) xNet A9 
-\i (00:41:34) xNet A8 
-\i (00:41:34) xNet A7 
-\i (00:41:34) xNet A10 
-\i (00:41:34) xNet A11 
-\i (00:41:34) xNet N366051 
-\i (00:41:34) xNet D4 
-\i (00:41:34) xNet D3 
-\i (00:41:34) xNet D2 
-\i (00:41:34) xNet D1 
-\i (00:41:34) xNet D0 
-\i (00:41:34) xNet D7 
-\i (00:41:34) xNet D6 
-\i (00:41:34) xNet D5 
-\i (00:41:34) xname_flush 
-\t (00:41:34) 25 Net(s) highlighted.
-\i (00:41:34) done 
-\i (00:41:34) generaledit 
-\i (00:41:36) xdehilite 
-\i (00:41:36) xrefdes U30 
-\t (00:41:36) Can not select unplaced component U30.
-\t (00:41:36) Can not select unplaced component U30.
-\i (00:41:36) xNet Gnd 
-\i (00:41:36) xNet A2 
-\i (00:41:36) xNet A1 
-\i (00:41:36) xrefdes R2 
-\t (00:41:36) Can not select unplaced component R2.
-\t (00:41:36) Can not select unplaced component R2.
-\i (00:41:36) xNet N363730 
-\i (00:41:36) xNet Mio 
-\i (00:41:36) xNet A12-a15 
-\i (00:41:36) xNet A0 
-\i (00:41:36) xrefdes U40 
-\t (00:41:36) Can not select unplaced component U40.
-\t (00:41:36) Can not select unplaced component U40.
-\i (00:41:36) xNet A4 
-\i (00:41:36) xNet A3 
-\i (00:41:36) xNet A6 
-\i (00:41:36) xNet A5 
-\i (00:41:36) xNet A9 
-\i (00:41:36) xNet A8 
-\i (00:41:36) xNet A7 
-\i (00:41:36) xNet A10 
-\i (00:41:36) xNet A11 
-\i (00:41:36) xNet N366051 
-\i (00:41:36) xNet D4 
-\i (00:41:36) xNet D3 
-\i (00:41:36) xNet D2 
-\i (00:41:36) xNet D1 
-\i (00:41:36) xNet D0 
-\i (00:41:36) xNet D7 
-\i (00:41:36) xNet D6 
-\i (00:41:36) xNet D5 
-\i (00:41:36) xname_flush 
-\t (00:41:36) 25 Net(s) dehighlighted.
-\i (00:41:36) done 
-\i (00:41:36) generaledit 
-\i (00:41:41) xhilite 
-\i (00:41:41) xrefdes U30 
-\t (00:41:41) Can not select unplaced component U30.
-\t (00:41:41) Can not select unplaced component U30.
-\i (00:41:41) xNet Gnd 
-\i (00:41:41) xNet A2 
-\i (00:41:41) xNet A1 
-\i (00:41:41) xrefdes R2 
-\t (00:41:41) Can not select unplaced component R2.
-\t (00:41:41) Can not select unplaced component R2.
-\i (00:41:41) xNet N363730 
-\i (00:41:41) xNet Mio 
-\i (00:41:41) xNet A12-a15 
-\i (00:41:41) xNet A0 
-\i (00:41:41) xrefdes U40 
-\t (00:41:41) Can not select unplaced component U40.
-\t (00:41:41) Can not select unplaced component U40.
-\i (00:41:41) xNet A4 
-\i (00:41:41) xNet A3 
-\i (00:41:41) xNet A6 
-\i (00:41:41) xNet A5 
-\i (00:41:41) xNet A9 
-\i (00:41:41) xNet A8 
-\i (00:41:41) xNet A7 
-\i (00:41:41) xNet A10 
-\i (00:41:41) xNet A11 
-\i (00:41:41) xNet N366051 
-\i (00:41:41) xNet D4 
-\i (00:41:41) xNet D3 
-\i (00:41:41) xNet D2 
-\i (00:41:41) xNet D1 
-\i (00:41:41) xNet D0 
-\i (00:41:41) xNet D7 
-\i (00:41:41) xNet D6 
-\i (00:41:41) xNet D5 
-\i (00:41:41) xname_flush 
-\t (00:41:41) 25 Net(s) highlighted.
-\i (00:41:41) done 
-\i (00:41:41) generaledit 
-\i (00:41:47) xdehilite 
-\i (00:41:47) xrefdes U30 
-\t (00:41:47) Can not select unplaced component U30.
-\t (00:41:47) Can not select unplaced component U30.
-\i (00:41:47) xNet Gnd 
-\i (00:41:47) xNet A2 
-\i (00:41:47) xNet A1 
-\i (00:41:47) xrefdes R2 
-\t (00:41:47) Can not select unplaced component R2.
-\t (00:41:47) Can not select unplaced component R2.
-\i (00:41:47) xNet N363730 
-\i (00:41:47) xNet Mio 
-\i (00:41:47) xNet A12-a15 
-\i (00:41:47) xNet A0 
-\i (00:41:47) xrefdes U40 
-\t (00:41:47) Can not select unplaced component U40.
-\t (00:41:47) Can not select unplaced component U40.
-\i (00:41:47) xNet A4 
-\i (00:41:47) xNet A3 
-\i (00:41:47) xNet A6 
-\i (00:41:47) xNet A5 
-\i (00:41:47) xNet A9 
-\i (00:41:47) xNet A8 
-\i (00:41:47) xNet A7 
-\i (00:41:47) xNet A10 
-\i (00:41:47) xNet A11 
-\i (00:41:47) xNet N366051 
-\i (00:41:48) xNet D4 
-\i (00:41:48) xNet D3 
-\i (00:41:48) xNet D2 
-\i (00:41:48) xNet D1 
-\i (00:41:48) xNet D0 
-\i (00:41:48) xNet D7 
-\i (00:41:48) xNet D6 
-\i (00:41:48) xNet D5 
-\i (00:41:48) xname_flush 
-\t (00:41:48) 25 Net(s) dehighlighted.
-\i (00:41:48) done 
-\i (00:41:48) generaledit 
-\i (00:41:51) xhilite 
-\i (00:41:51) xNet N362810 
-\i (00:41:51) xname_flush 
-\t (00:41:51) Net "N362810" highlighted.
-\i (00:41:51) done 
-\i (00:41:51) generaledit 
-\i (00:42:02) xhilite 
-\i (00:42:02) xname_flush 
-\i (00:42:02) done 
-\i (00:42:02) xhilite 
-\i (00:42:02) xname_flush 
-\i (00:42:02) done 
+\i (00:41:37) auto_route 
+\i (00:41:38) setwindow form.vse_armain
+\i (00:41:38) FORM vse_armain execute  
+\i (00:41:44) FORM vse_armain execute  
+\i (00:41:50) FORM vse_armain routing_passes  
+\i (00:41:54) FORM vse_armain close  
+\i (00:41:54) setwindow pcb
+\i (00:41:54) generaledit 
+\i (00:41:55) zoom in 1 
+\i (00:41:55) setwindow pcb
+\i (00:41:55) zoom in 9510.8 1068.3
+\i (00:41:55) trapsize 203
+\i (00:41:56) pick grid 9458.0 1661.5
+\t (00:41:56) last pick:  9500.0  1700.0
+\i (00:41:57) prepopup 9466.2 1669.7
+\i (00:41:58) pop dyn_option_select @:@Delete 
+\i (00:41:58) delete 
+\i (00:41:58) generaledit 
+\i (00:42:01) prepopup 9933.4 1665.6
+\i (00:42:02) pop dyn_option_select @:@Delete 
+\i (00:42:02) delete 
 \i (00:42:02) generaledit 
-\i (00:42:11) xhilite 
-\i (00:42:11) xname_flush 
-\i (00:42:11) done 
-\i (00:42:11) generaledit 
-\i (00:42:18) xhilite 
-\i (00:42:18) xrefdes U37 
-\t (00:42:18) Can not select unplaced component U37.
-\t (00:42:18) Can not select unplaced component U37.
-\i (00:42:18) xNet N362638 
-\i (00:42:18) xNet N362654 
-\i (00:42:18) xNet N362650 
-\i (00:42:18) xNet N362646 
-\i (00:42:18) xNet N362642 
-\i (00:42:18) xNet Gnd 
-\i (00:42:18) xNet N362662 
-\i (00:42:18) xNet N362658 
-\i (00:42:18) xNet D2 
-\i (00:42:18) xNet D1 
-\i (00:42:18) xNet D0 
-\i (00:42:18) xNet D4 
-\i (00:42:18) xNet D3 
-\i (00:42:18) xNet D7 
-\i (00:42:18) xNet D6 
-\i (00:42:18) xNet D5 
-\i (00:42:18) xNet N362810 
-\i (00:42:18) xrefdes R18 
-\t (00:42:18) Can not select unplaced component R18.
-\t (00:42:18) Can not select unplaced component R18.
-\i (00:42:18) xNet N362842 
-\i (00:42:18) xrefdes R19 
-\t (00:42:18) Can not select unplaced component R19.
-\t (00:42:18) Can not select unplaced component R19.
-\i (00:42:18) xrefdes R20 
-\t (00:42:18) Can not select unplaced component R20.
-\t (00:42:18) Can not select unplaced component R20.
-\i (00:42:18) xrefdes R21 
-\t (00:42:18) Can not select unplaced component R21.
-\t (00:42:18) Can not select unplaced component R21.
-\i (00:42:18) xrefdes R22 
-\t (00:42:18) Can not select unplaced component R22.
-\t (00:42:18) Can not select unplaced component R22.
-\i (00:42:18) xrefdes R23 
-\t (00:42:18) Can not select unplaced component R23.
-\t (00:42:18) Can not select unplaced component R23.
-\i (00:42:18) xrefdes R24 
-\t (00:42:18) Can not select unplaced component R24.
-\t (00:42:18) Can not select unplaced component R24.
-\i (00:42:18) xrefdes R25 
-\t (00:42:18) Can not select unplaced component R25.
-\t (00:42:18) Can not select unplaced component R25.
-\i (00:42:18) xrefdes U30 
-\t (00:42:18) Can not select unplaced component U30.
-\t (00:42:18) Can not select unplaced component U30.
-\i (00:42:18) xNet A2 
-\i (00:42:18) xNet A1 
-\i (00:42:18) xrefdes R2 
-\t (00:42:18) Can not select unplaced component R2.
-\t (00:42:18) Can not select unplaced component R2.
-\i (00:42:18) xNet N363730 
-\i (00:42:18) xNet Mio 
-\i (00:42:18) xNet A12-a15 
-\i (00:42:18) xNet A0 
-\i (00:42:18) xrefdes U40 
-\t (00:42:18) Can not select unplaced component U40.
-\t (00:42:18) Can not select unplaced component U40.
-\i (00:42:18) xNet A4 
-\i (00:42:18) xNet A3 
-\i (00:42:18) xNet A6 
-\i (00:42:18) xNet A5 
-\i (00:42:18) xNet A9 
-\i (00:42:18) xNet A8 
-\i (00:42:18) xNet A7 
-\i (00:42:18) xNet A10 
-\i (00:42:18) xNet A11 
-\i (00:42:18) xNet N366051 
-\i (00:42:18) xrefdes Sw24 
-\t (00:42:18) Can not select unplaced component SW24.
-\t (00:42:18) Can not select unplaced component SW24.
-\i (00:42:18) xname_flush 
-\t (00:42:18) 34 Net(s) highlighted.
-\i (00:42:18) done 
-\i (00:42:18) generaledit 
-\i (00:42:20) xdehilite 
-\i (00:42:20) xrefdes U37 
-\t (00:42:20) Can not select unplaced component U37.
-\t (00:42:20) Can not select unplaced component U37.
-\i (00:42:20) xNet N362638 
-\i (00:42:20) xNet N362654 
-\i (00:42:20) xNet N362650 
-\i (00:42:20) xNet N362646 
-\i (00:42:20) xNet N362642 
-\i (00:42:20) xNet Gnd 
-\i (00:42:20) xNet N362662 
-\i (00:42:20) xNet N362658 
-\i (00:42:20) xNet D2 
-\i (00:42:20) xNet D1 
-\i (00:42:20) xNet D0 
-\i (00:42:20) xNet D4 
-\i (00:42:20) xNet D3 
-\i (00:42:20) xNet D7 
-\i (00:42:20) xNet D6 
-\i (00:42:20) xNet D5 
-\i (00:42:20) xNet N362810 
-\i (00:42:20) xrefdes R18 
-\t (00:42:20) Can not select unplaced component R18.
-\t (00:42:20) Can not select unplaced component R18.
-\i (00:42:20) xNet N362842 
-\i (00:42:20) xrefdes R19 
-\t (00:42:20) Can not select unplaced component R19.
-\t (00:42:20) Can not select unplaced component R19.
-\i (00:42:20) xrefdes R20 
-\t (00:42:20) Can not select unplaced component R20.
-\t (00:42:20) Can not select unplaced component R20.
-\i (00:42:20) xrefdes R21 
-\t (00:42:20) Can not select unplaced component R21.
-\t (00:42:20) Can not select unplaced component R21.
-\i (00:42:20) xrefdes R22 
-\t (00:42:20) Can not select unplaced component R22.
-\t (00:42:20) Can not select unplaced component R22.
-\i (00:42:20) xrefdes R23 
-\t (00:42:20) Can not select unplaced component R23.
-\t (00:42:20) Can not select unplaced component R23.
-\i (00:42:20) xrefdes R24 
-\t (00:42:20) Can not select unplaced component R24.
-\t (00:42:20) Can not select unplaced component R24.
-\i (00:42:20) xrefdes R25 
-\t (00:42:20) Can not select unplaced component R25.
-\t (00:42:20) Can not select unplaced component R25.
-\i (00:42:20) xrefdes U30 
-\t (00:42:20) Can not select unplaced component U30.
-\t (00:42:20) Can not select unplaced component U30.
-\i (00:42:20) xNet A2 
-\i (00:42:20) xNet A1 
-\i (00:42:20) xrefdes R2 
-\t (00:42:20) Can not select unplaced component R2.
-\t (00:42:20) Can not select unplaced component R2.
-\i (00:42:20) xNet N363730 
-\i (00:42:20) xNet Mio 
-\i (00:42:20) xNet A12-a15 
-\i (00:42:20) xNet A0 
-\i (00:42:20) xrefdes U40 
-\t (00:42:20) Can not select unplaced component U40.
-\t (00:42:20) Can not select unplaced component U40.
-\i (00:42:20) xNet A4 
-\i (00:42:20) xNet A3 
-\i (00:42:20) xNet A6 
-\i (00:42:20) xNet A5 
-\i (00:42:20) xNet A9 
-\i (00:42:20) xNet A8 
-\i (00:42:20) xNet A7 
-\i (00:42:20) xNet A10 
-\i (00:42:20) xNet A11 
-\i (00:42:20) xNet N366051 
-\i (00:42:20) xrefdes Sw24 
-\t (00:42:20) Can not select unplaced component SW24.
-\t (00:42:20) Can not select unplaced component SW24.
-\i (00:42:20) xname_flush 
-\t (00:42:20) 34 Net(s) dehighlighted.
-\i (00:42:20) done 
-\i (00:42:20) generaledit 
-\i (00:43:16) xhilite 
-\i (00:43:16) xNet N117444 
-\i (00:43:16) xname_flush 
-\t (00:43:16) Net "N117444" highlighted.
-\i (00:43:16) done 
-\i (00:43:16) generaledit 
-\i (00:43:19) xdehilite 
-\i (00:43:19) xNet N117444 
-\i (00:43:19) xname_flush 
-\t (00:43:19) Net "N117444" dehighlighted.
-\i (00:43:19) done 
-\i (00:43:19) generaledit 
-\i (00:43:21) xhilite 
-\i (00:43:21) xNet N96341 
-\i (00:43:21) xname_flush 
-\t (00:43:21) Net "N96341" highlighted.
-\i (00:43:21) done 
-\i (00:43:21) generaledit 
-\i (00:43:23) xdehilite 
-\i (00:43:23) xNet N96341 
-\i (00:43:23) xname_flush 
-\t (00:43:23) Net "N96341" dehighlighted.
-\i (00:43:23) done 
-\i (00:43:23) generaledit 
-\i (00:43:36) xhilite 
-\i (00:43:36) xrefdes U26 
-\t (00:43:36) Can not select unplaced component U26.
-\t (00:43:36) Can not select unplaced component U26.
-\i (00:43:36) xname_flush 
-\i (00:43:36) done 
+\i (00:42:03) prepopup 9913.1 2283.1
+\i (00:42:04) pop dyn_option_select @:@Delete 
+\i (00:42:04) delete 
+\i (00:42:04) generaledit 
+\i (00:42:32) zoom in 1 
+\i (00:42:32) setwindow pcb
+\i (00:42:32) zoom in 9551.5 1698.1
+\i (00:42:32) trapsize 102
+\i (00:42:34) prepopup 9458.1 2106.4
+\i (00:42:35) pop dyn_option_select @:@Delete 
+\i (00:42:35) delete 
+\i (00:42:35) generaledit 
+\i (00:42:37) prepopup 9502.8 2157.2
+\i (00:42:43) pick grid 9372.7 1647.3
+\t (00:42:43) last pick:  9400.0  1600.0
+\i (00:42:44) drag_start grid 9250.9 2283.1
+\i (00:42:44) drag_stop 9413.4 1299.9
+\i (00:42:46) prepopup 9399.2 2151.1
+\i (00:42:48) pop dyn_option_select @:@Delete 
+\i (00:42:48) delete 
+\i (00:42:48) generaledit 
+\i (00:42:49) pick grid 9579.9 1444.2
+\t (00:42:49) last pick:  9600.0  1400.0
+\i (00:42:50) prepopup 9579.9 1466.5
+\i (00:42:51) pop dyn_option_select @:@Delete 
+\i (00:42:51) delete 
+\i (00:42:51) generaledit 
+\i (00:42:58) prepopup 9458.1 1460.4
+\i (00:43:00) pop dyn_option_select '@:@Delete vertex' 
+\i (00:43:00) delete vertex 
+\i (00:43:00) generaledit 
+\i (00:43:01) prepopup 8948.2 1464.5
+\i (00:43:03) pop dyn_option_select '@:@Delete vertex' 
+\i (00:43:03) delete vertex 
+\i (00:43:03) generaledit 
+\i (00:43:04) prepopup 8895.4 1488.9
+\i (00:43:06) pop dyn_option_select @:@Delete 
+\i (00:43:06) delete 
+\i (00:43:06) generaledit 
+\i (00:43:08) pick grid 8909.6 2155.2
+\t (00:43:08) last pick:  8900.0  2200.0
+\i (00:43:10) prepopup 8911.6 2149.1
+\i (00:43:12) pop dyn_option_select @:@Delete 
+\i (00:43:12) delete 
+\i (00:43:13) generaledit 
+\i (00:43:13) prepopup 8944.1 2140.9
+\i (00:43:15) pop dyn_option_select @:@Delete 
+\i (00:43:15) delete 
+\i (00:43:15) generaledit 
+\i (00:43:16) prepopup 8934.0 1675.7
+\i (00:43:17) pop dyn_option_select @:@Delete 
+\i (00:43:17) delete 
+\i (00:43:17) generaledit 
+\i (00:43:19) prepopup 8460.6 2116.6
+\i (00:43:20) pop dyn_option_select '@:@Delete vertex' 
+\i (00:43:20) delete vertex 
+\i (00:43:20) generaledit 
+\i (00:43:22) zoom out 1 
+\i (00:43:22) setwindow pcb
+\i (00:43:22) zoom out 9372.7 2147.0
+\i (00:43:22) trapsize 203
+\i (00:43:24) prepopup 9897.0 2041.5
+\i (00:43:26) pop dyn_option_select @:@Delete 
+\i (00:43:26) delete 
+\i (00:43:26) generaledit 
+\i (00:43:29) prepopup 9905.1 619.5
+\i (00:43:31) pop dyn_option_select @:@Delete 
+\i (00:43:31) delete 
+\i (00:43:31) generaledit 
+\i (00:43:32) zoom in 1 
+\i (00:43:32) setwindow pcb
+\i (00:43:32) zoom in 9555.7 749.5
+\i (00:43:32) trapsize 102
+\i (00:43:35) drc update 
+\t (00:43:36) Performing DRC...
+\t (00:43:36) Multithreaded DRC update (8 threads).
+\t (00:43:36) DRC done; 5 errors detected.
 \i (00:43:36) generaledit 
-\i (00:43:40) xdehilite 
-\i (00:43:40) xrefdes U26 
-\t (00:43:40) Can not select unplaced component U26.
-\t (00:43:40) Can not select unplaced component U26.
-\i (00:43:40) xname_flush 
-\i (00:43:40) done 
-\i (00:43:40) generaledit 
-\i (00:44:02) xhilite 
-\i (00:44:03) xNet N96865 
-\i (00:44:03) xname_flush 
-\t (00:44:03) Net "N96865" highlighted.
-\i (00:44:03) done 
-\i (00:44:03) generaledit 
-\i (00:44:04) xdehilite 
-\i (00:44:04) xNet N96865 
-\i (00:44:04) xname_flush 
-\t (00:44:04) Net "N96865" dehighlighted.
-\i (00:44:04) done 
-\i (00:44:04) xhilite 
-\i (00:44:04) xNet N96865 
-\i (00:44:04) xname_flush 
-\t (00:44:04) Net "N96865" highlighted.
-\i (00:44:04) done 
-\i (00:44:04) generaledit 
-\i (00:44:07) xdehilite 
-\i (00:44:07) xNet N96865 
-\i (00:44:07) xname_flush 
-\t (00:44:07) Net "N96865" dehighlighted.
-\i (00:44:07) done 
-\i (00:44:07) xhilite 
-\i (00:44:07) xNet N96865 
-\i (00:44:07) xname_flush 
-\t (00:44:07) Net "N96865" highlighted.
-\i (00:44:07) done 
-\i (00:44:07) generaledit 
-\i (00:44:09) xdehilite 
-\i (00:44:09) xNet N96865 
-\i (00:44:09) xname_flush 
-\t (00:44:09) Net "N96865" dehighlighted.
-\i (00:44:09) done 
-\i (00:44:09) generaledit 
-\i (00:44:17) xhilite 
-\i (00:44:17) xNet N96341 
-\i (00:44:17) xname_flush 
-\t (00:44:17) Net "N96341" highlighted.
-\i (00:44:17) done 
-\i (00:44:18) generaledit 
-\i (00:44:20) xdehilite 
-\i (00:44:20) xNet N96341 
-\i (00:44:20) xname_flush 
-\t (00:44:20) Net "N96341" dehighlighted.
-\i (00:44:20) done 
-\i (00:44:20) generaledit 
-\i (00:44:22) xhilite 
-\i (00:44:22) xNet N95249 
-\i (00:44:22) xname_flush 
-\t (00:44:22) Net "N95249" highlighted.
-\i (00:44:22) done 
-\i (00:44:22) generaledit 
-\i (00:44:26) xdehilite 
-\i (00:44:26) xNet N95249 
-\i (00:44:26) xname_flush 
-\t (00:44:26) Net "N95249" dehighlighted.
-\i (00:44:26) done 
-\i (00:44:26) xhilite 
-\i (00:44:26) xNet N95219 
-\i (00:44:26) xname_flush 
-\t (00:44:26) Net "N95219" highlighted.
-\i (00:44:26) done 
-\i (00:44:26) generaledit 
-\i (00:44:30) xdehilite 
-\i (00:44:30) xNet N95219 
-\i (00:44:30) xname_flush 
-\t (00:44:30) Net "N95219" dehighlighted.
-\i (00:44:30) done 
-\i (00:44:31) generaledit 
-\i (00:44:32) xhilite 
-\i (00:44:32) xNet N95197 
-\i (00:44:32) xname_flush 
-\t (00:44:32) Net "N95197" highlighted.
-\i (00:44:32) done 
-\i (00:44:32) generaledit 
-\i (00:44:35) xdehilite 
-\i (00:44:35) xNet N95197 
-\i (00:44:35) xname_flush 
-\t (00:44:35) Net "N95197" dehighlighted.
-\i (00:44:35) done 
-\i (00:44:35) generaledit 
-\i (00:44:36) xhilite 
-\i (00:44:36) xrefdes J5 
-\t (00:44:36) Can not select unplaced component J5.
-\t (00:44:36) Can not select unplaced component J5.
-\i (00:44:36) xname_flush 
-\i (00:44:37) done 
-\i (00:44:37) generaledit 
-\i (00:44:40) xdehilite 
-\i (00:44:40) xrefdes J5 
-\t (00:44:40) Can not select unplaced component J5.
-\t (00:44:40) Can not select unplaced component J5.
-\i (00:44:40) xname_flush 
-\i (00:44:40) done 
-\i (00:44:40) generaledit 
-\i (00:44:51) xhilite 
-\i (00:44:51) xrefdes U26 
-\t (00:44:51) Can not select unplaced component U26.
-\t (00:44:51) Can not select unplaced component U26.
-\i (00:44:51) xname_flush 
-\i (00:44:51) done 
-\i (00:44:51) generaledit 
-\i (00:44:54) xdehilite 
-\i (00:44:54) xrefdes U26 
-\t (00:44:54) Can not select unplaced component U26.
-\t (00:44:54) Can not select unplaced component U26.
-\i (00:44:54) xname_flush 
-\i (00:44:54) done 
-\i (00:44:54) generaledit 
-\i (00:44:55) xhilite 
-\i (00:44:55) xrefdes U26 
-\t (00:44:55) Can not select unplaced component U26.
-\t (00:44:55) Can not select unplaced component U26.
-\i (00:44:55) xname_flush 
-\i (00:44:55) done 
-\i (00:44:55) generaledit 
-\i (00:44:59) xdehilite 
-\i (00:44:59) xrefdes U26 
-\t (00:44:59) Can not select unplaced component U26.
-\t (00:44:59) Can not select unplaced component U26.
-\i (00:44:59) xname_flush 
-\i (00:44:59) done 
-\i (00:44:59) generaledit 
-\i (00:45:00) xhilite 
-\i (00:45:00) xrefdes U26 
-\t (00:45:00) Can not select unplaced component U26.
-\t (00:45:00) Can not select unplaced component U26.
-\i (00:45:00) xname_flush 
-\i (00:45:00) done 
-\i (00:45:00) generaledit 
-\i (00:45:08) xdehilite 
-\i (00:45:08) xrefdes U26 
-\t (00:45:08) Can not select unplaced component U26.
-\t (00:45:08) Can not select unplaced component U26.
-\i (00:45:08) xname_flush 
-\i (00:45:08) done 
-\i (00:45:08) xhilite 
-\i (00:45:08) xNet N95187 
-\i (00:45:08) xname_flush 
-\t (00:45:08) Net "N95187" highlighted.
-\i (00:45:08) done 
-\i (00:45:08) generaledit 
-\i (00:45:10) xdehilite 
-\i (00:45:10) xNet N95187 
-\i (00:45:10) xname_flush 
-\t (00:45:10) Net "N95187" dehighlighted.
-\i (00:45:10) done 
-\i (00:45:10) xhilite 
-\i (00:45:10) xrefdes U26 
-\t (00:45:10) Can not select unplaced component U26.
-\t (00:45:10) Can not select unplaced component U26.
-\i (00:45:10) xname_flush 
-\i (00:45:10) done 
-\i (00:45:10) generaledit 
-\i (00:45:15) xdehilite 
-\i (00:45:15) xrefdes U26 
-\t (00:45:15) Can not select unplaced component U26.
-\t (00:45:15) Can not select unplaced component U26.
-\i (00:45:15) xname_flush 
-\i (00:45:15) done 
-\i (00:45:15) generaledit 
-\i (00:45:16) xhilite 
-\i (00:45:16) xrefdes U26 
-\t (00:45:16) Can not select unplaced component U26.
-\t (00:45:16) Can not select unplaced component U26.
-\i (00:45:16) xname_flush 
-\i (00:45:16) done 
-\i (00:45:16) generaledit 
-\i (00:45:25) xdehilite 
-\i (00:45:25) xrefdes U26 
-\t (00:45:25) Can not select unplaced component U26.
-\t (00:45:25) Can not select unplaced component U26.
-\i (00:45:25) xname_flush 
-\i (00:45:25) done 
-\i (00:45:25) generaledit 
-\i (00:45:28) xhilite 
-\i (00:45:28) xNet N95187 
-\i (00:45:28) xname_flush 
-\t (00:45:28) Net "N95187" highlighted.
-\i (00:45:28) done 
-\i (00:45:28) generaledit 
-\i (00:45:30) xhilite 
-\i (00:45:30) xNet N95318 
-\i (00:45:30) xname_flush 
-\t (00:45:30) Net "N95318" highlighted.
-\i (00:45:30) done 
-\i (00:45:30) generaledit 
-\i (00:45:31) xhilite 
-\i (00:45:31) xNet N95197 
-\i (00:45:31) xname_flush 
-\t (00:45:31) Net "N95197" highlighted.
-\i (00:45:31) done 
-\i (00:45:31) generaledit 
-\i (00:45:32) xhilite 
-\i (00:45:32) xNet N95219 
-\i (00:45:32) xname_flush 
-\t (00:45:32) Net "N95219" highlighted.
-\i (00:45:32) done 
-\i (00:45:32) generaledit 
-\i (00:45:33) xhilite 
-\i (00:45:33) xNet N95249 
-\i (00:45:33) xname_flush 
-\t (00:45:33) Net "N95249" highlighted.
-\i (00:45:33) done 
-\i (00:45:33) generaledit 
-\i (00:45:34) xhilite 
-\i (00:45:34) xrefdes U26 
-\t (00:45:34) Can not select unplaced component U26.
-\t (00:45:34) Can not select unplaced component U26.
-\i (00:45:34) xname_flush 
-\i (00:45:34) done 
-\i (00:45:34) generaledit 
-\i (00:45:39) xdehilite 
-\i (00:45:39) xrefdes U26 
-\t (00:45:39) Can not select unplaced component U26.
-\t (00:45:39) Can not select unplaced component U26.
-\i (00:45:39) xname_flush 
-\i (00:45:39) done 
-\i (00:45:39) generaledit 
-\i (00:45:40) xhilite 
-\i (00:45:40) xrefdes U26 
-\t (00:45:40) Can not select unplaced component U26.
-\t (00:45:40) Can not select unplaced component U26.
-\i (00:45:40) xname_flush 
-\i (00:45:40) done 
-\i (00:45:40) generaledit 
-\i (00:45:42) xdehilite 
-\i (00:45:42) xrefdes U26 
-\t (00:45:42) Can not select unplaced component U26.
-\t (00:45:42) Can not select unplaced component U26.
-\i (00:45:42) xname_flush 
-\i (00:45:42) done 
-\i (00:45:42) generaledit 
-\i (00:45:43) xhilite 
-\i (00:45:43) xrefdes U26 
-\t (00:45:43) Can not select unplaced component U26.
-\t (00:45:43) Can not select unplaced component U26.
-\i (00:45:43) xname_flush 
-\i (00:45:43) done 
-\i (00:45:43) generaledit 
-\i (00:45:49) xdehilite 
-\i (00:45:49) xrefdes U26 
-\t (00:45:49) Can not select unplaced component U26.
-\t (00:45:49) Can not select unplaced component U26.
-\i (00:45:49) xname_flush 
-\i (00:45:49) done 
-\i (00:45:49) xhilite 
-\i (00:45:49) xrefdes J5 
-\t (00:45:49) Can not select unplaced component J5.
-\t (00:45:49) Can not select unplaced component J5.
-\i (00:45:49) xname_flush 
-\i (00:45:49) done 
-\i (00:45:49) generaledit 
-\i (00:45:51) xdehilite 
-\i (00:45:51) xrefdes J5 
-\t (00:45:51) Can not select unplaced component J5.
-\t (00:45:51) Can not select unplaced component J5.
-\i (00:45:51) xname_flush 
-\i (00:45:51) done 
-\i (00:45:51) generaledit 
-\i (00:45:53) xhilite 
-\i (00:45:53) xNet N95318 
-\i (00:45:53) xname_flush 
-\t (00:45:53) Net "N95318" highlighted.
-\i (00:45:53) done 
-\i (00:45:53) generaledit 
-\i (00:45:55) xhilite 
-\i (00:45:55) xrefdes J5 
-\t (00:45:55) Can not select unplaced component J5.
-\t (00:45:55) Can not select unplaced component J5.
-\i (00:45:55) xname_flush 
-\i (00:45:55) done 
-\i (00:45:55) generaledit 
-\i (00:45:58) xdehilite 
-\i (00:45:58) xrefdes J5 
-\t (00:45:58) Can not select unplaced component J5.
-\t (00:45:58) Can not select unplaced component J5.
-\i (00:45:58) xname_flush 
-\i (00:45:58) done 
-\i (00:45:58) xhilite 
-\i (00:45:58) xNet N95197 
-\i (00:45:58) xname_flush 
-\t (00:45:58) Net "N95197" highlighted.
-\i (00:45:58) done 
-\i (00:45:58) generaledit 
-\i (00:45:59) xhilite 
-\i (00:45:59) xNet N95219 
-\i (00:45:59) xname_flush 
-\t (00:45:59) Net "N95219" highlighted.
-\i (00:45:59) done 
-\i (00:46:00) generaledit 
-\i (00:46:00) xhilite 
-\i (00:46:00) xrefdes J5 
-\t (00:46:00) Can not select unplaced component J5.
-\t (00:46:00) Can not select unplaced component J5.
-\i (00:46:00) xname_flush 
-\i (00:46:00) done 
-\i (00:46:01) generaledit 
-\i (00:46:03) xdehilite 
-\i (00:46:03) xrefdes J5 
-\t (00:46:03) Can not select unplaced component J5.
-\t (00:46:03) Can not select unplaced component J5.
-\i (00:46:03) xname_flush 
-\i (00:46:03) done 
-\i (00:46:03) generaledit 
-\i (00:46:48) xhilite 
-\i (00:46:48) xNet N95249 
-\i (00:46:48) xname_flush 
-\t (00:46:48) Net "N95249" highlighted.
-\i (00:46:48) done 
-\i (00:46:48) generaledit 
-\i (00:46:49) xdehilite 
-\i (00:46:49) xNet N95249 
-\i (00:46:49) xname_flush 
-\t (00:46:49) Net "N95249" dehighlighted.
-\i (00:46:49) done 
-\i (00:46:49) generaledit 
-\i (00:46:49) xhilite 
-\i (00:46:49) xNet N95219 
-\i (00:46:49) xname_flush 
-\t (00:46:49) Net "N95219" highlighted.
-\i (00:46:49) done 
-\i (00:46:49) generaledit 
-\i (00:46:50) xdehilite 
-\i (00:46:50) xNet N95219 
-\i (00:46:50) xname_flush 
-\t (00:46:50) Net "N95219" dehighlighted.
-\i (00:46:50) done 
-\i (00:46:50) generaledit 
-\i (00:46:51) xhilite 
-\i (00:46:51) xNet N95197 
-\i (00:46:51) xname_flush 
-\t (00:46:51) Net "N95197" highlighted.
-\i (00:46:51) done 
-\i (00:46:51) generaledit 
-\i (00:46:53) xdehilite 
-\i (00:46:53) xNet N95197 
-\i (00:46:53) xname_flush 
-\t (00:46:53) Net "N95197" dehighlighted.
-\i (00:46:53) done 
-\i (00:46:53) generaledit 
-\i (00:46:58) xhilite 
-\i (00:46:58) xname_flush 
-\i (00:46:58) done 
-\i (00:46:58) generaledit 
-\i (00:46:59) xdehilite 
-\i (00:46:59) xname_flush 
-\i (00:46:59) done 
-\i (00:46:59) generaledit 
-\i (00:47:01) xhilite 
-\i (00:47:01) xname_flush 
-\i (00:47:01) done 
-\i (00:47:01) generaledit 
-\i (00:47:02) xdehilite 
-\i (00:47:02) xname_flush 
-\i (00:47:02) done 
-\i (00:47:02) xhilite 
-\i (00:47:02) xname_flush 
-\i (00:47:02) done 
-\i (00:47:02) generaledit 
-\i (00:47:05) xdehilite 
-\i (00:47:05) xname_flush 
-\i (00:47:05) done 
-\i (00:47:05) xhilite 
-\i (00:47:05) xNet Gnd 
-\i (00:47:05) xname_flush 
-\i (00:47:05) trapsize 41
-\t (00:47:05) Net "Gnd" highlighted.
-\i (00:47:05) done 
-\i (00:47:05) generaledit 
-\i (00:47:06) xdehilite 
-\i (00:47:06) xNet Gnd 
-\i (00:47:06) xname_flush 
-\t (00:47:06) Net "Gnd" dehighlighted.
-\i (00:47:06) done 
-\i (00:47:06) generaledit 
-\i (00:47:14) xhilite 
-\i (00:47:14) xNet N96351 
-\i (00:47:14) xname_flush 
-\t (00:47:14) Net "N96351" highlighted.
-\i (00:47:14) done 
-\i (00:47:14) generaledit 
-\i (00:47:16) xdehilite 
-\i (00:47:16) xNet N96351 
-\i (00:47:16) xname_flush 
-\t (00:47:16) Net "N96351" dehighlighted.
-\i (00:47:16) done 
-\i (00:47:16) xhilite 
-\i (00:47:16) xNet N94994 
-\i (00:47:16) xname_flush 
-\t (00:47:16) Net "N94994" highlighted.
-\i (00:47:16) done 
-\i (00:47:16) generaledit 
-\i (00:47:23) xdehilite 
-\i (00:47:23) xNet N94994 
-\i (00:47:23) xname_flush 
-\t (00:47:23) Net "N94994" dehighlighted.
-\i (00:47:23) done 
-\i (00:47:23) xhilite 
-\i (00:47:23) xNet N95164 
-\i (00:47:23) xname_flush 
-\t (00:47:23) Net "N95164" highlighted.
-\i (00:47:23) done 
-\i (00:47:23) generaledit 
-\i (00:47:25) xdehilite 
-\i (00:47:25) xNet N95164 
-\i (00:47:25) xname_flush 
-\t (00:47:25) Net "N95164" dehighlighted.
-\i (00:47:25) done 
-\i (00:47:25) xhilite 
-\i (00:47:25) xNet N96734 
-\i (00:47:25) xname_flush 
-\t (00:47:25) Net "N96734" highlighted.
-\i (00:47:25) done 
-\i (00:47:25) generaledit 
-\i (00:47:27) xdehilite 
-\i (00:47:27) xNet N96734 
-\i (00:47:27) xname_flush 
-\t (00:47:27) Net "N96734" dehighlighted.
-\i (00:47:27) done 
-\i (00:47:27) generaledit 
-\i (00:47:29) xhilite 
-\i (00:47:29) xNet A15 
-\i (00:47:29) xNet A14 
-\i (00:47:29) xNet A13 
-\i (00:47:29) xNet N96341 
-\i (00:47:29) xNet N117395 
-\i (00:47:29) xNet N117411 
-\i (00:47:29) xNet N117434 
-\i (00:47:29) xNet N117444 
-\i (00:47:29) xNet N96865 
-\i (00:47:29) xNet Gnd 
-\i (00:47:29) xNet Iowc 
-\i (00:47:29) xNet Iorc 
-\i (00:47:29) xNet Reset 
-\i (00:47:29) xrefdes J5 
-\t (00:47:29) Can not select unplaced component J5.
-\t (00:47:29) Can not select unplaced component J5.
-\i (00:47:29) xrefdes U26 
-\t (00:47:29) Can not select unplaced component U26.
-\t (00:47:29) Can not select unplaced component U26.
-\i (00:47:29) xNet N94994 
-\i (00:47:29) xNet N95164 
-\i (00:47:29) xNet N95197 
-\i (00:47:29) xNet N95219 
-\i (00:47:29) xNet N95249 
-\i (00:47:29) xrefdes U27 
-\t (00:47:29) Can not select unplaced component U27.
-\t (00:47:29) Can not select unplaced component U27.
-\i (00:47:29) xNet A4 
-\i (00:47:29) xNet A3 
-\i (00:47:29) xNet A11 
-\i (00:47:29) xNet A10 
-\i (00:47:30) xNet A9 
-\i (00:47:30) xNet A8 
-\i (00:47:30) xNet A7 
-\i (00:47:30) xNet A6 
-\i (00:47:30) xNet A5 
-\i (00:47:30) xNet A12 
-\i (00:47:30) xNet N95927 
-\i (00:47:30) xNet D5 
-\i (00:47:30) xNet D4 
-\i (00:47:30) xNet D3 
-\i (00:47:30) xNet D2 
-\i (00:47:30) xNet D1 
-\i (00:47:30) xNet D0 
-\i (00:47:30) xNet D7 
-\i (00:47:30) xNet D6 
-\i (00:47:30) xNet N96250 
-\i (00:47:30) xNet Pclk 
-\i (00:47:30) xNet N96351 
-\i (00:47:30) xNet N96734 
-\i (00:47:30) xNet Ir3 
-\i (00:47:30) xNet A0 
-\i (00:47:30) xNet A2 
-\i (00:47:30) xNet A1 
-\i (00:47:30) xNet N305126 
-\i (00:47:30) xrefdes U25 
-\t (00:47:30) Can not select unplaced component U25.
-\t (00:47:30) Can not select unplaced component U25.
-\i (00:47:30) xname_flush 
-\t (00:47:30) 46 Net(s) highlighted.
-\i (00:47:30) done 
-\i (00:47:30) generaledit 
-\i (00:47:31) xdehilite 
-\i (00:47:31) xNet A15 
-\i (00:47:31) xNet A14 
-\i (00:47:31) xNet A13 
-\i (00:47:31) xNet N96341 
-\i (00:47:31) xNet N117395 
-\i (00:47:31) xNet N117411 
-\i (00:47:31) xNet N117434 
-\i (00:47:31) xNet N117444 
-\i (00:47:31) xNet N96865 
-\i (00:47:31) xNet Gnd 
-\i (00:47:31) xNet Iowc 
-\i (00:47:31) xNet Iorc 
-\i (00:47:31) xNet Reset 
-\i (00:47:31) xrefdes J5 
-\t (00:47:31) Can not select unplaced component J5.
-\t (00:47:31) Can not select unplaced component J5.
-\i (00:47:31) xrefdes U26 
-\t (00:47:31) Can not select unplaced component U26.
-\t (00:47:31) Can not select unplaced component U26.
-\i (00:47:31) xNet N94994 
-\i (00:47:31) xNet N95164 
-\i (00:47:32) xNet N95197 
-\i (00:47:32) xNet N95219 
-\i (00:47:32) xNet N95249 
-\i (00:47:32) xrefdes U27 
-\t (00:47:32) Can not select unplaced component U27.
-\t (00:47:32) Can not select unplaced component U27.
-\i (00:47:32) xNet A4 
-\i (00:47:32) xNet A3 
-\i (00:47:32) xNet A11 
-\i (00:47:32) xNet A10 
-\i (00:47:32) xNet A9 
-\i (00:47:32) xNet A8 
-\i (00:47:32) xNet A7 
-\i (00:47:32) xNet A6 
-\i (00:47:32) xNet A5 
-\i (00:47:32) xNet A12 
-\i (00:47:32) xNet N95927 
-\i (00:47:32) xNet D5 
-\i (00:47:32) xNet D4 
-\i (00:47:32) xNet D3 
-\i (00:47:32) xNet D2 
-\i (00:47:32) xNet D1 
-\i (00:47:32) xNet D0 
-\i (00:47:32) xNet D7 
-\i (00:47:32) xNet D6 
-\i (00:47:32) xNet N96250 
-\i (00:47:32) xNet Pclk 
-\i (00:47:32) xNet N96351 
-\i (00:47:32) xNet N96734 
-\i (00:47:32) xNet Ir3 
-\i (00:47:32) xNet A0 
-\i (00:47:32) xNet A2 
-\i (00:47:32) xNet A1 
-\i (00:47:32) xNet N305126 
-\i (00:47:32) xrefdes U25 
-\t (00:47:32) Can not select unplaced component U25.
-\t (00:47:32) Can not select unplaced component U25.
-\i (00:47:32) xname_flush 
-\t (00:47:32) 46 Net(s) dehighlighted.
-\i (00:47:32) done 
-\i (00:47:32) generaledit 
-\i (00:53:52) xhilite 
-\i (00:53:52) xNet Rd 
-\i (00:53:52) xNet Reset 
-\i (00:53:52) xNet A1 
-\i (00:53:52) xNet A2 
-\i (00:53:52) xNet N168940 
-\i (00:53:52) xNet N168956 
-\i (00:53:52) xNet N168952 
-\i (00:53:52) xNet N168948 
-\i (00:53:52) xNet N168944 
-\i (00:53:52) xNet N168968 
-\i (00:53:52) xNet N168964 
-\i (00:53:52) xNet N168960 
-\i (00:53:52) xNet N169021 
-\i (00:53:52) xNet N169017 
-\i (00:53:52) xNet N169053 
-\i (00:53:52) xNet N169049 
-\i (00:53:52) xNet N169045 
-\i (00:53:52) xNet N169057 
-\i (00:53:52) xNet N169089 
-\i (00:53:52) xNet N169119 
-\i (00:53:52) xNet N169149 
-\i (00:53:52) xNet N169164 
-\i (00:53:52) xNet N169179 
-\i (00:53:52) xNet N169194 
-\i (00:53:52) xNet N169209 
-\i (00:53:52) xNet N169224 
-\i (00:53:52) xNet N169374 
-\i (00:53:52) xNet N169386 
-\i (00:53:52) xNet N169838 
-\i (00:53:52) xNet N169834 
-\i (00:53:52) xNet N169830 
-\i (00:53:52) xNet N169826 
-\i (00:53:52) xNet N169854 
-\i (00:53:52) xNet N169850 
-\i (00:53:52) xNet N169846 
-\i (00:53:52) xNet N169842 
-\i (00:53:52) xNet N169870 
-\i (00:53:52) xNet N169866 
-\i (00:53:52) xNet N169862 
-\i (00:53:52) xNet N169858 
-\i (00:53:52) xNet N169882 
-\i (00:53:52) xNet N169878 
-\i (00:53:52) xNet N169874 
-\i (00:53:52) xNet N169902 
-\i (00:53:52) xNet N169934 
-\i (00:53:52) xNet N169922 
-\i (00:53:52) xNet N169946 
-\i (00:53:52) xNet N169958 
-\i (00:53:52) xNet N169982 
-\i (00:53:52) xNet N169970 
-\i (00:53:52) xNet N169994 
-\i (00:53:52) xNet N170006 
-\i (00:53:52) xrefdes J8 
-\t (00:53:52) Can not select unplaced component J8.
-\t (00:53:52) Can not select unplaced component J8.
-\i (00:53:52) xNet N170780 
-\i (00:53:52) xNet N170796 
-\i (00:53:52) xNet N170792 
-\i (00:53:52) xNet N170788 
-\i (00:53:52) xNet N170784 
-\i (00:53:52) xNet N170812 
-\i (00:53:52) xNet N170808 
-\i (00:53:52) xNet N170804 
-\i (00:53:52) xNet N170800 
-\i (00:53:52) xNet N170828 
-\i (00:53:52) xNet N170824 
-\i (00:53:52) xNet N170820 
-\i (00:53:52) xNet N170816 
-\i (00:53:52) xNet N170836 
-\i (00:53:52) xNet N170832 
-\i (00:53:52) xNet N170856 
-\i (00:53:52) xNet N170876 
-\i (00:53:52) xNet N170888 
-\i (00:53:52) xNet N170900 
-\i (00:53:52) xNet N170924 
-\i (00:53:52) xNet N170912 
-\i (00:53:52) xNet N170936 
-\i (00:53:52) xNet N170948 
-\i (00:53:52) xNet N170960 
-\i (00:53:52) xrefdes J9 
-\t (00:53:52) Can not select unplaced component J9.
-\t (00:53:52) Can not select unplaced component J9.
-\i (00:53:52) xNet N43084 
-\i (00:53:52) xNet N43098 
-\i (00:53:52) xNet N43134 
-\i (00:53:52) xNet Wr 
-\i (00:53:52) xNet A8 
-\i (00:53:52) xNet A7 
-\i (00:53:52) xNet A6 
-\i (00:53:52) xNet A5 
-\i (00:53:52) xNet A4 
-\i (00:53:52) xNet A3 
-\i (00:53:52) xNet A11 
-\i (00:53:52) xNet A10 
-\i (00:53:52) xNet A9 
-\i (00:53:52) xrefdes J1 
-\t (00:53:52) Can not select unplaced component J1.
-\t (00:53:52) Can not select unplaced component J1.
-\i (00:53:52) xrefdes U17 
-\t (00:53:52) Can not select unplaced component U17.
-\t (00:53:52) Can not select unplaced component U17.
-\i (00:53:52) xNet D0 
-\i (00:53:52) xNet D7 
-\i (00:53:52) xNet D6 
-\i (00:53:52) xNet D5 
-\i (00:53:52) xNet D4 
-\i (00:53:52) xNet D3 
-\i (00:53:52) xNet D2 
-\i (00:53:52) xNet D1 
-\i (00:53:52) xrefdes U18 
-\t (00:53:52) Can not select unplaced component U18.
-\t (00:53:52) Can not select unplaced component U18.
-\i (00:53:52) xrefdes U19 
-\t (00:53:52) Can not select unplaced component U19.
-\t (00:53:52) Can not select unplaced component U19.
-\i (00:53:52) xrefdes U20 
-\t (00:53:52) Can not select unplaced component U20.
-\t (00:53:52) Can not select unplaced component U20.
-\i (00:53:52) xname_flush 
-\t (00:53:52) 97 Net(s) highlighted.
-\i (00:53:52) done 
-\i (00:53:52) generaledit 
-\i (00:53:57) xdehilite 
-\i (00:53:57) xNet Rd 
-\i (00:53:57) xNet Reset 
-\i (00:53:57) xNet A1 
-\i (00:53:57) xNet A2 
-\i (00:53:57) xNet N168940 
-\i (00:53:57) xNet N168956 
-\i (00:53:57) xNet N168952 
-\i (00:53:57) xNet N168948 
-\i (00:53:57) xNet N168944 
-\i (00:53:57) xNet N168968 
-\i (00:53:57) xNet N168964 
-\i (00:53:57) xNet N168960 
-\i (00:53:57) xNet N169021 
-\i (00:53:57) xNet N169017 
-\i (00:53:57) xNet N169053 
-\i (00:53:57) xNet N169049 
-\i (00:53:57) xNet N169045 
-\i (00:53:57) xNet N169057 
-\i (00:53:57) xNet N169089 
-\i (00:53:57) xNet N169119 
-\i (00:53:57) xNet N169149 
-\i (00:53:57) xNet N169164 
-\i (00:53:57) xNet N169179 
-\i (00:53:57) xNet N169194 
-\i (00:53:57) xNet N169209 
-\i (00:53:57) xNet N169224 
-\i (00:53:57) xNet N169374 
-\i (00:53:57) xNet N169386 
-\i (00:53:57) xNet N169838 
-\i (00:53:57) xNet N169834 
-\i (00:53:57) xNet N169830 
-\i (00:53:57) xNet N169826 
-\i (00:53:57) xNet N169854 
-\i (00:53:57) xNet N169850 
-\i (00:53:57) xNet N169846 
-\i (00:53:57) xNet N169842 
-\i (00:53:57) xNet N169870 
-\i (00:53:57) xNet N169866 
-\i (00:53:57) xNet N169862 
-\i (00:53:57) xNet N169858 
-\i (00:53:57) xNet N169882 
-\i (00:53:57) xNet N169878 
-\i (00:53:57) xNet N169874 
-\i (00:53:57) xNet N169902 
-\i (00:53:57) xNet N169934 
-\i (00:53:57) xNet N169922 
-\i (00:53:57) xNet N169946 
-\i (00:53:57) xNet N169958 
-\i (00:53:57) xNet N169982 
-\i (00:53:57) xNet N169970 
-\i (00:53:57) xNet N169994 
-\i (00:53:57) xNet N170006 
-\i (00:53:57) xrefdes J8 
-\t (00:53:57) Can not select unplaced component J8.
-\t (00:53:57) Can not select unplaced component J8.
-\i (00:53:57) xNet N170780 
-\i (00:53:57) xNet N170796 
-\i (00:53:57) xNet N170792 
-\i (00:53:57) xNet N170788 
-\i (00:53:57) xNet N170784 
-\i (00:53:57) xNet N170812 
-\i (00:53:57) xNet N170808 
-\i (00:53:57) xNet N170804 
-\i (00:53:57) xNet N170800 
-\i (00:53:57) xNet N170828 
-\i (00:53:57) xNet N170824 
-\i (00:53:57) xNet N170820 
-\i (00:53:57) xNet N170816 
-\i (00:53:57) xNet N170836 
-\i (00:53:57) xNet N170832 
-\i (00:53:57) xNet N170856 
-\i (00:53:57) xNet N170876 
-\i (00:53:57) xNet N170888 
-\i (00:53:57) xNet N170900 
-\i (00:53:57) xNet N170924 
-\i (00:53:57) xNet N170912 
-\i (00:53:57) xNet N170936 
-\i (00:53:57) xNet N170948 
-\i (00:53:57) xNet N170960 
-\i (00:53:57) xrefdes J9 
-\t (00:53:57) Can not select unplaced component J9.
-\t (00:53:57) Can not select unplaced component J9.
-\i (00:53:57) xNet N43084 
-\i (00:53:57) xNet N43098 
-\i (00:53:57) xNet N43134 
-\i (00:53:57) xNet Wr 
-\i (00:53:57) xNet A8 
-\i (00:53:57) xNet A7 
-\i (00:53:57) xNet A6 
-\i (00:53:57) xNet A5 
-\i (00:53:57) xNet A4 
-\i (00:53:57) xNet A3 
-\i (00:53:57) xNet A11 
-\i (00:53:57) xNet A10 
-\i (00:53:57) xNet A9 
-\i (00:53:57) xrefdes J1 
-\t (00:53:57) Can not select unplaced component J1.
-\t (00:53:57) Can not select unplaced component J1.
-\i (00:53:57) xrefdes U17 
-\t (00:53:57) Can not select unplaced component U17.
-\t (00:53:57) Can not select unplaced component U17.
-\i (00:53:57) xNet D0 
-\i (00:53:57) xNet D7 
-\i (00:53:57) xNet D6 
-\i (00:53:57) xNet D5 
-\i (00:53:57) xNet D4 
-\i (00:53:57) xNet D3 
-\i (00:53:57) xNet D2 
-\i (00:53:57) xNet D1 
-\i (00:53:57) xrefdes U18 
-\t (00:53:57) Can not select unplaced component U18.
-\t (00:53:57) Can not select unplaced component U18.
-\i (00:53:57) xrefdes U19 
-\t (00:53:57) Can not select unplaced component U19.
-\t (00:53:57) Can not select unplaced component U19.
-\i (00:53:57) xrefdes U20 
-\t (00:53:57) Can not select unplaced component U20.
-\t (00:53:57) Can not select unplaced component U20.
-\i (00:53:57) xname_flush 
-\t (00:53:57) 97 Net(s) dehighlighted.
-\i (00:53:57) done 
-\i (00:53:57) generaledit 
-\i (00:54:48) xhilite 
-\i (00:54:48) xNet Reset 
-\i (00:54:48) xname_flush 
-\t (00:54:48) Net "Reset" highlighted.
-\i (00:54:48) done 
-\i (00:54:48) generaledit 
-\i (00:54:51) xdehilite 
-\i (00:54:51) xNet Reset 
-\i (00:54:51) xname_flush 
-\t (00:54:51) Net "Reset" dehighlighted.
-\i (00:54:51) done 
-\i (00:54:51) xhilite 
-\i (00:54:51) xNet Reset 
-\i (00:54:51) xname_flush 
-\t (00:54:51) Net "Reset" highlighted.
-\i (00:54:51) done 
-\i (00:54:51) generaledit 
-\i (00:54:52) xdehilite 
-\i (00:54:52) xNet Reset 
-\i (00:54:52) xname_flush 
-\t (00:54:52) Net "Reset" dehighlighted.
-\i (00:54:52) done 
-\i (00:54:52) xhilite 
-\i (00:54:52) xNet Reset 
-\i (00:54:52) xname_flush 
-\t (00:54:52) Net "Reset" highlighted.
-\i (00:54:52) done 
-\i (00:54:52) generaledit 
-\i (00:54:53) xdehilite 
-\i (00:54:53) xNet Reset 
-\i (00:54:53) xname_flush 
-\t (00:54:53) Net "Reset" dehighlighted.
-\i (00:54:53) done 
-\i (00:54:53) generaledit 
-\i (00:54:58) xhilite 
-\i (00:54:58) xNet Iowc 
-\i (00:54:58) xname_flush 
-\t (00:54:58) Net "Iowc" highlighted.
-\i (00:54:58) done 
-\i (00:54:58) generaledit 
-\i (00:55:00) xdehilite 
-\i (00:55:00) xNet Iowc 
-\i (00:55:00) xname_flush 
-\t (00:55:00) Net "Iowc" dehighlighted.
-\i (00:55:00) done 
-\i (00:55:00) generaledit 
-\i (00:55:06) xhilite 
-\i (00:55:06) xNet Iorc 
-\i (00:55:06) xname_flush 
-\t (00:55:06) Net "Iorc" highlighted.
-\i (00:55:06) done 
-\i (00:55:06) generaledit 
-\i (00:55:07) xdehilite 
-\i (00:55:07) xNet Iorc 
-\i (00:55:07) xname_flush 
-\t (00:55:07) Net "Iorc" dehighlighted.
-\i (00:55:07) done 
-\i (00:55:07) xhilite 
-\i (00:55:07) xNet Iorc 
-\i (00:55:07) xname_flush 
-\t (00:55:07) Net "Iorc" highlighted.
-\i (00:55:07) done 
-\i (00:55:07) generaledit 
-\i (00:55:08) xdehilite 
-\i (00:55:08) xNet Iorc 
-\i (00:55:08) xname_flush 
-\t (00:55:08) Net "Iorc" dehighlighted.
-\i (00:55:08) done 
-\i (00:55:08) generaledit 
-\i (00:55:10) xdehilite 
-\i (00:55:10) xNet Iowc 
-\i (00:55:10) xname_flush 
-\i (00:55:10) done 
-\i (00:55:10) generaledit 
-\i (00:55:10) xhilite 
-\i (00:55:10) xNet Iowc 
-\i (00:55:10) xname_flush 
-\t (00:55:10) Net "Iowc" highlighted.
-\i (00:55:10) done 
-\i (00:55:10) generaledit 
-\i (00:55:14) xdehilite 
-\i (00:55:14) xNet Iowc 
-\i (00:55:14) xname_flush 
-\t (00:55:14) Net "Iowc" dehighlighted.
-\i (00:55:14) done 
-\i (00:55:14) generaledit 
-\i (00:55:30) xhilite 
-\i (00:55:30) xNet Iowc 
-\i (00:55:30) xname_flush 
-\t (00:55:30) Net "Iowc" highlighted.
-\i (00:55:30) done 
-\i (00:55:30) generaledit 
-\i (00:55:32) xdehilite 
-\i (00:55:32) xNet Iowc 
-\i (00:55:32) xname_flush 
-\t (00:55:32) Net "Iowc" dehighlighted.
-\i (00:55:32) done 
-\i (00:55:32) generaledit 
-\i (00:55:34) xhilite 
-\i (00:55:34) xNet Iorc 
-\i (00:55:34) xname_flush 
-\t (00:55:34) Net "Iorc" highlighted.
-\i (00:55:34) done 
-\i (00:55:34) generaledit 
-\i (00:55:35) xdehilite 
-\i (00:55:35) xNet Iorc 
-\i (00:55:35) xname_flush 
-\t (00:55:35) Net "Iorc" dehighlighted.
-\i (00:55:35) done 
-\i (00:55:35) generaledit 
-\i (00:55:37) xhilite 
-\i (00:55:37) xNet Reset 
-\i (00:55:37) xname_flush 
-\t (00:55:37) Net "Reset" highlighted.
-\i (00:55:37) done 
-\i (00:55:37) generaledit 
-\i (00:55:38) xdehilite 
-\i (00:55:38) xNet Reset 
-\i (00:55:38) xname_flush 
-\t (00:55:38) Net "Reset" dehighlighted.
-\i (00:55:38) done 
-\i (00:55:38) generaledit 
-\i (00:55:39) xhilite 
-\i (00:55:39) xNet Iowc 
-\i (00:55:39) xname_flush 
-\t (00:55:39) Net "Iowc" highlighted.
-\i (00:55:39) done 
-\i (00:55:39) generaledit 
-\i (00:55:42) xdehilite 
-\i (00:55:42) xname_flush 
-\i (00:55:42) done 
-\i (00:55:42) generaledit 
-\i (00:58:29) xhilite 
-\i (00:58:29) xNet N315045 
-\i (00:58:29) xNet Mio 
-\i (00:58:29) xNet A12-a15 
-\i (00:58:29) xrefdes U39 
-\t (00:58:29) Can not select unplaced component U39.
-\t (00:58:29) Can not select unplaced component U39.
-\i (00:58:29) xNet D5 
-\i (00:58:29) xNet D4 
-\i (00:58:29) xNet D3 
-\i (00:58:29) xNet D2 
-\i (00:58:29) xNet D1 
-\i (00:58:29) xNet D0 
-\i (00:58:29) xNet D7 
-\i (00:58:29) xNet D6 
-\i (00:58:29) xNet Gnd 
-\i (00:58:30) xNet A0 
-\i (00:58:30) xrefdes D4 
-\t (00:58:30) Can not select unplaced component D4.
-\t (00:58:30) Can not select unplaced component D4.
-\i (00:58:30) xrefdes D5 
-\t (00:58:30) Can not select unplaced component D5.
-\t (00:58:30) Can not select unplaced component D5.
-\i (00:58:30) xrefdes D6 
-\t (00:58:30) Can not select unplaced component D6.
-\t (00:58:30) Can not select unplaced component D6.
-\i (00:58:30) xrefdes D7 
-\t (00:58:30) Can not select unplaced component D7.
-\t (00:58:30) Can not select unplaced component D7.
-\i (00:58:30) xrefdes D8 
-\t (00:58:30) Can not select unplaced component D8.
-\t (00:58:30) Can not select unplaced component D8.
-\i (00:58:30) xrefdes D9 
-\t (00:58:30) Can not select unplaced component D9.
-\t (00:58:30) Can not select unplaced component D9.
-\i (00:58:30) xrefdes U38 
-\t (00:58:30) Can not select unplaced component U38.
-\t (00:58:30) Can not select unplaced component U38.
-\i (00:58:30) xrefdes D10 
-\t (00:58:30) Can not select unplaced component D10.
-\t (00:58:30) Can not select unplaced component D10.
-\i (00:58:30) xrefdes D11 
-\t (00:58:30) Can not select unplaced component D11.
-\t (00:58:30) Can not select unplaced component D11.
-\i (00:58:30) xNet N213913 
-\i (00:58:30) xNet N213934 
-\i (00:58:30) xNet N213927 
-\i (00:58:30) xNet N213948 
-\i (00:58:30) xNet N213941 
-\i (00:58:30) xNet N213962 
-\i (00:58:30) xNet N213955 
-\i (00:58:30) xNet N213969 
-\i (00:58:30) xrefdes R9 
-\t (00:58:30) Can not select unplaced component R9.
-\t (00:58:30) Can not select unplaced component R9.
-\i (00:58:30) xrefdes R10 
-\t (00:58:30) Can not select unplaced component R10.
-\t (00:58:30) Can not select unplaced component R10.
-\i (00:58:30) xrefdes R11 
-\t (00:58:30) Can not select unplaced component R11.
-\t (00:58:30) Can not select unplaced component R11.
-\i (00:58:30) xrefdes R12 
-\t (00:58:30) Can not select unplaced component R12.
-\t (00:58:30) Can not select unplaced component R12.
-\i (00:58:30) xrefdes R13 
-\t (00:58:30) Can not select unplaced component R13.
-\t (00:58:30) Can not select unplaced component R13.
-\i (00:58:30) xrefdes R14 
-\t (00:58:30) Can not select unplaced component R14.
-\t (00:58:30) Can not select unplaced component R14.
-\i (00:58:30) xrefdes R15 
-\t (00:58:30) Can not select unplaced component R15.
-\t (00:58:30) Can not select unplaced component R15.
-\i (00:58:30) xrefdes R16 
-\t (00:58:30) Can not select unplaced component R16.
-\t (00:58:30) Can not select unplaced component R16.
-\i (00:58:30) xNet A1 
-\i (00:58:30) xNet A9 
-\i (00:58:30) xNet A8 
-\i (00:58:30) xNet A7 
-\i (00:58:30) xNet A6 
-\i (00:58:30) xNet A5 
-\i (00:58:30) xNet A4 
-\i (00:58:30) xNet A3 
-\i (00:58:30) xNet A2 
-\i (00:58:30) xNet A10 
-\i (00:58:30) xNet A11 
-\i (00:58:30) xrefdes U31 
-\t (00:58:30) Can not select unplaced component U31.
-\t (00:58:30) Can not select unplaced component U31.
-\i (00:58:30) xNet N203105 
-\i (00:58:30) xrefdes R3 
-\t (00:58:30) Can not select unplaced component R3.
-\t (00:58:30) Can not select unplaced component R3.
-\i (00:58:30) xrefdes U32 
-\t (00:58:30) Can not select unplaced component U32.
-\t (00:58:30) Can not select unplaced component U32.
-\i (00:58:30) xNet N203221 
-\i (00:58:30) xrefdes U33 
-\t (00:58:30) Can not select unplaced component U33.
-\t (00:58:30) Can not select unplaced component U33.
-\i (00:58:30) xrefdes R4 
-\t (00:58:30) Can not select unplaced component R4.
-\t (00:58:30) Can not select unplaced component R4.
-\i (00:58:30) xrefdes U34 
-\t (00:58:30) Can not select unplaced component U34.
-\t (00:58:30) Can not select unplaced component U34.
-\i (00:58:30) xNet N203712 
-\i (00:58:30) xNet N203945 
-\i (00:58:30) xname_flush 
-\t (00:58:30) 36 Net(s) highlighted.
-\i (00:58:30) done 
-\i (00:58:30) generaledit 
-\i (00:58:32) xdehilite 
-\i (00:58:32) xNet N315045 
-\i (00:58:32) xNet Mio 
-\i (00:58:32) xNet A12-a15 
-\i (00:58:32) xrefdes U39 
-\t (00:58:32) Can not select unplaced component U39.
-\t (00:58:32) Can not select unplaced component U39.
-\i (00:58:32) xNet D5 
-\i (00:58:32) xNet D4 
-\i (00:58:32) xNet D3 
-\i (00:58:32) xNet D2 
-\i (00:58:32) xNet D1 
-\i (00:58:32) xNet D0 
-\i (00:58:32) xNet D7 
-\i (00:58:32) xNet D6 
-\i (00:58:32) xNet Gnd 
-\i (00:58:32) xNet A0 
-\i (00:58:32) xrefdes D4 
-\t (00:58:32) Can not select unplaced component D4.
-\t (00:58:32) Can not select unplaced component D4.
-\i (00:58:32) xrefdes D5 
-\t (00:58:32) Can not select unplaced component D5.
-\t (00:58:32) Can not select unplaced component D5.
-\i (00:58:32) xrefdes D6 
-\t (00:58:32) Can not select unplaced component D6.
-\t (00:58:32) Can not select unplaced component D6.
-\i (00:58:32) xrefdes D7 
-\t (00:58:32) Can not select unplaced component D7.
-\t (00:58:32) Can not select unplaced component D7.
-\i (00:58:32) xrefdes D8 
-\t (00:58:32) Can not select unplaced component D8.
-\t (00:58:32) Can not select unplaced component D8.
-\i (00:58:32) xrefdes D9 
-\t (00:58:32) Can not select unplaced component D9.
-\t (00:58:32) Can not select unplaced component D9.
-\i (00:58:32) xrefdes U38 
-\t (00:58:32) Can not select unplaced component U38.
-\t (00:58:32) Can not select unplaced component U38.
-\i (00:58:32) xrefdes D10 
-\t (00:58:32) Can not select unplaced component D10.
-\t (00:58:32) Can not select unplaced component D10.
-\i (00:58:32) xrefdes D11 
-\t (00:58:32) Can not select unplaced component D11.
-\t (00:58:32) Can not select unplaced component D11.
-\i (00:58:32) xNet N213913 
-\i (00:58:32) xNet N213934 
-\i (00:58:32) xNet N213927 
-\i (00:58:32) xNet N213948 
-\i (00:58:32) xNet N213941 
-\i (00:58:32) xNet N213962 
-\i (00:58:32) xNet N213955 
-\i (00:58:32) xNet N213969 
-\i (00:58:32) xrefdes R9 
-\t (00:58:32) Can not select unplaced component R9.
-\t (00:58:32) Can not select unplaced component R9.
-\i (00:58:32) xrefdes R10 
-\t (00:58:32) Can not select unplaced component R10.
-\t (00:58:32) Can not select unplaced component R10.
-\i (00:58:32) xrefdes R11 
-\t (00:58:32) Can not select unplaced component R11.
-\t (00:58:32) Can not select unplaced component R11.
-\i (00:58:32) xrefdes R12 
-\t (00:58:32) Can not select unplaced component R12.
-\t (00:58:32) Can not select unplaced component R12.
-\i (00:58:32) xrefdes R13 
-\t (00:58:32) Can not select unplaced component R13.
-\t (00:58:32) Can not select unplaced component R13.
-\i (00:58:32) xrefdes R14 
-\t (00:58:32) Can not select unplaced component R14.
-\t (00:58:32) Can not select unplaced component R14.
-\i (00:58:32) xrefdes R15 
-\t (00:58:32) Can not select unplaced component R15.
-\t (00:58:32) Can not select unplaced component R15.
-\i (00:58:32) xrefdes R16 
-\t (00:58:32) Can not select unplaced component R16.
-\t (00:58:32) Can not select unplaced component R16.
-\i (00:58:32) xNet A1 
-\i (00:58:32) xNet A9 
-\i (00:58:32) xNet A8 
-\i (00:58:32) xNet A7 
-\i (00:58:32) xNet A6 
-\i (00:58:32) xNet A5 
-\i (00:58:32) xNet A4 
-\i (00:58:32) xNet A3 
-\i (00:58:32) xNet A2 
-\i (00:58:32) xNet A10 
-\i (00:58:32) xNet A11 
-\i (00:58:32) xrefdes U31 
-\t (00:58:32) Can not select unplaced component U31.
-\t (00:58:32) Can not select unplaced component U31.
-\i (00:58:32) xNet N203105 
-\i (00:58:32) xrefdes R3 
-\t (00:58:32) Can not select unplaced component R3.
-\t (00:58:32) Can not select unplaced component R3.
-\i (00:58:32) xrefdes U32 
-\t (00:58:32) Can not select unplaced component U32.
-\t (00:58:32) Can not select unplaced component U32.
-\i (00:58:32) xNet N203221 
-\i (00:58:32) xrefdes U33 
-\t (00:58:32) Can not select unplaced component U33.
-\t (00:58:32) Can not select unplaced component U33.
-\i (00:58:32) xrefdes R4 
-\t (00:58:32) Can not select unplaced component R4.
-\t (00:58:32) Can not select unplaced component R4.
-\i (00:58:32) xrefdes U34 
-\t (00:58:32) Can not select unplaced component U34.
-\t (00:58:32) Can not select unplaced component U34.
-\i (00:58:32) xNet N203712 
-\i (00:58:32) xNet N203945 
-\i (00:58:32) xname_flush 
-\t (00:58:32) 36 Net(s) dehighlighted.
-\i (00:58:32) done 
-\i (00:58:32) generaledit 
-\i (00:58:37) xhilite 
-\i (00:58:37) xNet N315045 
-\i (00:58:37) xNet Mio 
-\i (00:58:37) xNet A12-a15 
-\i (00:58:37) xrefdes U39 
-\t (00:58:37) Can not select unplaced component U39.
-\t (00:58:37) Can not select unplaced component U39.
-\i (00:58:37) xNet D5 
-\i (00:58:37) xNet D4 
-\i (00:58:37) xNet D3 
-\i (00:58:37) xNet D2 
-\i (00:58:37) xNet D1 
-\i (00:58:37) xNet D0 
-\i (00:58:37) xNet D7 
-\i (00:58:37) xNet D6 
-\i (00:58:37) xNet Gnd 
-\i (00:58:37) xNet A0 
-\i (00:58:37) xrefdes D4 
-\t (00:58:37) Can not select unplaced component D4.
-\t (00:58:37) Can not select unplaced component D4.
-\i (00:58:37) xrefdes D5 
-\t (00:58:37) Can not select unplaced component D5.
-\t (00:58:37) Can not select unplaced component D5.
-\i (00:58:37) xrefdes D6 
-\t (00:58:37) Can not select unplaced component D6.
-\t (00:58:37) Can not select unplaced component D6.
-\i (00:58:37) xrefdes D7 
-\t (00:58:37) Can not select unplaced component D7.
-\t (00:58:37) Can not select unplaced component D7.
-\i (00:58:37) xrefdes D8 
-\t (00:58:37) Can not select unplaced component D8.
-\t (00:58:37) Can not select unplaced component D8.
-\i (00:58:37) xrefdes D9 
-\t (00:58:37) Can not select unplaced component D9.
-\t (00:58:37) Can not select unplaced component D9.
-\i (00:58:37) xrefdes U38 
-\t (00:58:37) Can not select unplaced component U38.
-\t (00:58:37) Can not select unplaced component U38.
-\i (00:58:37) xrefdes D10 
-\t (00:58:37) Can not select unplaced component D10.
-\t (00:58:37) Can not select unplaced component D10.
-\i (00:58:37) xrefdes D11 
-\t (00:58:37) Can not select unplaced component D11.
-\t (00:58:37) Can not select unplaced component D11.
-\i (00:58:37) xNet N213913 
-\i (00:58:37) xNet N213934 
-\i (00:58:37) xNet N213927 
-\i (00:58:37) xNet N213948 
-\i (00:58:37) xNet N213941 
-\i (00:58:37) xNet N213962 
-\i (00:58:37) xNet N213955 
-\i (00:58:37) xNet N213969 
-\i (00:58:37) xrefdes R9 
-\t (00:58:37) Can not select unplaced component R9.
-\t (00:58:37) Can not select unplaced component R9.
-\i (00:58:37) xrefdes R10 
-\t (00:58:37) Can not select unplaced component R10.
-\t (00:58:37) Can not select unplaced component R10.
-\i (00:58:37) xrefdes R11 
-\t (00:58:37) Can not select unplaced component R11.
-\t (00:58:37) Can not select unplaced component R11.
-\i (00:58:37) xrefdes R12 
-\t (00:58:37) Can not select unplaced component R12.
-\t (00:58:37) Can not select unplaced component R12.
-\i (00:58:37) xrefdes R13 
-\t (00:58:37) Can not select unplaced component R13.
-\t (00:58:37) Can not select unplaced component R13.
-\i (00:58:37) xrefdes R14 
-\t (00:58:37) Can not select unplaced component R14.
-\t (00:58:37) Can not select unplaced component R14.
-\i (00:58:37) xrefdes R15 
-\t (00:58:37) Can not select unplaced component R15.
-\t (00:58:37) Can not select unplaced component R15.
-\i (00:58:37) xrefdes R16 
-\t (00:58:37) Can not select unplaced component R16.
-\t (00:58:37) Can not select unplaced component R16.
-\i (00:58:37) xNet A1 
-\i (00:58:37) xNet A9 
-\i (00:58:37) xNet A8 
-\i (00:58:37) xNet A7 
-\i (00:58:37) xNet A6 
-\i (00:58:37) xNet A5 
-\i (00:58:37) xNet A4 
-\i (00:58:37) xNet A3 
-\i (00:58:37) xNet A2 
-\i (00:58:37) xNet A10 
-\i (00:58:37) xNet A11 
-\i (00:58:37) xrefdes U31 
-\t (00:58:37) Can not select unplaced component U31.
-\t (00:58:37) Can not select unplaced component U31.
-\i (00:58:37) xNet N203105 
-\i (00:58:37) xrefdes R3 
-\t (00:58:37) Can not select unplaced component R3.
-\t (00:58:37) Can not select unplaced component R3.
-\i (00:58:37) xrefdes U32 
-\t (00:58:37) Can not select unplaced component U32.
-\t (00:58:37) Can not select unplaced component U32.
-\i (00:58:37) xNet N203221 
-\i (00:58:37) xrefdes U33 
-\t (00:58:37) Can not select unplaced component U33.
-\t (00:58:37) Can not select unplaced component U33.
-\i (00:58:37) xrefdes R4 
-\t (00:58:37) Can not select unplaced component R4.
-\t (00:58:37) Can not select unplaced component R4.
-\i (00:58:37) xrefdes U34 
-\t (00:58:37) Can not select unplaced component U34.
-\t (00:58:37) Can not select unplaced component U34.
-\i (00:58:37) xNet N203712 
-\i (00:58:37) xNet N203945 
-\i (00:58:37) xname_flush 
-\t (00:58:37) 36 Net(s) highlighted.
-\i (00:58:37) done 
-\i (00:58:37) generaledit 
-\i (00:58:40) xdehilite 
-\i (00:58:40) xNet N315045 
-\i (00:58:40) xNet Mio 
-\i (00:58:40) xNet A12-a15 
-\i (00:58:40) xrefdes U39 
-\t (00:58:40) Can not select unplaced component U39.
-\t (00:58:40) Can not select unplaced component U39.
-\i (00:58:40) xNet D5 
-\i (00:58:40) xNet D4 
-\i (00:58:40) xNet D3 
-\i (00:58:40) xNet D2 
-\i (00:58:40) xNet D1 
-\i (00:58:40) xNet D0 
-\i (00:58:40) xNet D7 
-\i (00:58:40) xNet D6 
-\i (00:58:40) xNet Gnd 
-\i (00:58:40) xNet A0 
-\i (00:58:40) xrefdes D4 
-\t (00:58:40) Can not select unplaced component D4.
-\t (00:58:40) Can not select unplaced component D4.
-\i (00:58:40) xrefdes D5 
-\t (00:58:40) Can not select unplaced component D5.
-\t (00:58:40) Can not select unplaced component D5.
-\i (00:58:40) xrefdes D6 
-\t (00:58:40) Can not select unplaced component D6.
-\t (00:58:40) Can not select unplaced component D6.
-\i (00:58:40) xrefdes D7 
-\t (00:58:40) Can not select unplaced component D7.
-\t (00:58:40) Can not select unplaced component D7.
-\i (00:58:40) xrefdes D8 
-\t (00:58:40) Can not select unplaced component D8.
-\t (00:58:40) Can not select unplaced component D8.
-\i (00:58:40) xrefdes D9 
-\t (00:58:40) Can not select unplaced component D9.
-\t (00:58:40) Can not select unplaced component D9.
-\i (00:58:40) xrefdes U38 
-\t (00:58:40) Can not select unplaced component U38.
-\t (00:58:40) Can not select unplaced component U38.
-\i (00:58:40) xrefdes D10 
-\t (00:58:40) Can not select unplaced component D10.
-\t (00:58:40) Can not select unplaced component D10.
-\i (00:58:40) xrefdes D11 
-\t (00:58:40) Can not select unplaced component D11.
-\t (00:58:40) Can not select unplaced component D11.
-\i (00:58:40) xNet N213913 
-\i (00:58:40) xNet N213934 
-\i (00:58:40) xNet N213927 
-\i (00:58:40) xNet N213948 
-\i (00:58:40) xNet N213941 
-\i (00:58:40) xNet N213962 
-\i (00:58:40) xNet N213955 
-\i (00:58:40) xNet N213969 
-\i (00:58:40) xrefdes R9 
-\t (00:58:40) Can not select unplaced component R9.
-\t (00:58:40) Can not select unplaced component R9.
-\i (00:58:40) xrefdes R10 
-\t (00:58:40) Can not select unplaced component R10.
-\t (00:58:40) Can not select unplaced component R10.
-\i (00:58:40) xrefdes R11 
-\t (00:58:40) Can not select unplaced component R11.
-\t (00:58:40) Can not select unplaced component R11.
-\i (00:58:40) xrefdes R12 
-\t (00:58:40) Can not select unplaced component R12.
-\t (00:58:40) Can not select unplaced component R12.
-\i (00:58:40) xrefdes R13 
-\t (00:58:40) Can not select unplaced component R13.
-\t (00:58:40) Can not select unplaced component R13.
-\i (00:58:40) xrefdes R14 
-\t (00:58:40) Can not select unplaced component R14.
-\t (00:58:40) Can not select unplaced component R14.
-\i (00:58:40) xrefdes R15 
-\t (00:58:40) Can not select unplaced component R15.
-\t (00:58:40) Can not select unplaced component R15.
-\i (00:58:40) xrefdes R16 
-\t (00:58:40) Can not select unplaced component R16.
-\t (00:58:40) Can not select unplaced component R16.
-\i (00:58:40) xNet A1 
-\i (00:58:40) xNet A9 
-\i (00:58:40) xNet A8 
-\i (00:58:40) xNet A7 
-\i (00:58:40) xNet A6 
-\i (00:58:40) xNet A5 
-\i (00:58:40) xNet A4 
-\i (00:58:40) xNet A3 
-\i (00:58:40) xNet A2 
-\i (00:58:40) xNet A10 
-\i (00:58:40) xNet A11 
-\i (00:58:40) xrefdes U31 
-\t (00:58:40) Can not select unplaced component U31.
-\t (00:58:40) Can not select unplaced component U31.
-\i (00:58:40) xNet N203105 
-\i (00:58:40) xrefdes R3 
-\t (00:58:40) Can not select unplaced component R3.
-\t (00:58:40) Can not select unplaced component R3.
-\i (00:58:40) xrefdes U32 
-\t (00:58:40) Can not select unplaced component U32.
-\t (00:58:40) Can not select unplaced component U32.
-\i (00:58:40) xNet N203221 
-\i (00:58:40) xrefdes U33 
-\t (00:58:40) Can not select unplaced component U33.
-\t (00:58:40) Can not select unplaced component U33.
-\i (00:58:40) xrefdes R4 
-\t (00:58:40) Can not select unplaced component R4.
-\t (00:58:40) Can not select unplaced component R4.
-\i (00:58:40) xrefdes U34 
-\t (00:58:40) Can not select unplaced component U34.
-\t (00:58:40) Can not select unplaced component U34.
-\i (00:58:40) xNet N203712 
-\i (00:58:40) xNet N203945 
-\i (00:58:40) xname_flush 
-\t (00:58:40) 36 Net(s) dehighlighted.
-\i (00:58:40) done 
-\i (00:58:40) generaledit 
-\i (00:59:27) xhilite 
-\i (00:59:27) xNet N315045 
-\i (00:59:27) xNet Mio 
-\i (00:59:27) xNet A12-a15 
-\i (00:59:27) xrefdes U39 
-\t (00:59:27) Can not select unplaced component U39.
-\t (00:59:27) Can not select unplaced component U39.
-\i (00:59:27) xNet D5 
-\i (00:59:27) xNet D4 
-\i (00:59:27) xNet D3 
-\i (00:59:27) xNet D2 
-\i (00:59:27) xNet D1 
-\i (00:59:27) xNet D0 
-\i (00:59:27) xNet D7 
-\i (00:59:27) xNet D6 
-\i (00:59:27) xNet Gnd 
-\i (00:59:27) xNet A0 
-\i (00:59:27) xrefdes D4 
-\t (00:59:27) Can not select unplaced component D4.
-\t (00:59:27) Can not select unplaced component D4.
-\i (00:59:27) xrefdes D5 
-\t (00:59:27) Can not select unplaced component D5.
-\t (00:59:27) Can not select unplaced component D5.
-\i (00:59:27) xrefdes D6 
-\t (00:59:27) Can not select unplaced component D6.
-\t (00:59:27) Can not select unplaced component D6.
-\i (00:59:27) xrefdes D7 
-\t (00:59:27) Can not select unplaced component D7.
-\t (00:59:27) Can not select unplaced component D7.
-\i (00:59:27) xrefdes D8 
-\t (00:59:27) Can not select unplaced component D8.
-\t (00:59:27) Can not select unplaced component D8.
-\i (00:59:27) xrefdes D9 
-\t (00:59:27) Can not select unplaced component D9.
-\t (00:59:27) Can not select unplaced component D9.
-\i (00:59:27) xrefdes U38 
-\t (00:59:27) Can not select unplaced component U38.
-\t (00:59:27) Can not select unplaced component U38.
-\i (00:59:27) xrefdes D10 
-\t (00:59:27) Can not select unplaced component D10.
-\t (00:59:27) Can not select unplaced component D10.
-\i (00:59:27) xrefdes D11 
-\t (00:59:27) Can not select unplaced component D11.
-\t (00:59:27) Can not select unplaced component D11.
-\i (00:59:27) xNet N213913 
-\i (00:59:27) xNet N213934 
-\i (00:59:27) xNet N213927 
-\i (00:59:27) xNet N213948 
-\i (00:59:27) xNet N213941 
-\i (00:59:27) xNet N213962 
-\i (00:59:27) xNet N213955 
-\i (00:59:27) xNet N213969 
-\i (00:59:27) xrefdes R9 
-\t (00:59:27) Can not select unplaced component R9.
-\t (00:59:27) Can not select unplaced component R9.
-\i (00:59:27) xrefdes R10 
-\t (00:59:27) Can not select unplaced component R10.
-\t (00:59:27) Can not select unplaced component R10.
-\i (00:59:27) xrefdes R11 
-\t (00:59:27) Can not select unplaced component R11.
-\t (00:59:27) Can not select unplaced component R11.
-\i (00:59:27) xrefdes R12 
-\t (00:59:27) Can not select unplaced component R12.
-\t (00:59:27) Can not select unplaced component R12.
-\i (00:59:27) xrefdes R13 
-\t (00:59:27) Can not select unplaced component R13.
-\t (00:59:27) Can not select unplaced component R13.
-\i (00:59:27) xrefdes R14 
-\t (00:59:27) Can not select unplaced component R14.
-\t (00:59:27) Can not select unplaced component R14.
-\i (00:59:27) xrefdes R15 
-\t (00:59:27) Can not select unplaced component R15.
-\t (00:59:27) Can not select unplaced component R15.
-\i (00:59:27) xrefdes R16 
-\t (00:59:27) Can not select unplaced component R16.
-\t (00:59:27) Can not select unplaced component R16.
-\i (00:59:27) xNet A1 
-\i (00:59:27) xNet A9 
-\i (00:59:27) xNet A8 
-\i (00:59:27) xNet A7 
-\i (00:59:27) xNet A6 
-\i (00:59:27) xNet A5 
-\i (00:59:27) xNet A4 
-\i (00:59:27) xNet A3 
-\i (00:59:27) xNet A2 
-\i (00:59:27) xNet A10 
-\i (00:59:27) xNet A11 
-\i (00:59:27) xrefdes U31 
-\t (00:59:27) Can not select unplaced component U31.
-\t (00:59:27) Can not select unplaced component U31.
-\i (00:59:27) xNet N203105 
-\i (00:59:27) xrefdes R3 
-\t (00:59:27) Can not select unplaced component R3.
-\t (00:59:27) Can not select unplaced component R3.
-\i (00:59:27) xrefdes U32 
-\t (00:59:27) Can not select unplaced component U32.
-\t (00:59:27) Can not select unplaced component U32.
-\i (00:59:27) xNet N203221 
-\i (00:59:27) xrefdes U33 
-\t (00:59:27) Can not select unplaced component U33.
-\t (00:59:27) Can not select unplaced component U33.
-\i (00:59:27) xrefdes R4 
-\t (00:59:27) Can not select unplaced component R4.
-\t (00:59:27) Can not select unplaced component R4.
-\i (00:59:27) xrefdes U34 
-\t (00:59:27) Can not select unplaced component U34.
-\t (00:59:27) Can not select unplaced component U34.
-\i (00:59:27) xNet N203712 
-\i (00:59:27) xNet N203945 
-\i (00:59:27) xname_flush 
-\t (00:59:27) 36 Net(s) highlighted.
-\i (00:59:27) done 
-\i (00:59:27) generaledit 
-\i (00:59:30) xdehilite 
-\i (00:59:30) xNet N315045 
-\i (00:59:30) xNet Mio 
-\i (00:59:30) xNet A12-a15 
-\i (00:59:30) xrefdes U39 
-\t (00:59:30) Can not select unplaced component U39.
-\t (00:59:30) Can not select unplaced component U39.
-\i (00:59:30) xNet D5 
-\i (00:59:30) xNet D4 
-\i (00:59:30) xNet D3 
-\i (00:59:30) xNet D2 
-\i (00:59:30) xNet D1 
-\i (00:59:30) xNet D0 
-\i (00:59:30) xNet D7 
-\i (00:59:30) xNet D6 
-\i (00:59:30) xNet Gnd 
-\i (00:59:30) xNet A0 
-\i (00:59:30) xrefdes D4 
-\t (00:59:30) Can not select unplaced component D4.
-\t (00:59:30) Can not select unplaced component D4.
-\i (00:59:30) xrefdes D5 
-\t (00:59:30) Can not select unplaced component D5.
-\t (00:59:30) Can not select unplaced component D5.
-\i (00:59:30) xrefdes D6 
-\t (00:59:30) Can not select unplaced component D6.
-\t (00:59:30) Can not select unplaced component D6.
-\i (00:59:30) xrefdes D7 
-\t (00:59:30) Can not select unplaced component D7.
-\t (00:59:30) Can not select unplaced component D7.
-\i (00:59:30) xrefdes D8 
-\t (00:59:30) Can not select unplaced component D8.
-\t (00:59:30) Can not select unplaced component D8.
-\i (00:59:30) xrefdes D9 
-\t (00:59:30) Can not select unplaced component D9.
-\t (00:59:30) Can not select unplaced component D9.
-\i (00:59:30) xrefdes U38 
-\t (00:59:30) Can not select unplaced component U38.
-\t (00:59:30) Can not select unplaced component U38.
-\i (00:59:30) xrefdes D10 
-\t (00:59:30) Can not select unplaced component D10.
-\t (00:59:30) Can not select unplaced component D10.
-\i (00:59:30) xrefdes D11 
-\t (00:59:30) Can not select unplaced component D11.
-\t (00:59:30) Can not select unplaced component D11.
-\i (00:59:30) xNet N213913 
-\i (00:59:30) xNet N213934 
-\i (00:59:30) xNet N213927 
-\i (00:59:30) xNet N213948 
-\i (00:59:30) xNet N213941 
-\i (00:59:30) xNet N213962 
-\i (00:59:30) xNet N213955 
-\i (00:59:30) xNet N213969 
-\i (00:59:30) xrefdes R9 
-\t (00:59:30) Can not select unplaced component R9.
-\t (00:59:30) Can not select unplaced component R9.
-\i (00:59:30) xrefdes R10 
-\t (00:59:30) Can not select unplaced component R10.
-\t (00:59:30) Can not select unplaced component R10.
-\i (00:59:30) xrefdes R11 
-\t (00:59:30) Can not select unplaced component R11.
-\t (00:59:30) Can not select unplaced component R11.
-\i (00:59:30) xrefdes R12 
-\t (00:59:30) Can not select unplaced component R12.
-\t (00:59:30) Can not select unplaced component R12.
-\i (00:59:30) xrefdes R13 
-\t (00:59:30) Can not select unplaced component R13.
-\t (00:59:30) Can not select unplaced component R13.
-\i (00:59:30) xrefdes R14 
-\t (00:59:30) Can not select unplaced component R14.
-\t (00:59:30) Can not select unplaced component R14.
-\i (00:59:30) xrefdes R15 
-\t (00:59:30) Can not select unplaced component R15.
-\t (00:59:30) Can not select unplaced component R15.
-\i (00:59:30) xrefdes R16 
-\t (00:59:30) Can not select unplaced component R16.
-\t (00:59:30) Can not select unplaced component R16.
-\i (00:59:30) xNet A1 
-\i (00:59:30) xNet A9 
-\i (00:59:30) xNet A8 
-\i (00:59:30) xNet A7 
-\i (00:59:30) xNet A6 
-\i (00:59:30) xNet A5 
-\i (00:59:30) xNet A4 
-\i (00:59:30) xNet A3 
-\i (00:59:30) xNet A2 
-\i (00:59:30) xNet A10 
-\i (00:59:30) xNet A11 
-\i (00:59:30) xrefdes U31 
-\t (00:59:30) Can not select unplaced component U31.
-\t (00:59:30) Can not select unplaced component U31.
-\i (00:59:30) xNet N203105 
-\i (00:59:30) xrefdes R3 
-\t (00:59:30) Can not select unplaced component R3.
-\t (00:59:30) Can not select unplaced component R3.
-\i (00:59:30) xrefdes U32 
-\t (00:59:30) Can not select unplaced component U32.
-\t (00:59:30) Can not select unplaced component U32.
-\i (00:59:30) xNet N203221 
-\i (00:59:30) xrefdes U33 
-\t (00:59:30) Can not select unplaced component U33.
-\t (00:59:30) Can not select unplaced component U33.
-\i (00:59:30) xrefdes R4 
-\t (00:59:30) Can not select unplaced component R4.
-\t (00:59:30) Can not select unplaced component R4.
-\i (00:59:30) xrefdes U34 
-\t (00:59:30) Can not select unplaced component U34.
-\t (00:59:30) Can not select unplaced component U34.
-\i (00:59:30) xNet N203712 
-\i (00:59:30) xNet N203945 
-\i (00:59:30) xname_flush 
-\t (00:59:30) 36 Net(s) dehighlighted.
-\i (00:59:30) done 
-\i (00:59:30) generaledit 
-\i (01:02:24) zoom out 1 
-\i (01:02:24) setwindow pcb
-\i (01:02:24) zoom out 7489.3 949.8
-\i (01:02:24) trapsize 82
-\i (01:02:24) zoom out 1 
-\i (01:02:24) setwindow pcb
-\i (01:02:24) zoom out 7489.4 949.9
-\i (01:02:24) trapsize 163
-\i (01:02:25) zoom out 1 
-\i (01:02:25) setwindow pcb
-\i (01:02:25) zoom out 7499.2 1659.9
-\i (01:02:25) trapsize 327
-\i (01:02:26) zoom out 1 
-\i (01:02:26) setwindow pcb
-\i (01:02:26) zoom out 7564.5 3754.4
-\i (01:02:26) trapsize 654
-\i (01:02:26) zoom out 1 
-\i (01:02:26) setwindow pcb
-\i (01:02:26) zoom out 6357.1 5813.0
-\i (01:02:26) trapsize 845
-\i (01:02:27) zoom out 1 
-\i (01:02:27) setwindow pcb
-\i (01:02:27) zoom out 3993.2 7101.3
-\i (01:02:27) trapsize 845
-\i (01:02:27) zoom out 1 
-\i (01:02:27) setwindow pcb
-\i (01:02:27) zoom out 3993.2 7101.3
-\i (01:02:27) trapsize 845
-\i (01:02:28) zoom in 1 
-\i (01:02:28) setwindow pcb
-\i (01:02:28) zoom in 9449.3 4922.3
-\i (01:02:28) trapsize 422
-\i (01:02:36) xhilite 
-\i (01:02:36) xrefdes U1 
-\t (01:02:36) Can not select unplaced component U1.
-\t (01:02:36) Can not select unplaced component U1.
-\i (01:02:36) xname_flush 
-\i (01:02:36) done 
-\i (01:02:36) generaledit 
-\i (01:02:43) zoom out 1 
-\i (01:02:43) setwindow pcb
-\i (01:02:43) zoom out 8106.5 4576.1
-\i (01:02:43) trapsize 845
-\i (01:02:47) place manual 
-\i (01:02:53) setwindow form.plc_manual
-\i (01:02:53) FORM plc_manual place_by_room YES 
-\i (01:03:07) FORM plc_manual cancel  
-\i (01:03:07) setwindow pcb
-\i (01:03:07) generaledit 
-\i (01:06:35) xhilite 
-\i (01:06:35) xrefdes U1 
-\t (01:06:35) Can not select unplaced component U1.
-\t (01:06:35) Can not select unplaced component U1.
-\i (01:06:35) xname_flush 
-\i (01:06:35) done 
-\i (01:06:35) generaledit 
-\i (01:07:21) new 
-\e (01:07:21) Do you want to save the changes you made to proj1.brd?
-\i (01:07:24) fillin yes 
-\i (01:07:37) newdrawfillin "proj1_rooms.brd" "Board"
-\t (01:07:37) Starting new design...
-\i (01:07:37) trapsize 845
-\i (01:07:37) trapsize 845
-\i (01:07:37) generaledit 
-\i (01:07:44) netin 
-\i (01:07:47) setwindow form.niparams
-\i (01:07:47) FORM niparams capture_netlist YES 
-\i (01:07:49) FORM niparams browse  
-\i (01:08:05) fillin "F:/CMPE310/proj/proj1/simfiles/proj1/Allegro"
-\i (01:08:06) FORM niparams import  
-\t (01:08:06) Starting Cadence Logic Import...
-\w (01:08:08) WARNING(SPMHGE-269): netrev had warnings, use Viewlog to review the log file.
-\t (01:08:08) Opening existing design...
-\i (01:08:08) setwindow pcb
-\i (01:08:08) trapsize 845
-\i (01:08:09) generaledit 
-\i (01:08:30) setwindow text
-\i (01:08:30) close 
-\i (01:08:35) setwindow pcb
-\i (01:08:35) enved 
-\i (01:08:36) generaledit 
-\i (01:08:41) setwindow form.prfedit
-\i (01:08:41) FORM prfedit treelist  Library Paths 
-\i (01:08:43) FORM prfedit psmpath  
-\i (01:09:01) FORM prfedit psmpath  
-\i (01:09:42) FORM prfedit padpath  
-\i (01:09:54) FORM prfedit done  
-\i (01:09:56) setwindow pcb
-\i (01:09:56) netin 
-\i (01:09:59) setwindow form.niparams
-\i (01:09:59) FORM niparams import  
-\t (01:09:59) Starting Cadence Logic Import...
-\w (01:10:00) WARNING(SPMHGE-269): netrev had warnings, use Viewlog to review the log file.
-\t (01:10:00) Opening existing design...
-\i (01:10:00) setwindow pcb
-\i (01:10:00) trapsize 845
-\i (01:10:01) generaledit 
-\i (01:10:27) setwindow text
-\i (01:10:27) close 
-\i (01:10:33) setwindow pcb
-\i (01:10:33) place manual 
-\i (01:10:36) setwindow form.plc_manual
-\i (01:10:36) FORM plc_manual place_by_property YES 
-\i (01:10:38) FORM plc_manual place_by_room YES 
-\i (01:10:41) FORM plc_manual place_part_num YES 
-\i (01:10:44) FORM plc_manual cancel  
-\i (01:10:44) setwindow pcb
-\i (01:10:44) generaledit 
-\i (01:11:18) xdehilite 
-\i (01:11:18) xrefdes U1 
-\t (01:11:18) Can not select unplaced component U1.
-\t (01:11:18) Can not select unplaced component U1.
-\i (01:11:18) xname_flush 
-\i (01:11:18) done 
-\i (01:11:18) xhilite 
-\i (01:11:18) xrefdes U2 
-\t (01:11:18) Can not select unplaced component U2.
-\t (01:11:18) Can not select unplaced component U2.
-\i (01:11:18) xname_flush 
-\i (01:11:18) done 
-\i (01:11:18) generaledit 
-\i (01:11:20) xhilite 
-\i (01:11:20) xrefdes U35 
-\t (01:11:20) Can not select unplaced component U35.
-\t (01:11:20) Can not select unplaced component U35.
-\i (01:11:20) xname_flush 
-\i (01:11:20) done 
-\i (01:11:20) generaledit 
-\i (01:12:11) exit 
-\e (01:12:11) Do you want to save the changes you made to proj1_rooms.brd?
-\i (01:12:15) fillin yes 
-\t (01:12:16)     Journal end - Mon May 08 11:34:44 2017
+\i (00:43:39) prepopup 9494.7 926.3
+\i (00:43:41) pop dyn_option_select @:@Delete 
+\i (00:43:41) delete 
+\i (00:43:41) generaledit 
+\i (00:43:42) zoom out 1 
+\i (00:43:42) setwindow pcb
+\i (00:43:42) zoom out 9271.3 808.4
+\i (00:43:42) trapsize 203
+\i (00:43:43) zoom out 1 
+\i (00:43:43) setwindow pcb
+\i (00:43:43) zoom out 8653.7 190.9
+\i (00:43:43) trapsize 406
+\i (00:43:44) zoom in 1 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 6073.7 134.1
+\i (00:43:44) trapsize 203
+\i (00:43:44) zoom in 1 
+\i (00:43:44) setwindow pcb
+\i (00:43:44) zoom in 6207.8 325.0
+\i (00:43:44) trapsize 102
+\i (00:43:46) prepopup 6224.1 451.0
+\i (00:43:48) pop dyn_option_select @:@Delete 
+\i (00:43:48) delete 
+\i (00:43:48) generaledit 
+\i (00:43:50) prepopup 6232.2 404.2
+\i (00:43:54) pick grid 6211.9 398.2
+\t (00:43:54) last pick:  6200.0  400.0
+\i (00:43:55) prepopup 6256.6 404.2
+\i (00:43:57) pop dyn_option_select @:@Delete 
+\i (00:43:57) delete 
+\i (00:43:57) generaledit 
+\i (00:43:57) zoom out 1 
+\i (00:43:57) setwindow pcb
+\i (00:43:57) zoom out 6268.8 386.0
+\i (00:43:57) trapsize 203
+\i (00:43:57) zoom out 1 
+\i (00:43:57) setwindow pcb
+\i (00:43:57) zoom out 6276.9 373.7
+\i (00:43:57) trapsize 406
+\i (00:44:00) zoom out 1 
+\i (00:44:00) setwindow pcb
+\i (00:44:00) zoom out 6073.7 1515.2
+\i (00:44:00) trapsize 813
+\i (00:44:17) auto_route 
+\i (00:44:18) setwindow form.vse_armain
+\i (00:44:18) FORM vse_armain execute  
+\i (00:44:26) FORM vse_armain execute  
+\i (00:44:29) FORM vse_armain close  
+\i (00:44:29) setwindow pcb
+\i (00:44:29) generaledit 
+\i (00:44:30) zoom in 1 
+\i (00:44:30) setwindow pcb
+\i (00:44:30) zoom in 8275.7 1173.9
+\i (00:44:30) trapsize 406
+\i (00:44:31) zoom in 1 
+\i (00:44:31) setwindow pcb
+\i (00:44:31) zoom in 8373.2 1872.8
+\i (00:44:31) trapsize 203
+\i (00:44:32) prepopup 8304.2 1856.5
+\i (00:44:34) pop dyn_option_select @:@Delete 
+\i (00:44:34) delete 
+\i (00:44:34) generaledit 
+\i (00:44:35) prepopup 8401.7 2100.3
+\i (00:44:36) pop dyn_option_select @:@Delete 
+\i (00:44:36) delete 
+\i (00:44:36) generaledit 
+\i (00:44:37) zoom out 1 
+\i (00:44:37) setwindow pcb
+\i (00:44:37) zoom out 8300.1 1763.1
+\i (00:44:37) trapsize 406
+\i (00:44:40) zoom out 1 
+\i (00:44:40) setwindow pcb
+\i (00:44:40) zoom out 8300.2 853.0
+\i (00:44:40) trapsize 813
+\i (00:44:50) pick grid 8389.5 1661.4
+\t (00:44:50) last pick:  8400.0  1700.0
+\i (00:44:53) place manual 
+\t (00:44:53) Selected item not valid for current operation, ignored: Horizontal Line Segment "Not On A Net, Etch/Bottom"
+\t (00:44:53) No valid items selected for the current operation, exiting.
+\i (00:44:53) generaledit 
+\i (00:44:54) pick grid 8275.7 1645.2
+\t (00:44:54) last pick:  8300.0  1600.0
+\i (00:44:56) pick grid 8340.7 1758.9
+\t (00:44:56) last pick:  8300.0  1800.0
+\i (00:44:59) place manual 
+\i (00:45:01) pick grid 8227.0 1645.2
+\t (00:45:01) last pick:  8200.0  1600.0
+\t (00:45:01) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:45:01) last pick:  8700.0  0.0
+\i (00:45:03) prepopup 8893.3 296.3
+\i (00:45:06) cancel 
+\i (00:45:06) generaledit 
+\i (00:46:14) zoom in 1 
+\i (00:46:14) setwindow pcb
+\i (00:46:14) zoom in 10957.2 1206.4
+\i (00:46:14) trapsize 406
+\i (00:46:15) zoom out 1 
+\i (00:46:15) setwindow pcb
+\i (00:46:15) zoom out 8600.8 1620.8
+\i (00:46:15) trapsize 813
+\i (00:46:15) zoom out 1 
+\i (00:46:15) setwindow pcb
+\i (00:46:15) zoom out 17587.8 2019.0
+\i (00:46:15) trapsize 813
+\i (00:46:16) zoom in 1 
+\i (00:46:16) setwindow pcb
+\i (00:46:16) zoom in 11493.5 166.3
+\i (00:46:16) trapsize 406
+\i (00:46:20) pick grid 8324.5 1767.1
+\t (00:46:20) last pick:  8300.0  1800.0
+\i (00:46:28) place manual 
+\i (00:46:29) pick grid 8413.9 1669.6
+\t (00:46:29) last pick:  8400.0  1700.0
+\t (00:46:29) Moving U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025.
+\t (00:46:29) last pick:  8700.0  0.0
+\i (00:46:50) prepopup 7877.6 2758.4
+\i (00:47:06) delete 
+\i (00:47:09) pick grid 8275.7 1653.4
+\t (00:47:09) last pick:  8300.0  1700.0
+\t (00:47:09) Symbol "U22"
+\i (00:47:11) place manual 
+\i (00:47:20) setwindow form.plc_manual
+\i (00:47:20) FORM plc_manual tree 'MULTISEL YES' U22 'Components by refdes' 
+\t (00:47:20) Placing U22 / 8279_DIP10040W600L2025_8279_GND / DIP10040W600L2025 on Top.
+\i (00:47:20) FORM plc_manual tree  U22 'Components by refdes' 
+\i (00:47:22) FORM plc_manual tree 'MULTISEL NO' U22 'Components by refdes' 
+\i (00:47:27) setwindow pcb
+\i (00:47:27) pick grid 10120.3 2108.4
+\t (00:47:27) last pick:  10100.0  2100.0
+\t (00:47:27) Moving SW2 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:47:27) last pick:  10000.0  2000.0
+\i (00:47:29) pick grid tgl 10591.5 2084.0
+\t (00:47:29) last pick:  10600.0  2100.0
+\i (00:47:30) pick grid tgl 11022.2 2035.3
+\t (00:47:30) last pick:  11000.0  2000.0
+\t (00:47:30) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:47:30) last pick:  11000.0  2000.0
+\i (00:47:30) pick grid 10632.2 2027.1
+\t (00:47:30) last pick:  10600.0  2000.0
+\i (00:47:33) pick grid 10632.2 2027.1
+\t (00:47:33) last pick:  10600.0  2000.0
+\t (00:47:33) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:47:33) last pick:  10600.0  2000.0
+\i (00:47:34) delete 
+\i (00:47:36) pick grid 10632.2 2100.3
+\t (00:47:36) last pick:  10600.0  2100.0
+\t (00:47:36) Symbol "Sw2"
+\i (00:47:39) place manual 
+\i (00:47:43) pick grid 10729.7 2100.3
+\t (00:47:43) last pick:  10700.0  2100.0
+\t (00:47:43) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:47:43) last pick:  10600.0  2000.0
+\i (00:47:46) delete 
+\i (00:47:53) place manual 
+\i (00:47:58) pick grid 10721.6 2035.3
+\t (00:47:58) last pick:  10700.0  2000.0
+\t (00:47:58) Moving SW4 / SW TACT-SPST-2_PTS645_SW TACT-S / PTS645.
+\t (00:47:58) last pick:  10600.0  2000.0
+\i (00:48:01) delete 
+\i (00:48:05) place manual 
+\i (00:48:12) setwindow form.plc_manual
+\i (00:48:12) FORM plc_manual cancel  
+\i (00:48:12) setwindow pcb
+\i (00:48:12) generaledit 
+\i (00:48:19) exit 
+\e (00:48:19) Do you want to save the changes you made to F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1_redo.brd?
+\i (00:48:20) fillin no 
+\t (00:48:20)     Journal end - Mon May 08 15:54:23 2017

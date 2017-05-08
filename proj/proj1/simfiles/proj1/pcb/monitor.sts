@@ -1,0 +1,22 @@
+#Allegro PCB Router v16-6-112 made 2012/09/12 at 23:00:45
+#Host 
+#ROUTING STATUS <<< F:/CMPE310/proj/proj1/simfiles/proj1/pcb\proj1.dsn >>>
+Start  Time: Report Time: Mon May 08 17:03:55 2017
+
+Nets         =      269   Connections         =      719
+Current Wire =      818   Reroute wires       =      818
+Completion   =   85.26%   Unconnections       =      106
+| ROUTING HISTORY ================================================================
+|     Pass     |   Conflicts |    |     |     |     |    |Red|      CPU Time     |
+|   Name   |No.| Cross| Clear|Fail|Unrte| Vias|XTalk|Len.| % |  Pass   |  Total  |
+|----------+---+------+------+----+-----+-----+-----+----+---+---------+---------|
+| Route    |  1|    18|     3|   0|  106|  425|    0|   0|  0|  0:00:01|  0:00:01|
+| Route    |  2|     4|     0|   0|  106|  409|    0|   0| 80|  0:00:02|  0:00:03|
+| Route    |  3|     0|     0|   0|  106|  411|    0|   0|100|  0:00:00|  0:00:03|
+| Route    |  4|     0|     0|   0|  106|  411|    0|   0|  0|  0:00:00|  0:00:03|
+| Clean    |  5|     0|     0|   0|  106|  395|    0|   0|   |  0:00:01|  0:00:04|
+| Clean    |  6|     0|     0|   0|  106|  390|    0|   0|   |  0:00:01|  0:00:05|
+| Clean    |  7|     0|     0|   0|  106|  388|    0|   0|   |  0:00:01|  0:00:06|
+| Clean    |  8|     0|     0|   0|  106|  388|    0|   0|   |  0:00:01|  0:00:07|
+| Clean    |  9|     0|     0|   0|  106|  388|    0|   0|   |  0:00:01|  0:00:08|
+| Conflicts between polygon wires and fixed objects:   0

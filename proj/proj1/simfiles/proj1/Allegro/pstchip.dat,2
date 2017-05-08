@@ -1,5 +1,5 @@
 FILE_TYPE=LIBRARY_PARTS;
-{ Using PSTWRITER 16.6.0 d001May-08-2017 at 15:14:58}
+{ Using PSTWRITER 16.6.0 d001May-08-2017 at 11:37:10}
 primitive 'CAPACITOR_CPCYL1D200LS100031_10';
   pin
     '1':
@@ -467,6 +467,57 @@ primitive 'CONN DSUB 9-P_DSUBRP318TM9_CONN';
     JEDEC_TYPE='DSUBRP318TM9';
     VALUE='CONN DSUB 9-P';
     NC_PINS='(HOLE49,HOLE50)';
+  end_body;
+end_primitive;
+primitive 'HEADER 7X2_TYCO100VH14J_HEADER';
+  pin
+    '2':
+      PIN_NUMBER='(2)';
+      PINUSE='UNSPEC';
+    '4':
+      PIN_NUMBER='(4)';
+      PINUSE='UNSPEC';
+    '6':
+      PIN_NUMBER='(6)';
+      PINUSE='UNSPEC';
+    '8':
+      PIN_NUMBER='(8)';
+      PINUSE='UNSPEC';
+    '10':
+      PIN_NUMBER='(10)';
+      PINUSE='UNSPEC';
+    '12':
+      PIN_NUMBER='(12)';
+      PINUSE='UNSPEC';
+    '14':
+      PIN_NUMBER='(14)';
+      PINUSE='UNSPEC';
+    '1':
+      PIN_NUMBER='(1)';
+      PINUSE='UNSPEC';
+    '3':
+      PIN_NUMBER='(3)';
+      PINUSE='UNSPEC';
+    '5':
+      PIN_NUMBER='(5)';
+      PINUSE='UNSPEC';
+    '7':
+      PIN_NUMBER='(7)';
+      PINUSE='UNSPEC';
+    '9':
+      PIN_NUMBER='(9)';
+      PINUSE='UNSPEC';
+    '11':
+      PIN_NUMBER='(11)';
+      PINUSE='UNSPEC';
+    '13':
+      PIN_NUMBER='(13)';
+      PINUSE='UNSPEC';
+  end_pin;
+  body
+    PART_NAME='HEADER 7X2';
+    JEDEC_TYPE='TYCo100VH14J';
+    VALUE='HEADER 7X2';
   end_body;
 end_primitive;
 primitive 'CONN TRBLK 2_PWR_TRM_BLK_CONN T';

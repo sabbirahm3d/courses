@@ -263,19 +263,49 @@
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "06-keyboard"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "11-lcd"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 387"))
+        (Placement "44 0 1 -1 -1 -8 -31 0 200 0 387"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 26 1587 26 659")
-        (Scroll "-155 12")
-        (Zoom "124")
+        (Placement "44 2 3 -1 -1 -8 -31 26 1639 26 554")
+        (Scroll "-435 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "10-led"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 52 1665 52 580")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "09-pic"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 78 1691 78 606")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "06-keyboard"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 104 1717 104 632")
+        (Scroll "-283 0")
+        (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -283,13 +313,13 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 78 1639 78 711")
-        (Scroll "-155 0")
-        (Zoom "124")
+        (Placement "44 0 1 -1 -1 -8 -31 130 1743 130 658")
+        (Scroll "-283 0")
+        (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "09-pic"))
+      (Page "02-buffers"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
@@ -299,6 +329,56 @@
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
-      (Page "06-keyboard")))
+      (Page "03-flash_mem"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 182 1795 182 710")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "04-sram"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 208 1821 208 736")
+        (Scroll "-22 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "05-ppi"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 234 1847 234 762")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "07-pit"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 260 1873 260 788")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "08-uart"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 0 1613 0 528")
+        (Scroll "-283 0")
+        (Zoom "103")
+        (Occurrence "/"))
+      (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "11-lcd")))
   (LastUsedLibraryBrowseDirectory "E:\proj1\library")
   (ISPCBBASICLICENSE "false"))

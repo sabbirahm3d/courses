@@ -4,7 +4,7 @@
 (                                                                     )
 (    Drawing          : proj1.brd                                     )
 (    Software Version : 16.6P004                                      )
-(    Date/Time        : Mon May 08 11:38:46 2017                      )
+(    Date/Time        : Mon May 08 15:56:39 2017                      )
 (                                                                     )
 (---------------------------------------------------------------------)
 
@@ -21,12 +21,12 @@ BOARD_DIRECTORY '';
 OLD_BOARD_NAME 'F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd';
 NEW_BOARD_NAME 'F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd';
 
-CmdLine: netrev -$ -i F:/CMPE310/proj/proj1/simfiles/proj1/Allegro -y 1 F:/CMPE310/proj/proj1/simfiles/proj1/pcb/#Taaaaab24412.tmp
+CmdLine: netrev -$ -i F:/CMPE310/proj/proj1/simfiles/proj1/Allegro -y 1 F:/CMPE310/proj/proj1/simfiles/proj1/pcb/#Taaaaac09048.tmp
 
 ------ Preparing to read pst files ------
 
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat 
-   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat (00:00:00.11)
+   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat (00:00:00.04)
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat 
    Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat (00:00:00.00)
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxnet.dat 
@@ -34,10 +34,6 @@ Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxnet.dat
 
 ------ Oversights/Warnings/Errors ------
 
-
-#1   WARNING(SPMHNI-192): Device/Symbol check warning detected. [help]
-
-WARNING(SPMHNI-194): Symbol 'TYCO100VH14J' for device 'HEADER 7X2_TYCO100VH14J_HEADER' not found in PSMPATH or must be "dbdoctor"ed.
 
 ------ Library Paths ------
 MODULEPATH =  . 
@@ -69,7 +65,7 @@ PADPATH =  .
 ------ Summary Statistics ------
 
 
-netrev run on May 8 11:38:46 2017
+netrev run on May 8 15:56:39 2017
    DESIGN NAME : 'PROJ1'
    PACKAGING ON Sep 10 2012 04:46:09
 
@@ -92,8 +88,8 @@ netrev run on May 8 11:38:46 2017
 
  No error detected
  No oversight detected
-  1 warnings detected
+ No warning detected
 
-cpu time      0:00:49
+cpu time      0:00:40
 elapsed time  0:00:00
 
