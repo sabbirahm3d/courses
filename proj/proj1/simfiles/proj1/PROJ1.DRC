@@ -1,4 +1,4 @@
-Date and Time : 05/05/17 14:09:24
+Date and Time : 05/08/17 11:34:17
 
 --------------------------------------------------
 Checking Schematic: SCHEMATIC1
@@ -37,8 +37,8 @@ INFO(ORCAP-36101): Checking Missing PCB Footprint Property
 INFO(ORCAP-2211): Check High Speed Properties Syntax
 
 INFO(ORCAP-2212): Check Power Ground Mismatch
-QUESTION(ORCAP-1589): Net has two or more aliases - possible short? VCC  VCC  GND  
-                    SCHEMATIC1, 04-sram  (4.70, 2.90) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? GND  GND  VCC  
+                    SCHEMATIC1, 11-lcd  (2.40, 1.90) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U12,VCC  VCC  GND
                     SCHEMATIC1, 04-sram  (4.70, 2.90) 
 QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U13,VCC  VCC  GND

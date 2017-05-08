@@ -2,9 +2,9 @@
 (                                                                     )
 (    Allegro Netrev Import Logic                                      )
 (                                                                     )
-(    Drawing          : unnamed.brd                                   )
+(    Drawing          : proj1.brd                                     )
 (    Software Version : 16.6P004                                      )
-(    Date/Time        : Fri May 05 14:31:55 2017                      )
+(    Date/Time        : Mon May 08 11:38:46 2017                      )
 (                                                                     )
 (---------------------------------------------------------------------)
 
@@ -18,15 +18,15 @@ RIPUP_SYMBOLS ALWAYS;
 Missing symbol has error FALSE;
 SCHEMATIC_DIRECTORY 'F:/CMPE310/proj/proj1/simfiles/proj1/Allegro';
 BOARD_DIRECTORY '';
-OLD_BOARD_NAME 'C:/SPB_Data/unnamed.brd';
-NEW_BOARD_NAME 'C:/SPB_Data/unnamed.brd';
+OLD_BOARD_NAME 'F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd';
+NEW_BOARD_NAME 'F:/CMPE310/proj/proj1/simfiles/proj1/pcb/proj1.brd';
 
-CmdLine: netrev -$ -i F:/CMPE310/proj/proj1/simfiles/proj1/Allegro -y 1 C:/SPB_Data/#Taaaaab17432.tmp
+CmdLine: netrev -$ -i F:/CMPE310/proj/proj1/simfiles/proj1/Allegro -y 1 F:/CMPE310/proj/proj1/simfiles/proj1/pcb/#Taaaaab24412.tmp
 
 ------ Preparing to read pst files ------
 
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat 
-   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat (00:00:00.03)
+   Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstchip.dat (00:00:00.11)
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat 
    Finished reading F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxprt.dat (00:00:00.00)
 Starting to read F:/CMPE310/proj/proj1/simfiles/proj1/Allegro/pstxnet.dat 
@@ -43,17 +43,33 @@ WARNING(SPMHNI-194): Symbol 'TYCO100VH14J' for device 'HEADER 7X2_TYCO100VH14J_H
 MODULEPATH =  . 
            C:/Cadence/SPB_16.6/share/local/pcb/modules 
 
-PSMPATH =  F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
-           F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+PSMPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+           C:/Cadence/SPB_16.6/tools/capture/CMPE310/CMPE310_footprints_allegro/footprints/ 
+           F:/CMPE310/Project1/footprints/ 
+           F:/CMPE310/proj/proj1/simfiles/proj1/footprints/ 
 
-PADPATH =  F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
-           F:/cmpe310/proj/proj1/simfiles/proj1/footprints/ 
+PADPATH =  . 
+           symbols 
+           .. 
+           ../symbols 
+           C:/Cadence/SPB_16.6/share/local/pcb/padstacks 
+           C:/Cadence/SPB_16.6/share/pcb/pcb_lib/symbols 
+           C:/Cadence/SPB_16.6/share/pcb/allegrolib/symbols 
+           C:/CADENCE/SPB_16.6/TOOLS/CAPTURE/CMPE310/CMPE310_footprints_allegro/footprints/ 
+           F:/CMPE310/Project1/footprints/ 
+           F:/CMPE310/proj/proj1/simfiles/proj1/footprints/ 
 
 
 ------ Summary Statistics ------
 
 
-netrev run on May 5 14:31:55 2017
+netrev run on May 8 11:38:46 2017
    DESIGN NAME : 'PROJ1'
    PACKAGING ON Sep 10 2012 04:46:09
 
@@ -78,6 +94,6 @@ netrev run on May 5 14:31:55 2017
  No oversight detected
   1 warnings detected
 
-cpu time      0:00:39
+cpu time      0:00:49
 elapsed time  0:00:00
 
