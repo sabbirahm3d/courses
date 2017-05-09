@@ -19,4 +19,4 @@ changeown:
 .PHONY: clean
 clean:
 	# clean out cache and temporary files
-	@find . -regex '.*\.\(aux\|log\|out\|o\)' -delete
+	@find . -regex '.*\.\(aux\|log\|toc\)' -delete

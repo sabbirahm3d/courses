@@ -12,7 +12,6 @@ PORTB_ADDR  EQU 701H
 CMD_ADDR    EQU 703H
 
 ; macro to send a command or data to the LCD display
-
 SEND MACRO PORTA_DATA, PORTB_DATA, DELAY
     MOV     AL, PORTA_DATA      ; PORTA_DATA to Port A
     MOV     DX, PORTA_ADDR
