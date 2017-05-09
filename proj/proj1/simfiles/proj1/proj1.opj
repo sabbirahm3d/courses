@@ -263,7 +263,7 @@
       (Path "Design Resources" ".\proj1.dsn")
       (Path "Design Resources" ".\proj1.dsn" "SCHEMATIC1")
       (Path "Outputs")
-      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "11-lcd"))
+      (Select "Design Resources" ".\proj1.dsn" "SCHEMATIC1" "01-8086"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -273,8 +273,8 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -8 -31 26 1639 26 554")
-        (Scroll "-435 0")
+        (Placement "44 0 1 -1 -1 -8 -31 26 1639 26 554")
+        (Scroll "-297 0")
         (Zoom "100")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -284,7 +284,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 52 1665 52 580")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -294,7 +294,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 78 1691 78 606")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -303,9 +303,9 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -8 -31 104 1717 104 632")
-        (Scroll "-283 0")
-        (Zoom "103")
+        (Placement "44 2 3 -1 -1 -8 -31 104 1717 104 632")
+        (Scroll "-382 -7")
+        (Zoom "108")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")
@@ -314,7 +314,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 130 1743 130 658")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -324,7 +324,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 156 1769 156 684")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -334,7 +334,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 182 1795 182 710")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -354,7 +354,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 234 1847 234 762")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -364,7 +364,7 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 260 1873 260 788")
-        (Scroll "-283 0")
+        (Scroll "-283 7")
         (Zoom "103")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
@@ -374,8 +374,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 0 1613 0 528")
-        (Scroll "-283 0")
-        (Zoom "103")
+        (Scroll "-258 0")
+        (Zoom "108")
         (Occurrence "/"))
       (Path "F:\CMPE310\PROJ\PROJ1\SIMFILES\PROJ1\PROJ1.DSN")
       (Schematic "SCHEMATIC1")

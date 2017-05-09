@@ -1,0 +1,31 @@
+\t (00:00:03) allegro 16.6 P004 (v16-6-112G) Windows 32
+\t (00:00:03)     Journal start - Tue May 09 13:30:32 2017
+\t (00:00:03)         Host=ITE375PC08 User=sabbir1 Pid=11404 CPUs=8
+\t (00:00:03) 
+\t (00:00:06) Starting new design...
+\i (00:00:06) trapsize 653
+\i (00:00:06) trapsize 641
+\i (00:00:06) trapsize 655
+\i (00:00:06) trapsize 568
+\i (00:00:06) trapsize 1059
+\i (00:00:06) generaledit 
+\i (00:00:08) zoom out 1 
+\i (00:00:08) setwindow pcb
+\i (00:00:08) zoom out 5208.0 8320.0
+\i (00:00:08) trapsize 1059
+\i (00:00:12) open 
+\i (00:00:19) fillin "proj1.brd"
+\t (00:00:19) Opening existing design...
+\i (00:00:19) trapsize 934
+\d (00:00:19) Database opened: F:/CMPE310/proj/proj1/simfiles/proj1/pcb_sim/proj1.brd
+\i (00:00:19) generaledit 
+\i (00:00:25) drc update 
+\t (00:00:25) Performing DRC...
+\t (00:00:25) Multithreaded DRC update (8 threads).
+\t (00:00:25) No DRC errors detected.
+\i (00:00:25) generaledit 
+\i (00:00:31) save 
+\i (00:00:40) fillin yes 
+\i (00:00:40) generaledit 
+\i (00:00:55) exit 
+\t (00:00:55)     Journal end - Tue May 09 13:31:24 2017

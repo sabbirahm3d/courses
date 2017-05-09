@@ -175,7 +175,7 @@ rule PCB (turn_under_pad off)
 rule layer TOP (restricted_layer_length_factor 1)
 rule layer BOTTOM (restricted_layer_length_factor 1)
 write colormap _notify.std
-# do C:/Users/sabbir1/AppData/Local/Temp/#Taaaacl09048.tmp
+# do C:/Users/sabbir1/AppData/Local/Temp/#Taaaaep13772.tmp
 unselect all routing
 set route_diagonal 0
 grid wire 0.100000 (direction x) (offset 0.000000)
@@ -203,5 +203,5 @@ rule pcb (trombone_gap -1)
 unprotect selected
 route 25 1
 clean 5
-write routes (changed_only) (reset_changed) C:/Users/sabbir1/AppData/Local/Temp/#Taaaacm09048.tmp
+write routes (changed_only) (reset_changed) C:/Users/sabbir1/AppData/Local/Temp/#Taaaaeq13772.tmp
 quit -c
