@@ -1,0 +1,58 @@
+Date and Time : 05/10/17 10:01:05
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+Checking Electrical Rules 
+
+Checking For Unconnected Bus Nets
+
+Checking Physical Rules 
+
+
+Checking Pins and Pin Connections
+
+--------------------------------------------------
+Checking Schematic: SCHEMATIC1
+--------------------------------------------------
+
+INFO(ORCAP-2242): Checking Incorrect Pin Group Assignment
+
+Report for Invalid References
+
+Report for Duplicate References
+
+--------------------------------------------------
+Checking Entire Design: PROJ1 
+--------------------------------------------------
+
+Checking Power Pin Visibility  
+
+Checking Normal Convert View Sync  
+INFO(ORCAP-36105): Checking Missing Pin Numbers  
+
+Checking Device with Zero pins  
+INFO(ORCAP-36101): Checking Missing PCB Footprint Property  
+
+INFO(ORCAP-2211): Check High Speed Properties Syntax
+
+INFO(ORCAP-2212): Check Power Ground Mismatch
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? VCC  VCC  GND  
+                    SCHEMATIC1, 03-flash_mem  (4.90, 6.10) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U10,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (5.30, 3.20) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U11,VPP  VPP  GND
+                    SCHEMATIC1, 03-flash_mem  (5.30, 6.10) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U12,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (4.70, 2.90) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U13,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (4.70, 5.60) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U15,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (6.80, 2.90) 
+QUESTION(ORCAP-1589): Net has two or more aliases - possible short? U16,VCC  VCC  GND
+                    SCHEMATIC1, 04-sram  (6.80, 5.60) 
+
+Reporting Unused Refdes in multiple part packages
+Part	                       Quantity	                       Reference
+-----------------------------------------------------------------------------------------
+   74LS14	                       4	                       U35: F  E  D  C  
