@@ -1,11 +1,11 @@
-; ----------------------------------------------------------------------------------------
-; Instructions to initialize the LCD controller integrated in the system with the 82C55
-; Programmable Peripheral Interface (PPI) chip.
+; ----------------------------------------------------------------------------
+; Instructions to initialize the LCD controller integrated in the system with
+; the 82C55 Programmable Peripheral Interface (PPI) chip.
 ; 
 ; To assemble and run with the Makefile provided:
 ;     make SCRIPT=lcd run
 ; 
-; ----------------------------------------------------------------------------------------
+; ----------------------------------------------------------------------------
 
 PORTA_ADDR  EQU 700H            ; set port addresses
 PORTB_ADDR  EQU 701H
@@ -31,7 +31,7 @@ SEND MACRO PORTA_DATA, PORTB_DATA, DELAY
 
 ; Program to initialize the LCD display
 START:
-    MOV     AL, 80H             ; program the 82C55
+    MOV     AL, 0FH             ; program the 82C55
     MOV     DX, CMD_ADDR
     OUT     DX, AL
     MOV     AL, 0
