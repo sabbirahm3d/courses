@@ -9,7 +9,7 @@
 
 KEYBRD_ADDR  EQU 00F2H          ; set 8279 addresses
 
-; Program to initialze the keyboard with the 8279
+; Program to initialize the keyboard with the 8279
 START:
     MOV     DX, KEYBRD_ADDR     ; point to 8279 command address
     MOV     AL, 00000011B       ; set mode for left entry, 8-digit display,
