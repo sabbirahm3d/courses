@@ -1,13 +1,13 @@
 \newpage
 
-\appendix \addcontentsline{toc}{section}{Appendix}
+\begin{appendices} \addtocontents{toc}{\cftpagenumbersoff{section}}
 
-    \section{Appendix A: Schematics} \label{appendix:schematics}
+    \section{Schematics} \label{appendix:schematics}
 
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{figures/schematics/8086.png}
-                \caption{8086 interfaced with the 8284A clock generator and its Reset RC Push Button Circuit, and the Power Bank of the Board} \label{fig:page1}
+                \caption{8086 Interfaced with the 8284A Clock Generator and its Reset RC Push Button Circuit, and the Power Bank of the Board} \label{fig:page1}
             \end{center}
         \end{figure}
 
@@ -63,7 +63,7 @@
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{figures/schematics/pit.png}
-                \caption{Programmable Interrupt Controller with Headers fro External Access} \label{fig:page9}
+                \caption{Programmable Interrupt Controller with Headers for External Access} \label{fig:page9}
             \end{center}
         \end{figure}
 
@@ -85,7 +85,7 @@
     \clearpage
     \newpage
 
-    \section{Appendix B: Code Implementations} \label{appendix:code}
+    \section{Code Implementations} \label{appendix:code}
 
         \subsection{Programmable Logic Devices}
 
@@ -151,7 +151,7 @@
     \clearpage
     \newpage
 
-    \section{Appendix C: PCB Layouts} \label{appendix:pcb}
+    \section{PCB Layouts} \label{appendix:pcb}
 
         \begin{figure}[ht]
             \begin{center}
@@ -191,7 +191,7 @@
         \clearpage
         \newpage
 
-    \section{Appendix D: Bill of Materials} \label{appendix:bom}
+    \section{Bill of Materials} \label{appendix:bom}
 
         \def\arraystretch{1.22}
         \begin{table}[H]
@@ -245,3 +245,5 @@
         \end{table}
 
         \clearpage
+
+\end{appendices}

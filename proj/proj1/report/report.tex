@@ -6,16 +6,21 @@
 \usepackage{amsmath}
 
 \usepackage{tocloft}
+\usepackage[title,titletoc]{appendix}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 
 \usepackage{fancyvrb}  % for code verbatim and console outputs
 \usepackage[dvipsnames]{xcolor}
-\usepackage{longtable,array}
-\usepackage{csvsimple}
 
-\newcommand*{\headentry}[2]{\multicolumn{1}{#1}{\centering\arraybackslash\bfseries #2}}
+\usepackage{xpatch}
+
+\makeatletter
+\xpatchcmd{\@chapter}{\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}}{%
+                      \addcontentsline{toc}{chapter}{\protect\numberline{}#1}}{\typeout{Success}}{\typeout{Failed!}}
+\makeatother
+
 % margins and widths
 \addtolength{\oddsidemargin}{-0.75in}
 \addtolength{\evensidemargin}{-0.75in}
