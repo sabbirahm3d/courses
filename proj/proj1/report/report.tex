@@ -1,27 +1,25 @@
 \documentclass[12pt]{article}
 
-% packages
+% --- packages ---
+
+% page and language setup
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
+% contents
 \usepackage{tocloft}
 \usepackage[title,titletoc]{appendix}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
 
-\usepackage{fancyvrb}  % for code verbatim and console outputs
-\usepackage[dvipsnames]{xcolor}
+% code verbatim and console outputs
+\usepackage{fancyvrb}
 
-\usepackage{xpatch}
 
-\makeatletter
-\xpatchcmd{\@chapter}{\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}}{%
-                      \addcontentsline{toc}{chapter}{\protect\numberline{}#1}}{\typeout{Success}}{\typeout{Failed!}}
-\makeatother
+% --- margins and widths ---
 
-% margins and widths
 \addtolength{\oddsidemargin}{-0.75in}
 \addtolength{\evensidemargin}{-0.75in}
 \addtolength{\textwidth}{1.75in}
@@ -29,33 +27,39 @@
 \addtolength{\topmargin}{-0.75in}
 \addtolength{\textheight}{1.75in}
 
-% headers / footers
+
+% --- headers / footers ---
+
 \pagestyle{fancy}
 \fancyhf{}
+
+% add fancy headers
 \lhead{\fancyplain{}{8086 Board Design Project}}
+
+% add fancy footers
 \cfoot{\fancyplain{}{--- \thepage \ ---}}
 
-% table of content
+
+% --- table of content ---
+% set counters to go down up to subsubsection
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
+
+% set indentations for levels of sections
 \cftsetindents{section}{0.1in}{0.5in}
 \cftsetindents{subsection}{0.65in}{0.5in}
 \cftsetindents{subsubsection}{0.8in}{0.5in}
 
-% custom commands
+
+% --- custom commands ---
 % replace '\\' with `\n' to get rid of tab in new paragraphs
 \newcommand{\n}{\newline\newline}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-\definecolor{black}{rgb}{0,0,0}
+% make fontsize of \VerbatimInput smaller
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{fontsize=\small}
 
-% redefine \VerbatimInput
-\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
-{fontsize=\small}
 
-% content
+% --- content ---
 \begin{document}
 
     \input{latex_mods/00-cover}

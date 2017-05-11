@@ -1,8 +1,12 @@
 \section{Programmable Interval Timer - 8254}
-An 8254 programmable interval timer chip is integrated into the system. The component is required to solve the common timing control problems in the microprocessor. The chip also facilitates in other aspects of the system, such as accurate time delays, real time clocks, event counters, square wave generation, etc. The 8254 has 3 independent 16-bit programmable counters, each capable of counting in binary or binary coded decimal (BCD) with a maximum frequency of 1 MHz.
-
-    \subsection{Programming}
+An 8254 programmable interval timer chip is integrated into the system. The component is required to solve the common timing control problems in the microprocessor. The chip also facilitates in other aspects of the system, such as accurate time delays, real time clocks, event counters, square wave generation, etc. The 8254 has 3 independent 16-bit programmable counters, each capable of counting in binary or binary coded decimal (BCD) with a maximum frequency of 1 MHz.\n
+All the counter gate, clock and output pins are connected to headers for external access, with the exception of Counter 2 output connected to IR1 of the 8259 interrupt controller.
 
     \subsection{Addressing}
+    The 8254 is decoded at 0xFFEE (command register), 0xFFEC, 0xFFEA and 0xFFE8.
+
+    \subsection{Programming}
+    Each of the counters is individually programmed by writing a control word followed by the initial count. The control word is used to select the counter, mode of operation, binary or binary coded decimal counter, and the type of operation.
 
     \subsection{Assembly Implementation}
+    A code segment of interfacing with the interval timer is provided in Section \ref{sec:pit_asm} of Appendix \ref{appendix:code}.
