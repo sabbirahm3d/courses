@@ -1,8 +1,0 @@
-\t (00:00:00) enved 16.6 P001 (v16-6-112A) Windows 32
-\t (00:00:00)     Journal start - Fri Feb 03 15:24:54 2017
-\t (00:00:00)         Host=CAPUCHIN User=dbarret1 Pid=16144 CPUs=8
-\t (00:00:00) 
-\i (00:03:42) setwindow form.prfedit
-\i (00:03:42) FORM prfedit treelist  My_favorites 
-\i (00:03:42) FORM prfedit cancel  
-\t (00:03:42)     Journal end - Fri Feb 03 15:28:36 2017
