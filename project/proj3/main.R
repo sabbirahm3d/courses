@@ -6,41 +6,46 @@
 library(ggplot2)  # for generating high quality plots
 set.seed(0)  # seed the random generators
 
-z <- (73.2 - 72.4)/(2.1/sqrt(35))
+X <- 73.2
+mu <- 72.4
+sigma <- 2.1
+n <- 35
+
+z <- (X - mu)/(sigma/sqrt(n))
 print(z)
 print(pnorm(z))
-print(pnorm(0.025))
+print(qnorm(0.025))
 
-# # LaTex template for the output
-# outputTemplate <- "\\subsection{Output}
+# LaTex template for the output
+outputTemplate <- "\\subsection{Output}
 
-#     The first sample mean and standard deviation were computed:
+    The first sample mean and standard deviation were computed:
 
-#     \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
+    \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
 
-#     All the samples were then used to find the sample mean and standard
-#     deviation. The theoretical values were also computed based on the
-#     relationships:
+    All the samples were then used to find the sample mean and standard
+    deviation. The theoretical values were also computed based on the
+    relationships:
 
-#     \\[ \\mu = %s \\]
-#     \\[ E(\\overline{X}) = %s \\]
-#     \\[ \\sigma = %s \\]
-#     \\[ \\sigma_{\\overline{X}} = %s \\]
+    \\[ \\mu = %s \\]
+    \\[ E(\\overline{X}) = %s \\]
+    \\[ \\sigma = %s \\]
+    \\[ \\sigma_{\\overline{X}} = %s \\]
 
-#     \\begin{table}[h]
-#         \\centering
-#         \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c c}
+    \\begin{table}[h]
+        \\centering
+        \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c c}
 
-#         & \\textbf{Computed} & \\textbf{Theoretical} \\\\
-#         \\hline
-#         $\\mu$ & %.3f  & %.3f \\\\
-#         E($\\overline{X}$) & %.3f & %.3f \\\\
-#         $\\sigma$ & %.3f & %.3f \\\\
-#         $\\sigma$\\textsubscript{$\\overline{X}$} & %.3f & %.3f \\\\
+        & \\textbf{Computed} & \\textbf{Theoretical} \\\\
+        \\hline
+        $\\mu$ & %.3f  & %.3f \\\\
+        E($\\overline{X}$) & %.3f & %.3f \\\\
+        $\\sigma$ & %.3f & %.3f \\\\
+        $\\sigma$\\textsubscript{$\\overline{X}$} & %.3f & %.3f \\\\
 
-#         \\end{tabular*}
-#     \\end{table}
-# "
+        \\end{tabular*}
+    \\end{table}
+"
 
 # # global variables
 # NUMSAMPS <- 1000  # number of random samples per distribution

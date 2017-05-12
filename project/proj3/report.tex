@@ -52,15 +52,15 @@
 
 \setlength\parindent{0pt} % removes all indentation from paragraphs
 
-% % redefine \VerbatimInput
-% \RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
-%     fontsize=\footnotesize,
-%     frame=lines,  % top and bottom rule only
-%     framesep=2em,  % separation between frame and text
-%     rulecolor=\color{black},
-%     label=\fbox{\color{black}main.R},
-%     labelposition=topline,
-% }
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+    fontsize=\footnotesize,
+    frame=lines,  % top and bottom rule only
+    framesep=2em,  % separation between frame and text
+    rulecolor=\color{black},
+    label=\fbox{\color{black}main.R},
+    labelposition=topline,
+}
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -75,16 +75,6 @@
     \maketitle % Insert the title, author and date
 
     % ------------------------------ Part 1 ------------------------------
-
-\begin{lstlisting}
-    # initialize parameters for normal distribution
-    N <- 40  # size
-    mu <- 3  # mean
-    sigma <- 2  # standard deviation
-
-    sampMeans <- randDist(N, mu, sigma, "normal", "part1.tex")
-    plotHist(sampMeans, "hist1.png", 0.1)
-\end{lstlisting}
 
         \input{latex_mods/part1}
 
