@@ -23,6 +23,16 @@
     print(pnorm(z))  # print the probability
 \end{lstlisting}
 
-    The Z-score was computed to be:
+    The test statistic was computed to be:
 
-        \input{latex_mods/part1_result.tex}
+    \begin{equation*}
+        \pm Z_{0.05}=\pm 1.96 < 2.2537
+    \end{equation*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- 2 * (1 - (pnorm(score)))
+    # 0.0242
+\end{lstlisting}
+
+    Since $Z_{\sfrac{\alpha}{2}} < Z$ and the p-score was under 0.05, the null hypothesis is rejected.

@@ -5,7 +5,7 @@
     \subsection{Answer}
     The null hypothesis, $H_{0}$, claims the school averaged greater or equal to 75, while the alternative hypothesis, $H_{a}$, says otherwise.
 
-        \[ H_{0}: \mu \geq 75 \ vs \ H_{a}: \mu < 75 \]
+        \[ H_{0}: \mu < 75 \ vs \ H_{a}: \ \geq 75 \]
 
     Since the population standard deviation is unknown, and the sample was $n < 30$, the t-score was calculated as follows:
 
@@ -23,6 +23,16 @@
     print(pnorm(z))  # print the probability
 \end{lstlisting}
 
-    The Z-score was computed to be:
+    The test statistic was computed to be:
 
-        \input{latex_mods/part2_result.tex}
+        \begin{align*}
+            \because t_{0.05,11}=-1.7958 < -0.7893\\
+        \end{align*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- pt(score, df=n-1)
+    # 0.2233
+\end{lstlisting}
+
+    Since $Z_{\sfrac{\alpha}{2}} < Z$, the null hypothesis is rejected.
