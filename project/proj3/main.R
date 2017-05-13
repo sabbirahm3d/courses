@@ -1,32 +1,45 @@
 # main.R
-# This file contains the implementation of the functions in the Project 2
+# This file contains the implementation of the functions in the Project 3
 # NOTE: THIS SCRIPT WAS COMPILED ON A LINUX MACHINE - SOME STATEMENTS MAY THROW
 # WARNINGS OR ERRORS IN OTHER SYSTEMS
 
 library(ggplot2)  # for generating high quality plots
 set.seed(0)  # seed the random generators
 
-outputTemplate <- 
-    "%s
-    \\[ =\\frac{%0.1f-%0.1f}{\\sfrac{%0.1f}{\\sqrt{%d}}} \\]
-    \\[ =%s=%0.4f, \\ P(%s)=%0.4f \\]"
+scoreTemplate <- 
+    "\\begin{equation*}
+    %s=\\frac{\\overline{X}-\\mu}{\\sfrac{\\sigma}{\\sqrt{n}}}
+    =\\frac{%0.1f-%0.1f}{\\sfrac{%0.1f}{\\sqrt{%d}}}=%0.4f
+    \\end{equation*}"
 
-dumpComputation <- function(X, mu, sigma, n, distType, outputFile) {
+resultTemplate <- "\\begin{equation*}
+    \\because %s=%0.4f %s %0.4f
+    \\end{equation*}"
 
-    outputEqn <- ""
+dumpComputation <- function(X, mu, sigma, n, alpha, distType, outputFile) {
+
     score <- (X - mu)/(sigma/sqrt(n))
-    p <- 0
 
-    if (distType == "z") {
-        outputEqn <- 
-            "\\[ Z=\\frac{\\overline{X}-\\mu}{\\sfrac{\\sigma}{\\sqrt{n}}} \\]\\\\"
-        p <- pnorm(score)
-        score <- pnorm(z)
+    tableStr <- ""
+    tableVal <- 0
+    ineq <- ""
+
+    if (distType == "Z") {
+
+        tableStr <- paste0(distType, "_{", alpha/2, "}")
+        tableVal <- qnorm(alpha/2)
+
     } else if (distType == "t") {
-        p <- qt(0.05, df=n-1)
-        outputEqn <- sprintf(
-            "\\[ t=\\frac{\\overline{X}-\\mu}{\\sfrac{s}{\\sqrt{n}}}, \\ df=%d \\]\\\\",
-            n-1)
+
+        tableStr <- paste0(distType, "_{", alpha/2, ",", n-1, "}")
+        tableVal <- qt(alpha/2, df=n-1)
+
+    }
+
+    if (tableVal < score) {
+        ineq <- "<"
+    } else if (tableVal < score) {
+        ineq <- ">"
     }
 
     # dump output to LaTex modules
@@ -35,9 +48,17 @@ dumpComputation <- function(X, mu, sigma, n, distType, outputFile) {
         append=FALSE, split=FALSE
     )
     cat(
-        sprintf(outputTemplate,
-            outputEqn, X, mu, sigma, n, 
-            distType, score, distType, p)
+        sprintf(scoreTemplate,
+            distType, X, mu, sigma, n, 
+            score, distType)
+    )
+    sink(
+        paste0("latex_mods/", outputFile, "_result.tex"),
+        append=FALSE, split=FALSE
+    )
+    cat(
+        sprintf(resultTemplate,
+            tableStr, tableVal, ineq, score)
     )
     sink()  # return stdout to console
 
@@ -51,12 +72,9 @@ X <- 73.2
 mu <- 72.4
 sigma <- 2.1
 n <- 35
+alpha <- 0.05
 
-z <- (X - mu)/(sigma/sqrt(n))
-print(z)
-print(pnorm(z))
-print(qnorm(0.025))
-dumpComputation(X, mu, sigma, n, "z", "part1")
+dumpComputation(X, mu, sigma, n, alpha, "Z", "part1")
 
 
 # ------------------------------ Part 2 ------------------------------
@@ -66,10 +84,7 @@ mu <- 75
 s <- 7.9
 n <- 12
 
-t <- (X - mu)/(s/sqrt(n))
-print(t)
-print(qt(0.05, df=n-1))
-dumpComputation(X, mu, s, n, "t", "part2")
+dumpComputation(X, mu, s, n, alpha, "t", "part2")
 
 
 # ------------------------------ Part 3 ------------------------------
@@ -79,10 +94,7 @@ X <- mean(weights)
 s <- sd(weights)
 mu <- 60
 
-t <- (X - mu)/(s/sqrt(n))
-print(t)
-print(qt(0.05, df=n-1))
-dumpComputation(X, mu, s, length(weights), "t", "part3")
+dumpComputation(X, mu, s, length(weights), alpha, "t", "part3")
 
 
 # # global variables
@@ -156,7 +168,7 @@ dumpComputation(X, mu, s, length(weights), "t", "part3")
 #     outputData <- ''
 #     if (distType == "normal") {
 #         outputData <- sprintf(
-#             outputTemplate,
+#             scoreTemplate,
 #             firstMean, firstStd,
 #             "\\mu", "\\mu", "\\sigma", "\\frac{\\sigma}{\\sqrt{n}}",
 #             mu, mu,
@@ -166,7 +178,7 @@ dumpComputation(X, mu, s, length(weights), "t", "part3")
 #         )
 #     } else if (distType == "binomial") {
 #         outputData <- sprintf(
-#             outputTemplate,
+#             scoreTemplate,
 #             firstMean, firstStd,
 #             "np", "np", "\\sqrt{np(1-p)}", "\\sqrt{\\frac{np(1-p)}{N}}",
 #             n*p, n*p,
