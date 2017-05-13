@@ -1,21 +1,15 @@
 \section{Part 1}
     \subsection{Question}
-    An oceanographer wants to test, on the basis of a random sample of size 35, whether the average depth of the ocean in a certain area is 72.4 fathoms. At the 0.05 level of significance, what will the oceanographer decide if she gets a sample mean of 73.2? Assume the population standard deviation is 2.1.\n
-    % Given
-
-    %     \[ n = 35 \]
-    %     \[ \mu = 72.4 \]
-    %     \[ \sigma = 2.1 \]
+    An oceanographer wants to test, on the basis of a random sample of size 35, whether the average depth of the ocean in a certain area is 72.4 fathoms. At the 0.05 level of significance, what will the oceanographer decide if she gets a sample mean of 73.2? Assume the population standard deviation is 2.1.
 
     \subsection{Answer}
     The null hypothesis, $H_{0}$, claims the mean depth of the ocean in a certain area is 72.4, while the alternative hypothesis, $H_{a}$, says otherwise.
 
-        \[ H_{0}: \mu = 72.4 \ vs \ H_{a}: \mu \neq 73.2 \]
+        \[ H_{0}: \mu = 72.4 \ vs \ H_{a}: \mu \neq 72.4 \]
 
-    Calculating the Z-score:
+    Since the population mean and standard deviation was known with a sample size of $n > 30$, the Z-score was calculated as follows:
 
-        \[ Z = \frac{X-\mu}{\frac{\sigma}{\sqrt{n}}} = \frac{73.2-72.4}{\frac{2.1}{\sqrt{35}}} \]
-
+        \input{latex_mods/part1_out.tex}
 
     The following snippet was used to generate the Z-value and its probability:
 \begin{lstlisting}

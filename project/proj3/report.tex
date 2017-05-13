@@ -21,7 +21,10 @@
 \usepackage{fixltx2e}
 \usepackage[pdftex]{graphicx}
 \usepackage{color, wrapfig}
+
 \usepackage{amsmath}  % required for some math elements 
+\usepackage{xfrac}
+
 \usepackage{fancyvrb, listings}  % for code verbatim and console outputs
 \usepackage[margin=1in]{geometry}
 
@@ -74,35 +77,17 @@
 
     \maketitle % Insert the title, author and date
 
-    % ------------------------------ Part 1 ------------------------------
+    \input{latex_mods/part1}
+    \input{latex_mods/part2}
+    \input{latex_mods/part3}
 
-        \input{latex_mods/part1}
 
-%         \subsection{Distribution}
-%             Distribution of the data was plotted with a histogram using ggplot2 in Figure \ref{fig:hist1}.
-% \begin{lstlisting}
-%     ggplot() + aes(sampMeans) + 
-%         geom_histogram(binwidth=0.1, color="black", fill="white") +
-%         labs(y="Count", x="Sample Means")
-% \end{lstlisting}
+    \begin{thebibliography}{9}
 
-%             \begin{figure}[!h]
-%                 \begin{center}
-%                     \includegraphics[width=0.5\textwidth]{figures/hist1.png}
-%                     \caption{Histogram of the Generated Data} \label{fig:hist1}
-%                 \end{center}
-%             \end{figure}
+    \end{thebibliography}
 
-%     \begin{thebibliography}{9}
-
-%         \bibitem{wolfram}
-%         Central Limit Theorem
-%         \\\texttt{http://mathworld.wolfram.com/CentralLimitTheorem.html}
-
-%     \end{thebibliography}
-
-%     \clearpage
-%     \newpage
-%     \VerbatimInput{main.R}
+    \clearpage
+    \newpage
+    \VerbatimInput{main.R}
 
 \end{document}

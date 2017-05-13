@@ -1,0 +1,36 @@
+\section{Part 3}
+    \subsection{Question}
+    The weights of mature dogs of a certain breed approximately follow a normal distribution. Five dogs selected at random weighed 66, 63, 64, 62 and 65 pounds. A kennel club claims that the average weight for this breed is 60 pounds. Using the 0.05 level of significance, do we have reason to doubt this claim?
+
+    \subsection{Answer}
+    The null hypothesis, $H_{0}$, claims the mean weight of the breed is 60 pounds, while the alternative hypothesis, $H_{a}$, says otherwise.
+
+        \[ H_{0}: \mu = 60 \ vs \ H_{a}: \mu \neq 60 \]
+
+    Since the population standard deviation is unknown, and the sample was $n < 30$, the t-score was calculated as follows:
+
+    The sample mean and standard deviation were calculated:
+\begin{lstlisting}
+    weights <- c(66, 63, 64, 62, 65)
+    X <- mean(weights)
+    s <- sd(weights)
+\end{lstlisting}
+
+        \input{latex_mods/part3_out.tex}
+
+
+    The following snippet was used to generate the Z-value and its probability:
+\begin{lstlisting}
+    X <- 73.2
+    mu <- 72.4
+    sigma <- 2.1
+    n <- 35
+
+    z <- (X - mu)/(sigma/sqrt(n))
+    print(z)  # print the Z-score
+    print(pnorm(z))  # print the probability
+\end{lstlisting}
+
+    The Z-score was computed to be:
+
+        \[ Z=2.2537, \ P(Z) =0.9879 \]

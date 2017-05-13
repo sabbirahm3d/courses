@@ -6,6 +6,47 @@
 library(ggplot2)  # for generating high quality plots
 set.seed(0)  # seed the random generators
 
+outputTemplate <- 
+    "%s
+    \\[ =\\frac{%0.1f-%0.1f}{\\sfrac{%0.1f}{\\sqrt{%d}}} \\]
+    \\[ =%s=%0.4f, \\ P(%s)=%0.4f \\]"
+
+dumpComputation <- function(X, mu, sigma, n, distType, outputFile) {
+
+    outputEqn <- ""
+    score <- (X - mu)/(sigma/sqrt(n))
+    p <- 0
+
+    if (distType == "z") {
+        outputEqn <- 
+            "\\[ Z=\\frac{\\overline{X}-\\mu}{\\sfrac{\\sigma}{\\sqrt{n}}} \\]\\\\"
+        p <- pnorm(score)
+        score <- pnorm(z)
+    } else if (distType == "t") {
+        p <- qt(0.05, df=n-1)
+        outputEqn <- sprintf(
+            "\\[ t=\\frac{\\overline{X}-\\mu}{\\sfrac{s}{\\sqrt{n}}}, \\ df=%d \\]\\\\",
+            n-1)
+    }
+
+    # dump output to LaTex modules
+    sink(
+        paste0("latex_mods/", outputFile, "_out.tex"),
+        append=FALSE, split=FALSE
+    )
+    cat(
+        sprintf(outputTemplate,
+            outputEqn, X, mu, sigma, n, 
+            distType, score, distType, p)
+    )
+    sink()  # return stdout to console
+
+}
+
+
+
+# ------------------------------ Part 1 ------------------------------
+
 X <- 73.2
 mu <- 72.4
 sigma <- 2.1
@@ -15,37 +56,34 @@ z <- (X - mu)/(sigma/sqrt(n))
 print(z)
 print(pnorm(z))
 print(qnorm(0.025))
+dumpComputation(X, mu, sigma, n, "z", "part1")
 
-# LaTex template for the output
-outputTemplate <- "\\subsection{Output}
 
-    The first sample mean and standard deviation were computed:
+# ------------------------------ Part 2 ------------------------------
 
-    \\[ E(\\overline{X}) = %.3f, \\ \\sigma_{\\overline{X}} = %.3f \\]
+X <- 73.2
+mu <- 75
+s <- 7.9
+n <- 12
 
-    All the samples were then used to find the sample mean and standard
-    deviation. The theoretical values were also computed based on the
-    relationships:
+t <- (X - mu)/(s/sqrt(n))
+print(t)
+print(qt(0.05, df=n-1))
+dumpComputation(X, mu, s, n, "t", "part2")
 
-    \\[ \\mu = %s \\]
-    \\[ E(\\overline{X}) = %s \\]
-    \\[ \\sigma = %s \\]
-    \\[ \\sigma_{\\overline{X}} = %s \\]
 
-    \\begin{table}[h]
-        \\centering
-        \\begin{tabular*}{200pt}{@{\\extracolsep{\\fill}} c c c}
+# ------------------------------ Part 3 ------------------------------
 
-        & \\textbf{Computed} & \\textbf{Theoretical} \\\\
-        \\hline
-        $\\mu$ & %.3f  & %.3f \\\\
-        E($\\overline{X}$) & %.3f & %.3f \\\\
-        $\\sigma$ & %.3f & %.3f \\\\
-        $\\sigma$\\textsubscript{$\\overline{X}$} & %.3f & %.3f \\\\
+weights <- c(66, 63, 64, 62, 65)
+X <- mean(weights)
+s <- sd(weights)
+mu <- 60
 
-        \\end{tabular*}
-    \\end{table}
-"
+t <- (X - mu)/(s/sqrt(n))
+print(t)
+print(qt(0.05, df=n-1))
+dumpComputation(X, mu, s, length(weights), "t", "part3")
+
 
 # # global variables
 # NUMSAMPS <- 1000  # number of random samples per distribution
