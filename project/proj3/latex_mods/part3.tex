@@ -39,11 +39,11 @@
 
     The p-value was computed with the following snippet:
 \begin{lstlisting}
-    pScore <- 2 * (1 - pt(score,df=n-1))
+    pScore <- 2 * (1 - pt(score, df=n-1))
     # 0.004812
 \end{lstlisting}
 
-    Since $Z_{\sfrac{\alpha}{2}} < Z$ and the p-score was under 0.05, the null hypothesis is rejected.
+    Since $t_{\alpha, df} < t$ and the p-score was under 0.05, the null hypothesis is rejected.
 
     The box plot and normal probability plot were generated:
 

@@ -31,8 +31,8 @@
 
     The p-value was computed with the following snippet:
 \begin{lstlisting}
-    pScore <- pt(score, df=n-1)
-    # 0.2233
+    pScore <- 1-pt(score, df=n-1)
+    # 0.7767
 \end{lstlisting}
 
-    Since $Z_{\sfrac{\alpha}{2}} < Z$, the null hypothesis is rejected.
+    Since $t_{\alpha, df} < t$, the null hypothesis is rejected.

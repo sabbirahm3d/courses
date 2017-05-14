@@ -11,7 +11,7 @@ set.seed(0)  # seed the random generators
 scoreTemplate <- 
     "\\begin{equation*}
     %s=\\frac{\\overline{X}-\\mu}{\\sfrac{\\sigma}{\\sqrt{n}}}
-    =\\frac{%0.1f-%0.1f}{\\sfrac{%0.1f}{\\sqrt{%d}}}=%0.4f
+    =\\frac{%0.1f-%0.1f}{\\sfrac{%0.2f}{\\sqrt{%d}}}=%0.4f
     \\end{equation*}"
 
 
@@ -51,6 +51,7 @@ dumpComputation <- function(X, mu, sigma, n, alpha,
             score, distType)
     )
     sink()  # return stdout to console
+    print(outputFile)
     print(paste("Score:", tableVal))
     print(paste("P-value:", pScore))
 
@@ -108,6 +109,17 @@ boxPlt <- ggplot(df, aes(x=weightsSeq, y=weights)) + geom_boxplot() +
 png(filename="figures/part3.png", units="in", width=4, height=4, res=200)
 grid.arrange(probNormPlt, boxPlt, ncol=2)
 dev.off()
+
+
+# ------------------------------ Part 4 ------------------------------
+
+X <- 5.4
+mu <- 5.2
+sigma <- sqrt(0.8)
+n <- 15
+
+dumpComputation(X=X, mu=mu, sigma=sigma, n=n, 
+    alpha=alpha, distType="t", twoSided=TRUE, "part4")
 
 
 # ------------------------------ Part 5 ------------------------------
