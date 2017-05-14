@@ -5,7 +5,8 @@
 
 library(ggplot2)
 library(gridExtra)
-set.seed(0)  # seed the random generators
+library(scales)
+# set.seed(0)  # seed the random generators
 
 scoreTemplate <- 
     "\\begin{equation*}
@@ -34,7 +35,7 @@ dumpComputation <- function(X, mu, sigma, n, alpha,
             pScore <- 2 * (1 - pt(score,df=n-1))
         } else {
             tableVal <- qt(alpha, df=n-1)
-            pScore <- pt(score, df=n-1)
+            pScore <- 1 - pt(score, df=n-1)
         }
 
     }
@@ -90,13 +91,13 @@ mu <- 60
 
 weightsSeq <- seq(1,length(weights))
 
-data <- data.frame(weightsSeq, weights)
+df <- data.frame(weightsSeq, weights)
 
 dumpComputation(X=X, mu=mu, sigma=s, n=n, 
     alpha=alpha, distType="t", twoSided=TRUE, "part3")
 
-probNormPlt <- ggplot(data, aes(sample=weights)) + stat_qq()
-boxPlt <- ggplot(data, aes(x=weightsSeq, y=weights)) + geom_boxplot() + 
+probNormPlt <- ggplot(df, aes(sample=weights)) + stat_qq()
+boxPlt <- ggplot(df, aes(x=weightsSeq, y=weights)) + geom_boxplot() + 
     theme(
         axis.title.x=element_blank(), 
         axis.text.x=element_blank(),
@@ -112,59 +113,55 @@ dev.off()
 # ------------------------------ Part 5 ------------------------------
 
 sigma <- 0.1        # The standard deviation.
-n <- 15         # The sample size.
 theta0 <- 0       # The value of theta0 in H0.
-pow <- 0.80       # The minimum desired power.
-alpha <- 0.05     # The significance level. Try 0.01, 0.05, 0.10
-beta <- 1 - pow   # The desired maximum Type II error probability.
-z.alpha <- qnorm(1-alpha)  # P( Z > z.alpha ) = alpha
-z.beta <- qnorm(1-beta)    # P( Z > z.beta ) = beta
+alpha <- qnorm(1-0.05)  # P( Z > z.alpha ) = alpha
+xSeq <- c(0, 0.2)
+
+ggplot(NULL, aes(x=x, colour=n, fill=n)) +
+    stat_function(data=data.frame(x=xSeq, n=factor(5)), 
+        fun=function(x) { pnorm(sqrt(5)*(x - theta0)/sigma - alpha) }) +
+    stat_function(data=data.frame(x=xSeq, n=factor(10)), 
+        fun=function(x) { pnorm(sqrt(10)*(x - theta0)/sigma - alpha) }) +
+    stat_function(data=data.frame(x=xSeq, n=factor(15)), 
+        fun=function(x) { pnorm(sqrt(15)*(x - theta0)/sigma - alpha) }) + 
+    ylab("Power") + xlab("Difference") + labs(colour="Sample Size")
 
 
+# ------------------------------ Part 6 ------------------------------
 
+NUMSAMPS <- 10000
 
+# initialize distribution variables
+generateHist <- function(mu, filename) {
 
-# ### This command plots the power function
-# curve(pnorm(sqrt(n)*(x - theta0)/sigma - z.alpha), 
-#       # from=theta0,                   # Left endpoint of the domain
-#       to=0.2,   # Right endopint of the domain
-#       col="blue",                    # Try different colors
-#       main="Power Function",         # The Main Title
-#       xlab=expression(theta),        # Label the horizontal axis
-#       ylab=expression(gamma(theta)), # Label the vertical axis
-#       lwd=2,                         # Line width.
-#       add=NA)                      # TRUE or NA. NA erases old plots.
+    n <- 4
+    sigma <- 2
 
-# n <- 5          # The sample size.
-# curve(pnorm(sqrt(n)*(x - theta0)/sigma - z.alpha), 
-#       # from=theta0,                   # Left endpoint of the domain
-#       # to=theta0+3.7*sigma/sqrt(n),   # Right endopint of the domain
-#       col="red",                    # Try different colors
-#       main="Power Function",         # The Main Title
-#       xlab=expression(theta),        # Label the horizontal axis
-#       ylab=expression(gamma(theta)), # Label the vertical axis
-#       lwd=2,                         # Line width.
-#       add=TRUE)                      # TRUE or NA. NA erases old plots.
+    # initialize empty arrays
+    sampPScores <- generatedData <- rep(0, times=NUMSAMPS)
 
-# n <- 10          # The sample size.
-# curve(pnorm(sqrt(n)*(x - theta0)/sigma - z.alpha), 
-#       # from=theta0,                   # Left endpoint of the domain
-#       # to=theta0+3.7*sigma/sqrt(n),   # Right endopint of the domain
-#       col="green",                    # Try different colors
-#       main="Power Function",         # The Main Title
-#       xlab=expression(theta),        # Label the horizontal axis
-#       ylab=expression(gamma(theta)), # Label the vertical axis
-#       lwd=2,                         # Line width.
-#       add=TRUE)                      # TRUE or NA. NA erases old plots.
+    # generate 10000 samples
+    for (i in 1:NUMSAMPS) {
 
+        generatedData <- rnorm(4, 20, 2)
 
-# abline(v=0.10,  # Plot a vertical line
-#        # col="green",                              # Choose the color
-#        lwd=2)                                    # Choose the line width
+        # store the sample means in vector
+        xbar <- mean(generatedData)
+        s <- sd(generatedData)
 
-for (i in seq(5, 16, 5)) {
-    ggplot(data.frame(x=c(0, 0.20)), aes(x=x, color=i)) + 
-        stat_function(
-            fun=function(x) pnorm(sqrt(n)*(x - theta0)/sigma - z.alpha)
-        )
+        tScore <- (xbar - mu)/(s/2)
+        sampPScores[i] = pt(tScore, df=3)
+
+    }
+
+    png(filename=paste0("figures/", filename), units="in", width=4, height=4, res=200)
+    h = hist(sampPScores)
+    h$density = h$counts/sum(h$counts)*100
+    plot(h,freq=FALSE)
+    dev.off()
+
 }
+
+generateHist(mu=20, "part6a.png")
+generateHist(mu=21, "part6b.png")
+generateHist(mu=22, "part6c.png")
