@@ -6,7 +6,7 @@
 library(ggplot2)
 library(gridExtra)
 library(scales)
-# set.seed(0)  # seed the random generators
+set.seed(0)  # seed the random generators
 
 scoreTemplate <- 
     "\\begin{equation*}
@@ -112,20 +112,23 @@ dev.off()
 
 # ------------------------------ Part 5 ------------------------------
 
-sigma <- 0.1        # The standard deviation.
-theta0 <- 0       # The value of theta0 in H0.
-alpha <- qnorm(1-0.05)  # P( Z > z.alpha ) = alpha
-xSeq <- c(0, 0.2)
+sigma <- 0.1  # standard deviation
+alpha <- qnorm(1-0.05)  # P(Z > alpha)
+xSeq <- c(0, 0.2)  # x bounds
 
+png(
+    filename="figures/part5.png", 
+    units="in", width=6, height=4, res=200
+)
 ggplot(NULL, aes(x=x, colour=n, fill=n)) +
     stat_function(data=data.frame(x=xSeq, n=factor(5)), 
-        fun=function(x) { pnorm(sqrt(5)*(x - theta0)/sigma - alpha) }) +
+        fun=function(x) { pnorm(sqrt(5)*x/sigma - alpha) }) +
     stat_function(data=data.frame(x=xSeq, n=factor(10)), 
-        fun=function(x) { pnorm(sqrt(10)*(x - theta0)/sigma - alpha) }) +
+        fun=function(x) { pnorm(sqrt(10)*x/sigma - alpha) }) +
     stat_function(data=data.frame(x=xSeq, n=factor(15)), 
-        fun=function(x) { pnorm(sqrt(15)*(x - theta0)/sigma - alpha) }) + 
+        fun=function(x) { pnorm(sqrt(15)*x/sigma - alpha) }) + 
     ylab("Power") + xlab("Difference") + labs(colour="Sample Size")
-
+dev.off()
 
 # ------------------------------ Part 6 ------------------------------
 
@@ -133,9 +136,6 @@ NUMSAMPS <- 10000
 
 # initialize distribution variables
 generateHist <- function(mu, filename) {
-
-    n <- 4
-    sigma <- 2
 
     # initialize empty arrays
     sampPScores <- generatedData <- rep(0, times=NUMSAMPS)
@@ -154,14 +154,26 @@ generateHist <- function(mu, filename) {
 
     }
 
-    png(filename=paste0("figures/", filename), units="in", width=4, height=4, res=200)
-    h = hist(sampPScores)
+    # dump plots into PNG
+    png(
+        filename=paste0("figures/", filename), 
+        units="in", width=4, height=4, res=200
+    )
+
+    # generate density histograms to display percentage
+    h <- hist(
+        sampPScores
+    )
     h$density = h$counts/sum(h$counts)*100
-    plot(h,freq=FALSE)
+    plot(
+        h, freq=FALSE,
+        main=NULL, xlab="P-value", ylab="Percent"
+    )
+
     dev.off()
 
 }
 
-generateHist(mu=20, "part6a.png")
-generateHist(mu=21, "part6b.png")
-generateHist(mu=22, "part6c.png")
+generateHist(mu=20, filename="part6a.png")
+generateHist(mu=21, filename="part6b.png")
+generateHist(mu=22, filename="part6c.png")
