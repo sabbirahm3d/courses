@@ -4,13 +4,13 @@
 \contentsline {section}{\numberline {2}History}{2}
 \contentsline {subsection}{\numberline {2.1}Electric Motor}{2}
 \contentsline {subsection}{\numberline {2.2}Electric Generator}{2}
-\contentsline {subsection}{\numberline {2.3}Contribution to Society}{2}
-\contentsline {section}{\numberline {3}Physics}{2}
-\contentsline {subsection}{\numberline {3.1}Maxwell's Equations}{2}
-\contentsline {subsection}{\numberline {3.2}Faraday's Law of Induction}{2}
-\contentsline {subsection}{\numberline {3.3}Relating to Coils}{2}
-\contentsline {section}{\numberline {4}Construction}{2}
-\contentsline {subsection}{\numberline {4.1}Brainstorming Phase}{2}
-\contentsline {subsection}{\numberline {4.2}Multiple Trials}{2}
-\contentsline {subsection}{\numberline {4.3}Final Model}{2}
-\contentsline {section}{References}{3}
+\contentsline {subsection}{\numberline {2.3}Contributions to Society}{4}
+\contentsline {section}{\numberline {3}Physics}{4}
+\contentsline {subsection}{\numberline {3.1}Maxwell's Equations}{4}
+\contentsline {subsection}{\numberline {3.2}Faraday's Law of Induction}{4}
+\contentsline {subsection}{\numberline {3.3}Relating to Coils}{4}
+\contentsline {section}{\numberline {4}Construction}{4}
+\contentsline {subsection}{\numberline {4.1}Brainstorming Phase}{4}
+\contentsline {subsection}{\numberline {4.2}Multiple Trials}{4}
+\contentsline {subsection}{\numberline {4.3}Final Model}{4}
+\contentsline {section}{References}{7}
