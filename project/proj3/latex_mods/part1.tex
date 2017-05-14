@@ -11,22 +11,22 @@
 
         \input{latex_mods/part1_out.tex}\newline
 
-    The following snippet was used to generate the Z-value and its probability:
+    The following snippet was used to generate the Z-test and its probability:
 \begin{lstlisting}
     X <- 73.2
     mu <- 72.4
     sigma <- 2.1
     n <- 35
+    alpha <- 0.05
 
-    z <- (X - mu)/(sigma/sqrt(n))
-    print(z)  # print the Z-score
-    print(pnorm(z))  # print the probability
+    dumpComputation(X=X, mu=mu, sigma=sigma, n=n, 
+        alpha=alpha, distType="Z", twoSided=TRUE, "part1")
 \end{lstlisting}
 
     The test statistic was computed to be:
 
     \begin{equation*}
-        Z_{\sfrac{0.05}{2}}=Z_{0.025}= -1.96 < 2.2537
+        Z_{1-\sfrac{0.05}{2}}=Z_{0.975}= 1.96 < 2.2537
     \end{equation*}
 
     The p-value was computed with the following snippet:

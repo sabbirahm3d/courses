@@ -11,22 +11,21 @@
 
         \input{latex_mods/part2_out.tex}
 
-    The following snippet was used to generate the Z-value and its probability:
+    The following snippet was used to generate the t-test and its probability:
 \begin{lstlisting}
     X <- 73.2
-    mu <- 72.4
-    sigma <- 2.1
-    n <- 35
+    mu <- 75
+    s <- 7.9
+    n <- 12
 
-    z <- (X - mu)/(sigma/sqrt(n))
-    print(z)  # print the Z-score
-    print(pnorm(z))  # print the probability
+    dumpComputation(X=X, mu=mu, sigma=s, n=n, 
+        alpha=alpha, distType="t", twoSided=FALSE, "part2")
 \end{lstlisting}
 
     The test statistic was computed to be:
 
         \begin{align*}
-            \because t_{0.05,11}=-1.7958 < -0.7893\\
+            \because t_{1-0.05,11}=t_{0.95,11}=1.7958 > -0.7893\\
         \end{align*}
 
     The p-value was computed with the following snippet:
@@ -35,4 +34,4 @@
     # 0.7767
 \end{lstlisting}
 
-    Since $t_{\alpha, df} < t$, the null hypothesis is rejected.
+    Since $t_{1-\alpha, df} > t$ and the very high p-value, there is strong evidence to not reject the null hypothesis.

@@ -11,16 +11,15 @@
 
         \input{latex_mods/part4_out.tex}\newline
 
-    The following snippet was used to generate the Z-value and its probability:
+    The following snippet was used to generate the t-test and its probability:
 \begin{lstlisting}
-    X <- 73.2
-    mu <- 72.4
-    sigma <- 2.1
-    n <- 35
+    X <- 5.4
+    mu <- 5.2
+    sigma <- sqrt(0.8)
+    n <- 15
 
-    z <- (X - mu)/(sigma/sqrt(n))
-    print(z)  # print the Z-score
-    print(pnorm(z))  # print the probability
+    dumpComputation(X=X, mu=mu, sigma=sigma, n=n, 
+        alpha=alpha, distType="t", twoSided=TRUE, "part4")
 \end{lstlisting}
 
     The test statistic was computed to be:
@@ -35,7 +34,7 @@
     # 0.4011
 \end{lstlisting}
 
-    Since $Z_{\sfrac{\alpha}{2}} < Z < Z_{1-\sfrac{\alpha}{2}}$ and the p-score was well over 0.05, there is strong evidence to reject the null hypothesis.\n
+    Since $t_{\sfrac{\alpha}{2}} < t < t_{1-\sfrac{\alpha}{2}}$ and the p-score was well over 0.05, there is strong evidence to not reject the null hypothesis.\n
 
     The null hypothesis for the variance claims the population variance is 0.8, while the alternative hypothesis proposes otherwise.
 
@@ -51,11 +50,14 @@
     The test statistic was computed to be:
 
     \begin{equation*}
-        {\chi}^{2}_{0.025, 14}= 5.63 < 21.8750
+        {\chi}^{2}_{0.025, 14}=5.63<21.8750
     \end{equation*}
 
+    The p-value for the Chi-squared test was computed with the following snippet:
 
 \begin{lstlisting}
-    pScore <- 2 * (1 - (pnorm(score)))
-    # 0.4011
+    pScore <- 2 * (1 - (pchisq(score, df=n-1)))
+    # 0.1624
 \end{lstlisting}
+
+    The high p-value also suggests sufficient evidence to not reject the null hypothesis based on the variance testing.

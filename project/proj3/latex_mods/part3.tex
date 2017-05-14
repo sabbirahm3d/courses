@@ -19,22 +19,26 @@
         \input{latex_mods/part3_out.tex}
 
 
-    The following snippet was used to generate the Z-value and its probability:
+    The following snippet was used to generate the t-test and its probability:
 \begin{lstlisting}
-    X <- 73.2
-    mu <- 72.4
-    sigma <- 2.1
-    n <- 35
+    weights <- c(66, 63, 64, 62, 65)
+    X <- mean(weights)
+    s <- sd(weights)
+    n <- length(weights)
+    mu <- 60
 
-    z <- (X - mu)/(sigma/sqrt(n))
-    print(z)  # print the Z-score
-    print(pnorm(z))  # print the probability
+    weightsSeq <- seq(1,length(weights))
+
+    df <- data.frame(weightsSeq, weights)
+
+    dumpComputation(X=X, mu=mu, sigma=s, n=n, 
+        alpha=alpha, distType="t", twoSided=TRUE, "part3")
 \end{lstlisting}
 
     The test statistic was computed to be:
 
         \begin{align*}
-            \because t_{0.025,4}=-2.7764 < 5.6569\\
+            \because t_{1-0.025,4}=t_{0.975,4}=2.7764 < 5.6569\\
         \end{align*}
 
     The p-value was computed with the following snippet:
@@ -43,7 +47,9 @@
     # 0.004812
 \end{lstlisting}
 
-    Since $t_{\alpha, df} < t$ and the p-score was under 0.05, the null hypothesis is rejected.
+    Since $t_{\alpha, df} < t$ and the p-score was well under 0.05, the null hypothesis is rejected.
+
+    \clearpage
 
     The box plot and normal probability plot were generated:
 
