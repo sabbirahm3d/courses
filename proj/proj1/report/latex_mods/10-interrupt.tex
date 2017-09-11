@@ -1,0 +1,8 @@
+\section{Programmable Interrupt Controller - 8259}
+The 8259A programmable interrupt controller (PIC) adds eight vectored priority encoded interrupts to the microprocessor, which can be expanded up to 64 interrupt requests without additional hardware.
+
+    \subsection{Addressing}
+    The 8259A is decoded at 0xFFF6 (command) and 0xFFF4 (data).
+
+    \subsection{Assembly Implementation and Programming}
+    A code segment of interfacing with the interrupt controller is provided in Section \ref{sec:pic_asm} of Appendix \ref{appendix:code}.

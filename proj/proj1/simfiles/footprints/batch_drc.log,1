@@ -1,0 +1,26 @@
+(------------------------------------------------------------)
+(                                                            )
+(        Batch DRC Update                                    )
+(                                                            )
+(        Drawing          : ax300x100028.dra                 )
+(        Software Version : 16.01s032                        )
+(        Date/Time        : Tue Apr 05 13:48:56 2011         )
+(                                                            )
+(------------------------------------------------------------)
+
+
+ ========= check shapes                       Tue Apr 05 13:48:56 2011
+ ========= check standalone pins              Tue Apr 05 13:48:56 2011
+ ========= check symbols (pins,lines,text)    Tue Apr 05 13:48:56 2011
+ ========= check nets                         Tue Apr 05 13:48:56 2011
+ ========= check standalone branches          Tue Apr 05 13:48:56 2011
+ ========= check standalone filled rectangles Tue Apr 05 13:48:56 2011
+ ========= check standalone lines             Tue Apr 05 13:48:56 2011
+ ========= check standalone text              Tue Apr 05 13:48:56 2011
+ ========= check standalone rectangles        Tue Apr 05 13:48:56 2011
+
+ ..... Total number of DRC errors  0
+
+ ..... end batch DRC at                       Tue Apr 05 13:48:56 2011
+ *************************************************************************
+

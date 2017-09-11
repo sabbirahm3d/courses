@@ -1,0 +1,12 @@
+\section{Universal Asynchronous Receiver/Transmitter  - 16550}
+The UART is a programmable communications interface designed to connect to virtually any type of serial interface. The 16550 includes a programmable baud rate generator and separate FIFO buffers for input and output data, and is capable of transmitting and receiving data without a clock or timing signal.
+
+    \subsection{Addressing the 16550}
+    The 16550 is decoded in the high bank at odd port addresses from 0x00EF to 0x00E1.
+
+    \subsection{Assembly Implementation}
+    A code segment of interfacing with the interval timer is provided in Section \ref{sec:uart_asm} of Appendix \ref{appendix:code}.
+
+    \subsection{MAX-235 and D-SUB-9}
+    The MAX-235 is used as an intermediate step between the board and any outside connections requiring 12 V signals. The chip acts in a scaling capacity, either increasing or decreasing the signal voltage from 5 V to 12 V, or vice versa.\n
+    The D-SUB-9 is a simple connection adapter for the inputs and outputs.

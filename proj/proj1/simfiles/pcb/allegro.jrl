@@ -1,0 +1,17 @@
+\t (00:00:41) allegro 16.6 P004 (v16-6-112G) Windows 32
+\t (00:00:41)     Journal start - Fri May 12 13:18:39 2017
+\t (00:00:41)         Host=ITE242PC02 User=sabbir1 Pid=51724 CPUs=8
+\t (00:00:41) 
+\d (00:00:41) Database opened: F:/CMPE310/proj/proj1/simfiles/pcb/proj1.brd
+\i (00:00:42) generaledit 
+\i (00:00:46) drc update 
+\t (00:00:46) Performing DRC...
+\t (00:00:46) Multithreaded DRC update (8 threads).
+\t (00:00:46) No DRC errors detected.
+\i (00:00:46) generaledit 
+\i (00:00:49) zoom fit 
+\i (00:00:49) trapsize 812
+\i (00:02:40) exit 
+\e (00:02:40) Do you want to save the changes you made to proj1.brd?
+\i (00:02:44) fillin yes 
+\t (00:02:44)     Journal end - Fri May 12 13:20:41 2017

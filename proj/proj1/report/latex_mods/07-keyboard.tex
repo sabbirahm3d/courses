@@ -1,0 +1,8 @@
+\section{Programmable Keyboard/Display Interface - 8279}
+16 push button switches connected as four rows and four columns, 2 push button switches connected to the control and shift inputs as well as the reset switch connected to the IR0 pin of the 8259 interrupt controller and NMI keys are arranged as the 5$\times$4 keyboard matrix into the 8279 keyboard controller for the system.
+
+    \subsection{Addressing}
+    The 8279 keyboard controller is decoded at 0x00F2 (command) and 0x00F0 (data).
+
+    \subsection{Assembly Implementation}
+    The implementation of the keyboard controller is provided in Section \ref{sec:keybrd_asm} of Appendix \ref{appendix:code}.
