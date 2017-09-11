@@ -1,0 +1,15 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}History}{2}
+\contentsline {subsection}{\numberline {2.1}Electric Motor}{2}
+\contentsline {subsection}{\numberline {2.2}Electric Generator}{3}
+\contentsline {subsection}{\numberline {2.3}Contributions to Society}{4}
+\contentsline {section}{\numberline {3}Physics}{5}
+\contentsline {subsection}{\numberline {3.1}Maxwell's Equations}{5}
+\contentsline {subsection}{\numberline {3.2}Faraday's Law of Induction}{5}
+\contentsline {subsection}{\numberline {3.3}Relating to Coils}{6}
+\contentsline {section}{\numberline {4}Construction}{8}
+\contentsline {subsection}{\numberline {4.1}Brainstorming Phase}{8}
+\contentsline {subsection}{\numberline {4.2}Multiple Trials}{8}
+\contentsline {subsection}{\numberline {4.3}Final Model}{10}
+\contentsline {section}{References}{12}
