@@ -1,0 +1,61 @@
+\section{Part 3}
+    \subsection{Question}
+    The weights of mature dogs of a certain breed approximately follow a normal distribution. Five dogs selected at random weighed 66, 63, 64, 62 and 65 pounds. A kennel club claims that the average weight for this breed is 60 pounds. Using the 0.05 level of significance, do we have reason to doubt this claim?
+
+    \subsection{Answer}
+    The null hypothesis, $H_{0}$, claims the mean weight of the breed is 60 pounds, while the alternative hypothesis, $H_{a}$, says otherwise.
+
+        \[ H_{0}: \mu = 60 \ vs \ H_{a}: \mu \neq 60 \]
+
+    Since the population standard deviation is unknown, and the sample was $n < 30$, the t-score was calculated as follows:
+
+    The sample mean and standard deviation were calculated:
+\begin{lstlisting}
+    weights <- c(66, 63, 64, 62, 65)
+    X <- mean(weights)
+    s <- sd(weights)
+\end{lstlisting}
+
+        \input{latex_mods/part3_out.tex}
+
+
+    The following snippet was used to generate the t-test and its probability:
+\begin{lstlisting}
+    weights <- c(66, 63, 64, 62, 65)
+    X <- mean(weights)
+    s <- sd(weights)
+    n <- length(weights)
+    mu <- 60
+
+    weightsSeq <- seq(1,length(weights))
+
+    df <- data.frame(weightsSeq, weights)
+
+    dumpComputation(X=X, mu=mu, sigma=s, n=n, 
+        alpha=alpha, distType="t", twoSided=TRUE, "part3")
+\end{lstlisting}
+
+    The test statistic was computed to be:
+
+        \begin{align*}
+            \because t_{1-0.025,4}=t_{0.975,4}=2.7764 < 5.6569\\
+        \end{align*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- 2 * (1 - pt(score, df=n-1))
+    # 0.004812
+\end{lstlisting}
+
+    Since $t_{\alpha, df} < t$ and the p-score was well under 0.05, the null hypothesis is rejected.
+
+    \clearpage
+
+    The box plot and normal probability plot were generated:
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.5\textwidth]{figures/part3.png}
+                \caption{Normal Probability Plot and Box Plot of the Distribution} \label{fig:part3}
+            \end{center}
+        \end{figure}

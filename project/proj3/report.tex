@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University/School Laboratory Report
+% LaTeX Template
+% Version 3.1 (25/3/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki 
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=letter, fontsize=11pt]{article}
+
+% packages
+\usepackage{fixltx2e}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption, subcaption}
+\usepackage{color, wrapfig}
+
+\usepackage{xfrac}
+\usepackage{amsmath}  % required for some math elements 
+\usepackage{amssymb}
+
+\usepackage{fancyvrb, listings}  % for code verbatim and console outputs
+\usepackage[margin=1in]{geometry}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{black}{rgb}{0,0,0}
+
+\lstset{frame=tb,
+    language=R,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    escapechar={\?}
+}
+
+\newcommand{\n}{\newline\newline}
+
+\setlength\parindent{0pt} % removes all indentation from paragraphs
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}{
+    fontsize=\footnotesize,
+    frame=lines,  % top and bottom rule only
+    framesep=2em,  % separation between frame and text
+    rulecolor=\color{black},
+    label=\fbox{\color{black}main.R},
+    labelposition=topline,
+}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Project 3 \\ STAT 355}  % Title
+\author{Sabbir \textsc{Ahmed}}  % Author name
+\date{\today}  % Date for the report
+
+\begin{document}
+
+    \maketitle % Insert the title, author and date
+
+    \input{latex_mods/part1}
+    \input{latex_mods/part2}
+    \input{latex_mods/part3}
+    \input{latex_mods/part4}
+    \input{latex_mods/part5}
+    \input{latex_mods/part6}
+
+    \clearpage
+    \newpage
+    \VerbatimInput{main.R}
+
+\end{document}

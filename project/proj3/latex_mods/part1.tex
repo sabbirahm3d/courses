@@ -1,0 +1,38 @@
+\section{Part 1}
+    \subsection{Question}
+    An oceanographer wants to test, on the basis of a random sample of size 35, whether the average depth of the ocean in a certain area is 72.4 fathoms. At the 0.05 level of significance, what will the oceanographer decide if she gets a sample mean of 73.2? Assume the population standard deviation is 2.1.
+
+    \subsection{Answer}
+    The null hypothesis, $H_{0}$, claims the mean depth of the ocean in a certain area is 72.4, while the alternative hypothesis, $H_{a}$, says otherwise.
+
+        \[ H_{0}: \mu = 72.4 \ vs \ H_{a}: \mu \neq 72.4 \]
+
+    Since the population mean and standard deviation are known with a sample size of $n > 30$, the Z-score was calculated as follows:
+
+        \input{latex_mods/part1_out.tex}\newline
+
+    The following snippet was used to generate the Z-test and its probability:
+\begin{lstlisting}
+    X <- 73.2
+    mu <- 72.4
+    sigma <- 2.1
+    n <- 35
+    alpha <- 0.05
+
+    dumpComputation(X=X, mu=mu, sigma=sigma, n=n, 
+        alpha=alpha, distType="Z", twoSided=TRUE, "part1")
+\end{lstlisting}
+
+    The test statistic was computed to be:
+
+    \begin{equation*}
+        Z_{1-\sfrac{0.05}{2}}=Z_{0.975}= 1.96 < 2.2537
+    \end{equation*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- 2 * (1 - (pnorm(score)))
+    # 0.0242
+\end{lstlisting}
+
+    Since $Z_{\sfrac{\alpha}{2}} < Z$ and the p-score was under 0.05, the null hypothesis is rejected.

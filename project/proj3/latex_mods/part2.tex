@@ -1,0 +1,37 @@
+\section{Part 2}
+    \subsection{Question}
+    A random sample of 12 graduates of a secretarial school averaged 73.2 words per minute with a standard deviation of 7.9 words per minute on a typing test. What can we conclude, at the 0.05 level, regarding the claim that secretaries at this school average less than 75 words per minute on the typing test?
+
+    \subsection{Answer}
+    The null hypothesis, $H_{0}$, claims the school averaged greater or equal to 75, while the alternative hypothesis, $H_{a}$, says otherwise.
+
+        \[ H_{0}: \mu < 75 \ vs \ H_{a}: \ \geq 75 \]
+
+    Since the population standard deviation is unknown, and the sample was $n < 30$, the t-score was calculated as follows:
+
+        \input{latex_mods/part2_out.tex}
+
+    The following snippet was used to generate the t-test and its probability:
+\begin{lstlisting}
+    X <- 73.2
+    mu <- 75
+    s <- 7.9
+    n <- 12
+
+    dumpComputation(X=X, mu=mu, sigma=s, n=n, 
+        alpha=alpha, distType="t", twoSided=FALSE, "part2")
+\end{lstlisting}
+
+    The test statistic was computed to be:
+
+        \begin{align*}
+            \because t_{1-0.05,11}=t_{0.95,11}=1.7958 > -0.7893\\
+        \end{align*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- 1-pt(score, df=n-1)
+    # 0.7767
+\end{lstlisting}
+
+    Since $t_{1-\alpha, df} > t$ and the very high p-value, there is strong evidence to not reject the null hypothesis.

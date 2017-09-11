@@ -1,0 +1,63 @@
+\section{Part 4}
+    \subsection{Question}
+    Suppose the lengths in millimeters of metal fibers produced by a certain process have a normal distributions for which the mean was 5.2 and the variance 0.8. After a system upgrade of the process, the engineer wants to test whether the mean length and the variance have changed or not. He took a sample of 15 fibers and measured. The sample mean was 5.4 and the sample variance was 1.0. Based on these measurements, state $H_{0}$ and $H_{a}$ and conduct a test to verify the engineer's concern with $\alpha$ = 0.05.
+
+    \subsection{Answer}
+    The null hypothesis, $H_{0}$, claims the mean of the lengths of the metal fibers after the upgrade is still 5.2, while the alternative hypothesis, $H_{a}$, says otherwise.
+
+        \[ H_{0}: \mu = 5.2 \ vs \ H_{a}: \mu \neq 5.2 \]
+
+    Since the population mean and standard deviation are known with a sample size of $n < 30$, the Z-score was calculated as follows:
+
+        \input{latex_mods/part4_out.tex}\newline
+
+    The following snippet was used to generate the t-test and its probability:
+\begin{lstlisting}
+    X <- 5.4
+    mu <- 5.2
+    sigma <- sqrt(0.8)
+    n <- 15
+
+    dumpComputation(X=X, mu=mu, sigma=sigma, n=n, 
+        alpha=alpha, distType="t", twoSided=TRUE, "part4")
+\end{lstlisting}
+
+    The test statistic was computed to be:
+
+    \begin{equation*}
+        t_{0.025, 14}=-2.14 < 0.8660 < t_{1-0.025, 14}=2.14
+    \end{equation*}
+
+    The p-value was computed with the following snippet:
+\begin{lstlisting}
+    pScore <- 2 * (1 - (pt(score, df=n-1)))
+    # 0.4011
+\end{lstlisting}
+
+    Since $t_{\sfrac{\alpha}{2}} < t < t_{1-\sfrac{\alpha}{2}}$ and the p-score was well over 0.05, there is strong evidence to not reject the null hypothesis.\n
+
+    The null hypothesis for the variance claims the population variance is 0.8, while the alternative hypothesis proposes otherwise.
+
+        \[ H_{0}: \sigma^{2} = 0.8 \ vs \ H_{a}: \sigma^{2} \neq 0.8 \]
+
+    As a separate test, the chi-squared hypothesis test is used:
+
+    \begin{equation*}
+        T=(n-1)\frac{s^{2}}{\sigma^{2}}
+        =(14)\frac{1}{0.64}=21.8750
+    \end{equation*}
+
+    The test statistic was computed to be:
+
+    \begin{equation*}
+        {\chi}^{2}_{0.025, 14}=5.63<21.8750
+    \end{equation*}
+
+    The p-value for the Chi-squared test was computed with the following snippet:
+
+\begin{lstlisting}
+    pScore <- 2 * (1 - (pchisq(score, df=n-1)))
+    # 0.1624
+\end{lstlisting}
+
+    The high p-value also suggests sufficient evidence to not reject the null hypothesis based on the variance testing.
