@@ -1,0 +1,3 @@
+Table: http://tutorial.math.lamar.edu/pdf/Laplace_Table.pdf
+StackOverflow: http://math.stackexchange.com/q/375550
+
