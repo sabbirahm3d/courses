@@ -1,0 +1,11 @@
+*.py[cod]
+*$py.class
+
+# C/C++ extensions
+*.so
+*.out
+*~
+*.h.gch
+*#
+*.d
+.idea/
