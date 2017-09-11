@@ -1,0 +1,6 @@
+[submodule "DS-DC-13"]
+	path = DS-DC-13
+	url = https://github.com/ga-students/DS-DC-13
+[submodule "Heat-Replay"]
+	path = Heat-Replay
+	url = https://github.com/kug3lblitz/Heat-Replay
