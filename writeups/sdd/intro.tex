@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\setcounter{secnumdepth}{2}
+\linespread{1.3}
+
+% -----------------------------------------------------------
+% Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+% -----------------------------------------------------------
+% Custom commands
+
+% header command
+\newcommand{\header}[5]{
+    \begin{centering}
+        \parbox{6.8in}{
+        \begin{flushright}
+        \begin{spacing}{.8}{
+        \fontfamily{cmss}{\large{\textbf{#1}}\\}}
+        \small{
+            #2\\
+            #3\\
+            #4\\
+            #5}\\
+        \end{spacing}
+        \end{flushright}
+        \vspace{-7.5mm}
+        }\\
+        \rule{\textwidth}{0.5pt}\\
+        \vspace{-4mm}
+    \end{centering}
+}
+
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{6.8in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    \fontfamily{cmss}{\textbf{DOC \#: }} & #1 \\
+                    \fontfamily{cmss}{\textbf{DATE: }} & #2 \\
+                    \fontfamily{cmss}{\textbf{TO: }} & #3 \\
+                    \fontfamily{cmss}{\textbf{FROM: }} & #4 \\
+                    \fontfamily{cmss}{\textbf{SUBJECT: }} & #5 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+
+\begin{document}
+
+    \header{CMPE349}{Precision Landing System Project}{MLS Ground Receiver}{1000 Hilltop Cir}{Catonsville, MD 21250}
+    \documentinfo{TSR04}{\today}{Dr. LaBerge}{Team M: Sabbir Ahmed, Shawn Bastani, Abdul-Shahid Wali, Brian Weber}{System Design Document Draft}
+
+    \section{Introduction}
+    This System Design Document was created to outline the system design for the Microwave Landing System Ground-Based Receiver (MGR). The MGR is responsible for gathering and processing data from digital signals received from the ACME front-end to be transfered on to the Executive Monitor (XMON). The technical designs and requirements elaborated on this document will comply with the higher level infrastructure of the Microwave Landing System standards.
+
+        \subsection{System Overview}
+        The MGR is a crucial component of the Microwave Landing System. It is responsible for processing the input elevation angle data signals from the ACME front-end with its digital signal processor (DSP). The data then has to be formatted based on the requirements detailed later to be transferred on to the XMON. The MGR is also responsible for raising proper warning flags to the XMON to inform on the error.
+
+        \subsection{Document Overview}
+        The purpose of this System Design Document is to provide a detailed description of the operational concepts, system external interfaces and the processing resources of the system and the design constraints on them. This document reviews the software and hardware specifications in the digital signal processor, and the algorithms implemented to achieve the specified output data words. Operational requirements and maintenance of the system and its equipment is covered as well.\\
+
+        The documents listed below were used to detail the specifications in the MGR and to cross reference the individual configuration items throughout the System Design Document.
+
+        \begin{itemize}
+
+            \item DO-177
+
+            \item FAA-E-2721
+
+            \item FAA-STD-019E
+
+            \item Microwave Landing System: The New International Standard
+
+            \item Patent US 5254998 A
+
+        \end{itemize}
+
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % EVERYTHING ELSE GOES HERE
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+        \renewcommand{\arraystretch}{1.2}
+        \setlength{\tabcolsep}{0.3cm}
+
+        \centering
+        \begin{tabular}{ |p{5cm}|p{11cm}| }
+            \hline
+                \multicolumn{2}{|c|}{\textbf{Specification Allocations}} \\
+            \hline
+                \textbf{Reference Document} & \textbf{Function} \\
+            \hline
+
+                FAA-STD-019E & \textbf{2.2 Operational Environment}, quality and storage unit of the location of the MGR system with all its components \\
+
+                FAA-E-2721 & \textbf{3.1 System External Interfaces}, data words format \\
+
+                DO-177 & \textbf{3.1 System External Interfaces}, warning flag durations \\
+
+                Patent US 5254998 A & \textbf{3.2 System Architecture}, software components \\
+
+            \hline
+        \end{tabular}
+
+\end{document}

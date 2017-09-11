@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{xparse}
+
+\setcounter{secnumdepth}{2}
+\linespread{1.3}
+
+% -----------------------------------------------------------
+% margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+% custom commands
+\ExplSyntaxOn
+
+\NewDocumentCommand{\makeenumerate}{ m }
+ {
+  \begin{enumerate}
+	  \clist_map_inline:nn { #1 } { \item ##1 }
+  \end{enumerate}
+ }
+
+\ExplSyntaxOff
+
+
+% header command
+\newcommand{\header}[5]{
+	\begin{centering}
+		\parbox{6.8in}{
+			\begin{flushright}
+				\begin{spacing}{.8}{
+					\fontfamily{cmss}{\large{\textbf{#1}}\\}}
+					\small{
+						#2\\
+					}
+				\end{spacing}
+			\end{flushright}
+		\vspace{-7.5mm}
+		}\\
+		\rule{\textwidth}{0.5pt}\\
+		\vspace{-4mm}
+	\end{centering}
+}
+
+% document info command
+\newcommand{\documentinfo}[5]{
+	\begin{centering}
+		\parbox{6.8in}{
+		\begin{spacing}{1}
+			\begin{flushleft}
+				\begin{tabular}{l l}
+					\fontfamily{cmss}{\textbf{DOC \#: }} & #1 \\
+					\fontfamily{cmss}{\textbf{DATE: }} & #2 \\
+					\fontfamily{cmss}{\textbf{BY: }} & #3 \\
+				\end{tabular}\\
+				\rule{\textwidth}{1pt}
+			\end{flushleft}
+		\end{spacing}
+		}
+	\end{centering}
+}
+
+% content
+
+\begin{document}
+
+	\header{CMPE349}{Aircraft Traffic in North Atlantic}{}{}
+
+	\documentinfo{ISR02}{\today}{Sabbir Ahmed}{}
+
+	\section{Introduction}
+	A satellite communication system that will service aircraft flying in oceanic airspace (out of line of sight of land) is to be developed. This note will predict a conservative but reasonable Fermi estimate of the number of aircraft flying over the North Atlantic in the peak busy hour.
+ 
+	\section{Assumptions}
+	The estimation of the number of aircraft will utilize the principles of Fermi problems, which require justified assumptions based on little to no data. Several assumptions are considered in this scenario and are listed as follows:
+
+	\begin{itemize}
+
+		\item The number of aircrafts flying over to Europe equals the number of aircrafts flying back to the United States.
+
+		\item Only international flights departing from major airports in the northern regions of the United States are considered; contributions from other airports are negligible.
+
+		The airports that are considered as major contributors are listed below:
+
+			\begin{table}[h]
+				\centering
+				\begin{tabular*}{300pt}{@{\extracolsep{\fill}} c c c c c}
+
+					ATL & BOS & CHT & DFW & IAD \\
+					JFK & LAX & NWK & ORD & PHL  \\
+					SEA & SFX & STL
+
+				\end{tabular*}
+			\end{table}
+
+		The airports with minor contribution to the North Atlantic air traffic are listed below:
+
+			\begin{table}[h]
+			\centering
+				\begin{tabular*}{100pt}{@{\extracolsep{\fill}} c c c }
+
+					CLE & DEN & MIA \\
+					PAX & TOR & YUL
+
+				\end{tabular*}
+			\end{table}
+
+		\item Aircraft (not just international aircraft) depart busy airports about once every two minutes in the busy hour.
+
+		\item There are more domestic than international flights in the United States.
+
+		\item The large airports contribute to at least 80\% of the total flights in the United States, and the selected airports at least 75\%.
+
+		\item Contributions to air traffic from flights between midnight and dawn are less significant when compared to daytime flights.
+
+		\item Peak hour contains around 25\% more traffic than usual.
+
+	\end{itemize}
+
+	\section{Calculations}
+	Data on air traffic were obtained from various sources. These statistics were used to generate the variations or the bounds of the estimate.
+
+		\begin{itemize}
+
+			\item There are 23,911 commercial flights every day. \cite{faa}
+
+			\item There are almost 3 times more domestic flights than international in the United States. \cite{domvsintl}
+
+		\end{itemize}
+
+		\[ 23,911 \frac{flights}{day} \times \frac{1}{20} \frac{day}{busy \ hour} \approx 1,200 \frac{flights}{busy \ hour} \]
+
+		25\% more flights during peak hour:
+
+		\[ 25\% \times 1,200 \frac{flights}{busy \ hour} + 1,200 \frac{flights}{busy \ hour} = 1,500 \frac{flights}{peak \ hour} \]
+
+		\[ 1,500 \frac{flights}{peak \ hour} \times \frac{1}{4} \frac{international \ flights}{flights} \times \frac{70}{100} \frac{North \ Atlantic \ flights}{international \ flights} \]
+
+		\[ \approx 265 \ \frac{North \ Atlantic \ flights}{peak \ hour} \]
+
+	\section{Conclusion}
+	There can be around 250 - 300 flights flying in the North Atlantic region towards Europe expected during the peak hour.
+
+
+	\begin{thebibliography}{9}
+
+		\bibitem{faa}
+		Air Traffic By The Numbers,
+		\\\texttt{https://www.faa.gov/air\_{}traffic/by\_{}the\_{}numbers}
+
+		\bibitem{domvsintl}
+		2016 Traffic Data for U.S Airlines and Foreign Airlines U.S. Flights,
+		\\\texttt{https://www.rita.dot.gov/bts/press\_{}releases/bts017\_{}17}
+
+		\bibitem{totalpassengers}
+		All Carriers - All Airports
+		\\\texttt{https://www.transtats.bts.gov/Data\_{}Elements.aspx}
+
+
+	\end{thebibliography}
+
+
+\end{document}
