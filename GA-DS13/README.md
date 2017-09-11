@@ -1,1 +1,0 @@
-# General Assembly: Data Science 2.0
