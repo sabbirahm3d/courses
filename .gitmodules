@@ -7,3 +7,6 @@
 [submodule "CMSC411-Computer-Architecture"]
 	path = CMSC411-Computer-Architecture
 	url = https://github.com/sabbirahm3d/CMSC411-Computer-Architecture
+[submodule "CMSC441-Design-And-Analysis-Of-Algorithms"]
+	path = CMSC441-Design-And-Analysis-Of-Algorithms
+	url = https://github.com/sabbirahm3d/CMSC441-Design-And-Analysis-Of-Algorithms
