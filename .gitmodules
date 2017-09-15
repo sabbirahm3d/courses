@@ -4,3 +4,6 @@
 [submodule "CMPE311-Embedded-Systems"]
 	path = CMPE311-Embedded-Systems
 	url = https://github.com/sabbirahm3d/CMPE311-Embedded-Systems
+[submodule "CMSC411-Computer-Architecture"]
+	path = CMSC411-Computer-Architecture
+	url = https://github.com/sabbirahm3d/CMSC411-Computer-Architecture
