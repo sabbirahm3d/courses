@@ -1,3 +1,6 @@
 [submodule "CMPE415-Programmable-Logic-Devices"]
 	path = CMPE415-Programmable-Logic-Devices
 	url = https://github.com/sabbirahm3d/CMPE415-Programmable-Logic-Devices
+[submodule "CMPE311-Embedded-Systems"]
+	path = CMPE311-Embedded-Systems
+	url = https://github.com/sabbirahm3d/CMPE311-Embedded-Systems
