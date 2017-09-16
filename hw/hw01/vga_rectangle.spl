@@ -1,0 +1,13 @@
+[Inputs]
+blank
+clk
+=pos_h[9:0]=
+=pos_v[9:0]=
+[Outputs]
+red
+green
+blue
+[BiDir]
+[ATTRIBUTES]
+VeriModel vga_rectangle
+

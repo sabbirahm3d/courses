@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "/home/sabbir/Desktop/test_xilinx/top.xst" -ofn "/home/sabbir/Desktop/test_xilinx/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+xst -intstyle ise -ifn "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/top.xst" -ofn "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 

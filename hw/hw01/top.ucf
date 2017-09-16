@@ -1,0 +1,10 @@
+# ==== Clock inputs (CLK) ==== 
+NET "CLK_50MHZ" LOC = "C9"  | IOSTANDARD = LVCMOS33 ; 
+#      Define clock period for 50 MHz oscillator (40%/60% duty-cycle) 
+NET "CLK_50MHZ" PERIOD = 20.0ns HIGH 40%; 
+# ==== VGA Port (VGA) ==== 
+NET "VGA_BLUE"   LOC = "G15" | IOSTANDARD = LVTTL  | DRIVE = 8  | SLEW = FAST ; 
+NET "VGA_GREEN"  LOC = "H15" | IOSTANDARD = LVTTL  | DRIVE = 8  | SLEW = FAST ; 
+NET "VGA_HSYNC"  LOC = "F15" | IOSTANDARD = LVTTL  | DRIVE = 8  | SLEW = FAST ; 
+NET "VGA_RED"    LOC = "H14" | IOSTANDARD = LVTTL  | DRIVE = 8  | SLEW = FAST ; 
+NET "VGA_VSYNC"  LOC = "F14" | IOSTANDARD = LVTTL  | DRIVE = 8  | SLEW = FAST ;

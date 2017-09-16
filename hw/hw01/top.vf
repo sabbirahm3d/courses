@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : top.vf
+// /___/   /\     Timestamp : 09/16/2017 18:48:01
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog /home/sabbir/Desktop/test_xilinx/top.vf -w /home/sabbir/Desktop/test_xilinx/top.sch
+//Design Name: top
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module top(CLK_50MHZ, 
+           VGA_BLUE, 
+           VGA_GREEN, 
+           VGA_HSYNC, 
+           VGA_RED, 
+           VGA_VSYNC);
+
+    input CLK_50MHZ;
+   output VGA_BLUE;
+   output VGA_GREEN;
+   output VGA_HSYNC;
+   output VGA_RED;
+   output VGA_VSYNC;
+   
+   wire [9:0] XLXN_3;
+   wire [9:0] XLXN_4;
+   wire XLXN_7;
+   
+   vga_sync  XLXI_1 (.clk(CLK_50MHZ), 
+                    .blank(XLXN_7), 
+                    .hcount(XLXN_4[9:0]), 
+                    .hsync(VGA_HSYNC), 
+                    .pix_clk(), 
+                    .vcount(XLXN_3[9:0]), 
+                    .vsync(VGA_VSYNC));
+   vga_rectangle  XLXI_2 (.blank(XLXN_7), 
+                         .clk(CLK_50MHZ), 
+                         .pos_h(XLXN_4[9:0]), 
+                         .pos_v(XLXN_3[9:0]), 
+                         .blue(VGA_BLUE), 
+                         .green(VGA_GREEN), 
+                         .red(VGA_RED));
+endmodule
