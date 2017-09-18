@@ -29,36 +29,39 @@ OUT DDRB, PORTDEF
 LDI PORTDEF, 0b10000000
 OUT PORTD, PORTDEF
 
-;STATE0:
-;The very first state where no input has been entered. Will directly call READINPUT
-;and wait for user to press the push button. Once the button is pressed, turns on
-;the LED and jumps to next state.
+; STATE0:
+; The very first state where no input has been entered. Will directly call READINPUT
+; and wait for user to press the push button. Once the button is pressed, turns on
+; the LED and jumps to next state.
+STATE0:
+	RCALL READINPUT
+	RCALL TURNONLED
 
+; STATE1:
+; The second state. Does the same thing as State 0 but this time beeps the for successful 
+; push button press.
+STATE1:
+	RCALL READINPUT
+	RCALL BEEPNOISE
 
+; STATE2:
+; Once a button is pressed, turns off the LED and resets
+; Return to state 0
+STATE2:
+	RCALL READINPUT
+	LDI PORTDEF, 0b00000000
+	OUT PORTB, PORTDEF
+	JMP STATE0
 
-
-;STATE1:
-;The second state. Does the same thing as State 0 but this time beeps the for successful 
-;push button press.
-
-
-
-
-;STATE2:
-;Once a button is pressed, turns off the LED and resets
-;Return to state 0
-
-
-
-;Routine to turn on the LED
+; Routine to turn on the LED
 TURNONLED:
-	LDI PORTDEF, 0b00000010
+	LDI PORTDEF, 0b00000000
 	OUT PORTB, PORTDEF
 	RET
 
-;Beepnoise sets the buzzer high (at PortB, Pin 5) and then
-;sits in a loop so that the buzzer is low enough frequency to be hearable to the
-;human ear. 
+; Beepnoise sets the buzzer high (at PortB, Pin 5) and then
+; sits in a loop so that the buzzer is low enough frequency to be hearable to the
+; human ear. 
 BEEPNOISE:
 	LDI PORTDEF, 0b00100000
 	OUT	PORTB, PORTDEF
@@ -75,20 +78,20 @@ BEEPNOISE:
 	RET
 
 
-;Sits in loop and waits for user to press PIND 7
-;If pressed, debounces
+; Sits in loop and waits for user to press PIND 7
+; If pressed, debounces
 READINPUT:
 	SBIS PIND, 7
 		RJMP DEBOUNCE
 	RJMP READINPUT
-;Waits for user to stop pressing and then returns.
+; Waits for user to stop pressing and then returns.
 DEBOUNCE:
 	SBIC PIND, 7
 		RET
 	RJMP DEBOUNCE
 
-;The Wastetime subroutine used to make the buzzer sound hearable. Basically used
-;to lower frequence enough so that the sound from the buzzer is hearable.
+; The Wastetime subroutine used to make the buzzer sound hearable. Basically used
+; to lower frequence enough so that the sound from the buzzer is hearable.
 WASTETIME:
 	CLR COUNTER
 CONTWASTETIME:
