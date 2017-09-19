@@ -17,22 +17,22 @@
 <td>LD_LIBRARY_PATH</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64</td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64</td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin64</td>
 </tr>
 <tr>
 <td>PATH</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:<br>/usr/local/sbin:<br>/usr/local/bin:<br>/usr/sbin:<br>/usr/bin:<br>/sbin:<br>/bin:<br>/usr/games:<br>/usr/local/games:<br>/snap/bin</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:<br>/usr/local/sbin:<br>/usr/local/bin:<br>/usr/sbin:<br>/usr/bin:<br>/sbin:<br>/bin:<br>/usr/games:<br>/usr/local/games:<br>/snap/bin</td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:<br>/usr/local/sbin:<br>/usr/local/bin:<br>/usr/sbin:<br>/usr/bin:<br>/sbin:<br>/bin:<br>/usr/games:<br>/usr/local/games:<br>/snap/bin</td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE//bin/lin64:<br>/usr/local/sbin:<br>/usr/local/bin:<br>/usr/sbin:<br>/usr/bin:<br>/sbin:<br>/bin:<br>/usr/games:<br>/usr/local/games:<br>/snap/bin</td>
 </tr>
 <tr>
 <td>XILINX</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE/</td>
 <td>/opt/Xilinx/14.7/ISE_DS/ISE/</td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp;data not available&nbsp;&gt;</font></td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE/</td>
+<td>/opt/Xilinx/14.7/ISE_DS/ISE/</td>
 </tr>
 </TABLE>
 <A NAME="Synthesis Property Settings"></A>
@@ -353,6 +353,90 @@
 <td>None</td>
 </tr>
 </TABLE>
+<A NAME="Map Property Settings"></A>
+&nbsp;<BR><TABLE BORDER CELLSPACING=0 CELLPADDING=3 WIDTH='100%'>
+<TR ALIGN=CENTER BGCOLOR='#99CCFF'>
+<TD ALIGN=CENTER COLSPAN='4'><B>Map Property Settings </B></TD>
+</tr>
+<tr bgcolor='#ffff99'>
+<td><b>Switch Name</b></td>
+<td><b>Property Name</b></td>
+<td><b>Value</b></td>
+<td><b>Default Value</b></td>
+</tr>
+<tr>
+<td>-ir</td>
+<td>Use RLOC Constraints</td>
+<td>OFF</td>
+<td>OFF</td>
+</tr>
+<tr>
+<td>-cm</td>
+<td>Optimization Strategy (Cover Mode)</td>
+<td>area</td>
+<td>area</td>
+</tr>
+<tr>
+<td>-intstyle</td>
+<td>&nbsp;</td>
+<td>ise</td>
+<td>None</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>&nbsp;</td>
+<td>top_map.ncd</td>
+<td>None</td>
+</tr>
+<tr>
+<td>-pr</td>
+<td>Pack I/O Registers/Latches into IOBs</td>
+<td>off</td>
+<td>off</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>&nbsp;</td>
+<td>xc3s500e-fg320-4</td>
+<td>None</td>
+</tr>
+</TABLE>
+<A NAME="Place and Route Property Settings"></A>
+&nbsp;<BR><TABLE BORDER CELLSPACING=0 CELLPADDING=3 WIDTH='100%'>
+<TR ALIGN=CENTER BGCOLOR='#99CCFF'>
+<TD ALIGN=CENTER COLSPAN='4'><B>Place and Route Property Settings </B></TD>
+</tr>
+<tr bgcolor='#ffff99'>
+<td><b>Switch Name</b></td>
+<td><b>Property Name</b></td>
+<td><b>Value</b></td>
+<td><b>Default Value</b></td>
+</tr>
+<tr>
+<td>-t</td>
+<td>&nbsp;</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>-intstyle</td>
+<td>&nbsp;</td>
+<td>ise</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>-ol</td>
+<td>Place & Route Effort Level (Overall)</td>
+<td>high</td>
+<td>std</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>&nbsp;</td>
+<td>true</td>
+<td>false</td>
+</tr>
+</TABLE>
 <A NAME="Operating System Information"></A>
 &nbsp;<BR><TABLE BORDER CELLSPACING=0 CELLPADDING=3 WIDTH='100%'>
 <TR ALIGN=CENTER BGCOLOR='#99CCFF'>
@@ -367,31 +451,31 @@
 </tr>
 <tr>
 <td>CPU Architecture/Speed</td>
-<td>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz/3096.035 MHz</td>
 <td>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz/3099.937 MHz</td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
+<td>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz/3099.937 MHz</td>
+<td>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz/3099.937 MHz</td>
+<td>Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz/3099.937 MHz</td>
 </tr>
 <tr>
 <td>Host</td>
 <td>danktop</td>
 <td>danktop</td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
+<td>danktop</td>
+<td>danktop</td>
 </tr>
 <tr>
 <td>OS Name</td>
 <td>Ubuntu</td>
 <td>Ubuntu</td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
+<td>Ubuntu</td>
+<td>Ubuntu</td>
 </tr>
 <tr>
 <td>OS Release</td>
 <td>Ubuntu 16.04.3 LTS</td>
 <td>Ubuntu 16.04.3 LTS</td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
-<td><font color=gray>&lt;&nbsp; data not available &nbsp;&gt;</font></td>
+<td>Ubuntu 16.04.3 LTS</td>
+<td>Ubuntu 16.04.3 LTS</td>
 </tr>
 </TABLE>
 </BODY> </HTML>
