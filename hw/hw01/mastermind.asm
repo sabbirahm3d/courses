@@ -1,14 +1,16 @@
 /* Mastermind */
 
-;Include the butterfly definitions for the M169P.
+; Include the butterfly definitions for the M169P.
 .INCLUDE "M169PDEF.INC" ;(BUTTERFLY DEFINITIONS)
 
-.EQU secret = 0b00011011        ; secret code to win the game (U, D, L, R)
-.DEF PORTDEF = R22              ; initialize the stack and also define the
-                                ; port functionality
-.DEF COUNTER = R23              ; Counter 1 and 2 are used to waste time so 
-                                ; that the buzzer sound is hearable
-.DEF COUNTER2 = R24
+; initialize the stack and also define the port functionality
+.DEF PORTDEF                    = R22
+; Counter 1 and 2 are used to waste time so that the buzzer sound is hearable
+.DEF COUNTER                    = R23              
+.DEF COUNTER2                   = R24
+
+; secret code to win the game (UP, DOWN, LEFT, RIGHT)
+.EQU secret                     = 0b00011011
 
 .ORG $0000
     RJMP START
@@ -17,7 +19,7 @@
 START:
 
     LDI PORTDEF, HIGH(RAMEND)   ; Upper byte
-    OUT SPH,PORTDEF             ; to stack pointer
+    OUT SPH, PORTDEF             ; to stack pointer
     LDI PORTDEF, LOW(RAMEND)    ; Lower byte
     OUT SPL, PORTDEF            ; to stack pointer
 
@@ -100,6 +102,7 @@ DEBOUNCE:
 ; to lower frequence enough so that the sound from the buzzer is hearable
 WASTETIME:
     CLR COUNTER
+
 CONTWASTETIME:
     NOP
     DEC COUNTER
@@ -107,12 +110,10 @@ CONTWASTETIME:
         RET
 
 ; definitions for the joystick inputs
-SBIS PINB, 4                    ; joystick press
-    RJMP JOYMID  
 SBIS PINB, 6                    ; joystick up
-    RJMP JOYUP        
+    RJMP JOYUP
 SBIS PINB, 7                    ; joystick down
-    RJMP JOYDOWN            
+    RJMP JOYDOWN
 SBIS PINE, 2                    ; joystick left
     RJMP JOYLEFT
 SBIS PINE, 3                    ; joystick right
