@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/top.ncd
-OUTFILE=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/top.bit
-FAMILY=Spartan3E
-PART=xc3s500e-4fg320
-WORKINGDIR=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01
-LICENSE=WebPack
-USER_INFO=211400879_0_0_415

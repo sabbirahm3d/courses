@@ -1,0 +1,15 @@
+
+
+
+// Instantiate the module
+vga_sync instance_name (
+    .clk(clk), 
+    .hsync(hsync), 
+    .vsync(vsync), 
+    .hcount(hcount), 
+    .vcount(vcount), 
+    .pix_clk(pix_clk), 
+    .blank(blank)
+    );
+
+

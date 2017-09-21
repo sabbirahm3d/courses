@@ -1,0 +1,3 @@
+MODULE top
+	SUBMODULE vga_sync
+		INSTANCE XLXI_1
