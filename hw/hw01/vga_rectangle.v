@@ -25,7 +25,10 @@ module vga_rectangle(
             input [9:0] pos_h,
             input [9:0] pos_v,
             input blank,
-            input clk
+            input clk,
+            input SW0,
+            input SW1,
+            input SW2
         );
 
     parameter WIDTH = 20;
@@ -49,9 +52,30 @@ module vga_rectangle(
     // combinatorial logic and registers (seqential logic) that load on rising
     // clock edge
     always @(posedge clk) begin
-        red   <=  flag_on_rect & ~blank;
-        green <= ~flag_on_rect & ~blank;
-        blue  <=  flag_on_rect & ~blank;
+
+        if (SW0 == 1 && SW1 == 0 && SW2 == 0) begin
+            // should be yellow
+            red <= ~flag_on_rect & ~blank;
+            green <= ~flag_on_rect & ~blank;
+        end else if (SW0 == 0 && SW1 == 1 && SW2 == 0) begin
+            // should be cyan
+            blue <= ~flag_on_rect & ~blank;
+            green <= ~flag_on_rect & ~blank;
+        end else if (SW0 == 0 && SW1 == 0 && SW2 == 1) begin
+            // should be magenta
+            red <= ~flag_on_rect & ~blank;
+            blue <= ~flag_on_rect & ~blank;
+        end else begin
+            // should be black
+            red <= flag_on_rect & ~blank;
+            blue <= flag_on_rect & ~blank;
+            green <= flag_on_rect & ~blank;
+        end
+
+        // red   <=  flag_on_rect & ~blank;
+        // green <= ~flag_on_rect & ~blank;
+        // blue  <=  flag_on_rect & ~blank;
+
     end
 
 endmodule
