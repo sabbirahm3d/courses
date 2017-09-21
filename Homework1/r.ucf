@@ -1,0 +1,3 @@
+NET "SW0" LOC = N17;
+NET "SW1" LOC = H18;
+NET "SW2" LOC = L14;

@@ -1,0 +1,6 @@
+vhdtdtfi -lib work C:/Users/Howard/Homework1/vga_rectangle.v -lang verilog -prj Homework1 -o vga_rectangle.spl -module vga_rectangle -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_rectangle.spl C:/Users/Howard/Homework1/vga_rectangle.sym 
+vhdtdtfi -lib work C:/Users/Howard/Homework1/vga_rectangle.v -lang verilog -prj Homework1 -o vga_rectangle.spl -module vga_rectangle -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_rectangle.spl C:/Users/Howard/Homework1/vga_rectangle.sym 
+vhdtdtfi -lib work C:/Users/Howard/Homework1/vga_rectangle.v -lang verilog -prj Homework1 -o vga_rectangle.spl -module vga_rectangle -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_rectangle.spl C:/Users/Howard/Homework1/vga_rectangle.sym 

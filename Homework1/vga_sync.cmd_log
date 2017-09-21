@@ -1,0 +1,2 @@
+vhdtdtfi -lib work C:/Users/Howard/Desktop/vga_sync.v -lang verilog -prj Homework1 -o vga_sync.spl -module vga_sync -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_sync.spl C:/Users/Howard/Homework1/vga_sync.sym 
