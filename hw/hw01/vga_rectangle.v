@@ -53,20 +53,40 @@ module vga_rectangle(
     // clock edge
     always @(posedge clk) begin
 
-        if (~SW2 && ~SW1 && SW0) begin
-            red <= ~flag_on_rect & ~blank;
-            green <= ~flag_on_rect & ~blank;
-        end else if (~SW2 && SW1 && ~SW0) begin
-            blue <= ~flag_on_rect & ~blank;
-            green <= ~flag_on_rect & ~blank;
-        end else if (SW2 && ~SW1 && ~SW2) begin
-            red <= ~flag_on_rect & ~blank;
-            blue <= ~flag_on_rect & ~blank;
-        end else begin
-            red <= flag_on_rect & ~blank;
-            blue <= flag_on_rect & ~blank;
-            green <= flag_on_rect & ~blank;
-        end
+        case ({SW2, SW1, SW0})
+
+            3'b001:
+            begin
+                // yellow
+                red <= flag_on_rect & ~blank;
+                green <= flag_on_rect & ~blank;
+                blue <= ~flag_on_rect & blank;
+            end
+
+            3'b010:
+            begin
+                // magenta
+                red <= flag_on_rect & ~blank;
+                green <= ~flag_on_rect & blank;
+                blue <= flag_on_rect & ~blank;
+            end
+
+            3'b100:
+            begin
+                // cyan
+                red <= ~flag_on_rect & blank;
+                green <= flag_on_rect & ~blank;
+                blue <= flag_on_rect & ~blank;
+            end
+
+            default:
+            begin
+                red <= ~flag_on_rect & blank;
+                blue <= ~flag_on_rect & blank;
+                green <= ~flag_on_rect & blank;
+            end
+
+        endcase
 
     end
 

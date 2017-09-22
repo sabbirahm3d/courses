@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '3s500e.nph' in environment
    "top" is an NCD, version 3.2, device xc3s500e, package fg320, speed -4
 Opened constraints file top.pcf.
 
-Thu Sep 21 21:31:33 2017
+Fri Sep 22 11:47:04 2017
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g ConfigRate:1 -g ProgPin:PullUp -g DonePin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g DCMShutdown:Disable -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:No -g DriveDone:No top.ncd 
 

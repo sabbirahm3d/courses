@@ -9,7 +9,7 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Thu Sep 21 21:31:15 2017
+Mapped Date    : Fri Sep 22 11:46:48 2017
 
 Design Summary
 --------------
@@ -17,14 +17,14 @@ Number of errors:      0
 Number of warnings:    0
 Logic Utilization:
   Number of Slice Flip Flops:            28 out of   9,312    1%
-  Number of 4 input LUTs:                50 out of   9,312    1%
+  Number of 4 input LUTs:                63 out of   9,312    1%
 Logic Distribution:
-  Number of occupied Slices:             43 out of   4,656    1%
-    Number of Slices containing only related logic:      43 out of      43 100%
-    Number of Slices containing unrelated logic:          0 out of      43   0%
+  Number of occupied Slices:             51 out of   4,656    1%
+    Number of Slices containing only related logic:      51 out of      51 100%
+    Number of Slices containing unrelated logic:          0 out of      51   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          73 out of   9,312    1%
-    Number used as logic:                50
+  Total Number of 4 input LUTs:          86 out of   9,312    1%
+    Number used as logic:                63
     Number used as a route-thru:         23
 
   The Slice Logic Distribution report is not meaningful if the design is
@@ -33,7 +33,7 @@ Logic Distribution:
   Number of bonded IOBs:                  9 out of     232    3%
   Number of BUFGMUXs:                     1 out of      24    4%
 
-Average Fanout of Non-Clock Nets:                2.80
+Average Fanout of Non-Clock Nets:                2.88
 
 Peak Memory Usage:  579 MB
 Total REAL time to MAP completion:  1 secs 
@@ -82,9 +82,8 @@ Section 2 - Warnings
 Section 3 - Informational
 -------------------------
 INFO:MapLib:562 - No environment variables are currently set.
-INFO:LIT:244 - All of the single ended outputs in this design are using slew
-   rate limited output drivers. The delay on speed critical single ended outputs
-   can be dramatically reduced by designating them as fast outputs.
+INFO:MapLib:159 - Net Timing constraints on signal CLK_50MHZ are pushed forward
+   through input buffer.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
@@ -108,15 +107,15 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CLK_50MHZ                          | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW0                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW1                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| SW2                                | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| VGA_BLUE                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| VGA_GREEN                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| VGA_HSYNC                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| VGA_RED                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
-| VGA_VSYNC                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          | 0 / 0    |
+| CLK_50MHZ                          | IBUF             | INPUT     | LVCMOS33             |       |          |      |              |          | 0 / 0    |
+| SW0                                | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW1                                | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW2                                | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| VGA_BLUE                           | IOB              | OUTPUT    | LVTTL                |       | 8        | FAST |              |          | 0 / 0    |
+| VGA_GREEN                          | IOB              | OUTPUT    | LVTTL                |       | 8        | FAST |              |          | 0 / 0    |
+| VGA_HSYNC                          | IOB              | OUTPUT    | LVTTL                |       | 8        | FAST |              |          | 0 / 0    |
+| VGA_RED                            | IOB              | OUTPUT    | LVTTL                |       | 8        | FAST |              |          | 0 / 0    |
+| VGA_VSYNC                          | IOB              | OUTPUT    | LVTTL                |       | 8        | FAST |              |          | 0 / 0    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

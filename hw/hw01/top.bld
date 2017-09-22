@@ -2,7 +2,7 @@ Release 14.7 ngdbuild P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
-ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 top.ngc top.ngd
+ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s500e-fg320-4 top.ngc top.ngd
 
 Reading NGO file
 "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/top.ngc
@@ -10,8 +10,13 @@ Reading NGO file
 Gathering constraint information from source properties...
 Done.
 
+Annotating constraints to design from ucf file "top.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
+INFO:ConstraintSystem - The Period constraint <NET "CLK_50MHZ" PERIOD = 20.0ns
+   HIGH 40%;> [top.ucf(4)], is specified using the Net Period method which is
+   not recommended. Please use the Timespec PERIOD method.
+
 Done...
 
 Checking expanded design ...
@@ -27,7 +32,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 390056 kilobytes
+Total memory usage is 390460 kilobytes
 
 Writing NGD file "top.ngd" ...
 Total REAL time to NGDBUILD completion:  2 sec

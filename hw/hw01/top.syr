@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: top.prj
@@ -278,25 +278,24 @@ Design Statistics
 # IOs                              : 9
 
 Cell Usage :
-# BELS                             : 131
+# BELS                             : 144
 #      GND                         : 1
 #      INV                         : 8
 #      LUT1                        : 23
-#      LUT2                        : 4
-#      LUT2_L                      : 1
-#      LUT3                        : 4
+#      LUT2                        : 3
+#      LUT2_D                      : 1
+#      LUT3                        : 11
 #      LUT3_D                      : 2
 #      LUT4                        : 25
-#      LUT4_D                      : 5
-#      LUT4_L                      : 1
+#      LUT4_D                      : 4
+#      LUT4_L                      : 10
 #      MUXCY                       : 27
-#      MUXF5                       : 1
 #      VCC                         : 1
 #      XORCY                       : 28
 # FlipFlops/Latches                : 28
-#      FDR                         : 2
+#      FD                          : 3
+#      FDR                         : 1
 #      FDRE                        : 24
-#      FDS                         : 2
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 8
@@ -309,9 +308,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       39  out of   4656     0%  
+ Number of Slices:                       46  out of   4656     0%  
  Number of Slice Flip Flops:             28  out of   9312     0%  
- Number of 4 input LUTs:                 73  out of   9312     0%  
+ Number of 4 input LUTs:                 87  out of   9312     0%  
  Number of IOs:                           9
  Number of bonded IOBs:                   9  out of    232     3%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -348,9 +347,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 7.882ns (Maximum Frequency: 126.871MHz)
-   Minimum input arrival time before clock: 4.373ns
-   Maximum output required time after clock: 4.310ns
+   Minimum period: 7.822ns (Maximum Frequency: 127.845MHz)
+   Minimum input arrival time before clock: 6.476ns
+   Maximum output required time after clock: 4.283ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -359,35 +358,36 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_50MHZ'
-  Clock period: 7.882ns (frequency: 126.871MHz)
-  Total number of paths / destination ports: 1041 / 75
+  Clock period: 7.822ns (frequency: 127.845MHz)
+  Total number of paths / destination ports: 1130 / 72
 -------------------------------------------------------------------------
-Delay:               7.882ns (Levels of Logic = 5)
-  Source:            XLXI_1/pcount (FF)
-  Destination:       XLXI_1/vblank (FF)
+Delay:               7.822ns (Levels of Logic = 6)
+  Source:            XLXI_1/hcount_0 (FF)
+  Destination:       XLXI_2/blue (FF)
   Source Clock:      CLK_50MHZ rising
   Destination Clock: CLK_50MHZ rising
 
-  Data Path: XLXI_1/pcount to XLXI_1/vblank
+  Data Path: XLXI_1/hcount_0 to XLXI_2/blue
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              5   0.591   0.712  XLXI_1/pcount (XLXI_1/pcount)
-     LUT2_L:I1->LO         1   0.704   0.104  XLXI_1/hreset1_SW0 (N16)
-     LUT4:I3->O            3   0.704   0.535  XLXI_1/hreset1 (XLXI_1/N4)
-     LUT4:I3->O           15   0.704   1.021  XLXI_1/hreset (XLXI_1/hreset)
-     LUT4_D:I3->O          1   0.704   0.424  XLXI_1/vblankon1 (XLXI_1/N01)
-     LUT4:I3->O            1   0.704   0.420  XLXI_1/vblankon2 (XLXI_1/vblankon)
-     FDRE:CE                   0.555          XLXI_1/vblank
+     FDRE:C->Q             5   0.591   0.808  XLXI_1/hcount_0 (XLXI_1/hcount_0)
+     LUT4_D:I0->LO         1   0.704   0.135  XLXI_1/hreset_SW0 (N55)
+     LUT3:I2->O            4   0.704   0.591  XLXI_1/hreset_SW1 (N29)
+     LUT4_D:I3->O          5   0.704   0.637  XLXI_1/blank1 (XLXN_4)
+     LUT4:I3->O            1   0.704   0.424  XLXI_2/flag_on_rect174_SW3_SW0 (N34)
+     LUT4_L:I3->LO         1   0.704   0.104  XLXI_2/flag_on_rect174_SW3 (N24)
+     LUT4:I3->O            1   0.704   0.000  XLXI_2/green_mux00001 (XLXI_2/green_mux0000)
+     FD:D                      0.308          XLXI_2/green
     ----------------------------------------
-    Total                      7.882ns (4.666ns logic, 3.216ns route)
-                                       (59.2% logic, 40.8% route)
+    Total                      7.822ns (5.123ns logic, 2.699ns route)
+                                       (65.5% logic, 34.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_50MHZ'
-  Total number of paths / destination ports: 21 / 5
+  Total number of paths / destination ports: 45 / 3
 -------------------------------------------------------------------------
-Offset:              4.373ns (Levels of Logic = 3)
+Offset:              6.476ns (Levels of Logic = 5)
   Source:            SW2 (PAD)
   Destination:       XLXI_2/blue (FF)
   Destination Clock: CLK_50MHZ rising
@@ -397,18 +397,20 @@ Offset:              4.373ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             6   1.218   0.844  SW2_IBUF (SW2_IBUF)
-     LUT4_D:I0->O          1   0.704   0.595  XLXI_2/flag_on_rect174_SW1 (N31)
-     LUT4:I0->O            1   0.704   0.000  XLXI_2/blue_mux0000791 (XLXI_2/blue_mux000079)
-     FDS:D                     0.308          XLXI_2/blue
+     LUT3:I0->O            4   0.704   0.762  XLXI_2/red_cmp_eq00011 (XLXI_2/red_cmp_eq0001)
+     LUT4:I0->O            1   0.704   0.424  XLXI_2/flag_on_rect174_SW1_SW0 (N31)
+     LUT4_L:I3->LO         1   0.704   0.104  XLXI_2/flag_on_rect174_SW1 (N21)
+     LUT4:I3->O            1   0.704   0.000  XLXI_2/red_mux00001 (XLXI_2/red_mux0000)
+     FD:D                      0.308          XLXI_2/red
     ----------------------------------------
-    Total                      4.373ns (2.934ns logic, 1.439ns route)
-                                       (67.1% logic, 32.9% route)
+    Total                      6.476ns (4.342ns logic, 2.134ns route)
+                                       (67.0% logic, 33.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_50MHZ'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              4.310ns (Levels of Logic = 1)
+Offset:              4.283ns (Levels of Logic = 1)
   Source:            XLXI_2/blue (FF)
   Destination:       VGA_BLUE (PAD)
   Source Clock:      CLK_50MHZ rising
@@ -417,22 +419,22 @@ Offset:              4.310ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDS:C->Q              2   0.591   0.447  XLXI_2/blue (XLXI_2/blue)
+     FD:C->Q               1   0.591   0.420  XLXI_2/blue (XLXI_2/blue)
      OBUF:I->O                 3.272          VGA_BLUE_OBUF (VGA_BLUE)
     ----------------------------------------
-    Total                      4.310ns (3.863ns logic, 0.447ns route)
-                                       (89.6% logic, 10.4% route)
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.85 secs
+Total CPU time to Xst completion: 3.76 secs
  
 --> 
 
 
-Total memory usage is 512016 kilobytes
+Total memory usage is 511864 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
