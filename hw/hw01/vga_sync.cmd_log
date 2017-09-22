@@ -1,0 +1,2 @@
+vhdtdtfi -lib work /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/vga_sync.v -lang verilog -prj hw01 -o vga_sync.spl -module vga_sync -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_sync.spl /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/vga_sync.sym 

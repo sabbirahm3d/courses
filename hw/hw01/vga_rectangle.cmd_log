@@ -1,0 +1,2 @@
+vhdtdtfi -lib work /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/vga_rectangle.v -lang verilog -prj hw01 -o vga_rectangle.spl -module vga_rectangle -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vga_rectangle.spl /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/vga_rectangle.sym 
