@@ -1,4 +1,6 @@
-/* uart.asm */ 
+/* uart.asm 
+specifications for the UART interface
+*/ 
 
 ; Simple program to send "Hello! World" using AVR Butteryfly @ default 8Mhz
 ; runs 4800 buad with 2 stop bits and no parity
