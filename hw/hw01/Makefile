@@ -1,6 +1,5 @@
 # Makefile to ease trivial tasks for the project
 
-all: convert
 
 .PHONY: convert convert1 convert2
 convert: convert1 convert2
