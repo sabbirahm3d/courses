@@ -14,7 +14,7 @@ OUT SPH, TEMP                   ; to stack pointer
 LDI TEMP, LOW(RAMEND)           ; Lower byte
 OUT SPL, TEMP                   ; to stack pointer
 
-UART_INIT:
+USART_INIT:
 
     ; Load UBRRH with 0 and UBRRL with 103
     ; in other words FOSC/16/BAUD-1
@@ -39,12 +39,12 @@ UART_INIT:
     STS UCSR0C, TEMP
 
 ; data for delimiters
-UART_TRANSMIT_COMMA:
+USART_TRANSMIT_COMMA:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_COMMA
+    RJMP USART_TRANSMIT_COMMA
 
     ; send the data
     LDI TEMP, 0x2C              ; transmits ','
@@ -52,23 +52,23 @@ UART_TRANSMIT_COMMA:
 
 
 ; data for input status
-UART_TRANSMIT_S:
+USART_TRANSMIT_S:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_S
+    RJMP USART_TRANSMIT_S
 
     ; send the data
     LDI TEMP, 0x53              ; transmits 'S'
     STS UDR0, TEMP
 
-UART_TRANSMIT_F:
+USART_TRANSMIT_F:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_F
+    RJMP USART_TRANSMIT_F
 
     ; send the data
     LDI TEMP, 0x46              ; transmits 'F'
@@ -76,45 +76,45 @@ UART_TRANSMIT_F:
 
 
 ; data for joystick input
-UART_TRANSMIT_U:
+USART_TRANSMIT_U:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_U
+    RJMP USART_TRANSMIT_U
 
     ; send the data
     LDI TEMP, 0x55              ; transmits 'U'
     STS UDR0, TEMP
 
-UART_TRANSMIT_D:
+USART_TRANSMIT_D:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_D
+    RJMP USART_TRANSMIT_D
 
     ; send the data
     LDI TEMP, 0x44              ; transmits 'D'
     STS UDR0, TEMP
 
-UART_TRANSMIT_L:
+USART_TRANSMIT_L:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_L
+    RJMP USART_TRANSMIT_L
 
     ; send the data
     LDI TEMP, 0x4C              ; transmits 'L'
     STS UDR0, TEMP
 
-UART_TRANSMIT_R:
+USART_TRANSMIT_R:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_R
+    RJMP USART_TRANSMIT_R
 
     ; send the data
     LDI TEMP, 0x52              ; transmits 'R'
@@ -122,56 +122,56 @@ UART_TRANSMIT_R:
 
 
 ; data for states
-UART_TRANSMIT_0:
+USART_TRANSMIT_0:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_0
+    RJMP USART_TRANSMIT_0
 
     ; send the data
     LDI TEMP, 0x30              ; transmits '0'
     STS UDR0, TEMP
 
-UART_TRANSMIT_1:
+USART_TRANSMIT_1:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_1
+    RJMP USART_TRANSMIT_1
 
     ; send the data
     LDI TEMP, 0x31              ; transmits '1'
     STS UDR0, TEMP
 
-UART_TRANSMIT_2:
+USART_TRANSMIT_2:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_2
+    RJMP USART_TRANSMIT_2
 
     ; send the data
     LDI TEMP, 0x32              ; transmits '2'
     STS UDR0, TEMP
 
-UART_TRANSMIT_3:
+USART_TRANSMIT_3:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_3
+    RJMP USART_TRANSMIT_3
 
     ; send the data
     LDI TEMP, 0x33             ; transmits '3'
     STS UDR0, TEMP
 
-UART_TRANSMIT_4:
+USART_TRANSMIT_4:
 
     ; Wait for empty transmit buffer
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT_4
+    RJMP USART_TRANSMIT_4
 
     ; send the data
     LDI TEMP, 0x34              ; transmits '4'
@@ -182,13 +182,13 @@ DONE:
     RJMP DONE
 
 ; assumes data is in register TEMP
-UART_TRANSMIT:
+USART_TRANSMIT:
 
     ; Wait for empty transmit buffer
     ;sbis UCSR0A,UDRE
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
-    RJMP UART_TRANSMIT
+    RJMP USART_TRANSMIT
 
     ; send the data
     STS UDR0, TEMP

@@ -15,6 +15,13 @@ State machine implementation of Mastermind
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET                     = 0b00011011
 
+; mapping of joystick inputs to simpler states
+.EQU UP                         = 0b00
+.EQU DOWN                       = 0b01
+.EQU LEFT                       = 0b10
+.EQU RIGHT                      = 0b11
+
+
 .ORG $0000
     RJMP START
 
@@ -67,9 +74,109 @@ STATE3:
     JMP STATE0
 
 
+; sits in loop and waits for user to press PINB 6 (UP)
+; if pressed, debounces
+; if the wrong input is provided, BUZZERON is called and the program resets
+READSTATE1:
+    ; correct input
+    SBIS PINB, 6                ; joystick up
+        RJMP DEBOUNCE1
+
+    ; incorrect input
+    SBIS PINB, 7                ; joystick down
+        RCALL BUZZERON
+    SBIS PINE, 2                ; joystick left
+        RCALL BUZZERON
+    SBIS PINE, 3                ; joystick right
+        RCALL BUZZERON
+
+    RJMP READSTATE1
+
+; Waits for user to stop pressing and then returns.
+DEBOUNCE1:
+    SBIC PINB, 6
+        RET
+    RJMP DEBOUNCE1
+
+
+; sits in loop and waits for user to press PINB 7 (DOWN)
+; if pressed, debounces
+; if the wrong input is provided, BUZZERON is called and the program resets
+READSTATE2:
+    ; correct input
+    SBIS PINB, 7                ; joystick down
+        RJMP DEBOUNCE2
+
+    ; incorrect input
+    SBIS PINB, 6                ; joystick up
+        RCALL BUZZERON
+    SBIS PINE, 2                ; joystick left
+        RCALL BUZZERON
+    SBIS PINE, 3                ; joystick right
+        RCALL BUZZERON
+
+    RJMP READSTATE2
+
+; Waits for user to stop pressing and then returns.
+DEBOUNCE2:
+    SBIC PINB, 7
+        RET
+    RJMP DEBOUNCE2
+
+
+; sits in loop and waits for user to press PINE 2 (LEFT)
+; if pressed, debounces
+; if the wrong input is provided, BUZZERON is called and the program resets
+READSTATE3:
+    ; correct input
+    SBIS PINE, 2                ; joystick left
+        RJMP DEBOUNCE3
+
+    ; incorrect input
+    SBIS PINB, 6                ; joystick up
+        RCALL BUZZERON
+    SBIS PINB, 7                ; joystick down
+        RCALL BUZZERON
+    SBIS PINE, 3                ; joystick right
+        RCALL BUZZERON
+
+    RJMP READSTATE3
+
+; Waits for user to stop pressing and then returns.
+DEBOUNCE3:
+    SBIC PINE, 2
+        RET
+    RJMP DEBOUNCE3
+
+
+; sits in loop and waits for user to press PINE 2 (RIGHT)
+; if pressed, debounces
+; if the wrong input is provided, BUZZERON is called and the program resets
+READSTATE4:
+    ; correct input
+    SBIS PINE, 3                ; joystick right
+        RJMP DEBOUNCE4
+
+    ; incorrect input
+    SBIS PINB, 6                ; joystick up
+        RCALL BUZZERON
+    SBIS PINB, 7                ; joystick down
+        RCALL BUZZERON
+    SBIS PINE, 2                ; joystick left
+        RCALL BUZZERON
+
+    RJMP READSTATE4
+
+; Waits for user to stop pressing and then returns.
+DEBOUNCE4:
+    SBIC PINB, 3
+        RET
+    RJMP DEBOUNCE4
+
+
 ; Routine to turn on the LED
 LEDON:
-    LDI PORTDEF, 0b00000000
+    LDI PORTDEF, 0b00000010
     OUT PORTB, PORTDEF
     RET
 
@@ -97,91 +204,8 @@ BUZZERON:
     JMP STATE0                  ; reset
     RET
 
-; sits in loop and waits for user to press PINB 6 (UP)
-; if pressed, debounces
-; if the wrong input is provided, BUZZERON is called and the program resets
-READSTATE1:
-    ; correct input
-    SBIS PINB, 6                ; joystick up
-        RJMP DEBOUNCE
-
-    ; incorrect input
-    SBIS PINB, 7                ; joystick down
-        RCALL BUZZERON
-    SBIS PINE, 2                ; joystick left
-        RCALL BUZZERON
-    SBIS PINE, 3                ; joystick right
-        RCALL BUZZERON
-
-    RJMP READSTATE1
-
-; sits in loop and waits for user to press PINB 7 (DOWN)
-; if pressed, debounces
-; if the wrong input is provided, BUZZERON is called and the program resets
-READSTATE2:
-    ; correct input
-    SBIS PINB, 7                ; joystick down
-        RJMP DEBOUNCE
-
-    ; incorrect input
-    SBIS PINB, 6                ; joystick up
-        RCALL BUZZERON
-    SBIS PINE, 2                ; joystick left
-        RCALL BUZZERON
-    SBIS PINE, 3                ; joystick right
-        RCALL BUZZERON
-
-    RJMP READSTATE2
-
-; sits in loop and waits for user to press PINE 2 (LEFT)
-; if pressed, debounces
-; if the wrong input is provided, BUZZERON is called and the program resets
-READSTATE3:
-    ; correct input
-    SBIS PINE, 2                ; joystick left
-        RJMP DEBOUNCE
-
-    ; incorrect input
-    SBIS PINB, 6                ; joystick up
-        RCALL BUZZERON
-    SBIS PINB, 7                ; joystick down
-        RCALL BUZZERON
-    SBIS PINE, 3                ; joystick right
-        RCALL BUZZERON
-
-    RJMP READSTATE3
-
-; sits in loop and waits for user to press PINE 2 (RIGHT)
-; if pressed, debounces
-; if the wrong input is provided, BUZZERON is called and the program resets
-READSTATE4:
-    ; correct input
-    SBIS PINE, 3                ; joystick right
-        RJMP DEBOUNCE
-
-    ; incorrect input
-    SBIS PINB, 6                ; joystick up
-        RCALL BUZZERON
-    SBIS PINB, 7                ; joystick down
-        RCALL BUZZERON
-    SBIS PINE, 2                ; joystick left
-        RCALL BUZZERON
-
-    RJMP READSTATE4
-
-READINPUT:
-    SBIS PIND, 7
-        RJMP DEBOUNCE
-    RJMP READINPUT
-
-; Waits for user to stop pressing and then returns.
-DEBOUNCE:
-    SBIC PIND, 7
-        RET
-    RJMP DEBOUNCE
-
-; Used to make the buzzer sound hearable. Used
-; to lower frequence enough so that the sound from the buzzer is hearable
+; Used to make the buzzer sound hearable. Used to lower frequence enough so
+; that the sound from the buzzer is hearable
 WASTETIME:
     CLR COUNTER
 
@@ -190,6 +214,14 @@ CONTWASTETIME:
     DEC COUNTER
     BRNE CONTWASTETIME
         RET
+
+
+
+; READINPUT:
+;     SBIS PIND, 7
+;         RJMP DEBOUNCE
+;     RJMP READINPUT
+
 
 ; ; definitions for the joystick inputs
 ; SBIS PINB, 6                    ; joystick up
