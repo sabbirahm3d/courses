@@ -12,8 +12,8 @@ State machine implementation of Mastermind
 .DEF CTR        = R23              
 .DEF CTR2       = R24
 
-; 
-.DEF JOYSTICK   = R25
+; registers to handle the comparisons
+.DEF USER       = R25
 .DEF CURSOR     = R26
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
@@ -22,7 +22,8 @@ State machine implementation of Mastermind
 ; mapping of joystick inputs to simpler states
 .EQU UP         = 0b00000000
 .EQU DOWN       = 0b00000001
-.EQU LEFT       = 0b00000010
+.EQU LEFT       = 0b00000010                ; LEFT also works as a 2-bit mask
+                                            ; (since 0b00000010 = 3)
 .EQU RIGHT      = 0b00000011
 
 
@@ -48,28 +49,34 @@ PORT_INIT:      LDI PORTDEF, 0b00100010
                 OUT PORTD, PORTDEF
 
 ; STATE0
-STATE0:         LDI JOYSTICK, 0b00000000
+STATE0:         LDI USER, 0b00000000
                 LDI CURSOR, (SECRET >> 6)
+                RJMP USART_TRANSMIT_0
+                RJMP USART_TRANSMIT_COMMA
                 RCALL READINPUT
 
 ; STATE1
-STATE1:         LDI JOYSTICK, (JOYSTICK << 2)
+STATE1:         LDI USER, (USER << 2)
                 LDI CURSOR, (SECRET >> 4)
+                RJMP USART_TRANSMIT_1
+                RJMP USART_TRANSMIT_COMMA
                 RCALL READINPUT
 
 ; STATE2
-STATE2:         LDI JOYSTICK, (JOYSTICK << 2)
+STATE2:         LDI USER, (USER << 2)
                 LDI CURSOR, (SECRET >> 2)
+                RJMP USART_TRANSMIT_2
+                RJMP USART_TRANSMIT_COMMA
                 RCALL READINPUT
 
 ; STATE3
-STATE3:         LDI JOYSTICK, (JOYSTICK << 2)
+STATE3:         LDI USER, (USER << 2)
                 LDI CURSOR, SECRET
+                RJMP USART_TRANSMIT_3
+                RJMP USART_TRANSMIT_COMMA
                 RCALL READINPUT
 
                 RCALL LEDON
-                JMP STATE0
-
 
 READINPUT:      SBIS PINB, 6                ; joystick up
                     RCALL JOYSTICKUP
@@ -83,29 +90,52 @@ READINPUT:      SBIS PINB, 6                ; joystick up
                 SBIS PINE, 3                ; joystick right
                     RCALL JOYSTICKRT
 
+                SBIS PIND, 7                ; push button
+                    RJMP RESETPB
+                    RJMP STATE0             ; reset
+
                 RJMP READINPUT
 
-JOYSTICKUP:     ADD JOYSTICK, UP
-                CP JOYSTICK, CURSOR
+JOYSTICKUP:     RJMP USART_TRANSMIT_U
+                RJMP USART_TRANSMIT_COMMA
+
+                ADD USER, UP
+                CP (USER & LEFT), (CURSOR & LEFT)
                     RJMP DEBOUNCEUP
                 BRNE BUZZERON
 
-JOYSTICKDN:     ADD JOYSTICK, DOWN
-                CP JOYSTICK, CURSOR
+JOYSTICKDN:     RJMP USART_TRANSMIT_D
+                RJMP USART_TRANSMIT_COMMA
+
+                ADD USER, DOWN
+                CP (USER & LEFT), (CURSOR & LEFT)
                     RJMP DEBOUNCEDN
                 BRNE BUZZERON
 
-JOYSTICKLT:     ADD JOYSTICK, LEFT
-                CP JOYSTICK, CURSOR
+JOYSTICKLT:     RJMP USART_TRANSMIT_L
+                RJMP USART_TRANSMIT_COMMA
+
+                ADD USER, LEFT
+                CP (USER & LEFT), (CURSOR & LEFT)
                     RJMP DEBOUNCELT
                 BRNE BUZZERON
 
-JOYSTICKRT:     ADD JOYSTICK, RIGHT
-                CP JOYSTICK, CURSOR
+JOYSTICKRT:     RJMP USART_TRANSMIT_R
+                RJMP USART_TRANSMIT_COMMA
+
+                ADD USER, RIGHT
+                CP (USER & LEFT), (CURSOR & LEFT)
                     RJMP DEBOUNCERT
                 BRNE BUZZERON
 
+RESETPB:        RJMP LEDOFF
+                RJMP DEBOUNCEPB
+
 ; Waits for user to stop pressing and then returns.
+DEBOUNCEPB:     SBIC PIND, 7
+                    RET
+                RJMP DEBOUNCEPB
+
 DEBOUNCEUP:     SBIC PINB, 6
                     RET
                 RJMP DEBOUNCEUP
@@ -125,6 +155,11 @@ DEBOUNCERT:     SBIC PINE, 3
 
 ; Routine to turn on the LED
 LEDON:          LDI PORTDEF, 0b00000010
+                OUT PORTB, PORTDEF
+                RET
+
+; Routine to turn off the LED
+LEDON:          LDI PORTDEF, 0b00000000
                 OUT PORTB, PORTDEF
                 RET
 
