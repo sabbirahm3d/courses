@@ -7,20 +7,23 @@ State machine implementation of Mastermind
 .INCLUDE "uart.asm"
 
 ; initialize the stack and also define the port functionality
-.DEF PORTDEF     = R22
-; Counter 1 and 2 are used to waste time so that the buzzer sound is hearable
+.DEF PORTDEF    = R22
+; Counters 1 and 2 are used to waste time so that the buzzer sound is hearable
 .DEF CTR        = R23              
 .DEF CTR2       = R24
-.DEF JOYSTICK   = R2
+
+; 
+.DEF JOYSTICK   = R25
+.DEF CURSOR     = R26
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
 
 ; mapping of joystick inputs to simpler states
-.EQU UP         = 0b00
-.EQU DOWN       = 0b01
-.EQU LEFT       = 0b10
-.EQU RIGHT      = 0b11
+.EQU UP         = 0b00000000
+.EQU DOWN       = 0b00000001
+.EQU LEFT       = 0b00000010
+.EQU RIGHT      = 0b00000011
 
 
 .ORG $0000
@@ -30,6 +33,7 @@ State machine implementation of Mastermind
 ; Initializes the stack.
 START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
                 OUT SPH, PORTDEF            ; to stack pointer
+
                 LDI PORTDEF, LOW(RAMEND)    ; lower byte
                 OUT SPL, PORTDEF            ; to stack pointer
 
@@ -39,57 +43,84 @@ START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
 ; The buzzer is also connected to PORT B (Pin 5) so that is initialized as well
 PORT_INIT:      LDI PORTDEF, 0b00100010
                 OUT DDRB, PORTDEF
+
                 LDI PORTDEF, 0b10000000
                 OUT PORTD, PORTDEF
 
 ; STATE0
-; STATE0:         LDI JOYSTICK, UP
+STATE0:         LDI JOYSTICK, 0b00000000
+                LDI CURSOR, (SECRET >> 6)
                 RCALL READINPUT
 
-; STATE1:
-STATE1:         RCALL READSTATE2
+; STATE1
+STATE1:         LDI JOYSTICK, (JOYSTICK << 2)
+                LDI CURSOR, (SECRET >> 4)
+                RCALL READINPUT
 
-; STATE2:
-STATE2:         RCALL READSTATE3
+; STATE2
+STATE2:         LDI JOYSTICK, (JOYSTICK << 2)
+                LDI CURSOR, (SECRET >> 2)
+                RCALL READINPUT
 
+; STATE3
+STATE3:         LDI JOYSTICK, (JOYSTICK << 2)
+                LDI CURSOR, SECRET
+                RCALL READINPUT
 
-STATE3:         RCALL READSTATE4
                 RCALL LEDON
                 JMP STATE0
 
 
 READINPUT:      SBIS PINB, 6                ; joystick up
-                    RJMP JOYSTICKUP
+                    RCALL JOYSTICKUP
 
                 SBIS PINB, 7                ; joystick down
-                    RCALL JOYSTICKDOWN
+                    RCALL JOYSTICKDN
 
                 SBIS PINE, 2                ; joystick left
-                    RCALL JOYSTICKLEFT
+                    RCALL JOYSTICKLT
 
                 SBIS PINE, 3                ; joystick right
-                    RCALL JOYSTICKRIGHT
+                    RCALL JOYSTICKRT
 
                 RJMP READINPUT
 
-JOYSTICKUP:
+JOYSTICKUP:     ADD JOYSTICK, UP
+                CP JOYSTICK, CURSOR
+                    RJMP DEBOUNCEUP
+                BRNE BUZZERON
+
+JOYSTICKDN:     ADD JOYSTICK, DOWN
+                CP JOYSTICK, CURSOR
+                    RJMP DEBOUNCEDN
+                BRNE BUZZERON
+
+JOYSTICKLT:     ADD JOYSTICK, LEFT
+                CP JOYSTICK, CURSOR
+                    RJMP DEBOUNCELT
+                BRNE BUZZERON
+
+JOYSTICKRT:     ADD JOYSTICK, RIGHT
+                CP JOYSTICK, CURSOR
+                    RJMP DEBOUNCERT
+                BRNE BUZZERON
 
 ; Waits for user to stop pressing and then returns.
 DEBOUNCEUP:     SBIC PINB, 6
                     RET
                 RJMP DEBOUNCEUP
 
-DEBOUNCEDOWN:   SBIC PINB, 7
+DEBOUNCEDN:     SBIC PINB, 7
                     RET
-                RJMP DEBOUNCEDOWN
+                RJMP DEBOUNCEDN
 
-DEBOUNCELEFT:   SBIC PINE, 2
+DEBOUNCELT:     SBIC PINE, 2
                     RET
-                RJMP DEBOUNCELEFT
+                RJMP DEBOUNCELT
 
-DEBOUNCERIGHT:  SBIC PINE, 3
+DEBOUNCERT:     SBIC PINE, 3
                     RET
-                RJMP DEBOUNCERIGHT
+                RJMP DEBOUNCERT
 
 
 ; Routine to turn on the LED

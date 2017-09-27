@@ -1,14 +1,54 @@
-SECRET = 0b00011011
+import sys
 
-MASK = (1 << 2) - 1
-# print bin(SECRET)
-# print bin(SECRET - 0b00)
-# print bin(SECRET ^ 0b00001011)
+BITFORMAT = "{:08b}"
+SECRET = 0b11100100
+JOYSTICK = 0b00000000
 
-Char1 = SECRET & 0xFF
-Char2 = SECRET >> 8
-MyShort = (Char2 << 8) | Char1
+u = 0b00000000
+d = 0b00000001
+l = 0b00000010
+r = 0b00000011
 
-print(bin(Char1))
-print(bin(Char2))
-print(bin(MyShort))
+print "SECRET:", BITFORMAT.format(SECRET)
+print "JOYSTICK:", BITFORMAT.format(JOYSTICK), "\n"
+
+JOYSTICK = JOYSTICK + input("input: ")
+CURSOR = SECRET >> 6
+print "JOYSTICK:", BITFORMAT.format(JOYSTICK)
+print "STATE0:", BITFORMAT.format(CURSOR)
+
+if CURSOR != JOYSTICK:
+    sys.exit("wrong")
+
+
+JOYSTICK = JOYSTICK << 2
+JOYSTICK = JOYSTICK + input("input: ")
+CURSOR = SECRET >> 4
+
+print "\nJOYSTICK:", BITFORMAT.format(JOYSTICK)
+print "STATE1:", BITFORMAT.format(CURSOR)
+
+if CURSOR != JOYSTICK:
+    sys.exit("wrong")
+
+
+JOYSTICK = JOYSTICK << 2
+JOYSTICK = JOYSTICK + input("input: ")
+CURSOR = SECRET >> 2
+
+print "\nJOYSTICK:", BITFORMAT.format(JOYSTICK)
+print "STATE2:", BITFORMAT.format(CURSOR)
+
+if CURSOR != JOYSTICK:
+    sys.exit("wrong")
+
+
+JOYSTICK = JOYSTICK << 2
+JOYSTICK = JOYSTICK + input("input: ")
+CURSOR = SECRET
+
+print "\nJOYSTICK:", BITFORMAT.format(JOYSTICK)
+print "STATE3:", BITFORMAT.format(CURSOR)
+
+if CURSOR != JOYSTICK:
+    sys.exit("wrong")
