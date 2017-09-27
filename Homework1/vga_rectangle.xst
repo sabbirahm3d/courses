@@ -1,5 +1,0 @@
-set -tmpdir "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/Homework1/xst/projnav.tmp"
-set -xsthdpdir "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/Homework1/xst"
-elaborate
--ifn vga_rectangle.prj
--ifmt mixed
