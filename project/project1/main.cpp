@@ -3,6 +3,7 @@
 #include <time.h>
 #include <math.h>
 #include <gmp.h>
+#include <vector>
 
 /************************************************************/
 /* Complex type                                             */
@@ -41,7 +42,7 @@ void cmul4_list(complex *u, int first, int last, complex *z);
 void cmul3_list(complex *u, int first, int last, complex *z);
 
 // Initialize a complex number; calls mpz_init()
-void init(complex * a);
+void init(complex *a);
 
 // Random complex value; real and imaginary parts at most 2^n
 //   z - complex number to be set to random values
@@ -54,6 +55,7 @@ void randz(complex *z, gmp_randstate_t rstate, mp_bitcnt_t n);
 /************************************************************/
 
 int main() {
+
     complex a, b, z;           // three complex variables
     gmp_randstate_t rstate;    // state for GMP random number generator
     clock_t t0, t;             // used for timing functions
@@ -95,56 +97,62 @@ int main() {
     // Time call to cmul4_list()
 
     t0 = clock();
-    cmul4_list(v, 0, n-1, &z);
+    cmul4_list(v, 0, n - 1, &z);
     t = clock() - t0;
 
     fprintf(stdout, "*** CMUL4 List ***\n");
-    fprintf(stdout, "time: %f\n", ((double) t)/CLOCKS_PER_SEC);
+    fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
     //  gmp_fprintf(stdout, "(%Zd, %Zd)\n", z.r, z.i);
 
     // Time call to cmul3_list()
 
     t0 = clock();
-    cmul3_list(v, 0, n-1, &z);
+    cmul3_list(v, 0, n - 1, &z);
     t = clock() - t0;
 
     fprintf(stdout, "*** CMUL3 List ***\n");
-    fprintf(stdout, "time: %f\n", ((double) t)/CLOCKS_PER_SEC);
+    fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
     //  gmp_fprintf(stdout, "(%Zd, %Zd)\n", z.r, z.i);
 
     return 0;
 }
 
-/************************************************************/
-/* Function Implementations                                 */
-/************************************************************/
-
+///************************************************************/
+///* Function Implementations                                 */
+///************************************************************/
 //
-// TO BE WRITTEN: cmul4(), cmul3(), cmul4_list(), cmul3_list(),
-//                code to read data file
+////
+//// TO BE WRITTEN: cmul4(), cmul3(), cmul4_list(), cmul3_list(),
+////                code to read data file
+////
 //
-
-void randz(complex *z, gmp_randstate_t rstate, mp_bitcnt_t n) {
-    mpz_urandomb(z->r, rstate, n);
-    mpz_urandomb(z->i, rstate, n);
-}
-
-void init(complex *a) {
-    mpz_init(a->r);
-    mpz_init(a->i);
-}
-
-
-// TESTING GMP
-//#include <iostream>
-//#include <gmp.h>
-//
-//using namespace std;
-//int main() {
-//    mpz_t result, base;
-//    mpz_inits(result,base,NULL);
-//    mpz_set_str(base, "2", 10);
-//    mpz_pow_ui(result, base, 20000);
-//    mpz_out_str(stdout, 10, result);
-//    return 0;
+//void randz(complex *z, gmp_randstate_t rstate, mp_bitcnt_t n) {
+//    mpz_urandomb(z->r, rstate, n);
+//    mpz_urandomb(z->i, rstate, n);
 //}
+//
+//void init(complex *a) {
+//    mpz_init(a->r);
+//    mpz_init(a->i);
+//}
+//
+//
+// TESTING GMP
+#include <iostream>
+
+int main() {
+    mpz_t result, base;
+    mpz_inits(result, base, NULL);
+    mpz_set_str(base, "2", 10);
+    mpz_pow_ui(result, base, 20000);
+    mpz_out_str(stdout, 10, result);
+    return 0;
+}
+
+int main() {
+
+    string testFile = "cmplx_numbers_20_100bit.txt";
+
+    readFromFiles();
+
+}

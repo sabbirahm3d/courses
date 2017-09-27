@@ -1,13 +1,13 @@
 OUTPUT:="main.o"
-MAIN:="add_example"
+MAIN:="main"
 
 .PHONY: run
 run:
 	@./${OUTPUT}
 
 
-.PHONY: install
-install:
+.PHONY: compile
+compile:
 	@g++ -o ${OUTPUT} ${MAIN}.cpp -lgmp
 
 
