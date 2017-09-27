@@ -38,15 +38,20 @@ START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
                 LDI PORTDEF, LOW(RAMEND)    ; lower byte
                 OUT SPL, PORTDEF            ; to stack pointer
 
-; PORT_INIT initializes the ports for I/O. It is configured so
-; that any of the PORT D Pin 7 is used for the push button (input)
-; and PIN 1 on PORT B can be used for the LED (output)
-; The buzzer is also connected to PORT B (Pin 5) so that is initialized as well
-PORT_INIT:      LDI PORTDEF, 0b00100010
-                OUT DDRB, PORTDEF
+; SETUPPORTS initializes the ports for I/O
+SETUPPORTS:          LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
+                OUT DDRB, PORTDEF           ; PORT B (pin 5) is the buzzer (output)
+                                            ; PORT B (pins 6 and 7) are the UP
+                                            ; and DOWN inputs of the joystick
+                                            ; (input)
 
-                LDI PORTDEF, 0b10000000
-                OUT PORTD, PORTDEF
+                LDI PORTDEF, 0b10000000     ; PORT D (pin 7) is the push button
+                OUT PORTD, PORTDEF          ; (input)
+
+                LDI PORTDEF, 0b00001100     ; PORT E (pins 2 and 3) are the 
+                OUT DDRE, PORTDEF           ; LEFT and RIGHT inputs of the 
+                                            ; joystick (input)
+
 
 ; STATE0
 STATE0:         LDI USER, 0b00000000
@@ -91,7 +96,7 @@ READINPUT:      SBIS PINB, 6                ; joystick up
                     RCALL JOYSTICKRT
 
                 SBIS PIND, 7                ; push button
-                    RJMP RESETPB
+                    RCALL RESETPB
                     RJMP STATE0             ; reset
 
                 RJMP READINPUT
@@ -168,23 +173,20 @@ LEDON:          LDI PORTDEF, 0b00000000
 BUZZERON:       LDI PORTDEF, 0b00100000
                 OUT PORTB, PORTDEF
 
-                ; Wastetime is a counter that counts to 255 and then returns
-                RCALL WASTETIME
+                RCALL WASTETIME             ; WASTETIME is a counter that
+                                            ; counts to 255 and then returns
 
-                ; Once wastetime is finished, the buzzer is turned off 
-                LDI PORTDEF, 0b11011111
-                OUT PORTB, PORTDEF
+                LDI PORTDEF, 0b11011111     ; unce WASTETIME is finished, the
+                OUT PORTB, PORTDEF          ; buzzer is turned off 
 
-                ; WASTETIME is called again to make the period of the soundwave
-                ; even lower
-                RCALL WASTETIME
+                RCALL WASTETIME             ; WASTETIME is called again to
+                                            ; make the period of the soundwave
+                                            ; even lower
 
-                ; this proc is ran 255 times to make the buzzer hearable
-                DEC CTR2
-                    BRNE BUZZERON
+                DEC CTR2                    ; this proc is ran 255 times to
+                    BRNE BUZZERON           ; make the buzzer hearable
 
                 JMP STATE0                  ; reset
-                RET
 
 ; Used to make the buzzer sound hearable. Used to lower frequence enough so
 ; that the sound from the buzzer is hearable
