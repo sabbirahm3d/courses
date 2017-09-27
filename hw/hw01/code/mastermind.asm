@@ -39,7 +39,7 @@ START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
                 OUT SPL, PORTDEF            ; to stack pointer
 
 ; SETUPPORTS initializes the ports for I/O
-SETUPPORTS:          LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
+SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
                 OUT DDRB, PORTDEF           ; PORT B (pin 5) is the buzzer (output)
                                             ; PORT B (pins 6 and 7) are the UP
                                             ; and DOWN inputs of the joystick
@@ -49,7 +49,7 @@ SETUPPORTS:          LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (ou
                 OUT PORTD, PORTDEF          ; (input)
 
                 LDI PORTDEF, 0b00001100     ; PORT E (pins 2 and 3) are the 
-                OUT DDRE, PORTDEF           ; LEFT and RIGHT inputs of the 
+                OUT PORTE, PORTDEF          ; LEFT and RIGHT inputs of the 
                                             ; joystick (input)
 
 
