@@ -7,6 +7,7 @@ State machine implementation of Mastermind
 
 ; initialize the stack and also define the port functionality
 .DEF PORTDEF    = R16
+
 ; Counters 1 and 2 are used to waste time so that the buzzer sound is hearable
 .DEF CTR        = R17              
 .DEF CTR2       = R18
@@ -19,7 +20,7 @@ State machine implementation of Mastermind
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
 
-; mapping of joystick inputs to simpler states
+; mapping of joystick inputs to codes embedded in SECRET
 .EQU UP         = 0b00000000
 .EQU DOWN       = 0b00000001
 .EQU LEFT       = 0b00000010
@@ -30,14 +31,14 @@ State machine implementation of Mastermind
 
                 RJMP START
 
-; Initializes the stack.
+; initialize the stack.
 START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
                 OUT SPH, PORTDEF            ; to stack pointer
 
                 LDI PORTDEF, LOW(RAMEND)    ; lower byte
                 OUT SPL, PORTDEF            ; to stack pointer
 
-; SETUPPORTS initializes the ports for I/O
+; initialize the ports for I/O
 SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
                 OUT DDRB, PORTDEF           ; PORT B (pin 5) is the buzzer (output)
                                             ; PORT B (pins 6 and 7) are the UP
@@ -51,8 +52,10 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
                 OUT PORTE, PORTDEF          ; LEFT and RIGHT inputs of the 
                                             ; joystick (input)
 
-
-; STATE0
+; descriptions of states
+; STATE0 is the initial state of the game, where the machine waits for the
+; user's first input. The correct input progresses the game to the next state,
+; and an incorrect input results in the buzzer being triggered.
 STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
@@ -63,61 +66,68 @@ STATE0:         LDI NSHIFT, 3
                 RCALL RDINPUT
                 RCALL CMPINPUT
 
-                ; RJMP TRANSMIT_S             ; transmit 'S' for success
-                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
-                ;                             ; state
+                RJMP TRANSMIT_S             ; transmit 'S' for success
+                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                                            ; state
 
 
-; STATE1
+; STATE1 is the second state of the game, where the machine waits for the
+; user's second input. The correct input progresses the game to the next state,
+; and an incorrect input results in the buzzer being triggered.
 STATE1:         CLR USER
                 LDI NSHIFT, 2
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
 
-                ; RJMP TRANSMIT_0  1          ; transmit '1' for STATE1
-                ; RJMP TRANSMIT_COMMA         ; transmit ','
+                RJMP TRANSMIT_0  1          ; transmit '1' for STATE1
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
                 RCALL RDINPUT
                 RCALL CMPINPUT
 
-                ; RJMP TRANSMIT_S             ; transmit 'S' for success
-                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
-                ;                             ; state
+                RJMP TRANSMIT_S             ; transmit 'S' for success
+                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                                            ; state
 
-; STATE2
+; STATE2 is the third state of the game, where the machine waits for the
+; user's third input. The correct input progresses the game to the next state,
+; and an incorrect input results in the buzzer being triggered.
 STATE2:         CLR USER
                 LDI NSHIFT, 1
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00001100
 
-                ; RJMP TRANSMIT_2             ; transmit '2' for STATE2
-                ; RJMP TRANSMIT_COMMA         ; transmit ','
+                RJMP TRANSMIT_2             ; transmit '2' for STATE2
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
                 RCALL RDINPUT
                 RCALL CMPINPUT
 
-                ; RJMP TRANSMIT_S             ; transmit 'S' for success
-                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
-                ;                             ; state
+                RJMP TRANSMIT_S             ; transmit 'S' for success
+                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                                            ; state
 
-; STATE3
+; STATE3 is the fourth state of the game, where the machine waits for the
+; user's fourth input. The correct input progresses the game to the next state,
+; and an incorrect input results in the buzzer being triggered.
 STATE3:         CLR USER
                 LDI NSHIFT, 0
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00000011
 
-                ; RJMP TRANSMIT_3             ; transmit '3' for STATE3
-                ; RJMP TRANSMIT_COMMA         ; transmit ','
+                RJMP TRANSMIT_3             ; transmit '3' for STATE3
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
                 RCALL RDINPUT
                 RCALL CMPINPUT
 
-                ; RJMP TRANSMIT_S             ; transmit 'S' for success
-                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
-                ;                             ; state
+                RJMP TRANSMIT_S             ; transmit 'S' for success
+                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                                            ; state
 
                 RCALL LEDON
 
+; instructions to handle the I/O in the program
 RDINPUT:        SBIS PINB, 6                ; joystick up
                     RCALL JOYSTICKUP
 
@@ -135,37 +145,38 @@ RDINPUT:        SBIS PINB, 6                ; joystick up
 
                 RJMP RDINPUT
 
-JOYSTICKUP:     ;RJMP TRANSMIT_U
-                ;RJMP TRANSMIT_COMMA
+; joystick inputs
+JOYSTICKUP:     RJMP TRANSMIT_U             ; transmit 'U'
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
-                LDI USER, UP
-                RCALL LSHIFT                ; shift left 6 bits
+                LDI USER, UP                ; load joystick input code to USER
+                RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCEUP
 
-JOYSTICKDN:     ;RJMP TRANSMIT_D
-                ;RJMP TRANSMIT_COMMA
+JOYSTICKDN:     RJMP TRANSMIT_D             ; transmit 'D'
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
-                LDI USER, DOWN
-                RCALL LSHIFT                ; shift left 4 bits
+                LDI USER, DOWN              ; load joystick input code to USER
+                RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCEDN
 
-JOYSTICKLT:     ;RJMP TRANSMIT_L
-                ;RJMP TRANSMIT_COMMA
+JOYSTICKLT:     RJMP TRANSMIT_L             ; transmit 'L'
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
-                LDI USER, LEFT
-                RCALL LSHIFT                ; shift left 2 bits
+                LDI USER, LEFT              ; load joystick input code to USER
+                RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCELT
 
-JOYSTICKRT:     ;RJMP TRANSMIT_R
-                ;RJMP TRANSMIT_COMMA
+JOYSTICKRT:     RJMP TRANSMIT_R             ; transmit 'R'
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
-                LDI USER, RIGHT
-                RCALL LSHIFT                ; shift left 0 bits
+                LDI USER, RIGHT             ; load joystick input code to USER
+                RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCERT
 
 RESETPB:        RJMP LEDOFF
                 RJMP DEBOUNCEPB
-                RJMP STATE0             ; reset
+                RJMP STATE0                 ; reset
 
 ; Waits for user to stop pressing and then returns.
 DEBOUNCEPB:     SBIC PIND, 7
@@ -190,27 +201,32 @@ DEBOUNCERT:     SBIC PINE, 3
 
 
 LSHIFT:         LSL USER
-                LSL USER
-                DEC NSHIFT
+                LSL USER                    ; left shift twice per iteration
+                DEC NSHIFT                  ; decrement the number of shifts
                 CPI NSHIFT, 1
-                    BREQ LSHIFT             ; if NSHIFT >= 1, keep looping
+                    BRGE LSHIFT             ; if NSHIFT >= 1, keep looping
                     RET                     ; else, break
 
 CMPINPUT:       CP CURSOR, USER
                     RET
-                BREQ BUZZERON
+                BRNE BUZZERON
 
 
-; Routine to turn on the LED
+; instructions for the LED
+; ----------------------------------------------------------------------------
+; subroutine to turn on the LED
 LEDON:          LDI PORTDEF, 0b00000010
                 OUT PORTB, PORTDEF
                     RET
 
-; Routine to turn off the LED
+; subroutine to turn off the LED
 LEDOFF:         LDI PORTDEF, 0b00000000
                 OUT PORTB, PORTDEF
                     RET
 
+
+; instructions for the buzzer
+; ----------------------------------------------------------------------------
 ; BUZZERON sets the buzzer high (at PortB, Pin 5) and then sits in a loop so
 ; that the buzzer is low enough frequency to be hearable to the human ear. 
 BUZZERON:       LDI PORTDEF, 0b00100000
@@ -229,12 +245,12 @@ BUZZERON:       LDI PORTDEF, 0b00100000
                 DEC CTR2                    ; this proc is ran 255 times to
                     BRNE BUZZERON           ; make the buzzer hearable
 
-                ; RJMP TRANSMIT_F             ; transmit 'F' for failure
-                ; RJMP TRANSMIT_NEWL          ; transmit '\n'
+                RJMP TRANSMIT_F             ; transmit 'F' for failure
+                RJMP TRANSMIT_NEWL          ; transmit '\n'
 
                 JMP STATE0                  ; reset
 
-; Used to make the buzzer sound hearable. Used to lower frequence enough so
+; Used to make the buzzer sound hearable. Used to lower frequency enough so
 ; that the sound from the buzzer is hearable
 WASTETIME:      CLR CTR
 
@@ -243,4 +259,6 @@ CONTWASTETIME:  NOP
                 BRNE CONTWASTETIME
                     RET
 
+
+; include instructions from 'uart.asm' to implement transmission with the UART
 .INCLUDE "uart.asm"

@@ -143,7 +143,6 @@ DONE:
 USART_TRANSMIT:
 
     ; Wait for empty transmit buffer
-    ;sbis UCSR0A,UDRE
     LDS TEMP0, UCSR0A
     SBRS TEMP0, UDRE
     RJMP USART_TRANSMIT
