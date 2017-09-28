@@ -1,21 +1,20 @@
-/* mastermind.asm
+/* main.asm
 State machine implementation of Mastermind
 */
 
 ; Include the butterfly definitions for the M169P.
 .INCLUDE "m169pdef.inc" ;(BUTTERFLY DEFINITIONS)
-;.INCLUDE "uart.asm"
 
 ; initialize the stack and also define the port functionality
-.DEF PORTDEF    = R19
+.DEF PORTDEF    = R16
 ; Counters 1 and 2 are used to waste time so that the buzzer sound is hearable
-.DEF CTR        = R20              
-.DEF CTR2       = R21
+.DEF CTR        = R17              
+.DEF CTR2       = R18
 
 ; registers to handle the comparisons
-.DEF USER       = R22
-.DEF CURSOR     = R23
-.DEF NSHIFT     = R24
+.DEF USER       = R19
+.DEF CURSOR     = R20
+.DEF NSHIFT     = R21
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
@@ -58,8 +57,8 @@ STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
 
-                ; RJMP TRANSMIT_0             ; transmit '0' for STATE0
-                ; RJMP TRANSMIT_COMMA         ; transmit ','
+                RJMP TRANSMIT_0             ; transmit '0' for STATE0
+                RJMP TRANSMIT_COMMA         ; transmit ','
 
                 RCALL RDINPUT
                 RCALL CMPINPUT
@@ -193,7 +192,7 @@ DEBOUNCERT:     SBIC PINE, 3
 LSHIFT:         LSL USER
                 LSL USER
                 DEC NSHIFT
-                CP NSHIFT, 1
+                CPI NSHIFT, 1
                     BREQ LSHIFT             ; if NSHIFT >= 1, keep looping
                     RET                     ; else, break
 
@@ -243,3 +242,5 @@ CONTWASTETIME:  NOP
                 DEC CTR
                 BRNE CONTWASTETIME
                     RET
+
+.INCLUDE "uart.asm"
