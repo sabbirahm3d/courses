@@ -57,44 +57,69 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
 STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
-                RCALL READINPUT
-                RCALL CHECK
-                ; RJMP USART_TRANSMIT_0
-                ; RJMP USART_TRANSMIT_COMMA
+
+                ; RJMP TRANSMIT_0             ; transmit '0' for STATE0
+                ; RJMP TRANSMIT_COMMA         ; transmit ','
+
+                RCALL RDINPUT
+                RCALL CMPINPUT
+
+                ; RJMP TRANSMIT_S             ; transmit 'S' for success
+                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                ;                             ; state
+
 
 ; STATE1
 STATE1:         CLR USER
                 LDI NSHIFT, 2
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
-                RCALL READINPUT
-                RCALL CHECK
-                ; RJMP USART_TRANSMIT_1
-                ; RJMP USART_TRANSMIT_COMMA
+
+                ; RJMP TRANSMIT_0  1          ; transmit '1' for STATE1
+                ; RJMP TRANSMIT_COMMA         ; transmit ','
+
+                RCALL RDINPUT
+                RCALL CMPINPUT
+
+                ; RJMP TRANSMIT_S             ; transmit 'S' for success
+                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                ;                             ; state
 
 ; STATE2
 STATE2:         CLR USER
                 LDI NSHIFT, 1
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00001100
-                RCALL READINPUT
-                RCALL CHECK
-                ; RJMP USART_TRANSMIT_2
-                ; RJMP USART_TRANSMIT_COMMA
+
+                ; RJMP TRANSMIT_2             ; transmit '2' for STATE2
+                ; RJMP TRANSMIT_COMMA         ; transmit ','
+
+                RCALL RDINPUT
+                RCALL CMPINPUT
+
+                ; RJMP TRANSMIT_S             ; transmit 'S' for success
+                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                ;                             ; state
 
 ; STATE3
 STATE3:         CLR USER
                 LDI NSHIFT, 0
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00000011
-                RCALL CHECK
-                RCALL READINPUT
-                ; RJMP USART_TRANSMIT_3
-                ; RJMP USART_TRANSMIT_COMMA
+
+                ; RJMP TRANSMIT_3             ; transmit '3' for STATE3
+                ; RJMP TRANSMIT_COMMA         ; transmit ','
+
+                RCALL RDINPUT
+                RCALL CMPINPUT
+
+                ; RJMP TRANSMIT_S             ; transmit 'S' for success
+                ; RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                ;                             ; state
 
                 RCALL LEDON
 
-READINPUT:      SBIS PINB, 6                ; joystick up
+RDINPUT:        SBIS PINB, 6                ; joystick up
                     RCALL JOYSTICKUP
 
                 SBIS PINB, 7                ; joystick down
@@ -109,31 +134,31 @@ READINPUT:      SBIS PINB, 6                ; joystick up
                 SBIS PIND, 7                ; push button
                     RCALL RESETPB
 
-                RJMP READINPUT
+                RJMP RDINPUT
 
-JOYSTICKUP:     ;RJMP USART_TRANSMIT_U
-                ;RJMP USART_TRANSMIT_COMMA
+JOYSTICKUP:     ;RJMP TRANSMIT_U
+                ;RJMP TRANSMIT_COMMA
 
                 LDI USER, UP
                 RCALL LSHIFT                ; shift left 6 bits
                 RJMP DEBOUNCEUP
 
-JOYSTICKDN:     ;RJMP USART_TRANSMIT_D
-                ;RJMP USART_TRANSMIT_COMMA
+JOYSTICKDN:     ;RJMP TRANSMIT_D
+                ;RJMP TRANSMIT_COMMA
 
                 LDI USER, DOWN
                 RCALL LSHIFT                ; shift left 4 bits
                 RJMP DEBOUNCEDN
 
-JOYSTICKLT:     ;RJMP USART_TRANSMIT_L
-                ;RJMP USART_TRANSMIT_COMMA
+JOYSTICKLT:     ;RJMP TRANSMIT_L
+                ;RJMP TRANSMIT_COMMA
 
                 LDI USER, LEFT
                 RCALL LSHIFT                ; shift left 2 bits
                 RJMP DEBOUNCELT
 
-JOYSTICKRT:     ;RJMP USART_TRANSMIT_R
-                ;RJMP USART_TRANSMIT_COMMA
+JOYSTICKRT:     ;RJMP TRANSMIT_R
+                ;RJMP TRANSMIT_COMMA
 
                 LDI USER, RIGHT
                 RCALL LSHIFT                ; shift left 0 bits
@@ -164,13 +189,15 @@ DEBOUNCERT:     SBIC PINE, 3
                     RET
                 RJMP DEBOUNCERT
 
+
 LSHIFT:         LSL USER
                 LSL USER
                 DEC NSHIFT
-                BRNE LSHIFT
-                    RET
+                CP NSHIFT, 1
+                    BREQ LSHIFT             ; if NSHIFT >= 1, keep looping
+                    RET                     ; else, break
 
-CHECK:          CP CURSOR, USER
+CMPINPUT:       CP CURSOR, USER
                     RET
                 BREQ BUZZERON
 
@@ -202,6 +229,9 @@ BUZZERON:       LDI PORTDEF, 0b00100000
 
                 DEC CTR2                    ; this proc is ran 255 times to
                     BRNE BUZZERON           ; make the buzzer hearable
+
+                ; RJMP TRANSMIT_F             ; transmit 'F' for failure
+                ; RJMP TRANSMIT_NEWL          ; transmit '\n'
 
                 JMP STATE0                  ; reset
 

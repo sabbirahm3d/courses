@@ -1,26 +1,42 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+A simulation for a proof of concept for the game logic in `main.asm`
+"""
+
+
 import sys
 
 BITFORMAT = "{:08b}"
 
-SECRET = 0b00011011
+SECRET = 0b11011000
 USER = 0b00000000
 CURSOR = 0b00000000
-MASK = 0b00000010
 
 u = 0b00000000
 d = 0b00000001
-l = MASK
+l = 0b00000010
 r = 0b00000011
+
+
+def lshift(register, NSHIFT):
+
+    register = register << 1
+    register = register << 1
+    NSHIFT -= 1
+    if NSHIFT >= 1:
+        return lshift(register, NSHIFT)
+    return register
+
 
 print "SECRET:", BITFORMAT.format(SECRET)
 print "USER:", BITFORMAT.format(USER)
 print "CURSOR:", BITFORMAT.format(CURSOR), "\n"
 
 USER = input("input: ")
-USER = USER << 6
+NSHIFT = 3
+USER = lshift(USER, NSHIFT)
 CURSOR = SECRET & 0b11000000
 print "USER:", BITFORMAT.format(USER)
 print "STATE0:", BITFORMAT.format(CURSOR), "\n"
@@ -30,7 +46,8 @@ if CURSOR != USER:
 
 
 USER = input("input: ")
-USER = USER << 4
+NSHIFT = 2
+USER = lshift(USER, NSHIFT)
 CURSOR = SECRET & 0b00110000
 
 print "USER:", BITFORMAT.format(USER)
@@ -41,7 +58,8 @@ if CURSOR != USER:
 
 
 USER = input("input: ")
-USER = USER << 2
+NSHIFT = 1
+USER = lshift(USER, NSHIFT)
 CURSOR = SECRET & 0b00001100
 
 print "USER:", BITFORMAT.format(USER)
@@ -52,7 +70,8 @@ if CURSOR != USER:
 
 
 USER = input("input: ")
-USER = USER << 0
+NSHIFT = 0
+USER = lshift(USER, NSHIFT)
 CURSOR = SECRET & 0b00000011
 
 print "USER:", BITFORMAT.format(USER)
