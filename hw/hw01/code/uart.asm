@@ -4,14 +4,8 @@ specifications for the UART interface
 
 ;  using AVR Butteryfly @ default 8Mhz
 ; runs 4800 buad with 2 stop bits and no parity
-.DEF TEMP       = R16
-.DEF TEMP0      = R17
-
-; ; Initialize Stack Pointer to end of RAM
-; LDI TEMP, HIGH(RAMEND)          ; Upper byte
-; OUT SPH, TEMP                   ; to stack pointer
-; LDI TEMP, LOW(RAMEND)           ; Lower byte
-; OUT SPL, TEMP                   ; to stack pointer
+.DEF TEMP       = R22
+.DEF TEMP0      = R23
 
 USARTINIT:      LDI TEMP, 00                ; Load UBRRH with 0 and UBRRL with
                 STS UBRRH, TEMP             ; 103 - in other words
