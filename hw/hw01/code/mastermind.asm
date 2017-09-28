@@ -7,14 +7,15 @@ State machine implementation of Mastermind
 .INCLUDE "uart.asm"
 
 ; initialize the stack and also define the port functionality
-.DEF PORTDEF    = R22
+.DEF PORTDEF    = R19
 ; Counters 1 and 2 are used to waste time so that the buzzer sound is hearable
-.DEF CTR        = R23              
-.DEF CTR2       = R24
+.DEF CTR        = R20              
+.DEF CTR2       = R21
 
 ; registers to handle the comparisons
-.DEF USER       = R25
-.DEF CURSOR     = R26
+.DEF USER       = R22
+.DEF CURSOR     = R23
+.DEF NSHIFT     = R24
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
@@ -22,8 +23,7 @@ State machine implementation of Mastermind
 ; mapping of joystick inputs to simpler states
 .EQU UP         = 0b00000000
 .EQU DOWN       = 0b00000001
-.EQU LEFT       = 0b00000010                ; LEFT also works as a 2-bit mask
-                                            ; (since 0b00000010 = 3)
+.EQU LEFT       = 0b00000010
 .EQU RIGHT      = 0b00000011
 
 
@@ -54,32 +54,39 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
 
 
 ; STATE0
-STATE0:         LDI USER, 0b00000000
-                LDI CURSOR, (SECRET >> 6)
-                RJMP USART_TRANSMIT_0
-                RJMP USART_TRANSMIT_COMMA
+STATE0:         LDI NSHIFT, 3
+                AND SECRET, 0b11000000
                 RCALL READINPUT
+                RCALL CHECK
+                ; RJMP USART_TRANSMIT_0
+                ; RJMP USART_TRANSMIT_COMMA
 
 ; STATE1
-STATE1:         LDI USER, (USER << 2)
-                LDI CURSOR, (SECRET >> 4)
-                RJMP USART_TRANSMIT_1
-                RJMP USART_TRANSMIT_COMMA
+STATE1:         CLR USER
+                LDI NSHIFT, 2
+                AND SECRET, 0b00110000
                 RCALL READINPUT
+                RCALL CHECK
+                ; RJMP USART_TRANSMIT_1
+                ; RJMP USART_TRANSMIT_COMMA
 
 ; STATE2
-STATE2:         LDI USER, (USER << 2)
-                LDI CURSOR, (SECRET >> 2)
-                RJMP USART_TRANSMIT_2
-                RJMP USART_TRANSMIT_COMMA
+STATE2:         CLR USER
+                LDI NSHIFT, 1
+                AND SECRET, 0b00001100
                 RCALL READINPUT
+                RCALL CHECK
+                ; RJMP USART_TRANSMIT_2
+                ; RJMP USART_TRANSMIT_COMMA
 
 ; STATE3
-STATE3:         LDI USER, (USER << 2)
-                LDI CURSOR, SECRET
-                RJMP USART_TRANSMIT_3
-                RJMP USART_TRANSMIT_COMMA
+STATE3:         CLR USER
+                LDI NSHIFT, 0
+                AND SECRET, 0b00000011
+                RCALL CHECK
                 RCALL READINPUT
+                ; RJMP USART_TRANSMIT_3
+                ; RJMP USART_TRANSMIT_COMMA
 
                 RCALL LEDON
 
@@ -97,44 +104,40 @@ READINPUT:      SBIS PINB, 6                ; joystick up
 
                 SBIS PIND, 7                ; push button
                     RCALL RESETPB
-                    RJMP STATE0             ; reset
 
                 RJMP READINPUT
 
-JOYSTICKUP:     RJMP USART_TRANSMIT_U
-                RJMP USART_TRANSMIT_COMMA
+JOYSTICKUP:     ;RJMP USART_TRANSMIT_U
+                ;RJMP USART_TRANSMIT_COMMA
 
-                ADD USER, UP
-                CP (USER & LEFT), (CURSOR & LEFT)
-                    RJMP DEBOUNCEUP
-                BRNE BUZZERON
+                LDI USER, UP
+                RCALL LSHIFT                ; shift left 6 bits
+                RJMP DEBOUNCEUP
 
-JOYSTICKDN:     RJMP USART_TRANSMIT_D
-                RJMP USART_TRANSMIT_COMMA
+JOYSTICKDN:     ;RJMP USART_TRANSMIT_D
+                ;RJMP USART_TRANSMIT_COMMA
 
-                ADD USER, DOWN
-                CP (USER & LEFT), (CURSOR & LEFT)
-                    RJMP DEBOUNCEDN
-                BRNE BUZZERON
+                LDI USER, DOWN
+                RCALL LSHIFT                ; shift left 4 bits
+                RJMP DEBOUNCEDN
 
-JOYSTICKLT:     RJMP USART_TRANSMIT_L
-                RJMP USART_TRANSMIT_COMMA
+JOYSTICKLT:     ;RJMP USART_TRANSMIT_L
+                ;RJMP USART_TRANSMIT_COMMA
 
-                ADD USER, LEFT
-                CP (USER & LEFT), (CURSOR & LEFT)
-                    RJMP DEBOUNCELT
-                BRNE BUZZERON
+                LDI USER, LEFT
+                RCALL LSHIFT                ; shift left 2 bits
+                RJMP DEBOUNCELT
 
-JOYSTICKRT:     RJMP USART_TRANSMIT_R
-                RJMP USART_TRANSMIT_COMMA
+JOYSTICKRT:     ;RJMP USART_TRANSMIT_R
+                ;RJMP USART_TRANSMIT_COMMA
 
-                ADD USER, RIGHT
-                CP (USER & LEFT), (CURSOR & LEFT)
-                    RJMP DEBOUNCERT
-                BRNE BUZZERON
+                LDI USER, RIGHT
+                RCALL LSHIFT                ; shift left 0 bits
+                RJMP DEBOUNCERT
 
 RESETPB:        RJMP LEDOFF
                 RJMP DEBOUNCEPB
+                RJMP STATE0             ; reset
 
 ; Waits for user to stop pressing and then returns.
 DEBOUNCEPB:     SBIC PIND, 7
@@ -157,16 +160,26 @@ DEBOUNCERT:     SBIC PINE, 3
                     RET
                 RJMP DEBOUNCERT
 
+LSHIFT:         LSL USER
+                LSL USER
+                DEC NSHIFT
+                BRNE LSHIFT
+                    RET
+
+CHECK:          CP SECRET, USER
+                    RET
+                BREQ BUZZERON
+
 
 ; Routine to turn on the LED
 LEDON:          LDI PORTDEF, 0b00000010
                 OUT PORTB, PORTDEF
-                RET
+                    RET
 
 ; Routine to turn off the LED
-LEDON:          LDI PORTDEF, 0b00000000
+LEDOFF:         LDI PORTDEF, 0b00000000
                 OUT PORTB, PORTDEF
-                RET
+                    RET
 
 ; BUZZERON sets the buzzer high (at PortB, Pin 5) and then sits in a loop so
 ; that the buzzer is low enough frequency to be hearable to the human ear. 
@@ -176,7 +189,7 @@ BUZZERON:       LDI PORTDEF, 0b00100000
                 RCALL WASTETIME             ; WASTETIME is a counter that
                                             ; counts to 255 and then returns
 
-                LDI PORTDEF, 0b11011111     ; unce WASTETIME is finished, the
+                LDI PORTDEF, 0b11011111     ; once WASTETIME is finished, the
                 OUT PORTB, PORTDEF          ; buzzer is turned off 
 
                 RCALL WASTETIME             ; WASTETIME is called again to

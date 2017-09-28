@@ -50,6 +50,17 @@ USART_TRANSMIT_COMMA:
     LDI TEMP, 0x2C              ; transmits ','
     STS UDR0, TEMP
 
+USART_TRANSMIT_NEWLINE:
+
+    ; Wait for empty transmit buffer
+    LDS TEMP0, UCSR0A
+    SBRS TEMP0, UDRE
+    RJMP USART_TRANSMIT_COMMA
+
+    ; send the data
+    LDI TEMP, 0x0A              ; transmits ','
+    STS UDR0, TEMP
+
 
 ; data for input status
 USART_TRANSMIT_S:
