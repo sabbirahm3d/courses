@@ -4,7 +4,7 @@ State machine implementation of Mastermind
 
 ; Include the butterfly definitions for the M169P.
 .INCLUDE "m169pdef.inc" ;(BUTTERFLY DEFINITIONS)
-.INCLUDE "uart.asm"
+;.INCLUDE "uart.asm"
 
 ; initialize the stack and also define the port functionality
 .DEF PORTDEF    = R19
@@ -55,7 +55,8 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
 
 ; STATE0
 STATE0:         LDI NSHIFT, 3
-                AND SECRET, 0b11000000
+				LDI CURSOR, SECRET
+                ANDI CURSOR, 0b11000000
                 RCALL READINPUT
                 RCALL CHECK
                 ; RJMP USART_TRANSMIT_0
@@ -64,7 +65,8 @@ STATE0:         LDI NSHIFT, 3
 ; STATE1
 STATE1:         CLR USER
                 LDI NSHIFT, 2
-                AND SECRET, 0b00110000
+				LDI CURSOR, SECRET
+                ANDI CURSOR, 0b00110000
                 RCALL READINPUT
                 RCALL CHECK
                 ; RJMP USART_TRANSMIT_1
@@ -73,7 +75,8 @@ STATE1:         CLR USER
 ; STATE2
 STATE2:         CLR USER
                 LDI NSHIFT, 1
-                AND SECRET, 0b00001100
+				LDI CURSOR, SECRET
+                ANDI CURSOR, 0b00001100
                 RCALL READINPUT
                 RCALL CHECK
                 ; RJMP USART_TRANSMIT_2
@@ -82,7 +85,8 @@ STATE2:         CLR USER
 ; STATE3
 STATE3:         CLR USER
                 LDI NSHIFT, 0
-                AND SECRET, 0b00000011
+				LDI CURSOR, SECRET
+                ANDI CURSOR, 0b00000011
                 RCALL CHECK
                 RCALL READINPUT
                 ; RJMP USART_TRANSMIT_3
@@ -166,7 +170,7 @@ LSHIFT:         LSL USER
                 BRNE LSHIFT
                     RET
 
-CHECK:          CP SECRET, USER
+CHECK:          CP CURSOR, USER
                     RET
                 BREQ BUZZERON
 
@@ -207,5 +211,5 @@ WASTETIME:      CLR CTR
 
 CONTWASTETIME:  NOP
                 DEC CTR
-                BRNE CNTWASTETIME
+                BRNE CONTWASTETIME
                     RET
