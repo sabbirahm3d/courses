@@ -2,8 +2,8 @@
 specifications for the UART interface
 */
 
-;  using AVR Butteryfly @ default 8Mhz
-; runs 4800 buad with 2 stop bits and no parity
+; Instructions for the UART using the AVR Butteryfly @ default 8MHz with
+; 4800 buad with 2 stop bits and no parity
 .DEF TEMP       = R23
 .DEF TEMP0      = R24
 
