@@ -65,7 +65,7 @@ STATE0:         LDI NSHIFT, 3
                 ANDI CURSOR, 0b11000000
 
                 LDI NSHIFT, 3               ; shift REALSTATE to map the codes
-                LD REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR        ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_0            ; transmit '0' for STATE0
@@ -90,7 +90,7 @@ STATE1:         CLR USER
                 ANDI CURSOR, 0b00110000
 
                 LDI NSHIFT, 2               ; shift REALSTATE to map the codes
-                LD REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR        ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_1            ; transmit '1' for STATE1
@@ -114,7 +114,7 @@ STATE2:         CLR USER
                 ANDI CURSOR, 0b00001100
 
                 LDI NSHIFT, 1               ; shift REALSTATE to map the codes
-                LD REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR        ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_2            ; transmit '2' for STATE2
@@ -138,7 +138,7 @@ STATE3:         CLR USER
                 ANDI CURSOR, 0b00000011
 
                 LDI NSHIFT, 0               ; shift REALSTATE to map the codes
-                LD REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR        ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_3            ; transmit '3' for STATE3
@@ -243,16 +243,16 @@ RSHIFT:         LSR USER
                     RET                     ; else, break
 
 WHICHINPUT:     CPI REALSTATE, UP           ; if user inputted 'UP'
-                    BRNE TRANSMIT_U         ; transmit 'U'
+                    RCALL TRANSMIT_U         ; transmit 'U'
 
                 CPI REALSTATE, DOWN         ; if user inputted 'DOWN'
-                    BRNE TRANSMIT_D         ; transmit 'D'
+                    RCALL TRANSMIT_D         ; transmit 'D'
 
                 CPI REALSTATE, LEFT         ; if user inputted 'LEFT'
-                    BRNE TRANSMIT_L         ; transmit 'L'
+                    RCALL TRANSMIT_L         ; transmit 'L'
 
                 CPI REALSTATE, RIGHT        ; if user inputted 'RIGHT'
-                    BRNE TRANSMIT_R         ; transmit 'R'
+                    RCALL TRANSMIT_R         ; transmit 'R'
 
                     RET
 
