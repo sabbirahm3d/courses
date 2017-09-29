@@ -16,6 +16,7 @@ State machine implementation of Mastermind
 .DEF USER       = R19
 .DEF CURSOR     = R20
 .DEF NSHIFT     = R21
+.DEF REALSTATE  = R22
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
@@ -62,15 +63,19 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
 STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
+                LD REALSTATE, (CURSOR >> 6) ; shift REALSTATE to map the codes
+                                            ; of the joystick inputs
 
-                RJMP TRANSMIT_0             ; transmit '0' for STATE0
-                RJMP TRANSMIT_COMMA         ; transmit ','
+                RCALL TRANSMIT_0            ; transmit '0' for STATE0
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 RCALL RDINPUT
+                RCALL WHICHINPUT            ; check which input was expected
+                RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
-                RJMP TRANSMIT_S             ; transmit 'S' for success
-                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                RCALL TRANSMIT_S            ; transmit 'S' for success
+                RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
 
 
@@ -81,15 +86,19 @@ STATE1:         CLR USER
                 LDI NSHIFT, 2
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
+                LD REALSTATE, (CURSOR >> 4) ; shift REALSTATE to map the codes
+                                            ; of the joystick inputs
 
-                RJMP TRANSMIT_1             ; transmit '1' for STATE1
-                RJMP TRANSMIT_COMMA         ; transmit ','
+                RCALL TRANSMIT_1            ; transmit '1' for STATE1
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 RCALL RDINPUT
+                RCALL WHICHINPUT            ; check which input was expected
+                RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
-                RJMP TRANSMIT_S             ; transmit 'S' for success
-                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                RCALL TRANSMIT_S            ; transmit 'S' for success
+                RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
 
 ; STATE2 is the third state of the game, where the machine waits for the
@@ -99,15 +108,19 @@ STATE2:         CLR USER
                 LDI NSHIFT, 1
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00001100
+                LD REALSTATE, (CURSOR >> 2) ; shift REALSTATE to map the codes
+                                            ; of the joystick inputs
 
-                RJMP TRANSMIT_2             ; transmit '2' for STATE2
-                RJMP TRANSMIT_COMMA         ; transmit ','
+                RCALL TRANSMIT_2            ; transmit '2' for STATE2
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 RCALL RDINPUT
+                RCALL WHICHINPUT            ; check which input was expected
+                RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
-                RJMP TRANSMIT_S             ; transmit 'S' for success
-                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                RCALL TRANSMIT_S            ; transmit 'S' for success
+                RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
 
 ; STATE3 is the fourth state of the game, where the machine waits for the
@@ -117,15 +130,18 @@ STATE3:         CLR USER
                 LDI NSHIFT, 0
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00000011
-
-                RJMP TRANSMIT_3             ; transmit '3' for STATE3
-                RJMP TRANSMIT_COMMA         ; transmit ','
+                LD REALSTATE, CURSOR        ; shift REALSTATE to map the codes
+                                            ; of the joystick inputs
+                RCALL TRANSMIT_3            ; transmit '3' for STATE3
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 RCALL RDINPUT
+                RCALL WHICHINPUT            ; check which input was expected
+                RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
-                RJMP TRANSMIT_S             ; transmit 'S' for success
-                RJMP TRANSMIT_NEWL          ; transmit '\n' to proceed to next
+                RCALL TRANSMIT_S            ; transmit 'S' for success
+                RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
 
                 RCALL LEDON
@@ -149,29 +165,29 @@ RDINPUT:        SBIS PINB, 6                ; joystick up
                 RJMP RDINPUT
 
 ; joystick inputs
-JOYSTICKUP:     RJMP TRANSMIT_U             ; transmit 'U'
-                RJMP TRANSMIT_COMMA         ; transmit ','
+JOYSTICKUP:     RCALL TRANSMIT_U            ; transmit 'U'
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 LDI USER, UP                ; load joystick input code to USER
                 RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCEUP
 
-JOYSTICKDN:     RJMP TRANSMIT_D             ; transmit 'D'
-                RJMP TRANSMIT_COMMA         ; transmit ','
+JOYSTICKDN:     RCALL TRANSMIT_D            ; transmit 'D'
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 LDI USER, DOWN              ; load joystick input code to USER
                 RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCEDN
 
-JOYSTICKLT:     RJMP TRANSMIT_L             ; transmit 'L'
-                RJMP TRANSMIT_COMMA         ; transmit ','
+JOYSTICKLT:     RCALL TRANSMIT_L            ; transmit 'L'
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 LDI USER, LEFT              ; load joystick input code to USER
                 RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
                 RJMP DEBOUNCELT
 
-JOYSTICKRT:     RJMP TRANSMIT_R             ; transmit 'R'
-                RJMP TRANSMIT_COMMA         ; transmit ','
+JOYSTICKRT:     RCALL TRANSMIT_R            ; transmit 'R'
+                RCALL TRANSMIT_COMMA        ; transmit ','
 
                 LDI USER, RIGHT             ; load joystick input code to USER
                 RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
@@ -210,9 +226,23 @@ LSHIFT:         LSL USER
                     BRGE LSHIFT             ; if NSHIFT >= 1, keep looping
                     RET                     ; else, break
 
+WHICHINPUT:     CPI REALSTATE, UP           ; if user inputted 'UP'
+                    BRNE TRANSMIT_U         ; transmit 'U'
+
+                CPI REALSTATE, DOWN         ; if user inputted 'DOWN'
+                    BRNE TRANSMIT_D         ; transmit 'D'
+
+                CPI REALSTATE, LEFT         ; if user inputted 'LEFT'
+                    BRNE TRANSMIT_L         ; transmit 'L'
+
+                CPI REALSTATE, RIGHT        ; if user inputted 'RIGHT'
+                    BRNE TRANSMIT_R         ; transmit 'R'
+
+                    RET
+
 CMPINPUT:       CP CURSOR, USER
                     RET
-                BRNE BUZZERON
+                BREQ BUZZERON
 
 
 ; instructions for the LED
@@ -248,8 +278,8 @@ BUZZERON:       LDI PORTDEF, 0b00100000
                 DEC CTR2                    ; this proc is ran 255 times to
                     BRNE BUZZERON           ; make the buzzer hearable
 
-                RJMP TRANSMIT_F             ; transmit 'F' for failure
-                RJMP TRANSMIT_NEWL          ; transmit '\n'
+                RCALL TRANSMIT_F            ; transmit 'F' for failure
+                RCALL TRANSMIT_NEWL         ; transmit '\n'
 
                 JMP STATE0                  ; reset
 

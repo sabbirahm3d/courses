@@ -4,8 +4,8 @@ specifications for the UART interface
 
 ;  using AVR Butteryfly @ default 8Mhz
 ; runs 4800 buad with 2 stop bits and no parity
-.DEF TEMP       = R22
-.DEF TEMP0      = R23
+.DEF TEMP       = R23
+.DEF TEMP0      = R24
 
 USARTINIT:      LDI TEMP, 00                ; Load UBRRH with 0 and UBRRL with
                 STS UBRRH, TEMP             ; 103 - in other words
