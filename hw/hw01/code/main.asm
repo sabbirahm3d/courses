@@ -63,8 +63,10 @@ SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
 STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
-                LD REALSTATE, (CURSOR >> 6) ; shift REALSTATE to map the codes
-                                            ; of the joystick inputs
+
+                LDI NSHIFT, 3               ; shift REALSTATE to map the codes
+                LD REALSTATE, CURSOR        ; of the joystick inputs
+                RCALL RSHIFT
 
                 RCALL TRANSMIT_0            ; transmit '0' for STATE0
                 RCALL TRANSMIT_COMMA        ; transmit ','
@@ -86,8 +88,10 @@ STATE1:         CLR USER
                 LDI NSHIFT, 2
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
-                LD REALSTATE, (CURSOR >> 4) ; shift REALSTATE to map the codes
-                                            ; of the joystick inputs
+
+                LDI NSHIFT, 2               ; shift REALSTATE to map the codes
+                LD REALSTATE, CURSOR        ; of the joystick inputs
+                RCALL RSHIFT
 
                 RCALL TRANSMIT_1            ; transmit '1' for STATE1
                 RCALL TRANSMIT_COMMA        ; transmit ','
@@ -108,8 +112,10 @@ STATE2:         CLR USER
                 LDI NSHIFT, 1
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00001100
-                LD REALSTATE, (CURSOR >> 2) ; shift REALSTATE to map the codes
-                                            ; of the joystick inputs
+
+                LDI NSHIFT, 1               ; shift REALSTATE to map the codes
+                LD REALSTATE, CURSOR        ; of the joystick inputs
+                RCALL RSHIFT
 
                 RCALL TRANSMIT_2            ; transmit '2' for STATE2
                 RCALL TRANSMIT_COMMA        ; transmit ','
@@ -130,8 +136,11 @@ STATE3:         CLR USER
                 LDI NSHIFT, 0
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00000011
-                LD REALSTATE, CURSOR        ; shift REALSTATE to map the codes
-                                            ; of the joystick inputs
+
+                LDI NSHIFT, 0               ; shift REALSTATE to map the codes
+                LD REALSTATE, CURSOR        ; of the joystick inputs
+                RCALL RSHIFT
+
                 RCALL TRANSMIT_3            ; transmit '3' for STATE3
                 RCALL TRANSMIT_COMMA        ; transmit ','
 
@@ -221,6 +230,13 @@ DEBOUNCERT:     SBIC PINE, 3
 
 LSHIFT:         LSL USER
                 LSL USER                    ; left shift twice per iteration
+                DEC NSHIFT                  ; decrement the number of shifts
+                CPI NSHIFT, 1
+                    BRGE LSHIFT             ; if NSHIFT >= 1, keep looping
+                    RET                     ; else, break
+
+RSHIFT:         LSR USER
+                LSR USER                    ; left shift twice per iteration
                 DEC NSHIFT                  ; decrement the number of shifts
                 CPI NSHIFT, 1
                     BRGE LSHIFT             ; if NSHIFT >= 1, keep looping
