@@ -29,6 +29,9 @@ State machine implementation of Mastermind
 
 .ORG $0000
 
+; include instructions from 'uart.asm' to implement transmission with the UART
+.INCLUDE "uart.asm"
+
                 RJMP START
 
 ; initialize the stack.
@@ -79,7 +82,7 @@ STATE1:         CLR USER
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
 
-                RJMP TRANSMIT_0  1          ; transmit '1' for STATE1
+                RJMP TRANSMIT_1             ; transmit '1' for STATE1
                 RJMP TRANSMIT_COMMA         ; transmit ','
 
                 RCALL RDINPUT
@@ -258,7 +261,3 @@ CONTWASTETIME:  NOP
                 DEC CTR
                 BRNE CONTWASTETIME
                     RET
-
-
-; include instructions from 'uart.asm' to implement transmission with the UART
-.INCLUDE "uart.asm"
