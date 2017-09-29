@@ -43,18 +43,18 @@ START:          LDI PORTDEF, HIGH(RAMEND)   ; upper byte
                 OUT SPL, PORTDEF            ; to stack pointer
 
 ; initialize the ports for I/O
-SETUPPORTS:     LDI PORTDEF, 0b00100010     ; PORT B (pin 1) is the LED (output)
-                OUT DDRB, PORTDEF           ; PORT B (pin 5) is the buzzer (output)
-                                            ; PORT B (pins 6 and 7) are the UP
+SETUPPORTS:     LDI PORTDEF, 0b00100010     ; Pin 1 is the LED (output)
+                OUT DDRB, PORTDEF           ; Pin 5 is the buzzer (output)
+                                            ; Pins 6 and 7 are the UP
                                             ; and DOWN inputs of the joystick
                                             ; (input)
 
-                LDI PORTDEF, 0b10000000     ; PORT D (pin 7) is the push button
-                OUT PORTD, PORTDEF          ; (input)
+                LDI PORTDEF, 0b10000000     ; Pin 7 is the push button (input)
+                OUT PORTD, PORTDEF
 
-                LDI PORTDEF, 0b00001100     ; PORT E (pins 2 and 3) are the 
-                OUT PORTE, PORTDEF          ; LEFT and RIGHT inputs of the 
-                                            ; joystick (input)
+                LDI PORTDEF, 0b00001100     ; Pins 2 and 3 are the LEFT and
+                OUT PORTE, PORTDEF          ; RIGHT inputs of the joystick
+                                            ; (input)
 
 ; descriptions of states
 ; STATE0 is the initial state of the game, where the machine waits for the
@@ -64,8 +64,9 @@ STATE0:         LDI NSHIFT, 3
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b11000000
 
+                CLR NSHIFT
                 LDI NSHIFT, 3               ; shift REALSTATE to map the codes
-                MOV REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR       ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_0            ; transmit '0' for STATE0
@@ -89,8 +90,9 @@ STATE1:         CLR USER
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00110000
 
+                CLR NSHIFT
                 LDI NSHIFT, 2               ; shift REALSTATE to map the codes
-                MOV REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR       ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_1            ; transmit '1' for STATE1
@@ -113,8 +115,9 @@ STATE2:         CLR USER
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00001100
 
+                CLR NSHIFT
                 LDI NSHIFT, 1               ; shift REALSTATE to map the codes
-                MOV REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR       ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_2            ; transmit '2' for STATE2
@@ -137,8 +140,9 @@ STATE3:         CLR USER
 				LDI CURSOR, SECRET
                 ANDI CURSOR, 0b00000011
 
+                CLR NSHIFT
                 LDI NSHIFT, 0               ; shift REALSTATE to map the codes
-                MOV REALSTATE, CURSOR        ; of the joystick inputs
+                MOV REALSTATE, CURSOR       ; of the joystick inputs
                 RCALL RSHIFT
 
                 RCALL TRANSMIT_3            ; transmit '3' for STATE3
@@ -206,7 +210,7 @@ RESETPB:        RJMP LEDOFF
                 RJMP DEBOUNCEPB
                 RJMP STATE0                 ; reset
 
-; Waits for user to stop pressing and then returns.
+; debounces inputs and then returns
 DEBOUNCEPB:     SBIC PIND, 7
                     RET
                 RJMP DEBOUNCEPB
@@ -243,16 +247,16 @@ RSHIFT:         LSR USER
                     RET                     ; else, break
 
 WHICHINPUT:     CPI REALSTATE, UP           ; if user inputted 'UP'
-                    RCALL TRANSMIT_U         ; transmit 'U'
+                    RCALL TRANSMIT_U        ; transmit 'U'
 
                 CPI REALSTATE, DOWN         ; if user inputted 'DOWN'
-                    RCALL TRANSMIT_D         ; transmit 'D'
+                    RCALL TRANSMIT_D        ; transmit 'D'
 
                 CPI REALSTATE, LEFT         ; if user inputted 'LEFT'
-                    RCALL TRANSMIT_L         ; transmit 'L'
+                    RCALL TRANSMIT_L        ; transmit 'L'
 
                 CPI REALSTATE, RIGHT        ; if user inputted 'RIGHT'
-                    RCALL TRANSMIT_R         ; transmit 'R'
+                    RCALL TRANSMIT_R        ; transmit 'R'
 
                     RET
 
