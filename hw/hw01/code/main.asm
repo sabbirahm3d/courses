@@ -2,21 +2,21 @@
 State machine implementation of Mastermind
 */
 
-; Include the butterfly definitions for the M169P.
-.INCLUDE "m169pdef.inc" ;(BUTTERFLY DEFINITIONS)
+; include the Butterfly definitions for the M169P
+.INCLUDE "m169pdef.inc"
 
 ; initialize the stack and also define the port functionality
 .DEF PORTDEF    = R16
 
 ; Counters 1 and 2 are used to waste time so that the buzzer sound is hearable
-.DEF CTR        = R17              
+.DEF CTR        = R17
 .DEF CTR2       = R18
 
 ; registers to handle the comparisons
 .DEF USER       = R19
 .DEF CURSOR     = R20
-.DEF NSHIFT     = R21
-.DEF REALSTATE  = R22
+.DEF REALSTATE  = R21
+.DEF NSHIFT     = R22
 
 ; secret code to win the game (UP, DOWN, LEFT, RIGHT)
 .EQU SECRET     = 0b00011011
@@ -65,8 +65,8 @@ STATE0:         RCALL TRANSMIT_0            ; transmit '0' for STATE0
 
                 LDI CURSOR, SECRET          ; load and mask the secret code
                 ANDI CURSOR, 0b11000000     ; into the CURSOR register
-                LDI NSHIFT, 3
-                RCALL RDINPUT
+                LDI NSHIFT, 3               ; to shift USER BY 3*2 bits
+                RCALL RDINPUT               ; get user's input
 
                 CLR NSHIFT
                 LDI NSHIFT, 3               ; shift REALSTATE to map the codes
@@ -77,6 +77,8 @@ STATE0:         RCALL TRANSMIT_0            ; transmit '0' for STATE0
                 RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
+                RCALL TRANSMIT_1            ; transmit '1' for STATE1
+                RCALL TRANSMIT_COMMA        ; transmit ','
                 RCALL TRANSMIT_S            ; transmit 'S' for success
                 RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
@@ -85,14 +87,11 @@ STATE0:         RCALL TRANSMIT_0            ; transmit '0' for STATE0
 ; STATE1 is the second state of the game, where the machine waits for the
 ; user's second input. The correct input progresses the game to the next state,
 ; and an incorrect input results in the buzzer being triggered.
-STATE1:         RCALL TRANSMIT_1            ; transmit '1' for STATE1
-                RCALL TRANSMIT_COMMA        ; transmit ','
-
-                CLR USER
+STATE1:         CLR USER
                 LDI CURSOR, SECRET          ; load and mask the secret code
                 ANDI CURSOR, 0b00110000     ; into the CURSOR register
-                LDI NSHIFT, 2
-                RCALL RDINPUT
+                LDI NSHIFT, 2               ; to shift USER BY 2*2 bits
+                RCALL RDINPUT               ; get user's input
 
                 CLR NSHIFT
                 LDI NSHIFT, 2               ; shift REALSTATE to map the codes
@@ -103,6 +102,8 @@ STATE1:         RCALL TRANSMIT_1            ; transmit '1' for STATE1
                 RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
+                RCALL TRANSMIT_2            ; transmit '2' for STATE2
+                RCALL TRANSMIT_COMMA        ; transmit ','
                 RCALL TRANSMIT_S            ; transmit 'S' for success
                 RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
@@ -110,15 +111,12 @@ STATE1:         RCALL TRANSMIT_1            ; transmit '1' for STATE1
 ; STATE2 is the third state of the game, where the machine waits for the
 ; user's third input. The correct input progresses the game to the next state,
 ; and an incorrect input results in the buzzer being triggered.
-STATE2:         RCALL TRANSMIT_2            ; transmit '2' for STATE2
-                RCALL TRANSMIT_COMMA        ; transmit ','
-
-                CLR USER
+STATE2:         CLR USER
                 LDI CURSOR, SECRET          ; load and mask the secret code
                 ANDI CURSOR, 0b00001100     ; into the CURSOR register
-                LDI NSHIFT, 1
-                RCALL RDINPUT
-                
+                LDI NSHIFT, 1               ; to shift USER BY 1*2 bits
+                RCALL RDINPUT               ; get user's input
+
                 CLR NSHIFT
                 LDI NSHIFT, 1               ; shift REALSTATE to map the codes
                 MOV REALSTATE, CURSOR       ; of the joystick inputs
@@ -128,6 +126,8 @@ STATE2:         RCALL TRANSMIT_2            ; transmit '2' for STATE2
                 RCALL TRANSMIT_COMMA
                 RCALL CMPINPUT
 
+                RCALL TRANSMIT_3            ; transmit '3' for STATE3
+                RCALL TRANSMIT_COMMA        ; transmit ','
                 RCALL TRANSMIT_S            ; transmit 'S' for success
                 RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
                                             ; state
@@ -135,14 +135,11 @@ STATE2:         RCALL TRANSMIT_2            ; transmit '2' for STATE2
 ; STATE3 is the fourth state of the game, where the machine waits for the
 ; user's fourth input. The correct input progresses the game to the next 
 ; state, and an incorrect input results in the buzzer being triggered
-STATE3:         RCALL TRANSMIT_3            ; transmit '3' for STATE3
-                RCALL TRANSMIT_COMMA        ; transmit ','
-
-                CLR USER
+STATE3:         CLR USER
                 LDI CURSOR, SECRET          ; load and mask the secret code
                 ANDI CURSOR, 0b00000011     ; into the CURSOR register
-                LDI NSHIFT, 0
-                RCALL RDINPUT
+                LDI NSHIFT, 0               ; to shift USER BY 0*2 bits
+                RCALL RDINPUT               ; get user's input
 
                 CLR NSHIFT
                 LDI NSHIFT, 0               ; shift REALSTATE to map the codes

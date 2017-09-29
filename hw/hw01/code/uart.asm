@@ -136,17 +136,13 @@ TRANSMIT_4:     LDS TEMP0, UCSR0A           ; Wait for empty transmit buffer
                 STS UDR0, TEMP
 
 ; now send the data using a function call
-DONE:
-    RJMP DONE
+DONE:           RJMP DONE
 
 ; assumes data is in register TEMP
-USART_TRANSMIT:
+TRANSMIT:       LDS TEMP0, UCSR0A           ; wait for empty transmit buffer
 
-    ; Wait for empty transmit buffer
-    LDS TEMP0, UCSR0A
-    SBRS TEMP0, UDRE
-    RJMP USART_TRANSMIT
+                SBRS TEMP0, UDRE
+                RJMP USART_TRANSMIT
 
-    ; send the data
-    STS UDR0, TEMP
-    RET
+                STS UDR0, TEMP              ; send the data
+                RET
