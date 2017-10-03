@@ -1,11 +1,13 @@
 # Executables and logs for Xilinx ISE
 
+_ngo/
 _xmsgs/
 iseconfig/
 isim/
 xst/
 
 *.cmd
+*.cmd_log
 *.prj
 *.gise
 *.exe
@@ -17,7 +19,9 @@ xst/
 *.sch
 *.sdb
 *.log
+*.xml
 *.xmsgs
+*.xrpt
 *.xsl
 *.xst
 
