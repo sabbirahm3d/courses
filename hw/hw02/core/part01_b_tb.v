@@ -18,12 +18,12 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part01_tb();
+module part01_b_tb();
 
 	reg a, b, c;
 	wire y, z;
 
-	part01 DUT(a, b, c, y, z);
+	part01_b DUT(a, b, c, y, z);
 
 	initial begin
 

@@ -5,7 +5,7 @@
 // 
 // Create Date:    20:35:07 09/29/2017 
 // Design Name: 
-// Module Name:    part01 
+// Module Name:    part02 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part01(
+module part01_b(
 		input a,
 		input b,
 		input c,
@@ -28,18 +28,8 @@ module part01(
 
 	always @(a or b or c) begin
 
-		if (a && b && c) begin  // 111
-			y <= 0;
-			z <= 1;
-		end else if (a && b && ~c) begin  // 110
-			y <= 1;
-			z <= 1;
-		end else if (a && ~b && ~c) begin  // 100
-			y <= 0;
-			z <= 0;
-		end else begin
-			y <= 0;
-		end
+		y <= a && b && ~c;
+		z <= (a && b && ~c) | (a && b && c);
 
 	end
 
