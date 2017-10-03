@@ -14,9 +14,11 @@ xst/
 *.wdb
 *.ini
 .lso
+*.sch
 *.sdb
 *.log
 *.xmsgs
+*.xsl
 *.xst
 
 !*.v
