@@ -1,6 +1,17 @@
 # Executables and logs for Xilinx ISE
-core/*
-!core/*.xise
+
+_xmsgs/
+iseconfig/
+isim/
+xst/
+
+*.prj
+*.gise
+*.exe
+*.html
+*.stx
+*.wdb
+.lso
+*.sdb
+*.log
 !*.v
-!core/*.xco
-!core/*.wcfg
