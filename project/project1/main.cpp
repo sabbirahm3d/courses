@@ -171,7 +171,10 @@ mpz_t* split_line(const std::string &str) {
         gmp_printf("%s is an mpz %Zd\n", "here", pair[1]);
     }
 
-    return pair;
+    mpz_clear(pair[0]);
+    mpz_clear(pair[1]);
+
+    // return *pair;
 
 }
 
@@ -193,12 +196,12 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
 
         read_from_file(argv[1]);
-        return 0;
+        return EXIT_SUCCESS;
 
     } else {
 
         std::cout << "Please provide a valid file name" << std::endl;
-        return -1;
+        return EXIT_FAILURE;
 
     }
 

@@ -3,12 +3,12 @@ MAIN:="main"
 
 .PHONY: run
 run:
-	@./${OUTPUT}
+	@./${OUTPUT} ${PATH}
 
 
 .PHONY: compile
 compile:
-	@g++ -o ${OUTPUT} ${MAIN}.cpp -lgmp
+	@g++ -o ${OUTPUT} ${MAIN}.cpp -lgmp -std=c++0x
 
 
 .PHONY: clean
