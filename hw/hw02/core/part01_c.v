@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    20:35:07 09/29/2017 
+// Create Date:    11:29:08 10/03/2017 
 // Design Name: 
-// Module Name:    part01 
+// Module Name:    part01_c 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part01_a(
+module part01_c(
 		input a,
 		input b,
 		input c,
@@ -28,19 +28,29 @@ module part01_a(
 
 	always @(a or b or c) begin
 
-		if (a && b && c) begin  // 111
-			y <= 1'b0;
-			z <= 1'b1;
-		end else if (a && b && ~c) begin  // 110
-			y <= 1'b1;
-			z <= 1'b1;
-		end else if (a && ~b && ~c) begin  // 100
-			y <= 1'b0;
-			z <= 1'b0;
-		end else begin
-			y <= 1'b0;
-			z <= 1'bx;
-		end
+		case({a, b, c})
+		
+			3'b111: begin
+				y <= 1'b0;
+				z <= 1'b1;
+			end
+		
+			3'b110: begin
+				y <= 1'b1;
+				z <= 1'b1;
+			end
+			
+			3'b100: begin
+				y <= 1'b0;
+				z <= 1'b0;
+			end
+			
+			default begin
+				y <= 1'b0;
+				z <= 1'bx;
+			end
+		
+		endcase
 
 	end
 

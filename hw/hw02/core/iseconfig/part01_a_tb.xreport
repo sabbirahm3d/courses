@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-10-02T22:27:15</DateModified>
+  <DateModified>2017-10-03T11:01:50</DateModified>
   <ModuleName>part01_a_tb</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/iseconfig/part01_a_tb.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/</ImplementationReportsDirectory>
   <DateInitialized>2017-10-02T22:27:15</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
