@@ -1,2 +1,6 @@
 # Executables and logs for Xilinx ISE
-*.log
+core/*
+!core/*.xise
+!*.v
+!core/*.xco
+!core/*.wcfg

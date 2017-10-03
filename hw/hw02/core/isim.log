@@ -1,0 +1,153 @@
+ISim log file
+Running: /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+x = 1010101010101010101010101010101010101010101010101010101010101010
+u = 0101010101010101010101010101010101010101010101010101010101010101
+x = 0101101101101101101101101101101101101101101101101101101101101101
+u = 0101010101010101010101010101010101010101010101010101010101010101
+Stopped at time : 5 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 54
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+x = 1010101010101010101010101010101010101010101010101010101010101010
+u = 0101010101010101010101010101010101010101010101010101010101010101
+x = 0101101101101101101101101101101101101101101101101101101101101101
+u = 0101010101010101010101010101010101010101010101010101010101010101
+x = 0101101101101101101101101101101101101101101101101101101101101101
+u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 20 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 54
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+x = 1010101010101010101010101010101010101010101010101010101010101010
+u = 0101010101010101010101010101010101010101010101010101010101010101
+x = 0101101101101101101101101101101101101101101101101101101101101101
+u = 0101010101010101010101010101010101010101010101010101010101010101
+x = 0101101101101101101101101101101101101101101101101101101101101101
+u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 50 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 54
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   1x = 1010101010101010101010101010101010101010101010101010101010101010
+                   2u = 0101010101010101010101010101010101010101010101010101010101010101
+                   3x = 0101101101101101101101101101101101101101101101101101101101101101
+                   4u = 0101010101010101010101010101010101010101010101010101010101010101
+                   5x = 0101101101101101101101101101101101101101101101101101101101101101
+                   6u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 50 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 54
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   1 x = 1010101010101010101010101010101010101010101010101010101010101010
+                   2 u = 0101010101010101010101010101010101010101010101010101010101010101
+                   3 x = 0101101101101101101101101101101101101101101101101101101101101101
+                   4 u = 0101010101010101010101010101010101010101010101010101010101010101
+                   5 x = 0101101101101101101101101101101101101101101101101101101101101101
+                   6 u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 50 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 54
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   1 x = 1010101010101010101010101010101010101010101010101010101010101010
+                   2 u = 0101010101010101010101010101010101010101010101010101010101010101
+                   3 x = 0101101101101101101101101101101101101101101101101101101101101101
+                   4 u = 0101010101010101010101010101010101010101010101010101010101010101
+                   5 x = 0101101101101101101101101101101101101101101101101101101101101101
+                   6 u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 50 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 56
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   5 x = 1010101010101010101010101010101010101010101010101010101010101010
+                  10 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  15 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  20 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  25 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  30 u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 50 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 57
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   5 x = 1010101010101010101010101010101010101010101010101010101010101010
+                  10 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  15 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  20 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  25 x = 0101101101101101101101101101101101101101101101101101101101101101
+Stopped at time : 30 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 57
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   5 x = 1010101010101010101010101010101010101010101010101010101010101010
+                  10 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  15 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  20 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  25 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  30 u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 35 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 57
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                   5 x = 1010101010101010101010101010101010101010101010101010101010101010
+                  10 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  15 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  20 u = 0101010101010101010101010101010101010101010101010101010101010101
+                  25 x = 0101101101101101101101101101101101101101101101101101101101101101
+                  30 u = 1010110110110110110110110110110110110110110110110110110110110110
+Stopped at time : 40 ns : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/part05_tb.v" Line 57
+# exit 0
