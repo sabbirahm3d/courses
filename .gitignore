@@ -5,13 +5,19 @@ iseconfig/
 isim/
 xst/
 
+*.cmd
 *.prj
 *.gise
 *.exe
 *.html
 *.stx
 *.wdb
+*.ini
 .lso
 *.sdb
 *.log
+*.xmsgs
+*.xst
+
 !*.v
+!*.xise

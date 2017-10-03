@@ -1,5 +1,0 @@
-set -tmpdir "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/xst/projnav.tmp"
-set -xsthdpdir "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw02/core/xst"
-elaborate
--ifn part05.prj
--ifmt mixed
