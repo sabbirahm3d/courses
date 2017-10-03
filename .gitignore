@@ -6,6 +6,7 @@ iseconfig/
 isim/
 xst/
 
+*.bin
 *.cmd
 *.cmd_log
 *.prj
@@ -18,7 +19,9 @@ xst/
 .lso
 *.sch
 *.sdb
+*.spl
 *.log
+*.xbcd
 *.xml
 *.xmsgs
 *.xrpt
