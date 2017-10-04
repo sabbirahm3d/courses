@@ -26,30 +26,25 @@ module part05_tb();
 
 	part05 DUT(x, clk, u);
 
+	always begin
+		#1 clk = ~clk;
+	end
+
 	initial begin
 	
 		clk = 1;
+		x = {32{2'b01}};
+		#3;
+		$display($time, " x = %b %d", x, clk);
+		$display($time, " u = %b %d", u, clk);
+
 		x = {32{2'b10}};
-		#5;
-		$display($time, " x = %b", x);
-		#5;
-		$display($time, " u = %b", u);
-
-		clk = 0;
-		x = {21{3'b101}};
-		#5;
-		$display($time, " x = %b", x);
-		#5;
-		$display($time, " u = %b", u);
-
-		clk = 1;
-		x = {21{3'b101}};
-		#5;
-		$display($time, " x = %b", x);
-		#5;
-		$display($time, " u = %b", u);
-
-		clk = 0;
+		#1;
+		$display($time, " x = %b %d", x, clk);
+		$display($time, " u = %b %d", u, clk);
+		#1
+		$display($time, " x = %b %d", x, clk);
+		$display($time, " u = %b %d", u, clk);
 
 	end
 

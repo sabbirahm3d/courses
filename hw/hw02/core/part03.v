@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module part03(
 		input [3:0] x,
-		input s,
+		input [2:0] s,
 		output reg y
 	);
 
@@ -33,6 +33,7 @@ module part03(
 			2: y <= ^x;
 			3: y <= ~&x;
 			4: y <= ~|x;
+			default: $display("Error in SEL");
 
 		endcase
 

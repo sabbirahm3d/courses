@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:46:18 10/03/2017 
+// Create Date:    19:04:52 10/03/2017 
 // Design Name: 
-// Module Name:    part05 
+// Module Name:    part04 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,22 +18,34 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part05(
-		 input [63:0] x,
-		 input clk,
-		 output reg [63:0] u
-    );
-	 
-	integer i;
+module part04(
+		input [3:0] x,
+		input [3:0] y,
+		input [2:0] s,
+		input clk,
+		output reg [3:0] q
+	);
 
+	integer i;
 	always @(posedge clk) begin
-	   i = 0;            
-		while (i < 63) begin
-			u[i + 1] <= x[i];
-			u[i] <= x[i + 1];
-			i = i + 2;
-		end
-	
+
+		case(s)
+			0: q <= (x & y);
+			1: q <= x | y;
+			2: q <= x ^ y;
+			3: q <= ~(x ^ y);
+
+//			3: begin
+//			
+//				for (i = 0; i < 4; i = i + 1) begin
+//					q[i] = !(x[i] & y[i]);
+//				end
+//
+//			end
+			4: q <= ~(x | y);
+
+		endcase
+
 	end
 
 
