@@ -134,12 +134,15 @@ void randz(complex *z, gmp_randstate_t rstate, mp_bitcnt_t n);
 //    mpz_urandomb(z->i, rstate, n);
 //}
 
-void init(complex *a) {
-    mpz_init(a->r);
-    mpz_init(a->i);
-}
+//void init(complex *a) {
+//    mpz_init(a->r);
+//    mpz_init(a->i);
+//}
 
-mpz_t* split_line(const std::string &str) {
+
+
+// ---------------------------------- OUR IMPLEMENTATION ----------------------------------
+mpz_t *split_line(const std::string &str) {
 
     std::string next;
     mpz_t pair[2];
@@ -156,7 +159,8 @@ mpz_t* split_line(const std::string &str) {
             if (!next.empty()) {
                 str_size = next.size();
                 mpz_set_str(pair[0], next.substr(1, str_size).c_str(), 10);
-                gmp_printf("%s is an mpz %Zd\n", "here", pair[0]);
+                // a test to verify conversion
+                gmp_printf("mpz %Zd\n", pair[0]);
                 next.clear();
             }
         } else {
@@ -168,13 +172,15 @@ mpz_t* split_line(const std::string &str) {
     if (!next.empty()) {
         str_size = next.size();
         mpz_set_str(pair[1], next.substr(0, str_size - 1).c_str(), 10);
-        gmp_printf("%s is an mpz %Zd\n", "here", pair[1]);
+        // a test to verify conversion
+        gmp_printf("mpz %Zd\n", pair[1]);
     }
 
-    mpz_clear(pair[0]);
-    mpz_clear(pair[1]);
+//    destructors for mpz objects - works fine here, but may need to be called later instead
+//    mpz_clear(pair[0]);
+//    mpz_clear(pair[1]);
 
-    // return *pair;
+    return pair;
 
 }
 
@@ -183,10 +189,11 @@ void read_from_file(const char *file_name) {
 
     std::ifstream file(file_name);
     std::string line;
-    std::vector<complex> complex_nums;
+    std::vector<mpz_t *> complex_nums;
 
     while (std::getline(file, line)) {
-        split_line(line);
+//        push mpz objects into a vector - but we need to cast them into complex structs at first
+        complex_nums.push_back(split_line(line));
     }
 
 }
