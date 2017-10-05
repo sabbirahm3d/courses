@@ -30,8 +30,8 @@ module part06(a, b, clk, y, z);
             y[0] = 1'bx;
             z = 2'b01;
         end else if (b == 1) begin
-            y [0] = 1'b0;
-            y [1] = 1'b0;
+            y[0] = 1'b0;
+            y[1] = 1'b0;
             z = 2'b10;
         end
     end

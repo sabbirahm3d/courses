@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    20:35:07 09/29/2017 
+// Create Date:    20:50:30 10/04/2017 
 // Design Name: 
 // Module Name:    part02 
 // Project Name: 
@@ -18,19 +18,23 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part01_b(
-		input a,
-		input b,
-		input c,
-		output reg y,
-		output reg z
-	);
+module part02(
+		input x,
+		input rst,
+		output reg y
+    );
 
-	always @(a or b or c) begin
+	always @(x) begin
 
-		y <= a && b && ~c;
-		z <= b;
+		if (rst) begin
+
+			y <= 0;
+
+		end
+
+		y <= #5 x;
 
 	end
+
 
 endmodule

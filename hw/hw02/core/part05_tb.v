@@ -52,6 +52,6 @@ module part05_tb();
 
 	end
 
-	initial #40 $finish;
+	initial #10 $finish;
 
 endmodule

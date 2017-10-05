@@ -23,7 +23,7 @@ module part01_a_tb();
 	reg a, b, c;
 	wire y, z;
 
-	part01_a DUTa(a, b, c, y, z);
+	part01_a DUT(a, b, c, y, z);
 
 	initial begin
 

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    20:35:07 09/29/2017 
+// Create Date:    20:53:05 10/04/2017 
 // Design Name: 
-// Module Name:    part02 
+// Module Name:    part02_tb 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,32 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part01_b(
-		input a,
-		input b,
-		input c,
-		output reg y,
-		output reg z
-	);
+module part02_tb();
 
-	always @(a or b or c) begin
+	reg x, rst;
+	wire y;
 
-		y <= a && b && ~c;
-		z <= b;
+	part02 DUT(x, rst, y);
+
+	initial begin
+	
+		rst = 1;
+		x = 0;
+		#1
+		x = 1;
+		#1
+		x = 0;
+
+		#4
+		x = 0;
+		#1
+		x = 1;
+		#1
+		x = 0;
 
 	end
+	
+	initial #20 $finish;
+
 
 endmodule
