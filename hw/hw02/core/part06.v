@@ -23,7 +23,7 @@ module part06(a, b, clk, y, z);
     input a, b, clk;
     output reg [1:0] y, z;
 
-    always@(posedge clk) begin
+    always @(posedge clk) begin
         y = 2'b00;
         if (a == 1) begin
             y[1] = 1'b1;
