@@ -16,10 +16,13 @@ xst/
 *.stx
 *.wdb
 *.ini
-.lso
+*.lso
 *.sch
 *.sdb
 *.spl
+*.sym
+*.syr
+*.tfi
 *.log
 *.xbcd
 *.xml

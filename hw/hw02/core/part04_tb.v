@@ -27,131 +27,109 @@ module part04_tb();
 
     part04 DUT(x, y, s, clk, q);
 
+	 always begin
+		  #1 clk = ~clk;
+	 end
+
     initial begin
 
         // bitwise AND reduction
         clk = 1;
         s = 0;
+		#3
 
         y = 4'b1010;
         x = 4'b1001;
         // y = 4'b0000;
-        #1
-        $display("x:%b & y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bx111;
         // y = 4'b1111;
-        #5
-        $display("x:%b & y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bz111;
         // y = 4'b1111;
-        #5
-        $display("x:%b & y:%b = %b s:%d", x, y, q, s);
-
-        #1
-        // clk = 0;
-        #5
+        #2
+        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         // bitwise OR reduction
-        clk = 1;
         s = 1;
 
         x = 4'b1001;
         // y = 4'b1111;
-        #5
-        $display("x:%b | y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bx001;
         // y = 4'b1111;
-        #5
-        $display("x:%b | y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bz001;
         // y = 4'b1111;
-        #5
-        $display("x:%b | y:%b = %b s:%d", x, y, q, s);
-        $display("x:%b & y:%b = %b s:%d", x, y, q, s);
-
-        #1
-        // clk = 0;
-        #5
+        #2
+        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         // bitwise XOR reduction
-        clk = 1;
         s = 2;
-		  #2
+		#2
 
         x = 4'b1001;
         // y = 4'b1111;
-        #1
-        $display("x:%b ^ y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bx000;
         // y = 4'b1111;
-        #1
-        $display("x:%b ^ y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bz000;
         // y = 4'b1111;
-        #1
-        $display("x:%b ^ y:%b = %b s:%d", x, y, q, s);
-        $display("x:%b & y:%b = %b s:%d", x, y, q, s);
-
-        #1
-        // clk = 0;
-        #5
+        #2
+        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         // bitwise NAND reduction
-        clk = 1;
         s = 3;
-		  #2
+		#2
 
         x = 4'b1001;
         // y = 4'b1111;
-        #5
-        $display("x:%b ~& y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
         $display("x:%b ~& y:%b = %b", x, y, (!(4'b1001 & 4'b1010)));
 
         x = 4'bx001;
         // y = 4'b1111;
-        #1
-        $display("x:%b ~& y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'b1111;
-         y = 4'b1111;
-        #10
-        $display("x:%b ~& y:%b = %b s:%d", x, y, q, s);
-
-        #1
-        // clk = 0;
-        #5
+         // y = 4'b1111;
+        #2
+        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         // bitwise NOR reduction
-        clk = 1;
         s = 4;
 
         x = 4'b1001;
-        // y = 4'b1111;
-        #1
+        #2
 
-        $display("x:%b ~| y:%b = %b s:%d", x, y, q, s);
+        $display("x:%b ~| y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bx001;
-        // y = 4'b1111;
-        #1
-        $display("x:%b ~| y:%b = %b s:%d", x, y, q, s);
+        #2
+        $display("x:%b ~| y:%b = %b s:%d clk:%d", x, y, q, s, clk);
 
         x = 4'bz001;
-        // y = 4'b1111;
-        #1
-        $display("x:%b ~| y:%b = %b s:%i", x, y, q, s);
+        #2
+        $display("x:%b ~| y:%b = %b s:%i clk:%d", x, y, q, s, clk);
 
-        #1
-        // clk = 0;
-        #5
-
-        #20 $finish;
+        #2 $finish;
 
     end
 

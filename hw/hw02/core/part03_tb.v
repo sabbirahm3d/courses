@@ -35,13 +35,13 @@ module part03_tb();
         #1
         $display(" & %b = %b", x, y);
 
-        x = 4'bx111;
+        x = 4'b1111;
         #1
         $display(" & %b = %b", x, y);
 
-        x = 4'bz111;
+        x = 4'b1110;
         #1
-        $display(" & %b = %b", x, y);
+        $display(" & %b = %b\n", x, y);
 
 
         // bitwise OR reduction
@@ -51,13 +51,13 @@ module part03_tb();
         #1
         $display(" | %b = %b", x, y);
 
-        x = 4'bx001;
+        x = 4'b0000;
         #1
         $display(" | %b = %b", x, y);
 
-        x = 4'bz001;
+        x = 4'b1110;
         #1
-        $display(" | %b = %b", x, y);
+        $display(" | %b = %b\n", x, y);
 
         // bitwise XOR reduction
         s = 2;
@@ -66,13 +66,13 @@ module part03_tb();
         #1
         $display(" ^ %b = %b", x, y);
 
-        x = 4'bx000;
+        x = 4'b1111;
         #1
         $display(" ^ %b = %b", x, y);
 
-        x = 4'bz000;
+        x = 4'b1110;
         #1
-        $display(" ^ %b = %b", x, y);
+        $display(" ^ %b = %b\n", x, y);
 
         // bitwise NAND reduction
         s = 3;
@@ -81,13 +81,13 @@ module part03_tb();
         #1
         $display(" ~& %b = %b", x, y);
 
-        x = 4'bx001;
+        x = 4'b1111;
         #1
         $display(" ~& %b = %b", x, y);
 
-        x = 4'bz001;
+        x = 4'b1110;
         #1
-        $display(" ~& %b = %b", x, y);
+        $display(" ~& %b = %b\n", x, y);
 
         // bitwise NOR reduction
         s = 4;
@@ -97,15 +97,16 @@ module part03_tb();
 
         $display(" ~| %b = %b", x, y);
 
-        x = 4'bx001;
+        x = 4'b0000;
         #1
         $display(" ~| %b = %b", x, y);
 
-        x = 4'bz001;
+        x = 4'b1110;
         #1
-        $display(" ~| %b = %b", x, y);
+        $display(" ~| %b = %b\n", x, y);
 
-        #20 $finish;
 	end
+	
+	initial #16 $finish;
 
 endmodule
