@@ -30,18 +30,11 @@ module part04(
 	always @(posedge clk) begin
 
 		case(s)
+
 			0: q <= (x & y);
 			1: q <= x | y;
 			2: q <= x ^ y;
-			3: q <= ~(x ^ y);
-
-//			3: begin
-//			
-//				for (i = 0; i < 4; i = i + 1) begin
-//					q[i] = !(x[i] & y[i]);
-//				end
-//
-//			end
+			3: q <= ~(x & y);
 			4: q <= ~(x | y);
 
 		endcase

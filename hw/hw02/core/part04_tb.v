@@ -21,97 +21,83 @@
 module part04_tb();
 
     reg [3:0] x, y;
-	 reg [2:0] s;
+    reg [2:0] s;
     reg clk;
     wire [3:0] q;
 
     part04 DUT(x, y, s, clk, q);
 
-	 always begin
-		  #1 clk = ~clk;
-	 end
+     always begin
+          #1 clk = ~clk;
+     end
 
     initial begin
 
         // bitwise AND reduction
         clk = 1;
         s = 0;
-		#3
+        #1
 
         y = 4'b1010;
         x = 4'b1001;
         // y = 4'b0000;
         #2
-        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b & y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bx111;
-        // y = 4'b1111;
+        x = 4'b0000;
         #2
-        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b & y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bz111;
-        // y = 4'b1111;
+        x = 4'b1110;
         #2
-        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b & y:%b = %b when s = %d\n", x, y, q, s);
 
         // bitwise OR reduction
         s = 1;
 
         x = 4'b1001;
-        // y = 4'b1111;
         #2
-        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b | y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bx001;
-        // y = 4'b1111;
+        x = 4'b0101;
         #2
-        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b | y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bz001;
-        // y = 4'b1111;
+        x = 4'b1110;
         #2
-        $display("x:%b | y:%b = %b s:%d clk:%d", x, y, q, s, clk);
-        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b | y:%b = %b when s = %d\n", x, y, q, s);
 
         // bitwise XOR reduction
         s = 2;
-		#2
+        #2
 
         x = 4'b1001;
-        // y = 4'b1111;
         #2
-        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ^ y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bx000;
-        // y = 4'b1111;
+        x = 4'b1111;
         #2
-        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ^ y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bz000;
-        // y = 4'b1111;
+        x = 4'b1110;
         #2
-        $display("x:%b ^ y:%b = %b s:%d clk:%d", x, y, q, s, clk);
-        $display("x:%b & y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ^ y:%b = %b when s = %d\n", x, y, q, s);
 
         // bitwise NAND reduction
         s = 3;
-		#2
+        #2
 
         x = 4'b1001;
-        // y = 4'b1111;
         #2
-        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
-        $display("x:%b ~& y:%b = %b", x, y, (!(4'b1001 & 4'b1010)));
+        $display("x:%b ~& y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bx001;
-        // y = 4'b1111;
+        x = 4'b0000;
         #2
-        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ~& y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'b1111;
-         // y = 4'b1111;
+        x = 4'b1110;
         #2
-        $display("x:%b ~& y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ~& y:%b = %b when s = %d\n", x, y, q, s);
 
         // bitwise NOR reduction
         s = 4;
@@ -119,19 +105,19 @@ module part04_tb();
         x = 4'b1001;
         #2
 
-        $display("x:%b ~| y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ~| y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bx001;
+        x = 4'b0101;
         #2
-        $display("x:%b ~| y:%b = %b s:%d clk:%d", x, y, q, s, clk);
+        $display("x:%b ~| y:%b = %b when s = %d", x, y, q, s);
 
-        x = 4'bz001;
+        x = 4'b1110;
         #2
-        $display("x:%b ~| y:%b = %b s:%i clk:%d", x, y, q, s, clk);
-
-        #2 $finish;
+        $display("x:%b ~| y:%b = %b when s = %d\n", x, y, q, s);
 
     end
 
+
+    initial #40 $finish;
 
 endmodule
