@@ -33,18 +33,22 @@ module part05_tb();
 	initial begin
 	
 		clk = 1;
-		x = {32{2'b01}};
-		#3;
-		$display($time, " x = %b %d", x, clk);
-		$display($time, " u = %b %d", u, clk);
 
-		x = {32{2'b10}};
-		#1;
-		$display($time, " x = %b %d", x, clk);
-		$display($time, " u = %b %d", u, clk);
+		x = {32{2'b01}};
+
+		#3;
+		$display("x = %b when clk = %d", x, clk);
+		$display("u = %b when clk = %d\n", u, clk);
+
+		x = {21{3'b110}};
+
+		#1;  // to demonstrate the register only updates at posedge
+		$display("x = %b when clk = %d", x, clk);
+		$display("u = %b when clk = %d\n", u, clk);
+
 		#1
-		$display($time, " x = %b %d", x, clk);
-		$display($time, " u = %b %d", u, clk);
+		$display("x = %b when clk = %d", x, clk);
+		$display("u = %b when clk = %d\n", u, clk);
 
 	end
 
