@@ -70,4 +70,31 @@
         \end{center}
     \end{figure}
 
+    A table of the inputs and outputs generated in the test bench is also generated:
+
+    \begin{table}[h]
+
+        \centering
+        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
+
+            \textbf{x} & \textbf{op} & \textbf{y} & \textbf{q} & \textbf{s} \\
+            \hline
+            1001 & {\&} & 1010 & 1000 & 0 \\
+            0000 & {\&} & 1010 & 0000 & 0 \\
+            1110 & {\&} & 1010 & 1010 & 0 \\
+            1001 & {|} & 1010 & 1011 & 1 \\
+            0101 & {|} & 1010 & 1111 & 1 \\
+            1110 & {|} & 1010 & 1110 & 1 \\
+            1001 & \textasciicircum & 1010 & 0011 & 2 \\
+            1111 & \textasciicircum & 1010 & 0101 & 2 \\
+            1110 & \textasciicircum & 1010 & 0100 & 2 \\
+            1001 & {\textasciitilde \&} & 1010 & 0111 & 3 \\
+            0000 & {\textasciitilde \&} & 1010 & 1111 & 3 \\
+            1110 & {\textasciitilde \&} & 1010 & 0101 & 3 \\
+            1001 & {\textasciitilde | } & 1010 & 0100 & 4 \\
+            0101 & {\textasciitilde | } & 1010 & 0000 & 4 \\
+            1110 & {\textasciitilde | } & 1010 & 0001 & 4 \\
+        \end{tabular*}
+    \end{table}
+
 \end{document}
