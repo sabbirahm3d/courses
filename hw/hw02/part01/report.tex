@@ -20,31 +20,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
-\input{structure.tex} % specifies the document layout and style
-
-%----------------------------------------------------------------------------------------
-
-% document info command
-\newcommand{\documentinfo}[3]{
-    \begin{centering}
-        \parbox{2in}{
-        \begin{spacing}{1}
-            \begin{flushleft}
-                \begin{tabular}{l l}
-                    #1 \\
-                    #2 \\
-                    #3 \\
-                \end{tabular}\\
-                \rule{\textwidth}{1pt}
-            \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
-
-\usepackage[pdftex]{graphicx}
-\usepackage{enumitem}
-\graphicspath{ {figures/} }
+\input{../common/structure.tex} % specifies the document layout and style
 
 \begin{document}
 

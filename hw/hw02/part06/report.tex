@@ -20,55 +20,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
-\input{structure.tex} % specifies the document layout and style
-
-%----------------------------------------------------------------------------------------
-
-% document info command
-\newcommand{\documentinfo}[3]{
-    \begin{centering}
-        \parbox{2in}{
-        \begin{spacing}{1}
-            \begin{flushleft}
-                \begin{tabular}{l l}
-                    #1 \\
-                    #2 \\
-                    #3 \\
-                \end{tabular}\\
-                \rule{\textwidth}{1pt}
-            \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
+\input{../common/structure.tex} % specifies the document layout and style
 
 \begin{document}
 
-    \documentinfo{\textbf{Question:} 01}{\textbf{DATE:} \today}{Sabbir Ahmed}
-    \vspace{-0.3in}
+    \documentinfo{\textbf{Question:} 06}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
 
     \section{Background}
-    Consider the following 3-input,2-output truth table:
+    Create a test bench to demonstrate the functionality of the following code in which a and b are 1-bit inputs. Note this example as provided breaks certain coding rules. The test bench should produce a table using the \textbf{\$strobe} task. Your calls should print time using \textbf{\%0t} and \textbf{\$time}. Provide your test bench and the output. Use the output to produce a condensed table with comments explaining the operation of the circuit.
+
+    \section{Implementation}
+    The provided code was directly used to implement the module in Part 6, and can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 6 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+    The following table is generated from the test bench as well, demonstrating the usage of the circuit:
+
     \begin{table}[h]
-        \caption{The 8 Element Vectors of  in $GF(2)[x]$}
 
+        \caption{Inputs and Outputs of The Part 6 Test Bench}
         \centering
-        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c | c | c}
+        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
 
-        \textbf{Element} & \textbf{Polynomial Form} & \textbf{Symbol} \\
-        \hline
-        $0$           & $0+0+0$                                 & 000 \\
-        $\beta^{0}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        $\beta^{1}$ & $0 + \beta^{1} + 0$                   & 010 \\
-        $\beta^{2}$ & $\beta^{2} + 0 + 0$                   & 100 \\
-        $\beta^{3}$ & $\beta^{2} + 0 + \beta^{0}$           & 101 \\
-        $\beta^{4}$ & $\beta^{2} + \beta^{1} + \beta^{0}$   & 111 \\
-        $\beta^{5}$ & $0 + \beta^{1} + \beta^{0}$           & 011 \\
-        $\beta^{6}$ & $\beta^{2} + \beta^{1} + 0$           & 110 \\
-        $\beta^{7}$ & $0 + 0 + \beta^{0}$                   & 001 \\
+            \textbf{time} & \textbf{a} & \textbf{b} & \textbf{y} & \textbf{z} \\
+            \hline
+             3000 & 0 & 0 & 00 & xx \\
+            10000 & 0 & 1 & 00 & 10 \\
+            17000 & 1 & 0 & 1x & 01 \\
+            24000 & 0 & 0 & 00 & 01 \\
+            26000 & 0 & 0 & 00 & 01 \\
+            33000 & 0 & 1 & 00 & 10 \\
+            40000 & 1 & 0 & 1x & 01 \\
+            47000 & 1 & 1 & 1x & 01 \\
         \end{tabular*}
     \end{table}
 
-    <INSERT CONTENT>
+    \section{Observations}
+    The module appears to simulate a variation of a multi-bit multiplexer, although with poor implementation. The cases in the behavior do not cover all conditions, and therefore outputs are uncertain depending on certain combinations of the inputs.
 
 \end{document}
