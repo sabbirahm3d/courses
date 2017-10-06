@@ -4,15 +4,16 @@
 .PHONY: compile
 compile:
 	# compile and dump test bench 
-	@iverilog -o dump.o part10_linear_shift_reg.v part10_linear_shift_reg_tb.v
-	@./dump.o > linear_shift_reg_dump.txt
+	@iverilog -o scripts/dump.o scripts/part10_linear_shift_reg.v \
+		scripts/part10_linear_shift_reg_tb.v
+	@./scripts/dump.o > scripts/linear_shift_reg_dump.txt
 
 
 .PHONY: test
 test:
 	# run the Python script to verify the test bench simulation generated the
 	# expected terms for the LFSR
-	@python linearshiftpat.py
+	@python scripts/linearshiftpat.py
 
 
 .PHONY: clean

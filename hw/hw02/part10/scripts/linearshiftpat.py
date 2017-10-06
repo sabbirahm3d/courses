@@ -4,7 +4,7 @@
 
 if __name__ == "__main__":
 
-    DUMPFILEPATH = "linear_shift_reg_dump.txt"
+    DUMPFILEPATH = "scripts/linear_shift_reg_dump.txt"
     BITS = 16
     MAXNUM = 2**BITS - 1  # maximum decimal integer with 16 bits
     DATA = []
