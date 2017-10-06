@@ -20,38 +20,44 @@
 //////////////////////////////////////////////////////////////////////////////////
 module part05_tb();
 
-	reg [63:0] x;
-	reg clk;
-	wire [63:0] u;
+    reg [63:0] x;
+    reg clk;
+    wire [63:0] u;
 
-	part05 DUT(x, clk, u);
+    part05 DUT(x, clk, u);
 
-	always begin
-		#1 clk = ~clk;
-	end
+    always begin
+        #1 clk = ~clk;
+    end
 
-	initial begin
-	
-		clk = 1;
+    initial begin
+    
+        clk = 1;
 
-		x = {32{2'b01}};
+        x = {32{2'b01}};
 
-		#3;
-		$display("x = %b when clk = %d", x, clk);
-		$display("u = %b when clk = %d\n", u, clk);
+        #3
+        $display("x = %b when clk = %d", x, clk);
+        $display("u = %b when clk = %d", u, clk);
 
-		x = {21{3'b110}};
+        x = {16{4'b1101}};
 
-		#1;  // to demonstrate the register only updates at posedge
-		$display("x = %b when clk = %d", x, clk);
-		$display("u = %b when clk = %d\n", u, clk);
+        #2
+        $display("x = %b when clk = %d", x, clk);
+        $display("u = %b when clk = %d", u, clk);
 
-		#1
-		$display("x = %b when clk = %d", x, clk);
-		$display("u = %b when clk = %d\n", u, clk);
+        #1  // to demonstrate the swapping of bits only at posedge of clk
+        $display("x = %b when clk = %d", x, clk);
+        $display("u = %b when clk = %d", u, clk);
 
-	end
+        x = {16{4'b0010}};
 
-	initial #10 $finish;
+        #3
+        $display("x = %b when clk = %d", x, clk);
+        $display("u = %b when clk = %d", u, clk);
+
+    end
+
+    initial #10 $finish;
 
 endmodule

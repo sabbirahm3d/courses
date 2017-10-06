@@ -42,33 +42,43 @@
     \end{centering}
 }
 
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {figures/} }
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usepackage{listings}
+
 \begin{document}
 
-    \documentinfo{\textbf{Question:} 01}{\textbf{DATE:} \today}{Sabbir Ahmed}
-    \vspace{-0.3in}
+    \documentinfo{\textbf{Question:} 05}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
 
     \section{Background}
-    Consider the following 3-input,2-output truth table:
-    \begin{table}[h]
-        \caption{The 8 Element Vectors of  in $GF(2)[x]$}
+    Leveraging the concatenation operator, create a module that accepts a 64-bit input x, and swaps pairs of even-and odd bytes to produce a 64-bit output u. The output should be registered using a clock signal clk.
 
-        \centering
-        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c | c | c}
+    \section{Implementation}
+    The odd and even indices of 'x' were swapped in a simple while loop to create the output 'u'.
 
-        \textbf{Element} & \textbf{Polynomial Form} & \textbf{Symbol} \\
-        \hline
-        $0$           & $0+0+0$                                 & 000 \\
-        $\beta^{0}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        $\beta^{1}$ & $0 + \beta^{1} + 0$                   & 010 \\
-        $\beta^{2}$ & $\beta^{2} + 0 + 0$                   & 100 \\
-        $\beta^{3}$ & $\beta^{2} + 0 + \beta^{0}$           & 101 \\
-        $\beta^{4}$ & $\beta^{2} + \beta^{1} + \beta^{0}$   & 111 \\
-        $\beta^{5}$ & $0 + \beta^{1} + \beta^{0}$           & 011 \\
-        $\beta^{6}$ & $\beta^{2} + \beta^{1} + 0$           & 110 \\
-        $\beta^{7}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        \end{tabular*}
-    \end{table}
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
-    <INSERT CONTENT>
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 4 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+    The following output is dumped from the test bench as well, demonstrating the swapping of the bits:
+
+\begin{lstlisting}[language={}]
+x = 0101010101010101010101010101010101010101010101010101010101010101 when clk = 1
+u = 1010101010101010101010101010101010101010101010101010101010101010 when clk = 1
+x = 1101110111011101110111011101110111011101110111011101110111011101 when clk = 1
+u = 1110111011101110111011101110111011101110111011101110111011101110 when clk = 1
+x = 1101110111011101110111011101110111011101110111011101110111011101 when clk = 0
+u = 1110111011101110111011101110111011101110111011101110111011101110 when clk = 0
+x = 0010001000100010001000100010001000100010001000100010001000100010 when clk = 1
+u = 0001000100010001000100010001000100010001000100010001000100010001 when clk = 1
+\end{lstlisting}
 
 \end{document}

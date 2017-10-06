@@ -44,6 +44,8 @@
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{ {figures/} }
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
 
 \begin{document}
 
@@ -62,7 +64,9 @@
     \end{itemize}
 
     \section{Implementation}
-    The output `y' was generated in a case block with reduction operators applied to the input `x'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+    The output `y' was generated in a case block with reduction operators applied to the input `x'.
+
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
     \begin{figure}[ht]
         \begin{center}
@@ -70,5 +74,33 @@
             \caption{Waveform Generated from Part 3 Test Bench} \label{fig:wav}
         \end{center}
     \end{figure}
+
+    A table of the inputs and outputs generated in the test bench is also generated:
+
+    \begin{table}[h]
+
+        \caption{Inputs and Outputs of The Part 3 Test Bench}
+        \centering
+        \begin{tabular*}{100pt}{@{\extracolsep{\fill}} ccccc}
+
+            \textbf{op} & \textbf{x} & \textbf{y} \\
+            \hline
+            \& & 1001 & 0 \\
+            \& & 1111 & 1 \\
+            \& & 1110 & 0 \\
+            | & 1001 & 1 \\
+            | & 0000 & 0 \\
+            | & 1110 & 1 \\
+            \textasciicircum & 1001 & 0 \\
+            \textasciicircum & 1111 & 0 \\
+            \textasciicircum & 1110 & 1 \\
+            \textasciitilde \& & 1001 & 1 \\
+            \textasciitilde \& & 1111 & 0 \\
+            \textasciitilde \& & 1110 & 1 \\
+            \textasciitilde | & 1001 & 0 \\
+            \textasciitilde | & 0000 & 1 \\
+            \textasciitilde | & 1110 & 0 \\
+        \end{tabular*}
+    \end{table}
 
 \end{document}

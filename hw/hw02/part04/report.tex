@@ -44,6 +44,8 @@
 
 \usepackage[pdftex]{graphicx}
 \graphicspath{ {figures/} }
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
 
 \begin{document}
 
@@ -61,7 +63,9 @@
     \end{itemize}
 
     \section{Implementation}
-    The output `q' was generated in a case block with bitwise operators applied to the inputs `x' and 'y'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+    The output `q' was generated in a case block with bitwise operators applied to the inputs `x' and 'y'.
+
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
     \begin{figure}[ht]
         \begin{center}
@@ -74,6 +78,7 @@
 
     \begin{table}[h]
 
+        \caption{Inputs and Outputs of The Part 4 Test Bench}
         \centering
         \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
 
