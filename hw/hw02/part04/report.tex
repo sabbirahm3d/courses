@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{structure.tex} % specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+
+% document info command
+\newcommand{\documentinfo}[3]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {figures/} }
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 04}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Create a synthesizable sequential module that accepts two 4-bit inputs x and y and generates a 4-bit ouput q based on x and a function selector s. The selector should select the bit-wise operator to be applied to x and y in order to produce q. The output q should be a registered output, and so the module should accept clk signal clk. There should be no unesssisary cycle delays from input to the output.
+    \begin{itemize}
+        \item 0: and
+        \item 1: or
+        \item 2: xor
+        \item 3: nand
+        \item 4: nor
+    \end{itemize}
+
+    \section{Implementation}
+    The output `q' was generated in a case block with bitwise operators applied to the inputs `x' and 'y'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 4 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+\end{document}

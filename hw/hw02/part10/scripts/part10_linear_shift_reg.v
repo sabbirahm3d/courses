@@ -27,7 +27,7 @@ module part10_linear_shift_reg(clk, rst, out);
     // polynomial for maximal LFSR of 16 bits (2^16-1 terms)
     assign feedback = ~(out[15] ^ out[14] ^ out[12] ^ out[3]);
 
-    always @(posedge clk, posedge rst) begin
+    always @(posedge clk or posedge rst) begin
 
         if (rst) begin
             out = 16'b0;  // start with a reset

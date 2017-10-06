@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{structure.tex} % specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+
+% document info command
+\newcommand{\documentinfo}[3]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {figures/} }
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 03}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Create a synthesizable combinatorial module that accepts a 4-bit input x and and generates a single-bit ouput y based on x and function select signal s. The selector should select which reduction operator to be applied to x in order to produce y according to the following:
+
+    \begin{itemize}
+        \item 0: and
+        \item 1: or
+        \item 2: xor
+        \item 3: nand
+        \item 4: nor
+    \end{itemize}
+
+    \section{Implementation}
+    The output `y' was generated in a case block with reduction operators applied to the input `x'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 3 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+\end{document}

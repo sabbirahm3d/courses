@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{structure.tex} % specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+
+% document info command
+\newcommand{\documentinfo}[3]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{enumitem}
+\graphicspath{ {figures/} }
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 01}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Consider the following 3-input,2-output truth table:
+
+    \begin{table}[h]
+
+        \begin{tabular*}{100pt}{@{\extracolsep{\fill}} ccc|c|c}
+
+            \textbf{a} & \textbf{b} & \textbf{c} & \textbf{y} & \textbf{z} \\
+            \hline
+            1 & 1 & 1 & 0 & 1 \\
+            1 & 1 & 0 & 1 & 1 \\
+            1 & 0 & 0 & 0 & 0 \\
+            \multicolumn{3}{c|}{otherwise} & 0 & 1 \\
+        \end{tabular*}
+    \end{table}
+
+    where - denotes don’t care
+
+    Implement the table as a module using the following variations. Synthesize each version and submit a screen-capture of the RTL view.
+    \begin{enumerate}[label=\alph*)]
+        \item using behavioral code with if statements
+        \item using concurrent continuous assignment statement(s)
+        \item using behavioral code with case statements
+    \end{enumerate}
+
+    \section{Using Behavioral Code With `If' Statements}
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_a_wav.png}
+            \caption{Waveform Generated from Part 1 Version A Test Bench} \label{fig:a_wav}
+        \end{center}
+    \end{figure}
+
+    The module was synthesized and its RTL view was generated:
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_a.png}
+            \caption{RTL View of Part 1 Version A} \label{fig:a_rtl}
+        \end{center}
+    \end{figure}
+
+    \section{Using Concurrent Continuous Assignment Statement(s)}
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_b_wav.png}
+            \caption{Waveform Generated from Part 1 Version B Test Bench} \label{fig:b_wav}
+        \end{center}
+    \end{figure}
+
+    The module was synthesized and its RTL view was generated:
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_b.png}
+            \caption{RTL View of Part 1 Version B} \label{fig:b_rtl}
+        \end{center}
+    \end{figure}
+
+
+    \section{Using Behavioral Code With Case Statements}
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_c_wav.png}
+            \caption{Waveform Generated from Part 1 Version C Test Bench} \label{fig:c_wav}
+        \end{center}
+    \end{figure}
+
+    The module was synthesized and its RTL view was generated:
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.8\textwidth]{version_c.png}
+            \caption{RTL View of Part 1 Version C} \label{fig:c_rtl}
+        \end{center}
+    \end{figure}
+
+    \section{Observations}
+    The Register Transfer Level of Version B appears to have the simplest harware implementation due to its minimized equations. However, using concurrent continuous assignemnt statements do not allow any explicit `don't care' assignments.
+
+\end{document}

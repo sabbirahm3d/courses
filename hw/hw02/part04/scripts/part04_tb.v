@@ -38,34 +38,35 @@ module part04_tb();
         s = 0;
         #1
 
+        $display("     x   op y  s ");
         y = 4'b1010;
         x = 4'b1001;
         // y = 4'b0000;
         #2
-        $display("x:%b & y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   &   %b %b %d", x, y, q, s);
 
         x = 4'b0000;
         #2
-        $display("x:%b & y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   &   %b %b %d", x, y, q, s);
 
         x = 4'b1110;
         #2
-        $display("x:%b & y:%b = %b when s = %d\n", x, y, q, s);
+        $display("%b   &   %b %b %d", x, y, q, s);
 
         // bitwise OR reduction
         s = 1;
 
         x = 4'b1001;
         #2
-        $display("x:%b | y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   |   %b %b %d", x, y, q, s);
 
         x = 4'b0101;
         #2
-        $display("x:%b | y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   |   %b %b %d", x, y, q, s);
 
         x = 4'b1110;
         #2
-        $display("x:%b | y:%b = %b when s = %d\n", x, y, q, s);
+        $display("%b   |   %b %b %d", x, y, q, s);
 
         // bitwise XOR reduction
         s = 2;
@@ -73,15 +74,15 @@ module part04_tb();
 
         x = 4'b1001;
         #2
-        $display("x:%b ^ y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ^   %b %b %d", x, y, q, s);
 
         x = 4'b1111;
         #2
-        $display("x:%b ^ y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ^   %b %b %d", x, y, q, s);
 
         x = 4'b1110;
         #2
-        $display("x:%b ^ y:%b = %b when s = %d\n", x, y, q, s);
+        $display("%b   ^   %b %b %d", x, y, q, s);
 
         // bitwise NAND reduction
         s = 3;
@@ -89,15 +90,15 @@ module part04_tb();
 
         x = 4'b1001;
         #2
-        $display("x:%b ~& y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ~&    %b  %b %d", x, y, q, s);
 
         x = 4'b0000;
         #2
-        $display("x:%b ~& y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ~&    %b  %b %d", x, y, q, s);
 
         x = 4'b1110;
         #2
-        $display("x:%b ~& y:%b = %b when s = %d\n", x, y, q, s);
+        $display("%b   ~&    %b  %b %d", x, y, q, s);
 
         // bitwise NOR reduction
         s = 4;
@@ -105,15 +106,15 @@ module part04_tb();
         x = 4'b1001;
         #2
 
-        $display("x:%b ~| y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ~|    %b  %b %d", x, y, q, s);
 
         x = 4'b0101;
         #2
-        $display("x:%b ~| y:%b = %b when s = %d", x, y, q, s);
+        $display("%b   ~|    %b  %b %d", x, y, q, s);
 
         x = 4'b1110;
         #2
-        $display("x:%b ~| y:%b = %b when s = %d\n", x, y, q, s);
+        $display("%b   ~|    %b  %b %d", x, y, q, s);
 
     end
 

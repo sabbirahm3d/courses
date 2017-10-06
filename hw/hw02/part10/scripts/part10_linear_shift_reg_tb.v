@@ -33,7 +33,7 @@ module part10_linear_shift_reg_tb;
         rst = 0;
 
         // dump test bench output
-        $monitor("%b", out);
+        $monitorb(out);
 
     end
 
@@ -42,7 +42,6 @@ module part10_linear_shift_reg_tb;
         clk = ~clk;
     end
 
-    // initial #266000 $fclose(dump_file);
     initial #266000 $finish;
 
 endmodule

@@ -33,7 +33,7 @@ module part03(
 			2: y <= ^x;
 			3: y <= ~&x;
 			4: y <= ~|x;
-			default: $display("Error in SEL");
+			default: $display("Error in selection");
 
 		endcase
 
