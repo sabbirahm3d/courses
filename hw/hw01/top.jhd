@@ -1,5 +1,0 @@
-MODULE top
-	SUBMODULE vga_sync
-		INSTANCE XLXI_1
-	SUBMODULE vga_rectangle
-		INSTANCE XLXI_2

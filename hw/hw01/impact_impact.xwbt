@@ -1,8 +1,0 @@
-INTSTYLE=impact
-INFILE=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/impact.xsl
-OUTFILE=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01/impact.xsl
-FAMILY=Single
-PART=Single
-WORKINGDIR=/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw01
-LICENSE=iMPACT
-USER_INFO=iMPACT
