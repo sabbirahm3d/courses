@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part10_linear_shift_reg(out, clk, rst);
+module part10_linear_shift_reg(clk, rst, out);
 
     output reg [15:0] out;
     input clk, rst;

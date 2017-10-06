@@ -20,18 +20,32 @@
 //////////////////////////////////////////////////////////////////////////////////
 module part10_linear_shift_reg_tb;
 
+    integer dump_file;
     reg clk;
     reg rst;
     wire [15:0] out;
-    part10_linear_shift_reg DUT(out, clk, rst);
+    part10_linear_shift_reg DUT(clk, rst, out);
 
     initial begin
+
+        dump_file = $fopen("linear_shift_reg_dump.txt", "w");
         clk = 0;
         rst = 1;
         #1;
-
         rst = 0;
+
+        // open file to dump test bench output
+        $fmonitor(dump_file, "%b", out);
         $monitor("%b", out);
+
+        // wait long enough for at least 2 full cycles
+        // #266000
+
+        // close file
+
+        // terminate test bench simulation
+        $fclose(dump_file);
+
     end
 
     always begin
@@ -39,6 +53,7 @@ module part10_linear_shift_reg_tb;
         clk = ~clk;
     end
 
+    // initial #266000 $fclose(dump_file);
     initial #266000 $finish;
 
 endmodule
