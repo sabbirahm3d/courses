@@ -95,11 +95,11 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="part10_linear_shift_reg.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="../part10/part10_linear_shift_reg.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="1"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
-    <file xil_pn:name="part10_linear_shift_reg_tb.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="../part10/part10_linear_shift_reg_tb.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="2"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
