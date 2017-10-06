@@ -4,8 +4,25 @@ _ngo/
 _xmsgs/
 iseconfig/
 isim/
+netgen/
 xst/
 
+*.ngr
+*.bld
+*.ngc
+*.ngd
+*.pad
+*_map.*
+*.ncd
+*.pcf
+*.twr
+*.nca
+*.par
+*.ptwx
+*.twx
+*.unroutes
+*.xpi
+*_pad.*
 *.bin
 *.cmd
 *.cmd_log
