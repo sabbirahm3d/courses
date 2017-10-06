@@ -42,33 +42,25 @@
     \end{centering}
 }
 
+\usepackage[pdftex]{graphicx}
+\graphicspath{ {figures/} }
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\usepackage{listings}
+\usepackage{url}
+
 \begin{document}
 
-    \documentinfo{\textbf{Question:} 01}{\textbf{DATE:} \today}{Sabbir Ahmed}
-    \vspace{-0.3in}
+    \documentinfo{\textbf{Question:} 05}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
 
     \section{Background}
-    Consider the following 3-input,2-output truth table:
-    \begin{table}[h]
-        \caption{The 8 Element Vectors of  in $GF(2)[x]$}
+    Implement the linear feedback shift register shown on \url{https://en.wikipedia.org/wiki/Linear_feedback_shift_register}.
 
-        \centering
-        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c | c | c}
+    The core 16-bit register must be implemented with a 16-bit signal. The the shift should be implemented using a concatenation operator to right-shift with the left-most bit loaded from the output of the xor gates. Verify that linear-feedback shift-register produces all possible states of a 16-bit register excluding the zero state before repeating its seqeunce.
 
-        \textbf{Element} & \textbf{Polynomial Form} & \textbf{Symbol} \\
-        \hline
-        $0$           & $0+0+0$                                 & 000 \\
-        $\beta^{0}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        $\beta^{1}$ & $0 + \beta^{1} + 0$                   & 010 \\
-        $\beta^{2}$ & $\beta^{2} + 0 + 0$                   & 100 \\
-        $\beta^{3}$ & $\beta^{2} + 0 + \beta^{0}$           & 101 \\
-        $\beta^{4}$ & $\beta^{2} + \beta^{1} + \beta^{0}$   & 111 \\
-        $\beta^{5}$ & $0 + \beta^{1} + \beta^{0}$           & 011 \\
-        $\beta^{6}$ & $\beta^{2} + \beta^{1} + 0$           & 110 \\
-        $\beta^{7}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        \end{tabular*}
-    \end{table}
+    To do this, use a Verilog Test Bench to save the output to a file every clock cycle for at least two full cycles of the pattern. Write C/Python/Java code to verify that the pattern repeats identically at least twice and that no number is repeated or missed during one cycle of the pattern. You should submit all code and output files.
 
-    <INSERT CONTENT>
+    \section{Implementation}
 
 \end{document}

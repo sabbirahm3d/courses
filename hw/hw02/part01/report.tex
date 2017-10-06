@@ -76,60 +76,61 @@
         \item using behavioral code with case statements
     \end{enumerate}
 
-    \section{Using Behavioral Code With `If' Statements}
-    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+    \section{Implementation}
+        \subsection{Using Behavioral Code With `If' Statements}
+        The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_a_wav.png}
-            \caption{Waveform Generated from Part 1 Version A Test Bench} \label{fig:a_wav}
-        \end{center}
-    \end{figure}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_a_wav.png}
+                \caption{Waveform Generated from Part 1 Version A Test Bench} \label{fig:a_wav}
+            \end{center}
+        \end{figure}
 
-    The module was synthesized and its RTL view was generated:
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_a.png}
-            \caption{RTL View of Part 1 Version A} \label{fig:a_rtl}
-        \end{center}
-    \end{figure}
+        The module was synthesized and its RTL view was generated:
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_a.png}
+                \caption{RTL View of Part 1 Version A} \label{fig:a_rtl}
+            \end{center}
+        \end{figure}
 
-    \section{Using Concurrent Continuous Assignment Statement(s)}
-    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+        \subsection{Using Concurrent Continuous Assignment Statement(s)}
+        The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_b_wav.png}
-            \caption{Waveform Generated from Part 1 Version B Test Bench} \label{fig:b_wav}
-        \end{center}
-    \end{figure}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_b_wav.png}
+                \caption{Waveform Generated from Part 1 Version B Test Bench} \label{fig:b_wav}
+            \end{center}
+        \end{figure}
 
-    The module was synthesized and its RTL view was generated:
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_b.png}
-            \caption{RTL View of Part 1 Version B} \label{fig:b_rtl}
-        \end{center}
-    \end{figure}
+        The module was synthesized and its RTL view was generated:
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_b.png}
+                \caption{RTL View of Part 1 Version B} \label{fig:b_rtl}
+            \end{center}
+        \end{figure}
 
 
-    \section{Using Behavioral Code With Case Statements}
-    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+        \subsection{Using Behavioral Code With Case Statements}
+        The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_c_wav.png}
-            \caption{Waveform Generated from Part 1 Version C Test Bench} \label{fig:c_wav}
-        \end{center}
-    \end{figure}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_c_wav.png}
+                \caption{Waveform Generated from Part 1 Version C Test Bench} \label{fig:c_wav}
+            \end{center}
+        \end{figure}
 
-    The module was synthesized and its RTL view was generated:
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=0.8\textwidth]{version_c.png}
-            \caption{RTL View of Part 1 Version C} \label{fig:c_rtl}
-        \end{center}
-    \end{figure}
+        The module was synthesized and its RTL view was generated:
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.8\textwidth]{version_c.png}
+                \caption{RTL View of Part 1 Version C} \label{fig:c_rtl}
+            \end{center}
+        \end{figure}
 
     \section{Observations}
     The Register Transfer Level of Version B appears to have the simplest harware implementation due to its minimized equations. However, using concurrent continuous assignemnt statements do not allow any explicit `don't care' assignments.
