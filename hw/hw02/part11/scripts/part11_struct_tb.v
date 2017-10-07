@@ -20,33 +20,42 @@
 //////////////////////////////////////////////////////////////////////////////////
 module part11_struct_tb;
 
-    // reg [1:0] a, b;
-    // reg sub;
-    // wire [1:0] y;
-    // wire c;
-
-    part11_struct alu(a, b, sub, y, c);
+    wire [4:0] out;   // The 4-bit sum/difference.
+    wire   C;   // The 1-bit carry/borrow status.
+    wire   V;   // The 1-bit overflow status.
+    reg [4:0]  a;   // The 4-bit augend/minuend.
+    reg [4:0]  b;   // The 4-bit addend/subtrahend.
+    reg    sub;  // The operation: 0 => Add, 1=>Subtract.
+    part11_struct alu(out, C, V, a, b, sub);
 
     initial begin
 
-        a = 2'b01;
-        b = 2'b01;
+        a = 5'b0011;
+        b = 5'b0011;
         sub = 0;
-        // carryin = 2'b01;
-        #20; a = 2'b11;
-        #20; b = 2'b11;
-        #20; a = 2'b01;
-        // #20; carryin =1;
+        $strobe("time = %0t, IN1=%b, IN2=%b, SUB=%d OUT=%b", $time, a, b, sub, out);
+        #2
+
+        a = 5'b0101;
+        b = 5'b0010;
         sub = 1;
-        #20; b = 2'b01;
-        #20; a = 2'b11; 
-        #20; b = 2'b11;
-        #40;
+        $strobe("time = %0t, IN1=%b, IN2=%b, SUB=%d OUT=%b", $time, a, b, sub, out);
+        #2;
+
+        a = 5'b0101;
+        b = 5'b0010;
+        sub = 0;
+        $strobe("time = %0t, IN1=%b, IN2=%b, SUB=%d OUT=%b", $time, a, b, sub, out);
+        #2;
+
+        a = 5'b0101;
+        b = 5'b1010;
+        sub = 0;
+        $strobe("time = %0t, IN1=%b, IN2=%b, SUB=%d OUT=%b", $time, a, b, sub, out);
+        #2;
 
     end
 
-    initial begin
-        $monitor("time = %0t, IN1=%1b, IN2=%1b, OUT=%1b", $time, b, a, y);
-    end
+    initial #50 $finish;
 
 endmodule
