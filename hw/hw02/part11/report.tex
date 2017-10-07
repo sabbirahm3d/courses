@@ -20,55 +20,82 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
-\input{structure.tex} % specifies the document layout and style
-
-%----------------------------------------------------------------------------------------
-
-% document info command
-\newcommand{\documentinfo}[3]{
-    \begin{centering}
-        \parbox{2in}{
-        \begin{spacing}{1}
-            \begin{flushleft}
-                \begin{tabular}{l l}
-                    #1 \\
-                    #2 \\
-                    #3 \\
-                \end{tabular}\\
-                \rule{\textwidth}{1pt}
-            \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
+\input{../common/structure.tex} % specifies the document layout and style
 
 \begin{document}
 
-    \documentinfo{\textbf{Question:} 01}{\textbf{DATE:} \today}{Sabbir Ahmed}
-    \vspace{-0.3in}
+    \documentinfo{\textbf{Question:} 11}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
 
     \section{Background}
-    Consider the following 3-input,2-output truth table:
-    \begin{table}[h]
-        \caption{The 8 Element Vectors of  in $GF(2)[x]$}
+    Implement as a strictly combinatorial module ALU that will add or subtract two 5-bit two-signed values a and b based on a control signal sub. The outputs should be a 5-bit two’s-complement result y and an over-/under-flow bit c. Implement two variations of this module using
+    \begin{enumerate}[label=\alph*)]
+        \item structurally using full 1-bit adders that are in turn built from Verilog primitives
+        \item using behavioral code with arithmetic operators
+    \end{enumerate}
 
-        \centering
-        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c | c | c}
+    \section{Implementation}
+        \subsection{Structurally Using Full 1-bit Adders That Are In Turn Built From Verilog Primitives}
+        The structural version of the 5-bit adder/subtractor was built using basic gates. Circuit diagrams were used as a reference to minimize the number of gates and ensure accurate outputs. A full 1-bit adder was implemented as a separate module and imported into the circuit design.
 
-        \textbf{Element} & \textbf{Polynomial Form} & \textbf{Symbol} \\
-        \hline
-        $0$           & $0+0+0$                                 & 000 \\
-        $\beta^{0}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        $\beta^{1}$ & $0 + \beta^{1} + 0$                   & 010 \\
-        $\beta^{2}$ & $\beta^{2} + 0 + 0$                   & 100 \\
-        $\beta^{3}$ & $\beta^{2} + 0 + \beta^{0}$           & 101 \\
-        $\beta^{4}$ & $\beta^{2} + \beta^{1} + \beta^{0}$   & 111 \\
-        $\beta^{5}$ & $0 + \beta^{1} + \beta^{0}$           & 011 \\
-        $\beta^{6}$ & $\beta^{2} + \beta^{1} + 0$           & 110 \\
-        $\beta^{7}$ & $0 + 0 + \beta^{0}$                   & 001 \\
-        \end{tabular*}
-    \end{table}
+        The module implementation along with its test bench can be found in the `scripts' directory. A sample of the waveform generated is provided:
 
-    <INSERT CONTENT>
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{struct_wav.png}
+                \caption{Waveform Generated from Part 11 Structural Version Test Bench} \label{fig:struct_wav}
+            \end{center}
+        \end{figure}
+
+        \begin{table}[h]
+            \caption{Inputs and Outputs of The Part 11 Structural Version Test Bench}
+
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
+
+            \textbf{a} & \textbf{b} & \textbf{sub} & \textbf{c} & \textbf{out} \\
+            \hline
+            00011 ( 3) & 00011 ( 3) & 0 & 0 & 00110 ( 6) \\
+            00101 ( 5) & 00010 ( 2) & 1 & 0 & 00011 ( 3) \\
+            00101 ( 5) & 00010 ( 2) & 0 & 0 & 00111 ( 7) \\
+            00101 ( 5) & 01010 (10) & 0 & 0 & 01111 (15) \\
+            01111 (15) & 01110 (14) & 0 & 1 & 11101 (29) \\
+            00000 ( 0) & 01110 (14) & 1 & 1 & 10010 (18) \\
+            \end{tabular*}
+        \end{table}
+
+        \newpage
+
+        \subsection{Using Behavioral Code With Arithmetic Operators}
+        The behavioral version of the 5-bit adder proved to be a much simpler implementation, requiring much fewer lines of code.
+
+        The module implementation along with its test bench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{behave_wav.png}
+                \caption{Waveform Generated from Part 11 Behavioral Version Test Bench} \label{fig:behave_wav}
+            \end{center}
+        \end{figure}
+
+        \begin{table}[h]
+            \caption{Inputs and Outputs of The Part 11 Behavioral Version Test Bench}
+
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
+
+            \textbf{a} & \textbf{b} & \textbf{sub} & \textbf{c} & \textbf{out} \\
+            \hline
+            00011 ( 3) & 00011 ( 3) & 0 & 0 & 00110 ( 6) \\
+            00101 ( 5) & 00010 ( 2) & 1 & 0 & 00011 ( 3) \\
+            00101 ( 5) & 00010 ( 2) & 0 & 0 & 00111 ( 7) \\
+            00101 ( 5) & 01010 (10) & 0 & 0 & 01111 (15) \\
+            01111 (15) & 01110 (14) & 0 & 1 & 11101 (29) \\
+            00000 ( 0) & 01110 (14) & 1 & 1 & 10010 (18) \\
+            \end{tabular*}
+        \end{table}
+
+    \section{Observations}
+    Both the versions of the implementation provided identical outputs. The structural implementation proved to be the more difficult of the 2 versions because of its requirement of understanding the physical design of multi-bit adders and subtractors. A basic comparison in the behavioral version of the implementation appeared to be equivalent to using several gates in the structural version.
 
 \end{document}

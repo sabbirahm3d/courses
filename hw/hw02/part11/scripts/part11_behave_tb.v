@@ -5,7 +5,7 @@
 // 
 // Create Date:    15:29:42 10/05/2017 
 // Design Name: 
-// Module Name:    part11_struct_tb 
+// Module Name:    part11_behave_tb 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,14 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module part11_struct_tb;
+module part11_behave_tb;
 
     wire [4:0] out;   // 4-bit output
     wire c;   // 1-bit overflow status
     reg [4:0] a, b;   // the 4-bit inputs
     reg sub;  // if sub == 0 => add, else if == 1 => subtract
 
-    part11_struct alu(out, c, a, b, sub);
+    part11_behave alu(out, c, a, b, sub);
 
     initial begin
 

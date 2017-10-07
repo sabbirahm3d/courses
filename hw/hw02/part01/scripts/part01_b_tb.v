@@ -20,34 +20,34 @@
 //////////////////////////////////////////////////////////////////////////////////
 module part01_b_tb();
 
-	reg a, b, c;
-	wire y, z;
+    reg a, b, c;
+    wire y, z;
 
-	part01_b DUT(a, b, c, y, z);
+    part01_b DUT(a, b, c, y, z);
 
-	initial begin
+    initial begin
 
-		a = 1;
-		b = 1;
-		c = 1;
+        a = 1;
+        b = 1;
+        c = 1;
 
-		#1
-		a = 1;
-		b = 0;
-		c = 0;
-		
-		#1
-		a = 1;
-		b = 1;
-		c = 0;
+        #1
+        a = 1;
+        b = 0;
+        c = 0;
+        
+        #1
+        a = 1;
+        b = 1;
+        c = 0;
 
-		#1
-		a = 0;
-		b = 0;
-		c = 0;
+        #1
+        a = 0;
+        b = 0;
+        c = 0;
 
-	end
+    end
 
-	initial #4 $finish;
+    initial #4 $finish;
 
 endmodule
