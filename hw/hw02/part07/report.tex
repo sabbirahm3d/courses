@@ -31,7 +31,9 @@
     Add \textbf{\$display} calls to the above code after every assignment statement and resimulate to show that multiple assignments are observable in simulation whereas \textbf{\$strobe} only prints one final result per change event. Both your \textbf{\$display} and \textbf{\$strobe} calls should print time using \%0t and \textbf{\$time}.
 
     \section{Implementation}
-    The provided code was directly used to implement the module in Part 7, and can be found in the `scripts' directory. A sample of the waveform generated is provided:
+    The provided code was directly used to implement the module in Part 7, and can be found in the `scripts' directory. \textbf{\$display} statements were added after each assignment statements in the module.
+
+    A sample of the waveform generated is provided:
 
     \begin{figure}[ht]
         \begin{center}
@@ -135,6 +137,5 @@
 
     \section{Observations}
     The addition of \textbf{\$display} obviously generates a greater amount of output, where it outputs when it notices change in any variables.
-
 
 \end{document}
