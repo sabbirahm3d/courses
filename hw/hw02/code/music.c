@@ -31,11 +31,6 @@ uint8_t unpack_note_duration(uint8_t packed_note) {
 
 uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
-//    static uint8_t buffer[9];
-//    buffer[8] = '\0';
-//    int2bin((letter_ascii << 5) + duration, buffer);
-//    printf("b = %s\n", buffer);
-
     switch (letter_ascii) {
 
         case 'A':
@@ -93,20 +88,88 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
     }
 
     uint8_t a = (uint8_t) (letter_ascii << 5) + duration;
-//    printf("d = %d\n", a);
 
     return a;
 
 }
 
-void store_songs(uint8_t song[], const char song_str[]) {
 
-    uint8_t buffer, temp;
+void play_note(uint8_t letter_ascii, uint8_t quarters) {
+
+
+    switch (letter_ascii) {
+
+        case NOTE_A: {
+            printf("A");
+            break;
+        }
+
+        case NOTE_B: {
+            printf("B");
+            break;
+        }
+
+        case NOTE_C: {
+            printf("C");
+            break;
+        }
+
+        case NOTE_D: {
+            printf("D");
+            break;
+        }
+
+        case NOTE_E: {
+            printf("E");
+            break;
+        }
+
+        case NOTE_F: {
+            printf("F");
+            break;
+        }
+
+        case NOTE_G: {
+            printf("G");
+            break;
+        }
+
+        case NOTE_R: {
+            printf("R");
+            break;
+        }
+
+        default: {
+            printf("Error");
+            break;
+        }
+
+    }
+
+    printf("%d*", quarters);
+
+}
+
+void play_song(uint8_t *song) {
+
+    uint8_t str, dur;
+
+    for (size_t i = 0; song[i] != NULL; i++) {
+
+        str = unpack_note_letter_ascii(song[i]);
+        dur = unpack_note_duration(song[i]);
+
+        printf("*");
+        play_note(str, dur);
+    }
+
+}
+
+
+void store_songs(uint8_t *song, const char *song_str) {
+
+    uint8_t buffer;
     size_t len = strlen(song_str);
-
-//    printf("size %c\n", song_str[len - 2]);
-//    printf("size %c\n", song_str[len - 1]);
-//    printf("\nSONG SIZE: %d", sizeof(song));
 
     if (song_str[len - 2] != 'R' && song_str[len - 1] != '0') {
         printf("NEEDS TO END\n");
@@ -122,31 +185,28 @@ void store_songs(uint8_t song[], const char song_str[]) {
         }
 
         buffer = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
-//        printf("%c%c = %d\n", song_str[i], song_str[i + 1], buffer);
 
         song[i / 2] = buffer;
-
-////        to test unpacking values
-//        temp = unpack_note_letter_ascii(buffer);
-//        printf("Unpacking str: %c = %d\n", song_str[i], temp);
-//        temp = unpack_note_duration(buffer);
-//        printf("Unpacking dur: %c = %d\n\n", song_str[i + 1], temp);
     }
-
-    for (size_t i = 0; i < sizeof(song); i++) {
-        printf("%d ", song[i]);
-    }
-
 
 }
 
 
 int main() {
 
-    char song_ascii[] = "B2A2R1C2R0C2R1";
+    char song_ascii[] = "B2A2R1C2R2C2R7";
 
     uint8_t song_packed[strlen(song_ascii)];
     store_songs(song_packed, song_ascii);
+
+    for (size_t i = 0; song_packed[i] != 0; i++) {
+        printf("%d ", song_packed[i]);
+    }
+
+    printf("\n");
+    store_songs(song_packed, song_ascii);
+
+    play_song(song_packed);
 
     return EXIT_SUCCESS;
 

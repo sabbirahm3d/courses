@@ -36,8 +36,7 @@ char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
 };
 //// some initial song with notes
 const char menuMain[] = "Main Menu\nCreate Song\nPlay Song\nList Songs\n";
-const char
-        menuPlay[] = "Play Menu\nSearch By Title\nNumber\n";
+const char menuPlay[] = "Play Menu\nSearch By Title\nNumber\n";
 
 uint8_t pack_note(char, uint8_t);
 
@@ -45,10 +44,10 @@ uint8_t unpack_note_letter_ascii(uint8_t);
 
 uint8_t unpack_note_duration(uint8_t);
 
-void store_songs(uint8_t[], const char[]);
+void store_songs(uint8_t *, const char *);
 
-void PlayNote(uint8_t letterASCII, uint8_t quarters);
+void play_note(uint8_t, uint8_t);
 
-void PlaySong(uint8_t song[]);
+void play_song(uint8_t *);
 
 #endif //HW02_MAIN_H
