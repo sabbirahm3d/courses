@@ -43,7 +43,7 @@ mpz_class cmul4_list(std::vector<mpz_class>, size_t, size_t);
 
 // Complex list multiply using complex three-multiply
 //   u, first, last, z - same as for cmul4_list()
-//void cmul3_list(complex *u, int first, int last, complex *z);
+mpz_class cmul3_list(std::vector<mpz_class>, size_t, size_t);
 
 // Random complex value; real and imaginary parts at most 2^n
 //   z - complex number to be set to random values

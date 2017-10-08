@@ -121,22 +121,24 @@ int main(int argc, char *argv[]) {
     if (argc == 2) {
 
         std::vector<std::vector<mpz_class>> complex_nums;
+        std::vector<mpz_class> prod;
+        clock_t t0, t;  // used for timing functions
+
         complex_nums = parse_file(argv[1]);
 
-        // for testing
-        std::vector<mpz_class> test;
-        gmp_printf("(%Zd + i%Zd)(%Zd + i%Zd)\n", complex_nums[0][0], complex_nums[0][1],
-                   complex_nums[1][0], complex_nums[1][1]);
-        test = cmul3(complex_nums[0], complex_nums[1]);
-        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
-        test = cmul4(complex_nums[0], complex_nums[1]);
-        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
+        t0 = clock();
+        prod = cmul4_list(complex_nums, 0, complex_nums.size() - 1);
+        t = clock() - t0;
+        gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
+        fprintf(stdout, "*** CMUL4 List ***\n");
+        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
 
-        test = cmul4_list(complex_nums, 0, complex_nums.size()-1);
-        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
-
-        test = cmul3_list(complex_nums, 0, complex_nums.size()-1);
-        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
+        t0 = clock();
+        prod = cmul3_list(complex_nums, 0, complex_nums.size() - 1);
+        t = clock() - t0;
+        gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
+        fprintf(stdout, "*** CMUL3 List ***\n");
+        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
 
         return EXIT_SUCCESS;
 
