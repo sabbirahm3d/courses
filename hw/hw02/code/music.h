@@ -45,7 +45,7 @@ uint8_t unpack_note_letter_ascii(uint8_t);
 
 uint8_t unpack_note_duration(uint8_t);
 
-void store_songs(uint8_t song[], const char songString[]);
+void store_songs(uint8_t[], const char[]);
 
 void PlayNote(uint8_t letterASCII, uint8_t quarters);
 
