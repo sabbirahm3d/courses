@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include <gmp.h>
+#include <gmpxx.h>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -13,8 +13,8 @@
 /************************************************************/
 
 struct complex_struct {
-    mpz_t r; // real part
-    mpz_t i; // imaginary part
+    mpz_class r; // real part
+    mpz_class i; // imaginary part
 };
 
 typedef struct complex_struct complex;
@@ -26,12 +26,12 @@ typedef struct complex_struct complex;
 // Complex four-multiply (four real multiplies)
 //   a, b - number to multiply
 //   z - return value (product)
-void cmul4(complex a, complex b, complex *z);
+//void cmul4(complex a, complex b, complex *z);
 
 // Complex three-multiply (three real multiplies)
 //   a, b - number to multiply
 //   z - return value (product)
-void cmul3(complex a, complex b, complex *z);
+//void cmul3(complex a, complex b, complex *z);
 
 // Complex list multiply using complex four-multiply
 //   u - array of complex
@@ -140,16 +140,46 @@ void randz(complex *z, gmp_randstate_t rstate, mp_bitcnt_t n);
 //}
 
 
+std::vector<mpz_class> cmul3(std::vector<mpz_class> z1, std::vector<mpz_class> z2) {
+
+    mpz_class r, s, t;
+    std::vector<mpz_class> pair(2);
+
+    r = z1[0] * z2[0];  // x1 * x2
+    s = z1[1] * z2[1];  // y1 * y2
+    t = (z1[0] + z1[1]) * (z2[0] + z2[1]);  // (x1 + y1)(x2 + y2)
+
+    pair[0] = r - s;
+    pair[1] = t - r - s;
+
+    return pair;
+
+}
+
+
+std::vector<mpz_class> cmul4(std::vector<mpz_class> z1, std::vector<mpz_class> z2) {
+
+    mpz_class r, s, t;
+    std::vector<mpz_class> pair(2);
+
+//    (x1x2−y1y2)+i(x1y2 + y1x2);
+    pair[0] = z1[0] * z2[0] - z1[1] * z2[1];
+    pair[1] = z1[0] * z2[1] + z1[1] * z2[0];
+
+    return pair;
+
+}
+
 
 // ---------------------------------- OUR IMPLEMENTATION ----------------------------------
-mpz_t *split_line(const std::string &str) {
+std::vector<mpz_class> line_to_mpz(const std::string &str) {
 
     std::string next;
-    mpz_t pair[2];
+    std::vector<mpz_class> pair(2);
     size_t str_size;
 
-    mpz_init(pair[0]);
-    mpz_init(pair[1]);
+//    mpz_init(pair[0]);
+//    mpz_init(pair[1]);
 
     // for each char
     for (char it : str) {
@@ -158,9 +188,9 @@ mpz_t *split_line(const std::string &str) {
             // If we have some characters accumulated
             if (!next.empty()) {
                 str_size = next.size();
-                mpz_set_str(pair[0], next.substr(1, str_size).c_str(), 10);
+                pair[0] = mpz_class(next.substr(1, str_size).c_str(), 10);
                 // a test to verify conversion
-                gmp_printf("mpz %Zd\n", pair[0]);
+//                gmp_printf("mpz %Zd\n", pair[0]);
                 next.clear();
             }
         } else {
@@ -171,9 +201,9 @@ mpz_t *split_line(const std::string &str) {
 
     if (!next.empty()) {
         str_size = next.size();
-        mpz_set_str(pair[1], next.substr(0, str_size - 1).c_str(), 10);
+        pair[1] = mpz_class(next.substr(0, str_size - 1).c_str(), 10);
         // a test to verify conversion
-        gmp_printf("mpz %Zd\n", pair[1]);
+//        gmp_printf("mpz %Zd\n", pair[1]);
     }
 
 //    destructors for mpz objects - works fine here, but may need to be called later instead
@@ -189,12 +219,20 @@ void read_from_file(const char *file_name) {
 
     std::ifstream file(file_name);
     std::string line;
-    std::vector<mpz_t *> complex_nums;
+    std::vector<std::vector<mpz_class>> complex_nums;
+
+    std::vector<mpz_class> test;
 
     while (std::getline(file, line)) {
-//        push mpz objects into a vector - but we need to cast them into complex structs at first
-        complex_nums.push_back(split_line(line));
+        complex_nums.push_back(line_to_mpz(line));
     }
+    
+    gmp_printf("%Zd + i%Zd\n", complex_nums[0][0], complex_nums[0][1]);
+    gmp_printf("%Zd + i%Zd\n", complex_nums[1][0], complex_nums[1][1]);
+    test = cmul3(complex_nums[0], complex_nums[1]);
+    gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
+    test = cmul4(complex_nums[0], complex_nums[1]);
+    gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
 
 }
 
