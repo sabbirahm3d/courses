@@ -27,7 +27,7 @@ std::vector<mpz_class> line_to_mpz(const std::string &);
 // Complex four-multiply (four real multiplies)
 //   a, b - number to multiply
 //   z - return value (product)
-//void cmul4(complex a, complex b, complex *z);
+std::vector<mpz_class> cmul4(std::vector<mpz_class>, std::vector<mpz_class>);
 
 // Complex three-multiply (three real multiplies)
 //   a, b - number to multiply
@@ -39,7 +39,7 @@ std::vector<mpz_class> cmul3(std::vector<mpz_class>, std::vector<mpz_class>);
 //   first - index of first element to multiply
 //   last - index of last element to multiply
 //   z - return value, product of u[first..last]
-std::vector<mpz_class> cmul4(std::vector<mpz_class>, std::vector<mpz_class>);
+mpz_class cmul4_list(std::vector<mpz_class>, size_t, size_t);
 
 // Complex list multiply using complex three-multiply
 //   u, first, last, z - same as for cmul4_list()

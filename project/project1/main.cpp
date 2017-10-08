@@ -16,7 +16,7 @@ std::vector<std::vector<mpz_class>> parse_file(const char *file_name) {
 }
 
 
-std::vector<mpz_class> cmul3(std::vector<mpz_class> z1, std::vector<mpz_class> z2) {
+std::vector<mpz_class> cmul3(const std::vector<mpz_class> z1, const std::vector<mpz_class> z2) {
 
     mpz_class r, s;
     std::vector<mpz_class> pair(2);
@@ -33,7 +33,7 @@ std::vector<mpz_class> cmul3(std::vector<mpz_class> z1, std::vector<mpz_class> z
 
 
 // (x1 * x2 − y1 * y2) + i(x1 * y2 + y1 * x2)
-std::vector<mpz_class> cmul4(std::vector<mpz_class> z1, std::vector<mpz_class> z2) {
+std::vector<mpz_class> cmul4(const std::vector<mpz_class> z1, const std::vector<mpz_class> z2) {
 
     std::vector<mpz_class> pair(2);
 
@@ -82,6 +82,40 @@ std::vector<mpz_class> line_to_mpz(const std::string &str) {
 }
 
 
+std::vector<mpz_class> cmul3_list(std::vector<std::vector<mpz_class>> complex_array,
+                                  const size_t first, const size_t last) {
+
+    if (first == last) {
+        return complex_array[first];
+    }
+
+    size_t mid = (first + last) / 2;
+
+    return cmul3(
+            cmul3_list(complex_array, first, mid),
+            cmul3_list(complex_array, mid + 1, last)
+    );
+
+}
+
+
+std::vector<mpz_class> cmul4_list(std::vector<std::vector<mpz_class>> complex_array,
+                                  const size_t first, const size_t last) {
+
+    if (first == last) {
+        return complex_array[first];
+    }
+
+    size_t mid = (first + last) / 2;
+
+    return cmul4(
+            cmul4_list(complex_array, first, mid),
+            cmul4_list(complex_array, mid + 1, last)
+    );
+
+}
+
+
 int main(int argc, char *argv[]) {
 
     if (argc == 2) {
@@ -96,6 +130,12 @@ int main(int argc, char *argv[]) {
         test = cmul3(complex_nums[0], complex_nums[1]);
         gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
         test = cmul4(complex_nums[0], complex_nums[1]);
+        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
+
+        test = cmul4_list(complex_nums, 0, complex_nums.size()-1);
+        gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
+
+        test = cmul3_list(complex_nums, 0, complex_nums.size()-1);
         gmp_printf("%Zd + i%Zd\n", test[0], test[1]);
 
         return EXIT_SUCCESS;
