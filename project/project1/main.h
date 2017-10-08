@@ -5,10 +5,10 @@
 #ifndef DIVIDE_AND_CONQUER_MAIN_H
 #define DIVIDE_AND_CONQUER_MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
 #include <gmpxx.h>
 #include <string>
 #include <fstream>
