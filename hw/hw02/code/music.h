@@ -26,6 +26,7 @@ char userLine[USER_LINE_MAX];
 #define NOTE_F 5
 #define NOTE_G 6
 #define NOTE_R 7
+#define ZERO_REST 224
 
 //char songTitle[NUMBER_OF_SONGS][STR_LENGTH] = {"Title1", "Title2", "Title3", "Title4"};
 char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {

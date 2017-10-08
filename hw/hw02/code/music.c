@@ -71,7 +71,7 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
         case 'G':
         case 'g': {
-            letter_ascii = NOTE_R;
+            letter_ascii = NOTE_G;
             break;
         }
 
@@ -154,7 +154,7 @@ void play_song(uint8_t *song) {
 
     uint8_t str, dur;
 
-    for (size_t i = 0; song[i] != NULL; i++) {
+    for (size_t i = 0; song[i] != ZERO_REST; i++) {
 
         str = unpack_note_letter_ascii(song[i]);
         dur = unpack_note_duration(song[i]);
@@ -166,27 +166,41 @@ void play_song(uint8_t *song) {
 }
 
 
+int is_zero_rest(const char letter_ascii, const char duration) {
+
+    return (letter_ascii == 'R' || letter_ascii == 'r') && (duration == '0');
+
+}
+
+
+char *add_zero_rest(const char *a) {
+
+    size_t len = strlen(a) + 2;
+    char *ret = (char *) malloc(len * sizeof(char) + 1);
+    *ret = '\0';
+
+    return strcat(strcat(ret, a), "R0");
+
+}
+
 void store_songs(uint8_t *song, const char *song_str) {
 
-    uint8_t buffer;
     size_t len = strlen(song_str);
 
-    if (song_str[len - 2] != 'R' && song_str[len - 1] != '0') {
-        printf("NEEDS TO END\n");
-        song[len - 2] = 7;
-        song[len - 1] = 0;
-    }
+    for (size_t i = 0; i < len; i += 2) {
 
-    for (size_t i = 0; song_str[i] != NULL; i += 2) {
+        if (is_zero_rest(song_str[i], song_str[i + 1])) {
 
-        if (song_str[i] == 'R' && song_str[i + 1] == '0') {
-            printf("STOP\n");
+            printf("STOP %c%c\n", song_str[i], song_str[i + 1]);
+            song[i] = ZERO_REST;
             break;
+
+        } else {
+
+            song[i / 2] = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
+
         }
 
-        buffer = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
-
-        song[i / 2] = buffer;
     }
 
 }
@@ -194,18 +208,21 @@ void store_songs(uint8_t *song, const char *song_str) {
 
 int main() {
 
-    char song_ascii[] = "B2A2R1C2R2C2R7";
+    char *song_ascii = "a2c0f0A2C2E1G6R2g9C2R9D7F6E9F9g8e1g8g8g8g7g5g8";
 
-    uint8_t song_packed[strlen(song_ascii)];
+    song_ascii = add_zero_rest(song_ascii);
+
+    uint8_t song_packed[strlen(song_ascii) / 2];
+    memset(song_packed, ZERO_REST, sizeof song_packed);
+
     store_songs(song_packed, song_ascii);
 
-    for (size_t i = 0; song_packed[i] != 0; i++) {
+    printf("Array: ");
+    for (size_t i = 0; song_packed[i] != ZERO_REST; i++) {
         printf("%d ", song_packed[i]);
     }
 
-    printf("\n");
-    store_songs(song_packed, song_ascii);
-
+    printf("\nSong: ");
     play_song(song_packed);
 
     return EXIT_SUCCESS;
