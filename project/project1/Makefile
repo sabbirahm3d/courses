@@ -8,7 +8,7 @@ run:
 
 .PHONY: compile
 compile:
-	@g++ -o ${OUTPUT} ${MAIN}.cpp -lgmpxx -lgmp -std=c++0x
+	@g++ -o ${OUTPUT} ${MAIN}.cpp ${MAIN}.h -lgmpxx -lgmp -std=c++0x
 
 
 .PHONY: clean
