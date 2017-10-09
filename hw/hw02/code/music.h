@@ -2,8 +2,8 @@
 // Created by sabbir on 10/8/17.
 //
 
-#ifndef HW02_MAIN_H
-#define HW02_MAIN_H
+#ifndef MAIN_H
+#define MAIN_H
 
 // #include <avr/io.h>
 // #include <util/delay.h>
@@ -51,4 +51,4 @@ void play_note(uint8_t, uint8_t);
 
 void play_song(uint8_t *);
 
-#endif //HW02_MAIN_H
+#endif //MAIN_H
