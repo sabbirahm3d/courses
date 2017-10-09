@@ -1,21 +1,6 @@
 #include <stdlib.h>
 #include "music.h"
 
-
-uint8_t *int2bin(int a, uint8_t *buffer) {
-
-    buffer += (7);
-
-    for (int i = 7; i >= 0; i--) {
-
-        *buffer-- = (a & 1) + '0';
-        a >>= 1;
-
-    }
-
-    return buffer;
-}
-
 uint8_t unpack_note_letter_ascii(uint8_t packed_note) {
 
     return packed_note >> 5;
@@ -27,7 +12,6 @@ uint8_t unpack_note_duration(uint8_t packed_note) {
     return (uint8_t) (packed_note & 0x1F);
 
 }
-
 
 uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
@@ -91,9 +75,7 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
 }
 
-
 void play_note(uint8_t letter_ascii, uint8_t quarters) {
-
 
     switch (letter_ascii) {
 
@@ -163,13 +145,11 @@ void play_song(uint8_t *song) {
 
 }
 
-
 int is_zero_rest(const char letter_ascii, const char duration) {
 
     return (letter_ascii == 'R' || letter_ascii == 'r') && (duration == '0');
 
 }
-
 
 char *add_zero_rest(const char *a) {
 
@@ -184,9 +164,9 @@ char *add_zero_rest(const char *a) {
 void store_songs(uint8_t *song, const char *song_str) {
 
     const size_t len = strlen(song_str);
-    int j = 0;
+    uint8_t j = 0;
 
-    for (size_t i = 0; i < len; i += 2) {
+    for (uint8_t i = 0; i < len; i += 2) {
 
         if (isdigit(song_str[i + 1]) && isdigit(song_str[i + 2])) {
 
@@ -216,25 +196,69 @@ void store_songs(uint8_t *song, const char *song_str) {
 
 }
 
-
 int main() {
 
-    char *song_ascii = "a11a12a12a13a14a15a6a31a8a7r12a0a0r21r0a12";
 
-    song_ascii = add_zero_rest(song_ascii);
+    int choice;
+    int flag = 1;
 
-    uint8_t song_packed[strlen(song_ascii) / 2];
-    memset(song_packed, 0, sizeof song_packed);
+    while (flag) {
 
-    store_songs(song_packed, song_ascii);
+        char *song_ascii = "a11a12a12a13a14a15a6a31a8a7r12a0a0r21";
 
-    printf("Array: ");
-    for (size_t i = 0; song_packed[i] != ZERO_REST; i++) {
-        printf("%d ", song_packed[i]);
+        while (flag) {
+
+            printf("%s", menu_main);
+
+            scanf("%d", &choice);
+
+            switch (choice) {
+
+                case 1: {
+
+                    printf("Songs in the Database\n");
+                    for (int i = 0; i < 4; i++) {
+                        printf("%s\n", song_list[i]);
+                    }
+                    printf("\n");
+                    break;
+
+                }
+
+                case 2: {
+
+                    flag = 0;
+                    break;
+
+                }
+
+                default: {
+                    printf("nope %d", choice);
+                    flag = 0;
+                    break;
+                }
+
+            }
+
+        }
+
+
+        song_ascii = add_zero_rest(song_ascii);
+
+        uint8_t song_packed[strlen(song_ascii) / 2];
+        memset(song_packed, 0, sizeof song_packed);
+
+        store_songs(song_packed, song_ascii);
+
+        printf("Array: ");
+        for (size_t i = 0; song_packed[i] != ZERO_REST; i++) {
+            printf("%d ", song_packed[i]);
+        }
+
+        printf("\nSong: ");
+        play_song(song_packed);
+        flag = 0;
     }
-
-    printf("\nSong: ");
-    play_song(song_packed);
 
     return EXIT_SUCCESS;
 

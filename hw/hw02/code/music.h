@@ -15,7 +15,7 @@
 
 #define PORTB5_SPEAKER_MASK 0b00100000
 #define USER_LINE_MAX 128
-char userLine[USER_LINE_MAX];
+char user_line[USER_LINE_MAX];
 #define NUMBER_OF_SONGS 4
 #define MAX_SONG_LENGTH 64
 #define NOTE_A 0
@@ -26,9 +26,9 @@ char userLine[USER_LINE_MAX];
 #define NOTE_F 5
 #define NOTE_G 6
 #define NOTE_R 7
-#define ZERO_REST 224
+#define ZERO_REST 224  // R0
 
-//char songTitle[NUMBER_OF_SONGS][STR_LENGTH] = {"Title1", "Title2", "Title3", "Title4"};
+char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3", "Title4"};
 char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {(NOTE_B << 5) + 2, (NOTE_A << 5) + 2, (NOTE_G << 5) + 2},
         {NOTE_R << 5},
@@ -36,8 +36,8 @@ char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {NOTE_R << 5}
 };
 //// some initial song with notes
-const char menuMain[] = "Main Menu\nCreate Song\nPlay Song\nList Songs\n";
-const char menuPlay[] = "Play Menu\nSearch By Title\nNumber\n";
+const char *menu_main = "--------- Main Menu ---------\n1. List Songs\n2. Play Song\n3. Create Song\nPlease enter a choice: ";
+const char *menu_play = "Play Menu\nSearch By Title\nNumber\n";
 
 uint8_t pack_note(char, uint8_t);
 
