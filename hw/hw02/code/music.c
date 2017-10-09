@@ -87,9 +87,9 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
         }
     }
 
-    uint8_t a = (uint8_t) (letter_ascii << 5) + duration;
-
-    return a;
+//    printf("maybe: %d\n", (uint8_t) (letter_ascii << 5));
+//    printf("maybe: %d\n", (uint8_t) (letter_ascii << 5) + duration);
+    return (uint8_t) (letter_ascii << 5) + duration;
 
 }
 
@@ -185,20 +185,43 @@ char *add_zero_rest(const char *a) {
 
 void store_songs(uint8_t *song, const char *song_str) {
 
-    size_t len = strlen(song_str);
+    const size_t len = strlen(song_str);
+    int hey = 1;
 
     for (size_t i = 0; i < len; i += 2) {
 
-        if (is_zero_rest(song_str[i], song_str[i + 1])) {
+        if (isdigit(song_str[i + 1]) && isdigit(song_str[i + 2])) {
 
-            printf("STOP %c%c\n", song_str[i], song_str[i + 1]);
-            song[i] = ZERO_REST;
-            break;
+//            uint8_t duration = (song_str[i + 1] - '0') * 10 + (song_str[i + 2] - '0');
+//            if (!(i % 2) && i) {
+//                hey = i / 2 - 1;
+//                printf("even: at %d\n", hey);
+//                song[hey] = pack_note(
+//                        song_str[i],
+//                        (uint8_t) (song_str[i + 1] - '0') * 10 + (song_str[i + 2] - '0')
+//                );
+//            } else {
+//            }
+//            song[i / 2] = pack_note(
+//                    song_str[i],
+//                    (uint8_t) (song_str[i + 1] - '0') * 10 + (song_str[i + 2] - '0')
+//            );
+//            printf("odd: at %d\n", i / 2);
+//            i++;
 
         } else {
 
-            song[i / 2] = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
+            if (is_zero_rest(song_str[i], song_str[i + 1])) {
 
+                printf("STOP at %d/%d %c%c\n", i, len, song_str[i], song_str[i + 1]);
+                song[i / 2] = ZERO_REST;
+                break;
+
+            } else {
+
+                song[i / 2] = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
+
+            }
         }
 
     }
@@ -208,12 +231,13 @@ void store_songs(uint8_t *song, const char *song_str) {
 
 int main() {
 
-    char *song_ascii = "a2c0f0A2C2E1G6R2g9C2R9D7F6E9F9g8e1g8g8g8g7g5g8";
+    char *song_ascii = "a1a2a3a7a8f9r5d9r0f0E0";
 
     song_ascii = add_zero_rest(song_ascii);
+    printf("song size: %d\n", strlen(song_ascii) / 2);
 
     uint8_t song_packed[strlen(song_ascii) / 2];
-    memset(song_packed, ZERO_REST, sizeof song_packed);
+    memset(song_packed, 0, sizeof song_packed);
 
     store_songs(song_packed, song_ascii);
 
