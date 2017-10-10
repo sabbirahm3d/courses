@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../common/structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 02}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Using synthesizable procedural code, create a module that with every clock cycle outputs a 1-bit value that represents the input 5 clock cycles prior. The module should also support an asyncronous reset that allows the initial outputs to be zero until the first input propogates to the output.
+
+    \section{Implementation}
+    The output `y' was generated as a simple delayed assignment to the input `x'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 2 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+\end{document}
