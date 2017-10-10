@@ -73,10 +73,6 @@ std::vector<mpz_class> line_to_mpz(const std::string &str) {
         pair[1] = mpz_class(next.substr(0, str_size - 1).c_str(), 10);
     }
 
-//    destructors for mpz objects - works fine here, but may need to be called later instead
-//    mpz_clear(pair[0]);
-//    mpz_clear(pair[1]);
-
     return pair;
 
 }
@@ -122,23 +118,35 @@ int main(int argc, char *argv[]) {
 
         std::vector<std::vector<mpz_class>> complex_nums;
         std::vector<mpz_class> prod;
+        int loops = 200;
+        double times_cmul4 = 0.0;
+        double times_cmul3 = 0.0;
         clock_t t0, t;  // used for timing functions
 
         complex_nums = parse_file(argv[1]);
 
-        t0 = clock();
-        prod = cmul4_list(complex_nums, 0, complex_nums.size() - 1);
-        t = clock() - t0;
-        gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
-        fprintf(stdout, "*** CMUL4 List ***\n");
-        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+        for (int i = 0; i < loops; i++) {
+            t0 = clock();
+            cmul4_list(complex_nums, 0, complex_nums.size() - 1);
+            t = clock() - t0;
+            times_cmul4 += ((double) t) / CLOCKS_PER_SEC;
+//            gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
+//            fprintf(stdout, "*** CMUL4 List ***\n");
+//            fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
 
-        t0 = clock();
-        prod = cmul3_list(complex_nums, 0, complex_nums.size() - 1);
-        t = clock() - t0;
-        gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
-        fprintf(stdout, "*** CMUL3 List ***\n");
-        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+            t0 = clock();
+            cmul3_list(complex_nums, 0, complex_nums.size() - 1);
+            t = clock() - t0;
+            times_cmul3 += ((double) t) / CLOCKS_PER_SEC;
+
+//            gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
+//            fprintf(stdout, "*** CMUL3 List ***\n");
+//            fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+        }
+
+        std::cout << loops << " loops" << std::endl;
+        std::cout << "cmul4 total: " << times_cmul4 << std::endl;
+        std::cout << "cmul3 total: " << times_cmul3 << std::endl;
 
         return EXIT_SUCCESS;
 
