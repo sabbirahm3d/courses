@@ -2,14 +2,15 @@
 // Created by sabbir on 10/8/17.
 //
 
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MUSIC_H
+#define MUSIC_H
 
 // #include <avr/io.h>
 // #include <util/delay.h>
 #include <inttypes.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 // #include "U0_UART.h"  // to direct standard I/O to AVR UART
 
@@ -28,16 +29,9 @@ char user_line[USER_LINE_MAX];
 #define NOTE_R 7
 #define ZERO_REST 224  // R0
 
-char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3", "Title4"};
-char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
-        {(NOTE_B << 5) + 2, (NOTE_A << 5) + 2, (NOTE_G << 5) + 2},
-        {NOTE_R << 5},
-        {NOTE_R << 5},
-        {NOTE_R << 5}
-};
-//// some initial song with notes
-const char *menu_main = "--------- Main Menu ---------\n1. List Songs\n2. Play Song\n3. Create Song\nPlease enter a choice: ";
-const char *menu_play = "Play Menu\nSearch By Title\nNumber\n";
+char *add_zero_rest(const char *);
+
+int is_zero_rest(const char, const char);
 
 uint8_t pack_note(char, uint8_t);
 

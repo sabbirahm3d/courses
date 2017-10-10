@@ -1,4 +1,5 @@
-MAIN:="music"
+MAIN:="main"
+DEP:="music"
 
 .PHONY: run
 run:
@@ -7,7 +8,7 @@ run:
 
 .PHONY: compile
 compile:
-	@gcc -o ${MAIN}.o ${MAIN}.c ${MAIN}.h -Wall
+	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall
 
 
 .PHONY: clean

@@ -4,6 +4,7 @@ project(hw02)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
+        code/main.c
         code/music.c
         code/music.h
         code/Makefile
