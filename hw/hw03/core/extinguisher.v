@@ -43,24 +43,24 @@ module extinguisher(
 
     end
 
-    always @(*) begin
+    always @(cnt_int or enable or clr_n) begin
 
         if (clr_n) begin
+
             active <= 0;
             position <= 0;
-        end
 
-    end
-
-
-    always @(cnt_int & enable) begin
-
-        if (cnt_int <= 4'b0111) begin
-            active <= 1;
-            position <= cnt_int;
         end else begin
-            active <= 0;
+
+            if (cnt_int <= 4'b0111) begin
+                active <= 1;
+                position <= cnt_int;
+            end else begin
+                active <= 0;
+            end
+
         end
+
     end
 
 endmodule

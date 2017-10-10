@@ -50,8 +50,6 @@ module extinguisher_tb;
         #10;
         clr_n = 0;
 
-//        position = 8'b0;
-
         enable = 0;
         #30
         $monitor("%0t %b %d", $time, position, active);
@@ -79,6 +77,10 @@ module extinguisher_tb;
         enable = 1;
         #20
         $monitor("%0t %b %d", $time, position, active);
+
+        clr_n = 1;
+        #10;
+        clr_n = 0;
 
         enable = 1;
         #80

@@ -26,7 +26,7 @@ module debounce_and_oneshot(
     parameter MINWIDTH = 5000000; //how many cycles must the btn be pressed
     parameter COUNTERWIDTH = 32;
 
-    reg [COUNTERWIDTH-1:0] counter;
+    reg [COUNTERWIDTH - 1:0] counter;
 
     reg shot;
 

@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -19,14 +20,31 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module igniter(
-		output position,
-		input [3:0] delta,
-		input enable_jump,
-		input sys_clk,
-		input clr_n
-	);
+        input wire [3:0] delta,
+        input wire enable_jump,
+        input wire sys_clk,
+        input wire clr_n,
+        output reg [2:0] position
+    );
 
+    initial begin
 
+        position <= 3'b0;
 
+    end
+
+    always @(posedge sys_clk, enable_jump, clr_n) begin
+
+        if (clr_n) begin
+
+            position <= 3'b0;
+
+        end else if (enable_jump) begin
+
+            position <= (position + delta) % 8;
+
+        end
+
+    end
 
 endmodule
