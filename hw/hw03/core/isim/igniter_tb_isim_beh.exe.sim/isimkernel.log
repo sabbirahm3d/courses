@@ -2,12 +2,12 @@ Command line:
    igniter_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  43588
+     -socket  34891
 
-Tue Oct 10 21:41:51 2017
+Wed Oct 11 14:31:36 2017
 
 
- Elaboration Time: 0.02 sec
+ Elaboration Time: 0.01 sec
 
  Current Memory Usage: 196.035 Meg
 
@@ -19,11 +19,11 @@ Tue Oct 10 21:41:51 2017
  Total Processes        : 16
  Total Traceable Variables  : 23
  Total Scalar Nets and Variables : 113
-Total Line Count : 57
+Total Line Count : 50
 
  Total Simulation Time: 0.03 sec
 
  Current Memory Usage: 271.536 Meg
 
-Tue Oct 10 21:43:44 2017
+Wed Oct 11 14:35:23 2017
 
