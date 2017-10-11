@@ -25,7 +25,7 @@ module igniter_tb;
     reg enable_jump, clk, clr_n;
     wire [2:0] position;
 
-    igniter igniter_reg(
+    igniter igniter_dut(
         .delta(delta),
         .enable_jump(enable_jump),
         .sys_clk(clk),
@@ -37,7 +37,7 @@ module igniter_tb;
 
         #20;
         clk <= ~clk;
-        #25
+        #20
         enable_jump <= ~enable_jump;
 
     end
@@ -47,28 +47,32 @@ module igniter_tb;
         delta = 4'b0;
         clk = 0;
         enable_jump = 0;
-        #20
+        clr_n = 1;
+        #10
+        clr_n = 0;
 
-        delta = 4'b0010;
         #40
+        delta = 4'b0010;
 
+        #40
         delta = 4'b0011;
-        #40
 
-        delta = 4'b0110;
         #40
+        delta = 4'b1111;
 
-        delta = 4'b0010;
         #40
+        delta = 4'b1101;
 
-        delta = 4'b0010;
+        enable_jump = 0;
+        clr_n = 1;
+        #10
+        clr_n = 0;
+
         #40
+        delta = 4'b0101;
 
-        delta = 4'b0010;
         #40
-
-        delta = 4'b0010;
-        #40;
+        delta = 4'b1110;
 
     end
 
