@@ -1,0 +1,2 @@
+verilog isim_temp "netgen/par/part09_timesim.v"
+verilog isim_temp "../part09/scripts/part09_tb.v"

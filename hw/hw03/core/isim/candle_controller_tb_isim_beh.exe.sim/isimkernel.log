@@ -1,0 +1,29 @@
+Command line:
+   candle_controller_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  52418
+
+Tue Oct 10 22:23:32 2017
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.035 Meg
+
+ Total Signals          : 20
+ Total Nets             : 31
+ Total Signal Drivers   : 12
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 19
+ Total Traceable Variables  : 25
+ Total Scalar Nets and Variables : 129
+Total Line Count : 62
+
+ Total Simulation Time: 0.03 sec
+
+ Current Memory Usage: 271.536 Meg
+
+Tue Oct 10 22:25:18 2017
+

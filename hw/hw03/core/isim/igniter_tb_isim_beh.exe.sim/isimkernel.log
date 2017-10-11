@@ -1,0 +1,29 @@
+Command line:
+   igniter_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  43588
+
+Tue Oct 10 21:41:51 2017
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.035 Meg
+
+ Total Signals          : 18
+ Total Nets             : 23
+ Total Signal Drivers   : 10
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 16
+ Total Traceable Variables  : 23
+ Total Scalar Nets and Variables : 113
+Total Line Count : 57
+
+ Total Simulation Time: 0.03 sec
+
+ Current Memory Usage: 271.536 Meg
+
+Tue Oct 10 21:43:44 2017
+

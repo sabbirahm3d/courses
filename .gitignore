@@ -1,28 +1,28 @@
-#########################################################################################################
-##  This is an example .gitignore file for Vivado, please treat it as an example as 
-##  it might not be complete. In addition, XAPP 1165 should be followed.
-#########################################################################################################
-#########
-#Exclude all
-#########
+# exclude all
 *
 !*/
 !.gitignore
 
+# files in entire repo
 !*.md
 !*.pdf
 !*.png
 !*.tex
 !*.txt
-
 !Makefile
 !*.py
 !*.v
 
-!*.xise
-!*.xco
+# Xilinx project files to include
+!*.bit
+!*.log
+!*.prj
+!*.ucf
 !*.wcfg
+!*.xco
+!*.xise
 
+# special case to file patterns
 *_pad.txt
 
 # generated folders

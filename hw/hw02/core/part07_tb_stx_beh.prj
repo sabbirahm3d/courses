@@ -1,0 +1,3 @@
+verilog isim_temp "../part07/scripts/part07.v"
+verilog isim_temp "../part07/scripts/part07_tb.v"
+verilog isim_temp "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

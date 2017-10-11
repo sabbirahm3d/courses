@@ -1,0 +1,2 @@
+verilog work "netgen/par/part09_timesim.v"
+verilog work "../part09/scripts/part09_tb.v"
