@@ -5,6 +5,7 @@ Turning on mult-threading, number of parallel sub-compilation jobs: 8
 Determining compilation order of HDL files
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/igniter.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/extinguisher.v" into library work
+Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/debounce_and_oneshot.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/candle_controller.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top_tb.v" into library work
@@ -12,7 +13,7 @@ Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into li
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 94664 KB
-Fuse CPU Usage: 1250 ms
+Fuse CPU Usage: 1440 ms
 Compiling module igniter
 Compiling module extinguisher
 Compiling module candle_controller
@@ -23,6 +24,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 6 Verilog Units
 Built simulation executable /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe
-Fuse Memory Usage: 654900 KB
-Fuse CPU Usage: 1260 ms
-GCC CPU Usage: 150 ms
+Fuse Memory Usage: 654908 KB
+Fuse CPU Usage: 1460 ms
+GCC CPU Usage: 160 ms

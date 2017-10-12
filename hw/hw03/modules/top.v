@@ -33,7 +33,14 @@ module top(
     wire active;
     wire [2:0] pos_to_set, pos_to_clear;
 
-    igniter igniter_dut(
+    // debounce_and_oneshot debounce_and_oneshot_instance(
+    //     .debounced_out(BTN_NORTH),
+    //     .btn(BTN_NORTH),
+    //     .clk(CLK_50MHZ),
+    //     .rst(RESET)
+    // );
+
+    igniter igniter_instance(
         .delta({SW3, SW2, SW1, SW0}),
         .enable_jump(BTN_NORTH),
         .sys_clk(CLK_50MHZ),
@@ -41,7 +48,7 @@ module top(
         .position(pos_to_set)
     );
 
-    extinguisher extinguisher_dut(
+    extinguisher extinguisher_instance(
         .enable(BTN_NORTH),
         .clk(CLK_50MHZ),
         .clr_n(RESET),
@@ -49,7 +56,7 @@ module top(
         .position(pos_to_clear)
     );
 
-    candle_controller candle_controller_dut(
+    candle_controller candle_controller_instance(
         .pos_to_set(pos_to_set),
         .set_enable(BTN_NORTH),
         .pos_to_clear(pos_to_clear),

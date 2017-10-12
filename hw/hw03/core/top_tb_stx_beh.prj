@@ -1,5 +1,6 @@
 verilog isim_temp "../modules/igniter.v"
 verilog isim_temp "../modules/extinguisher.v"
+verilog isim_temp "../modules/debounce_and_oneshot.v"
 verilog isim_temp "../modules/candle_controller.v"
 verilog isim_temp "../modules/top.v"
 verilog isim_temp "../modules/top_tb.v"

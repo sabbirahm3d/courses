@@ -1,5 +1,6 @@
 verilog work "../modules/igniter.v"
 verilog work "../modules/extinguisher.v"
+verilog work "../modules/debounce_and_oneshot.v"
 verilog work "../modules/candle_controller.v"
 verilog work "../modules/top.v"
 verilog work "../modules/top_tb.v"

@@ -17,9 +17,9 @@
 // Revision: 
 // Revision 0.01 - File Created
 module debounce_and_oneshot(
-        output reg out,
+        output reg debounced_out,
         input wire btn,
-        input wire clk_50MHz,
+        input wire clk,
         input wire rst
     );
 
@@ -30,32 +30,32 @@ module debounce_and_oneshot(
 
     reg shot;
 
-    always @(posedge clk_50MHz, posedge rst) begin
+    always @(posedge clk, posedge rst) begin
 
         if (rst) begin
 
             counter <= 0;
-            out <= 1'b0;
+            debounced_out <= 1'b0;
             shot <= 1'b0;
 
         end else begin
 
             if (~btn) begin
                 counter <= 0;
-                out <= 1'b0;
+                debounced_out <= 1'b0;
                 shot <= 1'b0;
             end else if (counter != MINWIDTH) begin
                 counter <= counter + 1;
-                out <= 1'b0;
+                debounced_out <= 1'b0;
                 shot <= 1'b0;
             end else begin //we have reached MINWIDTH
                 counter <= counter;
                 if (shot == 0) begin
                     shot <= 1'b1;
-                    out <= 1'b1;
+                    debounced_out <= 1'b1;
                 end else begin 
                     shot <= shot;
-                    out <= 1'b0;
+                    debounced_out <= 1'b0;
                 end
             end
 

@@ -26,7 +26,7 @@ module top_tb;
     reg BTN_NORTH, RESET;
     wire LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0;
 
-    top top_dut(
+    top top_dt(
         .CLK_50MHZ(CLK_50MHZ),
         .SW3(SW3), .SW2(SW2),
         .SW1(SW1), .SW0(SW0),
@@ -60,6 +60,24 @@ module top_tb;
 
         // #20
         // RESET = 1;
+
+        #20
+        RESET = 0;
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b0101;
+        $monitor("%0t CANDLES: %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        #20
+        RESET = 0;
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b0101;
+        $monitor("%0t CANDLES: %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b0111;
+        $monitor("%0t CANDLES: %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
         #20
         RESET = 0;

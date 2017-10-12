@@ -33,9 +33,9 @@ module igniter(
 
     end
 
-    always @(posedge sys_clk, enable_jump, negedge clr_n) begin
+    always @(posedge sys_clk, enable_jump, posedge clr_n) begin
 
-        if (clr_n) begin
+        if (~clr_n) begin
 
             position <= 3'b0;
 
