@@ -3,7 +3,7 @@ DEP:="music"
 
 .PHONY: run
 run:
-	@./${MAIN}.o ${PATH}
+	@./${MAIN}.o
 
 
 .PHONY: compile
