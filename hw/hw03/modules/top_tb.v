@@ -1,0 +1,74 @@
+`timescale 1ns / 1ps
+`default_nettype none
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    18:20:27 10/11/2017 
+// Design Name: 
+// Module Name:    top_tb 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module top_tb;
+
+    reg CLK_50MHZ;
+    reg SW3, SW2, SW1, SW0;
+    reg BTN_NORTH, RESET;
+    wire LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0;
+
+    top top_dut(
+        .CLK_50MHZ(CLK_50MHZ),
+        .SW3(SW3), .SW2(SW2),
+        .SW1(SW1), .SW0(SW0),
+        .BTN_NORTH(BTN_NORTH),
+        .RESET(RESET),
+        .LED7(LED7), .LED6(LED6),
+        .LED5(LED5), .LED4(LED4),
+        .LED3(LED3), .LED2(LED2),
+        .LED1(LED1), .LED0(LED0)
+    );
+
+    always begin
+
+        #20;
+        CLK_50MHZ <= ~CLK_50MHZ;
+
+    end
+
+    initial begin
+
+        CLK_50MHZ = 0;
+        RESET = 1;
+        {SW3, SW2, SW1, SW0} = 4'b0001;
+        BTN_NORTH = 1;
+        #10
+        RESET = 0;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0000;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0010;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b1000;
+        $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+    end
+
+    initial #10000 $finish;
+
+endmodule

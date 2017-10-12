@@ -25,9 +25,9 @@ module extinguisher_tb;
     reg clk;
     reg clr_n;
     wire active;
-    wire [3:0] position;
+    wire [2:0] position;
 
-    extinguisher DUT(
+    extinguisher extinguisher_dut(
         .enable(enable),
         .clk(clk),
         .clr_n(clr_n),

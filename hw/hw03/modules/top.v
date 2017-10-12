@@ -30,34 +30,53 @@ module top(
         output reg LED1, output reg LED0
     );
 
+    reg active;
+    wire [2:0] pos_to_set, pos_to_clear;
+    // wire [7:0] candle_state;
+
+    igniter igniter_dut(
+        .delta({SW3, SW2, SW1, SW0}),
+        .enable_jump(BTN_NORTH),
+        .sys_clk(CLK_50MHZ),
+        .clr_n(RESET),
+        .position(pos_to_set)
+    );
+
     initial begin
 
-        input wire [3:0] delta,
-        input wire enable_jump,
-        input wire sys_clk,
-        input wire clr_n,
-        output reg [2:0] position
-
-
-        igniter igniter_mod(
-            delta,
-            enable_jump,
-            sys_clk,
-            clr_n,
-            position
-        );
+        // pos_to_set <= 3'bx;
+        // pos_to_clear <= 3'bx;
+        active <= 0;
+        {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0} <= 8'b0;
 
     end
+
+    extinguisher extinguisher_dut(
+        .enable(BTN_NORTH),
+        .clk(CLK_50MHZ),
+        .clr_n(RESET),
+        .active(active),
+        .position(pos_to_clear)
+    );
+
+    candle_controller candle_controller_dut(
+        .pos_to_set(pos_to_set),
+        .set_enable(BTN_NORTH),
+        .pos_to_clear(pos_to_clear),
+        .clear_enable(active),
+        .sys_clk(CLK_50MHZ),
+        .clr_async(RESET),
+        .candle_state({LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0})
+    );
 
     always @(posedge CLK_50MHZ) begin
 
-        wire [3:0] delta;
-        wire enable_jump;
-        wire sys_clk;
-        wire clr_n;
-        reg [2:0] position;
-
+        $display("DELTA %b set: %b clear: %b", {SW3, SW2, SW1, SW0}, pos_to_set, pos_to_clear);
+        // $display("ACTIVE %b", active);
+        // $display("CANDLES %b", candle_state);
+        $display("%0t YOOOOOOOOOO %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
     end
+
 
 endmodule

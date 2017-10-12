@@ -24,16 +24,16 @@ module extinguisher(
         input wire clk,
         input wire clr_n,
         output reg active,
-        output reg [3:0] position
+        output reg [2:0] position
     );
 
     integer cnt_int;
 
     initial begin
 
-        position = 4'b0;
-        active = 0;
-        cnt_int = 0;
+        position <= 3'b0;
+        active <= 0;
+        cnt_int <= 0;
 
     end
 
@@ -48,11 +48,11 @@ module extinguisher(
         if (clr_n) begin
 
             active <= 0;
-            position <= 0;
+            position <= 3'b0;
 
         end else begin
 
-            if (cnt_int <= 4'b0111) begin
+            if (cnt_int <= 3'b111) begin
                 active <= 1;
                 position <= cnt_int;
             end else begin
@@ -60,6 +60,7 @@ module extinguisher(
             end
 
         end
+        $monitor("IN EXTINGUISHER pos: %b active: %b", position, active);
 
     end
 

@@ -33,17 +33,22 @@ module igniter(
 
     end
 
-    always @(posedge sys_clk, enable_jump, clr_n) begin
+    always @(posedge sys_clk, enable_jump, negedge clr_n) begin
 
+        // $display("start %b", delta);
         if (clr_n) begin
 
             position <= 3'b0;
+            // $monitor("MAYBE %b", delta);
 
         end else if (enable_jump) begin
 
+            // $display("before %b", delta);
             position <= (position + delta) % 8;
+            // $monitor("HEEEEEEEEEEE %b %b", position, delta);
 
         end
+        // $monitor("IN IGNITER pos: %b delta: %b", position, delta);
 
     end
 

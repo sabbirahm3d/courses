@@ -1,5 +1,5 @@
 ISim log file
-Running: /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/igniter_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/igniter_tb_isim_beh.wdb 
+Running: /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.wdb 
 ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -11,5 +11,6569 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-Stopped at time : 1 us : File "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/modules/igniter_tb.v" Line 79
-# exit 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+HELLLLLLLLLO
+Finished circuit initialization process.
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+xxx xxx
+YOOOOOOOOOO 00000000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 0000
+HELLLLLLLLLO 00000000
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 0000
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 0000
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 0000
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+MAYBE 000
+xxx xxx
+YOOOOOOOOOO 0000
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000
+xxx xxx
+YOOOOOOOOOO 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000 0
+xxx xxx
+YOOOOOOOOOO 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx
+xxx xxx
+YOOOOOOOOOO 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx xxxx
+xxx xxx
+YOOOOOOOOOO 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startx
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+startx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+start xxx
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa xxx
+start xxx
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start 000
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start 000
+before 000
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start 000
+before 000
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start 000
+before 000
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start xxx
+before xxx
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start xxxx
+before xxxx
+Finished circuit initialization process.
+HEEEEEEEEEEE xxx 0001
+xxx xxx
+YOOOOOOOOOO 0000
+start 0000
+before 0000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start xxxx
+Finished circuit initialization process.
+MAYBE 0001
+start 0001
+before 0001
+HEEEEEEEEEEE 001 0001
+xxx xxx
+YOOOOOOOOOO 0001
+start 0001
+before 0001
+1
+xxx xxx
+YOOOOOOOOOO 0010
+start 0010
+before 0010
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+xxx xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start xxxx
+Finished circuit initialization process.
+MAYBE 0001
+start 0001
+before 0001
+HEEEEEEEEEEE 001 0001
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+start 0001
+before 0001
+HEEEEEEEEEEE 010 0001
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+start 0010
+before 0010
+HEEEEEEEEEEE 100 0010
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+startaaaaa 000
+start 0001
+Finished circuit initialization process.
+MAYBE 0001
+start 0001
+before 0001
+HEEEEEEEEEEE 001 0001
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+start 0001
+before 0001
+HEEEEEEEEEEE 010 0001
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+start 0010
+before 0010
+HEEEEEEEEEEE 100 0010
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+start 1000
+before 1000
+HEEEEEEEEEEE 100 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000  11
+HELLLLLLLLLO 001  11
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+HELLLLLLLLLO 010  11
+HELLLLLLLLLO 010  01
+HELLLLLLLLLO 010  21
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+HELLLLLLLLLO 100  21
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100  81
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000 0001 1
+HELLLLLLLLLO 001 0001 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+HELLLLLLLLLO 010 0001 1
+HELLLLLLLLLO 010 0000 1
+HELLLLLLLLLO 010 0010 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+HELLLLLLLLLO 100 0010 1
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000 0001 1
+HELLLLLLLLLO 001 0001 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+HELLLLLLLLLO 010 0001 1
+HELLLLLLLLLO 010 0000 1
+HELLLLLLLLLO 010 0010 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+HELLLLLLLLLO 100 0010 1
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000 0001 1
+HELLLLLLLLLO 001 0001 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0001
+HELLLLLLLLLO 010 0001 1
+HELLLLLLLLLO 010 0000 1
+HELLLLLLLLLO 010 0010 1
+set: xxx clear: xxx
+YOOOOOOOOOO 0010
+HELLLLLLLLLO 100 0010 1
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+set: xxx clear: xxx
+YOOOOOOOOOO 1000
+HELLLLLLLLLO 100 1000 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+HELLLLLLLLLO 000 0001 1
+HELLLLLLLLLO 001 0001 1
+DELTA 0001
+set: xxx clear: xxx
+HELLLLLLLLLO 010 0001 1
+HELLLLLLLLLO 010 0000 1
+HELLLLLLLLLO 010 0010 1
+DELTA 0010
+set: xxx clear: xxx
+HELLLLLLLLLO 100 0010 1
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+DELTA 1000
+set: xxx clear: xxx
+HELLLLLLLLLO 100 1000 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001
+set: xxx clear: xxx
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000
+set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: xxx clear: xxx
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: xxx clear: xxx
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: 001 clear: zzz
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: 010 clear: zzz
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: zzz
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: 001 clear: 000
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: 010 clear: 001
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 000
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 001
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO 00000000
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: 001 clear: 000
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: 010 clear: 001
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 000
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 001
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+YOOOOOOOOOO xxxxxxxx
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+ACTIVE x
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+ACTIVE x
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ACTIVE x
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+ACTIVE 1
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+ACTIVE 1
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: 001 clear: 000
+ACTIVE 1
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: 010 clear: 001
+ACTIVE 1
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 001
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN IGNITER pos: 000 delta: 0001
+IN IGNITER pos: 001 delta: 0001
+DELTA 0001 set: 001 clear: 000
+ACTIVE 1
+IN IGNITER pos: 010 delta: 0001
+IN IGNITER pos: 010 delta: 0000
+IN IGNITER pos: 010 delta: 0010
+DELTA 0010 set: 010 clear: 001
+ACTIVE 1
+IN IGNITER pos: 100 delta: 0010
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 000
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 001
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN IGNITER pos: 100 delta: 1000
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+ACTIVE 1
+IN EXTINGUISHER pos: 001 active: 1
+DELTA 0010 set: 010 clear: 001
+ACTIVE 1
+IN EXTINGUISHER pos: 010 active: 1
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN EXTINGUISHER pos: 011 active: 1
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN EXTINGUISHER pos: 100 active: 1
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN EXTINGUISHER pos: 101 active: 1
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN EXTINGUISHER pos: 110 active: 1
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 1
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 1000 set: 100 clear: 000
+ACTIVE 1
+IN EXTINGUISHER pos: 001 active: 1
+DELTA 1000 set: 100 clear: 001
+ACTIVE 1
+IN EXTINGUISHER pos: 010 active: 1
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN EXTINGUISHER pos: 011 active: 1
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN EXTINGUISHER pos: 100 active: 1
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN EXTINGUISHER pos: 101 active: 1
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN EXTINGUISHER pos: 110 active: 1
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 1
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+ACTIVE 1
+IN EXTINGUISHER pos: 001 active: 1
+DELTA 0010 set: 010 clear: 001
+ACTIVE 1
+IN EXTINGUISHER pos: 010 active: 1
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN EXTINGUISHER pos: 011 active: 1
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN EXTINGUISHER pos: 100 active: 1
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN EXTINGUISHER pos: 101 active: 1
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN EXTINGUISHER pos: 110 active: 1
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 1
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 1000 set: 100 clear: 000
+ACTIVE 1
+IN EXTINGUISHER pos: 001 active: 1
+DELTA 1000 set: 100 clear: 001
+ACTIVE 1
+IN EXTINGUISHER pos: 010 active: 1
+DELTA 1000 set: 100 clear: 010
+ACTIVE 1
+IN EXTINGUISHER pos: 011 active: 1
+DELTA 1000 set: 100 clear: 011
+ACTIVE 1
+IN EXTINGUISHER pos: 100 active: 1
+DELTA 1000 set: 100 clear: 100
+ACTIVE 1
+IN EXTINGUISHER pos: 101 active: 1
+DELTA 1000 set: 100 clear: 101
+ACTIVE 1
+IN EXTINGUISHER pos: 110 active: 1
+DELTA 1000 set: 100 clear: 110
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 1
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+DELTA 1000 set: 100 clear: 111
+ACTIVE 1
+IN EXTINGUISHER pos: 111 active: 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 001 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 010 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 011 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 101 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 110 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 001 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 010 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 011 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 101 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 110 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 111 active: 0
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 010 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES xxxxxxxx
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+CANDLES zzzzzzzz
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+YOOOOOOOOOO 00000010
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+YOOOOOOOOOO 00000100
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00010000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010000 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+10000 YOOOOOOOOOO 00000000
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 YOOOOOOOOOO 00000xxx
+50000 YOOOOOOOOOO 00000xxx
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+70000 YOOOOOOOOOO 000x0xxx
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+10000 YOOOOOOOOOO 000000xx
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 YOOOOOOOOOO 00000xxx
+50000 YOOOOOOOOOO 00000xxx
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+70000 YOOOOOOOOOO 000x0xxx
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+10000 TBBBB 000000xx
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+50000 TBBBB 00000xxx
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+70000 TBBBB 000x0xxx
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00010111 pos_set: 100 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+30000 TBBBB 0000x000
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00001000 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+30000 TBBBB 00000000
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000000 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+30000 TBBBB 00000x00
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000100 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 2 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+IN EXTINGUISHER pos: 000 active: 0
+IN EXTINGUISHER pos: 000 active: 1
+DELTA 0001 set: 001 clear: 000
+20000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+30000 TBBBB 00000xxx
+DELTA 1000 set: 010 clear: 001
+60000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+100000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+140000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+180000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+220000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+260000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+300000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+340000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+380000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+420000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+460000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+500000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+540000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+580000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+620000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 000
+660000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 001
+700000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 010
+740000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 011
+780000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 100
+820000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 101
+860000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 110
+900000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+940000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1
+DELTA 1000 set: 010 clear: 111
+980000 YOOOOOOOOOO 00000000
+IN CANDLES candle: 00000111 pos_set: 010 active: 1

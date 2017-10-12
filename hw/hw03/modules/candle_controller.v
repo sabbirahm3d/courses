@@ -42,6 +42,7 @@ module candle_controller(
         end else if (set_enable) begin
             candle_state[pos_to_set] <= 1'b1;
         end
+        $monitor("IN CANDLES candle: %b pos_set: %b active: %b", candle_state, pos_to_set, set_enable);
 
     end
 
@@ -52,6 +53,7 @@ module candle_controller(
         end else if (clear_enable) begin
             candle_state[pos_to_clear] <= 1'b0;
         end
+        $monitor("IN CANDLES candle: %b pos_clear: %b active: %b", candle_state, pos_to_clear, clear_enable);
 
     end
 
