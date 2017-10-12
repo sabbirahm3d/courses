@@ -3,7 +3,7 @@ MAIN:="main"
 .PHONY: run
 run:
 	# run the executable with a command line argument
-	@./${OUTPUT} ${PATH}
+	@./${MAIN}.o ${PATH}
 
 
 .PHONY: compile

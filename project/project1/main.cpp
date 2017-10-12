@@ -8,8 +8,11 @@ path to a valid data file containing lists of complex numbers, and multiplies
 them to compute the final product. The computation of the same input is done
 twice using two different methods to clarify a crossover range between them.
 
-The file utilizes GMP, and its C++ wrapper, GMPXX. To build, a Makefile has
-been provided:
+The file utilizes GMP, and its C++ wrapper, GMPXX. The wrapper handles
+initialization of the mpz_t variables, and supports operator overloading
+required for the addition and multiplication operators.
+
+To build, a Makefile has been provided:
 
     make compile
 
@@ -72,7 +75,6 @@ std::vector<mpz_class> line_to_mpz(const std::string &line) {
 }
 
 
-
 /*
 Parses the input file from its path provided via the command line and stores
 them in a vector after conversion to MPZ integers
@@ -92,10 +94,14 @@ std::vector<std::vector<mpz_class>> parse_file(const char *file_name) {
     std::string line;
     std::vector<std::vector<mpz_class>> complex_nums;
 
-    // read until EOF
-    while (std::getline(input_file, line)) {
-        // convert each line to MPZ_int pairs and push to the vector
-        complex_nums.push_back(line_to_mpz(line));
+    if (input_file.is_open()) {  // if file exists and is valid
+
+        // read until EOF
+        while (std::getline(input_file, line)) {
+            // convert each line to MPZ_int pairs and push to the vector
+            complex_nums.push_back(line_to_mpz(line));
+        }
+
     }
 
     return complex_nums;
@@ -176,10 +182,10 @@ Outputs:
         final complex product
 */
 std::vector<mpz_class> cmul3_list(
-        std::vector<std::vector<mpz_class>> complex_array, 
+        std::vector<std::vector<mpz_class>> complex_array,
         const size_t first,
         const size_t last
-        ) {
+) {
 
     if (first == last) {
         return complex_array[first];
@@ -236,33 +242,51 @@ int main(int argc, char *argv[]) {
 
         std::vector<std::vector<mpz_class>> complex_nums;
         clock_t t0, t;  // used for timing functions
+        size_t complex_num_size;
 
-        // final complex product - used for verifying accuracy of the outputs
-        // commented out to prevent clutter in console for analyzing execution
-        // times
+        /* final complex product - used for verifying accuracy of the outputs
+         commented out to prevent clutter in console for analyzing execution
+         times.
+         The product can be assigned as the output to any of the complex
+         list multipliying functions, i.e.
+
+            prod = cmul4_list(complex_nums, 0, complex_nums.size() - 1);
+        */
         // std::vector<mpz_class> prod;
 
         complex_nums = parse_file(argv[1]);
+        complex_num_size = complex_nums.size();
 
-        t0 = clock();
-        cmul4_list(complex_nums, 0, complex_nums.size() - 1);
-        t = clock() - t0;  // compute the time it took
+        // if vector was filled with complex integers, i.e. the file was valid
+        if (complex_num_size) {
 
-        fprintf(stdout, "*** CMUL4 List ***\n");
-        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+            // four-multiply
+            t0 = clock();
+            cmul4_list(complex_nums, 0, complex_num_size - 1);
+            t = clock() - t0;  // compute the time it took
+            fprintf(stdout, "*** CMUL4 List ***\n");
+            fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
 
-        t0 = clock();
-        cmul3_list(complex_nums, 0, complex_nums.size() - 1);
-        t = clock() - t0;  // compute the time it took
+            // three-multiply
+            t0 = clock();
+            cmul3_list(complex_nums, 0, complex_num_size - 1);
+            t = clock() - t0;  // compute the time it took
+            fprintf(stdout, "*** CMUL3 List ***\n");
+            fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
 
-        fprintf(stdout, "*** CMUL3 List ***\n");
-        fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+            return EXIT_SUCCESS;
 
-        return EXIT_SUCCESS;
+        } else {  // if file was invalid or empty
 
-    } else {
+            std::cout << "Please provide a valid file name" << std::endl;
+            return EXIT_FAILURE;
 
-        std::cout << "Please provide a valid file name" << std::endl;
+        }
+
+    } else {  // if no command line input was provided
+
+        std::cout << "Please provide a file name as the command line input" <<
+                  std::endl;
         return EXIT_FAILURE;
 
     }
