@@ -9,7 +9,7 @@ run:
 .PHONY: compile
 compile:
 	# build the main script
-	@g++ -o ${MAIN}.o ${MAIN}.cpp ${MAIN}.h -lgmpxx -lgmp -std=c++0x -Wall
+	@g++ -o ${MAIN}.o ${MAIN}.cpp ${MAIN}.h gmpxx.h -lgmp -std=c++0x -Wall
 
 
 .PHONY: clean

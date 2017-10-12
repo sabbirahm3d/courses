@@ -27,7 +27,7 @@ executable:
 
 
 /*
-Converts string lines from the file to MPZ_int pairs
+Converts string lines from the file to GMP integer pairs
 
 Inputs:
     - line (const std::string):
@@ -85,7 +85,7 @@ Inputs:
 
 Outputs:
     - complex_nums (std::vector<std::vector<mpz_class>>):
-        vector of MPZ_int pairs representing the real and imaginary parts
+        vector of GMP integer pairs representing the real and imaginary parts
         of complex numbers
 */
 std::vector<std::vector<mpz_class>> parse_file(const char *file_name) {
@@ -98,7 +98,7 @@ std::vector<std::vector<mpz_class>> parse_file(const char *file_name) {
 
         // read until EOF
         while (std::getline(input_file, line)) {
-            // convert each line to MPZ_int pairs and push to the vector
+            // convert each line to GMP integer pairs and push to the vector
             complex_nums.push_back(line_to_mpz(line));
         }
 
@@ -116,11 +116,11 @@ Uses the four-multiplication method to multiply two complex numbers
 
 Inputs:
     - z1, z2 (const std::vector<mpz_class>):
-        two MPZ_int pairs representing complex numbers
+        two GMP integer pairs representing complex numbers
 
 Outputs:
     - pair (std::vector<mpz_class>):
-        MPZ_int pair representing the complex product
+        GMP integer pair representing the complex product
 
 */
 // 
@@ -144,11 +144,11 @@ Uses the three-multiplication method to multiply two complex numbers
 
 Inputs:
     - z1, z2 (const std::vector<mpz_class>):
-        two MPZ_int pairs representing complex numbers
+        two GMP integer pairs representing complex numbers
 
 Outputs:
     - pair (std::vector<mpz_class>):
-        MPZ_int pair representing the complex product
+        GMP integer pair representing the complex product
 
 */
 std::vector<mpz_class> cmul3(const std::vector<mpz_class> z1,
@@ -174,7 +174,7 @@ the complex array using the three-multiplication method
 
 Inputs:
     - complex_array (std::vector<mpz_class>):
-        vector of MPZ_int pairs
+        vector of GMP integer pairs
     - first, last (const size_t): first and last indices of the subarray
 
 Outputs:
@@ -207,7 +207,7 @@ the complex array using the fours-multiplication method
 
 Inputs:
     - complex_array (std::vector<mpz_class>):
-        vector of MPZ_int pairs
+        vector of GMP integer pairs
     - first, last (const size_t): first and last indices of the subarray
 
 Outputs:

@@ -16,12 +16,12 @@ declarations used in the main driver file.
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
-#include <gmpxx.h>  // C++11 wrapper for GMP, includes class declarations
 #include <string>
 #include <fstream>
 #include <iostream>
 #include <vector>
 
+#include "gmpxx.h"  // C++11 wrapper for GMP, includes class declarations
 
 // ---------------------------- Helper functions ----------------------------
 
