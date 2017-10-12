@@ -60,7 +60,7 @@ module extinguisher(
             end
 
         end
-        $monitor("IN EXTINGUISHER pos: %b active: %b", position, active);
+        // $monitor("IN EXTINGUISHER %0t pos: %b active: %b clear: %b", $time, position, active, clr_n);
 
     end
 

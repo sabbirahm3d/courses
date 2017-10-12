@@ -49,23 +49,59 @@ module top_tb;
 
         CLK_50MHZ = 0;
         RESET = 1;
-        {SW3, SW2, SW1, SW0} = 4'b0001;
+        {SW3, SW2, SW1, SW0} = 4'b0101;
         BTN_NORTH = 1;
         #10
         RESET = 0;
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b0100;
+        $monitor("%0t CANDLES: %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20
+        // RESET = 1;
+
+        #20
+        RESET = 0;
+
+        #20;
+        {SW3, SW2, SW1, SW0} = 4'b0101;
+        $monitor("%0t CANDLES: %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        #80
+        RESET = 1;
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0010;
         // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
         // #20;
-        // {SW3, SW2, SW1, SW0} = 4'b0000;
+        // {SW3, SW2, SW1, SW0} = 4'b1000;
         // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
         // #20;
         // {SW3, SW2, SW1, SW0} = 4'b0010;
         // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
-        #20;
-        {SW3, SW2, SW1, SW0} = 4'b1000;
-        $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0011;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0011;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0011;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b0011;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
+
+        // #20;
+        // {SW3, SW2, SW1, SW0} = 4'b1111;
+        // $monitor("%0t TBBBB %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
 
     end
 

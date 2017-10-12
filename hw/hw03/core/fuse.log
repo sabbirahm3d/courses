@@ -10,11 +10,9 @@ Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top_tb.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:329 - "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" Line 58: Target <active> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" Line 69: Target <LED7> of concurrent assignment or output port connection should be a net type.
 Completed static elaboration
 Fuse Memory Usage: 94664 KB
-Fuse CPU Usage: 1140 ms
+Fuse CPU Usage: 1250 ms
 Compiling module igniter
 Compiling module extinguisher
 Compiling module candle_controller
@@ -25,6 +23,6 @@ Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
 Compiled 6 Verilog Units
 Built simulation executable /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe
-Fuse Memory Usage: 654896 KB
-Fuse CPU Usage: 1160 ms
-GCC CPU Usage: 140 ms
+Fuse Memory Usage: 654900 KB
+Fuse CPU Usage: 1260 ms
+GCC CPU Usage: 150 ms
