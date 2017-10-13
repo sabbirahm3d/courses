@@ -23,7 +23,7 @@ module debounce_and_oneshot(
         input wire rst
     );
 
-    parameter MINWIDTH = 5000000; //how many cycles must the btn be pressed
+    parameter MINWIDTH = 50; //how many cycles must the btn be pressed
     parameter COUNTERWIDTH = 32;
 
     reg [COUNTERWIDTH - 1:0] counter;
@@ -48,7 +48,7 @@ module debounce_and_oneshot(
                 counter <= counter + 1;
                 debounced_out <= 1'b0;
                 shot <= 1'b0;
-            end else begin //we have reached MINWIDTH
+            end else begin // we have reached MINWIDTH
                 counter <= counter;
                 if (shot == 0) begin
                     shot <= 1'b1;
