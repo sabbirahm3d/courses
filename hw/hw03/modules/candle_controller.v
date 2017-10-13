@@ -35,7 +35,7 @@ module candle_controller(
 
     end
 
-    always @(posedge sys_clk, negedge clr_async, set_enable, pos_to_set, clear_enable, pos_to_clear) begin
+    always @(posedge sys_clk, posedge clr_async) begin
 
         if (clr_async) begin
 

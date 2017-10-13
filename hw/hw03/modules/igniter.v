@@ -29,11 +29,11 @@ module igniter(
 
     initial begin
 
-        position <= 3'b0;
+        position = 3'b0;
 
     end
 
-    always @(posedge sys_clk, enable_jump, posedge clr_n) begin
+    always @(posedge sys_clk, negedge clr_n) begin
 
         if (~clr_n) begin
 
