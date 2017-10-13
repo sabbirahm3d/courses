@@ -8,7 +8,7 @@ run:
 
 .PHONY: compile
 compile:
-	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall
+	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall -std=c99
 
 
 .PHONY: clean

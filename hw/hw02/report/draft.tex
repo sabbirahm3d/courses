@@ -63,7 +63,9 @@
 
     This project utilizes the AVR Butterfly through the terminal to allow a user to enter songs, along with a title and author, and play them back. \\
 
-    \noindent This document serves as the first draft of the project report. The submission for the first week only requires the functions in \codeword{music.c} to be implemented along with an example for a proof of accuracy. The current version of the project implements functional menu printing and option selecting features. The functions called from the menu include printing out the list of songs, and creating and playing hard-coded songs. Portions of the code have been commented out to exclude declarations from \codeword{<avr/io>} and other AVR-GCC libraries. The current version of the code is configured to build and run on GCC for debugging, until the final version is ready.
+    \noindent This document serves as the first draft of the project report. The submission for the first week only requires the functions in \codeword{music.c} to be implemented along with an example for a proof of accuracy. The current version of the project implements functional menu printing and option selecting features. The functions called from the menu include printing out the list of songs, and creating and playing hard-coded songs. To play a song, the current version requires the user change the string in the source code rather than the command line. \\
+
+    \noindent Portions of the code have been commented out to exclude declarations from \codeword{<avr/io.h>} and other AVR-GCC libraries. The current version of the code is configured to build and run on GCC for debugging, until the final version is ready. All the I/O functionalities currently uses \codeword{stdin} and flushes output to \codeword{stdout} and \codeword{stderr}.
 
     \section{Library Functions}
 
