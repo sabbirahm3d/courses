@@ -7,7 +7,8 @@
 //// some initial song with notes
 const char *menu_main = "\n--------- Main Menu ---------\n1. List Songs\n2. "
         "Play Song\n3. Create Song\n0. Exit\nPlease enter a choice: \0";
-const char *menu_play = "Play Menu\nSearch By Title\nNumber\n";
+const char *menu_play = "--------- Play Menu ---------\n1. Search By "
+        "Title\n2. Number\n";
 char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3",
         "Title4"};
 char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
@@ -35,8 +36,8 @@ void create_song() {
 
 
 //    char song_ascii[USER_LINE_MAX];
-    char song_title[20];
-    char* packed_song;
+    char song_title[USER_LINE_MAX / 2];
+    char *packed_song;
 
 
     printf("Enter song title: ");
@@ -49,7 +50,7 @@ void create_song() {
 //    getc(stdin);
 //    fgets(song_ascii, USER_LINE_MAX, stdin);
 //    printf("Song notes: %s", song_ascii);
-    char* song_ascii = "B22A2R1C2R0C2R1";
+    char *song_ascii = "B22A2R11C2r14e22e2e2r1r11R0C2R1";
 
     packed_song = add_zero_rest(song_ascii);
 
@@ -58,12 +59,7 @@ void create_song() {
 
     store_songs(song_packed, song_ascii);
 
-    printf("Array: ");
-    for (size_t i = 0; song_packed[i] != ZERO_REST; i++) {
-        printf("%d ", song_packed[i]);
-    }
-
-    printf("\nSong: ");
+    printf("Song: ");
     play_song(song_packed);
 
 }
