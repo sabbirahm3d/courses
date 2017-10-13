@@ -24,17 +24,23 @@ module top(
         input wire SW3, input wire SW2,
         input wire SW1, input wire SW0,
         input wire BTN_NORTH, input wire RESET,
-        output reg LED7, output reg LED6,
-        output reg LED5, output reg LED4,
-        output reg LED3, output reg LED2,
-        output reg LED1, output reg LED0
+        output wire LED7, output wire LED6,
+        output wire LED5, output wire LED4,
+        output wire LED3, output wire LED2,
+        output wire LED1, output wire LED0
     );
 
-    reg active;
+    wire active, enable;
     wire [2:0] pos_to_set, pos_to_clear;
-    // wire [7:0] candle_state;
 
-    igniter igniter_dut(
+    debounce_and_oneshot debounce_and_oneshot_instance(
+        .debounced_out(enable),
+        .btn(BTN_NORTH),
+        .clk(CLK_50MHZ),
+        .rst(RESET)
+    );
+
+    igniter igniter_instance(
         .delta({SW3, SW2, SW1, SW0}),
         .enable_jump(BTN_NORTH),
         .sys_clk(CLK_50MHZ),
@@ -42,16 +48,7 @@ module top(
         .position(pos_to_set)
     );
 
-    initial begin
-
-        // pos_to_set <= 3'bx;
-        // pos_to_clear <= 3'bx;
-        active <= 0;
-        {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0} <= 8'b0;
-
-    end
-
-    extinguisher extinguisher_dut(
+    extinguisher extinguisher_instance(
         .enable(BTN_NORTH),
         .clk(CLK_50MHZ),
         .clr_n(RESET),
@@ -59,7 +56,7 @@ module top(
         .position(pos_to_clear)
     );
 
-    candle_controller candle_controller_dut(
+    candle_controller candle_controller_instance(
         .pos_to_set(pos_to_set),
         .set_enable(BTN_NORTH),
         .pos_to_clear(pos_to_clear),
@@ -68,15 +65,5 @@ module top(
         .clr_async(RESET),
         .candle_state({LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0})
     );
-
-    always @(posedge CLK_50MHZ) begin
-
-        $display("DELTA %b set: %b clear: %b", {SW3, SW2, SW1, SW0}, pos_to_set, pos_to_clear);
-        // $display("ACTIVE %b", active);
-        // $display("CANDLES %b", candle_state);
-        $display("%0t YOOOOOOOOOO %b", $time, {LED7, LED6, LED5, LED4, LED3, LED2, LED1, LED0});
-
-    end
-
 
 endmodule

@@ -32,7 +32,6 @@ module extinguisher(
     initial begin
 
         position <= 3'b0;
-        active <= 0;
         cnt_int <= 0;
 
     end

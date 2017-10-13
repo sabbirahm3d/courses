@@ -1,20 +1,20 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe" -prj "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_beh.prj" "work.top_tb" "work.glbl" 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe -prj /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_beh.prj work.top_tb work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/igniter.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/extinguisher.v" into library work
+Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/debounce_and_oneshot.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/candle_controller.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" into library work
 Analyzing Verilog file "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top_tb.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:329 - "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" Line 58: Target <active> of concurrent assignment or output port connection should be a net type.
-WARNING:HDLCompiler:329 - "/home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/../modules/top.v" Line 69: Target <LED7> of concurrent assignment or output port connection should be a net type.
 Completed static elaboration
 Fuse Memory Usage: 94664 KB
-Fuse CPU Usage: 1140 ms
+Fuse CPU Usage: 1260 ms
+Compiling module debounce_and_oneshot
 Compiling module igniter
 Compiling module extinguisher
 Compiling module candle_controller
@@ -23,8 +23,8 @@ Compiling module top_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 6 Verilog Units
+Compiled 7 Verilog Units
 Built simulation executable /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw03/core/top_tb_isim_beh.exe
-Fuse Memory Usage: 654896 KB
-Fuse CPU Usage: 1160 ms
-GCC CPU Usage: 140 ms
+Fuse Memory Usage: 654908 KB
+Fuse CPU Usage: 1280 ms
+GCC CPU Usage: 430 ms

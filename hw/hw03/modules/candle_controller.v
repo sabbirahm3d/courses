@@ -35,25 +35,45 @@ module candle_controller(
 
     end
 
-    always @(posedge sys_clk, clr_async, set_enable, pos_to_set) begin
+    always @(posedge sys_clk, negedge clr_async, set_enable, pos_to_set, clear_enable, pos_to_clear) begin
 
         if (clr_async) begin
+
             candle_state <= 8'b0;
+
         end else if (set_enable) begin
-            candle_state[pos_to_set] <= 1'b1;
+
+            case (pos_to_set)
+
+                0: candle_state[0] <= 1'b1;
+                1: candle_state[1] <= 1'b1;
+                2: candle_state[2] <= 1'b1;
+                3: candle_state[3] <= 1'b1;
+                4: candle_state[4] <= 1'b1;
+                5: candle_state[5] <= 1'b1;
+                6: candle_state[6] <= 1'b1;
+                7: candle_state[7] <= 1'b1;
+
+            endcase // pos_to_set
+
+        end else if (~set_enable && clear_enable) begin
+
+            case (pos_to_clear)
+
+                0: candle_state[0] <= 1'b0;
+                1: candle_state[1] <= 1'b0;
+                2: candle_state[2] <= 1'b0;
+                3: candle_state[3] <= 1'b0;
+                4: candle_state[4] <= 1'b0;
+                5: candle_state[5] <= 1'b0;
+                6: candle_state[6] <= 1'b0;
+                7: candle_state[7] <= 1'b0;
+
+            endcase // pos_to_set
+
         end
-        $monitor("IN CANDLES candle: %b pos_set: %b active: %b", candle_state, pos_to_set, set_enable);
 
-    end
-
-    always @(posedge sys_clk, clr_async, clear_enable, pos_to_clear) begin
-
-        if (clr_async) begin
-            candle_state <= 8'b0;
-        end else if (clear_enable) begin
-            candle_state[pos_to_clear] <= 1'b0;
-        end
-        $monitor("IN CANDLES candle: %b pos_clear: %b active: %b", candle_state, pos_to_clear, clear_enable);
+        $monitor("SET: %b CLEAR: %b CANDLE STATE: %b", pos_to_set, pos_to_clear, candle_state);
 
     end
 
