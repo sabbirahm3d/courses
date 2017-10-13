@@ -54,7 +54,7 @@ module candle_controller(
                 6: candle_state[6] <= 1'b1;
                 7: candle_state[7] <= 1'b1;
 
-            endcase // pos_to_set
+            endcase  // pos_to_set
 
         end else if (~set_enable && clear_enable) begin
 
@@ -69,11 +69,11 @@ module candle_controller(
                 6: candle_state[6] <= 1'b0;
                 7: candle_state[7] <= 1'b0;
 
-            endcase // pos_to_set
+            endcase  // pos_to_clear
 
         end
 
-        $monitor("SET: %b CLEAR: %b CANDLE STATE: %b", pos_to_set, pos_to_clear, candle_state);
+        // $monitor("SET: %b CLEAR: %b CANDLE STATE: %b", pos_to_set, pos_to_clear, candle_state);
 
     end
 

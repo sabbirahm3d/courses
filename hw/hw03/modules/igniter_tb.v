@@ -37,7 +37,7 @@ module igniter_tb;
 
         #20;
         clk <= ~clk;
-        #20
+        #10
         enable_jump <= ~enable_jump;
 
     end

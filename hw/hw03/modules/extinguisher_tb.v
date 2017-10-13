@@ -39,6 +39,8 @@ module extinguisher_tb;
 
         #20;
         clk <= ~clk;
+        #10
+        enable = ~enable;
 
     end
 
@@ -48,16 +50,13 @@ module extinguisher_tb;
         enable = 1;
         clr_n = 1;
         #10;
-        clr_n = 0;
-
-        enable = 0;
-        #30
-        $monitor("%0t %b %d", $time, position, active);
 
         #30
         $monitor("%0t %b %d", $time, position, active);
 
-        enable = 0;
+        #30
+        $monitor("%0t %b %d", $time, position, active);
+
         #30
         $monitor("%0t %b %d", $time, position, active);
 
@@ -65,7 +64,6 @@ module extinguisher_tb;
         #10;
         clr_n = 0;
 
-        enable = 1;
         #80
         $monitor("%0t %b %d", $time, position, active);
 
@@ -74,7 +72,6 @@ module extinguisher_tb;
         clr_n = 0;
         $monitor("%0t %b %d", $time, position, active);
 
-        enable = 1;
         #20
         $monitor("%0t %b %d", $time, position, active);
 
@@ -82,15 +79,12 @@ module extinguisher_tb;
         #10;
         clr_n = 0;
 
-        enable = 1;
         #80
         $monitor("%0t %b %d", $time, position, active);
 
-        enable = 0;
         #20
         $monitor("%0t %b %d", $time, position, active);
 
-        enable = 1;
         #20
         $monitor("%0t %b %d", $time, position, active);
 

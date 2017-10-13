@@ -23,7 +23,7 @@ module debounce_and_oneshot(
         input wire rst
     );
 
-    parameter MINWIDTH = 50; //how many cycles must the btn be pressed
+    parameter MINWIDTH = 5000000; //how many cycles must the btn be pressed
     parameter COUNTERWIDTH = 32;
 
     reg [COUNTERWIDTH - 1:0] counter;

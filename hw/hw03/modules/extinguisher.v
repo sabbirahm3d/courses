@@ -42,9 +42,9 @@ module extinguisher(
 
     end
 
-    always @(cnt_int or enable or clr_n) begin
+    always @(posedge clk, negedge clr_n) begin
 
-        if (clr_n) begin
+        if (~clr_n) begin
 
             active <= 0;
             position <= 3'b0;

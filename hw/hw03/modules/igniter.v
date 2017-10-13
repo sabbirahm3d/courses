@@ -27,12 +27,6 @@ module igniter(
         output reg [2:0] position
     );
 
-    initial begin
-
-        position = 3'b0;
-
-    end
-
     always @(posedge sys_clk, negedge clr_n) begin
 
         if (~clr_n) begin
@@ -41,9 +35,11 @@ module igniter(
 
         end else if (enable_jump) begin
 
-            position <= (position + delta) % 8;
+            position <= position + delta;
 
         end
+
+        $display("CLEAR %b ENABLE %b", clr_n, enable_jump);
 
     end
 
