@@ -5,14 +5,14 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
-// #include <avr/io.h>
-// #include <util/delay.h>
+#include <avr/io.h>
+#include <util/delay.h>
 #include <inttypes.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "U0_UART.h"  // to direct standard I/O to AVR UART
+#include "U0_UART.h"  // to direct standard I/O to AVR UART
 
 #define PORTB5_SPEAKER_MASK 0b00100000
 #define USER_LINE_MAX 128

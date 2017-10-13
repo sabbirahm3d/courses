@@ -171,7 +171,8 @@ void store_songs(uint8_t *song, const char *song_str) {
 
             song[j] = pack_note(
                     song_str[i],
-                    (uint8_t) (song_str[i + 1] - '0') * 10 + (song_str[i + 2] - '0')
+                    (uint8_t) (song_str[i + 1] - '0') * 10 + (song_str[i + 2]
+                            - '0')
             );
             i++;
 
@@ -184,7 +185,8 @@ void store_songs(uint8_t *song, const char *song_str) {
 
             } else {
 
-                song[j] = pack_note(song_str[i], (uint8_t) (song_str[i + 1] - '0'));
+                song[j] = pack_note(song_str[i], (uint8_t) (song_str[i + 1] -
+                        '0'));
 
             }
         }

@@ -5,9 +5,11 @@
 #include "music.h"
 
 //// some initial song with notes
-const char *menu_main = "--------- Main Menu ---------\n1. List Songs\n2. Play Song\n3. Create Song\nPlease enter a choice: \0";
+const char *menu_main = "--------- Main Menu ---------\n1. List Songs\n2. Play "
+        "Song\n3. Create Song\nPlease enter a choice: \0";
 const char *menu_play = "Play Menu\nSearch By Title\nNumber\n";
-char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3", "Title4"};
+char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3",
+        "Title4"};
 char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {(NOTE_B << 5) + 2, (NOTE_A << 5) + 2, (NOTE_G << 5) + 2},
         {NOTE_R << 5},
@@ -46,6 +48,9 @@ int main() {
 
     uint8_t choice;
     uint8_t flag = 1;
+    stderr = stdout = stdin = &uart_stream;
+    UARTInit();
+
 
     while (flag) {
 
@@ -80,7 +85,7 @@ int main() {
             }
 
             default: {
-                printf("nope %d\n", choice);
+                printf("%d is an invalid choice.\n", choice);
                 flag = 0;
                 break;
             }
@@ -102,10 +107,9 @@ int main() {
 //
 //        printf("\nSong: ");
 //        play_song(song_packed);
-//        flag = 0;
     }
 
-//    return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 
 }
 
