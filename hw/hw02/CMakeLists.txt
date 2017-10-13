@@ -8,7 +8,7 @@ set(SOURCE_FILES
         code/music.c
         code/music.h
         code/Makefile
-        code/U0_UART.c code/U0_UART.h
+#        code/U0_UART.c code/U0_UART.h
         )
 
 add_executable(hw02 ${SOURCE_FILES})

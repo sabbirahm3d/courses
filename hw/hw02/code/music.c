@@ -152,8 +152,7 @@ int is_zero_rest(const char letter_ascii, const char duration) {
 
 char *add_zero_rest(const char *a) {
 
-    size_t len = strlen(a) + 2;
-    char *ret = (char *) malloc(len * sizeof(char) + 1);
+    char *ret = (char *) malloc((strlen(a) + 2) * sizeof(char) + 1);
     *ret = '\0';
 
     return strcat(strcat(ret, a), "R0");
@@ -194,5 +193,7 @@ void store_songs(uint8_t *song, const char *song_str) {
         j++;
 
     }
+
+
 
 }
