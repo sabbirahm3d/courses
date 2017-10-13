@@ -48,36 +48,36 @@ module extinguisher_tb;
 
         clk = 0;
         enable = 1;
-        clr_n = 1;
-        #10;
-
-        #30
-        $monitor("%0t %b %d", $time, position, active);
-
-        #30
-        $monitor("%0t %b %d", $time, position, active);
-
-        #30
-        $monitor("%0t %b %d", $time, position, active);
-
-        clr_n = 1;
-        #10;
         clr_n = 0;
+        #10;
+
+        #30
+        $monitor("%0t %b %d", $time, position, active);
+
+        #30
+        $monitor("%0t %b %d", $time, position, active);
+
+        #30
+        $monitor("%0t %b %d", $time, position, active);
+
+        clr_n = 0;
+        #10;
+        clr_n = 1;
 
         #80
         $monitor("%0t %b %d", $time, position, active);
 
-        clr_n = 1;
-        #30
         clr_n = 0;
+        #30
+        clr_n = 1;
         $monitor("%0t %b %d", $time, position, active);
 
         #20
         $monitor("%0t %b %d", $time, position, active);
 
-        clr_n = 1;
-        #10;
         clr_n = 0;
+        #10;
+        clr_n = 1;
 
         #80
         $monitor("%0t %b %d", $time, position, active);

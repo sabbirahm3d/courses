@@ -46,10 +46,9 @@ module igniter_tb;
 
         delta = 4'b0;
         clk = 0;
-        enable_jump = 0;
-        clr_n = 1;
+        enable_jump = 1;
+        clr_n = 1;  // active low
         #10
-        clr_n = 0;
 
         #40
         delta = 4'b0010;
@@ -64,9 +63,9 @@ module igniter_tb;
         delta = 4'b1101;
 
         enable_jump = 0;
-        clr_n = 1;
-        #10
         clr_n = 0;
+        #10
+        clr_n = 1;
 
         #40
         delta = 4'b0101;
@@ -76,6 +75,6 @@ module igniter_tb;
 
     end
 
-    initial #1000 $finish;
+    initial #2000 $finish;
 
 endmodule

@@ -51,7 +51,7 @@ module extinguisher(
 
         end else begin
 
-            if (cnt_int <= 3'b111) begin
+            if (cnt_int <= 4'b0111) begin
                 active <= 1;
                 position <= cnt_int;
             end else begin
@@ -59,7 +59,6 @@ module extinguisher(
             end
 
         end
-        // $monitor("IN EXTINGUISHER %0t pos: %b active: %b clear: %b", $time, position, active, clr_n);
 
     end
 

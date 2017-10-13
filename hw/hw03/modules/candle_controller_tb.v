@@ -91,6 +91,6 @@ module candle_controller_tb;
 
     end
 
-    initial #400 $finish;
+    initial #1500 $finish;
 
 endmodule

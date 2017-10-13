@@ -39,8 +39,6 @@ module igniter(
 
         end
 
-        $display("CLEAR %b ENABLE %b", clr_n, enable_jump);
-
     end
 
 endmodule
