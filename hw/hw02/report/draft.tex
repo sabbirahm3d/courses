@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Note:
+% If you are using Apple OS X, go into structure.tex and uncomment the font
+% specifications for OS X and comment out the default specifications - this will
+% drastically increase how good the document looks. You will now need to
+% compile with XeLaTeX.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[usletter, 12pt]{article}
+\input{structure.tex} % Input the structure.tex file which specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+%   DYNAMIC CONTRACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+% Member's information
+\newcommand{\project}{Homework 2: Song Composer}
+\newcommand{\Sabbir}{Sabbir Ahmed}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+    %----------------------------------------------------------------------------------------
+    %   TITLE PAGE
+    %----------------------------------------------------------------------------------------
+
+    \begin{titlepage}
+
+        \vspace*{\fill} % Add whitespace above to center the title page content
+        \begin{center}
+
+            {\LARGE \project~Report Draft}\\ [1.5cm]
+
+            Submitted: \today
+            
+            \vspace*{\fill}
+
+            \Sabbir
+
+        \end{center}
+        \vspace*{\fill} % Add whitespace below to center the title page content
+
+    \end{titlepage}
+
+    \section{Description}
+
+    This project utilizes the AVR Butterfly through the terminal to allow a user to enter songs, along with a title and author, and play them back. \\
+    This document serves as the first draft of the project report. The submission for the first week only requires the functions in \codeword{music.c} to be implemented along with an example for a proof of accuracy.
+
+    \section{Library Functions}
+
+    The \codeword{music.c} file contains the functions required for converting the user inputs to notes.
+
+        \subsection{User Inputs to Notes}
+
+        Notes comprise of an ASCII character, (A-G, and R) and a duration of the note (0-31). They are converted from user inputted strings to \codeword{uint8_t} by left-shifting the integer value mapped to the ASCII character by 5 bits and adding the duration. \\
+        Unpacking the notes is possible by right-shifting by 5 bits to retrieve the ASCII character or by bitwise and-ing with 0x1F (0001 1111) to retrieve the duration.
+
+    \section{Code}
+
+        The C scripts used for the implementation has been attached alongside the report.
+
+        \subsection{music.h}
+        Header file that contains all the constants and the declarations for the functions in the program.
+
+        \subsection{music.c}
+        Implements the functionality for handling packing and playing songs.
+
+\end{document}
