@@ -28,6 +28,10 @@ void play_menu();
 
 void create_menu();
 
+int match_score(const char *, const char *);
+
+int best_match(char *user);
+
 void strip_eol();
 
 
@@ -65,6 +69,35 @@ void list_menu() {
     for (int i = 0; i < 4; i++) {
         printf("%d: Title: %s\n", i, song_title_list[i]);
     }
+
+
+}
+
+
+int match_score(const char count_query_string[], const char database[]) {
+
+    char *token_user = strtok(count_query_string, " ");
+    char *token_stored = strtok(database, " ");
+    int matches = 0;
+
+    while (token_stored != NULL) {
+        printf("%s\n", token_stored);
+        while (token_user != NULL) {
+            if (!strcasecmp(token_user, token_stored)) {
+                matches++;
+            }
+            token_user = strtok(NULL, " ");
+        }
+        token_stored = strtok(NULL, " ");
+    }
+
+    return matches;
+
+
+}
+
+
+int best_match(char user[]) {
 
 
 }
