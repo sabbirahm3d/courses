@@ -29,6 +29,7 @@ module igniter(
 
     always @(posedge sys_clk, negedge clr_n) begin
 
+        // if active low asynchronous reset
         if (~clr_n) begin
 
             position <= 3'b0;

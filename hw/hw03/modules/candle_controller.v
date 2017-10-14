@@ -30,19 +30,20 @@ module candle_controller(
     );
 
     initial begin
-
+        // initialize all the LEDs by setting them all to 0
         candle_state <= 8'b0;
-
     end
 
     always @(posedge sys_clk, posedge clr_async) begin
 
         if (clr_async) begin
-
+            // asynchronous reset
             candle_state <= 8'b0;
 
+        // if set is high and reset is don't care
         end else if (set_enable) begin
 
+            // set the position indicated to 1
             case (pos_to_set)
 
                 0: candle_state[0] <= 1'b1;
@@ -57,8 +58,10 @@ module candle_controller(
 
             endcase  // pos_to_set
 
+        // if set is low and clear is high
         end else if (~set_enable && clear_enable) begin
 
+            // set the position indicated to 0
             case (pos_to_clear)
 
                 0: candle_state[0] <= 1'b0;

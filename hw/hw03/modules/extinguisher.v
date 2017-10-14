@@ -27,7 +27,7 @@ module extinguisher(
         output reg [2:0] position
     );
 
-    integer cnt_int;
+    integer cnt_int;  // internal counter
 
     initial begin
 
@@ -37,20 +37,21 @@ module extinguisher(
     end
 
     always @(posedge clk) begin
-
-        cnt_int <= (cnt_int + 1) % 16;
-
+        cnt_int <= (cnt_int + 1) % 16;  // increment the counter at every cycle
     end
 
     always @(posedge clk, negedge clr_n) begin
 
+        // if active low asynchronous reset
         if (~clr_n) begin
 
             active <= 0;
             position <= 3'b0;
 
-        end else begin
+        // if enable
+        end else if (enable) begin
 
+            // if the counter is less than or equal to 0b111
             if (cnt_int <= 4'b0111) begin
                 active <= 1;
                 position <= cnt_int;

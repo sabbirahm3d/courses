@@ -33,6 +33,7 @@ module top(
     wire active, enable;
     wire [2:0] pos_to_set, pos_to_clear;
 
+    // instantiate the debounce submodule
     debounce_and_oneshot debounce_and_oneshot_instance(
         .debounced_out(enable),
         .btn(BTN_NORTH),
@@ -40,6 +41,7 @@ module top(
         .rst(RESET)
     );
 
+    // instantiate the igniter submodule
     igniter igniter_instance(
         .delta({SW3, SW2, SW1, SW0}),
         .enable_jump(BTN_NORTH),
@@ -48,6 +50,7 @@ module top(
         .position(pos_to_set)
     );
 
+    // instantiate the extinguisher submodule
     extinguisher extinguisher_instance(
         .enable(BTN_NORTH),
         .clk(CLK_50MHZ),
@@ -56,6 +59,7 @@ module top(
         .position(pos_to_clear)
     );
 
+    // instantiate the candle_controller submodule
     candle_controller candle_controller_instance(
         .pos_to_set(pos_to_set),
         .set_enable(BTN_NORTH),

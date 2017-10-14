@@ -38,13 +38,14 @@ module candle_controller_tb;
 
     always begin
 
-        #20
+        #20  // 50 MHz
         clk <= ~clk;
 
     end
 
     initial begin
 
+        // start off with set_enable on and clear_enable off
         clk = 0;
         set_enable = 1;
         clear_enable = 0;

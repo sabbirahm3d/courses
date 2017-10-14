@@ -37,9 +37,9 @@ module extinguisher_tb;
 
     always begin
 
-        #20;
+        #20  // 50 MHz
         clk <= ~clk;
-        #10
+        #10  // shuffle the enable as well
         enable = ~enable;
 
     end
