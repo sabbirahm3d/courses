@@ -5,13 +5,15 @@
 #include "music.h"
 
 //// some initial song with notes
-const char *menu_main = "\n--------- Main Menu ---------\n1. List Songs\n2. "
-        "Play Song\n3. Create Song\n0. Exit\nPlease enter a choice: \0";
-const char *menu_play = "--------- Play Menu ---------\n1. Search By "
-        "Title\n2. Number\n";
-char song_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {"Title1", "Title2", "Title3",
-        "Title4"};
-char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
+const char *menu_main_str = "\n--------- Main Menu ---------\n1. List songs\n2."
+        " Play song\n3. Create song\n0. Exit\nPlease enter a choice: ";
+const char *menu_play_str = "--------- Play Menu ---------\n1. Search by "
+        "title\n2. Play by number\nPlease enter a choice: ";
+
+char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
+        {"Title1"}, {"Title2"}, {"Title3"},
+        {"Title4"}};
+char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {(NOTE_B << 5) + 2, (NOTE_A << 5) + 2, (NOTE_G << 5) + 2},
         {NOTE_R << 5},
         {NOTE_R << 5},
@@ -19,85 +21,124 @@ char song[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
 };
 
 uint8_t display_menu(const char *);
+
+void list_menu();
+
 void play_menu();
+
+void create_menu();
+
+void strip_eol();
+
+
+// -------------------------
+void strip_eol() {
+
+    char ch;
+
+    ch = getchar();
+    while (ch != '\n') {
+        ch = getchar();
+    }
+
+}
+
 
 uint8_t display_menu(const char *menu) {
 
 
     int choice;
+
     printf("%s", menu);
-    scanf("%d*[^\\n]", &choice);
+    if (fgets(user_line, 3, stdin) != NULL) {
+        sscanf(user_line, "%d", &choice);
+    }
 
     return (uint8_t) choice;
 
 }
 
 
-void play_menu() {
+void list_menu() {
 
-    char *song_ascii = "B22A2R11C2r14e22e2e2r1r11R0C2R1";
-
-    char* packed_song = add_zero_rest(song_ascii);
-
-    uint8_t song_packed[strlen(packed_song) / 2];
-    memset(song_packed, 0, sizeof(song_packed));
-
-    store_songs(song_packed, song_ascii);
-
-    printf("Song: ");
-    play_song(song_packed);
-    printf("\n(The song produced above is currently hardcoded in. User \n"
-        "inputted songs are currently not supported. To try a different\n"
-        "song, change the string in the source code)");
+    printf("---------------------------\nSongs in the database\n");
+    for (int i = 0; i < 4; i++) {
+        printf("%d: Title: %s\n", i, song_title_list[i]);
+    }
 
 
 }
 
-void create_song() {
+void play_menu() {
 
-    printf("Creating songs is currently not supported\n");
-/*
-    // char song_ascii[USER_LINE_MAX];
-    // char song_title;
-    // char *packed_song;
-    // int song_ix;
+    int play_choice, song_ix;
+
+    printf("%s", menu_play_str);
+    if (fgets(user_line, 3, stdin) != NULL) {
+        sscanf(user_line, "%d", &play_choice);
+    }
+
+    switch (play_choice) {
+        case 1: {
+            printf("Searching not implemented yet");
+            break;
+        }
+
+        case 2: {
+            printf("Enter index of the song: ");
+            if (fgets(user_line, 3, stdin) != NULL) {
+                sscanf(user_line, "%d", &song_ix);
+                play_song(song_list[song_ix]);
+            }
+            break;
+        }
+
+        default: {
+            break;
+        }
+    }
+
+}
+
+void create_menu() {
+
+    char song_ascii[USER_LINE_MAX];
+    char song_title[50];
+    char *full_song;
+    int new_song_ix;
 
 
-//     printf("Enter song title: ");
-//     if (fgets(user_line, 10, stdin) != NULL) {
-//        getc(stdin);
-//         sscanf(user_line, "%s", &song_title);
-//         printf("Song name: %s\n", song_title);
-//     }
-//    fflush(stdout);
-//    printf("Enter song notes using ABCDEFGR followed by quarter seconds: ");
-//    getc(stdin);
-//    fgets(song_ascii, USER_LINE_MAX, stdin);
-//    printf("Song notes: %s", song_ascii);
+    printf("Enter song title: ");
+    if (fgets(user_line, 50, stdin) != NULL) {
+        sscanf(user_line, "%[^\n]", song_title);
+        printf("Song name: %s\n", song_title);
+    }
 
-    // change the song ASCII here:
-    // char *song_ascii = "B22A2R11C2r14e22e2e2r1r11R0C2R1";
+    printf("Enter song notes using ABCDEFGR followed by quarter seconds: ");
+    if (fgets(user_line, USER_LINE_MAX, stdin) != NULL) {
+        sscanf(user_line, "%s", song_ascii);
+        printf("Song notes: %s\n", song_ascii);
+    }
 
-    // packed_song = add_zero_rest(song_ascii);
+    full_song = add_zero_rest(song_ascii);
+    uint8_t packed_song[strlen(full_song) / 2];
+    memset(packed_song, 0, sizeof(packed_song));
 
-    // uint8_t song_packed[strlen(packed_song) / 2];
-    // memset(song_packed, 0, sizeof(song_packed));
+    store_songs(packed_song, full_song);
 
-    // store_songs(song_packed, song_ascii);
+    printf("Packing song: ");
+    play_song(packed_song);
+    printf("\n");
 
-    // printf("Song: ");
-    // play_song(song_packed);
-    // printf("\n(The song produced above is currently hardcoded in. User "
-    //     "inputted songs are currently not supported. To try a different"
-    //     "song, change the string in the source code)");
+    printf("Enter index to save the new song: ");
+    if (fgets(user_line, 3, stdin) != NULL) {
+        sscanf(user_line, "%d", &new_song_ix);
+        printf("Index: %d", new_song_ix);
+    }
 
-    // printf("Enter index to save the new song in: ");
-    // if (fgets(user_line, 10, stdin) != NULL) {
-    //     sscanf(user_line, "%d", &song_ix);
-    //     printf("Index: %d", song_ix);
-    // }
+    memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
+    memcpy(song_list[new_song_ix], packed_song, MAX_SONG_LENGTH);
 
-*/
 }
 
 
@@ -112,18 +153,13 @@ int main() {
 
     while (flag) {
 
-        choice = display_menu(menu_main);
-        fflush(stdout);
+        choice = display_menu(menu_main_str);
 
         switch (choice) {
 
             case 1: {
 
-                printf("Songs in the Database\n");
-                for (int i = 0; i < 4; i++) {
-                    printf("%s\n", song_list[i]);
-                }
-                printf("\n");
+                list_menu();
                 break;
 
             }
@@ -137,7 +173,7 @@ int main() {
 
             case 3: {
 
-                create_song();
+                create_menu();
                 break;
 
             }

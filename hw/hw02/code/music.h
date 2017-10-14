@@ -16,7 +16,6 @@
 
 #define PORTB5_SPEAKER_MASK 0b00100000
 #define USER_LINE_MAX 128
-char user_line[USER_LINE_MAX];
 #define NUMBER_OF_SONGS 4
 #define MAX_SONG_LENGTH 64
 #define NOTE_A 0
@@ -28,6 +27,8 @@ char user_line[USER_LINE_MAX];
 #define NOTE_G 6
 #define NOTE_R 7
 #define ZERO_REST 224  // R0
+
+char user_line[USER_LINE_MAX];
 
 char *add_zero_rest(const char *);
 
