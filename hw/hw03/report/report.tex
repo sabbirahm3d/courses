@@ -20,23 +20,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
-\input{../common/structure.tex} % specifies the document layout and style
+\input{structure.tex} % specifies the document layout and style
 
 \begin{document}
 
-    \documentinfo{\textbf{Question:} 02}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \documentinfo{\textbf{Homework 3: Light the Candles}}{\textbf{Date:} \today}{Sabbir Ahmed}
     \vspace{-0.1in}
 
     \section{Background}
-    Using synthesizable procedural code, create a module that with every clock cycle outputs a 1-bit value that represents the input 5 clock cycles prior. The module should also support an asyncronous reset that allows the initial outputs to be zero until the first input propogates to the output.
+    For this assignment, a game was created to be played on the development board. The goal of the game is for the player to light all the candles, represented by the 8 LEDs on the board just above the switches, while they are being pseudo-randomly turned off.
+    
+    The game starts off with the player pressing the RESET button (a.k.a. BTN\_SOUTH) just below the rotatory knob.
+
+    The player is placed initially at a position 0.
+
+    The player may light the candles by jumping on them. This is done using the BTN\_NORTH button on the board just above the rotary knob. A player may jump at the current position by setting the switches to zero and pressing BTN\_NORTH. Any desired horizontal movement in the jump to another position is provide by the four switches which indicate a value from 7 to -8, in binary two's compliment.
+
+    Once a candle is lit, the player may jump again jump on the same location (using 0) or to another location using the delta provide by the switches.
+
+    However, the candles that were lit will continually go out at random and must be relit. To be specific, a candle may at random go out at the same time the player jumps. Secondly, note that there is no direct indicator to where the player is; so it is up to the player to keep track.
 
     \section{Implementation}
-    The output `y' was generated as a simple delayed assignment to the input `x'. The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+    Three discrete modules were used to implement the game: \inlsnip{igniter}, \inlsnip{extinguisher} and \inlsnip{candle_controller}. These submodules were connected and debounced using a top level module that may be visualized with the the block diagram and the schematic diagram in Figures \ref{fig:block} and \ref{fig:schematic}.
 
     \begin{figure}[ht]
         \begin{center}
-            \includegraphics[width=1\textwidth]{wav.png}
-            \caption{Waveform Generated from Part 2 Test Bench} \label{fig:wav}
+            \includegraphics[width=1\textwidth]{block.png}
+            \caption{Schematic of the Implementation of the Game} \label{fig:block}
+        \end{center}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{schematic.png}
+            \caption{Schematic of the Implementation of the Game} \label{fig:schematic}
         \end{center}
     \end{figure}
 

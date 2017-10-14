@@ -7,7 +7,7 @@ all: convert
 convert: convert1 convert2
 convert1 convert2:
 	# convert LaTex file to PDF
-	@pdflatex report.tex
+	@pdflatex -shell-escape report.tex
 
 
 .PHONY: clean
