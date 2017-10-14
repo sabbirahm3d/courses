@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+//#include <time.h>
 //#include "U0_UART.h"  // to direct standard I/O to AVR UART
 
 #define PORTB5_SPEAKER_MASK 0b00100000
@@ -30,7 +31,7 @@
 
 char user_line[USER_LINE_MAX];
 
-char *add_zero_rest(const char *);
+char *add_zero_rest(const char[]);
 
 int is_zero_rest(const char, const char);
 
@@ -40,10 +41,10 @@ uint8_t unpack_note_letter_ascii(uint8_t);
 
 uint8_t unpack_note_duration(uint8_t);
 
-void store_songs(uint8_t *, const char *);
+void store_songs(uint8_t [], const char []);
 
 void play_note(uint8_t, uint8_t);
 
-void play_song(uint8_t *);
+void play_song(uint8_t []);
 
 #endif //MAIN_H

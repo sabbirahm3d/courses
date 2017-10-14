@@ -1,4 +1,5 @@
 #include "music.h"
+#include "notes.h"
 
 uint8_t unpack_note_letter_ascii(uint8_t packed_note) {
 
@@ -65,7 +66,7 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
         }
 
         default: {
-            printf("%c Nope\n", letter_ascii);
+            printf("%c is not a valid note\n", letter_ascii);
             break;
         }
     }
@@ -76,60 +77,30 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
 void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
-    switch (letter_ascii) {
+    unsigned int num_iter, half_periods, freq;
 
-        case NOTE_A: {
-            printf("A");
-            break;
-        }
+    freq = get_frequency(letter_ascii, quarters);
+    half_periods = FREQ_TO_MS / freq;
+    num_iter = freq / 4 * quarters;
 
-        case NOTE_B: {
-            printf("B");
-            break;
-        }
+    for (int i = 0; i < num_iter; ++i) {
 
-        case NOTE_C: {
-            printf("C");
-            break;
-        }
-
-        case NOTE_D: {
-            printf("D");
-            break;
-        }
-
-        case NOTE_E: {
-            printf("E");
-            break;
-        }
-
-        case NOTE_F: {
-            printf("F");
-            break;
-        }
-
-        case NOTE_G: {
-            printf("G");
-            break;
-        }
-
-        case NOTE_R: {
-            printf("R");
-            break;
-        }
-
-        default: {
-            printf("Error");
-            break;
-        }
+        printf("SETTING PORTB5 HIGH FOR %d MS\n", half_periods);
+        // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0x00);
+        // nanosleep(half_periods * 1000000);
+        printf("SETTING PORTB5 LOW FOR %d MS\n", half_periods);
+        // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0xFF);
+        // nanosleep(half_periods * 1000000);
 
     }
 
     printf("%d*", quarters);
+    printf("\n%d\n", half_periods);
+    printf("iter: %d\n", num_iter);
 
 }
 
-void play_song(uint8_t *song) {
+void play_song(uint8_t song[]) {
 
     uint8_t str, dur;
 
@@ -150,7 +121,7 @@ int is_zero_rest(const char letter_ascii, const char duration) {
 
 }
 
-char *add_zero_rest(const char *a) {
+char *add_zero_rest(const char a[]) {
 
     char *ret = (char *) malloc((strlen(a) + 2) * sizeof(char) + 1);
     *ret = '\0';
@@ -159,7 +130,7 @@ char *add_zero_rest(const char *a) {
 
 }
 
-void store_songs(uint8_t *song, const char *song_str) {
+void store_songs(uint8_t song[], const char song_str[]) {
 
     const size_t len = strlen(song_str);
     uint8_t j = 0;

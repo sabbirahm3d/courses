@@ -4,23 +4,19 @@
 
 #include "music.h"
 
-//// some initial song with notes
-const char *menu_main_str = "\n--------- Main Menu ---------\n1. List songs\n2."
-        " Play song\n3. Create song\n0. Exit\nPlease enter a choice: ";
-const char *menu_play_str = "--------- Play Menu ---------\n1. Search by "
+const char menu_main_str[] = "\n--------- Main Menu ---------\n1. List "
+        "songs\n2. Play song\n3. Create song\n0. Exit\nPlease enter a choice: ";
+const char menu_play_str[] = "--------- Play Menu ---------\n1. Search by "
         "title\n2. Play by number\nPlease enter a choice: ";
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
-        {"Title1"}, {"Title2"}, {"Title3"},
-        {"Title4"}};
+        {"Title1"}, {"Title2"}, {"Title3"}, {"Title4"}
+};
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
-        {(NOTE_B << 5) + 2, (NOTE_A << 5) + 2, (NOTE_G << 5) + 2},
-        {NOTE_R << 5},
-        {NOTE_R << 5},
-        {NOTE_R << 5}
+        {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
 };
 
-uint8_t display_menu(const char *);
+uint8_t display_menu(const char[]);
 
 void list_menu();
 
@@ -48,7 +44,7 @@ void strip_eol() {
 }
 
 
-uint8_t display_menu(const char *menu) {
+uint8_t display_menu(const char menu[]) {
 
 
     int choice;
@@ -66,7 +62,7 @@ uint8_t display_menu(const char *menu) {
 void list_menu() {
 
     printf("---------------------------\nSongs in the database\n");
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < NUMBER_OF_SONGS; i++) {
         printf("%d: Title: %s\n", i, song_title_list[i]);
     }
 
@@ -81,13 +77,19 @@ int match_score(const char count_query_string[], const char database[]) {
     int matches = 0;
 
     while (token_stored != NULL) {
-        printf("%s\n", token_stored);
+        printf("token: %s\n", token_stored);
+
         while (token_user != NULL) {
+            printf("token_user: %s\n", token_user);
+
             if (!strcasecmp(token_user, token_stored)) {
                 matches++;
             }
+
             token_user = strtok(NULL, " ");
+
         }
+
         token_stored = strtok(NULL, " ");
     }
 
@@ -157,11 +159,9 @@ void create_menu() {
     uint8_t packed_song[strlen(full_song) / 2];
     memset(packed_song, 0, sizeof(packed_song));
 
+    printf("Packing song... ");
     store_songs(packed_song, full_song);
-
-    printf("Packing song: ");
-    play_song(packed_song);
-    printf("\n");
+    printf("done\n");
 
     printf("Enter index to save the new song: ");
     if (fgets(user_line, 3, stdin) != NULL) {
@@ -183,7 +183,10 @@ int main() {
 //    stderr = stdout = stdin = &uart_stream;
 //    UARTInit();
 
-
+//    char str[] ="one two three";
+//    char str1[] ="four five six";
+//    int y = match_score(str, str1);
+//    printf("%d", y);
     while (flag) {
 
         choice = display_menu(menu_main_str);
@@ -212,8 +215,8 @@ int main() {
             }
 
             case 0: {
-                flag = 0;
                 printf("Quitting program...\n");
+                flag = 0;
                 break;
             }
 
