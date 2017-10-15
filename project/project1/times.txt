@@ -1,801 +1,801 @@
-sample_input/cmplx_numbers_20_100bit.txt
+cmplx_numbers_34_8bit.txt
 *** CMUL4 List ***
-time: 0.000297
+time: 0.000775
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000708
 *** CMUL4 List ***
-time: 0.000444
+time: 0.000990
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000789
 *** CMUL4 List ***
-time: 0.000280
+time: 0.000774
 *** CMUL3 List ***
-time: 0.000264
+time: 0.000795
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000821
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000882
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000787
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000785
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000292
+time: 0.000933
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000991
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000771
 *** CMUL3 List ***
-time: 0.000304
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000775
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000762
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000754
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000738
 *** CMUL4 List ***
-time: 0.000357
+time: 0.000771
 *** CMUL3 List ***
-time: 0.000402
+time: 0.000717
 *** CMUL4 List ***
-time: 0.000401
+time: 0.000703
 *** CMUL3 List ***
-time: 0.000284
+time: 0.000713
 *** CMUL4 List ***
-time: 0.000316
+time: 0.000751
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000997
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000851
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000757
 *** CMUL3 List ***
-time: 0.000298
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000773
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000746
 *** CMUL4 List ***
-time: 0.000488
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000447
+time: 0.000708
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000811
 *** CMUL3 List ***
-time: 0.000305
+time: 0.000751
 *** CMUL4 List ***
-time: 0.000317
+time: 0.000848
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000814
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000771
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000730
 *** CMUL4 List ***
-time: 0.000328
+time: 0.000774
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000760
 *** CMUL4 List ***
-time: 0.000444
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000409
+time: 0.000763
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000730
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000685
 *** CMUL4 List ***
-time: 0.000361
+time: 0.000752
 *** CMUL3 List ***
-time: 0.000284
+time: 0.000740
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000823
 *** CMUL3 List ***
-time: 0.000310
+time: 0.000780
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000767
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000747
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000687
 *** CMUL4 List ***
-time: 0.000285
+time: 0.000762
 *** CMUL3 List ***
-time: 0.000273
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000803
 *** CMUL3 List ***
-time: 0.000288
+time: 0.000789
 *** CMUL4 List ***
-time: 0.000295
+time: 0.000778
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000291
+time: 0.000868
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000849
 *** CMUL4 List ***
-time: 0.000325
+time: 0.000760
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000728
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000814
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000796
 *** CMUL4 List ***
-time: 0.000313
+time: 0.001346
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000852
 *** CMUL4 List ***
-time: 0.000331
+time: 0.000775
 *** CMUL3 List ***
-time: 0.000297
+time: 0.000749
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000748
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000807
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000800
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000823
 *** CMUL3 List ***
-time: 0.000301
+time: 0.000827
 *** CMUL4 List ***
-time: 0.000311
+time: 0.000747
 *** CMUL3 List ***
-time: 0.000297
+time: 0.000727
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000297
+time: 0.000710
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000819
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000774
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000838
 *** CMUL3 List ***
-time: 0.000328
+time: 0.000824
 *** CMUL4 List ***
-time: 0.000286
+time: 0.000775
 *** CMUL3 List ***
-time: 0.000272
+time: 0.000776
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000989
 *** CMUL3 List ***
-time: 0.000300
+time: 0.000982
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000791
 *** CMUL3 List ***
-time: 0.000314
+time: 0.000759
 *** CMUL4 List ***
-time: 0.000280
+time: 0.000729
 *** CMUL3 List ***
-time: 0.000275
+time: 0.000712
 *** CMUL4 List ***
-time: 0.000325
+time: 0.000768
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000920
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000782
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000748
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000737
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000814
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000782
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000888
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000838
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000805
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000919
 *** CMUL4 List ***
-time: 0.000323
+time: 0.000954
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000738
 *** CMUL4 List ***
-time: 0.000315
+time: 0.001841
 *** CMUL3 List ***
-time: 0.000293
+time: 0.001340
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000948
 *** CMUL3 List ***
-time: 0.000299
+time: 0.001276
 *** CMUL4 List ***
-time: 0.000389
+time: 0.000715
 *** CMUL3 List ***
-time: 0.000346
+time: 0.000689
 *** CMUL4 List ***
-time: 0.000304
+time: 0.001146
 *** CMUL3 List ***
-time: 0.000293
+time: 0.001074
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000816
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000777
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000749
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000336
+time: 0.000786
 *** CMUL3 List ***
-time: 0.000296
+time: 0.000748
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000750
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000774
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000717
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000685
 *** CMUL4 List ***
-time: 0.000322
+time: 0.000750
 *** CMUL3 List ***
-time: 0.000307
+time: 0.000736
 *** CMUL4 List ***
-time: 0.000317
+time: 0.000784
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000309
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000750
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000774
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000750
 *** CMUL4 List ***
-time: 0.000315
+time: 0.000970
 *** CMUL3 List ***
-time: 0.000285
+time: 0.001520
 *** CMUL4 List ***
-time: 0.000321
+time: 0.001100
 *** CMUL3 List ***
-time: 0.000310
+time: 0.001221
 *** CMUL4 List ***
-time: 0.000445
+time: 0.000773
 *** CMUL3 List ***
-time: 0.000365
+time: 0.000744
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000773
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000772
 *** CMUL3 List ***
-time: 0.000296
+time: 0.000764
 *** CMUL4 List ***
-time: 0.000324
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000295
+time: 0.000752
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000846
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000830
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000781
 *** CMUL3 List ***
-time: 0.000295
+time: 0.000749
 *** CMUL4 List ***
-time: 0.000434
+time: 0.000844
 *** CMUL3 List ***
-time: 0.000404
+time: 0.000788
 *** CMUL4 List ***
-time: 0.000323
+time: 0.000777
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000765
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000774
 *** CMUL3 List ***
-time: 0.000316
+time: 0.000791
 *** CMUL4 List ***
-time: 0.000291
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000742
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000702
 *** CMUL3 List ***
-time: 0.000297
+time: 0.000695
 *** CMUL4 List ***
-time: 0.000502
+time: 0.001087
 *** CMUL3 List ***
-time: 0.000481
+time: 0.000840
 *** CMUL4 List ***
-time: 0.000286
+time: 0.000827
 *** CMUL3 List ***
-time: 0.000265
+time: 0.000769
 *** CMUL4 List ***
-time: 0.000354
+time: 0.000776
 *** CMUL3 List ***
-time: 0.000329
+time: 0.000776
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000913
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000965
 *** CMUL4 List ***
-time: 0.000310
+time: 0.000782
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000798
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000754
 *** CMUL4 List ***
-time: 0.000296
+time: 0.001088
 *** CMUL3 List ***
-time: 0.000284
+time: 0.001035
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000772
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000759
 *** CMUL4 List ***
-time: 0.000296
+time: 0.000763
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000724
 *** CMUL4 List ***
-time: 0.000362
+time: 0.000752
 *** CMUL3 List ***
-time: 0.000354
+time: 0.000710
 *** CMUL4 List ***
-time: 0.000405
+time: 0.000817
 *** CMUL3 List ***
-time: 0.000342
+time: 0.000780
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000786
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000296
+time: 0.000783
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000758
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000734
 *** CMUL3 List ***
-time: 0.000313
+time: 0.000750
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000801
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000317
+time: 0.000788
 *** CMUL3 List ***
-time: 0.000363
+time: 0.000769
 *** CMUL4 List ***
-time: 0.000323
+time: 0.000786
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000843
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000818
 *** CMUL3 List ***
-time: 0.000309
+time: 0.000797
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000760
 *** CMUL3 List ***
-time: 0.000304
+time: 0.000794
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000721
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000738
 *** CMUL4 List ***
-time: 0.000326
+time: 0.000838
 *** CMUL3 List ***
-time: 0.000314
+time: 0.000769
 *** CMUL4 List ***
-time: 0.000300
+time: 0.001211
 *** CMUL3 List ***
-time: 0.000298
+time: 0.001099
 *** CMUL4 List ***
-time: 0.000317
+time: 0.000831
 *** CMUL3 List ***
-time: 0.000323
+time: 0.000764
 *** CMUL4 List ***
-time: 0.000338
+time: 0.000759
 *** CMUL3 List ***
-time: 0.000304
+time: 0.000718
 *** CMUL4 List ***
-time: 0.000341
+time: 0.000885
 *** CMUL3 List ***
-time: 0.000315
+time: 0.000983
 *** CMUL4 List ***
-time: 0.000309
+time: 0.000767
 *** CMUL3 List ***
-time: 0.000281
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000779
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000306
+time: 0.001208
 *** CMUL3 List ***
-time: 0.000300
+time: 0.001194
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000728
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000722
 *** CMUL4 List ***
-time: 0.000299
+time: 0.001204
 *** CMUL3 List ***
-time: 0.000282
+time: 0.001093
 *** CMUL4 List ***
-time: 0.000294
+time: 0.000755
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000708
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000888
 *** CMUL3 List ***
-time: 0.000307
+time: 0.000832
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000875
 *** CMUL3 List ***
-time: 0.000298
+time: 0.000850
 *** CMUL4 List ***
-time: 0.000388
+time: 0.000810
 *** CMUL3 List ***
-time: 0.000390
+time: 0.000802
 *** CMUL4 List ***
-time: 0.000312
+time: 0.000803
 *** CMUL3 List ***
-time: 0.000296
+time: 0.000787
 *** CMUL4 List ***
-time: 0.000293
+time: 0.000701
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000702
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000800
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000748
 *** CMUL4 List ***
-time: 0.000409
+time: 0.000861
 *** CMUL3 List ***
-time: 0.000378
+time: 0.000787
 *** CMUL4 List ***
-time: 0.000311
+time: 0.000716
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000688
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000768
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000294
+time: 0.001296
 *** CMUL3 List ***
-time: 0.000282
+time: 0.001216
 *** CMUL4 List ***
-time: 0.000421
+time: 0.000776
 *** CMUL3 List ***
-time: 0.000444
+time: 0.000778
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000858
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000819
 *** CMUL4 List ***
-time: 0.000340
+time: 0.000749
 *** CMUL3 List ***
-time: 0.000307
+time: 0.000737
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000769
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000731
 *** CMUL4 List ***
-time: 0.000400
+time: 0.000763
 *** CMUL3 List ***
-time: 0.000433
+time: 0.000711
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000805
 *** CMUL3 List ***
-time: 0.000313
+time: 0.000726
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000804
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000787
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000743
 *** CMUL4 List ***
-time: 0.000464
+time: 0.000781
 *** CMUL3 List ***
-time: 0.000579
+time: 0.000747
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000798
 *** CMUL3 List ***
-time: 0.000305
+time: 0.000714
 *** CMUL4 List ***
-time: 0.000340
+time: 0.000784
 *** CMUL3 List ***
-time: 0.000328
+time: 0.000728
 *** CMUL4 List ***
-time: 0.000314
+time: 0.000772
 *** CMUL3 List ***
-time: 0.000306
+time: 0.000752
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000323
+time: 0.000749
 *** CMUL4 List ***
-time: 0.000280
+time: 0.001297
 *** CMUL3 List ***
-time: 0.000264
+time: 0.001267
 *** CMUL4 List ***
-time: 0.000335
+time: 0.000778
 *** CMUL3 List ***
-time: 0.000324
+time: 0.000708
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000828
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000806
 *** CMUL4 List ***
-time: 0.000341
+time: 0.000883
 *** CMUL3 List ***
-time: 0.000317
+time: 0.000843
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000793
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000759
 *** CMUL4 List ***
-time: 0.000310
+time: 0.000793
 *** CMUL3 List ***
-time: 0.000314
+time: 0.000760
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000784
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000778
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000805
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000747
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000752
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000741
 *** CMUL4 List ***
-time: 0.000316
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000315
+time: 0.000744
 *** CMUL4 List ***
-time: 0.000315
+time: 0.000713
 *** CMUL3 List ***
-time: 0.000315
+time: 0.000712
 *** CMUL4 List ***
-time: 0.000286
+time: 0.000701
 *** CMUL3 List ***
-time: 0.000273
+time: 0.000687
 *** CMUL4 List ***
-time: 0.000296
+time: 0.000778
 *** CMUL3 List ***
-time: 0.000295
+time: 0.000758
 *** CMUL4 List ***
-time: 0.000319
+time: 0.000754
 *** CMUL3 List ***
-time: 0.000307
+time: 0.000734
 *** CMUL4 List ***
-time: 0.000318
+time: 0.000797
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000321
+time: 0.000749
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000726
 *** CMUL4 List ***
-time: 0.000310
+time: 0.000750
 *** CMUL3 List ***
-time: 0.000299
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000298
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000753
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000737
 *** CMUL4 List ***
-time: 0.000315
+time: 0.000840
 *** CMUL3 List ***
-time: 0.000298
+time: 0.000817
 *** CMUL4 List ***
-time: 0.000408
+time: 0.000798
 *** CMUL3 List ***
-time: 0.000404
+time: 0.000735
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000796
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000776
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000751
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000756
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000795
 *** CMUL3 List ***
-time: 0.000302
+time: 0.000755
 *** CMUL4 List ***
-time: 0.000371
+time: 0.000912
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000864
 *** CMUL4 List ***
-time: 0.000345
+time: 0.000773
 *** CMUL3 List ***
-time: 0.000338
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000398
+time: 0.000755
 *** CMUL3 List ***
-time: 0.000431
+time: 0.000752
 *** CMUL4 List ***
-time: 0.000309
+time: 0.000761
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000729
 *** CMUL4 List ***
-time: 0.000305
+time: 0.001355
 *** CMUL3 List ***
-time: 0.000299
+time: 0.000976
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000879
 *** CMUL3 List ***
-time: 0.000273
+time: 0.000906
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000822
 *** CMUL3 List ***
-time: 0.000287
+time: 0.000794
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000725
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000851
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000910
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000853
 *** CMUL4 List ***
-time: 0.000296
+time: 0.001176
 *** CMUL3 List ***
-time: 0.000282
+time: 0.001289
 *** CMUL4 List ***
-time: 0.000327
+time: 0.000807
 *** CMUL3 List ***
-time: 0.000314
+time: 0.000782
 *** CMUL4 List ***
-time: 0.000336
+time: 0.000789
 *** CMUL3 List ***
-time: 0.000305
+time: 0.000757
 *** CMUL4 List ***
-time: 0.000302
+time: 0.000766
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000747
 *** CMUL4 List ***
-time: 0.000329
+time: 0.000802
 *** CMUL3 List ***
-time: 0.000321
+time: 0.000759
 *** CMUL4 List ***
-time: 0.000420
+time: 0.000745
 *** CMUL3 List ***
-time: 0.000420
+time: 0.000738
 *** CMUL4 List ***
-time: 0.000313
+time: 0.000750
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000696
 *** CMUL4 List ***
-time: 0.000303
+time: 0.000756
 *** CMUL3 List ***
-time: 0.000304
+time: 0.000742
 *** CMUL4 List ***
-time: 0.000306
+time: 0.000801
 *** CMUL3 List ***
-time: 0.000322
+time: 0.000792
 *** CMUL4 List ***
-time: 0.000323
+time: 0.000809
 *** CMUL3 List ***
-time: 0.000291
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000330
+time: 0.000749
 *** CMUL3 List ***
-time: 0.000347
+time: 0.000739
 *** CMUL4 List ***
-time: 0.000316
+time: 0.000938
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000792
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000866
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000857
 *** CMUL4 List ***
-time: 0.000308
+time: 0.000752
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000711
 *** CMUL4 List ***
-time: 0.000343
+time: 0.000764
 *** CMUL3 List ***
-time: 0.000294
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000336
+time: 0.000833
 *** CMUL3 List ***
-time: 0.000304
+time: 0.000818
 *** CMUL4 List ***
-time: 0.000327
+time: 0.000866
 *** CMUL3 List ***
-time: 0.000313
+time: 0.000740
 *** CMUL4 List ***
-time: 0.000320
+time: 0.000826
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000859
 *** CMUL4 List ***
-time: 0.000460
+time: 0.000804
 *** CMUL3 List ***
-time: 0.000357
+time: 0.000774
 *** CMUL4 List ***
-time: 0.000296
+time: 0.000888
 *** CMUL3 List ***
-time: 0.000282
+time: 0.001185
 *** CMUL4 List ***
-time: 0.000371
+time: 0.000834
 *** CMUL3 List ***
-time: 0.000364
+time: 0.000843
 *** CMUL4 List ***
-time: 0.000286
+time: 0.000747
 *** CMUL3 List ***
-time: 0.000272
+time: 0.000731
 *** CMUL4 List ***
-time: 0.000294
+time: 0.000768
 *** CMUL3 List ***
-time: 0.000303
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000304
+time: 0.000702
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000710
 *** CMUL4 List ***
-time: 0.000304
+time: 0.001211
 *** CMUL3 List ***
-time: 0.000299
+time: 0.001141
 *** CMUL4 List ***
-time: 0.000274
+time: 0.000970
 *** CMUL3 List ***
-time: 0.000266
+time: 0.000711
 *** CMUL4 List ***
-time: 0.000298
+time: 0.000780
 *** CMUL3 List ***
-time: 0.000283
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000296
+time: 0.000918
 *** CMUL3 List ***
-time: 0.000284
+time: 0.000875
 *** CMUL4 List ***
-time: 0.000307
+time: 0.000751
 *** CMUL3 List ***
-time: 0.000292
+time: 0.000733
 *** CMUL4 List ***
-time: 0.000278
+time: 0.000809
 *** CMUL3 List ***
-time: 0.000282
+time: 0.000732
 *** CMUL4 List ***
-time: 0.000305
+time: 0.000802
 *** CMUL3 List ***
-time: 0.000293
+time: 0.000758
 *** CMUL4 List ***
-time: 0.000293
+time: 0.001231
 *** CMUL3 List ***
-time: 0.000283
+time: 0.001082

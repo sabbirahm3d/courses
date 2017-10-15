@@ -4,6 +4,7 @@
 # between zsh and bash scripts
 LOOPS:=$(shell cat loop.txt)
 TIMES:="times.txt"
+INPUTS:=$(shell ls sample_input/)
 
 default: run
 
@@ -31,13 +32,21 @@ clean-compile:
 	@make -s clean && make -s compile
 
 
+yo:
+	@for i in ${INPUTS}; do \
+		echo $${i}; \
+	done
+
 .PHONY: timeit
 timeit:
 	# clean compile and run 
-	@truncate -s 0 ${TIMES}
-	@echo ${FILE} > ${TIMES}
-	@for i in ${LOOPS}; do \
-		make clean-compile; \
-		make run PATH=${FILE} >> ${TIMES}; \
+	@for file in ${INPUTS}; do \
+		truncate -s 0 ${TIMES}; \
+		echo $${file} > ${TIMES}; \
+		for i in ${LOOPS}; do \
+			make clean-compile; \
+			make run PATH=sample_input/$${file} >> ${TIMES}; \
+		done; \
+		python3 timeit.py; \
 	done
-	@python3 timeit.py
+

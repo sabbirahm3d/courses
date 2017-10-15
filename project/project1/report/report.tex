@@ -64,22 +64,44 @@
 
     \section{Description}
 
-        A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers.
+        A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
 
-        Recall that a complex number z is given by a real part x and an imaginary part y,
+        \subsection{Background}
+
+        A complex number z is given by a real part x and an imaginary part y,
             \[ z=x+iy, \]
         where \textit{i} is the imaginary unit $\sqrt{-1}$.
 
-    \section{State Machine Implementation}
+        Multiplying two complex numbers are similar to multiplying polynomials. Let $z_{1}=x_{1}+iy_{1}$ and $z_{2}=x_{2}+iy_{2}$ be two complex numbers. Then their product is
+            \[ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y2+y_{1}x_{2}) \]
 
-        The game is implemented as a state machine, where each successful inputs progresses through the states.
+        That is, the real part of $z_{1}z_{2}$ is $x_{1}x_{2}-y_{1}y_{2}$ and the imaginary part is $x_{1}y_{2}+y_{1}x_{2}$. The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "+\textit{i}" doesn't count as an addition as this is really just notation to separate the real and imaginary parts).
 
-        % \begin{figure}[ht]
-        %     \begin{center}
-        %         \includegraphics[width=1\textwidth]{figures/state_diagram.png}
-        %         \caption{State Diagram Implementation of the Game with the Secret Code Mapped to 0b00011011} \label{fig:state_diagram}
-        %     \end{center}
-        % \end{figure}
+        As it turns out, there is a way to reduce the number of real multiplications needed to compute a complex product. It is based on the following observation, which is similar to how Karatsuba's method for multiprecision multiplication was derived:
+            \[ (x_{1}+y_{1})(x_{2}+y_{2})=x_{1}x_{2}+(x_{1}y_{2}+y_{1}x_{2})+y_{1}y_{2} \]
+
+        Let $t$ denote the product $(x_{1}+y_{1})(x_{2}+y_{2})$; then if the real products $r=x_{1}x_{2}$ and $s=y_{1}y_{2}$ are computed, the complex product is just
+            \[ z_{1}z_{2}=(r-s)+i(t-r-s) \]
+
+        Now, this computation only requires three real multiplications, but increases the number of additions to five. Since multiplication is the more expensive operation, it is expected for the reduction in the number of multiplies to pay-off, at least if the numbers are large enough.
+
+        Simply multiplying two complex numbers would not require a divide-and-conquer solution. However, to multiply a list of $n$ complex numbers, there is a natural recursive divide-and-conquer solution, which is to recursively multiply the left and right halves of the list, each of length approximately $\frac{n}{2}$, and then multiply together the results of the two recursive calls. The base case is a list of length one, for which the function simply returns the single value in the list.
+
+        When multiplying a list of numbers, the difference between three or four real multiplications per complex multiplication can make a significant difference in the running time, especially if individual real multiplications are expensive. Multiprecision arithmetic is required to handle the growth of the product as the numbers get multiplied. Since the cost to perform a single real multiplication will increase per iteration, the use of the "three-multiply" complex multiplication is expected to be faster than the "four-multiply" version. However, since the three-multiply version requires more additions, it may not pay-off until the numbers are large or the list of numbers is long.
+
+        The point at which the asymptotically better algorithm becomes faster is called the \textit{crossover point}.
+
+    \section{Implementation}
+
+        The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, was used to handle the multiprecision arithmetic.
+        \iffalse
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{figures/state_diagram.png}
+                \caption{State Diagram Implementation of the Game with the Secret Code Mapped to 0b00011011} \label{fig:state_diagram}
+            \end{center}
+        \end{figure}
+        \fi
 
     \section{Assembly Implementation}
 

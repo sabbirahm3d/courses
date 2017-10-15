@@ -50,3 +50,12 @@
 \captionsetup[table]{skip=10pt}
 
 \lstset{language=C, keywordstyle={\bfseries \color{black}}}
+
+% Using typewriter font: \ttfamily inside \lstset
+\lstset{language=C++,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
