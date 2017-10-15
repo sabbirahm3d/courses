@@ -1,17 +1,21 @@
-MAIN:="main"
+# Makefile to ease usage and testing of the program
+
+# the number of iterations desired are saved to a file for compatibility issues
+# with zsh and bash scripts
 LOOPS:=$(shell cat loop.txt)
 TIMES:="times.txt"
+
 
 .PHONY: run
 run:
 	# run the executable with a command line argument
-	@./${MAIN}.o ${PATH}
+	@./main.o ${PATH}
 
 
 .PHONY: compile
 compile:
 	# build the main script
-	@g++ -o ${MAIN}.o ${MAIN}.cpp ${MAIN}.h gmpxx.h -lgmp -std=c++0x -Wall
+	@g++ -o main.o main.cpp gmpxx.h -lgmp -std=c++0x -Wall
 
 
 .PHONY: time
@@ -20,8 +24,11 @@ time:
 	@truncate -s 0 ${TIMES}
 	@echo ${FILE} > ${TIMES}
 	@for i in ${LOOPS}; do \
+		make compile; \
 		make run PATH=${FILE} >> ${TIMES}; \
+		make clean; \
 	done
+	@python time.py
 
 
 .PHONY: clean

@@ -5,13 +5,13 @@
 
 import itertools
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     cmul4_times = []
     cmul3_times = []
     complex_nums = ""
 
-    with open('times.txt') as times_file:
+    with open("times.txt") as times_file:
         complex_nums = next(times_file)
         for _, cmul4, _, cmul3 in itertools.izip_longest(*[times_file] * 4):
             cmul4_times.append(float(cmul4[6:-1]))
