@@ -63,11 +63,9 @@
     \end{titlepage}
 
     \section{Description}
-
-        A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
+    A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
 
         \subsection{Background}
-
         A complex number z is given by a real part x and an imaginary part y,
             \[ z=x+iy, \]
         where \textit{i} is the imaginary unit $\sqrt{-1}$.
@@ -92,8 +90,31 @@
         The point at which the asymptotically better algorithm becomes faster is called the \textit{crossover point}.
 
     \section{Implementation}
+    The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, was used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identical.
 
-        The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, was used to handle the multiprecision arithmetic.
+\begin{lstlisting}
+std::vector<mpz_class> cmulx_list(
+        std::vector<std::vector<mpz_class>> complex_array,
+        const size_t first,
+        const size_t last
+) {
+
+    // if length of the array is 1
+    if (first == last) {
+        return complex_array[first];
+    }
+
+    size_t mid = (first + last) / 2;
+
+    return cmulx(
+            cmulx_list(complex_array, first, mid),
+            cmulx_list(complex_array, mid + 1, last)
+    );
+
+}
+\end{lstlisting}
+
+        % example of adding figures
         \iffalse
         \begin{figure}[ht]
             \begin{center}
@@ -103,250 +124,34 @@
         \end{figure}
         \fi
 
-    \section{Assembly Implementation}
+    \section{Testing and Timing}
+        \subsection{Testing Platform Specifications}
 
-        The program is written in the AVR Assembler in scripts described in Section \ref{sec:code}. 3 registers are used to store the user inputs and compare with the expected inputs. Another register is used to keep track of the number of shifts required for the other registers to be compared accurately.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-        The following snippets with visual aids will demonstrate the algorithm used in the program. The following walkthrough sets the secret code as 0b00011011, and the user successfully guesses the sequence.
+        % example of adding tables
+        \iffalse
+        \begin{table}[h]
+            \caption{Example of values of registers after STATE1}
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
 
-        \subsection{Initialization}
-            As soon as the game is loaded, the directives and labels are loaded with immediate values and the registers are initialized. The ports are initialized as well - PORTB is used for the UP and DOWN joystick inputs, and the LED and buzzer outputs, PORTD is used for the reset push button, and PORTE for the LEFT and RIGHT joystick inputs.
-
-            \begin{table}[h]
-                \caption{Values of registers at initialization}
-                \centering
-                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & NULL  & NULL \\
-                CURSOR & NULL & NULL \\
-                REALSTATE & NULL & NULL \\
-                NSHIFT & NULL & NULL \\
-                \hline
-                \textbf{UART} & NULL & NULL \\
-                \end{tabular*}
-            \end{table}
-
-        \subsection{State Subroutines}
-            The program then moves to STATE0, where the secret code is loaded to a register CURSOR, the value 3 is loaded to a register NSHIFT and it waits for the first input. The current state and a delimiter are also transmitted. All the state subroutines consist of identical instructions, with the exception of the immediate values being loaded into the registers and the UART sequences.
-
-\begin{lstlisting}
-; STATE0 is the initial state of the game, where the machine waits for the
-; user's first input. The correct input progresses the game to the next state,
-; and an incorrect input results in the buzzer being triggered.
-STATE0:         RCALL TRANSMIT_0            ; transmit '0' for STATE0
-                RCALL TRANSMIT_COMMA        ; transmit ','
-
-                LDI CURSOR, SECRET          ; load and mask the secret code
-                ANDI CURSOR, 0b11000000     ; into the CURSOR register
-                LDI NSHIFT, 3               ; to shift USER BY 3*2 bits
-                RCALL RDINPUT               ; get user's input
-\end{lstlisting}
-
-            \begin{table}[h]
-                \caption{Values of registers before RDINPUT}
-                \centering
-                \begin{tabular*}{350pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & NULL  & NULL \\
-                CURSOR & NULL & 0b00011011 \& 0b11000000 = 0b00000000 \\
-                REALSTATE & NULL & NULL \\
-                NSHIFT & NULL & 0b00000010 \\
-                \hline
-                \textbf{UART} & NULL & 0, \\
-                \end{tabular*}
-            \end{table}
-
-        \subsection{Reading Inputs}
-            RDINPUT waits in a loop for the user's input. Once an input via the joystick is triggered, the program counter moves to the subroutine that has been specified to the input. As per this demonstration, JOYSTICK UP was triggered, leading the program counter to call the JOYSTICKUP subroutine. 
-
-\begin{lstlisting}
-; if joystick up was pressed, the UART transmits 'U,' and the current state
-; register loads the code for UP which is then shifted
-JOYSTICKUP:     RCALL TRANSMIT_U            ; transmit 'U'
-                RCALL TRANSMIT_COMMA        ; transmit ','
-
-                LDI USER, UP                ; load joystick input code to USER
-                RCALL LSHIFT                ; shift left USER by NSHIFT*2 bits
-                RJMP DEBOUNCEUP
-                    RET
-
-; waits for user to stop pressing and then returns
-DEBOUNCEUP:     SBIC PINB, 6
-                    RET
-                RJMP DEBOUNCEUP
-\end{lstlisting}
-
-            Here, the UART is transmitted with the ASCII value for the initial of the input that was pressed, i.e. `U', followed by the comma delimiter. The USER register is then loaded with the immediate value that was hardcoded as the input, in this case, 0b00000000 for UP.
-
-            \begin{table}[h]
-                \caption{Values of registers right after JOYSTICKUP}
-                \centering
-                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & NULL  & 0b00000000 \\
-                CURSOR & 0b00000000 & 0b00000000  \\
-                REALSTATE & NULL & NULL \\
-                NSHIFT & 0b00000010 & 0b00000010 \\
-                \hline
-                \textbf{UART} & 0, & 0,U, \\
-                \end{tabular*}
-            \end{table}
-
-            The LSHIFT subroutine is then triggered, where the program decrements NSHIFT until it is $\ge$ 1. The USER register is left shifted twice per these iterations. All the joystick input subroutines consist of identical instructions, with the exception of the immediate values being loaded to USER.
-
-\begin{lstlisting}
-; left shift the user input to match the position of the states in SECRET
-LSHIFT:         LSL USER
-                LSL USER                    ; left shift twice per iteration
-                DEC NSHIFT                  ; decrement the number of shifts
-                CPI NSHIFT, 1
-                    BRGE LSHIFT             ; if NSHIFT >= 1, keep looping
-                    RET                     ; else, breaks
-\end{lstlisting}
-
-            \begin{table}[h]
-                \caption{Values of registers after DEBOUNCEUP}
-                \centering
-                \begin{tabular*}{350pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & 0b00000000  & 0b00000000 << 3 = 0b00000000 \\
-                CURSOR & 0b00000000 & 0b00000000  \\
-                REALSTATE & NULL & NULL \\
-                NSHIFT & 0b00000010 & 0b00000000 \\
-                \hline
-                \textbf{UART} & 0,U, & 0,U, \\
-                \end{tabular*}
-            \end{table}
-
-        \subsection{Evaluating Inputs}
-            The program counter then returns to the STATE0 subroutine, and proceeds through the rest of the lines without requiring an input.
-
-\begin{lstlisting}
-STATE0:         .
-                .
-                .
-                CLR NSHIFT
-                LDI NSHIFT, 3               ; shift REALSTATE to map the codes
-                MOV REALSTATE, CURSOR       ; of the joystick inputs
-                RCALL RSHIFT
-                RCALL EXPINPUT              ; check which input was expected
-
-                RCALL TRANSMIT_COMMA
-                RCALL CMPINPUT
-
-                RCALL TRANSMIT_S            ; transmit 'S' for success
-                RCALL TRANSMIT_NEWL         ; transmit '\n' to proceed to next
-                                            ; state
-\end{lstlisting}
-
-            \begin{table}[h]
-                \caption{Values of registers right before RSHIFT}
-                \centering
-                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & 0b00000000  & 0b00000000 \\
-                CURSOR & 0b00000000 & 0b00000000  \\
-                REALSTATE & NULL & 0b00000000 \\
-                NSHIFT & 0b00000000 & 0b00000010 \\
-                \hline
-                \textbf{UART} & 0,U, & 0,U, \\
-                \end{tabular*}
-            \end{table}
-
-            The NSHIFT register is reloaded with the immediate value, this time, to indicate the number of right shifts required for the REALSTATE register. The RCALL subroutine provides an identical procedure as LSHIFT, except for the direction of the bit shifting.
-
-            \begin{table}[h]
-                \caption{Values of registers right before EXPINPUT}
-                \centering
-                \begin{tabular*}{350pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & 0b00000000  & 0b00000000 \\
-                CURSOR & 0b00000000 & 0b00000000  \\
-                REALSTATE & 0b00000000 & 0b00000000 >> 3 = 0b00000000 \\
-                NSHIFT & 0b00000010 & 0b00000000 \\
-                \hline
-                \textbf{UART} & 0,U, & 0,U,U,1,S,\textbackslash n \\
-                \end{tabular*}
-            \end{table}
-
-            The EXPINPUT subroutine is then called, which compares the now shifted REALSTATE to the coded joystick immediate values. Once a match is found, the UART gets transmitted with the ASCII character of the initial of the expected input. The program counter returns to STATE0, and transmits another comma delimiter to the UART.
-
-\begin{lstlisting}
-; compares the current state to find the expected output
-EXPINPUT:       CPI REALSTATE, UP           ; if current state is 'UP'
-                    RCALL TRANSMIT_U        ; transmit 'U'
-
-                CPI REALSTATE, DOWN         ; if current state is 'DOWN'
-                    RCALL TRANSMIT_D        ; transmit 'D'
-
-                CPI REALSTATE, LEFT         ; if current state is 'LEFT'
-                    RCALL TRANSMIT_L        ; transmit 'L'
-
-                CPI REALSTATE, RIGHT        ; if current state is 'RIGHT'
-                    RCALL TRANSMIT_R        ; transmit 'R'
-
-                    RET
-\end{lstlisting}
-
-            Finally, the CMPINPUT subroutine is called to compare the USER register with CURSOR. An equal comparison returns the program to the STATE0 subroutine, and proceeds to transmit a successful message to the UART followed by the next state. An unequal comparison branches to BUZZERON and resets the game to STATE0.
-
-\begin{lstlisting}
-; compare user's input to the current state and returns if true, else, branches
-; to BUZZERON to reset the game
-CMPINPUT:       CP CURSOR, USER
-                    RET                     ; if equal, return from subroutine
-                BREQ BUZZERON               ; else, trigger buzzer
-\end{lstlisting}
-
-            The program then proceeds through identical procedure for the remaining states, until the LEDON subroutine is called after the input of a successful sequence.
-
-            \begin{table}[h]
-                \caption{Example of values of registers after STATE1}
-                \centering
-                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
-
-                \textbf{Register} & \textbf{Before} & \textbf{After} \\
-                \hline
-                USER & 0b01000000  & 0b01000000 \\
-                CURSOR & 0b01000000 & 0b01000000  \\
-                REALSTATE & 0b01000000 & 0b01000000 \\
-                NSHIFT & 0b00000001 & 0b00000000 \\
-                \hline
-                \textbf{UART} & 1,D, & 1,D,D,2,S,\textbackslash n \\
-                \end{tabular*}
-            \end{table}
-
-    \section{Code} \label{sec:code}
-
-        The assembly code used for the implementation has been attached and provided at the end of the report.
-
-        \subsection{main.asm}
-        Contains the state machine implementation of the game and instructions to handle all the inputs and outputs.
-
-        \subsection{uart.asm}
-        Contains the specifications for the UART interface.
-
-    \section{Testing and Troubleshooting}
-
-        Because of hardware issues with the AVR Butterfly and its temporary supply issue, the program could not be tested until later in the design timeline. Testing was performed using supplies from peers, with limited availability. Early tests showed failures in the design where the inputs were incorrectly mapped to their ports. After correcting the I/O issues, complex subroutines such as loop shifting were added for elegant solutions and successful tests were performed. The LED was connected to PIN 1 of PORTB and the push button to PIN 7 of PORTD. Additional subroutines were added in the UART instructions later without the available hardware for testing.
-
-    % \newpage
-    % \avrasm{../code/main}{main.asm}
-
-    % \newpage
-    % \avrasm{../code/uart}{uart.asm}
+            \textbf{Register} & \textbf{Before} & \textbf{After} \\
+            \hline
+            USER & 0b01000000  & 0b01000000 \\
+            CURSOR & 0b01000000 & 0b01000000  \\
+            REALSTATE & 0b01000000 & 0b01000000 \\
+            NSHIFT & 0b00000001 & 0b00000000 \\
+            \hline
+            \textbf{UART} & 1,D, & 1,D,D,2,S,\textbackslash n \\
+            \end{tabular*}
+        \end{table}
+        \fi
 
 
 \end{document}

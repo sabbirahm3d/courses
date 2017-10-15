@@ -187,6 +187,7 @@ std::vector<mpz_class> cmul3_list(
         const size_t last
 ) {
 
+    // if length of the array is 1
     if (first == last) {
         return complex_array[first];
     }
@@ -218,6 +219,7 @@ std::vector<mpz_class>
 cmul4_list(std::vector<std::vector<mpz_class>> complex_array,
            const size_t first, const size_t last) {
 
+    // if length of the array is 1
     if (first == last) {
         return complex_array[first];
     }
