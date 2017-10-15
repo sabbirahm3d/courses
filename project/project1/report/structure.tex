@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract
+% Structural Definitions File
+% Version 1.0 (December 8 2014)
+%
+% Created by:
+% Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry} % Required to modify the page layout
+\usepackage{multicol}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage[font=scriptsize, labelfont=bf]{caption}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage[pdftex]{graphicx}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{listings}  % for code verbatim and console outputs
+
+\setlength{\textwidth}{16cm} % Width of the text on the page
+\setlength{\textheight}{23cm} % Height of the text on the page
+\setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
+\setlength{\topmargin}{-1.25cm} % Reduce the top margin
+
+\setlength{\parindent}{0mm} % Don't indent paragraphs
+\setlength{\parskip}{2.5mm} % Whitespace between paragraphs
+
+\renewcommand\familydefault{\sfdefault}  % default font for entire document
+
+\definecolor{green}{rgb}{0.18, 0.55, 0.34}
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{purple}{rgb}{0.63, 0.36, 0.94}
+
+\NewDocumentCommand{\inlsnip}{v}{
+    \texttt{\textcolor{blue}{#1}}
+}
+
+\graphicspath{ {figures/} }
+\captionsetup[table]{skip=10pt}
+
+\lstset{language=C, keywordstyle={\bfseries \color{black}}}

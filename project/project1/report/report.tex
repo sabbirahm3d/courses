@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Contract
+% Report
 % LaTeX Template
 % Version 1.0 (December 8 2014)
 %
@@ -30,8 +30,9 @@
 %----------------------------------------------------------------------------------------
 
 % Member's information
-\newcommand{\project}{Homework - Mastermind}
+\newcommand{\project}{Project 1: Divide and Conquer}
 \newcommand{\Sabbir}{Sabbir Ahmed}
+\newcommand{\Zafar}{Zafar Mamarakhimov}
 
 %----------------------------------------------------------------------------------------
 
@@ -54,6 +55,8 @@
 
             \Sabbir
 
+            \Zafar
+
         \end{center}
         \vspace*{\fill} % Add whitespace below to center the title page content
 
@@ -61,18 +64,22 @@
 
     \section{Description}
 
-        This project emulates a variant of the game "mastermind" on the AVR Dragon. The user will take guesses at the code using the joystick with combinations of up-down-left-right. A wrong input will sound a buzzer (piezoelectric element) and reset the user’s game. Completing the code will light an LED. At this point the game can be reset by pressing the push-button. All inputs will be logged over a serial interface (UART) to a computer reporting the state of the game.
+        A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers.
+
+        Recall that a complex number z is given by a real part x and an imaginary part y,
+            \[ z=x+iy, \]
+        where \textit{i} is the imaginary unit $\sqrt{-1}$.
 
     \section{State Machine Implementation}
 
         The game is implemented as a state machine, where each successful inputs progresses through the states.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{figures/state_diagram.png}
-                \caption{State Diagram Implementation of the Game with the Secret Code Mapped to 0b00011011} \label{fig:state_diagram}
-            \end{center}
-        \end{figure}
+        % \begin{figure}[ht]
+        %     \begin{center}
+        %         \includegraphics[width=1\textwidth]{figures/state_diagram.png}
+        %         \caption{State Diagram Implementation of the Game with the Secret Code Mapped to 0b00011011} \label{fig:state_diagram}
+        %     \end{center}
+        % \end{figure}
 
     \section{Assembly Implementation}
 
@@ -313,11 +320,11 @@ CMPINPUT:       CP CURSOR, USER
 
         Because of hardware issues with the AVR Butterfly and its temporary supply issue, the program could not be tested until later in the design timeline. Testing was performed using supplies from peers, with limited availability. Early tests showed failures in the design where the inputs were incorrectly mapped to their ports. After correcting the I/O issues, complex subroutines such as loop shifting were added for elegant solutions and successful tests were performed. The LED was connected to PIN 1 of PORTB and the push button to PIN 7 of PORTD. Additional subroutines were added in the UART instructions later without the available hardware for testing.
 
-    \newpage
-    \avrasm{../code/main}{main.asm}
+    % \newpage
+    % \avrasm{../code/main}{main.asm}
 
-    \newpage
-    \avrasm{../code/uart}{uart.asm}
+    % \newpage
+    % \avrasm{../code/uart}{uart.asm}
 
 
 \end{document}
