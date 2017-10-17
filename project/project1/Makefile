@@ -1,9 +1,9 @@
-# Makefile to ease usage and testing of the program
+# Makefile to ease usage and building of the program
 
 # the number of iterations desired are saved to a file for compatibility issues
 # between zsh and bash scripts
-LOOPS:=$(shell cat loop.txt)
-TIMES:="times.txt"
+LOOPS:=$(shell cat analysis/loop.txt)
+TIMES:="analysis/times.txt"
 INPUTS:=$(shell ls sample_input/)
 
 default: run
@@ -23,7 +23,7 @@ compile:
 .PHONY: clean
 clean:
 	# clean out cache and temporary files
-	@find . -name "*.o" -type f -delete
+	@find . -name "*.o" -o -name "*.pyc" -type f -delete
 
 
 .PHONY: clean-compile
@@ -31,11 +31,6 @@ clean-compile:
 	# clean then compile executable
 	@make -s clean && make -s compile
 
-
-yo:
-	@for i in ${INPUTS}; do \
-		echo $${i}; \
-	done
 
 .PHONY: timeit
 timeit:
@@ -47,6 +42,5 @@ timeit:
 			make clean-compile; \
 			make run PATH=sample_input/$${file} >> ${TIMES}; \
 		done; \
-		python3 timeit.py; \
+		python3 analyis/timeit.py; \
 	done
-

@@ -7,3 +7,8 @@ cmake-build-debug/
 # LaTex temporary files
 *.aux
 *.log
+
+# Python environments and temporary files
+*.pyc
+.venv*/
+__pycache__/

@@ -204,7 +204,7 @@ std::vector<mpz_class> cmul3_list(
 
 /*
 Uses a divide and conquer method to recursively multiply all the elements in
-the complex array using the fours-multiplication method
+the complex array using the four-multiplication method
 
 Inputs:
     - complex_array (std::vector<mpz_class>):

@@ -14,12 +14,6 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-% Note:
-% If you are using Apple OS X, go into structure.tex and uncomment the font
-% specifications for OS X and comment out the default specifications - this will
-% drastically increase how good the document looks. You will now need to
-% compile with XeLaTeX.
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[usletter, 12pt]{article}
@@ -93,6 +87,19 @@
     The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, was used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identical.
 
 \begin{lstlisting}
+/*
+Uses a divide and conquer method to recursively multiply all the elements in
+the complex array using either of the multiplication methods
+
+Inputs:
+    - complex_array (std::vector<mpz_class>):
+        vector of GMP integer pairs
+    - first, last (const size_t): first and last indices of the subarray
+
+Outputs:
+    - cmulx() outputs (std::vector<mpz_class>):
+        final complex product
+*/
 std::vector<mpz_class> cmulx_list(
         std::vector<std::vector<mpz_class>> complex_array,
         const size_t first,
