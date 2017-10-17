@@ -10,7 +10,7 @@ const char menu_play_str[] = "--------- Play Menu ---------\n1. Search by "
         "title\n2. Play by number\nPlease enter a choice: ";
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
-        {"Title1"}, {"Title2"}, {"Title3"}, {"Title4"}
+        {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
 };
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
