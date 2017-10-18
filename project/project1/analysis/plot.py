@@ -53,7 +53,7 @@ def diff_boxplot(file_names, diffs):
     for file_name, diff in zip(file_names, diffs):
         data.append(go.Box(
             y=diff,
-            name=file_name[16:],
+            name=file_name[14:],
             boxpoints="all",
             jitter=0.2,
             whiskerwidth=0.2,
@@ -83,8 +83,16 @@ if __name__ == "__main__":
     times_dir = "times/*bit.txt"
     fig_dir = "report/figures/"
 
-    times_files = sorted(glob(times_dir))
-
+    times_files = [
+        "cmplx_numbers_32_8bit.txt",
+        "cmplx_numbers_34_8bit.txt",
+        "cmplx_numbers_32_10bit.txt",
+        "cmplx_numbers_25_20bit.txt",
+        "cmplx_numbers_25_30bit.txt",
+        "cmplx_numbers_25_40bit.txt",
+        "cmplx_numbers_20_100bit.txt",
+        "cmplx_numbers_20_200bit.txt",
+    ]
     file_names = [x.split("/")[-1][:-4] for x in times_files]
     means = []
     medians = []
@@ -92,7 +100,7 @@ if __name__ == "__main__":
     diffs = []
 
     for file in times_files:
-        with open(file) as anaylsis_file:
+        with open("times/" + file) as anaylsis_file:
             for _ in range(2):
                 means.append(float(next(anaylsis_file)[11:-4]))
             for _ in range(2):
@@ -109,5 +117,5 @@ if __name__ == "__main__":
     fig = diff_boxplot(file_names, diffs)
     py.image.save_as(fig, filename=fig_dir + "diffs.png")
 
-    fig = dist_scatter([x[16:] for x in file_names], means[::2], means[1::2])
+    fig = dist_scatter([x[14:] for x in file_names], means[::2], means[1::2])
     py.image.save_as(fig, filename=fig_dir + "means.png")
