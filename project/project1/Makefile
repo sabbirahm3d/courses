@@ -24,6 +24,7 @@ compile:
 clean:
 	# clean out cache and temporary files
 	@find . -name "*.o" -o -name "*.pyc" -type f -delete
+	@find . -name "__pycache__" -type d -delete
 
 
 .PHONY: clean-compile
@@ -42,5 +43,5 @@ timeit:
 			make clean-compile; \
 			make run PATH=sample_input/$${file} >> ${TIMES}; \
 		done; \
-		python3 analyis/timeit.py; \
+		python3 analysis/timeit.py; \
 	done

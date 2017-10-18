@@ -1,5 +1,5 @@
 cmul4 ave: 0.721450 ms
-cmul3 ave: 0.696730 ms
+cmul3 ave: 0.796730 ms
 cmul4 med: 0.692000 ms
 cmul3 med: 0.667500 ms
 cmul4 std: 0.127636 ms
