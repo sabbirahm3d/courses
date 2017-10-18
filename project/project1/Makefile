@@ -22,9 +22,17 @@ compile:
 
 .PHONY: clean
 clean:
+	# clean compiled executables
+	@find . -name "*.o" -type f -delete
+
+
+.PHONY: clean-all
+clean-all:
 	# clean out cache and temporary files
-	@find . \( -name "*.o" -o -name "*.pyc" \) -type f -delete
-	@find . -name "__pycache__" -type d -delete
+	# clean temporary LaTex files
+	@find . \( -name "*.log" -o -name "*.aux" \) -type f -delete
+	# clean compiled Python files
+	@find . \( -name "__pycache__" -type d -o -name "*.pyc" -type f \) -delete
 
 
 .PHONY: clean-compile

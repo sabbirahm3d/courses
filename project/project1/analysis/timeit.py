@@ -35,7 +35,7 @@ if __name__ == "__main__":
              for x, y in zip(cmul4_times, cmul3_times)]
 
     # open file to dump the analysis
-    with open("times/{0}".format(complex_nums), 'w') as output_file:
+    with open("analysis/times/{0}".format(complex_nums), 'w') as output_file:
 
         # means
         print("cmul4 ave: {0:.6f} ms".format(
