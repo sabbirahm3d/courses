@@ -17,13 +17,13 @@ run:
 .PHONY: compile
 compile:
 	# build the main script
-	@g++ -o main.o main.cpp gmpxx.h -lgmp -std=c++0x -Wall
+	@g++ -o main.o main.cpp -lgmp -lgmpxx -std=c++0x -Wall
 
 
 .PHONY: clean
 clean:
 	# clean out cache and temporary files
-	@find . -name "*.o" -o -name "*.pyc" -type f -delete
+	@find . \( -name "*.o" -o -name "*.pyc" \) -type f -delete
 	@find . -name "__pycache__" -type d -delete
 
 

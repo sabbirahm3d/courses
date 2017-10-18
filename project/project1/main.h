@@ -21,7 +21,8 @@ declarations used in the main driver file.
 #include <iostream>
 #include <vector>
 
-#include "gmpxx.h"  // C++11 wrapper for GMP, includes class declarations
+#include <gmp.h>
+#include <gmpxx.h>  // C++11 wrapper for GMP, includes class declarations
 
 // ---------------------------- Helper functions ----------------------------
 
@@ -33,7 +34,7 @@ std::vector<std::vector<mpz_class>> parse_file(const char *);
 std::vector<mpz_class> line_to_mpz(const std::string &);
 
 
-// -------------------- Functions complex multiplication --------------------
+// ------------------- Functions for complex multiplication -------------------
 
 // Uses the four-multiplication method to multiply two complex numbers
 std::vector<mpz_class> cmul4(std::vector<mpz_class>, std::vector<mpz_class>);
