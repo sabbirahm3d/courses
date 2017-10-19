@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from ast import literal_eval
-from glob import glob
 
 import plotly.plotly as py
 import plotly.graph_objs as go
@@ -26,8 +25,6 @@ def dist_scatter(x, cmul4_line, cmul3_line):
 
     data = [cmul4, cmul3]
 
-    # fig = dict(data=data)
-
     layout = go.Layout(
         title="Mean Runtimes",
         xaxis={
@@ -43,8 +40,6 @@ def dist_scatter(x, cmul4_line, cmul3_line):
     fig = go.Figure(data=data, layout=layout)
 
     return fig
-
-    # py.iplot(fig, filename="simple-connectgaps")
 
 
 def diff_boxplot(file_names, diffs):
@@ -80,7 +75,6 @@ def diff_boxplot(file_names, diffs):
 
 if __name__ == "__main__":
 
-    times_dir = "times/*bit.txt"
     fig_dir = "report/figures/"
 
     times_files = [
@@ -100,7 +94,7 @@ if __name__ == "__main__":
     diffs = []
 
     for file in times_files:
-        with open("times/" + file) as anaylsis_file:
+        with open("timestats/" + file) as anaylsis_file:
             for _ in range(2):
                 means.append(float(next(anaylsis_file)[11:-4]))
             for _ in range(2):

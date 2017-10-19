@@ -1,0 +1,21 @@
+cmplx_numbers_34_8bit.txt
+*** CMUL4 List ***
+time: 0.000972
+*** CMUL3 List ***
+time: 0.000952
+*** CMUL4 List ***
+time: 0.000956
+*** CMUL3 List ***
+time: 0.000941
+*** CMUL4 List ***
+time: 0.000969
+*** CMUL3 List ***
+time: 0.000944
+*** CMUL4 List ***
+time: 0.001219
+*** CMUL3 List ***
+time: 0.001567
+*** CMUL4 List ***
+time: 0.001063
+*** CMUL3 List ***
+time: 0.000997

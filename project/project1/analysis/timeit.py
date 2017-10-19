@@ -22,7 +22,7 @@ if __name__ == "__main__":
     complex_nums = ""
 
     # open execution times dumped in the loops
-    with open("times.txt") as times_file:
+    with open("analysis/times.txt") as times_file:
         complex_nums = next(times_file).split('/')[-1][:-1]  # file name
         # efficient method of reading 4 lines of the file per iteration
         for _, cmul4, _, cmul3 in zip_longest(*[times_file] * 4):
@@ -35,7 +35,7 @@ if __name__ == "__main__":
              for x, y in zip(cmul4_times, cmul3_times)]
 
     # open file to dump the analysis
-    with open("analysis/times/{0}".format(complex_nums), 'w') as output_file:
+    with open("analysis/timestats/" + complex_nums, 'w') as output_file:
 
         # means
         print("cmul4 ave: {0:.6f} ms".format(

@@ -38,18 +38,19 @@ clean-all:
 .PHONY: clean-compile
 clean-compile:
 	# clean then compile executable
-	@make -s clean && make -s compile
+	@make clean && make compile
 
 
 .PHONY: timeit
 timeit:
 	# clean compile and run 
 	@for file in ${INPUTS}; do \
+		echo "Timing with $${file}"; \
 		truncate -s 0 ${TIMES}; \
 		echo $${file} > ${TIMES}; \
 		for i in ${LOOPS}; do \
-			make clean-compile; \
-			make run PATH=sample_input/$${file} >> ${TIMES}; \
+			make -s clean-compile; \
+			make -s run PATH=sample_input/$${file} >> ${TIMES}; \
 		done; \
 		python3 analysis/timeit.py; \
 	done

@@ -254,7 +254,7 @@ int main(int argc, char *argv[]) {
 
             prod = cmul4_list(complex_nums, 0, complex_nums.size() - 1);
         */
-        // std::vector<mpz_class> prod;
+        std::vector<mpz_class> prod;
 
         complex_nums = parse_file(argv[1]);
         complex_num_size = complex_nums.size();
@@ -264,17 +264,19 @@ int main(int argc, char *argv[]) {
 
             // four-multiply
             t0 = clock();
-            cmul4_list(complex_nums, 0, complex_num_size - 1);
+            prod = cmul4_list(complex_nums, 0, complex_num_size - 1);
             t = clock() - t0;  // compute the time it took
             fprintf(stdout, "*** CMUL4 List ***\n");
             fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+            // gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
 
             // three-multiply
             t0 = clock();
-            cmul3_list(complex_nums, 0, complex_num_size - 1);
+            prod = cmul3_list(complex_nums, 0, complex_num_size - 1);
             t = clock() - t0;  // compute the time it took
             fprintf(stdout, "*** CMUL3 List ***\n");
             fprintf(stdout, "time: %f\n", ((double) t) / CLOCKS_PER_SEC);
+            // gmp_printf("%Zd + i%Zd\n", prod[0], prod[1]);
 
             return EXIT_SUCCESS;
 
