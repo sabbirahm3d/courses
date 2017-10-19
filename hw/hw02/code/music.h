@@ -12,8 +12,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <time.h>
+#include <time.h>
 //#include "U0_UART.h"  // to direct standard I/O to AVR UART
+
+extern FILE uart_stream;
 
 #define PORTB5_SPEAKER_MASK 0b00100000
 #define USER_LINE_MAX 128

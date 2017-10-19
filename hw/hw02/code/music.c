@@ -94,10 +94,6 @@ void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
     }
 
-    printf("%d*", quarters);
-    printf("\n%d\n", half_periods);
-    printf("iter: %d\n", num_iter);
-
 }
 
 void play_song(uint8_t song[]) {

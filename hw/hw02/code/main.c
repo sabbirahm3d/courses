@@ -72,25 +72,21 @@ void list_menu() {
 
 int match_score(const char count_query_string[], const char database[]) {
 
-    char *token_user = strtok(count_query_string, " ");
-    char *token_stored = strtok(database, " ");
+    const char *count_query_ptr = count_query_string;
+    const char *database_ptr = database;
+    char *token_user, *token_stored;
     int matches = 0;
 
-    while (token_stored != NULL) {
-        printf("token: %s\n", token_stored);
+    while ((token_stored = strtok_r(database_ptr, " ", &database_ptr))) {
 
-        while (token_user != NULL) {
-            printf("token_user: %s\n", token_user);
+        while ((token_user = strtok_r(count_query_ptr, " ", &count_query_ptr))) {
 
             if (!strcasecmp(token_user, token_stored)) {
-                matches++;
+                ++matches;
             }
-
-            token_user = strtok(NULL, " ");
 
         }
 
-        token_stored = strtok(NULL, " ");
     }
 
     return matches;
@@ -180,11 +176,11 @@ int main() {
 
     uint8_t choice;
     uint8_t flag = 1;
-//    stderr = stdout = stdin = &uart_stream;
 //    UARTInit();
+//    stderr = stdout = stdin = &uart_stream;
 
-//    char str[] ="one two three";
-//    char str1[] ="four five six";
+//    char str[] = "hello hello there";
+//    char str1[] = "hello hello There";
 //    int y = match_score(str, str1);
 //    printf("%d", y);
     while (flag) {
