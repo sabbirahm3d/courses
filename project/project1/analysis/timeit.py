@@ -8,7 +8,7 @@ computed.
 
 The script is meant to be executed in conjunction with the Makefile:
 
-    make timeit --no-print-directory -s
+    make timeit --no-print-directory
 """
 
 
