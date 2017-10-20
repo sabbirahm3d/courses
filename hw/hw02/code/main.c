@@ -4,16 +4,17 @@
 
 #include "music.h"
 
-const char PROGMEM menu_main_str[] = "MAIN MENU\nList songs\nPlay song\n"
-    "Create song\nExit";
-const char PROGMEM menu_play_str[] = "PLAY MENU\nSearch by title\nPlay by "
-    "number";
+const char PROGMEM menu_main_str[] = "----- MAIN MENU -----\nList\nPlay\nNew\n"
+    "Exit";
+const char PROGMEM menu_play_str[] = "----- PLAY MENU -----\nSearch title\n"
+    "Play by index";
 const char PROGMEM choice_str[] = "\nChoice: ";
 const char PROGMEM title_str[] = "Title: ";
-const char PROGMEM database_str[] = "\nDatabase\n";
+const char PROGMEM database_str[] = "\n----- DATABASE -----\n";
 const char PROGMEM index_str[] = "Index: ";
 const char PROGMEM song_success[] = "Song added successfully!\n";
 const char PROGMEM notes_str[] = "Song notes: ";
+
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
         {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
@@ -34,27 +35,11 @@ int match_score(const char *, const char *);
 
 int best_match(char *user);
 
-void strip_eol();
-
-
-// -------------------------
-//void strip_eol() {
-//
-//    char ch;
-//
-//    ch = getchar();
-//    while (ch != '\n') {
-//        ch = getchar();
-//    }
-//
-//}
-
-
 uint8_t display_menu(const char menu[]) {
 
 
     int choice, index = 0;
-    char* menu_str_copy = strdup(menu);
+    char *menu_str_copy = strdup(menu);
     char *menu_ptr = menu_str_copy;
     char *menu_tokens;
 
@@ -134,7 +119,7 @@ void play_menu() {
     int play_choice, song_ix;
 
     int index = 0;
-    char* menu_str_copy = strdup(menu_play_str);
+    char *menu_str_copy = strdup(menu_play_str);
     const char *menu_ptr = menu_str_copy;
     char *menu_tokens;
 
@@ -153,6 +138,7 @@ void play_menu() {
     }
 
     switch (play_choice) {
+
         case 1: {
             char user_query[MAX_TITLE_LENGTH];
             printf_P("%s", title_str);
@@ -205,9 +191,10 @@ void create_menu() {
     store_songs(packed_song, full_song);
 
     printf_P("%s", index_str);
-    if (fgets(user_line, 3, stdin) != NULL) {
+    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
         sscanf_P(user_line, "%d", &new_song_ix);
     }
+    printf_P("%s", song_success);
 
     memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
     memcpy(song_list[new_song_ix], packed_song, MAX_SONG_LENGTH);

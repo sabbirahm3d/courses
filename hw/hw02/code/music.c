@@ -1,5 +1,4 @@
 #include "music.h"
-#include "notes.h"
 
 uint8_t unpack_note_letter_ascii(uint8_t packed_note) {
 
@@ -12,6 +11,77 @@ uint8_t unpack_note_duration(uint8_t packed_note) {
     return (uint8_t) (packed_note & 0x1F);
 
 }
+
+unsigned int get_frequency(uint8_t letter_ascii) {
+
+    unsigned int frequency = 0;
+    switch (letter_ascii) {
+
+        case NOTE_A: {
+
+            frequency = FREQ_A;
+            break;
+
+        }
+
+        case NOTE_B: {
+
+            frequency = FREQ_B;
+            break;
+
+        }
+
+        case NOTE_C: {
+
+            frequency = FREQ_C;
+            break;
+
+        }
+
+        case NOTE_D: {
+
+            frequency = FREQ_D;
+            break;
+
+        }
+
+        case NOTE_E: {
+
+            frequency = FREQ_E;
+            break;
+
+        }
+
+        case NOTE_F: {
+
+            frequency = FREQ_F;
+            break;
+
+        }
+
+        case NOTE_G: {
+
+            frequency = FREQ_G;
+            break;
+
+        }
+
+        case NOTE_R: {
+
+            frequency = FREQ_R;
+
+        }
+
+        default: {
+            break;
+        }
+
+    }
+
+    return (uint8_t) frequency;
+
+}
+
 
 uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
@@ -77,7 +147,7 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
 void delay_ms(int ms) {
 
     while (ms--) {
-        _delay_ms(1);
+//        _delay_ms(1);
     }
 
 }
@@ -86,16 +156,16 @@ void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
     unsigned int num_iter, half_periods, freq;
 
-    freq = get_frequency(letter_ascii, quarters);
+    freq = get_frequency(letter_ascii);
     half_periods = FREQ_TO_MS / freq;
     num_iter = freq / 4 * quarters;
 
     for (int i = 0; i < num_iter; ++i) {
 
-        PORTB = (PORTB5_SPEAKER_MASK & 0x00);
-        delay_ms(half_periods);
-        PORTB = (PORTB5_SPEAKER_MASK & 0xFF);
-        delay_ms(half_periods);
+//        PORTB = (PORTB5_SPEAKER_MASK & 0x00);
+//        delay_ms(half_periods);
+//        PORTB = (PORTB5_SPEAKER_MASK & 0xFF);
+//        delay_ms(half_periods);
 
     }
 
