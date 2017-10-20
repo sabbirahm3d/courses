@@ -22,6 +22,7 @@ extern FILE uart_stream;
 #define USER_LINE_MAX 128
 #define NUMBER_OF_SONGS 4
 #define MAX_SONG_LENGTH 64
+#define MAX_TITLE_LENGTH 30
 #define NOTE_A 0
 #define NOTE_B 1
 #define NOTE_C 2

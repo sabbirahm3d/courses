@@ -336,5 +336,4 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
     }
 
-
 }

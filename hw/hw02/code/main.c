@@ -4,19 +4,33 @@
 
 #include "music.h"
 
-const char PROGMEM menu_main_str[] = "MAIN MENU\nList songs\nPlay song\nCreate song\nExit\n";
-const char PROGMEM menu_play_str[] = "PLAY MENU\nSearch by "
-        "title\nPlay by number\n";
+const char PROGMEM menu_main_str[] = "MAIN MENU\nList songs\nPlay song\n"
+"Create song\nExit";
+const char PROGMEM menu_play_str[] = "PLAY MENU\nSearch by title\nPlay by "
+"number";
 const char PROGMEM title_str[] = "Title: ";
 const char PROGMEM index_str[] = "Index: ";
-const char PROGMEM database_str[] = "\n\nDatabase\n";
-const char PROGMEM choice_str[] = "Choice: ";
+const char PROGMEM database_str[] = "\nDatabase\n";
+const char PROGMEM choice_str[] = "\nChoice: ";
+const char PROGMEM song_success[] = "Song added successfully";
+const char PROGMEM notes_str[] = "Song notes: ";
+
+// const char menu_main_str[] = "MAIN MENU\nList songs\nPlay song\nCreate song\n"
+//         "Exit";
+// const char menu_play_str[] = "PLAY MENU\nSearch by title\nPlay by number";
+// const char title_str[] = "Title: ";
+// const char index_str[] = "Index: ";
+// const char database_str[] = "\nDatabase\n";
+// const char choice_str[] = "\nChoice: ";
+// const char song_success[] = "Song added successfully!\n";
+// const char notes_str[] = "Song notes: ";
+
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
-        {""}, {""}, {"hello there"}, {""}
+        {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
 };
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
-        {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
+        {ZERO_REST}, {ZERO_REST}, {ZERO_REST}, {ZERO_REST}
 };
 
 uint8_t display_menu(const char[]);
@@ -35,35 +49,40 @@ void strip_eol();
 
 
 // -------------------------
-void strip_eol() {
-
-    char ch;
-
-    ch = getchar();
-    while (ch != '\n') {
-        ch = getchar();
-    }
-
-}
+//void strip_eol() {
+//
+//    char ch;
+//
+//    ch = getchar();
+//    while (ch != '\n') {
+//        ch = getchar();
+//    }
+//
+//}
 
 
 uint8_t display_menu(const char menu[]) {
 
 
-    int choice;
-    char* copy = strdup(menu);
-    const char *menu_ptr = copy;
+    int choice, index = 0;
+    char *menu_str_copy = strdup(menu);
+    char *menu_ptr = menu_str_copy;
     char *menu_tokens;
 
     while ((menu_tokens = strtok_r(menu_ptr, "\n", &menu_ptr))) {
+        if (index) {
+            printf_P("%d. ", index);
+        }
+        index++;
         printf_P("%s\n", menu_tokens);
     }
+    free(menu_str_copy);
 
-    if (fgets(user_line, 3, stdin) != NULL) {
+    printf_P("%s", choice_str);
+    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
         sscanf_P(user_line, "%d", &choice);
     }
 
-    free(copy);
     return (uint8_t) choice;
 
 }
@@ -85,22 +104,21 @@ int match_score(const char count_query_string[], const char database[]) {
     const char *count_query_ptr = count_query_string;
     const char *database_ptr = database;
     char *token_user, *token_stored;
-    int matches = 0;
+    int total_matches = 0;
 
     while ((token_stored = strtok_r(database_ptr, " ", &database_ptr))) {
 
         while ((token_user = strtok_r(count_query_ptr, " ", &count_query_ptr))) {
 
             if (!strcasecmp(token_user, token_stored)) {
-                matches++;
+                total_matches++;
             }
 
         }
 
     }
 
-    return matches;
-
+    return total_matches;
 
 }
 
@@ -126,20 +144,34 @@ void play_menu() {
 
     int play_choice, song_ix;
 
-    printf_P("%s", menu_play_str);
-    if (fgets(user_line, 3, stdin) != NULL) {
+    int index = 0;
+    char *menu_str_copy = strdup(menu_play_str);
+    const char *menu_ptr = menu_str_copy;
+    char *menu_tokens;
+
+    while ((menu_tokens = strtok_r(menu_ptr, "\n", &menu_ptr))) {
+        if (index) {
+            printf_P("%d. ", index);
+        }
+        index++;
+        printf_P("%s\n", menu_tokens);
+    }
+    free(menu_str_copy);
+
+    printf_P("%s", choice_str);
+    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
         sscanf_P(user_line, "%d", &play_choice);
     }
 
     switch (play_choice) {
         case 1: {
-            char user_query[50];
+            char user_query[MAX_TITLE_LENGTH];
             printf_P("%s", title_str);
-            if (fgets(user_line, 50, stdin) != NULL) {
+            if (fgets(user_line, MAX_TITLE_LENGTH, stdin) != NULL) {
                 sscanf_P(user_line, "%[^\n]", user_query);
             }
             song_ix = best_match(user_query);
-            play_song(song_list[song_ix]);
+            play_song((uint8_t *) song_list[song_ix]);
 
             break;
         }
@@ -148,7 +180,7 @@ void play_menu() {
             printf_P("%s", index_str);
             if (fgets(user_line, 3, stdin) != NULL) {
                 sscanf_P(user_line, "%d", &song_ix);
-                play_song(song_list[song_ix]);
+                play_song((uint8_t *) song_list[song_ix]);
             }
             break;
         }
@@ -163,17 +195,17 @@ void play_menu() {
 void create_menu() {
 
     char song_ascii[USER_LINE_MAX];
-    char song_title[50];
+    char song_title[MAX_TITLE_LENGTH];
     char *full_song;
     int new_song_ix;
 
 
     printf_P("%s", title_str);
-    if (fgets(user_line, 50, stdin) != NULL) {
+    if (fgets(user_line, MAX_TITLE_LENGTH, stdin) != NULL) {
         sscanf_P(user_line, "%[^\n]", song_title);
     }
 
-    printf_P("Song notes: ");
+    printf_P("%s", notes_str);
     if (fgets(user_line, USER_LINE_MAX, stdin) != NULL) {
         sscanf_P(user_line, "%s", song_ascii);
     }
@@ -187,6 +219,8 @@ void create_menu() {
     if (fgets(user_line, 3, stdin) != NULL) {
         sscanf_P(user_line, "%d", &new_song_ix);
     }
+
+    printf_P("%s", song_success);
 
     memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
     memcpy(song_list[new_song_ix], packed_song, MAX_SONG_LENGTH);
@@ -209,6 +243,7 @@ int main() {
             case 1: {
 
                 list_menu();
+                printf_P("\n");
                 break;
 
             }
@@ -216,6 +251,7 @@ int main() {
             case 2: {
 
                 play_menu();
+                printf_P("\n");
                 break;
 
             }
@@ -223,11 +259,12 @@ int main() {
             case 3: {
 
                 create_menu();
+                printf_P("\n");
                 break;
 
             }
 
-            case 0: {
+            case 4: {
                 flag = 0;
                 break;
             }
