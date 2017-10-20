@@ -84,10 +84,10 @@ void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
     for (int i = 0; i < num_iter; ++i) {
 
-        printf("SETTING PORTB5 HIGH FOR %d MS\n", half_periods);
+        printf_P("SETTING PORTB5 HIGH FOR %d MS\n", half_periods);
         // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0x00);
         // nanosleep(half_periods * 1000000);
-        printf("SETTING PORTB5 LOW FOR %d MS\n", half_periods);
+        printf_P("SETTING PORTB5 LOW FOR %d MS\n", half_periods);
         // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0xFF);
         // nanosleep(half_periods * 1000000);
 

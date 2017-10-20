@@ -5,16 +5,16 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
-//#include <avr/io.h>
-//#include <avr/pgmspace.h>
-//#include <util/delay.h>
+#include <avr/io.h>
+#include <avr/pgmspace.h>
+#include <util/delay.h>
 #include <inttypes.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//#include "U0_UART.h"  // to direct standard I/O to AVR UART
+#include "U0_UART.h"  // to direct standard I/O to AVR UART
 
 extern FILE uart_stream;
 
