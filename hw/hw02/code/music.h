@@ -13,7 +13,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include "U0_UART.h"  // to direct standard I/O to AVR UART
 
 extern FILE uart_stream;
@@ -37,7 +36,9 @@ char user_line[USER_LINE_MAX];
 
 char *add_zero_rest(const char[]);
 
-int is_zero_rest(const char, const char);
+void delay_ms(int);
+
+int is_zero_rest(char, char);
 
 uint8_t pack_note(char, uint8_t);
 

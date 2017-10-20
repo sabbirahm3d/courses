@@ -5,32 +5,21 @@
 #include "music.h"
 
 const char PROGMEM menu_main_str[] = "MAIN MENU\nList songs\nPlay song\n"
-"Create song\nExit";
+    "Create song\nExit";
 const char PROGMEM menu_play_str[] = "PLAY MENU\nSearch by title\nPlay by "
-"number";
-const char PROGMEM title_str[] = "Title: ";
-const char PROGMEM index_str[] = "Index: ";
-const char PROGMEM database_str[] = "\nDatabase\n";
+    "number";
 const char PROGMEM choice_str[] = "\nChoice: ";
-const char PROGMEM song_success[] = "Song added successfully";
+const char PROGMEM title_str[] = "Title: ";
+const char PROGMEM database_str[] = "\nDatabase\n";
+const char PROGMEM index_str[] = "Index: ";
+const char PROGMEM song_success[] = "Song added successfully!\n";
 const char PROGMEM notes_str[] = "Song notes: ";
-
-// const char menu_main_str[] = "MAIN MENU\nList songs\nPlay song\nCreate song\n"
-//         "Exit";
-// const char menu_play_str[] = "PLAY MENU\nSearch by title\nPlay by number";
-// const char title_str[] = "Title: ";
-// const char index_str[] = "Index: ";
-// const char database_str[] = "\nDatabase\n";
-// const char choice_str[] = "\nChoice: ";
-// const char song_success[] = "Song added successfully!\n";
-// const char notes_str[] = "Song notes: ";
-
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
         {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
 };
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
-        {ZERO_REST}, {ZERO_REST}, {ZERO_REST}, {ZERO_REST}
+        {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
 };
 
 uint8_t display_menu(const char[]);
@@ -65,7 +54,7 @@ uint8_t display_menu(const char menu[]) {
 
 
     int choice, index = 0;
-    char *menu_str_copy = strdup(menu);
+    char* menu_str_copy = strdup(menu);
     char *menu_ptr = menu_str_copy;
     char *menu_tokens;
 
@@ -145,7 +134,7 @@ void play_menu() {
     int play_choice, song_ix;
 
     int index = 0;
-    char *menu_str_copy = strdup(menu_play_str);
+    char* menu_str_copy = strdup(menu_play_str);
     const char *menu_ptr = menu_str_copy;
     char *menu_tokens;
 
@@ -219,8 +208,6 @@ void create_menu() {
     if (fgets(user_line, 3, stdin) != NULL) {
         sscanf_P(user_line, "%d", &new_song_ix);
     }
-
-    printf_P("%s", song_success);
 
     memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
     memcpy(song_list[new_song_ix], packed_song, MAX_SONG_LENGTH);

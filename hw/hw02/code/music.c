@@ -74,6 +74,14 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
 
 }
 
+void delay_ms(int ms) {
+
+    while (ms--) {
+        _delay_ms(1);
+    }
+
+}
+
 void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
     unsigned int num_iter, half_periods, freq;
@@ -84,12 +92,10 @@ void play_note(uint8_t letter_ascii, uint8_t quarters) {
 
     for (int i = 0; i < num_iter; ++i) {
 
-        printf_P("SETTING PORTB5 HIGH FOR %d MS\n", half_periods);
-        // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0x00);
-        // nanosleep(half_periods * 1000000);
-        printf_P("SETTING PORTB5 LOW FOR %d MS\n", half_periods);
-        // PORTB5_SPEAKER_MASK = (PORTB5_SPEAKER_MASK & 0xFF);
-        // nanosleep(half_periods * 1000000);
+        PORTB = (PORTB5_SPEAKER_MASK & 0x00);
+        delay_ms(half_periods);
+        PORTB = (PORTB5_SPEAKER_MASK & 0xFF);
+        delay_ms(half_periods);
 
     }
 
