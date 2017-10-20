@@ -66,7 +66,6 @@ uint8_t pack_note(char letter_ascii, uint8_t duration) {
         }
 
         default: {
-            printf("%c is not a valid note\n", letter_ascii);
             break;
         }
     }
@@ -105,7 +104,6 @@ void play_song(uint8_t song[]) {
         str = unpack_note_letter_ascii(song[i]);
         dur = unpack_note_duration(song[i]);
 
-        printf("*");
         play_note(str, dur);
     }
 

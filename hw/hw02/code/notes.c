@@ -11,7 +11,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_A: {
 
-            printf("A");
             switch (quarters) {
 
                 case 0: {
@@ -47,7 +46,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -58,7 +56,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_B: {
 
-            printf("B");
             switch (quarters) {
 
                 case 0: {
@@ -94,7 +91,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -105,7 +101,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_C: {
 
-            printf("C");
             switch (quarters) {
 
                 case 0: {
@@ -141,7 +136,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -152,7 +146,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_D: {
 
-            printf("D");
             switch (quarters) {
 
                 case 0: {
@@ -188,7 +181,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -199,7 +191,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_E: {
 
-            printf("E");
             switch (quarters) {
 
                 case 0: {
@@ -235,7 +226,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -246,7 +236,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_F: {
 
-            printf("F");
             switch (quarters) {
 
                 case 0: {
@@ -282,7 +271,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -293,7 +281,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_G: {
 
-            printf("G");
             switch (quarters) {
 
                 case 0: {
@@ -329,7 +316,6 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
                 }
 
                 default : {
-                    printf("Invalid note\n");
                     break;
                 }
 
@@ -340,53 +326,11 @@ unsigned int get_frequency(uint8_t letter_ascii, uint8_t quarters) {
 
         case NOTE_R: {
 
-            printf("R");
-            switch (quarters) {
+            return (int) FREQ_R;
 
-                case 0: {
-                    return (int) FREQ_G0;
-                }
-
-                case 1: {
-                    return (int) FREQ_G1;
-                }
-
-                case 2: {
-                    return (int) FREQ_G2;
-                }
-
-                case 3: {
-                    return (int) FREQ_G3;
-                }
-
-                case 4: {
-                    return (int) FREQ_G4;
-                }
-
-                case 5: {
-                    return (int) FREQ_G5;
-                }
-
-                case 6: {
-                    return (int) FREQ_G6;
-                }
-
-                case 7: {
-                    return (int) FREQ_G7;
-                }
-
-                default : {
-                    printf("Invalid note\n");
-                    break;
-                }
-
-            }
-
-            break;
         }
 
         default: {
-            printf("Invalid note\n");
             break;
         }
 

@@ -4,13 +4,16 @@
 
 #include "music.h"
 
-const char menu_main_str[] = "\n--------- Main Menu ---------\n1. List "
-        "songs\n2. Play song\n3. Create song\n0. Exit\nPlease enter a choice: ";
-const char menu_play_str[] = "--------- Play Menu ---------\n1. Search by "
-        "title\n2. Play by number\nPlease enter a choice: ";
+const char menu_main_str[] = "MAIN MENU\nList songs\nPlay song\nCreate song\nExit\n";
+const char menu_play_str[] = "PLAY MENU\nSearch by "
+        "title\nPlay by number\n";
+const char title_str[] = "Title: ";
+const char index_str[] = "Index: ";
+const char database_str[] = "\n\nDatabase\n";
+const char choice_str[] = "Choice: ";
 
 char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
-        {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
+        {""}, {""}, {"hello there"}, {""}
 };
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
         {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
@@ -48,12 +51,19 @@ uint8_t display_menu(const char menu[]) {
 
 
     int choice;
+    char* copy = strdup(menu);
+    const char *menu_ptr = copy;
+    char *menu_tokens;
 
-    printf("%s", menu);
+    while ((menu_tokens = strtok_r(menu_ptr, "\n", &menu_ptr))) {
+        printf("%s\n", menu_tokens);
+    }
+
     if (fgets(user_line, 3, stdin) != NULL) {
         sscanf(user_line, "%d", &choice);
     }
 
+    free(copy);
     return (uint8_t) choice;
 
 }
@@ -61,9 +71,9 @@ uint8_t display_menu(const char menu[]) {
 
 void list_menu() {
 
-    printf("---------------------------\nSongs in the database\n");
+    printf("%s", database_str);
     for (int i = 0; i < NUMBER_OF_SONGS; i++) {
-        printf("%d: Title: %s\n", i, song_title_list[i]);
+        printf("%d: %s%s\n", i, title_str, song_title_list[i]);
     }
 
 
@@ -82,7 +92,7 @@ int match_score(const char count_query_string[], const char database[]) {
         while ((token_user = strtok_r(count_query_ptr, " ", &count_query_ptr))) {
 
             if (!strcasecmp(token_user, token_stored)) {
-                ++matches;
+                matches++;
             }
 
         }
@@ -97,6 +107,18 @@ int match_score(const char count_query_string[], const char database[]) {
 
 int best_match(char user[]) {
 
+    int best_choice = 0, highest_score = 0, cursor = 0;
+    for (int i = 0; i < NUMBER_OF_SONGS; i++) {
+        if (song_title_list[i] != '\0') {
+            cursor = match_score(user, song_title_list[i]);
+            if (cursor > highest_score) {
+                highest_score = best_choice;
+                best_choice = i;
+            }
+        }
+    }
+
+    return best_choice;
 
 }
 
@@ -111,12 +133,19 @@ void play_menu() {
 
     switch (play_choice) {
         case 1: {
-            printf("Searching not implemented yet");
+            char user_query[50];
+            printf("%s", title_str);
+            if (fgets(user_line, 50, stdin) != NULL) {
+                sscanf(user_line, "%[^\n]", user_query);
+            }
+            song_ix = best_match(user_query);
+            play_song(song_list[song_ix]);
+
             break;
         }
 
         case 2: {
-            printf("Enter index of the song: ");
+            printf("%s", index_str);
             if (fgets(user_line, 3, stdin) != NULL) {
                 sscanf(user_line, "%d", &song_ix);
                 play_song(song_list[song_ix]);
@@ -139,30 +168,24 @@ void create_menu() {
     int new_song_ix;
 
 
-    printf("Enter song title: ");
+    printf("%s", title_str);
     if (fgets(user_line, 50, stdin) != NULL) {
         sscanf(user_line, "%[^\n]", song_title);
-        printf("Song name: %s\n", song_title);
     }
 
-    printf("Enter song notes using ABCDEFGR followed by quarter seconds: ");
+    printf("Song notes: ");
     if (fgets(user_line, USER_LINE_MAX, stdin) != NULL) {
         sscanf(user_line, "%s", song_ascii);
-        printf("Song notes: %s\n", song_ascii);
     }
 
     full_song = add_zero_rest(song_ascii);
     uint8_t packed_song[strlen(full_song) / 2];
     memset(packed_song, 0, sizeof(packed_song));
-
-    printf("Packing song... ");
     store_songs(packed_song, full_song);
-    printf("done\n");
 
-    printf("Enter index to save the new song: ");
+    printf("%s", index_str);
     if (fgets(user_line, 3, stdin) != NULL) {
         sscanf(user_line, "%d", &new_song_ix);
-        printf("Index: %d", new_song_ix);
     }
 
     memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
@@ -176,13 +199,7 @@ int main() {
 
     uint8_t choice;
     uint8_t flag = 1;
-//    UARTInit();
-//    stderr = stdout = stdin = &uart_stream;
 
-//    char str[] = "hello hello there";
-//    char str1[] = "hello hello There";
-//    int y = match_score(str, str1);
-//    printf("%d", y);
     while (flag) {
 
         choice = display_menu(menu_main_str);
@@ -211,13 +228,11 @@ int main() {
             }
 
             case 0: {
-                printf("Quitting program...\n");
                 flag = 0;
                 break;
             }
 
             default: {
-                printf("%d is an invalid choice.\n", choice);
                 break;
             }
 
