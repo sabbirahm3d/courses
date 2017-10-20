@@ -291,6 +291,9 @@ void create_menu() {
  * desired functionalities. */
 int main() {
 
+    // redirecting the standard I/O
+    stderr = stdout = stdin = &uart_stream;
+    UARTInit();
 
     uint8_t choice;
     uint8_t loop_flag = 1;
