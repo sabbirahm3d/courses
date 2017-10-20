@@ -49,8 +49,6 @@ extern FILE uart_stream;
 
 char user_line[USER_LINE_MAX];
 
-void strip_eol(char[], int);
-
 char *add_zero_rest(const char[]);
 
 void delay_ms(int);

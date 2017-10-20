@@ -138,7 +138,6 @@ void play_menu() {
     }
 
     switch (play_choice) {
-
         case 1: {
             char user_query[MAX_TITLE_LENGTH];
             printf_P("%s", title_str);
@@ -146,7 +145,6 @@ void play_menu() {
                 sscanf_P(user_line, "%[^\n]", user_query);
             }
             song_ix = best_match(user_query);
-            play_song((uint8_t *) song_list[song_ix]);
 
             break;
         }
@@ -155,7 +153,6 @@ void play_menu() {
             printf_P("%s", index_str);
             if (fgets(user_line, 3, stdin) != NULL) {
                 sscanf_P(user_line, "%d", &song_ix);
-                play_song((uint8_t *) song_list[song_ix]);
             }
             break;
         }
@@ -164,6 +161,8 @@ void play_menu() {
             break;
         }
     }
+
+    play_song((uint8_t *) song_list[song_ix]);
 
 }
 
