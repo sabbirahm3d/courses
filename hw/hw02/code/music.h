@@ -8,11 +8,13 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
+
 #include <inttypes.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "U0_UART.h"  // to direct standard I/O to AVR UART
 
 extern FILE uart_stream;
@@ -30,9 +32,9 @@ extern FILE uart_stream;
 #define NOTE_F 5
 #define NOTE_G 6
 #define NOTE_R 7
-#define ZERO_REST 224  // R0
-
+#define ZERO_REST (NOTE_R << 5)  // R0
 char user_line[USER_LINE_MAX];
+
 
 char *add_zero_rest(const char[]);
 

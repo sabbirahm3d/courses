@@ -19,7 +19,7 @@ char song_title_list[NUMBER_OF_SONGS][USER_LINE_MAX] = {
         {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}, {"<EMPTY>"}
 };
 char song_list[NUMBER_OF_SONGS][MAX_SONG_LENGTH] = {
-        {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}, {NOTE_R << 5}
+        {ZERO_REST}, {ZERO_REST}, {ZERO_REST}, {ZERO_REST}
 };
 
 uint8_t display_menu(const char[]);
