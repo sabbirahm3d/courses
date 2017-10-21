@@ -35,8 +35,23 @@
 \renewcommand\familydefault{\sfdefault}  % default font for entire document
 
 \definecolor{azure}{rgb}{0.0, 0.5, 1.0}
+\definecolor{green}{rgb}{0.18, 0.55, 0.34}
+
 \NewDocumentCommand{\codeword}{v}{
     \texttt{\textcolor{azure}{#1}}
 }
 
+\NewDocumentCommand{\keyword}{v}{
+    \texttt{\textcolor{green}{#1}}
+}
+
 \lstset{language=C,keywordstyle={\bfseries \color{azure}}}
+
+% Using typewriter font: \ttfamily inside \lstset
+\lstset{language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
