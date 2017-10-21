@@ -113,6 +113,41 @@ void play_note(uint8_t letter_ascii, uint8_t quarters) {
         The program will continue displaying the Main Menu until a valid choice is inputted by the user.
 
 
+    \section{Testing and Troubleshooting}
+    A few hardware issues were discovered during the project. The UART failed to connect the AVR Butterfly to the host machine on multiple attempts, suggesting a need for a replacement as soon as possible. \\
+    \noindent Before uploading to the board, the implementation of the project was verified using GCC. A Makefile has been provided for compiling and running with GCC for debugging the program before uploading to the board. The Makefile comes with the following recipes:
+
+    \begin{itemize}
+
+        \item \codeword{compile}: to compile the program with GCC
+
+        \item \codeword{run}: to run the GCC-compiled executable
+
+        \item \codeword{clean}: to remove temporary and executable files 
+
+    \end{itemize}
+
+    \noindent In order to compile with GCC, the following changes must be made to the source code:
+
+    \begin{itemize}
+
+        \item Remove:
+\begin{lstlisting}
+stderr = stdout = stdin = &uart_stream;
+UARTInit();
+\end{lstlisting}
+        from \codeword{main()} in \codeword{main.c} to keep the standard IO untouched by the AVR libraries.
+
+        \item Remove the AVR libraries \codeword{AVR/io.h}, \codeword{AVR/pgmspace.h} and \codeword{util/delay.h} and the included \codeword{U0_UART.h}.
+
+        \item Remove any declarations of the macro \codeword{PROGMEM}.
+
+        \item Replace the program space directed functions such as \codeword{printf_P} and \codeword{sscanf_P} with the standard functions \codeword{printf} and \codeword{sscanf}.
+
+        \item Comment out the \codeword{_delay_ms()} functions in \codeword{music.c}.
+
+    \end{itemize}
+
     \section{Code}
     The C scripts used for the implementation has been attached alongside the report.
 
