@@ -3,6 +3,7 @@
 
 from ast import literal_eval
 
+import numpy as np
 import plotly.plotly as py
 import plotly.graph_objs as go
 
@@ -26,7 +27,6 @@ def dist_scatter(x, cmul4_line, cmul3_line):
     data = [cmul4, cmul3]
 
     layout = go.Layout(
-        title="Mean Runtimes",
         xaxis={
             "title": "Data Size",
         },
@@ -57,7 +57,6 @@ def diff_boxplot(file_names, diffs):
         ))
 
     layout = go.Layout(
-        title="Distribution of Differences in The Multiplication Methods",
         xaxis={
             "title": "Data Size",
         },
@@ -104,6 +103,15 @@ if __name__ == "__main__":
 
             next(anaylsis_file)
             diffs.append(literal_eval(next(anaylsis_file)))
+
+    def reject_outliers(data, m=15):
+        d = np.abs(data - np.median(data))
+        mdev = np.median(d)
+        s = d / mdev if mdev else 0.
+        return data[s < m]
+
+    diffs = [reject_outliers(np.array(diff)) for diff in diffs]
+    print([len(d) for d in diffs])
 
     # credentials for plot.ly API
     py.sign_in(username=USERNAME, api_key=API_KEY)

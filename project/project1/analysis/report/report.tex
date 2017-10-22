@@ -17,24 +17,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[usletter, 12pt]{article}
-\input{structure.tex} % Input the structure.tex file which specifies the document layout and style
-
-%----------------------------------------------------------------------------------------
-%   DYNAMIC CONTRACT INFORMATION
-%----------------------------------------------------------------------------------------
+\input{structure.tex}  % document layout and style
 
 % Member's information
 \newcommand{\project}{Project 1: Divide and Conquer}
-\newcommand{\Sabbir}{Sabbir Ahmed}
-\newcommand{\Zafar}{Zafar Mamarakhimov}
+\newcommand{\members}{Sabbir Ahmed \& Zafar Mamarakhimov}
 
 %----------------------------------------------------------------------------------------
 
 \begin{document}
-
-    %----------------------------------------------------------------------------------------
-    %   TITLE PAGE
-    %----------------------------------------------------------------------------------------
 
     \begin{titlepage}
 
@@ -47,9 +38,7 @@
             
             \vspace*{\fill}
 
-            \Sabbir
-
-            \Zafar
+            \members
 
         \end{center}
         \vspace*{\fill} % Add whitespace below to center the title page content
@@ -60,14 +49,14 @@
     A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
 
         \subsection{Background}
-        A complex number z is given by a real part x and an imaginary part y,
+        A complex number z is given by a real part $x$ and an imaginary part $y$,
             \[ z=x+iy, \]
         where \textit{i} is the imaginary unit $\sqrt{-1}$.
 
         Multiplying two complex numbers are similar to multiplying polynomials. Let $z_{1}=x_{1}+iy_{1}$ and $z_{2}=x_{2}+iy_{2}$ be two complex numbers. Then their product is
             \[ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y2+y_{1}x_{2}) \]
 
-        That is, the real part of $z_{1}z_{2}$ is $x_{1}x_{2}-y_{1}y_{2}$ and the imaginary part is $x_{1}y_{2}+y_{1}x_{2}$. The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "+\textit{i}" doesn't count as an addition as this is really just notation to separate the real and imaginary parts).
+        That is, the real part of $z_{1}z_{2}$ is $x_{1}x_{2}-y_{1}y_{2}$ and the imaginary part is $x_{1}y_{2}+y_{1}x_{2}$. The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "$+i$" does not count as an addition as this is really just notation to separate the real and imaginary parts).
 
         As it turns out, there is a way to reduce the number of real multiplications needed to compute a complex product. It is based on the following observation, which is similar to how Karatsuba's method for multiprecision multiplication was derived:
             \[ (x_{1}+y_{1})(x_{2}+y_{2})=x_{1}x_{2}+(x_{1}y_{2}+y_{1}x_{2})+y_{1}y_{2} \]
@@ -81,82 +70,122 @@
 
         When multiplying a list of numbers, the difference between three or four real multiplications per complex multiplication can make a significant difference in the running time, especially if individual real multiplications are expensive. Multiprecision arithmetic is required to handle the growth of the product as the numbers get multiplied. Since the cost to perform a single real multiplication will increase per iteration, the use of the "three-multiply" complex multiplication is expected to be faster than the "four-multiply" version. However, since the three-multiply version requires more additions, it may not pay-off until the numbers are large or the list of numbers is long.
 
+    \section{Crossover Point}
+
         The point at which the asymptotically better algorithm becomes faster is called the \textit{crossover point}.
 
-    \section{Implementation}
-    The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, was used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identical.
+        \subsection{Theoretical Results}
 
-\begin{lstlisting}
+    \section{Implementation}
+    The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, were used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identically. The algorithm of the implementation is described in the pseudocode snippet provided in Algorithm \thesection.\ref{alg1}.
+
+\begin{pseudocode}[caption={Divide and Conquer Multiplication}, label={alg1}]
 /*
 Uses a divide and conquer method to recursively multiply all the elements in
 the complex array using either of the multiplication methods
 
 Inputs:
-    - complex_array (std::vector<mpz_class>):
-        vector of GMP integer pairs
-    - first, last (const size_t): first and last indices of the subarray
+    - complex_array: vector of GMP integer pairs
+    - first, last: first and last indices of the subarray
 
 Outputs:
-    - cmulx() outputs (std::vector<mpz_class>):
-        final complex product
+    - cmulx() outputs: final complex product
 */
-std::vector<mpz_class> cmulx_list(
-        std::vector<std::vector<mpz_class>> complex_array,
-        const size_t first,
-        const size_t last
-) {
+function cmulx_list(complex_array, first, last):
 
     // if length of the array is 1
-    if (first == last) {
-        return complex_array[first];
-    }
+    if (first == last):
+        return complex_array[first]
 
-    size_t mid = (first + last) / 2;
+    mid = (first + last) / 2
+    left_half = cmulx_list(complex_array, first, mid)
+    right_half = cmulx_list(complex_array, mid + 1, last)
 
-    return cmulx(
-            cmulx_list(complex_array, first, mid),
-            cmulx_list(complex_array, mid + 1, last)
-    );
+    return cmulx(left_half, right_half)
 
-}
-\end{lstlisting}
-
-        % example of adding figures
-        % \begin{figure}[ht]
-        %     \begin{center}
-        %         \includegraphics[width=1\textwidth]{<FILENAME>.png}
-        %         \caption{<CAPTION>}
-        %     \end{center}
-        % \end{figure}
+\end{pseudocode}
 
     \section{Testing and Timing}
-        \subsection{Testing Platform Specifications}
 
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        \subsection{Platform Specifications}
+        Before generating the statistics used in the document, information on the CPU and memory usage of the hosting machine were obtained. The following tables details the specifications captured before initializing the testing procedure.
 
-        % example of adding tables
-        \iffalse
         \begin{table}[h]
-            \caption{Example of values of registers after STATE1}
+            \caption{Information about the CPU Architecture, Generated by \textit{\$ lscpu}}
             \centering
-            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} c c c}
+            \begin{tabular*}{300pt}{@{\extracolsep{\fill}} p{5cm} p{5cm}}
 
-            \textbf{Register} & \textbf{Before} & \textbf{After} \\
+            \textbf{Component} & \textbf{Specification} \\
             \hline
-            USER & 0b01000000  & 0b01000000 \\
-            CURSOR & 0b01000000 & 0b01000000  \\
-            REALSTATE & 0b01000000 & 0b01000000 \\
-            NSHIFT & 0b00000001 & 0b00000000 \\
-            \hline
-            \textbf{UART} & 1,D, & 1,D,D,2,S,\textbackslash n \\
+            Architecture:          & x86\_64 \\
+            CPU op-mode(s):        & 32-bit, 64-bit \\
+            Byte Order:            & Little Endian \\
+            CPU(s):                & 4 \\
+            On-line CPU(s) list:   & 0-3 \\
+            Thread(s) per core:    & 2 \\
+            Core(s) per socket:    & 2 \\
+            Socket(s):             & 1 \\
+            NUMA node(s):          & 1 \\
+            Vendor ID:             & GenuineIntel \\
+            CPU family:            & 6 \\
+            Model:                 & 142 \\
+            Model name:            & Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz \\
+            Stepping:              & 9 \\
+            CPU MHz:               & 1824.398 \\
+            CPU max MHz:           & 3100.0000 \\
+            CPU min MHz:           & 400.0000 \\
+            BogoMIPS:              & 5423.89 \\
+            Virtualization:        & VT-x \\
+            L1d cache:             & 32K \\
+            L1i cache:             & 32K \\
+            L2 cache:              & 256K \\
+            L3 cache:              & 3072K \\
+            NUMA node0 CPU(s):     & 0-3 \\
             \end{tabular*}
         \end{table}
-        \fi
 
+        \begin{table}[h]
+            \caption{Information about the Memory, Generated by \textit{\$ free -gh}}
+            \centering
+            \begin{tabular*}{400pt}{@{\extracolsep{\fill}} ccccccc}
+
+            \textbf{Component} & \textbf{total} & \textbf{used} & \textbf{free} & \textbf{shared} & \textbf{buff/cache} & \textbf{available} \\
+            \hline
+            Mem: & 3.7G & 2.0G & 344M & 291M & 1.4G & 555M \\
+            Swap: & 7.8G & 1.1G & 6.7G & & & \\
+            \end{tabular*}
+        \end{table}
+
+
+        \subsection{Testing Methodology}
+        The divide and conquer functions of individual multiplication methods were timed. An example of the output time is provided in Figure \ref{time_sample}.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.3\textwidth]{time_sample.png}
+                \caption{Sample Output of The Program Generated by cmplx\_numbers\_32\_8bit.txt} \label{time_sample}
+            \end{center}
+        \end{figure}
+
+        The program, however, generates its output after a single iteration of the function call. The output times may vary on each execution due to the hosting machine fluctuating on its core and memory usage from other running processes. Therefore, further steps were taken to compute additional statistics on the timings.
+
+        An additional Makefile has been provided to generate timings on multiple iterations. 200 iterations were used to compute the current statistics. Furthermore, each iteration recompiles before running the program. A clean compilation prevents any external influences and overhead from the system on the individual timings. All the outputs for a single input are dumped to a buffer file, which is later parsed by an external helper script to generate the following statistics:
+
+        \begin{itemize}
+
+            \item Mean
+            \item Median
+            \item Standard deviation
+            \item Differences of the timing of the two methods
+
+        \end{itemize}
+
+        \subsection{Results}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{diffs.png}
+                \caption{Distribution of Differences in The Multiplication Methods} \label{diffs}
+            \end{center}
+        \end{figure}
 
 \end{document}
