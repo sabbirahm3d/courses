@@ -63,11 +63,11 @@ module vga_sync(
     always @(posedge clk) begin
         hcount <= en ? (hreset ? 0 : hcount + 1) : hcount;
         hblank <= hreset ? 0 : hblankon ? 1 : hblank;
-        hsync <= hsyncon ? 0 : hsyncoff ? 1 : hsync;   // hsync is active low
+        hsync <= hsyncon ? 0 : hsyncoff ? 1 : hsync;  // hsync is active low
 
         vcount <= hreset ? (vreset ? 0 : vcount + 1) : vcount;
         vblank <= vreset ? 0 : vblankon ? 1 : vblank;
-        vsync <= vsyncon ? 0 : vsyncoff ? 1 : vsync;   // vsync is active low
+        vsync <= vsyncon ? 0 : vsyncoff ? 1 : vsync;  // vsync is active low
     end
 
 endmodule

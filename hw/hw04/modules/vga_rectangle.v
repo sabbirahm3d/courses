@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 ///////////////////////////////////////////////////////////////////////////////
 // Company:
 // Engineer:
@@ -19,17 +20,17 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 module vga_rectangle(
-            output reg red,
-            output reg green,
-            output reg blue,
-            input [9:0] pos_h,
-            input [9:0] pos_v,
-            input blank,
-            input clk,
-            input SW0,
-            input SW1,
-            input SW2
-        );
+        output reg red,
+        output reg green,
+        output reg blue,
+        input [9:0] pos_h,
+        input [9:0] pos_v,
+        input blank,
+        input clk,
+        input SW0,
+        input SW1,
+        input SW2
+    );
 
     parameter WIDTH = 20;
     parameter HEIGHT = 100;
@@ -40,7 +41,7 @@ module vga_rectangle(
     wire flag_on_rect;  // high only when over rectangle
     wire [9:0] x, y;  // traditional cartesean coordinates
 
-    // combinatorial logic to calculate x,y coordinate system
+    // combinatorial logic to calculate x, y coordinate system
     assign x = pos_h;
     assign y = 480 - pos_v;
 
@@ -55,32 +56,28 @@ module vga_rectangle(
 
         case ({SW2, SW1, SW0})
 
-            3'b001:
-            begin
+            3'b001: begin
                 // yellow
                 red <= flag_on_rect & ~blank;
                 green <= flag_on_rect & ~blank;
                 blue <= ~flag_on_rect & blank;
             end
 
-            3'b010:
-            begin
+            3'b010: begin
                 // magenta
                 red <= flag_on_rect & ~blank;
                 green <= ~flag_on_rect & blank;
                 blue <= flag_on_rect & ~blank;
             end
 
-            3'b100:
-            begin
+            3'b100: begin
                 // cyan
                 red <= ~flag_on_rect & blank;
                 green <= flag_on_rect & ~blank;
                 blue <= flag_on_rect & ~blank;
             end
 
-            default:
-            begin
+            default: begin
                 red <= ~flag_on_rect & blank;
                 blue <= ~flag_on_rect & blank;
                 green <= ~flag_on_rect & blank;
