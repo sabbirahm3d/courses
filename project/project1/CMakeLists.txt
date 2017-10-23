@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.6)
-project(divide_and_conquer)
+cmake_minimum_required(VERSION 3.8)
+project(project1)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(CMAKE_C_FLAGS "-lgmp")
+set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp main.h)
-add_executable(main ${SOURCE_FILES})
+set(SOURCE_FILES
+    CMakeLists.txt
+    main.cpp
+    main.h)
 
-include_directories(main "/usr/local/include")
-target_link_libraries(main gmp)
+add_executable(project1 ${SOURCE_FILES})

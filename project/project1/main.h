@@ -22,7 +22,7 @@ declarations used in the main driver file.
 #include <vector>
 
 #include <gmp.h>
-#include <gmpxx.h>  // C++11 wrapper for GMP, includes class declarations
+//#include <gmpxx.h>  // C++11 wrapper for GMP, includes class declarations
 
 // ---------------------------- Helper functions ----------------------------
 
