@@ -3,30 +3,42 @@
 
 from ast import literal_eval
 
+import numpy as np
 import plotly.plotly as py
 import plotly.graph_objs as go
 
 from secret import API_KEY, USERNAME
 
 
-def dist_scatter(x, cmul4_line, cmul3_line):
+def dist_scatter(x, cmul4_line, cmul3_line, cmul4_std, cmul3_std):
 
     cmul4 = go.Scatter(
         x=x,
         y=cmul4_line,
+        error_y=dict(
+            type='data',
+            array=cmul4_std,
+            visible=True
+        ),
+        opacity=0.4,
         name="cmul4()",  # Style name/legend entry with html tags
         connectgaps=True
     )
     cmul3 = go.Scatter(
         x=x,
         y=cmul3_line,
+        error_y=dict(
+            type='data',
+            array=cmul3_std,
+            visible=True
+        ),
+        opacity=0.8,
         name="cmul3()",
     )
 
     data = [cmul4, cmul3]
 
     layout = go.Layout(
-        title="Mean Runtimes",
         xaxis={
             "title": "Data Size",
         },
@@ -57,15 +69,14 @@ def diff_boxplot(file_names, diffs):
         ))
 
     layout = go.Layout(
-        title="Distribution of Differences in The Multiplication Methods",
         xaxis={
             "title": "Data Size",
         },
         yaxis={
             "title": "$(t_{cmul4()} - t_{cmul3()}) \ ms$",
         },
-        font={"size": 18},
-        height=900, width=1600
+        font={"size": 20},
+        height=900, width=1800
     )
 
     fig = go.Figure(data=data, layout=layout)
@@ -105,11 +116,23 @@ if __name__ == "__main__":
             next(anaylsis_file)
             diffs.append(literal_eval(next(anaylsis_file)))
 
+    def reject_outliers(data, m=10):
+        d = np.abs(data - np.median(data))
+        mdev = np.median(d)
+        s = d / mdev if mdev else 0.
+        return data[s < m]
+
+    diffs = [reject_outliers(np.array(diff)) for diff in diffs]
+
     # credentials for plot.ly API
     py.sign_in(username=USERNAME, api_key=API_KEY)
 
-    fig = diff_boxplot(file_names, diffs)
-    py.image.save_as(fig, filename=fig_dir + "diffs.png")
+    # fig = diff_boxplot(file_names, diffs)
+    # py.image.save_as(fig, filename=fig_dir + "diffs.png")
 
-    fig = dist_scatter([x[14:] for x in file_names], means[::2], means[1::2])
+    fig = dist_scatter(
+        [x[14:] for x in file_names],
+        medians[::2], medians[1::2],
+        std_devs[::2], std_devs[1::2],
+    )
     py.image.save_as(fig, filename=fig_dir + "means.png")

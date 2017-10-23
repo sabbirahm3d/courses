@@ -29,6 +29,7 @@ clean:
 .PHONY: clean-all
 clean-all:
 	# clean out cache and temporary files
+	@make --no-print-directory clean
 	# clean temporary LaTex files
 	@find . \( -name "*.log" -o -name "*.aux" \) -type f -delete
 	# clean compiled Python files

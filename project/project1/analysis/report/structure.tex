@@ -39,20 +39,28 @@
 
 \definecolor{green}{rgb}{0.18, 0.55, 0.34}
 
-\NewDocumentCommand{\inlsnip}{v}{
-    \texttt{\textcolor{blue}{#1}}
-}
-
 \graphicspath{ {figures/} }
 \captionsetup[table]{skip=10pt}
 
 \lstset{language=C, keywordstyle={\bfseries \color{black}}}
 
-% Using typewriter font: \ttfamily inside \lstset
-\lstset{language=C++,
-    basicstyle=\ttfamily,
-    keywordstyle=\color{blue}\ttfamily,
-    stringstyle=\color{red}\ttfamily,
-    commentstyle=\color{green}\ttfamily,
-    morecomment=[l][\color{magenta}]{\#}
-}
+\newcounter{nalg}[section] % defines algorithm counter for chapter-level
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}} %defines appearance of the algorithm counter
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+%defines the algorithm listing environment
+\lstnewenvironment{pseudocode}[1][] {   
+    \refstepcounter{nalg} %increments algorithm number
+    \captionsetup{labelformat=algocaption,labelsep=colon} %defines the caption setup for: it ises label format as the declared caption label above and makes label and caption text to be separated by a ':'
+    \lstset{
+        mathescape=true,
+        frame=tB,
+        numbers=left,
+        numberstyle=\tiny,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{black}\bfseries\em,
+        keywords={,input, output, return, datatype, function, in, if, else, foreach, while, begin, end, },
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}{}
