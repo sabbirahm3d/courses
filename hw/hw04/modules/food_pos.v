@@ -1,49 +1,53 @@
 `timescale 1ns / 1ps
 `default_nettype none
-///////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
+//////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    13:05:21 10/22/2017 
+// Design Name: 
+// Module Name:    food_pos
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
 //
-// Create Date:    18:33:21 09/9/2017
-// Design Name:
-// Module Name:    vga_rectangle
-// Project Name:
-// Target Devices:
-// Tool versions:
-// Description:
+// Dependencies: 
 //
-// Dependencies:
-//
-// Revision:
+// Revision: 
 // Revision 0.01 - File Created
-// Additional Comments:
+// Additional Comments: 
 //
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 module food_pos(
-        input wire enable,
         input wire clk,
+        input wire enable,
         input wire clr,
         output reg [8:0] x,
         output reg [8:0] y
     );
 
-    reg [8:0] cnt_int;  // internal counter
+    reg [8:0] internal_ctr, lfsr;  // internal counter
     wire feedback;
 
     // polynomial for maximal LFSR of 9 bits (2^9-1 terms)
-    assign feedback = ~(cnt_int[8] ^ cnt_int[4]);
+    assign feedback = ~(lfsr[8] ^ lfsr[4]);
 
     initial begin
 
         x = 9'b0;
         y = 9'b0;
-        cnt_int = 9'b0;
+        lfsr = 9'b0;
+        internal_ctr = 9'b0;
 
     end
 
     always @(posedge clk) begin
-        cnt_int <= {cnt_int[7:0], feedback};
+
+        lfsr <= {lfsr[7:0], feedback};
+        internal_ctr <= internal_ctr + 1;
+
     end
 
     always @(posedge clk, posedge clr) begin
@@ -57,8 +61,8 @@ module food_pos(
         // if enable
         end else if (enable) begin
 
-            x <= cnt_int;
-            y <= cnt_int + cnt_int;
+            x <= lfsr;
+            y <= lfsr + internal_ctr;
 
         end
 

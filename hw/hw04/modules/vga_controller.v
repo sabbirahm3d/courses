@@ -20,7 +20,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-module vga_border(
+module vga_controller(
         input wire clk, 
         output vga_h_sync, 
         output vga_v_sync, 

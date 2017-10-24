@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 `default_nettype none
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date:    20:43:21 10/09/2017 
+// Create Date:    13:05:21 10/22/2017 
 // Design Name: 
-// Module Name:    food_pos_tb 
+// Module Name:    food_pos
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,7 +18,8 @@
 // Revision 0.01 - File Created
 // Additional Comments: 
 //
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
 module food_pos_tb;
 
     reg enable;
@@ -27,11 +28,9 @@ module food_pos_tb;
     wire [8:0] x, y;
 
     food_pos food_pos_instance(
-        .enable(enable),
         .clk(clk),
-        .clr(clr),
-        .x(x),
-        .y(y)
+        .enable(enable), .clr(clr),
+        .x(x), .y(y)
     );
 
     always begin
