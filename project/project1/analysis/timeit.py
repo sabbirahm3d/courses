@@ -13,7 +13,7 @@ The script is meant to be executed in conjunction with the Makefile:
 
 
 from itertools import zip_longest
-from statistics import mean, median, stdev
+from statistics import mean
 
 if __name__ == "__main__":
 
@@ -43,20 +43,6 @@ if __name__ == "__main__":
         print("cmul3 ave: {0:.6f} ms".format(
             mean(cmul3_times) * 1000), file=output_file)
 
-        # medians
-        print("cmul4 med: {0:.6f} ms".format(
-            median(cmul4_times) * 1000), file=output_file)
-        print("cmul3 med: {0:.6f} ms".format(
-            median(cmul3_times) * 1000), file=output_file)
-
-        # standard deviations
-        print("cmul4 std: {0:.6f} ms".format(
-            stdev(cmul4_times) * 1000), file=output_file)
-        print("cmul3 std: {0:.6f} ms".format(
-            stdev(cmul3_times) * 1000), file=output_file)
-
         # differences in the execution times
         print("diffs:", file=output_file)
         print(diffs, file=output_file)
-        # mean of differences
-        print("diffs mean: {0:.6f} ms".format(mean(diffs)), file=output_file)
