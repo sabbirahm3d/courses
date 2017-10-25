@@ -12,6 +12,7 @@
 !Makefile
 !*.py
 !*.v
+!top_level_design.xml
 
 # Xilinx project files to include
 !*.bit
