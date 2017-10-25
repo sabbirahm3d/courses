@@ -53,9 +53,14 @@
         \item
         Problems in this exercise refer to the following sequence of instructions:
 
-        LW  \ \ \ \   \$5, -16(\$5) \\
-        SW  \ \ \ \   \$5, -16(\$5) \\
-        ADD \         \$5, \$5, \$5 \\
+        \begin{table}[h]
+            \centering
+            \begin{tabular*}{100pt}{@{\extracolsep{\fill}} llll}
+            LW  & \$5, & -16(\$5) & \\
+            SW  & \$5, & -16(\$5) & \\
+            ADD & \$5, & \$5, & \$5 \\
+            \end{tabular*}
+        \end{table}
 
         \begin{enumerate}
 
@@ -73,12 +78,16 @@
             \textbf{Answer} \\
             With no forwarding, the only hazards are the RAW.
 
-            $\therefore$ \nolinebreak
-                \ LW \ \ \ \$5, -16(\$5) \\
-                \indent  \ \ \ \  NOP \\
-                \indent  \ \ \ \  NOP \\
-                \indent  \ \ \ \  SW \ \ \ \$5, -16(\$5) \\
-                \indent  \ \ \ \ ADD \$5, \$5, \$5 \\
+            \begin{table}[h]
+                \centering
+                \begin{tabular*}{100pt}{@{\extracolsep{\fill}} llll}
+                LW & \$5, & -16(\$5) & \\
+                NOP & & & \\
+                NOP & & & \\
+                SW & \$5, & -16(\$5) & \\
+                ADD & \$5, & \$5, & \$5 \\
+                \end{tabular*}
+            \end{table}
 
             \item \textbf{Question}
             Assume there is full forwarding, indicate hazards and add NOP instructions to eliminate unresolved cases.
@@ -86,12 +95,16 @@
             \textbf{Answer} \\
             The only hazard with full forwarding is the RAW: \\
 
-            $\therefore$ \nolinebreak
-                \ LW \ \ \ \$5, -16(\$5) \\
-                \indent  \ \ \ \  NOP \\
-                \indent  \ \ \ \  SW \ \ \ \$5, -16(\$5) \\
-                \indent  \ \ \ \ ADD \$5, \$5, \$5 \\
 
+            \begin{table}[h]
+                \centering
+                \begin{tabular*}{100pt}{@{\extracolsep{\fill}} llll}
+                LW & \$5, & -16(\$5) & \\
+                NOP & & & \\
+                SW & \$5, & -16(\$5) & \\
+                ADD & \$5, & \$5, & \$5 \\
+                \end{tabular*}
+            \end{table}
 
             The remaining problem in this exercise assumes the following clock cycle times:
 
@@ -115,17 +128,22 @@
             Speed up: $\frac{1000}{1100}=0.91$
 
         \end{enumerate}
+        \newpage
 
-            For this problem, assume that all branches are resolved in ID stage and are perfectly predicted (this eliminates all control hazards). For the following fragment of MIPS code:
+            \item For this problem, assume that all branches are resolved in ID stage and are perfectly predicted (this eliminates all control hazards). For the following fragment of MIPS code:
 
-            LW \$5, -16(\$5) \\
-            SW \$4, -16(\$4) \\
-            LW \$3, -20(\$4) \\
-            BEQ \$2, \$0, Label \ \ \ \ \ ; assume \$2 $\neq$ \$0 \\
-            ADD \$1, \$5, \$4 \\
-            Label: \\
-            SUB \$2, \$1, \$3 \\
-            
+            \begin{table}[h]
+                \centering
+                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} lllll}
+                LW & \$5, & -16(\$5) & & \\
+                SW & \$4, & -16(\$4) & & \\
+                LW & \$3, & -20(\$4) & & \\
+                BEQ & \$2, & \$0, & Label & ; assume \$2 $\neq$ \$0 \\
+                ADD & \$1, & \$5, & \$4 \\
+                Label: & SUB & \$2, & \$1, & \$3 \\
+                \end{tabular*}
+            \end{table}
+
             If we only have one memory (for both instruction and data), there is a structural hazard every time we need to fetch an instruction in the same cycle in which another instruction accesses data. To guarantee forward progress, this hazard must always be resolved in favor of the instruction that accesses data.
 
         \begin{enumerate}
@@ -134,21 +152,67 @@
             What is the total execution time of this instruction sequence in the 5-stage pipeline that only has one memory?
 
             \textbf{Answer} \\
+            Labeling the instructions:
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular*}{200pt}{@{\extracolsep{\fill}} llllll}
+                LW & \$5, & -16(\$5) & & & I1 \\
+                SW & \$4, & -16(\$4) & & & I2 \\
+                LW & \$3, & -20(\$4) & & & I3 \\
+                BEQ & \$2, & \$0, & Label & & I4 \\
+                ADD & \$1, & \$5, & \$4  & & I5 \\
+                Label: & SUB & \$2, & \$1, & \$3 & \\
+                \end{tabular*}
+            \end{table}
+
+
+            \begin{table}[h]
+                \caption{12 Cycles Required for 5 Instructions}
+                \centering
+                \begin{tabular*}{450pt}{@{\extracolsep{\fill}} c|cccccccccccc}
+
+                \textbf{Stage} & \textbf{t0} & \textbf{t1} & \textbf{t2} & \textbf{t3} & \textbf{t4} & \textbf{t5} & \textbf{t6} & \textbf{t7} & \textbf{t8} & \textbf{t9} & \textbf{t10} & \textbf{t11} \\
+                \hline
+                IF & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & & & \\
+                ID & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & & \\
+                EX & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & \\
+                MEM & & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & \\
+                WB & & & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 \\
+                \end{tabular*}
+            \end{table}
 
             \item \textbf{Question}
             How can the structural hazard be eliminated by adding NOP to the code? (Please show a modified version of the program with the added NOP instructions)
 
             \textbf{Answer} \\
+            Inserting NOP instructions cannot resolve the structural hazard since NOPs requires access to memory.
 
         \end{enumerate}
+        \newpage
 
-        \item
-        \begin{enumerate}
+        \item \textbf{Question}
+        For following code, assume that the loop index (\$10) is a multiple of 8:
 
-            \item \textbf{Question}
-            We wish to add the instruction “ADDI” (Add immediate) and “LUI” (load upper immediate) to the shown single-cycle simple processor. Add any datapath and control signals and show the value of the control signals while executing the new “ADDI” and “LUI” instruction. \\
+        \begin{table}[h]
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} lllll}
 
-        \end{enumerate}
+            Loop: & LW & \$2, & 0(\$10) & \\
+                & SUB & \$4, & \$2, & \$3 \\
+                & SW & \$4, & 0(\$10) & \\
+                & LW & \$5, & 4(\$10) & \\
+                & SUB & \$6, & \$5, & \$3 \\
+                & SW & \$6, & 4(\$10) & \\
+                & ADDI & \$10, & \$10, & 8 \\
+                & BNE & \$10, & \$30, & Loop \\
+            \end{tabular*}
+        \end{table}
+
+        Schedule this code (reorder the instructions and make any necessary changes) for fast execution on the 5-stage MIPS pipeline. Assume data forwarding and not-taken prediction of conditional branching.
+
+        \textbf{Answer} \\
+
 
     \end{enumerate}
 
