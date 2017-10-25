@@ -24,40 +24,40 @@
 
 \begin{document}
 
-    \documentinfo{\textbf{Homework 4: Snake}}{\today}{Sabbir Ahmed}
+    \documentinfo{\textbf{Homework 4: Snake Preliminary Design}}{\today}{Sabbir Ahmed}
     \vspace{-0.1in}
 
     \section{Background}
     For this assignment, a version of the classical snake game will be implemented.
 
-    The game was to conform to the following specifications:
+    % The game was to conform to the following specifications:
 
-    \begin{itemize}
+    % \begin{itemize}
 
-        \item The game play area is set up as a 26-by-38 grid surrounded by an electric fence (blue). The game display should occupy the majority of the screen.
+    %     \item The game play area is set up as a 26-by-38 grid surrounded by an electric fence (blue). The game display should occupy the majority of the screen.
 
-        \item To start the game, press RESET/BTN\_SOUTH. Upon release, a single grid point represents a snake (green) and a single grid point represents food (red).
+    %     \item To start the game, press RESET/BTN\_SOUTH. Upon release, a single grid point represents a snake (green) and a single grid point represents food (red).
 
-        \item The snake starts by moving to the right one grid point roughly every 1/8th of a second (125 ms update interval).
+    %     \item The snake starts by moving to the right one grid point roughly every 1/8th of a second (125 ms update interval).
 
-        \item A player may change the direction of the movement by 90 degree clockwise or counterclockwise by using the rotary switch on the FPGA board. Every position (notch) change of the rotary switch should correspond to a 90 degree angle change.
+    %     \item A player may change the direction of the movement by 90 degree clockwise or counterclockwise by using the rotary switch on the FPGA board. Every position (notch) change of the rotary switch should correspond to a 90 degree angle change.
 
-        \item If the snake goes onto the fence, the game should freeze.
+    %     \item If the snake goes onto the fence, the game should freeze.
 
-        \item If the snake goes onto the food, the length of the snake should increase by one grid segment on the next movement with a trailing body, per the behavior of the game shown in the provided link. The moving head be green, and the grown body should be cyan (green+blue).
+    %     \item If the snake goes onto the food, the length of the snake should increase by one grid segment on the next movement with a trailing body, per the behavior of the game shown in the provided link. The moving head be green, and the grown body should be cyan (green+blue).
 
-        \item Each time the snake reaches the food, another food should be positioned in a manor seemly random to the user.
+    %     \item Each time the snake reaches the food, another food should be positioned in a manor seemly random to the user.
 
-        \item Each subsequent time the snake eats food, the segment length should grow by one, up to a length of 32 (including the head).
+    %     \item Each subsequent time the snake eats food, the segment length should grow by one, up to a length of 32 (including the head).
 
-        \item If the head of the snake overlaps a body segment then the game should freeze.
+    %     \item If the head of the snake overlaps a body segment then the game should freeze.
 
-        \item If the length of the snake reaches 32, the game should instead increase in speed by reducing the update interval by roughly 10 ms.
+    %     \item If the length of the snake reaches 32, the game should instead increase in speed by reducing the update interval by roughly 10 ms.
 
-    \end{itemize}
+    % \end{itemize}
 
     \section{Design Approach}
-    Several discrete modules will be used to implement the game: \inlsnip{igniter}, \inlsnip{extinguisher} and \inlsnip{candle_controller}. These submodules were connected and debounced using a top level module that may be visualized with the schematic diagram configured as a block diagram in Figure \ref{fig:schematic}.
+    Several discrete modules will be used to implement the game: \inlsnip{rotary_oneshot}, \inlsnip{direction} \inlsnip{snake_pos}, \inlsnip{food_pos}, \inlsnip{collision}, \inlsnip{pacemaker} and \inlsnip{vga_layout}. These submodules will be connected using a top level module that may be visualized with the schematic diagram configured as a block diagram in Figure \ref{fig:schematic}. All the modules implicitly accept clock cycles as inputs.
 
     \begin{figure}[ht]
         \begin{center}
@@ -67,7 +67,25 @@
     \end{figure}
     \newpage
 
-    %     \subsection{igniter}
+        \subsection{direction and rotary\_oneshot}
+        The \inlsnip{rotary_oneshot} and \inlsnip{direction} modules will both be used as to control the user inputs.
+
+        \inlsnip{rotary_oneshot} directly handles the user inputs, \texttt{rot\_a}, \texttt{rot\_b} and \texttt{reset}. The inputs are one-shotted and passed to \inlsnip{direction} to determine the direction the user intended. This module sets an enable to the \inlsnip{snake_pos} module to notify a change in direction.
+
+        \subsection{snake\_pos}
+        The \inlsnip{snake_pos} module generates the coordinates for the 32 segments of the snake body, including its head. The module takes in the 2 bit direction and 1 bit enable inputs from \inlsnip{direction}. It also accepts the \texttt{interval} input from \inlsnip{pacemaker} to determine the speed of the moving snake body.
+
+        \subsection{food\_pos}
+        This module generates the \texttt{rand\_x} and \texttt{rand\_y} coordinates of the food when enabled by the \inlsnip{collision} module.
+
+        \subsection{collision and pacemaker}
+        \inlsnip{collision} accepts the coordinates of the food and the snake segments and determines if a collision has been detected. If a collision has not been detected, it sends out an enable signal to the \inlsnip{snake_pos} module. If a collision with the snake body, specifically the snake head, with the food is detected, the module sends a signal to \inlsnip{pacemaker} to determine the interval at which the snake should move. This module has an internal counter that speeds up when the snake head had made 32 collisions with the food. If a collision between the snake head and the fence is detected, the game is frozen.
+
+        \subsection{vga\_layout}
+        This module draws the fence of the game, and the snake and the randomly placed food on the VGA display.
+
+    \section{Test Plan and Methodology}
+    Individual modules are being built sequentially. A testbench to accompany those modules are also being built concurrently. The sequence at which the modules are being tested and built can be outlined by the block diagram going from left to right. The leftmost modules are being built and tested before their proceeding modules, with the exception of \inlsnip{vga_layout} which required extensive testing to be able to withstand all its dependencies.
     %     The \inlsnip{igniter} submodule allowed the player to interface with the LEDs. It accepted the 4 switches as the input, representing them as the 4 bit \inlsnip{delta} of the current position of the user. The submodule also handled BTN\_NORTH, acting as the enable.
 
     %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \inlsnip{igniter_tb}. A sample waveform output has been provided:
