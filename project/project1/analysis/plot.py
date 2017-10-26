@@ -12,47 +12,39 @@ from secret import API_KEY, USERNAME
 
 def dist_scatter(x, cmul4_means, cmul3_means):
 
-    cmul4 = go.Scatter(
-        x=x,
-        y=cmul4_means,
-        opacity=0.4,
-        marker={
-            "color": "rgba(210, 50, 63, 1)"
-        },
-        name="cmul4",  # Style name/legend entry with html tags
-        connectgaps=True
-    )
-    cmul3 = go.Scatter(
-        x=x,
-        y=cmul3_means,
-        opacity=0.4,
-        marker={
-            "color": "rgba(48, 72, 115, 1)"
-        },
-        name="cmul4",  # Style name/legend entry with html tags
-        connectgaps=True
-    )
-
-    # cmul3_32 = go.Scatter(
-    #     x=x,
-    #     y=all_means[1],
-    #     marker={
-    #         "color": ""
-    #     },
-    #     name="32 cmul3",  # Style name/legend entry with html tags
-    #     opacity=0.8,
-    # )
-
-    data = [cmul4, cmul3]
+    data = [
+        go.Scatter(
+            x=x,
+            y=cmul4_means,
+            marker={
+                "size": 10,
+                "color": "rgb(205, 12, 24)"
+            },
+            name="cmul4",
+            connectgaps=True
+        ),
+        go.Scatter(
+            x=x,
+            y=cmul3_means,
+            marker={
+                "size": 10,
+                "color": "rgb(22, 96, 167)"
+            },
+            name="cmul3",
+            connectgaps=True
+        )
+    ]
 
     layout = go.Layout(
         xaxis={
-            "title": "Data Size",
+            "title": "Data Size (bits)",
         },
         yaxis={
-            "title": "ms",
+            "title": "Mean Time (ms)",
         },
-        font={"size": 18},
+        font={
+            "size": 18
+        },
         height=900, width=1600
     )
 
@@ -61,19 +53,23 @@ def dist_scatter(x, cmul4_means, cmul3_means):
     return fig
 
 
-def diff_boxplot(file_names, diffs):
+def diff_boxplot(x, diffs):
 
     data = []
-    for file_name, diff in zip(x, diffs):
-        data.append(go.Box(
-            y=diff,
-            name=x,
-            boxpoints="all",
-            jitter=0.2,
-            whiskerwidth=0.2,
-            line=dict(width=1),
-            showlegend=False,
-        ))
+    for ix, diff in zip(x, diffs):
+        data.append(
+            go.Box(
+                y=diff,
+                name=str(int(ix)) + " bits",
+                boxpoints="all",
+                jitter=0.2,
+                whiskerwidth=0.2,
+                line={
+                    "width": 1
+                },
+                showlegend=False,
+            )
+        )
 
     layout = go.Layout(
         xaxis={
@@ -142,14 +138,14 @@ if __name__ == "__main__":
 
         x = [x[17:-3] for x in file_names]
 
-        fig = diff_boxplot(file_names, diffs)
+        fig = diff_boxplot(x, diffs)
         py.image.save_as(
             fig,
             filename=fig_dir + str(32 * (ix + 1)) + "diffs.png"
         )
 
-        fig = dist_scatter(x, means[::2], means[1::2])
-        py.image.save_as(
-            fig,
-            filename=fig_dir + str(32 * (ix + 1)) + "means.png"
-        )
+        # fig = dist_scatter(x, means[::2], means[1::2])
+        # py.image.save_as(
+        #     fig,
+        #     filename=fig_dir + str(32 * (ix + 1)) + "means.png"
+        # )
