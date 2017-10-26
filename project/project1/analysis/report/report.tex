@@ -88,38 +88,59 @@
 
         \begin{equation*}
             \begin{split}
-                T(n) & = 3c \Bigg( \frac{n}{2}b \Bigg)^2 + 5d \Bigg(\frac{n}{2}b \Bigg) \\
+                f_1(n) & = 3c \Bigg( \frac{n}{2}b \Bigg)^2 + 5d \Bigg(\frac{n}{2}b \Bigg) \\
                 & = \frac{3}{4}cb^2n^2+\frac{5}{2}dbn \\
             \end{split}
         \end{equation*}
 
-        Asymptotically, the runtime may be computed using the recurrence relation as:
+        Similarly, for \texttt{cmul4()} would make four $b$-bit multiplies and two $b$-bit additions, so its running time is bounded by $4cb^2+2db$. The recurrence relation may be derived from this method:
+
         \begin{equation*}
             \begin{split}
-                & = \frac{3}{4}cb^2n^2+\frac{5}{2}dbn \\
-                & \leq \frac{3}{4}cb^2n^2 + cb^2n^2 \\
-                & = \frac{5}{4}cb^2n^2
+                f_2(n) & = 4c \Bigg( \frac{n}{2}b \Bigg)^2 + 2d \Bigg(\frac{n}{2}b \Bigg) \\
+                & = cb^2n^2+2dbn \\
             \end{split}
         \end{equation*}
 
+        Asymptotically, the runtime for either of the methods may be computed using the recurrence relation. Since the multiplication of $n$ integers require $\frac{n}{2}f(b)$ computations:
+        \begin{equation*}
+            \begin{split}
+                & = xb^2T \bigg(\frac{n}{2}\bigg), x > 0 \\
+            \end{split}
+        \end{equation*}
 
-        Continuing with $n=2$, my \texttt{cmul4()} would make four $b$-bit multiplies and two $b$-bit additions, so its running time is bounded by $4cb^2+2db$. 
+        Each levels of the tree comprises of $2^ib^2n$, for $i = 0, 1, \ldots, \lceil lgn\rceil$. Therefore:
+
+        \begin{equation*}
+            \begin{split}
+                \sum_{i=0}^{\lceil lgn\rceil} 2^ixb^2n & = xb^2n\sum_{i=0}^{\lceil lgn\rceil} 2^i \\
+                & = xb^2n \bigg(\frac{2^{\lceil lgn\rceil+1}-1}{2-1}\bigg) \\
+                & = xb^2n \bigg(2^{\lceil lgn\rceil+1}-1\bigg) \\
+                & \leq xb^2n \bigg(2^{\lceil lgn+1\rceil+1}-1\bigg) \\
+                & \approx xb^2n \big(2^{lgn}-1\big) \\
+                & = xb^2n (n-1) \\
+                & = xb^2n^2 - xb^2n \\
+                & = \mathcal{O}(b^2n^2) \\
+            \end{split}
+        \end{equation*}
+
+        Referring back to the multiplication functions, $f_1$ and $f_2$ can also be used to estimate the crossover points.
+
+        \begin{equation*}
+            \begin{split}
+                f_1(n) & = f_2(n) \\
+                \frac{3}{4}cb^2n^2+\frac{5}{2}dbn & = cb^2n^2+2dbn \\
+                b & = \frac{6c}{d}\frac{1}{n} \\
+                \Rightarrow b & \propto \frac{1}{n}
+            \end{split}
+        \end{equation*}
+
+        Therefore, the bit size is inversely proportional to the number of multiplications when computing the crossover point. The larger the number of multiplications, the earlier the two methods will crossover.
 
     \section{Implementation}
     The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, were used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identically. The algorithm of the implementation is described in the pseudocode snippet provided in Algorithm \thesection.\ref{alg1}.
 
 \begin{pseudocode}[caption={Divide and Conquer Multiplication}, label={alg1}]
-/*
-Uses a divide and conquer method to recursively multiply all the elements in
-the complex array using either of the multiplication methods
-
-Inputs:
-    - complex_array: vector of GMP integer pairs
-    - first, last: first and last indices of the subarray
-
-Outputs:
-    - cmulx() outputs: final complex product
-*/
 function cmulx_list(complex_array, first, last):
 
     // if length of the array is 1
@@ -131,6 +152,35 @@ function cmulx_list(complex_array, first, last):
     right_half = cmulx_list(complex_array, mid + 1, last)
 
     return cmulx(left_half, right_half)
+
+\end{pseudocode}
+
+    The two multiplication methods were implemented using the pseudocode described in Algorithm \ref{alg2} and Algorithm \ref{alg3}.
+
+\begin{pseudocode}[caption={Four Multiplication}, label={alg2}]
+function cmul4(z1, z2):
+
+    pair[0, 1];
+    pair[0] = z1[0] * z2[0] - z1[1] * z2[1];  // x1 * x2 - y1 * y2
+    pair[1] = z1[0] * z2[1] + z1[1] * z2[0];  // x1 * y2 + y1 * x2
+
+    return pair;
+
+\end{pseudocode}
+
+\begin{pseudocode}[caption={Three Multiplication}, label={alg3}]
+function cmul3(z1, z2):
+
+    r, s = 0  // temporary variables
+    pair[0, 1];
+
+    r = z1[0] * z2[0];  // x1 * x2
+    s = z1[1] * z2[1];  // y1 * y2
+
+    pair[0] = r - s;
+    pair[1] = (z1[0] + z1[1]) * (z2[0] + z2[1]) - r - s;
+
+    return pair;
 
 \end{pseudocode}
 
@@ -193,7 +243,7 @@ function cmulx_list(complex_array, first, last):
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=0.3\textwidth]{time_sample.png}
-                \caption{Sample Output of The Program Generated by cmplx\_numbers\_32\_8bit.txt} \label{time_sample}
+                \caption{Sample Output of The Program Generated by cmplx\_numbers\_32\_008bit.txt} \label{time_sample}
             \end{center}
         \end{figure}
 
@@ -208,21 +258,45 @@ function cmulx_list(complex_array, first, last):
 
         \end{itemize}
 
+        \clearpage
+        \newpage
         \subsection{Results}
-        The distribution of the element-to-element differences were plotted against the size of the input data. Outliers were excluded when generating the boxplots. Data points residing above the x-axis indicate instances when \texttt{cmul4()} yielded slower runtimes than \texttt{cmul3()} (i.e. \texttt{cmul4()} - \texttt{cmul3()} < 0). The data points on the negative region represent instances when \texttt{cmul4()} - \texttt{cmul3()} > 0, indicating faster runtimes by \texttt{cmul4()} than \texttt{cmul3()}.
+        The distribution of the element-to-element differences were plotted against the size of the input data. Outliers were excluded when generating the box plots. Data points residing above the x-axis indicate instances when \texttt{cmul4()} yielded slower runtimes than \texttt{cmul3()} (i.e. \texttt{cmul4()} - \texttt{cmul3()} < 0). The data points on the negative region represent instances when \texttt{cmul4()} - \texttt{cmul3()} > 0, indicating faster runtimes by \texttt{cmul4()} than \texttt{cmul3()}.
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{32diffs.png}
+                \includegraphics[width=0.9\textwidth]{32diffs.png}
                 \caption{Distribution of Differences in The Multiplication Methods for n=32} \label{32diffs}
             \end{center}
         \end{figure}
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{64diffs.png}
+                \includegraphics[width=0.9\textwidth]{64diffs.png}
                 \caption{Distribution of Differences in The Multiplication Methods for n=64} \label{64diffs}
             \end{center}
         \end{figure}
+        \clearpage
+        \newpage
+
+        The means of the times generated during testing were also plotted.
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.80\textwidth]{32means.png}
+                \caption{Means of The Multiplication Methods, with the Crossover Point $\epsilon$\texttt{[}75, 100\texttt{]} bits for n=32} \label{32diffs}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=0.80\textwidth]{64means.png}
+                \caption{Means of The Multiplication Methods, with the Crossover Point $\epsilon$\texttt{[}40, 60\texttt{]} bits for n=64} \label{64diffs}
+            \end{center}
+        \end{figure}
+
+        \subsection{Troubleshooting}
+        In the initial design of the source code, the execution times generated were being skewed by the implementation of the overloaded operators in the C++11 wrapper. The wrapper utilized an additional functionality that enabled the compiler to control the number of cores being used. Since the data were generated using a machine with 4 CPUs, this functionality appeared to generate faster execution times for larger input data. This functionality was removed from the system libraries, and the data were regenerated.
+
+        These modifications did not require any changes to the source code since the initial design, but they were updated with minor modifications that do not affect the outputs.
 
 \end{document}

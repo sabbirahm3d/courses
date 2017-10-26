@@ -44,10 +44,10 @@ std::vector<mpz_class> cmul3(std::vector<mpz_class>, std::vector<mpz_class>);
 
 // Uses a divide and conquer method to recursively multiply all the elements in
 // the complex array using the four-multiplication method
-mpz_class cmul4_list(std::vector<mpz_class>, size_t, size_t);
+std::vector<mpz_class> cmul4_list(std::vector<mpz_class>, size_t, size_t);
 
 // Uses a divide and conquer method to recursively multiply all the elements in
 // the complex array using the three-multiplication method
-mpz_class cmul3_list(std::vector<mpz_class>, size_t, size_t);
+std::vector<mpz_class> cmul3_list(std::vector<mpz_class>, size_t, size_t);
 
 #endif //DIVIDE_AND_CONQUER_MAIN_H
