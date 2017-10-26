@@ -23,8 +23,6 @@
 \newcommand{\project}{Project 1: Divide and Conquer}
 \newcommand{\members}{Sabbir Ahmed \& Zafar Mamarakhimov}
 
-%----------------------------------------------------------------------------------------
-
 \begin{document}
 
     \begin{titlepage}
@@ -48,27 +46,27 @@
     \section{Description}
     A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
 
-        \subsection{Background}
-        A complex number $z$ is given by a real part $x$ and an imaginary part $y$,
-            \[ z=x+iy, \]
-        where \textit{i} is the imaginary unit $\sqrt{-1}$.
+        % \subsection{Background}
+        % A complex number $z$ is given by a real part $x$ and an imaginary part $y$,
+        %     \[ z=x+iy, \]
+        % where \textit{i} is the imaginary unit $\sqrt{-1}$.
 
-        Multiplying two complex numbers are similar to multiplying polynomials. Let $z_{1}=x_{1}+iy_{1}$ and $z_{2}=x_{2}+iy_{2}$ be two complex numbers. Then their product is
-            \[ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y2+y_{1}x_{2}) \]
+        % Multiplying two complex numbers are similar to multiplying polynomials. Let $z_{1}=x_{1}+iy_{1}$ and $z_{2}=x_{2}+iy_{2}$ be two complex numbers. Then their product is
+        %     \[ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y2+y_{1}x_{2}) \]
 
-        That is, the real part of $z_{1}z_{2}$ is $x_{1}x_{2}-y_{1}y_{2}$ and the imaginary part is $x_{1}y_{2}+y_{1}x_{2}$. The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "$+i$" does not count as an addition as this is really just notation to separate the real and imaginary parts).
+        % That is, the real part of $z_{1}z_{2}$ is $x_{1}x_{2}-y_{1}y_{2}$ and the imaginary part is $x_{1}y_{2}+y_{1}x_{2}$. The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "$+i$" does not count as an addition as this is really just notation to separate the real and imaginary parts).
 
-        As it turns out, there is a way to reduce the number of real multiplications needed to compute a complex product. It is based on the following observation, which is similar to how Karatsuba's method for multiprecision multiplication was derived:
-            \[ (x_{1}+y_{1})(x_{2}+y_{2})=x_{1}x_{2}+(x_{1}y_{2}+y_{1}x_{2})+y_{1}y_{2} \]
+        % As it turns out, there is a way to reduce the number of real multiplications needed to compute a complex product. It is based on the following observation, which is similar to how Karatsuba's method for multiprecision multiplication was derived:
+        %     \[ (x_{1}+y_{1})(x_{2}+y_{2})=x_{1}x_{2}+(x_{1}y_{2}+y_{1}x_{2})+y_{1}y_{2} \]
 
-        Let $t$ denote the product $(x_{1}+y_{1})(x_{2}+y_{2})$; then if the real products $r=x_{1}x_{2}$ and $s=y_{1}y_{2}$ are computed, the complex product is just
-            \[ z_{1}z_{2}=(r-s)+i(t-r-s) \]
+        % Let $t$ denote the product $(x_{1}+y_{1})(x_{2}+y_{2})$; then if the real products $r=x_{1}x_{2}$ and $s=y_{1}y_{2}$ are computed, the complex product is just
+        %     \[ z_{1}z_{2}=(r-s)+i(t-r-s) \]
 
-        Now, this computation only requires three real multiplications, but increases the number of additions to five. Since multiplication is the more expensive operation, it is expected for the reduction in the number of multiplies to pay-off, at least if the numbers are large enough.
+        % Now, this computation only requires three real multiplications, but increases the number of additions to five. Since multiplication is the more expensive operation, it is expected for the reduction in the number of multiplies to pay-off, at least if the numbers are large enough.
 
-        Simply multiplying two complex numbers would not require a divide-and-conquer solution. However, to multiply a list of $n$ complex numbers, there is a natural recursive divide-and-conquer solution, which is to recursively multiply the left and right halves of the list, each of length approximately $\frac{n}{2}$, and then multiply together the results of the two recursive calls. The base case is a list of length one, for which the function simply returns the single value in the list.
+        % Simply multiplying two complex numbers would not require a divide-and-conquer solution. However, to multiply a list of $n$ complex numbers, there is a natural recursive divide-and-conquer solution, which is to recursively multiply the left and right halves of the list, each of length approximately $\frac{n}{2}$, and then multiply together the results of the two recursive calls. The base case is a list of length one, for which the function simply returns the single value in the list.
 
-        When multiplying a list of numbers, the difference between three or four real multiplications per complex multiplication can make a significant difference in the running time, especially if individual real multiplications are expensive. Multiprecision arithmetic is required to handle the growth of the product as the numbers get multiplied. Since the cost to perform a single real multiplication will increase per iteration, the use of the "three-multiply" complex multiplication is expected to be faster than the "four-multiply" version. However, since the three-multiply version requires more additions, it may not pay-off until the numbers are large or the list of numbers is long.
+        % When multiplying a list of numbers, the difference between three or four real multiplications per complex multiplication can make a significant difference in the running time, especially if individual real multiplications are expensive. Multiprecision arithmetic is required to handle the growth of the product as the numbers get multiplied. Since the cost to perform a single real multiplication will increase per iteration, the use of the "three-multiply" complex multiplication is expected to be faster than the "four-multiply" version. However, since the three-multiply version requires more additions, it may not pay-off until the numbers are large or the list of numbers is long.
 
     \section{Crossover Point}
 
@@ -76,6 +74,36 @@
 
         \subsection{Theoretical Results}
         Assume multiplication of two $b$-bit integers is $O(b^{2})$ and addition of two $b$-bit integers is $O(b)$.
+
+        Consider, if $n = 2$, then computing the product of the list simply requires a single complex multiplication. For \texttt{cmul3()}, this means three multiplies of $b$-bit numbers, and five additions. There are some constants $c>0$ and $d>0$ such that the time to compute a b-bit multiply is bounded by $cb^2$ and the time for a $b$-bit addition is bounded by $db$.  Therefore, the time to multiply the two complex numbers, considering only multiplications and additions, is bounded by $3cb^2+5db$.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{multiplication_tree.png}
+                \caption{Tree Visualization of the Divide and Conquer Method of Multiplication. $n$ is the Number of Integers Multiplied} \label{multiplication_tree}
+            \end{center}
+        \end{figure}
+
+        According to the binary tree visualized, the number of bits grow by $\frac{n}{2}$, where $n$ is the total number of integers being multiplied. The recurrence relation may be derived from this method:
+
+        \begin{equation*}
+            \begin{split}
+                T(n) & = 3c \Bigg( \frac{n}{2}b \Bigg)^2 + 5d \Bigg(\frac{n}{2}b \Bigg) \\
+                & = \frac{3}{4}cb^2n^2+\frac{5}{2}dbn \\
+            \end{split}
+        \end{equation*}
+
+        Asymptotically, the runtime may be computed using the recurrence relation as:
+        \begin{equation*}
+            \begin{split}
+                & = \frac{3}{4}cb^2n^2+\frac{5}{2}dbn \\
+                & \leq \frac{3}{4}cb^2n^2 + cb^2n^2 \\
+                & = \frac{5}{4}cb^2n^2
+            \end{split}
+        \end{equation*}
+
+
+        Continuing with $n=2$, my \texttt{cmul4()} would make four $b$-bit multiplies and two $b$-bit additions, so its running time is bounded by $4cb^2+2db$. 
 
     \section{Implementation}
     The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, were used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identically. The algorithm of the implementation is described in the pseudocode snippet provided in Algorithm \thesection.\ref{alg1}.
@@ -171,13 +199,11 @@ function cmulx_list(complex_array, first, last):
 
         The program, however, generates its output after a single iteration of the function call. The output times may vary on each execution due to the hosting machine fluctuating on its core and memory usage from other running processes. Therefore, further steps were taken to compute additional statistics on the timings.
 
-        An additional Makefile has been provided to generate timings on multiple iterations. 200 iterations were used to compute the current statistics. Furthermore, each iteration recompiles before running the program. A clean compilation prevents any external influences and overhead from the system on the individual timings. All the outputs for a single input are dumped to a buffer file, which is later parsed by an external helper script to generate the following statistics:
+        The sample input data consisted of integers of 8, 10, 20, 30, 40, 100, and 200 bits divided into 32 and 64 repetitions. An additional Makefile has been provided to generate timings on multiple iterations. 200 iterations were used to compute the current statistics. Furthermore, each iteration recompiles before running the program. A clean compilation prevents any external influences and overhead from the system on the individual timings. All the outputs for a single input are dumped to a buffer file, which is later parsed by an external helper script to generate the following statistics:
 
         \begin{itemize}
 
             \item Mean
-            \item Median
-            \item Standard deviation
             \item Element-to-element differences
 
         \end{itemize}
@@ -187,8 +213,15 @@ function cmulx_list(complex_array, first, last):
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{diffs.png}
-                \caption{Distribution of Differences in The Multiplication Methods} \label{diffs}
+                \includegraphics[width=1\textwidth]{32diffs.png}
+                \caption{Distribution of Differences in The Multiplication Methods for n=32} \label{32diffs}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{64diffs.png}
+                \caption{Distribution of Differences in The Multiplication Methods for n=64} \label{64diffs}
             \end{center}
         \end{figure}
 
