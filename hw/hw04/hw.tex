@@ -22,7 +22,6 @@
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{structure.tex} % specifies the document layout and style
 
-%----------------------------------------------------------------------------------------
 
 % document info command
 \newcommand{\documentinfo}[5]{
@@ -128,7 +127,6 @@
             Speed up: $\frac{1000}{1100}=0.91$
 
         \end{enumerate}
-        \newpage
 
             \item For this problem, assume that all branches are resolved in ID stage and are perfectly predicted (this eliminates all control hazards). For the following fragment of MIPS code:
 
@@ -157,28 +155,27 @@
             \begin{table}[h]
                 \centering
                 \begin{tabular*}{200pt}{@{\extracolsep{\fill}} llllll}
-                LW & \$5, & -16(\$5) & & & I1 \\
-                SW & \$4, & -16(\$4) & & & I2 \\
-                LW & \$3, & -20(\$4) & & & I3 \\
-                BEQ & \$2, & \$0, & Label & & I4 \\
-                ADD & \$1, & \$5, & \$4  & & I5 \\
+                LW & \$5, & -16(\$5) & & & ; I1 \\
+                SW & \$4, & -16(\$4) & & & ; I2 \\
+                LW & \$3, & -20(\$4) & & & ; I3 \\
+                BEQ & \$2, & \$0, & Label & & ; I4 \\
+                ADD & \$1, & \$5, & \$4  & & ; I5 \\
                 Label: & SUB & \$2, & \$1, & \$3 & \\
                 \end{tabular*}
             \end{table}
-
 
             \begin{table}[h]
                 \caption{12 Cycles Required for 5 Instructions}
                 \centering
                 \begin{tabular*}{450pt}{@{\extracolsep{\fill}} c|cccccccccccc}
 
-                \textbf{Stage} & \textbf{t0} & \textbf{t1} & \textbf{t2} & \textbf{t3} & \textbf{t4} & \textbf{t5} & \textbf{t6} & \textbf{t7} & \textbf{t8} & \textbf{t9} & \textbf{t10} & \textbf{t11} \\
+                \textbf{Instruction} & \textbf{t0} & \textbf{t1} & \textbf{t2} & \textbf{t3} & \textbf{t4} & \textbf{t5} & \textbf{t6} & \textbf{t7} & \textbf{t8} & \textbf{t9} & \textbf{t10} & \textbf{t11} \\
                 \hline
-                IF & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & & & \\
-                ID & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & & \\
-                EX & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & & \\
-                MEM & & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 & \\
-                WB & & & & & I1 & I2 & I3 & wait & wait & wait & I4 & I5 \\
+                I1 & IF & ID & EX & - & - & - & MEM & WB & & & & \\
+                I2 & & IF & ID & EX & - & - & - & MEM & WB & & & \\
+                I3 & & & IF & ID & EX & - & - & - & MEM & WB & & \\
+                I4 & & & & IF & ID & EX & - & - & - & MEM & WB & \\
+                I5 & & & & & IF & ID & EX & - & - & - & MEM & WB \\
                 \end{tabular*}
             \end{table}
 
@@ -189,7 +186,6 @@
             Inserting NOP instructions cannot resolve the structural hazard since NOPs requires access to memory.
 
         \end{enumerate}
-        \newpage
 
         \item \textbf{Question}
         For following code, assume that the loop index (\$10) is a multiple of 8:
@@ -197,22 +193,96 @@
         \begin{table}[h]
             \centering
             \begin{tabular*}{200pt}{@{\extracolsep{\fill}} lllll}
-
-            Loop: & LW & \$2, & 0(\$10) & \\
-                & SUB & \$4, & \$2, & \$3 \\
-                & SW & \$4, & 0(\$10) & \\
-                & LW & \$5, & 4(\$10) & \\
-                & SUB & \$6, & \$5, & \$3 \\
-                & SW & \$6, & 4(\$10) & \\
-                & ADDI & \$10, & \$10, & 8 \\
-                & BNE & \$10, & \$30, & Loop \\
+            Loop:   & LW & \$2, & 0(\$10) & \\
+                    & SUB & \$4, & \$2, & \$3 \\
+                    & SW & \$4, & 0(\$10) & \\
+                    & LW & \$5, & 4(\$10) & \\
+                    & SUB & \$6, & \$5, & \$3 \\
+                    & SW & \$6, & 4(\$10) & \\
+                    & ADDI & \$10, & \$10, & 8 \\
+                    & BNE & \$10, & \$30, & Loop \\
             \end{tabular*}
         \end{table}
+        \newpage
 
         Schedule this code (reorder the instructions and make any necessary changes) for fast execution on the 5-stage MIPS pipeline. Assume data forwarding and not-taken prediction of conditional branching.
 
         \textbf{Answer} \\
+        Labelling the instructions as the following:
 
+        \begin{table}[h]
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} llllll}
+            Loop:   & LW & \$2, & 0(\$10) & & ; I1 \\
+                    & SUB & \$4, & \$2, & \$3 & ; I2 \\
+                    & SW & \$4, & 0(\$10) & & ; I3 \\
+                    & LW & \$5, & 4(\$10) & & ; I4 \\
+                    & SUB & \$6, & \$5, & \$3 & ; I5 \\
+                    & SW & \$6, & 4(\$10) & & ; I6 \\
+                    & ADDI & \$10, & \$10, & 8 & ; I7 \\
+                    & BNE & \$10, & \$30, & Loop & ; I8 \\
+            \end{tabular*}
+        \end{table}
+
+        RAW data dependencies exist in I2 (on I1) and I5 (on I4). Since the branches are assumed not-taken, finding the clock cycles for the current order of instructions:
+
+        \begin{table}[h]
+            \caption{13 Cycles Required for 8 Instructions}
+            \centering
+            \begin{tabular*}{500pt}{@{\extracolsep{\fill}} c|cccccccccccccc}
+
+            \textbf{Instruction} & \textbf{t0} & \textbf{t1} & \textbf{t2} & \textbf{t3} & \textbf{t4} & \textbf{t5} & \textbf{t6} & \textbf{t7} & \textbf{t8} & \textbf{t9} & \textbf{t10} & \textbf{t11} & \textbf{t12} & \textbf{t13} \\
+            \hline
+            I1 & IF & ID & EX & MEM & WB & & & & & & & & & \\
+            I2 & & IF & - & ID & EX & MEM & WB & & & & & & & \\
+            I3 & & & & IF & ID & EX & MEM & WB & & & & & & \\
+            I4 & & & & & IF & ID & EX & MEM & WB & & & & & \\
+            I5 & & & & & & IF & - & ID & EX & MEM & WB & & & \\
+            I6 & & & & & & & & IF & ID & EX & MEM & WB & & \\
+            I7 & & & & & & & & & IF & ID & EX & MEM & WB & \\
+            I8 & & & & & & & & & & IF & ID & EX & MEM & WB \\
+            \end{tabular*}
+        \end{table}
+        \newpage
+
+        Reordering the instructions may decrease the total number of cycles and result in faster execution on the 5-stage MIPS pipeline.
+
+        The LW operations can be grouped together at the beginning, and the SUB at the end of the instructions. The reordered instructions would look similar to the following:
+
+        \begin{table}[h]
+            \caption{Rescheduled Instructions}
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} llllll}
+            Loop:   & LW & \$2, & 0(\$10) & & ; I1 \\
+                    & LW & \$5, & 4(\$10) & & ; I4 \\
+                    & ADDI & \$10, & \$10, & 8 & ; I7 \\
+                    & SUB & \$4, & \$2, & \$3 & ; I2 \\
+                    & SW & \$4, & 0(\$10) & & ; I3 \\
+                    & SUB & \$6, & \$5, & \$3 & ; I5 \\
+                    & SW & \$6, & 4(\$10) & & ; I6 \\
+                    & BNE & \$10, & \$30, & Loop & ; I8 \\
+            \end{tabular*}
+        \end{table}
+
+        The new schedule of the instructions would now require the following clock cycles:
+
+        \begin{table}[h]
+            \caption{11 Cycles Required for 8 Instructions}
+            \centering
+            \begin{tabular*}{500pt}{@{\extracolsep{\fill}} c|cccccccccccc}
+
+            \textbf{Instruction} & \textbf{t0} & \textbf{t1} & \textbf{t2} & \textbf{t3} & \textbf{t4} & \textbf{t5} & \textbf{t6} & \textbf{t7} & \textbf{t8} & \textbf{t9} & \textbf{t10} & \textbf{t11} \\
+            \hline
+            I1 & IF & ID & EX & MEM & WB & & & & & & & \\
+            I4 & & IF & ID & EX & MEM & WB & & & & & & \\
+            I7 & & & IF & ID & EX & MEM & WB & & & & & \\
+            I2 & & & & IF & ID & EX & MEM & WB & & & & \\
+            I3 & & & & & IF & ID & EX & MEM & WB & & & \\
+            I5 & & & & & & IF & ID & EX & MEM & WB & & \\
+            I6 & & & & & & & IF & ID & EX & MEM & WB & \\
+            I8 & & & & & & & & IF & ID & EX & MEM & WB \\
+            \end{tabular*}
+        \end{table}
 
     \end{enumerate}
 
