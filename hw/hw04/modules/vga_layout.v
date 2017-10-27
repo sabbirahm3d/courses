@@ -19,7 +19,7 @@
 // Additional Comments:
 //
 ///////////////////////////////////////////////////////////////////////////////
-module vga_rectangle(
+module vga_layout(
         output reg red,
         output reg green,
         output reg blue,

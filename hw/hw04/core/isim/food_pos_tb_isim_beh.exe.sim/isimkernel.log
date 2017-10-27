@@ -1,0 +1,29 @@
+Command line:
+   food_pos_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  35235
+
+Thu Oct 26 18:58:07 2017
+
+
+ Elaboration Time: 0.05 sec
+
+ Current Memory Usage: 196.039 Meg
+
+ Total Signals          : 19
+ Total Nets             : 35
+ Total Signal Drivers   : 11
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 18
+ Total Traceable Variables  : 25
+ Total Scalar Nets and Variables : 154
+Total Line Count : 84
+
+ Total Simulation Time: 0.05 sec
+
+ Current Memory Usage: 271.54 Meg
+
+Thu Oct 26 18:58:14 2017
+
