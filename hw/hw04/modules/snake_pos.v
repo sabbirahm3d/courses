@@ -22,6 +22,7 @@
 module snake_pos(
         input wire clk,
         input wire grow,
+        input wire dead,
         input wire [1:0] dir,
         output reg [8:0] snake_x0,
         output reg [8:0] snake_x1,
@@ -38,45 +39,81 @@ module snake_pos(
     reg [8:0] next_x, next_y;
     reg [4:0] size;
     reg [8:0] mask [4:0];
-    parameter [8:0] zeros = {9{1'b0}};
-    parameter [8:0] ones = {9{1'b1}};
+    parameter SEG_WIDTH = 20;
+    parameter [8:0] ZEROS = {9{1'b0}};
+    parameter [8:0] ONES = {9{1'b1}};
 
     initial begin
 
-        {snake_x4,snake_x3,snake_x2,snake_x1,snake_x0} = {{4{zeros}}, {1{ones}}};
-        {snake_y4,snake_y3,snake_y2,snake_y1,snake_y0} = {{4{zeros}}, {1{ones}}};
+        // snake starts off at 0-length
+        // the head is created after the initial clock cycle
         size = 0;
-        {mask[4],mask[3],mask[2],mask[1],mask[0]} = {{4{zeros}}, {1{ones}}};
+
+        // set all snake-x segments but the head to 0
+        {
+            snake_x4,
+            snake_x3,
+            snake_x2,
+            snake_x1,
+            snake_x0
+        } = {
+            {4{ZEROS}}, 
+            {1{ONES}}
+        };
+
+        // set all snake-y segments but the head to 0
+        {
+            snake_y4,
+            snake_y3,
+            snake_y2,
+            snake_y1,
+            snake_y0
+        } = {
+            {4{ZEROS}},
+            {1{ONES}}
+        };
+
+        // initialize all the elements of the mask to 0 except the 0th one 
+        {
+            mask[4],
+            mask[3],
+            mask[2],
+            mask[1],
+            mask[0]
+        } = {
+            {4{ZEROS}},
+            {1{ONES}}
+        };
 
     end
 
     always @(posedge clk) begin
 
-        if (~grow) begin
+        if (~grow && ~dead) begin
 
             if (dir == 0) begin
 
-                next_x = snake_x0 + 1;
+                next_x = snake_x0 + SEG_WIDTH;
                 next_y = snake_y0;
-                // $display("RIGHT %d", dir);
+                $display("RIGHT");
 
             end else if (dir == 1) begin
 
                 next_x = snake_x0;
-                next_y = snake_y0 - 1;
-                // $display("DOWN %d", dir);
+                next_y = snake_y0 - SEG_WIDTH;
+                $display("DOWN");
 
             end else if (dir == 2) begin
 
-                next_x = snake_x0 - 1;
+                next_x = snake_x0 - SEG_WIDTH;
                 next_y = snake_y0;
-                // $display("LEFT %d", dir);
+                $display("LEFT");
 
             end else if (dir == 3) begin
 
                 next_x = snake_x0;
-                next_y = snake_y0 + 1;
-                // $display("UP %d", dir);
+                next_y = snake_y0 + SEG_WIDTH;
+                $display("UP");
 
             end
 
@@ -120,7 +157,7 @@ module snake_pos(
                     mask[0]
                 });
 
-        end else if (grow) begin
+        end else if (grow && ~dead) begin
 
             size = size + 1;
             mask[size] = {9{1'b1}};
