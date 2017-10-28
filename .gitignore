@@ -16,10 +16,7 @@
 
 # Xilinx project files to include
 !*.bit
-!*.log
-!*.prj
 !*.ucf
-!*.wcfg
 !*.xco
 !*.xise
 

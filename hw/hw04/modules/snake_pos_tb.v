@@ -21,7 +21,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module snake_pos_tb;
 
-    reg sys_clk, clk, grow;
+    reg sys_clk, clk, grow, dead;
     reg [1:0] dir;
     wire [8:0] snake_x0;
     wire [8:0] snake_x1;
@@ -34,16 +34,17 @@ module snake_pos_tb;
     wire [8:0] snake_y3;
     wire [8:0] snake_y4;
 
-    pacemaker pacemaker_instance(
-        .clk(sys_clk),
-        .boost(grow),
-        .p(clk)
-    );
+    // pacemaker pacemaker_instance(
+    //     .clk(sys_clk),
+    //     .boost(grow),
+    //     .p(clk)
+    // );
 
     snake_pos snake_pos_instance(
-        .clk(sys_clk),
-        .dir(dir),
+        .clk(clk),
+        .dead(dead),
         .grow(grow),
+        .dir(dir),
         .snake_x0(snake_x0),
         .snake_x1(snake_x1),
         .snake_x2(snake_x2),
@@ -59,16 +60,17 @@ module snake_pos_tb;
     always begin
 
         #20  // 50 MHz
-        sys_clk <= ~sys_clk;
+        clk <= ~clk;
 
     end
 
     initial begin
 
-        sys_clk = 0;
+        clk = 0;
         #10;
         dir = 0;
         grow = 0;
+        dead = 0;
 
         $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
 
@@ -81,12 +83,15 @@ module snake_pos_tb;
 
         $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
 
-        #200
+        #100
         dir = 1;
+        dead = 1;
 
         $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
 
-        $display("heheheh%d jjjjj %b", 18^19, 18^18);
+        #100
+
+        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
 
     end
 

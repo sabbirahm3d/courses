@@ -57,8 +57,7 @@ module snake_pos(
             snake_x1,
             snake_x0
         } = {
-            {4{ZEROS}}, 
-            {1{ONES}}
+            {4{ZEROS}},  300
         };
 
         // set all snake-y segments but the head to 0
@@ -69,8 +68,7 @@ module snake_pos(
             snake_y1,
             snake_y0
         } = {
-            {4{ZEROS}},
-            {1{ONES}}
+            {4{ZEROS}}, 300
         };
 
         // initialize all the elements of the mask to 0 except the 0th one 
@@ -81,8 +79,7 @@ module snake_pos(
             mask[1],
             mask[0]
         } = {
-            {4{ZEROS}},
-            {1{ONES}}
+            {4{ZEROS}}, {1{ONES}}
         };
 
     end
@@ -160,7 +157,7 @@ module snake_pos(
         end else if (grow && ~dead) begin
 
             size = size + 1;
-            mask[size] = {9{1'b1}};
+            mask[size] = {9{ONES}};
 
         end
 

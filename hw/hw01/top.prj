@@ -1,3 +1,0 @@
-verilog work "vga_sync.v"
-verilog work "vga_rectangle.v"
-verilog work "top.vf"

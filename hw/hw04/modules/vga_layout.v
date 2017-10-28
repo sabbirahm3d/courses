@@ -34,13 +34,14 @@ module vga_layout(
     parameter GRID_WIDTH = 500;
     parameter GRID_HEIGHT = 400;
     parameter FENCE_WIDTH = 10;
-    parameter FOOD_WIDTH = 20;
+    parameter PIXEL_WIDTH = 20;
 
     // additional intermediate logic signal wires 
     wire flag_on_fence;  // high only when over rectangle 
     wire flag_on_snake;
     wire flag_on_food;
-    wire [9:0] x, y;  // traditional cartesean coordinates, (left, bottom)=(0,0)
+    // traditional cartesean coordinates, (left, bottom)=(0,0)
+    wire [9:0] x, y;
 
     // combinatorial logic to calculate x,y coordinate system 
     assign x = pos_h;
@@ -53,10 +54,27 @@ module vga_layout(
         (y >= (FENCE_WIDTH) && y < (FENCE_WIDTH + GRID_HEIGHT))
     );
 
-    assign flag_on_snake = (x >= 299 && x < 322 && y >= 228 && y < 240);
+    // assign flag_on_snake = (x >= 299 && x < 322 && y >= 228 && y < 240);
+
+    assign flag_on_snake = (
+        ((x >= snake_x0 && x < (snake_x0 + PIXEL_WIDTH)) &&
+        ((y >= snake_y0 && y < (snake_y0 + PIXEL_WIDTH)) &&
+        ((x >= snake_x1 && x < (snake_x1 + PIXEL_WIDTH)) && snake_x1) &&
+        ((y >= snake_y1 && y < (snake_y1 + PIXEL_WIDTH)) && snake_y1) &&
+        ((x >= snake_x2 && x < (snake_x2 + PIXEL_WIDTH)) && snake_x2) &&
+        ((y >= snake_y2 && y < (snake_y2 + PIXEL_WIDTH)) && snake_y2) &&
+        ((x >= snake_x3 && x < (snake_x3 + PIXEL_WIDTH)) && snake_x3) &&
+        ((y >= snake_y3 && y < (snake_y3 + PIXEL_WIDTH)) && snake_y3) &&
+        ((x >= snake_x4 && x < (snake_x4 + PIXEL_WIDTH)) && snake_x4) &&
+        ((y >= snake_y4 && y < (snake_y4 + PIXEL_WIDTH)) && snake_y4)
+
+
+
+    );
+
     assign flag_on_food = (
-        (x >= food_x && x < (food_x + FOOD_WIDTH)) &&
-        (y >= food_y && y < (food_y + FOOD_WIDTH))
+        (x >= food_x && x < (food_x + PIXEL_WIDTH)) &&
+        (y >= food_y && y < (food_y + PIXEL_WIDTH))
     );
 
    // combinatorial logic and registers (seqential logic) that load on rising

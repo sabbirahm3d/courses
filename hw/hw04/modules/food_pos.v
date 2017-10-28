@@ -36,8 +36,8 @@ module food_pos(
 
     initial begin
 
-        food_x = 9'b0;
-        food_y = 9'b0;
+        food_x = 200;
+        food_y = 200;
         lfsr = 9'b0;
         internal_ctr = 9'b0;
 
@@ -55,8 +55,8 @@ module food_pos(
         // if active high asynchronous reset
         if (clr) begin
 
-            food_x <= 9'b0;
-            food_y <= 9'b0;
+            food_x <= 200;
+            food_y <= 200;
 
         // if enable
         end else if (enable) begin

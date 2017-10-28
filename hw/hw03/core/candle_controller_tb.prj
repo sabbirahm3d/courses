@@ -1,2 +1,0 @@
-verilog work "../modules/candle_controller.v"
-verilog work "../modules/candle_controller_tb.v"
