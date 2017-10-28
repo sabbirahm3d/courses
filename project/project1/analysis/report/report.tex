@@ -70,7 +70,7 @@
         \subsection{Theoretical Results}
         Assume multiplication of two $b$-bit integers is $O(b^{2})$ and addition of two $b$-bit integers is $O(b)$.
 
-        Consider, if $n = 2$, then computing the product of the list simply requires a single complex multiplication. For \texttt{cmul3()}, this means three multiplies of $b$-bit numbers, and five additions. There are some constants $c>0$ and $d>0$ such that the time to compute a b-bit multiply is bounded by $cb^2$ and the time for a $b$-bit addition is bounded by $db$.  Therefore, the time to multiply the two complex numbers, considering only multiplications and additions, is bounded by $3cb^2+5db$.
+        Consider, if $n = 2$, then computing the product of the list simply requires a single complex multiplication. For \texttt{cmul3()}, this means three multiplies of $b$-bit numbers, and five additions. There are some constants $c>0$ and $d>0$ such that the time to compute a $b$-bit multiply is bounded by $cb^2$ and the time for a $b$-bit addition is bounded by $db$.  Therefore, the time to multiply the two complex numbers, considering only multiplications and additions, is bounded by $3cb^2+5db$.
 
         \begin{figure}[ht]
             \begin{center}
