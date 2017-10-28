@@ -1,89 +1,68 @@
 `timescale 1ns / 1ps
 `default_nettype none
-///////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
+//////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    14:00:00 09/17/2017 
+// Design Name: 
+// Module Name:    vga_layout 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
 //
-// Create Date:    18:33:21 09/16/2017
-// Design Name:
-// Module Name:    vga_rectangle
-// Project Name:
-// Target Devices:
-// Tool versions:
-// Description:
+// Dependencies: 
 //
-// Dependencies:
-//
-// Revision:
+// Revision: 
 // Revision 0.01 - File Created
-// Additional Comments:
+// Additional Comments: 
 //
-///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 module vga_layout(
+        input wire clk,
+        input wire [9:0] pos_h,
+        input wire [9:0] pos_v,
+        input wire blank,
         output reg red,
         output reg green,
-        output reg blue,
-        input [9:0] pos_h,
-        input [9:0] pos_v,
-        input blank,
-        input clk,
-        input SW0,
-        input SW1,
-        input SW2
+        output reg blue
     );
 
-    parameter WIDTH = 20;
-    parameter HEIGHT = 100;
-    parameter X_LEFT = 320;
-    parameter Y_BOTTOM = 240;
+    parameter WIDTH = 598; 
+    parameter HIEGHT = 456; 
+    parameter X_LEFT = 10; 
+    parameter Y_BOTTOM = 10; 
 
-    // additional intermediate logic signal wires
-    wire flag_on_rect;  // high only when over rectangle
-    wire [9:0] x, y;  // traditional cartesean coordinates
+    //addinal intermediate logic signal wires 
+    wire flag_on_fence;  // high only when over rectangle 
+    wire flag_on_snake;
+    wire flag_on_food;
+    wire [9:0] x,y;  // traditional cartesean coordinates, (left, bottom)=(0,0)
 
-    // combinatorial logic to calculate x, y coordinate system
-    assign x = pos_h;
-    assign y = 480 - pos_v;
+    //combinatorial logic to calculate x,y coordinate system 
+    assign x = pos_h; 
+    assign y = 480 - pos_v; 
 
     // combinatorial logic to decide if present pixel is over a desired 
-    // rectangle region
-    assign flag_on_rect = x >= (X_LEFT) && x < (X_LEFT + WIDTH) && 
-                        y >= (Y_BOTTOM) && y < (Y_BOTTOM + HEIGHT);
+    // rectange region 
+    assign flag_on_fence = (
+        x >= (X_LEFT) && 
+        x <  (X_LEFT + WIDTH)   && 
+        y >= (Y_BOTTOM)         && 
+        y <  (Y_BOTTOM + HIEGHT)
+    );
 
-    // combinatorial logic and registers (seqential logic) that load on rising
-    // clock edge
-    always @(posedge clk) begin
+    assign flag_on_snake = (x >= 299 && x < 322 && y >= 228 && y < 240);
+    assign flag_on_food = (x >= 200 && x < 223 && y >= 200 && y < 212);
 
-        case ({SW2, SW1, SW0})
+   //combinatorial logic and registers (seqential logic) that load on rising
+   // clock edge 
+   always @(posedge clk) begin 
 
-            3'b001: begin
-                // yellow
-                red <= flag_on_rect & ~blank;
-                green <= flag_on_rect & ~blank;
-                blue <= ~flag_on_rect & blank;
-            end
-
-            3'b010: begin
-                // magenta
-                red <= flag_on_rect & ~blank;
-                green <= ~flag_on_rect & blank;
-                blue <= flag_on_rect & ~blank;
-            end
-
-            3'b100: begin
-                // cyan
-                red <= ~flag_on_rect & blank;
-                green <= flag_on_rect & ~blank;
-                blue <= flag_on_rect & ~blank;
-            end
-
-            default: begin
-                red <= ~flag_on_rect & blank;
-                blue <= ~flag_on_rect & blank;
-                green <= ~flag_on_rect & blank;
-            end
-
-        endcase
+        blue <=  ~flag_on_fence & ~blank; 
+        red <= flag_on_food & ~blank;
+        green <= flag_on_snake & ~blank;
 
     end
 

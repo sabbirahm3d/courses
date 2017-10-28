@@ -22,7 +22,7 @@
 module snake_pos_tb;
 
     // reg enable;
-    reg clk;
+    reg clk, enable, sys_clk;
     reg [1:0] interval, dir;
     reg change_dir, grow;
     // wire [8:0] snake_x, snake_y;
@@ -38,14 +38,18 @@ module snake_pos_tb;
     wire [8:0] snake_y4;
     // wire snake_x, snake_y;
 
+    pacemaker pacemaker_instance(
+        .clk(sys_clk),
+        .interval(interval),
+        .p(clk)
+    );
+
     snake_pos snake_pos_instance(
         .clk(clk),
         .dir(dir),
         .interval(interval),
-        .change_dir(change_dir),
+        // .enable(enable),
         .grow(grow),
-        // .snake_x(snake_x),
-        // .snake_y(snake_y)
         .snake_x0(snake_x0),
         .snake_x1(snake_x1),
         .snake_x2(snake_x2),
@@ -71,21 +75,29 @@ module snake_pos_tb;
         #10;
         change_dir = 1;
         dir = 0;
+        grow = 0;
+        interval = 125_00;
 
-        $monitor("x4: %d x3: %d x2: %d x1: %d x0 %d y4: %d y3: %d y2: %d y1: %d y0 %d",
-         snake_x4, snake_x3, snake_x2, snake_x1, snake_x0, snake_y4, snake_y3, snake_y2, snake_y1, snake_y0);
+        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+
 
         #70
+        grow = 1;
         dir = 3;
+        #30
+        grow = 0;
 
-        $monitor("x4: %d x3: %d x2: %d x1: %d x0 %d y4: %d y3: %d y2: %d y1: %d y0 %d",
-         snake_x4, snake_x3, snake_x2, snake_x1, snake_x0, snake_y4, snake_y3, snake_y2, snake_y1, snake_y0);
+        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
 
         #200
-        change_dir = 0;
+        // change_dir = 0;
+        dir = 1;
+
+        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+
 
     end
 
-    initial #5000 $finish;
+    initial #500000 $finish;
 
 endmodule
