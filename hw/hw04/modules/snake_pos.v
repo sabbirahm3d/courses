@@ -21,10 +21,8 @@
 //////////////////////////////////////////////////////////////////////////////
 module snake_pos(
         input wire clk,
-        // input wire enable,
         input wire grow,
         input wire [1:0] dir,
-        input wire interval,
         output reg [8:0] snake_x0,
         output reg [8:0] snake_x1,
         output reg [8:0] snake_x2,
@@ -54,84 +52,80 @@ module snake_pos(
 
     always @(posedge clk) begin
 
-        // if (enable) begin
+        if (~grow) begin
 
-            if (~grow) begin
+            if (dir == 0) begin
 
-                if (dir == 0) begin
+                next_x = snake_x0 + 1;
+                next_y = snake_y0;
+                // $display("RIGHT %d", dir);
 
-                    next_x = snake_x0 + 1;
-                    next_y = snake_y0;
-                    // $display("RIGHT %d", dir);
+            end else if (dir == 1) begin
 
-                end else if (dir == 1) begin
+                next_x = snake_x0;
+                next_y = snake_y0 - 1;
+                // $display("DOWN %d", dir);
 
-                    next_x = snake_x0;
-                    next_y = snake_y0 - 1;
-                    // $display("DOWN %d", dir);
+            end else if (dir == 2) begin
 
-                end else if (dir == 2) begin
+                next_x = snake_x0 - 1;
+                next_y = snake_y0;
+                // $display("LEFT %d", dir);
 
-                    next_x = snake_x0 - 1;
-                    next_y = snake_y0;
-                    // $display("LEFT %d", dir);
+            end else if (dir == 3) begin
 
-                end else if (dir == 3) begin
-
-                    next_x = snake_x0;
-                    next_y = snake_y0 + 1;
-                    // $display("UP %d", dir);
-
-                end
-
-                {snake_y4,
-                snake_y3,
-                snake_y2,
-                snake_y1,
-                snake_y0} = #interval (
-                        {snake_y3,
-                        snake_y2,
-                        snake_y1,
-                        snake_y0,
-                        next_y} &
-                        {mask[4],
-                        mask[3],
-                        mask[2],
-                        mask[1],
-                        mask[0]}
-                    );
-
-                {snake_x4,
-                snake_x3,
-                snake_x2,
-                snake_x1,
-                snake_x0} = #interval (
-                        {snake_x3,
-                        snake_x2,
-                        snake_x1,
-                        snake_x0,
-                        next_x} &
-                        {mask[4],
-                        mask[3],
-                        mask[2],
-                        mask[1],
-                        mask[0]}
-                    );
-
-            end else if (grow) begin
-
-                size = size + 1;
-                mask[size] = {9{1'b1}};
+                next_x = snake_x0;
+                next_y = snake_y0 + 1;
+                // $display("UP %d", dir);
 
             end
-            $monitor("updating");
 
-        // end else begin
+            {
+            snake_x4,
+            snake_x3,
+            snake_x2,
+            snake_x1,
+            snake_x0
+            } = ({
+                    snake_x3,
+                    snake_x2,
+                    snake_x1,
+                    snake_x0,
+                    next_x
+                } & {
+                    mask[4],
+                    mask[3],
+                    mask[2],
+                    mask[1],
+                    mask[0]
+                });
 
-        //     $monitor("%0t waitnig", $time);
-        //     $monitor("waitnig");
+            {
+            snake_y4,
+            snake_y3,
+            snake_y2,
+            snake_y1,
+            snake_y0
+            } = ({
+                    snake_y3,
+                    snake_y2,
+                    snake_y1,
+                    snake_y0,
+                    next_y
+                } & {
+                    mask[4],
+                    mask[3],
+                    mask[2],
+                    mask[1],
+                    mask[0]
+                });
 
-        // end
+        end else if (grow) begin
+
+            size = size + 1;
+            mask[size] = {9{1'b1}};
+
+        end
 
     end
 

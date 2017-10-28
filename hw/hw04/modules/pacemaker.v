@@ -21,44 +21,36 @@
 //////////////////////////////////////////////////////////////////////////////
 module pacemaker(
         input wire clk,
-        input wire interval,
+        input wire boost,
         output reg p
     );
 
-    // parameter CLOCK_FREQ = 50000;
-    // parameter TIME_DELAY = 6;
-
-    // reg [31:0] count = 0;
-
-    // assign p = (count==CLOCK_FREQ*TIME_DELAY);
-
-    // always @(posedge clk) begin
-
-    //    count <= count + 1'b1;
-
-    // end
-
-    parameter PERIOD = 50000000;   
-    parameter PULSE_WIDTH = 8;
+    parameter PERIOD = 8;
+    parameter PULSE_WIDTH = 10000000;
 
     reg [32:0] count;
+    reg [5:0] size;
 
     initial begin
-        count <= 8;
-    end   
+        count <= 10000000;
+    end
 
-    always @ (posedge clk) begin
+    always @(posedge clk) begin
 
         if (count == (PERIOD - 1)) begin
             count <= 0;
         end else begin
-            count <= count + 1;       
+            count <= count + 1;
+        end
+
+        if (boost) begin
+            size <= size + 1;
         end
 
     end
 
-    always @ (posedge clk) begin
-        p <= count < PULSE_WIDTH;       
+    always @(posedge clk) begin
+        p <= count < PULSE_WIDTH - ((size - 32) * 100);
     end
 
 endmodule

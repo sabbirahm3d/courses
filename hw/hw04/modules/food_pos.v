@@ -24,8 +24,8 @@ module food_pos(
         input wire clk,
         input wire enable,
         input wire clr,
-        output reg [8:0] x,
-        output reg [8:0] y
+        output reg [8:0] food_x,
+        output reg [8:0] food_y
     );
 
     reg [8:0] internal_ctr, lfsr;  // internal counter
@@ -36,8 +36,8 @@ module food_pos(
 
     initial begin
 
-        x = 9'b0;
-        y = 9'b0;
+        food_x = 9'b0;
+        food_y = 9'b0;
         lfsr = 9'b0;
         internal_ctr = 9'b0;
 
@@ -55,14 +55,14 @@ module food_pos(
         // if active high asynchronous reset
         if (clr) begin
 
-            x <= 9'b0;
-            y <= 9'b0;
+            food_x <= 9'b0;
+            food_y <= 9'b0;
 
         // if enable
         end else if (enable) begin
 
-            x <= lfsr;
-            y <= lfsr + internal_ctr;
+            food_x <= lfsr;
+            food_y <= lfsr + internal_ctr;
 
         end
 

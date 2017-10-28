@@ -34,11 +34,11 @@ module vga_layout(
     parameter X_LEFT = 10; 
     parameter Y_BOTTOM = 10; 
 
-    //addinal intermediate logic signal wires 
+    // additional intermediate logic signal wires 
     wire flag_on_fence;  // high only when over rectangle 
     wire flag_on_snake;
     wire flag_on_food;
-    wire [9:0] x,y;  // traditional cartesean coordinates, (left, bottom)=(0,0)
+    wire [9:0] x, y;  // traditional cartesean coordinates, (left, bottom)=(0,0)
 
     //combinatorial logic to calculate x,y coordinate system 
     assign x = pos_h; 
