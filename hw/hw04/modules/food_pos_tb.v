@@ -25,12 +25,12 @@ module food_pos_tb;
     reg enable;
     reg clk;
     reg clr;
-    wire [8:0] x, y;
+    wire [8:0] food_x, food_y;
 
     food_pos food_pos_instance(
         .clk(clk),
         .enable(enable), .clr(clr),
-        .x(x), .y(y)
+        .food_x(food_x), .food_y(food_y)
     );
 
     always begin
@@ -47,16 +47,16 @@ module food_pos_tb;
         #10;
 
         #30
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #30
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #30
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #80
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         // enable = 0;
         // clr = 1;
@@ -64,12 +64,12 @@ module food_pos_tb;
         clr = 0;
 
         #80
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         enable = 1;
         #20
         // enable = 0;
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         clr = 0;
         #10;
@@ -77,47 +77,47 @@ module food_pos_tb;
 
         #80
         // enable = 0;
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         enable = 1;
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #80
         // enable = 0;
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         enable = 1;
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #80
         // enable = 0;
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         enable = 1;
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #80
         // enable = 0;
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         enable = 1;
         #20
-        $monitor("%0t x:%d y:%d", $time, x, y);
+        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
     end
 

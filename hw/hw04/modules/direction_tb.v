@@ -21,14 +21,14 @@
 //////////////////////////////////////////////////////////////////////////////
 module direction_tb;
 
-    reg RESET, BTN_EAST, BTN_WEST;
+    reg reset, east, west;
     reg clk;
     wire [1:0] dir;
 
     direction direction_instance(
-        .east(BTN_EAST),
-        .west(BTN_WEST),
-        .reset(RESET),
+        .east(east),
+        .west(west),
+        .reset(reset),
         .clk(clk),
         .dir(dir)
     );
@@ -38,58 +38,58 @@ module direction_tb;
         #20  // 50 MHz
         clk <= ~clk;
         #10  // shuffle the enable as well
-        RESET = ~RESET;
+        reset = ~reset;
 
     end
 
     initial begin
 
         clk <= 0;
-        RESET = 1;
+        reset = 1;
         #10;
-        RESET = 0;
+        reset = 0;
 
         #30;
-        BTN_WEST = 0;
-        BTN_EAST = 1;
+        west = 0;
+        east = 1;
 
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
-
-        #30;
-        BTN_WEST = 0;
-        BTN_EAST = 1;
-
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
+        $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
-        BTN_WEST = 0;
-        BTN_EAST = 1;
+        west = 0;
+        east = 1;
 
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
-
-        #30;
-        BTN_WEST = 0;
-        BTN_EAST = 1;
-
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
+        $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
-        BTN_WEST = 0;
-        BTN_EAST = 1;
+        west = 0;
+        east = 1;
 
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
-
-        #30;
-        BTN_WEST = 1;
-        BTN_EAST = 0;
-
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
+        $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
-        BTN_WEST = 1;
-        BTN_EAST = 0;
+        west = 0;
+        east = 1;
 
-        $display("%0t %b %b %d", $time, BTN_EAST, BTN_WEST, dir);
+        $display("%0t %b %b %d", $time, east, west, dir);
+
+        #30;
+        west = 0;
+        east = 1;
+
+        $display("%0t %b %b %d", $time, east, west, dir);
+
+        #30;
+        west = 1;
+        east = 0;
+
+        $display("%0t %b %b %d", $time, east, west, dir);
+
+        #30;
+        west = 1;
+        east = 0;
+
+        $display("%0t %b %b %d", $time, east, west, dir);
 
     end
 
