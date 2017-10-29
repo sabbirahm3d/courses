@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 `default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
@@ -18,11 +18,15 @@
 // Revision 0.01 - File Created
 // Additional Comments: 
 //
-//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 module snake_pos_tb;
 
     reg sys_clk, clk, grow, dead;
+
+    // direction
     reg [1:0] dir;
+
+    // coordinates for the snake segments
     wire [8:0] snake_x31, snake_x30, snake_x29, snake_x28,
         snake_x27, snake_x26, snake_x25, snake_x24,
         snake_x23, snake_x22, snake_x21, snake_x20,
@@ -30,8 +34,7 @@ module snake_pos_tb;
         snake_x15, snake_x14, snake_x13, snake_x12,
         snake_x11, snake_x10, snake_x9, snake_x8,
         snake_x7, snake_x6, snake_x5, snake_x4,
-        snake_x3, snake_x2, snake_x1, snake_x0
-
+        snake_x3, snake_x2, snake_x1, snake_x0;
     wire [8:0] snake_y31, snake_y30, snake_y29, snake_y28,
         snake_y27, snake_y26, snake_y25, snake_y24,
         snake_y23, snake_y22, snake_y21, snake_y20,
@@ -39,7 +42,7 @@ module snake_pos_tb;
         snake_y15, snake_y14, snake_y13, snake_y12,
         snake_y11, snake_y10, snake_y9, snake_y8,
         snake_y7, snake_y6, snake_y5, snake_y4,
-        snake_y3, snake_y2, snake_y1, snake_y0
+        snake_y3, snake_y2, snake_y1, snake_y0;
 
 
     pacemaker pacemaker_instance(
@@ -94,34 +97,68 @@ module snake_pos_tb;
     initial begin
 
         clk = 0;
+
         #10;
+
+        // move snake right
         dir = 0;
         grow = 0;
         dead = 0;
 
-        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
 
 
         #70
+
+        // grow the snake
         grow = 1;
-        dir = 3;
         #30
         grow = 0;
 
-        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
+
 
         #100
+        // move the snake up
+        dir = 3;
+
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
+
+
+        #100
+        // move the snake right
+        dir = 0;
+
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
+
+
+        #100
+        // kill the snake
         dir = 1;
         dead = 1;
 
-        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
+
 
         #100
+        // snake is dead and therefore will not move
 
-        $display("%0t: (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)", $time, snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1, snake_y1, snake_x0, snake_y0);
+        $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
+        snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
+        snake_y1, snake_x0, snake_y0);
 
     end
 
-    initial #500000 $finish;
+    initial #1100 $finish;
 
 endmodule

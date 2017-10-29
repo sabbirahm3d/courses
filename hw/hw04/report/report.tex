@@ -1,21 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Template
-% LaTeX Template
-% Version 1.0 (December 8 2014)
+% Template LaTeX Template Version 1.0 (December 8 2014)
 %
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
+% This template has been downloaded from: http://www.LaTeXTemplates.com
 %
-% Original author:
-% Brandon Fryslie
-% With extensive modifications by:
-% Vel (vel@latextemplates.com)
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
 %
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-% Authors:
-% Sabbir Ahmed
+% Authors: Sabbir Ahmed
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -24,127 +17,163 @@
 
 \begin{document}
 
-    \documentinfo{\textbf{Homework 4: Snake Report}}{\today}{Sabbir Ahmed}
+    \documentinfo {\textbf{Homework 4: Snake Report}} {October 27, 2017}
+    {Sabbir Ahmed}
     \vspace{-0.1in}
 
-    \section{Background}
-    For this assignment, a version of the classical snake game was implemented.
+    \section{Background} For this assignment, a version of the classical snake
+    game was implemented.
 
     The game was to conform to the following specifications:
 
     \begin{itemize}
 
-        \item The game play area is set up as a 26-by-38 grid surrounded by an electric fence (blue). The game display should occupy the majority of the screen.
+        \item The game play area is set up as a 26-by-38 grid surrounded by an
+        electric fence (blue). The game display should occupy the majority of
+        the screen.
 
-        \item To start the game, press RESET/BTN\_SOUTH. Upon release, a single grid point represents a snake (green) and a single grid point represents food (red).
+        \item To start the game, press RESET/BTN\_SOUTH. Upon release, a single
+        grid point represents a snake (green) and a single grid point
+        represents food (red).
 
-        \item The snake starts by moving to the right one grid point roughly every 1/8th of a second (125 ms update interval).
+        \item The snake starts by moving to the right one grid point roughly
+        every 1/8th of a second (125 ms update interval).
 
-        \item A player may change the direction of the movement by 90 degree clockwise or counterclockwise by using the East and West buttons respectively. Each button press should correspond to a 90 degree angle change.
+        \item A player may change the direction of the movement by 90 degree
+        clockwise or counterclockwise by using the East and West buttons
+        respectively. Each button press should correspond to a 90 degree angle
+        change.
 
         \item If the snake goes onto the fence, the game should freeze.
 
-        \item If the snake goes onto the food, the length of the snake should increase by one grid segment on the next movement with a trailing body, per the behavior of the game shown in the provided link. The moving head be green, and the grown body should be cyan (green+blue).
+        \item If the snake goes onto the food, the length of the snake should
+        increase by one grid segment on the next movement with a trailing body,
+        per the behavior of the game shown in the provided link. The moving
+        head be green, and the grown body should be cyan (green+blue).
 
-        \item Each time the snake reaches the food, another food should be positioned in a manor seemly random to the user.
+        \item Each time the snake reaches the food, another food should be
+        positioned in a manor seemly random to the user.
 
-        \item Each subsequent time the snake eats food, the segment length should grow by one, up to a length of 32 (including the head).
+        \item Each subsequent time the snake eats food, the segment length
+        should grow by one, up to a length of 32 (including the head).
 
-        \item If the head of the snake overlaps a body segment then the game should freeze.
+        \item If the head of the snake overlaps a body segment then the game
+        should freeze.
 
-        \item If the length of the snake reaches 32, the game should instead increase in speed by reducing the update interval by roughly 10 ms.
+        \item If the length of the snake reaches 32, the game should instead
+        increase in speed by reducing the update interval by roughly 10 ms.
 
     \end{itemize}
 
-    \section{Design Approach}
-    Several discrete modules were used to implement the game: \texttt{direction} \texttt{snake\_pos}, \texttt{food\_pos}, \texttt{collision}, \texttt{pacemaker} and \texttt{vga\_layout}. These submodules will be connected using a top level module that may be visualized with the schematic diagram configured as a block diagram in Figure \ref{fig:schematic}. All the modules implicitly accept clock cycles as inputs.
+    \section{Design Approach} Several discrete modules were used to implement
+    the game: \texttt{direction} \texttt{snake\_pos}, \texttt{food\_pos},
+    \texttt{collision}, \texttt{pacemaker} and \texttt{vga\_layout}. Since the
+    preliminary design, the \texttt{rotary\_oneshot} module was removed due to
+    the modification  These submodules will be connected using a top level
+    module that may be visualized with the schematic diagram configured as a
+    block diagram in Figure \ref{fig:schematic}. All the modules implicitly
+    accept clock cycles as inputs.
 
     \begin{figure}[ht]
         \begin{center}
             \includegraphics[width=1\textwidth]{top_level_design.png}
-            \caption{Block Diagram of the Implementation of the Game} \label{fig:schematic}
+            \caption{Block Diagram of the Implementation of the Game}
+            \label{fig:schematic}
         \end{center}
     \end{figure}
     \newpage
 
-        \subsection{direction}
-        The \texttt{direction} module is used to control the user inputs.
+        \subsection{direction} The \texttt{direction} module is used to control
+        the user inputs. The inputs are one-shotted, debounced and fed into the
+        internal state machine to determine the direction the user intended.
+        This module sets an enable to the \texttt{snake\_pos} module to notify
+        a change in direction.
 
-        \texttt{rotary\_oneshot} directly handles the user inputs, \texttt{rot\_a}, \texttt{rot\_b} and \texttt{reset}. The inputs are one-shotted and passed to \texttt{direction} to determine the direction the user intended. This module sets an enable to the \texttt{snake\_pos} module to notify a change in direction.
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{direction_wav.png}
+                \caption{Waveform of the Testbench of \texttt{direction}}
+                \label{fig:direction_wav}
+            \end{center}
+        \end{figure}
 
-        \subsection{snake\_pos}
-        The \texttt{snake\_pos} module generates the coordinates for the 32 segments of the snake body, including its head. The module takes in the 2 bit direction and 1 bit enable inputs from \texttt{direction}. It also accepts the \texttt{interval} input from \texttt{pacemaker} to determine the speed of the moving snake body.
+        The sample output demonstrates the \texttt{dir} signal incrementing
+        when \texttt{east} is high and decrementing when \texttt{west} is high.
 
-        \subsection{food\_pos}
-        This module generates the \texttt{food\_x} and \texttt{food\_y} coordinates of the food when enabled by the \texttt{collision} module.
+        \subsection{food\_pos} This module generates the \texttt{food\_x} and
+        \texttt{food\_y} coordinates of the food when enabled by the
+        \texttt{collision} module. The module combinedly utilizes an internal
+        counter and a linear feedback shift register to generate the pseudo-
+        random coordinates.
 
-        \subsection{collision and pacemaker}
-        \texttt{collision} accepts the coordinates of the food and the snake segments and determines if a collision has been detected. If a collision has not been detected, it sends out an enable signal to the \texttt{snake\_pos} module. If a collision with the snake body, specifically the snake head, with the food is detected, the module sends a signal to \texttt{pacemaker} to determine the interval at which the snake should move. This module has an internal counter that speeds up when the snake head had made 32 collisions with the food. If a collision between the snake head and the fence is detected, the game is frozen.
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{food_pos_wav.png}
+                \caption{Waveform of the Testbench of \texttt{food\_pos}}
+                \label{fig:food_pos_wav}
+            \end{center}
+        \end{figure}
 
-        \subsection{vga\_layout}
-        This module draws the fence of the game, and the snake and the randomly placed food on the VGA display.
+        The sample output demonstrates the seemingly random coordinates
+        generated for \texttt{food\_x} and \texttt{food\_y}.
 
-    \section{Test Plan and Methodology}
-    Individual modules are being built sequentially. A testbench to accompany those modules are also being built concurrently. The sequence at which the modules are being tested and built can be outlined by the block diagram going from left to right. The leftmost modules are being built and tested before their proceeding modules, with the exception of \texttt{vga\_layout} which required extensive testing to be able to withstand all its dependencies.
-    %     The \texttt{igniter} submodule allowed the player to interface with the LEDs. It accepted the 4 switches as the input, representing them as the 4 bit \texttt{delta} of the current position of the user. The submodule also handled BTN\_NORTH, acting as the enable.
+        \subsection{snake\_pos} The \texttt{snake\_pos} module generates the
+        coordinates for the 32 segments of the snake body, including its head.
+        The module takes in the 2 bit direction from \texttt{direction} and 2
+        enable control signals from \texttt{collision}. The control signals,
+        \texttt{grow} and \texttt{dead} are used to indicate the state of the
+        snake body. If \texttt{grow} is enabled, the module utilizes
+        \texttt{dir} to shift the body segments. If \texttt{dead} is enabled,
+        the body segments freeze to indicate end of the game. Its clock is
+        timed by \texttt{pacemaker} to control the speed of the moving snake
+        body.
 
-    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{igniter_tb}. A sample waveform output has been provided:
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{snake_pos_wav.png}
+                \caption{Waveform of the Testbench of \texttt{snake\_pos}}
+                \label{fig:snake_pos_wav}
+            \end{center}
+        \end{figure}
 
-    %     \begin{figure}[ht]
-    %         \begin{center}
-    %             \includegraphics[width=1\textwidth]{igniter_wav.png}
-    %             \caption{Waveform of the Testbench of igniter} \label{fig:igniter_wav}
-    %         \end{center}
-    %     \end{figure}
-    %     \newpage
+        The signals were reorganized to highlight the relevant waveforms. The
+        sample output demonstrates the movement of the individual body segments
+        by utilizing the internal shift register. Only the initial segments
+        change due to the snake body's growth being restricted to a length of 2
+        in the test bench.
 
-    %     \subsection{extinguisher}
-    %     The \texttt{extinguisher} submodule turns the LEDs off using a pseudo-random index generator. It consists of an internal counter, running independently of the rest of the submodule on each clock cycle. The 4 bit counter iterates through all its 16 states, and outputs an active signal when the module is enabled. The active signal outputs high when the counter is less than 8 and assigns the value to the index of the LED to be turned off.
+        \subsection{collision} \texttt{collision} accepts the coordinates of
+        the food and the snake segments and determines if a collision has been
+        detected. If a collision has not been detected, it sends out an enable
+        signal to the \texttt{snake\_pos} module. If a collision with the snake
+        body, specifically the snake head, with the food is detected, the
+        module sends a signal to \texttt{pacemaker} to determine the interval
+        at which the snake should move. This module has an internal counter
+        that speeds up when the snake head had made 32 collisions with the
+        food. If a collision between the snake head and the fence is detected,
+        the game is frozen.
 
-    %     The 50 MHz clock speed from the development board cycles through the counter very rapidly: 
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{collision_wav.png}
+                \caption{Waveform of the Testbench of \texttt{collision}}
+                \label{fig:collision_wav}
+            \end{center}
+        \end{figure}
 
-    %      \[ 50 \ MHz=\frac{1}{50 \times 10^{6}} \ s=20 \ ns \times 16 \ states = \frac{1 \ counter \ loop}{320 \ ns} \]
+        The signals were reorganized to highlight the relevant waveforms. The
+        sample output indicates the conditions to which a collision is
+        classified as \texttt{grow} and \texttt{dead}.
 
-    %     This speed allows the player to perceive the outputs of the submodule to be random.
+        \subsection{vga\_layout} This module draws the fence of the game, and
+        the snake and the randomly placed food on the VGA display.
 
-    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{extinguisher_tb}. A sample waveform output has been provided:
-
-    %     \begin{figure}[ht]
-    %         \begin{center}
-    %             \includegraphics[width=1\textwidth]{extinguisher_wav.png}
-    %             \caption{Waveform of the Testbench of extinguisher} \label{fig:extinguisher_wav}
-    %         \end{center}
-    %     \end{figure}
-    %     \newpage
-
-    %     \subsection{candle\_controller}
-
-    %     The \texttt{candle_controller} submodule directly handles the states of the LED outputs. It utilizes the outputs from the other two submodules to determine the states of the individual LEDs.
-
-    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{candle_controller_tb}. A sample waveform output has been provided:
-
-    %     \begin{figure}[ht]
-    %         \begin{center}
-    %             \includegraphics[width=1\textwidth]{candle_controller_wav.png}
-    %             \caption{Waveform of the Testbench of candle\_controller} \label{fig:candle_controller_wav}
-    %         \end{center}
-    %     \end{figure}
-    %     \newpage
-
-    %     \subsection{Top Level Module}
-    %     The top level module, \texttt{top.v}, connects all the submodules with wires. A testbench has also been included with the project to demonstrate the implementation of the game in \texttt{top_tb}. A sample waveform output has been provided:
-
-    %     \begin{figure}[ht]
-    %         \begin{center}
-    %             \includegraphics[width=1\textwidth]{top_wav.png}
-    %             \caption{Waveform of the Testbench of top} \label{fig:top_wav}
-    %         \end{center}
-    %     \end{figure}
-
-    % \section{Troubleshooting}
-    % Several software and hardware issues were emphasized during the timeline of this assignment. Software glitches include the Xilinx ISE not being able to interface the development board at random times after successful synthesis. Hardware issues included the board not being able to properly process the switches as inputs in the initial stages of the assignment timeline.
-
-    % \section{Results}
-    % All the testbenches generated the expected outputs, and the project was successfully synthesized. The game was implemented on the board to an extent. The LEDs appear to be frozen in state when the BTN\_NORTH enable was pushed. The RESET button appear to work, but the inputs of the switches could not be validated because of the LEDs resisting to change their states.
+        \subsection{Other Modules} Other minor modules have been utilized for
+        the implementation. \texttt{pacemaker} is used to send out control
+        signals to the other modules such that they update at reasonable rates.
+        The module consists of an internal counter that speeds up the update
+        rate once the game has registered over 31 bites of the food.
+        \texttt{vga\_sync} is used to synchronize the outputs to the VGA
+        display.
 
 \end{document}

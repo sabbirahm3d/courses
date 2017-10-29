@@ -50,42 +50,49 @@ module direction_tb;
         reset = 0;
 
         #30;
+        // start by moving right
         west = 0;
         east = 1;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move down
         west = 0;
         east = 1;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move left
         west = 0;
         east = 1;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move up
         west = 0;
         east = 1;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move right again
         west = 0;
         east = 1;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move up again
         west = 1;
         east = 0;
 
         $display("%0t %b %b %d", $time, east, west, dir);
 
         #30;
+        // move left again
         west = 1;
         east = 0;
 

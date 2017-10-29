@@ -81,108 +81,13 @@ module vga_layout(
         (y >= (FENCE_WIDTH) && y < (FENCE_WIDTH + GRID_HEIGHT))
     );
 
+    // head_x, head_y
     assign flag_on_snake = (
-        (   // head_x, head_y
-            (x >= snake_x0 && x < (snake_x0 + PIXEL_WIDTH)) &&
-            (y >= snake_y0 && y < (snake_y0 + PIXEL_WIDTH))
-        )
+        (x >= snake_x0 && x < (snake_x0 + PIXEL_WIDTH)) &&
+        (y >= snake_y0 && y < (snake_y0 + PIXEL_WIDTH))
     );
-    //      && (
-    //         ((x >= snake_x1 && x < (snake_x1 + PIXEL_WIDTH)) && snake_x1) &&
-    //         ((y >= snake_y1 && y < (snake_y1 + PIXEL_WIDTH)) && snake_y1)
-    //     ) && (
-    //         ((x >= snake_x2 && x < (snake_x2 + PIXEL_WIDTH)) && snake_x2) &&
-    //         ((y >= snake_y2 && y < (snake_y2 + PIXEL_WIDTH)) && snake_y2)
-    //     ) && (
-    //         ((x >= snake_x3 && x < (snake_x3 + PIXEL_WIDTH)) && snake_x3) &&
-    //         ((y >= snake_y3 && y < (snake_y3 + PIXEL_WIDTH)) && snake_y3)
-    //     ) && (
-    //         ((x >= snake_x4 && x < (snake_x4 + PIXEL_WIDTH)) && snake_x4) &&
-    //         ((y >= snake_y4 && y < (snake_y4 + PIXEL_WIDTH)) && snake_y4)
-    //     ) && (
-    //         ((x >= snake_x5 && x < (snake_x5 + PIXEL_WIDTH)) && snake_x5) &&
-    //         ((y >= snake_y5 && y < (snake_y5 + PIXEL_WIDTH)) && snake_y5)
-    //     ) && (
-    //         ((x >= snake_x6 && x < (snake_x6 + PIXEL_WIDTH)) && snake_x6) &&
-    //         ((y >= snake_y6 && y < (snake_y6 + PIXEL_WIDTH)) && snake_y6)
-    //     ) && (
-    //         ((x >= snake_x7 && x < (snake_x7 + PIXEL_WIDTH)) && snake_x7) &&
-    //         ((y >= snake_y7 && y < (snake_y7 + PIXEL_WIDTH)) && snake_y7)
-    //     ) && (
-    //         ((x >= snake_x8 && x < (snake_x8 + PIXEL_WIDTH)) && snake_x8) &&
-    //         ((y >= snake_y8 && y < (snake_y8 + PIXEL_WIDTH)) && snake_y8)
-    //     ) && (
-    //         ((x >= snake_x9 && x < (snake_x9 + PIXEL_WIDTH)) && snake_x9) &&
-    //         ((y >= snake_y9 && y < (snake_y9 + PIXEL_WIDTH)) && snake_y9)
-    //     ) && (
-    //         ((x >= snake_x10 && x < (snake_x10 + PIXEL_WIDTH)) && snake_x10) &&
-    //         ((y >= snake_y10 && y < (snake_y10 + PIXEL_WIDTH)) && snake_y10)
-    //     ) && (
-    //         ((x >= snake_x11 && x < (snake_x11 + PIXEL_WIDTH)) && snake_x11) &&
-    //         ((y >= snake_y11 && y < (snake_y11 + PIXEL_WIDTH)) && snake_y11)
-    //     ) && (
-    //         ((x >= snake_x12 && x < (snake_x12 + PIXEL_WIDTH)) && snake_x12) &&
-    //         ((y >= snake_y12 && y < (snake_y12 + PIXEL_WIDTH)) && snake_y12)
-    //     ) && (
-    //         ((x >= snake_x13 && x < (snake_x13 + PIXEL_WIDTH)) && snake_x13) &&
-    //         ((y >= snake_y13 && y < (snake_y13 + PIXEL_WIDTH)) && snake_y13)
-    //     ) && (
-    //         ((x >= snake_x14 && x < (snake_x14 + PIXEL_WIDTH)) && snake_x14) &&
-    //         ((y >= snake_y14 && y < (snake_y14 + PIXEL_WIDTH)) && snake_y14)
-    //     ) && (
-    //         ((x >= snake_x15 && x < (snake_x15 + PIXEL_WIDTH)) && snake_x15) &&
-    //         ((y >= snake_y15 && y < (snake_y15 + PIXEL_WIDTH)) && snake_y15)
-    //     ) && (
-    //         ((x >= snake_x16 && x < (snake_x16 + PIXEL_WIDTH)) && snake_x16) &&
-    //         ((y >= snake_y16 && y < (snake_y16 + PIXEL_WIDTH)) && snake_y16)
-    //     ) && (
-    //         ((x >= snake_x17 && x < (snake_x17 + PIXEL_WIDTH)) && snake_x17) &&
-    //         ((y >= snake_y17 && y < (snake_y17 + PIXEL_WIDTH)) && snake_y17)
-    //     ) && (
-    //         ((x >= snake_x18 && x < (snake_x18 + PIXEL_WIDTH)) && snake_x18) &&
-    //         ((y >= snake_y18 && y < (snake_y18 + PIXEL_WIDTH)) && snake_y18)
-    //     ) && (
-    //         ((x >= snake_x19 && x < (snake_x19 + PIXEL_WIDTH)) && snake_x19) &&
-    //         ((y >= snake_y19 && y < (snake_y19 + PIXEL_WIDTH)) && snake_y19)
-    //     ) && (
-    //         ((x >= snake_x20 && x < (snake_x20 + PIXEL_WIDTH)) && snake_x20) &&
-    //         ((y >= snake_y20 && y < (snake_y20 + PIXEL_WIDTH)) && snake_y20)
-    //     ) && (
-    //         ((x >= snake_x21 && x < (snake_x21 + PIXEL_WIDTH)) && snake_x21) &&
-    //         ((y >= snake_y21 && y < (snake_y21 + PIXEL_WIDTH)) && snake_y21)
-    //     ) && (
-    //         ((x >= snake_x22 && x < (snake_x22 + PIXEL_WIDTH)) && snake_x22) &&
-    //         ((y >= snake_y22 && y < (snake_y22 + PIXEL_WIDTH)) && snake_y22)
-    //     ) && (
-    //         ((x >= snake_x23 && x < (snake_x23 + PIXEL_WIDTH)) && snake_x23) &&
-    //         ((y >= snake_y23 && y < (snake_y23 + PIXEL_WIDTH)) && snake_y23)
-    //     ) && (
-    //         ((x >= snake_x24 && x < (snake_x24 + PIXEL_WIDTH)) && snake_x24) &&
-    //         ((y >= snake_y24 && y < (snake_y24 + PIXEL_WIDTH)) && snake_y24)
-    //     ) && (
-    //         ((x >= snake_x25 && x < (snake_x25 + PIXEL_WIDTH)) && snake_x25) &&
-    //         ((y >= snake_y25 && y < (snake_y25 + PIXEL_WIDTH)) && snake_y25)
-    //     ) && (
-    //         ((x >= snake_x26 && x < (snake_x26 + PIXEL_WIDTH)) && snake_x26) &&
-    //         ((y >= snake_y26 && y < (snake_y26 + PIXEL_WIDTH)) && snake_y26)
-    //     ) && (
-    //         ((x >= snake_x27 && x < (snake_x27 + PIXEL_WIDTH)) && snake_x27) &&
-    //         ((y >= snake_y27 && y < (snake_y27 + PIXEL_WIDTH)) && snake_y27)
-    //     ) && (
-    //         ((x >= snake_x28 && x < (snake_x28 + PIXEL_WIDTH)) && snake_x28) &&
-    //         ((y >= snake_y28 && y < (snake_y28 + PIXEL_WIDTH)) && snake_y28)
-    //     ) && (
-    //         ((x >= snake_x29 && x < (snake_x29 + PIXEL_WIDTH)) && snake_x29) &&
-    //         ((y >= snake_y29 && y < (snake_y29 + PIXEL_WIDTH)) && snake_y29)
-    //     ) && (
-    //         ((x >= snake_x30 && x < (snake_x30 + PIXEL_WIDTH)) && snake_x30) &&
-    //         ((y >= snake_y30 && y < (snake_y30 + PIXEL_WIDTH)) && snake_y30)
-    //     ) && (
-    //         ((x >= snake_x31 && x < (snake_x31 + PIXEL_WIDTH)) && snake_x31) &&
-    //         ((y >= snake_y31 && y < (snake_y31 + PIXEL_WIDTH)) && snake_y31)
-    //     )
-    // );
 
+    // food_x, food_y
     assign flag_on_food = (
         (x >= food_x && x < (food_x + PIXEL_WIDTH)) &&
         (y >= food_y && y < (food_y + PIXEL_WIDTH))

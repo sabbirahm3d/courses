@@ -41,8 +41,11 @@ module direction(
 
         end else begin
 
+            // increment if east
             if (east && ~west) begin
                 dir <= dir + 1;
+
+            // decrement if west
             end else if (~east && west) begin
                 dir <= dir - 1;
             end

@@ -29,14 +29,25 @@ module top(
         output wire VGA_BLUE
     );
 
+    // clock buffered by pacemaker
     wire clk;
+
+    // control signals for collision
     wire bite, dead, grow;
+
+    // direction of movement
     wire [1:0] dir;
+
+    // signals for vga_sync
     wire blank, clr;
     wire hsync, vsync;
     wire [9:0] hcount, vcount;
     wire  pix_clk;
+
+    // coordinates for the food
     wire [8:0] food_x, food_y;
+
+    // coordinates for the snake segments
     wire [8:0] snake_x31, snake_x30, snake_x29, snake_x28,
         snake_x27, snake_x26, snake_x25, snake_x24,
         snake_x23, snake_x22, snake_x21, snake_x20,

@@ -57,9 +57,16 @@ module collision(
         output reg bite, output reg dead
     );
 
+    // maximum height and width of the game area
+    parameter GRID_WIDTH = 500;
+    parameter GRID_HEIGHT = 400;
+
     always @(posedge clk) begin
 
+        // if the head and the food positions overlap
         bite <= ~((snake_x0 ^ food_x) && (snake_y0 ^ food_y));
+
+        // if the head and any of its segment or the fence positions overlap
         dead <= (
             ((snake_x0 == snake_x3)  && (snake_y0 == snake_y3))  ||
             ((snake_x0 == snake_x4)  && (snake_y0 == snake_y4))  ||
@@ -89,7 +96,9 @@ module collision(
             ((snake_x0 == snake_x28) && (snake_y0 == snake_y28)) ||
             ((snake_x0 == snake_x29) && (snake_y0 == snake_y29)) ||
             ((snake_x0 == snake_x30) && (snake_y0 == snake_y30)) ||
-            ((snake_x0 == snake_x31) && (snake_y0 == snake_y31))
+            ((snake_x0 == snake_x31) && (snake_y0 == snake_y31)) ||
+            ((snake_x0 == 20) && (snake_y0 == 20)) ||
+            ((snake_x0 == GRID_WIDTH) && (snake_y0 == GRID_HEIGHT))
         );
 
     end

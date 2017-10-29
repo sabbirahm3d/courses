@@ -43,6 +43,7 @@ module food_pos_tb;
     initial begin
 
         clk = 0;
+        // enable the module
         enable = 1;
         #10;
 
@@ -58,8 +59,6 @@ module food_pos_tb;
         #80
         $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
-        // enable = 0;
-        // clr = 1;
         #10;
         clr = 0;
 
@@ -68,55 +67,12 @@ module food_pos_tb;
 
         enable = 1;
         #20
-        // enable = 0;
         $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
         clr = 0;
         #10;
-        enable = 1;
 
         #80
-        // enable = 0;
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        enable = 1;
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #80
-        // enable = 0;
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        enable = 1;
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #80
-        // enable = 0;
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        enable = 1;
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #80
-        // enable = 0;
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        #20
-        $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
-
-        enable = 1;
-        #20
         $monitor("%0t food_x:%d food_y:%d", $time, food_x, food_y);
 
     end

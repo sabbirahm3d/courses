@@ -28,9 +28,8 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{xparse}
 \usepackage{xcolor}
-\usepackage{caption} 
+\usepackage{caption}
 \usepackage{enumitem}
-\usepackage{listings}
 \usepackage{url}
 \usepackage{longtable}
 
@@ -41,6 +40,7 @@
 \setlength{\textheight}{23cm} % Height of the text on the page
 \setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
 \setlength{\topmargin}{-1.25cm} % Reduce the top margin
+\renewcommand{\baselinestretch}{1.2}
 
 \renewcommand\familydefault{\sfdefault}  % default font for entire document
 
@@ -50,23 +50,12 @@
         \parbox{2in}{
         \begin{spacing}{1}
             \begin{flushleft}
-                \begin{tabular}{l l}
-                    #1 \\
-                    #2 \\
-                    #3 \\
-                \end{tabular}\\
+                \begin{tabular}{l l} #1 \\ #2 \\ #3 \\
+                \end{tabular} \\
                 \rule{\textwidth}{1pt}
             \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
+        \end{spacing} }
+    \end{centering} }
 
 \graphicspath{ {figures/} }
 \captionsetup[table]{skip=10pt}
-
-\NewDocumentCommand{\inlsnip}{v}{
-    \texttt{\textcolor{blue}{#1}}
-}
-
-\lstset{language=C, keywordstyle={\bfseries \color{black}}}

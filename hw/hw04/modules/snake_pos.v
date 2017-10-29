@@ -56,12 +56,15 @@ module snake_pos(
         output reg [8:0] snake_y30, output reg [8:0] snake_y31
     );
 
-    reg [8:0] next_x, next_y;
-    reg [4:0] size;
-    reg [8:0] mask [31:0];
-    parameter SEG_WIDTH = 20;
-    parameter [8:0] ZEROS = {9{1'b0}};
-    parameter [8:0] ONES = {9{1'b1}};
+    reg [8:0] next_x, next_y;  // new position for the head
+    reg [4:0] size;  // total size of the snake body including its head
+    reg [8:0] mask [31:0];  // an array of mask
+    parameter SEG_WIDTH = 20;  // width of a segment
+    parameter [8:0] ZEROS = {9{1'b0}};  // array of zeros
+    parameter [8:0] ONES = {9{1'b1}};  // array of ones
+
+    // initial coordinates of the head (300)
+    parameter [8:0] INIT = 9'b100101100;
 
     initial begin
 
@@ -80,7 +83,7 @@ module snake_pos(
             snake_x7, snake_x6, snake_x5, snake_x4,
             snake_x3, snake_x2, snake_x1, snake_x0
         } = {
-            {30{ZEROS}},  300
+            {30{ZEROS}}, INIT
         };
 
         // set all snake-y segments but the head to 0
@@ -94,7 +97,7 @@ module snake_pos(
             snake_y7, snake_y6, snake_y5, snake_y4,
             snake_y3, snake_y2, snake_y1, snake_y0
         } = {
-            {30{ZEROS}}, 300
+            {30{ZEROS}}, INIT
         };
 
         // initialize all the elements of the mask to 0 except the 0th one 
@@ -115,6 +118,8 @@ module snake_pos(
 
     always @(posedge clk) begin
 
+        // if the snake is not dead and not growing, it will continue moving in
+        // the desired direction
         if (~grow && ~dead) begin
 
             if (dir == 0) begin
@@ -143,6 +148,7 @@ module snake_pos(
 
             end
 
+            // shift left the x segments, then mask it
             {
                 snake_x31, snake_x30, snake_x29, snake_x28,
                 snake_x27, snake_x26, snake_x25, snake_x24,
@@ -172,6 +178,7 @@ module snake_pos(
                     mask[3], mask[2], mask[1], mask[0]
                 });
 
+            // shift left the y segments, then mask it
             {
                 snake_y31, snake_y30, snake_y29, snake_y28,
                 snake_y27, snake_y26, snake_y25, snake_y24,
@@ -201,11 +208,17 @@ module snake_pos(
                     mask[3], mask[2], mask[1], mask[0]
                 });
 
+        // if the snake is growing
         end else if (grow && ~dead) begin
 
+            // increment the size
             size = size + 1;
+            // mask the new segment with 1
             mask[size] = {9{ONES}};
 
+        // if the snake is dead, do nothing with the segments
+        end else begin
+            $display("DEAD");
         end
 
     end

@@ -45,7 +45,10 @@ module food_pos(
 
     always @(posedge clk) begin
 
+        // update the feedback shift register
         lfsr <= {lfsr[7:0], feedback};
+
+        // increment the counter
         internal_ctr <= internal_ctr + 1;
 
     end
