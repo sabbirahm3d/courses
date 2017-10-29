@@ -24,93 +24,127 @@
 
 \begin{document}
 
-    \documentinfo{\textbf{Homework 3: Light the Candles}}{\today}{Sabbir Ahmed}
+    \documentinfo{\textbf{Homework 4: Snake Report}}{\today}{Sabbir Ahmed}
     \vspace{-0.1in}
 
     \section{Background}
-    For this assignment, a game was created to be played on the development board. The goal of the game is for the player to light all the candles, represented by the 8 LEDs on the board just above the switches, while they are being pseudo-randomly turned off.
-    
-    The game starts off with the player pressing the RESET button (a.k.a. BTN\_SOUTH) just below the rotatory knob.
+    For this assignment, a version of the classical snake game was implemented.
 
-    The player is placed initially at a position 0.
+    The game was to conform to the following specifications:
 
-    The player may light the candles by jumping on them. This is done using the BTN\_NORTH button on the board just above the rotary knob. A player may jump at the current position by setting the switches to zero and pressing BTN\_NORTH. Any desired horizontal movement in the jump to another position is provide by the four switches which indicate a value from 7 to -8, in binary two's compliment.
+    \begin{itemize}
 
-    Once a candle is lit, the player may jump again jump on the same location (using 0) or to another location using the delta provide by the switches.
+        \item The game play area is set up as a 26-by-38 grid surrounded by an electric fence (blue). The game display should occupy the majority of the screen.
 
-    However, the candles that were lit will continually go out at random and must be relit. To be specific, a candle may at random go out at the same time the player jumps. Secondly, note that there is no direct indicator to where the player is; so it is up to the player to keep track.
+        \item To start the game, press RESET/BTN\_SOUTH. Upon release, a single grid point represents a snake (green) and a single grid point represents food (red).
 
-    \section{Implementation}
-    Three discrete modules were used to implement the game: \inlsnip{igniter}, \inlsnip{extinguisher} and \inlsnip{candle_controller}. These submodules were connected and debounced using a top level module that may be visualized with the schematic diagram configured as a block diagram in Figure \ref{fig:schematic}.
+        \item The snake starts by moving to the right one grid point roughly every 1/8th of a second (125 ms update interval).
+
+        \item A player may change the direction of the movement by 90 degree clockwise or counterclockwise by using the East and West buttons respectively. Each button press should correspond to a 90 degree angle change.
+
+        \item If the snake goes onto the fence, the game should freeze.
+
+        \item If the snake goes onto the food, the length of the snake should increase by one grid segment on the next movement with a trailing body, per the behavior of the game shown in the provided link. The moving head be green, and the grown body should be cyan (green+blue).
+
+        \item Each time the snake reaches the food, another food should be positioned in a manor seemly random to the user.
+
+        \item Each subsequent time the snake eats food, the segment length should grow by one, up to a length of 32 (including the head).
+
+        \item If the head of the snake overlaps a body segment then the game should freeze.
+
+        \item If the length of the snake reaches 32, the game should instead increase in speed by reducing the update interval by roughly 10 ms.
+
+    \end{itemize}
+
+    \section{Design Approach}
+    Several discrete modules were used to implement the game: \texttt{direction} \texttt{snake\_pos}, \texttt{food\_pos}, \texttt{collision}, \texttt{pacemaker} and \texttt{vga\_layout}. These submodules will be connected using a top level module that may be visualized with the schematic diagram configured as a block diagram in Figure \ref{fig:schematic}. All the modules implicitly accept clock cycles as inputs.
 
     \begin{figure}[ht]
         \begin{center}
-            \includegraphics[width=1\textwidth]{schematic.png}
-            \caption{Schematic of the Implementation of the Game} \label{fig:schematic}
+            \includegraphics[width=1\textwidth]{top_level_design.png}
+            \caption{Block Diagram of the Implementation of the Game} \label{fig:schematic}
         \end{center}
     \end{figure}
     \newpage
 
-        \subsection{igniter}
-        The \inlsnip{igniter} submodule allowed the player to interface with the LEDs. It accepted the 4 switches as the input, representing them as the 4 bit \inlsnip{delta} of the current position of the user. The submodule also handled BTN\_NORTH, acting as the enable.
+        \subsection{direction}
+        The \texttt{direction} module is used to control the user inputs.
 
-        A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \inlsnip{igniter_tb}. A sample waveform output has been provided:
+        \texttt{rotary\_oneshot} directly handles the user inputs, \texttt{rot\_a}, \texttt{rot\_b} and \texttt{reset}. The inputs are one-shotted and passed to \texttt{direction} to determine the direction the user intended. This module sets an enable to the \texttt{snake\_pos} module to notify a change in direction.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{igniter_wav.png}
-                \caption{Waveform of the Testbench of igniter} \label{fig:igniter_wav}
-            \end{center}
-        \end{figure}
-        \newpage
+        \subsection{snake\_pos}
+        The \texttt{snake\_pos} module generates the coordinates for the 32 segments of the snake body, including its head. The module takes in the 2 bit direction and 1 bit enable inputs from \texttt{direction}. It also accepts the \texttt{interval} input from \texttt{pacemaker} to determine the speed of the moving snake body.
 
-        \subsection{extinguisher}
-        The \inlsnip{extinguisher} submodule turns the LEDs off using a pseudo-random index generator. It consists of an internal counter, running independently of the rest of the submodule on each clock cycle. The 4 bit counter iterates through all its 16 states, and outputs an active signal when the module is enabled. The active signal outputs high when the counter is less than 8 and assigns the value to the index of the LED to be turned off.
+        \subsection{food\_pos}
+        This module generates the \texttt{food\_x} and \texttt{food\_y} coordinates of the food when enabled by the \texttt{collision} module.
 
-        The 50 MHz clock speed from the development board cycles through the counter very rapidly: 
+        \subsection{collision and pacemaker}
+        \texttt{collision} accepts the coordinates of the food and the snake segments and determines if a collision has been detected. If a collision has not been detected, it sends out an enable signal to the \texttt{snake\_pos} module. If a collision with the snake body, specifically the snake head, with the food is detected, the module sends a signal to \texttt{pacemaker} to determine the interval at which the snake should move. This module has an internal counter that speeds up when the snake head had made 32 collisions with the food. If a collision between the snake head and the fence is detected, the game is frozen.
 
-         \[ 50 \ MHz=\frac{1}{50 \times 10^{6}} \ s=20 \ ns \times 16 \ states = \frac{1 \ counter \ loop}{320 \ ns} \]
+        \subsection{vga\_layout}
+        This module draws the fence of the game, and the snake and the randomly placed food on the VGA display.
 
-        This speed allows the player to perceive the outputs of the submodule to be random.
+    \section{Test Plan and Methodology}
+    Individual modules are being built sequentially. A testbench to accompany those modules are also being built concurrently. The sequence at which the modules are being tested and built can be outlined by the block diagram going from left to right. The leftmost modules are being built and tested before their proceeding modules, with the exception of \texttt{vga\_layout} which required extensive testing to be able to withstand all its dependencies.
+    %     The \texttt{igniter} submodule allowed the player to interface with the LEDs. It accepted the 4 switches as the input, representing them as the 4 bit \texttt{delta} of the current position of the user. The submodule also handled BTN\_NORTH, acting as the enable.
 
-        A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \inlsnip{extinguisher_tb}. A sample waveform output has been provided:
+    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{igniter_tb}. A sample waveform output has been provided:
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{extinguisher_wav.png}
-                \caption{Waveform of the Testbench of extinguisher} \label{fig:extinguisher_wav}
-            \end{center}
-        \end{figure}
-        \newpage
+    %     \begin{figure}[ht]
+    %         \begin{center}
+    %             \includegraphics[width=1\textwidth]{igniter_wav.png}
+    %             \caption{Waveform of the Testbench of igniter} \label{fig:igniter_wav}
+    %         \end{center}
+    %     \end{figure}
+    %     \newpage
 
-        \subsection{candle\_controller}
+    %     \subsection{extinguisher}
+    %     The \texttt{extinguisher} submodule turns the LEDs off using a pseudo-random index generator. It consists of an internal counter, running independently of the rest of the submodule on each clock cycle. The 4 bit counter iterates through all its 16 states, and outputs an active signal when the module is enabled. The active signal outputs high when the counter is less than 8 and assigns the value to the index of the LED to be turned off.
 
-        The \inlsnip{candle_controller} submodule directly handles the states of the LED outputs. It utilizes the outputs from the other two submodules to determine the states of the individual LEDs.
+    %     The 50 MHz clock speed from the development board cycles through the counter very rapidly: 
 
-        A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \inlsnip{candle_controller_tb}. A sample waveform output has been provided:
+    %      \[ 50 \ MHz=\frac{1}{50 \times 10^{6}} \ s=20 \ ns \times 16 \ states = \frac{1 \ counter \ loop}{320 \ ns} \]
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{candle_controller_wav.png}
-                \caption{Waveform of the Testbench of candle\_controller} \label{fig:candle_controller_wav}
-            \end{center}
-        \end{figure}
-        \newpage
+    %     This speed allows the player to perceive the outputs of the submodule to be random.
 
-        \subsection{Top Level Module}
-        The top level module, \inlsnip{top.v}, connects all the submodules with wires. A testbench has also been included with the project to demonstrate the implementation of the game in \inlsnip{top_tb}. A sample waveform output has been provided:
+    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{extinguisher_tb}. A sample waveform output has been provided:
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{top_wav.png}
-                \caption{Waveform of the Testbench of top} \label{fig:top_wav}
-            \end{center}
-        \end{figure}
+    %     \begin{figure}[ht]
+    %         \begin{center}
+    %             \includegraphics[width=1\textwidth]{extinguisher_wav.png}
+    %             \caption{Waveform of the Testbench of extinguisher} \label{fig:extinguisher_wav}
+    %         \end{center}
+    %     \end{figure}
+    %     \newpage
 
-    \section{Troubleshooting}
-    Several software and hardware issues were emphasized during the timeline of this assignment. Software glitches include the Xilinx ISE not being able to interface the development board at random times after successful synthesis. Hardware issues included the board not being able to properly process the switches as inputs in the initial stages of the assignment timeline.
+    %     \subsection{candle\_controller}
 
-    \section{Results}
-    All the testbenches generated the expected outputs, and the project was successfully synthesized. The game was implemented on the board to an extent. The LEDs appear to be frozen in state when the BTN\_NORTH enable was pushed. The RESET button appear to work, but the inputs of the switches could not be validated because of the LEDs resisting to change their states.
+    %     The \texttt{candle_controller} submodule directly handles the states of the LED outputs. It utilizes the outputs from the other two submodules to determine the states of the individual LEDs.
+
+    %     A testbench has been included with the project to demonstrate usage of the submodule and its effects on the position of the player in \texttt{candle_controller_tb}. A sample waveform output has been provided:
+
+    %     \begin{figure}[ht]
+    %         \begin{center}
+    %             \includegraphics[width=1\textwidth]{candle_controller_wav.png}
+    %             \caption{Waveform of the Testbench of candle\_controller} \label{fig:candle_controller_wav}
+    %         \end{center}
+    %     \end{figure}
+    %     \newpage
+
+    %     \subsection{Top Level Module}
+    %     The top level module, \texttt{top.v}, connects all the submodules with wires. A testbench has also been included with the project to demonstrate the implementation of the game in \texttt{top_tb}. A sample waveform output has been provided:
+
+    %     \begin{figure}[ht]
+    %         \begin{center}
+    %             \includegraphics[width=1\textwidth]{top_wav.png}
+    %             \caption{Waveform of the Testbench of top} \label{fig:top_wav}
+    %         \end{center}
+    %     \end{figure}
+
+    % \section{Troubleshooting}
+    % Several software and hardware issues were emphasized during the timeline of this assignment. Software glitches include the Xilinx ISE not being able to interface the development board at random times after successful synthesis. Hardware issues included the board not being able to properly process the switches as inputs in the initial stages of the assignment timeline.
+
+    % \section{Results}
+    % All the testbenches generated the expected outputs, and the project was successfully synthesized. The game was implemented on the board to an extent. The LEDs appear to be frozen in state when the BTN\_NORTH enable was pushed. The RESET button appear to work, but the inputs of the switches could not be validated because of the LEDs resisting to change their states.
 
 \end{document}
