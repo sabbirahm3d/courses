@@ -8,7 +8,7 @@ run:
 
 .PHONY: compile
 compile:
-	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c list_iterator.c -Wall -std=gnu99 -Os
+	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall -std=gnu99 -Os
 
 
 .PHONY: memleak

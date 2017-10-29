@@ -12,7 +12,7 @@
  */
 
 
-node *create_node(char **data, double *grade) {
+node *create_node(char **data, float *grade) {
 
     node *self;
     if (!(self = malloc(sizeof(node))))
@@ -24,6 +24,60 @@ node *create_node(char **data, double *grade) {
 
     return self;
 
+}
+
+/*
+ * Allocate a new list_iterator_t. NULL on failure.
+ * Accepts a direction, which may be LIST_HEAD or LIST_TAIL.
+ */
+
+list_iterator_t *
+list_iterator_new(linked_list *list, list_direction_t direction) {
+
+    node *node = direction == LIST_HEAD ? list->head : list->tail;
+    return list_iterator_new_from_node(node, direction);
+
+}
+
+/*
+ * Allocate a new list_iterator_t with the given start
+ * node. NULL on failure.
+ */
+
+list_iterator_t *
+list_iterator_new_from_node(node *node, list_direction_t direction) {
+
+    list_iterator_t *self;
+    if (!(self = malloc(sizeof(list_iterator_t))))
+        return NULL;
+    self->next = node;
+    self->direction = direction;
+    return self;
+
+}
+
+/*
+ * Return the next node or NULL when no more
+ * nodes remain in the list.
+ */
+
+node *list_iterator_next(list_iterator_t *self) {
+    node *curr = self->next;
+    if (curr) {
+        self->next = self->direction == LIST_HEAD
+                ? curr->next
+                : curr->prev;
+    }
+    return curr;
+}
+
+/*
+ * Free the list iterator.
+ */
+
+void list_iterator_destroy(list_iterator_t *self) {
+    free(self);
+    self = NULL;
 }
 
 
@@ -52,7 +106,7 @@ linked_list *list_new() {
  */
 
 void list_destroy(linked_list *self) {
-    unsigned int len = self->len;
+    size_t len = self->len;
     node *next;
     node *curr = self->head;
 
@@ -178,7 +232,7 @@ node *list_find(linked_list *self, void *val) {
  * Return the node at the given index or NULL.
  */
 
-node *list_at(linked_list *self, int index) {
+node *list_get(linked_list *self, int index) {
     list_direction_t direction = LIST_HEAD;
 
     if (index < 0) {

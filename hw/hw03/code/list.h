@@ -23,10 +23,12 @@ typedef enum {
  */
 
 typedef struct list_node {
+
     struct list_node *prev;
     struct list_node *next;
     char *name;
-    double *grade;
+    float *grade;
+
 } node;
 
 /*
@@ -34,13 +36,15 @@ typedef struct list_node {
  */
 
 typedef struct {
+
     node *head;
     node *tail;
-    unsigned int len;
+    size_t len;
 
     void (*free)(void *val);
 
     int (*match)(void *a, void *b);
+
 } linked_list;
 
 /*
@@ -48,13 +52,15 @@ typedef struct {
  */
 
 typedef struct {
+
     node *next;
     list_direction_t direction;
+
 } list_iterator_t;
 
 // Node prototypes.
 
-node *create_node(char **, double *);
+node *create_node(char **, float *);
 
 // linked_list prototypes.
 
@@ -66,7 +72,7 @@ node *list_lpush(linked_list *self, node *node);
 
 node *list_find(linked_list *self, void *val);
 
-node *list_at(linked_list *self, int index);
+node *list_get(linked_list *self, int index);
 
 node *list_rpop(linked_list *self);
 
