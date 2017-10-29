@@ -3,8 +3,9 @@
 #include <string.h>
 #include "list.h"
 
-const char menu_main_str[] = "----- MAIN MENU -----\n1. Database\n2. Search"
-        " by Name\n3. Search by Grade\n4. Add\n5. Remove\n0. Exit";
+const char menu_main_str[] = "---------- MAIN MENU ----------\n1. "
+        "List Database\n2. Search by Name\n3. Search by Grade\n4. Add "
+        "Student\n5. Remove Student\n0. Exit\nChoose: ";
 char user_line[20];
 
 /*
@@ -16,7 +17,7 @@ int display_menu() {
     // holds user input
     int choice = 0;
 
-    printf("%s\n", menu_main_str);
+    printf("%s", menu_main_str);
 
     // prompt user for choice
     if (fgets(user_line, 3, stdin) != NULL) {
@@ -27,18 +28,135 @@ int display_menu() {
 
 }
 
+void init_db(linked_list *database) {
+
+    char *name = "test";
+    float grade = 92.1;
+    list_push(database, create_node(&name, grade));
+
+}
+
+void print_db(linked_list *database) {
+
+    if (database->len) {
+
+        node *temp;
+        list_iterator_t *it = list_iterator_new(database, LIST_HEAD);
+
+        while ((temp = list_iterator_next(it))) {
+            printf("%s: %.2f%%\n", temp->name, temp->grade);
+        }
+
+        free(temp);
+        list_iterator_destroy(it);
+    } else {
+        printf("Database is empty!\n");
+    }
+
+    printf("\n");
+
+}
+
+
+void search_name(linked_list *database) {
+
+    char *name = malloc(20 * sizeof(char));
+    int found = 0;
+
+    printf("Enter name: ");
+    if (fgets(user_line, 20, stdin) != NULL) {
+        sscanf(user_line, "%[^\n]", name);
+    }
+
+    node *temp;
+    list_iterator_t *it = list_iterator_new(database, LIST_HEAD);
+
+    while ((temp = list_iterator_next(it))) {
+        if (!strcasecmp(temp->name, name)) {
+            printf("Found student: %s\n", temp->name);
+            printf("Student data: %.2f%%\n", temp->grade);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("Student: %s is not in database", name);
+    }
+    printf("\n");
+
+    free(name);
+    free(temp);
+    list_iterator_destroy(it);
+
+}
+
+
+void add_data(linked_list *database) {
+
+    char *name = malloc(20 * sizeof(char));
+    printf("Enter name: ");
+    if (fgets(user_line, 20, stdin) != NULL) {
+        sscanf(user_line, "%[^\n]", name);
+    }
+
+    // prompt user for grade
+    float grade;
+    printf("Enter grade: ");
+    if (fgets(user_line, 20, stdin) != NULL) {
+        sscanf(user_line, "%f", &grade);
+    }
+
+    list_push(database, create_node(&name, grade));
+    printf("\n");
+
+}
+
+void remove_data(linked_list *database) {
+
+    char *name = malloc(20 * sizeof(char));
+    printf("Enter name: ");
+    if (fgets(user_line, 20, stdin) != NULL) {
+        sscanf(user_line, "%[^\n]", name);
+    }
+
+    node *temp;
+    list_iterator_t *it = list_iterator_new(database, LIST_HEAD);
+
+    while ((temp = list_iterator_next(it))) {
+        if (!strcasecmp(temp->name, name)) {
+            printf("Removing: %s\n", temp->name);
+            list_remove(database, temp);
+        }
+    }
+    printf("\n");
+
+    free(name);
+    free(temp);
+    list_iterator_destroy(it);
+
+}
+
+
+void close_db(linked_list *database) {
+
+    node *temp;
+    list_iterator_t *it = list_iterator_new(database, LIST_HEAD);
+
+    while ((temp = list_iterator_next(it))) {
+        free(temp->name);
+    }
+    free(temp);
+
+    list_iterator_destroy(it);
+    list_destroy(database);
+
+}
+
+
 int main(void) {
 
-
-    linked_list *langs = list_new();
-
-    float ptr = 9;
-//    char *n = "Ana";
-//    float ptr1 = 12.9;
-//    char *n1 = "Sabbir";
-//    float ptr2 = 19;
-//    char *n2 = "Us";
-
+    linked_list *database = list_new();
+//    init_db(database);
 
     int choice;
     int loop_flag = 1;
@@ -49,86 +167,39 @@ int main(void) {
 
         switch (choice) {
 
-            // call list menu
-            case 1: {
-
-                // list_menu();
-                printf("\n");
+            case 1: {  // print out the database
+                print_db(database);
                 break;
-
             }
 
-                // call play menu
-            case 2: {
-
-                // play_menu();
-                printf("\n");
+            case 2: {  // search database by name
+                search_name(database);
                 break;
-
             }
 
-                // call create menu
-            case 3: {
+            case 3: {  // search database by grade
 
-                // create_menu();
-                printf("\n");
                 break;
-
             }
 
-                // call create menu
-            case 4: {
-
-                // holds user input
-                float grade;
-                char *name = malloc(20 * sizeof(char));;
-                printf("Enter name: ");
-                if (fgets(user_line, 20, stdin) != NULL) {
-                    sscanf(user_line, "%[^\n]", name);
-                }
-
-                // prompt user for grade
-                printf("Enter grade: ");
-                if (fgets(user_line, 3, stdin) != NULL) {
-                    sscanf(user_line, "%f", &grade);
-                }
-
-                printf("%s\n", menu_main_str);
-
-                // prompt user for choice
-                if (fgets(user_line, 3, stdin) != NULL) {
-                    sscanf(user_line, "%d", &choice);
-                }
-
-
-                list_rpush(langs, create_node(&name, &ptr));
-
+            case 4: {  // add student data to database
+                add_data(database);
                 break;
+            }
 
+            case 5: {  // remove student data from database
+                remove_data(database);
+                break;
             }
 
             case 0: {  // terminate program
-
                 loop_flag = 0;
-                node *temp;
-
-                list_iterator_t *it = list_iterator_new(langs, LIST_HEAD);
-                while ((temp = list_iterator_next(it))) {
-                    printf("%s: %f\n", temp->name, *temp->grade);
-                }
-
-//                node *found = list_find(langs, n);
-//                printf("found %s: %f\n", found->name, *found->grade);
-//
-//                node *found1 = list_get(langs, 2);
-//                printf("found %s: %f\n", found1->name, *found1->grade);
-                list_iterator_destroy(it);
-                list_destroy(langs);
+                close_db(database);
                 break;
-
             }
 
             default: {
+                printf("\033[H\033[J");  // to clear screen
                 break;
             }
 

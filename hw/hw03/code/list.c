@@ -12,7 +12,7 @@
  */
 
 
-node *create_node(char **data, float *grade) {
+node *create_node(char **data, float grade) {
 
     node *self;
     if (!(self = malloc(sizeof(node))))
@@ -125,7 +125,7 @@ void list_destroy(linked_list *self) {
  * and return the node, NULL on failure.
  */
 
-node *list_rpush(linked_list *self, node *node) {
+node *list_push(linked_list *self, node *node) {
     if (!node) return NULL;
 
     if (self->len) {
@@ -206,22 +206,27 @@ node *list_lpush(linked_list *self, node *node) {
  * Return the node associated to name or NULL.
  */
 
-node *list_find(linked_list *self, void *val) {
+node *list_find(linked_list *self, char *name) {
     list_iterator_t *it = list_iterator_new(self, LIST_HEAD);
     node *node;
 
     while ((node = list_iterator_next(it))) {
+
         if (self->match) {
-            if (self->match(val, node->name)) {
+            if (self->match(name, node->name)) {
                 list_iterator_destroy(it);
                 return node;
             }
+
         } else {
-            if (val == node->name) {
+
+            if (name == node->name) {
                 list_iterator_destroy(it);
                 return node;
             }
+
         }
+
     }
 
     list_iterator_destroy(it);
@@ -262,6 +267,7 @@ void list_remove(linked_list *self, node *node) {
 
     if (self->free) self->free(node->name);
 
+    free(node->name);
     free(node);
     --self->len;
 }

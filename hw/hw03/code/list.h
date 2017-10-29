@@ -27,7 +27,7 @@ typedef struct list_node {
     struct list_node *prev;
     struct list_node *next;
     char *name;
-    float *grade;
+    float grade;
 
 } node;
 
@@ -60,17 +60,17 @@ typedef struct {
 
 // Node prototypes.
 
-node *create_node(char **, float *);
+node *create_node(char **, float);
 
 // linked_list prototypes.
 
 linked_list *list_new();
 
-node *list_rpush(linked_list *self, node *node);
+node *list_push(linked_list *self, node *node);
 
 node *list_lpush(linked_list *self, node *node);
 
-node *list_find(linked_list *self, void *val);
+node *list_find(linked_list *self, char *);
 
 node *list_get(linked_list *self, int index);
 

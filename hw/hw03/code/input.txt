@@ -1,0 +1,13 @@
+Rashidul Islam
+Quiz1: 85 15
+Quiz2: 65 15
+Midterm: 95 25
+Quiz3: 80 15
+Final: 90 30
+
+Sadique Hasan
+Quiz1: 80 15
+Quiz2: 75 15
+Midterm: 90 25
+Quiz3: 85 15
+Final: 95 30
