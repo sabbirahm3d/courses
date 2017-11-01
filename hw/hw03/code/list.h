@@ -87,6 +87,8 @@ node *list_push(linked_list *, node *);
 void list_remove(linked_list *, node *);
 
 void list_destroy(linked_list *);
+//void bubble(linked_list *);
+void sort_students(linked_list *);
 
 // linked_list iterator prototypes.
 

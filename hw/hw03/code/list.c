@@ -116,6 +116,45 @@ int compare(node *node1, node *node2) {
  * and return the node, NULL on failure.
  */
 
+void sort_students(linked_list *self) {
+
+    for (int i = 0; i < self->len; i++) {
+
+        node *current = self->head;
+        node *next = current->next;
+        node *previous = NULL;
+
+        while (next) {
+
+            if (compare(current, next) > 0) {
+
+                if (current == self->head) {
+                    self->head = next;
+                } else {
+                    previous->next = next;
+                }
+
+                current->next = next->next;
+                next->next = current;
+
+                previous = next;
+                next = current->next;
+
+            } else {
+
+                previous = current;
+                current = current->next;
+                next = current->next;
+
+            }
+
+        }
+
+    }
+
+}
+
+
 node *list_push(linked_list *self, node *node) {
 
     if (!node) {
@@ -124,15 +163,10 @@ node *list_push(linked_list *self, node *node) {
 
     if (self->len) {
 
-//        for (; node != NULL; node = node->next) {
-//            if (compare(node, node->next) > 0) break;
-//        }
         node->prev = self->tail;
         node->next = NULL;
         self->tail->next = node;
         self->tail = node;
-
-        printf("COMPARE %d", compare(node, self->head));
 
     } else {
 

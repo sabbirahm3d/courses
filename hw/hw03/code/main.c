@@ -171,7 +171,25 @@ int main(void) {
     int choice;
     int loop_flag = 1;
 
-    FILE *fp;
+    char *name = "z";
+    char *name1 = "y";
+    char *name2 = "a";
+    char *name3 = "d";
+    char *name4 = "b";
+    float list_of_grades = 9.0;
+    char *grade = "C";
+
+    list_push(database, create_node(&name, list_of_grades, grade));
+    list_push(database, create_node(&name1, list_of_grades + 1, grade));
+    list_push(database, create_node(&name2, list_of_grades + 3, grade));
+    list_push(database, create_node(&name3, list_of_grades + 2, grade));
+    list_push(database, create_node(&name4, list_of_grades + 9, grade));
+    print_db(database);
+    sort_students(database);
+    print_db(database);
+
+
+/*    FILE *fp;
     char *line = NULL;
     size_t len = 0;
 
@@ -254,7 +272,7 @@ int main(void) {
         }
 
     }
-
+*/
     return EXIT_SUCCESS;
 
 }
