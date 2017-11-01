@@ -3,5 +3,5 @@ project(code)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c list.c)
+set(SOURCE_FILES main.c database.c)
 add_executable(code ${SOURCE_FILES})

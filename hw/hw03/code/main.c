@@ -1,12 +1,16 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include "list.h"
+#include "database.h"
 
-const char menu_main_str[] = "---------- MAIN MENU ----------\n1. "
-        "List Database\n2. Search by Name\n3. Search by list_of_grades\n4. Add "
-        "Student\n5. Remove Student\n0. Exit\nChoose: ";
+const char menu_main_str[] = "---------- MAIN MENU ----------\n1. List "
+        "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
+        "Remove Student\n0. Exit\nChoose: ";
 char user_line[20];
+char user_grade[5];
+
+int UNSORTED = 1;
 
 /*
  * Displays the main menu to the user and prompts for their input. The
@@ -28,21 +32,27 @@ int display_menu() {
 
 }
 
-//void init_db(linked_list *database) {
+//void init_db(Database *database) {
 //
 //    char *name = "test";
 //    float list_of_grades = 92.1;
-//    list_push(database, create_node(&name, list_of_grades));
+//    list_push(database, new_student(&name, list_of_grades));
 //
 //}
 
-void print_db(linked_list *database) {
+void print_db(Database *database) {
 
     if (database->len) {
 
-        node *temp;
+        if (UNSORTED) {
+            sort_students(database);
+            UNSORTED = 0;
+        }
+
+        Student *temp;
         list_iterator_t *it = list_iterator_new(database);
 
+//        while ((temp = database->head->next)) {
         while ((temp = list_iterator_next(it))) {
             printf("%s: %.2f%% %c\n", temp->name, temp->list_of_grades,
                    *temp->grade);
@@ -61,7 +71,7 @@ void print_db(linked_list *database) {
 }
 
 
-void search_name(linked_list *database) {
+void search_name(Database *database) {
 
     char *name = malloc(20 * sizeof(char));
     int found = 0;
@@ -71,7 +81,7 @@ void search_name(linked_list *database) {
         sscanf(user_line, "%[^\n]", name);
     }
 
-    node *temp;
+    Student *temp;
     list_iterator_t *it = list_iterator_new(database);
 
     while ((temp = list_iterator_next(it))) {
@@ -94,11 +104,44 @@ void search_name(linked_list *database) {
 }
 
 
-void add_data(linked_list *database) {
+void search_by_grade(Database *database) {
+
+    char *grade = malloc(sizeof(char));
+    int found = 0;
+
+    printf("Enter grade: ");
+    if (fgets(user_grade, 5, stdin) != NULL) {
+        sscanf(user_grade, "%c", grade);
+    }
+
+    Student *temp;
+    list_iterator_t *it = list_iterator_new(database);
+
+    while ((temp = list_iterator_next(it))) {
+        if (!strcmp(temp->grade, grade)) {
+            printf("Found student: %s\n", temp->name);
+            printf("Student data: %.2f%%\n", temp->list_of_grades);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("No students with a grade of %c in database", *grade);
+    }
+    printf("\n");
+
+    free(grade);
+    free(temp);
+    list_iterator_destroy(it);
+
+}
+
+
+void add_data(Database *database) {
 
     char *name = malloc(20 * sizeof(char));
     float list_of_grades;
-    char *grade = malloc(1 * sizeof(char));
+    char *grade = malloc(sizeof(char));
 
     printf("Enter name: ");
     if (fgets(user_line, 20, stdin) != NULL) {
@@ -112,16 +155,19 @@ void add_data(linked_list *database) {
     }
 
     printf("Enter grade: ");
-    if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%c", grade);
+    if (fgets(user_grade, 5, stdin) != NULL) {
+        sscanf(user_grade, "%c", grade);
     }
 
-    list_push(database, create_node(&name, list_of_grades, grade));
+    list_push(database, new_student(&name, list_of_grades, grade));
+    UNSORTED = 1;
+
     printf("\n");
 
 }
 
-void remove_data(linked_list *database) {
+
+void remove_data(Database *database) {
 
     char *name = malloc(20 * sizeof(char));
     printf("Enter name: ");
@@ -129,7 +175,7 @@ void remove_data(linked_list *database) {
         sscanf(user_line, "%[^\n]", name);
     }
 
-    node *temp;
+    Student *temp;
     list_iterator_t *it = list_iterator_new(database);
 
     while ((temp = list_iterator_next(it))) {
@@ -147,17 +193,17 @@ void remove_data(linked_list *database) {
 }
 
 
-void close_db(linked_list *database) {
+void close_db(Database *database) {
 
-    node *temp;
+    Student *temp;
     list_iterator_t *it = list_iterator_new(database);
 
     while ((temp = list_iterator_next(it))) {
         free(temp->name);
         free(temp->grade);
     }
-    free(temp);
 
+    free(temp);
     list_iterator_destroy(it);
     list_destroy(database);
 
@@ -166,30 +212,13 @@ void close_db(linked_list *database) {
 
 int main(void) {
 
-    linked_list *database = list_new();
+    Database *database = list_new();
 //    init_db(database);
     int choice;
     int loop_flag = 1;
 
-    char *name = "z";
-    char *name1 = "y";
-    char *name2 = "a";
-    char *name3 = "d";
-    char *name4 = "b";
-    float list_of_grades = 9.0;
-    char *grade = "C";
 
-    list_push(database, create_node(&name, list_of_grades, grade));
-    list_push(database, create_node(&name1, list_of_grades + 1, grade));
-    list_push(database, create_node(&name2, list_of_grades + 3, grade));
-    list_push(database, create_node(&name3, list_of_grades + 2, grade));
-    list_push(database, create_node(&name4, list_of_grades + 9, grade));
-    print_db(database);
-    sort_students(database);
-    print_db(database);
-
-
-/*    FILE *fp;
+    FILE *fp;
     char *line = NULL;
     size_t len = 0;
 
@@ -232,7 +261,7 @@ int main(void) {
             case 3: {
 
                 // search database by list_of_grades
-
+                search_by_grade(database);
                 break;
             }
 
@@ -272,7 +301,6 @@ int main(void) {
         }
 
     }
-*/
     return EXIT_SUCCESS;
 
 }
