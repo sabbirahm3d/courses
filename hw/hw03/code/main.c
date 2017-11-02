@@ -73,122 +73,166 @@ void print_db(Database *database) {
 
 void search_name(Database *database) {
 
-    char *name = malloc(20 * sizeof(char));
-    int found = 0;
+    int loop_flag = 1;
 
-    printf("Enter name: ");
-    if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%[^\n]", name);
-    }
+    while (loop_flag) {
 
-    Student *temp;
-    list_iterator_t *it = list_iterator_new(database);
+        char *name = malloc(20 * sizeof(char));
+        int found = 0;
 
-    while ((temp = list_iterator_next(it))) {
-        if (!strcasecmp(temp->name, name)) {
-            printf("Found student: %s\n", temp->name);
-            printf("Student data: %.2f%%\n", temp->list_of_grades);
-            found = 1;
+        printf("---------- Search by Name ----------\nEnter name: ");
+        if (fgets(user_line, 20, stdin) != NULL) {
+            sscanf(user_line, "%[^\n]", name);
         }
-    }
 
-    if (!found) {
-        printf("Student: %s is not in database", name);
-    }
-    printf("\n");
+        Student *temp;
+        list_iterator_t *it = list_iterator_new(database);
 
-    free(name);
-    free(temp);
-    list_iterator_destroy(it);
+        while ((temp = list_iterator_next(it))) {
+            if (!strcasecmp(temp->name, name)) {
+                printf("Found student: %s\n", temp->name);
+                printf("Student data: %.2f%%\n", temp->list_of_grades);
+                found = 1;
+            }
+        }
+
+        if (!found) {
+            printf("Student: %s is not in database", name);
+        }
+        printf("\n");
+
+        printf("Search more students? (0/1): ");
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%d", &loop_flag);
+        }
+
+        free(name);
+        free(temp);
+        list_iterator_destroy(it);
+
+    }
 
 }
 
 
 void search_by_grade(Database *database) {
 
-    char *grade = malloc(sizeof(char));
-    int found = 0;
+    int loop_flag = 1;
 
-    printf("Enter grade: ");
-    if (fgets(user_grade, 5, stdin) != NULL) {
-        sscanf(user_grade, "%c", grade);
-    }
+    while (loop_flag) {
 
-    Student *temp;
-    list_iterator_t *it = list_iterator_new(database);
+        char *grade = malloc(sizeof(char));
+        int found = 0;
 
-    while ((temp = list_iterator_next(it))) {
-        if (!strcmp(temp->grade, grade)) {
-            printf("Found student: %s\n", temp->name);
-            printf("Student data: %.2f%%\n", temp->list_of_grades);
-            found = 1;
+        printf("---------- Search by Grade ----------\nEnter grade: ");
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%c", grade);
         }
-    }
 
-    if (!found) {
-        printf("No students with a grade of %c in database", *grade);
-    }
-    printf("\n");
+        Student *temp;
+        list_iterator_t *it = list_iterator_new(database);
 
-    free(grade);
-    free(temp);
-    list_iterator_destroy(it);
+        while ((temp = list_iterator_next(it))) {
+            if (!strcmp(temp->grade, grade)) {
+                printf("Found student: %s\n", temp->name);
+                printf("Student data: %.2f%%\n", temp->list_of_grades);
+                found = 1;
+            }
+        }
+
+        if (!found) {
+            printf("No students with a grade of %c in database", *grade);
+        }
+        printf("\n");
+
+        printf("Search more students? (0/1): ");
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%d", &loop_flag);
+        }
+
+        free(grade);
+        free(temp);
+        list_iterator_destroy(it);
+    }
 
 }
 
 
 void add_data(Database *database) {
 
-    char *name = malloc(20 * sizeof(char));
-    float list_of_grades;
-    char *grade = malloc(sizeof(char));
+    int loop_flag = 1;
 
-    printf("Enter name: ");
-    if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%[^\n]", name);
+    while (loop_flag) {
+
+        char *name = malloc(20 * sizeof(char));
+        float list_of_grades;
+        char *grade = malloc(sizeof(char));
+
+        printf("---------- Add Students ----------\n");
+
+        printf("Enter name: ");
+        if (fgets(user_line, 20, stdin) != NULL) {
+            sscanf(user_line, "%[^\n]", name);
+        }
+
+        // prompt user for list_of_grades
+        printf("Enter list_of_grades: ");
+        if (fgets(user_line, 20, stdin) != NULL) {
+            sscanf(user_line, "%f", &list_of_grades);
+        }
+
+        printf("Enter grade: ");
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%c", grade);
+        }
+
+        list_push(database, new_student(&name, list_of_grades, grade));
+        printf("Student: %s added to database.\nAdd more? (0/1): ", name);
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%d", &loop_flag);
+        }
+
+        printf("\n");
+
     }
 
-    // prompt user for list_of_grades
-    printf("Enter list_of_grades: ");
-    if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%f", &list_of_grades);
-    }
-
-    printf("Enter grade: ");
-    if (fgets(user_grade, 5, stdin) != NULL) {
-        sscanf(user_grade, "%c", grade);
-    }
-
-    list_push(database, new_student(&name, list_of_grades, grade));
     UNSORTED = 1;
-
-    printf("\n");
 
 }
 
 
 void remove_data(Database *database) {
 
-    char *name = malloc(20 * sizeof(char));
-    printf("Enter name: ");
-    if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%[^\n]", name);
-    }
+    int loop_flag = 1;
 
-    Student *temp;
-    list_iterator_t *it = list_iterator_new(database);
+    while (loop_flag) {
 
-    while ((temp = list_iterator_next(it))) {
-        if (!strcasecmp(temp->name, name)) {
-            printf("Removing: %s\n", temp->name);
-            list_remove(database, temp);
+        char *name = malloc(20 * sizeof(char));
+        printf("Enter name: ");
+        if (fgets(user_line, 20, stdin) != NULL) {
+            sscanf(user_line, "%[^\n]", name);
         }
-    }
-    printf("\n");
 
-    free(name);
-    free(temp);
-    list_iterator_destroy(it);
+        Student *temp;
+        list_iterator_t *it = list_iterator_new(database);
+
+        while ((temp = list_iterator_next(it))) {
+            if (!strcasecmp(temp->name, name)) {
+                printf("Removing: %s\n", temp->name);
+                list_remove(database, temp);
+            }
+        }
+
+        printf("\nRemove more students? (0/1): ");
+        if (fgets(user_grade, 5, stdin) != NULL) {
+            sscanf(user_grade, "%d", &loop_flag);
+        }
+
+        free(name);
+        free(temp);
+        list_iterator_destroy(it);
+
+    }
 
 }
 
