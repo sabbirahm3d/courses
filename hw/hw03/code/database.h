@@ -9,7 +9,7 @@
 #define DATABASE_H
 
 
-typedef union Grade grade_t;
+//typedef union Grade grade_t;
 /*
  * Database Student struct.
  */
@@ -17,25 +17,52 @@ typedef union Grade grade_t;
 typedef struct quiz_node {
 
     char *name;
-    char *grade;
-    int weight;
-    grade_t *list_of_grades;
+    float grade;
+    float weight;
+//    grade_t *prev;
+//    grade_t *next;
 
 } quiz_t;
 
 typedef struct test_node {
 
     char *name;
-    char *grade;
-    int weight;
-    grade_t *list_of_grades;
+    float grade;
+    float weight;
+//    grade_t *prev;
+//    grade_t *next;
 
 } test_t;
 
-union Grade {
-    quiz_t quiz;
-    test_t test;
-};
+// Indicates the type of data stored in the union
+enum assn_type {QUIZ, TEST};
+
+typedef struct Grade {
+
+    enum assn_type assn_t;
+    struct Grade *next;
+    struct Grade *prev;
+
+    union {
+        quiz_t quiz;
+        test_t test;
+    };
+
+} grade_t;
+
+/*
+ * Database struct.
+ */
+
+typedef struct list_of_grades {
+
+    grade_t *head;
+    grade_t *tail;
+    size_t len;
+
+    void (*free)(void *val);
+
+} List_of_Grades;
 
 
 typedef struct student_node {
@@ -43,16 +70,12 @@ typedef struct student_node {
     struct student_node *prev;
     struct student_node *next;
     char *name;
-    char *grade;
-//    grade_t *list_of_grades;
-    float list_of_grades;
+    float final_grade;
+    List_of_Grades *list_of_grades;
+//    float list_of_grades;
 
 } Student;
 
-
-/*
- * Database struct.
- */
 
 typedef struct {
 
@@ -61,8 +84,6 @@ typedef struct {
     size_t len;
 
     void (*free)(void *val);
-
-    int (*match)(void *a, void *b);
 
 } Database;
 
@@ -76,15 +97,29 @@ typedef struct {
 
 } list_iterator_t;
 
+typedef struct {
+
+    grade_t *next;
+
+} list_of_grades_it_t;
+
+list_of_grades_it_t *list_of_grades_iterator_new(List_of_Grades *list);
+
+grade_t *list_of_grades_iterator_next(list_of_grades_it_t *self);
 // Node prototypes.
 
-Student *new_student(char **, float, char *);
+Student *new_student(char **, List_of_Grades *, float);
 
+grade_t *new_assn(unsigned int, char **, float, float);
 // Database prototypes.
 
-Database *list_new();
+Database *db_init();
 
-Student *list_push(Database *, Student *);
+List_of_Grades *list_of_grades_init();
+
+Student *db_push(Database *, Student *);
+
+grade_t *assn_push(List_of_Grades *, grade_t *);
 
 void slice_str(const char *, char *, size_t, size_t);
 
@@ -92,10 +127,11 @@ int cmp_last_name(char *, char *);
 
 void sort_students(Database *);
 
-void list_remove(Database *, Student *);
+void db_remove(Database *, Student *);
 
-void list_destroy(Database *);
+void destroy_db(Database *);
 
+void destroy_list_of_grades(List_of_Grades *);
 // Database iterator prototypes.
 
 list_iterator_t *list_iterator_new(Database *);

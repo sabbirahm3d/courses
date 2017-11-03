@@ -4,7 +4,7 @@
 #include <string.h>
 #include "database.h"
 
-const char menu_main_str[] = "---------- MAIN MENU ----------\n1. List "
+const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
 char user_line[20];
@@ -36,12 +36,41 @@ int display_menu() {
 //
 //    char *name = "test";
 //    float list_of_grades = 92.1;
-//    list_push(database, new_student(&name, list_of_grades));
+//    db_push(database, new_student(&name, list_of_grades));
 //
 //}
 
+char *get_letter_grade(float final_grade) {
+
+    if (90.0 <= final_grade) {
+
+        return "A";
+
+    } else if ((80.0 <= final_grade) && (final_grade < 90.0)) {
+
+        return "B";
+
+    } else if ((70.0 <= final_grade) && (final_grade < 80.0)) {
+
+        return "C";
+
+    } else if ((60.0 <= final_grade) && (final_grade < 70.0)) {
+
+        return "D";
+
+    } else {
+
+        return "F";
+
+    }
+
+
+}
+
+
 void print_db(Database *database) {
 
+    printf("---------- Database ----------\n\n");
     if (database->len) {
 
         if (UNSORTED) {
@@ -54,8 +83,34 @@ void print_db(Database *database) {
 
 //        while ((temp = database->head->next)) {
         while ((temp = list_iterator_next(it))) {
-            printf("%s: %.2f%% %c\n", temp->name, temp->list_of_grades,
-                   *temp->grade);
+
+            printf("Student: %s | ", temp->name);
+
+            grade_t *temp1;
+            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(temp->list_of_grades);
+
+            while ((temp1 = list_of_grades_iterator_next(grades_it))) {
+
+                if (!temp1->assn_t) {
+
+                    printf("%s %.2f%% | ", temp1->quiz.name, temp1->quiz.grade);
+
+                } else {
+
+                    printf("%s %.2f%% | ", temp1->test.name, temp1->test.grade);
+
+                }
+
+            }
+
+            printf("Final grade: %.2f%% (%c)", temp->final_grade,
+                   *get_letter_grade(temp->final_grade));
+
+            printf("\n\n");
+
+            free(grades_it);
+            free(temp1);
+
         }
 
         free(temp);
@@ -66,7 +121,32 @@ void print_db(Database *database) {
         printf("Database is empty!\n");
 
     }
+
     printf("\n");
+
+}
+
+
+float calculate_grade(List_of_Grades *list_of_grades) {
+
+    grade_t *temp;
+    list_of_grades_it_t *grades_it = list_of_grades_iterator_new(list_of_grades);
+    float final_grade = 0.0;
+
+    while ((temp = list_of_grades_iterator_next(grades_it))) {
+
+        if (!temp->assn_t) {
+            final_grade += (temp->quiz.grade * temp->quiz.weight / 100);
+        } else {
+            final_grade += (temp->test.grade * temp->test.weight / 100);
+        }
+
+    }
+
+    free(grades_it);
+    free(temp);
+
+    return final_grade;
 
 }
 
@@ -89,11 +169,27 @@ void search_name(Database *database) {
         list_iterator_t *it = list_iterator_new(database);
 
         while ((temp = list_iterator_next(it))) {
-            if (!strcasecmp(temp->name, name)) {
-                printf("Found student: %s\n", temp->name);
-                printf("Student data: %.2f%%\n", temp->list_of_grades);
-                found = 1;
+
+            grade_t *temp1;
+            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(temp->list_of_grades);
+
+            while ((temp1 = list_of_grades_iterator_next(grades_it))) {
+
+                if (!strcasecmp(temp->name, name)) {
+                    printf("Found student: %s\n", temp->name);
+//                printf("Student data: %.2f%%\n", temp->list_of_grades);
+                    found = 1;
+                }
             }
+
+            if (grades_it) {
+                free(grades_it);
+            }
+
+            if (temp1) {
+                free(temp1);
+            }
+
         }
 
         if (!found) {
@@ -121,27 +217,32 @@ void search_by_grade(Database *database) {
 
     while (loop_flag) {
 
-        char *grade = malloc(sizeof(char));
+        char *letter_grade = malloc(sizeof(char));
         int found = 0;
 
         printf("---------- Search by Grade ----------\nEnter grade: ");
         if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%c", grade);
+            sscanf(user_grade, "%c", letter_grade);
         }
 
         Student *temp;
         list_iterator_t *it = list_iterator_new(database);
 
         while ((temp = list_iterator_next(it))) {
-            if (!strcmp(temp->grade, grade)) {
+
+            if (!strcasecmp(get_letter_grade(temp->final_grade), letter_grade)) {
+
                 printf("Found student: %s\n", temp->name);
-                printf("Student data: %.2f%%\n", temp->list_of_grades);
+                printf("Student data: %.2f\n", temp->final_grade);
                 found = 1;
+
             }
+
         }
 
         if (!found) {
-            printf("No students with a grade of %c in database", *grade);
+            printf("No students with a final_grade of %c in database",
+                   letter_grade);
         }
         printf("\n");
 
@@ -150,7 +251,7 @@ void search_by_grade(Database *database) {
             sscanf(user_grade, "%d", &loop_flag);
         }
 
-        free(grade);
+        free(letter_grade);
         free(temp);
         list_iterator_destroy(it);
     }
@@ -165,8 +266,9 @@ void add_data(Database *database) {
     while (loop_flag) {
 
         char *name = malloc(20 * sizeof(char));
-        float list_of_grades;
-        char *grade = malloc(sizeof(char));
+        List_of_Grades *list_of_grades = list_of_grades_init();
+
+        int inner_loop_flag = 1;
 
         printf("---------- Add Students ----------\n");
 
@@ -175,19 +277,57 @@ void add_data(Database *database) {
             sscanf(user_line, "%[^\n]", name);
         }
 
-        // prompt user for list_of_grades
-        printf("Enter list_of_grades: ");
-        if (fgets(user_line, 20, stdin) != NULL) {
-            sscanf(user_line, "%f", &list_of_grades);
+        while (inner_loop_flag) {
+
+            char *assn_name = malloc(20 * sizeof(char));
+            unsigned int assn_type;
+            float grade, weight;
+
+            // prompt user for list_of_grades
+            printf("Enter type of assignment.\n0 = quiz, 1 = test: ");
+            if (fgets(user_grade, 5, stdin) != NULL) {
+                sscanf(user_grade, "%d", &assn_type);
+            }
+
+            if (!assn_type) {
+
+                printf("Enter quiz name: ");
+
+            } else {
+
+                printf("Enter test name: ");
+
+            }
+
+            if (fgets(user_line, 20, stdin) != NULL) {
+                sscanf(user_line, "%[^\n]", assn_name);
+            }
+
+            printf("Enter grade: ");
+            if (fgets(user_line, 20, stdin) != NULL) {
+                sscanf(user_line, "%f", &grade);
+            }
+
+            printf("Enter weight: ");
+            if (fgets(user_line, 20, stdin) != NULL) {
+                sscanf(user_line, "%f", &weight);
+            }
+
+            assn_push(list_of_grades,
+                      new_assn(assn_type, &assn_name, grade, weight));
+
+            printf("Assignment: %s added to student.\n"
+                           "Add more assignments? (0/1): ", assn_name);
+            if (fgets(user_grade, 5, stdin) != NULL) {
+                sscanf(user_grade, "%d", &inner_loop_flag);
+            }
+
         }
 
-        printf("Enter grade: ");
-        if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%c", grade);
-        }
-
-        list_push(database, new_student(&name, list_of_grades, grade));
-        printf("Student: %s added to database.\nAdd more? (0/1): ", name);
+        db_push(database, new_student(&name, list_of_grades, calculate_grade
+                (list_of_grades)));
+        printf("Student: %s added to database.\nAdd more students? (0/1): ",
+               name);
         if (fgets(user_grade, 5, stdin) != NULL) {
             sscanf(user_grade, "%d", &loop_flag);
         }
@@ -208,7 +348,7 @@ void remove_data(Database *database) {
     while (loop_flag) {
 
         char *name = malloc(20 * sizeof(char));
-        printf("Enter name: ");
+        printf("---------- Remove Students ----------\nEnter name: ");
         if (fgets(user_line, 20, stdin) != NULL) {
             sscanf(user_line, "%[^\n]", name);
         }
@@ -219,7 +359,7 @@ void remove_data(Database *database) {
         while ((temp = list_iterator_next(it))) {
             if (!strcasecmp(temp->name, name)) {
                 printf("Removing: %s\n", temp->name);
-                list_remove(database, temp);
+                db_remove(database, temp);
             }
         }
 
@@ -244,41 +384,71 @@ void close_db(Database *database) {
 
     while ((temp = list_iterator_next(it))) {
         free(temp->name);
-        free(temp->grade);
+        destroy_list_of_grades(temp->list_of_grades);
     }
 
-    free(temp);
+    if (temp) {
+        free(temp);
+    }
+
     list_iterator_destroy(it);
-    list_destroy(database);
+    destroy_db(database);
 
 }
 
 
 int main(void) {
 
-    Database *database = list_new();
+    Database *database = db_init();
 //    init_db(database);
     int choice;
     int loop_flag = 1;
 
-
+/*
     FILE *fp;
-    char *line = NULL;
+    char line[20];
     size_t len = 0;
+    int first = 1;
 
     fp = fopen("input.txt", "r");
 
     if (fp == NULL)
         return EXIT_FAILURE;
 
-    while (getline(&line, &len, fp) != -1) {
-        printf("%s\n", line);
+    List_of_Grades *list_of_grades = list_of_grades_init();
+
+    while (fgets(line, sizeof(line), fp) != NULL) {
+
+//        char *name = malloc(20 * sizeof(char));
+
+
+        if (line[1] != '\n') {
+
+            if (first) {
+
+                char *name = line;
+                printf("name %s", name);
+                first = 0;
+
+            } else {
+
+                printf("assn %s", line);
+
+            }
+
+        } else {
+
+
+            list_of_grades = list_of_grades_init();
+            first = 1;
+
+        }
     }
 
     fclose(fp);
-    if (line)
-        free(line);
-
+//    if (line)
+//        free(line);
+*/
 
     while (loop_flag) {
 
@@ -345,6 +515,7 @@ int main(void) {
         }
 
     }
+
     return EXIT_SUCCESS;
 
 }

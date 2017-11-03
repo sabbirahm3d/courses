@@ -1,5 +1,5 @@
 MAIN:="main"
-DEP:="list"
+DEP:="database"
 
 .PHONY: run
 run:
