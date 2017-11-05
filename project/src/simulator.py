@@ -4,7 +4,18 @@
 from pprint import pprint
 from sys import argv
 
-from instructions import INSTRUCTIONS
+from assembler import Assembler
+
+
+def init_mem(mem_file_path):
+
+    try:
+
+        with open(mem_file_path) as mem_file:
+            return mem_file.read().split("\n")
+
+    except IOError:
+        raise SystemExit("Please provide a valid input data file")
 
 
 def parse_inst(inst_file_path):
@@ -14,31 +25,41 @@ def parse_inst(inst_file_path):
     try:
 
         with open(inst_file_path) as inst_file:
+
             content = inst_file.read().upper()
-            split_comments = [i.partition('#') for i in content.split("\n")]
+            split_comments = [i.partition("#") for i in content.split("\n")]
+
             for inst in split_comments:
+
                 instruction = inst[0].split(":")
                 label = ""
+
                 if len(instruction) == 2:
                     label, instruction = instruction
+
                 instructions.append(
                     {
                         "instruction": "".join(instruction).split(),
-                        "comment": ''.join(inst[1:]),
+                        "comment": "".join(inst[1:]),
                         "label": label
                     }
                 )
 
-            pprint(instructions)
+            return [inst for inst in instructions if inst["instruction"]]
 
     except IOError:
-        raise SystemExit("Please provide a valid input instructions file.")
+        raise SystemExit("Please provide a valid input instructions file")
 
 
 if __name__ == "__main__":
 
     if len(argv) != 4:
-        raise SystemExit("Please provide the instructions input file.")
+        raise SystemExit("Please provide all the required input files")
 
     else:
-        parse_inst(argv[1])
+        instructions = parse_inst(argv[1])
+        init_mem(argv[2])
+
+        print instructions
+        obj = Assembler(instructions)
+        obj.assemble()
