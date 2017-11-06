@@ -72,7 +72,6 @@ typedef struct student_node {
     char *name;
     float final_grade;
     List_of_Grades *list_of_grades;
-//    float list_of_grades;
 
 } Student;
 

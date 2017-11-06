@@ -11,8 +11,8 @@ compile:
 	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall -std=gnu99 -Os
 
 
-.PHONY: memleak
-memleak:
+.PHONY: val
+val:
 	@valgrind -v --leak-check=full --track-origins=yes ./${MAIN}.o ${INPUT}
 
 .PHONY: clean

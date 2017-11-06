@@ -179,8 +179,6 @@ void destroy_db(Database *self) {
 
     while (len--) {
         next = curr->next;
-//        db_remove(self, next);
-//        if (self->free) self->free(curr->name);
         free(curr);
         curr = next;
     }
@@ -202,7 +200,6 @@ void destroy_list_of_grades(List_of_Grades *self) {
 
     while (len--) {
         next = curr->next;
-//        if (self->free) self->free(curr->name);
         if (!curr->assn_t) {
             free(curr->quiz.name);
         } else {
@@ -344,9 +341,8 @@ void db_remove(Database *self, Student *node) {
 
     node->next ? (node->next->prev = node->prev) : (self->tail = node->prev);
 
-//    if (self->free) self->free(node->name);
-
     free(node->name);
+    node->name = NULL;
     free(node);
 
     destroy_list_of_grades(node->list_of_grades);
