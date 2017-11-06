@@ -3,7 +3,7 @@ DEP:="database"
 
 .PHONY: run
 run:
-	@./${MAIN}.o
+	@./${MAIN}.o ${INPUT}
 
 
 .PHONY: compile
@@ -13,7 +13,7 @@ compile:
 
 .PHONY: memleak
 memleak:
-	@valgrind -v --leak-check=full ./${MAIN}.o
+	@valgrind -v --leak-check=full --track-origins=yes ./${MAIN}.o ${INPUT}
 
 .PHONY: clean
 clean:

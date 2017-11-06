@@ -397,125 +397,214 @@ void close_db(Database *database) {
 }
 
 
-int main(void) {
+void remove_all_chars(char *str, char c) {
+    char *pr = str, *pw = str;
+    while (*pr) {
+        *pw = *pr++;
+        pw += (*pw != c);
+    }
+    *pw = '\n';
+}
 
-    Database *database = db_init();
-//    init_db(database);
-    int choice;
-    int loop_flag = 1;
+void init_db(Database *database, FILE *fp, char **students) {
 
-/*
-    FILE *fp;
-    char line[20];
-    size_t len = 0;
-    int first = 1;
+    /* Get the buffer size */
+    fseek(fp, 0, SEEK_END); /* Go to end of file */
+    size_t size = ftell(fp); /* How many bytes did we pass ? */
 
-    fp = fopen("input.txt", "r");
+    /* Set position of stream to the beginning */
+    rewind(fp);
 
-    if (fp == NULL)
-        return EXIT_FAILURE;
+    /* Allocate the buffer */
+    char *buffer = malloc((size + 1) * sizeof(char));
 
-    List_of_Grades *list_of_grades = list_of_grades_init();
+    /* Read the file into the buffer */
+    fread(buffer, size, 1, fp); /* Read 1 chunk of size bytes from fp into buffer */
 
-    while (fgets(line, sizeof(line), fp) != NULL) {
+    /* NULL-terminate the buffer */
+    buffer[size] = '\0';
 
-//        char *name = malloc(20 * sizeof(char));
+    int student_id = 0;
+    for (int i = 0; i < 2; i++) {
+        students[i] = malloc((size / 2 + 20) * sizeof(char));
+    }
 
+    // copy the const string main menu prompt to be tokenized
+    char *file_buf_tokens = strtok(buffer, "\n");
 
-        if (line[1] != '\n') {
+    while (file_buf_tokens) {
 
-            if (first) {
+        remove_all_chars(file_buf_tokens, '\r');
+        if (strlen(file_buf_tokens) != 1) {
+            strcat(students[student_id], file_buf_tokens);
+        } else {
+            student_id++;
+        }
 
-                char *name = line;
-                printf("name %s", name);
-                first = 0;
+        file_buf_tokens = strtok(NULL, "\n");
+
+    }
+
+    char *student_tokens = NULL;
+    int index = 0;
+
+    for (int i = 0; i < 2; i++) {
+
+        student_tokens = strtok(students[i], "\n");
+        char *name = malloc(20 * sizeof(char));
+        List_of_Grades *list_of_grades = list_of_grades_init();
+
+        while (student_tokens) {
+
+            if (!index) {
+
+                name = student_tokens;
 
             } else {
 
-                printf("assn %s", line);
+                char *assn_name = malloc(20 * sizeof(char));
+                float grade, weight;
+
+                sscanf(
+                        student_tokens, "%[^:]: %f %f\n",
+                        assn_name, &grade, &weight
+                );
+                assn_push(
+                        list_of_grades,
+                        new_assn(1, &assn_name, grade, weight)
+                );
 
             }
 
-        } else {
-
-
-            list_of_grades = list_of_grades_init();
-            first = 1;
+            student_tokens = strtok(NULL, "\n");
+            index++;
 
         }
+        db_push(database,
+                new_student(&name, list_of_grades,
+                            calculate_grade(list_of_grades)));
+
+        index = 0;
+
+    }
+
+
+    free(file_buf_tokens);
+    free(student_tokens);
+
+    if (strlen(buffer)) {
+        free(buffer);
+        buffer = NULL;
     }
 
     fclose(fp);
-//    if (line)
-//        free(line);
-*/
 
-    while (loop_flag) {
 
-        choice = display_menu();
+}
 
-        switch (choice) {
 
-            case 1: {
+int main(int argc, char **argv) {
 
-                // print out the database
-                print_db(database);
-                break;
+    if (argc > 1) {
 
-            }
+        Database *database = db_init();
+        int choice;
+        int loop_flag = 1;
 
-            case 2: {
+        FILE *fp = fopen(argv[1], "r");
 
-                // search database by name
-                search_name(database);
-                break;
+        if (!fp) {
+            return EXIT_FAILURE;
+        }
 
-            }
 
-            case 3: {
+        char **students = malloc(2 * sizeof(char *));
 
-                // search database by list_of_grades
-                search_by_grade(database);
-                break;
-            }
 
-            case 4: {
+        init_db(database, fp, students);
 
-                // add student data to database
-                add_data(database);
-                break;
 
-            }
+        while (loop_flag) {
 
-            case 5: {
+            choice = display_menu();
 
-                // remove student data from database
-                remove_data(database);
-                break;
+            switch (choice) {
 
-            }
+                case 1: {
 
-            case 0: {
+                    // print out the database
+                    print_db(database);
+                    break;
 
-                // terminate program
-                loop_flag = 0;
-                close_db(database);
-                break;
+                }
 
-            }
+                case 2: {
 
-            default: {
+                    // search database by name
+                    search_name(database);
+                    break;
 
-                printf("\033[H\033[J");  // to clear screen
-                printf("Please enter a valid option.\n");
-                break;
+                }
+
+                case 3: {
+
+                    // search database by list_of_grades
+                    search_by_grade(database);
+                    break;
+                }
+
+                case 4: {
+
+                    // add student data to database
+                    add_data(database);
+                    break;
+
+                }
+
+                case 5: {
+
+                    // remove student data from database
+                    remove_data(database);
+                    break;
+
+                }
+
+                case 0: {
+
+                    // terminate program
+                    loop_flag = 0;
+                    close_db(database);
+                    for (int i = 0; i < 2; i++) {
+                        students[i] = NULL;
+//                        printf("%s\n", students[i]);
+//                        if (strlen(students[i])) {
+//                            free(students[i]);
+//                        }
+                    }
+                    free(students);
+                    break;
+
+                }
+
+                default: {
+
+                    printf("\033[H\033[J");  // to clear screen
+                    printf("Please enter a valid option.\n");
+                    break;
+
+                }
 
             }
 
         }
 
-    }
 
-    return EXIT_SUCCESS;
+        return EXIT_SUCCESS;
+
+    } else {
+
+        return EXIT_FAILURE;
+
+    }
 
 }
