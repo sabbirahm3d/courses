@@ -19,8 +19,6 @@ typedef struct quiz_node {
     char *name;
     float grade;
     float weight;
-//    grade_t *prev;
-//    grade_t *next;
 
 } quiz_t;
 
@@ -29,8 +27,6 @@ typedef struct test_node {
     char *name;
     float grade;
     float weight;
-//    grade_t *prev;
-//    grade_t *next;
 
 } test_t;
 
@@ -41,7 +37,6 @@ typedef struct Grade {
 
     enum assn_type assn_t;
     struct Grade *next;
-    struct Grade *prev;
 
     union {
         quiz_t quiz;
@@ -59,8 +54,6 @@ typedef struct list_of_grades {
     grade_t *head;
     grade_t *tail;
     size_t len;
-
-    void (*free)(void *val);
 
 } List_of_Grades;
 

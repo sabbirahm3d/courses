@@ -6,14 +6,14 @@ run:
 	@./${MAIN}.o ${INPUT}
 
 
-.PHONY: compile
-compile:
+.PHONY: build
+build:
 	@gcc -o ${MAIN}.o ${MAIN}.c ${DEP}.c -Wall -std=gnu99 -Os
 
 
 .PHONY: val
 val:
-	@valgrind -v --leak-check=full --track-origins=yes ./${MAIN}.o ${INPUT}
+	@valgrind --leak-check=full --track-origins=yes -v ./${MAIN}.o ${INPUT}
 
 .PHONY: clean
 clean:

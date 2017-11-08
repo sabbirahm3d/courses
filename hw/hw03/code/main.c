@@ -7,7 +7,7 @@
 const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
-char user_line[20];
+char user_line[50];
 char user_grade[5];
 
 int UNSORTED = 1;
@@ -31,14 +31,6 @@ int display_menu() {
     return choice;
 
 }
-
-//void init_db(Database *database) {
-//
-//    char *name = "test";
-//    float list_of_grades = 92.1;
-//    db_push(database, new_student(&name, list_of_grades));
-//
-//}
 
 char *get_letter_grade(float final_grade) {
 
@@ -265,7 +257,7 @@ void add_data(Database *database) {
 
     while (loop_flag) {
 
-        char *name = malloc(20 * sizeof(char));
+        char *name = malloc(50 * sizeof(char));
         List_of_Grades *list_of_grades = list_of_grades_init();
 
         int inner_loop_flag = 1;
@@ -273,7 +265,7 @@ void add_data(Database *database) {
         printf("---------- Add Students ----------\n");
 
         printf("Enter name: ");
-        if (fgets(user_line, 20, stdin) != NULL) {
+        if (fgets(user_line, 50, stdin) != NULL) {
             sscanf(user_line, "%[^\n]", name);
         }
 
@@ -405,11 +397,11 @@ void remove_all_chars(char *str, char c) {
         *pw = *pr++;
         pw += (*pw != c);
     }
-    *pw = '\n';
+    *pw = '\0';
 
 }
 
-int init_db(Database *database, char *file_path, char **students) {
+int init_db(Database *database, char *file_path) {
 
     FILE *fp = fopen(file_path, "r");
 
@@ -432,18 +424,22 @@ int init_db(Database *database, char *file_path, char **students) {
         buffer[size] = '\0';
 
         int student_id = 0;
+        char **students = malloc(2 * sizeof(char *));
+
         for (int i = 0; i < 2; i++) {
-            students[i] = malloc((size / 2 + 20) * sizeof(char));
+            students[i] = malloc((size / 2 + 20) * sizeof(*students[i]));
         }
 
         // copy the const string main menu prompt to be tokenized
         char *file_buf_tokens = strtok(buffer, "\n");
 
-        while (file_buf_tokens) {
+        while (file_buf_tokens != NULL) {
 
             remove_all_chars(file_buf_tokens, '\r');
-            if (strlen(file_buf_tokens) != 1) {
+            if (strlen(file_buf_tokens) > 1) {
+                students[student_id][strlen(students[student_id])] = '\n';
                 strcat(students[student_id], file_buf_tokens);
+                printf("\nconcat\n\n %s", students[student_id]);
             } else {
                 student_id++;
             }
@@ -452,20 +448,19 @@ int init_db(Database *database, char *file_path, char **students) {
 
         }
 
-        char *student_tokens;
         int index = 0;
 
         for (int i = 0; i < 2; i++) {
 
-            student_tokens = strtok(students[i], "\n");
-            char *name = malloc(20 * sizeof(char));
+            char *student_tokens = strtok(students[i], "\n");
+            char *name = malloc(50 * sizeof(char));
             List_of_Grades *list_of_grades = list_of_grades_init();
 
-            while (student_tokens) {
+            while (student_tokens != NULL) {
 
                 if (!index) {
 
-                    name = strdup(student_tokens);
+                    sscanf(student_tokens, "%[^\n]", name);
 
                 } else {
 
@@ -487,21 +482,30 @@ int init_db(Database *database, char *file_path, char **students) {
                 index++;
 
             }
-            db_push(database,
-                    new_student(&name, list_of_grades,
-                                calculate_grade(list_of_grades)));
+            db_push(
+                    database,
+                    new_student(
+                            &name,
+                            list_of_grades,
+                            calculate_grade(list_of_grades)
+                    )
+            );
 
             index = 0;
 
         }
 
-        free(file_buf_tokens);
-        free(student_tokens);
-
-//        if (strlen(buffer)) {
+        if (buffer) {
             free(buffer);
             buffer = NULL;
-//        }
+        }
+
+        for (int i = 0; i < 2; i++) {
+//            printf("before %s\n", students[i]);
+            free(students[i]);
+            students[i] = NULL;
+        }
+        free(students);
 
         fclose(fp);
 
@@ -523,14 +527,7 @@ int main(int argc, char **argv) {
         int choice;
         int loop_flag = 1;
 
-//        FILE *fp = fopen(argv[1], "r");
-
-//        if (!fp) {
-//            return EXIT_FAILURE;
-//        }
-
-        char **students = malloc(2 * sizeof(char *));
-        init_db(database, argv[1], students);
+        init_db(database, argv[1]);
 
         while (loop_flag) {
 
@@ -581,17 +578,7 @@ int main(int argc, char **argv) {
 
                     // terminate program
                     loop_flag = 0;
-                    for (int i = 0; i < 2; i++) {
-                        printf("before %s\n", students[i]);
-                        free(students[i]);
-                        students[i] = NULL;
-                    }
-                    free(students);
-//                    students = NULL;
                     close_db(database);
-//                    for (int i = 0; i < 2; i++) {
-//                        printf("after %s\n", students[i]);
-//                    }
 
                     break;
 
