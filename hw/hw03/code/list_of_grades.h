@@ -6,23 +6,23 @@
  *
  * */
 
-#ifndef CODE_LIST_OF_GRADES_H
-#define CODE_LIST_OF_GRADES_H
+#ifndef LIST_OF_GRADES_H
+#define LIST_OF_GRADES_H
 
 #include "grade_t.h"
 
-// -------------------------- FUNCTIONS --------------------------
+// -------------------------- FUNCTION PROTOTYPES --------------------------
 
-grade_t *new_assn(unsigned int, char **, float, float);
+grade_t *new_grade(unsigned int, char **, float, float);
 
-List_of_Grades *list_of_grades_init();
+list_of_grades_t *list_of_grades_init();
 
-grade_t *list_of_grades_iterator_next(list_of_grades_it_t *);
+list_of_grades_iter_t *list_of_grades_iter_init(list_of_grades_t *);
 
-grade_t *assn_push(List_of_Grades *, grade_t *);
+grade_t *list_of_grades_iter_next(list_of_grades_iter_t *);
 
-list_of_grades_it_t *list_of_grades_iterator_new(List_of_Grades *);
+void list_of_grades_push(list_of_grades_t *, grade_t *);
 
-void destroy_list_of_grades(List_of_Grades *);
+void destroy_list_of_grades(list_of_grades_t *);
 
-#endif //CODE_LIST_OF_GRADES_H
+#endif // LIST_OF_GRADES_H

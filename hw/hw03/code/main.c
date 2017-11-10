@@ -18,23 +18,23 @@ int display_menu();
 
 char *get_letter_grade(float);
 
-void print_db(Database *);
+void print_db(database_t *);
 
-float calculate_grade(List_of_Grades *);
+float calculate_grade(list_of_grades_t *);
 
-void search_name(Database *);
+void search_name(database_t *);
 
-void search_by_grade(Database *);
+void search_by_grade(database_t *);
 
-void add_data(Database *);
+void add_data(database_t *);
 
-void remove_data(Database *);
+void remove_data(database_t *);
 
-void close_db(Database *);
+void close_db(database_t *);
 
 void remove_cr(char *);
 
-int init_db(Database *, char *);
+int init_db(database_t *, char *);
 
 
 /*
@@ -86,29 +86,29 @@ char *get_letter_grade(float final_grade) {
 }
 
 
-void print_db(Database *database) {
+void print_db(database_t *database) {
 
     printf("---------- Database ----------\n\n");
     if (database->len) {
 
         if (UNSORTED) {
-            sort_students(database);
+            db_sort(database);
             UNSORTED = 0;
         }
 
-        Student *temp;
-        list_iterator_t *it = list_iterator_new(database);
+        student_t *temp;
+        db_iter_t *it = db_iter_init(database);
 
 //        while ((temp = database->head->next)) {
-        while ((temp = list_iterator_next(it))) {
+        while ((temp = db_iter_next(it))) {
 
             printf("Student: %s | ", temp->name);
 
             grade_t *temp1;
-            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(
+            list_of_grades_iter_t *grades_it = list_of_grades_iter_init(
                     temp->list_of_grades);
 
-            while ((temp1 = list_of_grades_iterator_next(grades_it))) {
+            while ((temp1 = list_of_grades_iter_next(grades_it))) {
 
                 if (!temp1->assn_t) {
 
@@ -133,7 +133,9 @@ void print_db(Database *database) {
         }
 
         free(temp);
-        list_iterator_destroy(it);
+        temp = NULL;
+        free(it);
+        it = NULL;
 
     } else {
 
@@ -146,13 +148,13 @@ void print_db(Database *database) {
 }
 
 
-float calculate_grade(List_of_Grades *list_of_grades) {
+float calculate_grade(list_of_grades_t *list_of_grades) {
 
     grade_t *temp;
-    list_of_grades_it_t *grades_it = list_of_grades_iterator_new(list_of_grades);
+    list_of_grades_iter_t *grades_it = list_of_grades_iter_init(list_of_grades);
     float final_grade = 0.0;
 
-    while ((temp = list_of_grades_iterator_next(grades_it))) {
+    while ((temp = list_of_grades_iter_next(grades_it))) {
 
         if (!temp->assn_t) {
             final_grade += (temp->quiz.grade * temp->quiz.weight / 100);
@@ -163,14 +165,16 @@ float calculate_grade(List_of_Grades *list_of_grades) {
     }
 
     free(grades_it);
+    grades_it = NULL;
     free(temp);
+    temp = NULL;
 
     return final_grade;
 
 }
 
 
-void search_name(Database *database) {
+void search_name(database_t *database) {
 
     int loop_flag = 1;
 
@@ -184,12 +188,12 @@ void search_name(Database *database) {
             sscanf(user_line, "%[^\n]", name_to_search);
         }
 
-        Student *temp;
-        list_iterator_t *it = list_iterator_new(database);
+        student_t *temp;
+        db_iter_t *it = db_iter_init(database);
 
-        while ((temp = list_iterator_next(it))) {
+        while ((temp = db_iter_next(it))) {
 
-            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(temp->list_of_grades);
+            list_of_grades_iter_t *grades_it = list_of_grades_iter_init(temp->list_of_grades);
 
             if (!strcasecmp(temp->name, name_to_search)) {
                 printf("Found student: %s\n", temp->name);
@@ -215,15 +219,18 @@ void search_name(Database *database) {
         }
 
         free(name_to_search);
+        name_to_search = NULL;
         free(temp);
-        list_iterator_destroy(it);
+        temp = NULL;
+        free(it);
+        it = NULL;
 
     }
 
 }
 
 
-void search_by_grade(Database *database) {
+void search_by_grade(database_t *database) {
 
     int loop_flag = 1;
 
@@ -237,10 +244,10 @@ void search_by_grade(Database *database) {
             sscanf(user_grade, "%c", letter_grade);
         }
 
-        Student *temp;
-        list_iterator_t *it = list_iterator_new(database);
+        student_t *temp;
+        db_iter_t *it = db_iter_init(database);
 
-        while ((temp = list_iterator_next(it))) {
+        while ((temp = db_iter_next(it))) {
 
             if (*get_letter_grade(temp->final_grade) == *letter_grade) {
 
@@ -264,21 +271,24 @@ void search_by_grade(Database *database) {
         }
 
         free(letter_grade);
+        letter_grade = NULL;
         free(temp);
-        list_iterator_destroy(it);
+        temp = NULL;
+        free(it);
+        it = NULL;
     }
 
 }
 
 
-void add_data(Database *database) {
+void add_data(database_t *database) {
 
     int loop_flag = 1;
 
     while (loop_flag) {
 
         char *name = malloc(50 * sizeof(char));
-        List_of_Grades *list_of_grades = list_of_grades_init();
+        list_of_grades_t *list_of_grades = list_of_grades_init();
 
         int inner_loop_flag = 1;
 
@@ -325,8 +335,8 @@ void add_data(Database *database) {
                 sscanf(user_line, "%f", &weight);
             }
 
-            assn_push(list_of_grades,
-                      new_assn(assn_type, &assn_name, grade, weight));
+            list_of_grades_push(list_of_grades,
+                                new_grade(assn_type, &assn_name, grade, weight));
 
             printf("Assignment: %s added to student.\n"
                            "Add more assignments? (0/1): ", assn_name);
@@ -353,7 +363,7 @@ void add_data(Database *database) {
 }
 
 
-void remove_data(Database *database) {
+void remove_data(database_t *database) {
 
     int loop_flag = 1;
 
@@ -367,10 +377,10 @@ void remove_data(Database *database) {
             sscanf(user_line, "%[^\n]", name_to_remove);
         }
 
-        Student *temp;
-        list_iterator_t *it = list_iterator_new(database);
+        student_t *temp;
+        db_iter_t *it = db_iter_init(database);
 
-        while ((temp = list_iterator_next(it))) {
+        while ((temp = db_iter_next(it))) {
             if (!strcasecmp(temp->name, name_to_remove)) {
                 db_remove(database, temp);
                 printf("Student: %s removed.", name_to_remove);
@@ -389,31 +399,33 @@ void remove_data(Database *database) {
         }
 
         free(name_to_remove);
+        name_to_remove = NULL;
         free(temp);
-        list_iterator_destroy(it);
+        temp = NULL;
+        free(it);
+        it = NULL;
 
     }
 
 }
 
 
-void close_db(Database *database) {
+void close_db(database_t *database) {
 
-    Student *temp;
-    list_iterator_t *it = list_iterator_new(database);
+    student_t *temp;
+    db_iter_t *it = db_iter_init(database);
 
-    while ((temp = list_iterator_next(it))) {
+    while ((temp = db_iter_next(it))) {
         free(temp->name);
         temp->name = NULL;
         destroy_list_of_grades(temp->list_of_grades);
     }
 
-    if (temp) {
-        free(temp);
-    }
-
-    list_iterator_destroy(it);
-    destroy_db(database);
+    free(temp);
+    temp = NULL;
+    free(it);
+    it = NULL;
+    db_destory(database);
 
 }
 
@@ -429,7 +441,7 @@ void remove_cr(char *str) {
 
 }
 
-int init_db(Database *database, char *file_path) {
+int init_db(database_t *database, char *file_path) {
 
     FILE *fp = fopen(file_path, "r");
 
@@ -484,7 +496,7 @@ int init_db(Database *database, char *file_path) {
 
             char *student_tokens = strtok(students[i], "\n");
             char *name = malloc(10 * sizeof(char));
-            List_of_Grades *list_of_grades = list_of_grades_init();
+            list_of_grades_t *list_of_grades = list_of_grades_init();
 
             while (student_tokens != NULL) {
 
@@ -501,9 +513,9 @@ int init_db(Database *database, char *file_path) {
                             student_tokens, "%[^:]: %f %f\n",
                             assn_name, &grade, &weight
                     );
-                    assn_push(
+                    list_of_grades_push(
                             list_of_grades,
-                            new_assn(1, &assn_name, grade, weight)
+                            new_grade(1, &assn_name, grade, weight)
                     );
 
                 }
@@ -552,7 +564,7 @@ int main(int argc, char **argv) {
 
     if (argc > 1) {
 
-        Database *database = db_init();
+        database_t *database = db_init();
         int menu_choice;
         int loop_flag = 1;
 

@@ -29,17 +29,17 @@ typedef struct {
 
 
 // indicates the type of data stored in the grade_t union
-enum assn_type {QUIZ, TEST};
+enum grade_enum {QUIZ, TEST};
 
 
 // grade_t struct
-typedef struct Grade {
+typedef struct grade_node {
 
     // type of assignment: 0 for quiz, 1 for test. Used to keep track of the
     // current node type
-    enum assn_type assn_t;
-    struct Grade *next;  // pointer to next
-    struct Grade *prev;
+    enum grade_enum assn_t;
+    struct grade_node *next;  // pointer to next
+    struct grade_node *prev;
 
     // union quiz_t and test_t
     union {
@@ -57,7 +57,7 @@ typedef struct list_of_grades {
     grade_t *tail;
     size_t len;
 
-} List_of_Grades;
+} list_of_grades_t;
 
 
 // list_of_grades iterator struct
@@ -65,7 +65,7 @@ typedef struct {
 
     grade_t *next;
 
-} list_of_grades_it_t;
+} list_of_grades_iter_t;
 
 
 

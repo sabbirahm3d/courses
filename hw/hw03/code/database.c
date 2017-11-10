@@ -1,23 +1,39 @@
+/*
+ * database.c
+ *
+ * This file contains the implementation of student_t nodes and database_t
+ * linked lists constructors, methods and its corresponding iterators.
+ *
+ * */
 
-//
-// list.c
-//
-// Copyright (c) 2010 TJ Holowaychuk <tj@vision-media.ca>
-//
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "database.h"
 
-/*
- * Allocates a new Student. NULL on failure.
- */
-Student *
-new_student(char **name, List_of_Grades *list_of_grades, float final_grade) {
 
-    Student *self;
-    if (!(self = malloc(sizeof(Student))))
+// -------------------------- CONSTRUCTORS --------------------------
+
+/*
+ * Initialize a student_t node.
+ *
+ * inputs:
+ *      name: full name of student
+ *      list_of_grades: pointer to filled list_of_grades_t linked list
+ *      final_grade: final letter grade of student
+ *
+ * output:
+ *      NULL if memory could not be allocated for a new student_t node, else a
+ *      new student_t node with the specified attributes
+ * */
+student_t *new_student(
+        char **name, list_of_grades_t *list_of_grades, float final_grade) {
+
+    student_t *self;
+    if (!(self = malloc(sizeof(student_t)))){
         return NULL;
+    }
+
     self->prev = NULL;
     self->next = NULL;
     self->name = *name;
@@ -30,74 +46,24 @@ new_student(char **name, List_of_Grades *list_of_grades, float final_grade) {
 
 
 /*
- * Allocate a new list_iterator_t. NULL on failure.
- * Accepts a direction, which may be LIST_HEAD or LIST_TAIL.
+ * Allocate a new database_t linked list.
+ *
+ * inputs:
+ *      none
+ *
+ * output:
+ *      new database_t linked list
  */
+database_t *db_init() {
 
-list_iterator_t *list_iterator_new(Database *list) {
+    database_t *self;
 
-    list_iterator_t *self;
-    if (!(self = malloc(sizeof(list_iterator_t))))
+    if (!(self = malloc(sizeof(database_t)))) {
         return NULL;
-    self->next = list->head;
-    return self;
-
-}
-
-
-/*
- * Return the next Student or NULL when no more
- * nodes remain in the list.
- */
-
-Student *list_iterator_next(list_iterator_t *self) {
-    Student *curr = self->next;
-    if (curr) {
-        self->next = curr->next;
     }
-    return curr;
-}
 
-
-/*
- * Allocate a new list_iterator_t. NULL on failure.
- * Accepts a direction, which may be LIST_HEAD or LIST_TAIL.
- */
-
-list_of_grades_it_t *list_of_grades_iterator_new(List_of_Grades *list) {
-
-    list_of_grades_it_t *self;
-    if (!(self = malloc(sizeof(list_iterator_t))))
-        return NULL;
-    self->next = list->head;
-    return self;
-
-}
-
-
-/*
- * Free the list iterator.
- */
-
-void list_iterator_destroy(list_iterator_t *self) {
-    free(self);
-    self = NULL;
-}
-
-
-/*
- * Allocate a new Database. NULL on failure.
- */
-
-Database *db_init() {
-
-    Database *self;
-
-    if (!(self = malloc(sizeof(Database))))
-        return NULL;
     self->head = NULL;
     self->tail = NULL;
-//    self->free = NULL;
     self->len = 0;
 
     return self;
@@ -105,78 +71,64 @@ Database *db_init() {
 }
 
 
-void slice_str(const char *str, char *buffer, size_t start, size_t end) {
-    size_t j = 0;
-    for (size_t i = start; i <= end; ++i) {
-        buffer[j++] = str[i];
-    }
-    buffer[j] = 0;
+/*
+ * Allocate a new db_iter_t.
+ * 
+ * inputs:
+ *      list: database_t linked list
+ *
+ * output:
+ *      new db_iter_t iterator
+ */
+db_iter_t *db_iter_init(database_t *list) {
+
+    db_iter_t *self;
+    if (!(self = malloc(sizeof(db_iter_t))))
+        return NULL;
+    self->next = list->head;
+    return self;
+
 }
 
 
-int cmp_last_name(char *node1, char *node2) {
-
-    size_t len1 = strlen(node1);
-    size_t len2 = strlen(node2);
-    char buffer1[len1 + 1];
-    char buffer2[len2 + 1];
-    char *start1 = strchr(node1, ' ');
-    char *start2 = strchr(node2, ' ');
-
-    slice_str(node1, buffer1, start1 - node1 + 1, len1);
-    slice_str(node2, buffer2, start2 - node2 + 1, len2);
-
-    return strcmp(buffer1, buffer2);
-}
+// -------------------------- STRUCT METHODS --------------------------
 
 /*
- * Append the given Student to the list
- * and return the Student, NULL on failure.
+ * Return the next student_t or NULL when no more nodes remain in the list.
+ *
+ * inputs:
+ *      self: pointer to the initialized database_t
+ *
+ * output:
+ *      pointer to the next node in the iterator
  */
+student_t *db_iter_next(db_iter_t *self) {
 
-//void sort_students(Database *self) {
-//
-//    for (int i = 0; i < self->len; i++) {
-//
-//        Student *current = self->head;
-//        Student *next = current->next;
-//        Student *prev = NULL;
-//
-//        while (next) {
-//
-//            if (cmp_last_name(current->name, next->name) > 0) {
-//
-//                if (current == self->head) {
-//                    self->head = next;
-//                } else {
-//                    prev->next = next;
-//                }
-//
-//                current->next = next->next;
-//                next->next = current;
-//
-//                prev = next;
-//                next = current->next;
-//
-//            } else {
-//
-//                prev = current;
-//                current = current->next;
-//                next = current->next;
-//
-//            }
-//
-//        }
-//
-//    }
-//
-//}
+    student_t *curr = self->next;
+
+    if (curr) {
+        self->next = curr->next;
+    }
+
+    return curr;
+
+}
 
 
-Student *db_push(Database *self, Student *node) {
+/*
+ * Append new student_t nodes to the database_t linked list.
+ *
+ * inputs:
+ *      self: pointer to the initialized database_t
+ *      node: pointer to the new node to be pushed
+ *
+ * output:
+ *      none
+ */
+void db_push(database_t *self, student_t *node) {
 
     if (!node) {
-        return NULL;
+        printf("Invalid node.\n");
     }
 
     if (self->len) {
@@ -193,40 +145,50 @@ Student *db_push(Database *self, Student *node) {
 
     }
 
-    ++self->len;
-    return node;
+    ++(self->len);
+
 }
 
 
 /*
- * Remove the given Student from the list, freeing it and it's value.
+ * Remove the specified student_t node from the database_t linked list.
+ *
+ * inputs:
+ *      self: pointer to the initialized database_t
+ *      node: node to remove from list
+ *
+ * output:
+ *      none
  */
-
-void db_remove(Database *self, Student *node) {
+void db_remove(database_t *self, student_t *node) {
 
     node->prev ? (node->prev->next = node->next) : (self->head = node->next);
 
     node->next ? (node->next->prev = node->prev) : (self->tail = node->prev);
 
-//    if (self->free) self->free(node->name);
     free(node->name);
     node->name = NULL;
-
+    // call the node's list_of_grades_t destructor
     destroy_list_of_grades(node->list_of_grades);
     free(node);
-    --self->len;
+    --(self->len);
 
 }
 
 /*
- * Free the list.
+ * Destructor the database_t linked list.
+ *
+ * inputs:
+ *      self: pointer to the initialized database_t
+ *
+ * output:
+ *      none
  */
-
-void destroy_db(Database *self) {
+void db_destory(database_t *self) {
 
     size_t len = self->len;
-    Student *next;
-    Student *curr = self->head;
+    student_t *next;
+    student_t *curr = self->head;
 
     while (len--) {
         next = curr->next;
@@ -239,16 +201,65 @@ void destroy_db(Database *self) {
 }
 
 
-void sort_students(Database *self) {
+void slice_str(const char *str, char *buffer, size_t start, size_t end) {
 
-    int swapped;
-    Student *cur;
-    Student *tail = NULL;
+    size_t j = 0;
 
-    /* Checking for empty list */
-    if (!self->len){
+    for (size_t i = start; i <= end; ++i) {
+        buffer[j++] = str[i];
+    }
+
+    buffer[j] = 0;
+
+}
+
+
+int cmp_last_name(char *node1, char *node2) {
+
+    size_t len1 = strlen(node1);
+    size_t len2 = strlen(node2);
+    char buffer1[len1 + 1];
+    char buffer2[len2 + 1];
+    char *start1 = strchr(node1, ' ');
+    char *start2 = strchr(node2, ' ');
+
+    slice_str(node1, buffer1, start1 - node1 + 1, len1);
+    slice_str(node2, buffer2, start2 - node2 + 1, len2);
+
+    return strcmp(buffer1, buffer2);
+
+}
+
+
+/* function to swap data of two nodes a and b*/
+void swap_students(student_t *student1, student_t *student2) {
+
+    char *temp_name = student1->name;
+    float temp_final_grade = student1->final_grade;
+    list_of_grades_t *temp_list_of_grades = student1->list_of_grades;
+
+    student1->name = student2->name;
+    student2->name = temp_name;
+
+    student1->final_grade = student2->final_grade;
+    student2->final_grade = temp_final_grade;
+
+    student1->list_of_grades = student2->list_of_grades;
+    student2->list_of_grades = temp_list_of_grades;
+
+}
+
+
+void db_sort(database_t *self) {
+
+    // if list is empty, do nothing
+    if (!self->len) {
         return;
     }
+
+    int swapped;
+    student_t *cur;
+    student_t *tail = NULL;
 
     do {
         swapped = 0;
@@ -257,7 +268,7 @@ void sort_students(Database *self) {
         while (cur->next != tail) {
 
             if (cmp_last_name(cur->name, cur->next->name) > 0) {
-                swap(cur, cur->next);
+                swap_students(cur, cur->next);
                 swapped = 1;
             }
 
@@ -270,22 +281,3 @@ void sort_students(Database *self) {
     } while (swapped);
 
 }
-
-/* function to swap data of two nodes a and b*/
-void swap(Student *a, Student *b) {
-
-    char *temp_name = a->name;
-    float temp_final_grade = a->final_grade;
-    List_of_Grades *temp_list_of_grades = a->list_of_grades;
-
-    a->name = b->name;
-    b->name = temp_name;
-
-    a->final_grade = b->final_grade;
-    b->final_grade = temp_final_grade;
-
-    a->list_of_grades = b->list_of_grades;
-    b->list_of_grades = temp_list_of_grades;
-
-}
-

@@ -12,7 +12,7 @@
 #include "list_of_grades.h"
 
 /*
- * Database Student struct.
+ * database_t student_t struct.
  *
  */
 
@@ -23,60 +23,58 @@ typedef struct student_node {
     struct student_node *next;
     char *name;
     float final_grade;
-    List_of_Grades *list_of_grades;
+    list_of_grades_t *list_of_grades;
 
-} Student;
+} student_t;
 
 
 typedef struct {
 
-    Student *head;
-    Student *tail;
+    student_t *head;
+    student_t *tail;
     size_t len;
 
 //    void (*free)(void *val);
 
-} Database;
+} database_t;
 
 /*
- * Database iterator struct.
+ * database_t iterator struct.
  */
 
 typedef struct {
 
-    Student *next;
+    student_t *next;
 
-} list_iterator_t;
+} db_iter_t;
 
 
 // Node prototypes.
 
-Student *new_student(char **, List_of_Grades *, float);
+student_t *new_student(char **, list_of_grades_t *, float);
 
 // -------------------------- FUNCTIONS --------------------------
-void bubbleSort(Database *);
-void swap(Student *a, Student *b);
 
-Database *db_init();
+void swap_students(student_t *, student_t *);
 
-Student *db_push(Database *, Student *);
+database_t *db_init();
+
+void db_push(database_t *, student_t *);
 
 void slice_str(const char *, char *, size_t, size_t);
 
 int cmp_last_name(char *, char *);
 
-void sort_students(Database *);
+void db_sort(database_t *);
 
-void db_remove(Database *, Student *);
+void db_remove(database_t *, student_t *);
 
-void destroy_db(Database *);
+void db_destory(database_t *);
 
-// Database iterator prototypes.
+// database_t iterator prototypes.
 
-list_iterator_t *list_iterator_new(Database *);
+db_iter_t *db_iter_init(database_t *);
 
-Student *list_iterator_next(list_iterator_t *);
-
-void list_iterator_destroy(list_iterator_t *);
+student_t *db_iter_next(db_iter_t *);
 
 #endif /* DATABASE_H */
