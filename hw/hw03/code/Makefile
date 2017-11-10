@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -std=gnu99 -Os
 
 # define the C source files
-SRCS = main.c database.c list_of_grades.c
+SRCS = main.c menu.c database.c list_of_grades.c
 
 # define the C object files 
 OBJS = ${SRCS:.c=.o}

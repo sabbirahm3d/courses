@@ -11,10 +11,10 @@
 
 #include "list_of_grades.h"
 
-#define MAXSTUDENTNAME 50
-#define MAXASSNNAME 20
-#define MAXINTINPUT 5
-#define STUDENTSINFILE 2
+#define MAXSTUDENTNAME 50  // maximum size for student names
+#define MAXASSNNAME 20  // maximum size for assignment names
+#define MAXINTINPUT 5  // maximum size for int and float inputs
+#define STUDENTSINFILE 2  // predetermined number of students in input file
 
 
 // -------------------------- STRUCTS --------------------------
@@ -24,7 +24,8 @@ typedef struct student_node {
 
     struct student_node *prev;
     struct student_node *next;  // pointer to next
-    char *name;  // student name
+    char *first_name;  // student first name
+    char *last_name;  // student last name
     float final_grade;  // student final grade
     list_of_grades_t *list_of_grades;  // list_of_grades_t linked list
 
@@ -49,7 +50,7 @@ typedef struct {
 
 // -------------------------- FUNCTION PROTOTYPES --------------------------
 
-student_t *new_student(char **, list_of_grades_t *, float);
+student_t *new_student(char **, char **, list_of_grades_t *, float);
 
 database_t *db_init();
 
@@ -64,10 +65,6 @@ void db_remove(database_t *, student_t *);
 void db_destory(database_t *);
 
 void swap_students(student_t *, student_t *);
-
-void slice_str(const char *, char *, size_t, size_t);
-
-int cmp_last_name(char *, char *);
 
 void db_sort(database_t *);
 

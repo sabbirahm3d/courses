@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "database.h"
 
 
@@ -25,18 +26,20 @@
  * output:
  *      NULL if memory could not be allocated for a new student_t node, else a
  *      new student_t node with the specified attributes
- * */
+ */
 student_t *new_student(
-        char **name, list_of_grades_t *list_of_grades, float final_grade) {
+        char **first_name, char **last_name, list_of_grades_t *list_of_grades,
+        float final_grade) {
 
     student_t *self;
-    if (!(self = malloc(sizeof(student_t)))){
+    if (!(self = malloc(sizeof(student_t)))) {
         return NULL;
     }
 
     self->prev = NULL;
     self->next = NULL;
-    self->name = *name;
+    self->first_name = *first_name;
+    self->last_name = *last_name;
     self->final_grade = final_grade;
     self->list_of_grades = list_of_grades;
 
@@ -151,6 +154,84 @@ void db_push(database_t *self, student_t *node) {
 
 
 /*
+ * Swaps the data between two student_t nodes.
+ *
+ * inputs:
+ *      student1: pointer to a student_t node
+ *      student2: pointer to a student_t node
+ *
+ * output:
+ *      none
+ */
+void swap_students(student_t *student1, student_t *student2) {
+
+    // store individual attributes to temporary variables before swapping
+    char *temp_first_name = student1->first_name;
+    char *temp_last_name = student1->last_name;
+    float temp_final_grade = student1->final_grade;
+    list_of_grades_t *temp_list_of_grades = student1->list_of_grades;
+
+    // swap each attributes
+    student1->first_name = student2->first_name;
+    student2->first_name = temp_first_name;
+
+    student1->last_name = student2->last_name;
+    student2->last_name = temp_last_name;
+
+    student1->final_grade = student2->final_grade;
+    student2->final_grade = temp_final_grade;
+
+    student1->list_of_grades = student2->list_of_grades;
+    student2->list_of_grades = temp_list_of_grades;
+
+}
+
+
+/*
+ * Sorts the database by student last names.
+ *
+ * inputs:
+ *      self: pointer to the initialized database_t
+ *
+ * output:
+ *      none
+ */
+void db_sort(database_t *self) {
+
+    // if list is empty, do nothing
+    if (!self->len) {
+        return;
+    }
+
+    int swapped;
+    student_t *cur;
+    student_t *tail = NULL;
+
+    // uses bubble sort to swap nodes until fully sorted
+    do {
+
+        swapped = 0;
+        cur = self->head;
+
+        while (cur->next != tail) {
+
+            if (strcasecmp(cur->last_name, cur->next->last_name) > 0) {
+                swap_students(cur, cur->next);
+                swapped = 1;
+            }
+
+            cur = cur->next;
+
+        }
+
+        tail = cur;
+
+    } while (swapped);
+
+}
+
+
+/*
  * Remove the specified student_t node from the database_t linked list.
  *
  * inputs:
@@ -166,14 +247,17 @@ void db_remove(database_t *self, student_t *node) {
 
     node->next ? (node->next->prev = node->prev) : (self->tail = node->prev);
 
-    free(node->name);
-    node->name = NULL;
+    free(node->first_name);
+    free(node->last_name);
+    node->first_name = NULL;
+
     // call the node's list_of_grades_t destructor
     destroy_list_of_grades(node->list_of_grades);
     free(node);
     --(self->len);
 
 }
+
 
 /*
  * Destructor the database_t linked list.
@@ -197,87 +281,5 @@ void db_destory(database_t *self) {
     }
 
     free(self);
-
-}
-
-
-void slice_str(const char *str, char *buffer, size_t start, size_t end) {
-
-    size_t j = 0;
-
-    for (size_t i = start; i <= end; ++i) {
-        buffer[j++] = str[i];
-    }
-
-    buffer[j] = 0;
-
-}
-
-
-int cmp_last_name(char *node1, char *node2) {
-
-    size_t len1 = strlen(node1);
-    size_t len2 = strlen(node2);
-    char buffer1[len1 + 1];
-    char buffer2[len2 + 1];
-    char *start1 = strchr(node1, ' ');
-    char *start2 = strchr(node2, ' ');
-
-    slice_str(node1, buffer1, start1 - node1 + 1, len1);
-    slice_str(node2, buffer2, start2 - node2 + 1, len2);
-
-    return strcmp(buffer1, buffer2);
-
-}
-
-
-/* function to swap data of two nodes a and b*/
-void swap_students(student_t *student1, student_t *student2) {
-
-    char *temp_name = student1->name;
-    float temp_final_grade = student1->final_grade;
-    list_of_grades_t *temp_list_of_grades = student1->list_of_grades;
-
-    student1->name = student2->name;
-    student2->name = temp_name;
-
-    student1->final_grade = student2->final_grade;
-    student2->final_grade = temp_final_grade;
-
-    student1->list_of_grades = student2->list_of_grades;
-    student2->list_of_grades = temp_list_of_grades;
-
-}
-
-
-void db_sort(database_t *self) {
-
-    // if list is empty, do nothing
-    if (!self->len) {
-        return;
-    }
-
-    int swapped;
-    student_t *cur;
-    student_t *tail = NULL;
-
-    do {
-        swapped = 0;
-        cur = self->head;
-
-        while (cur->next != tail) {
-
-            if (cmp_last_name(cur->name, cur->next->name) > 0) {
-                swap_students(cur, cur->next);
-                swapped = 1;
-            }
-
-            cur = cur->next;
-
-        }
-
-        tail = cur;
-
-    } while (swapped);
 
 }
