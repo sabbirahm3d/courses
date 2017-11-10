@@ -7,13 +7,12 @@
 const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
-const char file_io_opt[] = "Please indicate if the input file should be "
-        "loaded to initialize the database.\n0. Do not initialize the "
-        "database.\n1. Initialize the database with the input file (contains "
-        "bugs detailed in the report).\nChoose: ";
+const char file_io_opt[] = "Please indicate.\n0. Do not sort\n1. Sort"
+        ".\nChoose: ";
 char user_line[50];
 char user_grade[5];
 
+int SORTDEBUG = 1;
 int UNSORTED = 1;  // flag for sorting the database
 
 // ------------------ Helper function declarations ------------------
@@ -96,7 +95,9 @@ void print_db(Database *database) {
     if (database->len) {
 
         if (UNSORTED) {
-            sort_students(database);
+            if (!SORTDEBUG) {
+                sort_students(database);
+            }
             UNSORTED = 0;
         }
 
@@ -109,7 +110,8 @@ void print_db(Database *database) {
             printf("Student: %s | ", temp->name);
 
             grade_t *temp1;
-            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(temp->list_of_grades);
+            list_of_grades_it_t *grades_it = list_of_grades_iterator_new(
+                    temp->list_of_grades);
 
             while ((temp1 = list_of_grades_iterator_next(grades_it))) {
 
@@ -362,6 +364,8 @@ void remove_data(Database *database) {
 
     while (loop_flag) {
 
+        int found = 0;
+
         char *name_to_remove = malloc(20 * sizeof(char));
         printf("---------- Remove Students ----------\nEnter name: ");
         if (fgets(user_line, 20, stdin) != NULL) {
@@ -373,10 +377,16 @@ void remove_data(Database *database) {
 
         while ((temp = list_iterator_next(it))) {
             if (!strcasecmp(temp->name, name_to_remove)) {
-                printf("Removing: %s\n", temp->name);
                 db_remove(database, temp);
+                printf("Student: %s removed.", name_to_remove);
+                found = 1;
             }
         }
+
+        if (!found) {
+            printf("Student: %s is not in database", name_to_remove);
+        }
+        printf("\n");
 
         printf("\nRemove more students? (0/1): ");
         if (fgets(user_grade, 5, stdin) != NULL) {
@@ -551,6 +561,8 @@ int main(int argc, char **argv) {
         int menu_choice, init_choice = 0;
         int loop_flag = 1;
 
+        init_db(database, argv[1]);
+
         printf("%s", file_io_opt);
         // prompt user for choice
         if (fgets(user_line, 3, stdin) != NULL) {
@@ -558,7 +570,7 @@ int main(int argc, char **argv) {
         }
 
         if (init_choice) {
-            init_db(database, argv[1]);
+            SORTDEBUG = 0;
         }
 
         while (loop_flag) {

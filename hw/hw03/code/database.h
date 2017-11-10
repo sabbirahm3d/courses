@@ -54,6 +54,8 @@ typedef struct {
 Student *new_student(char **, List_of_Grades *, float);
 
 // -------------------------- FUNCTIONS --------------------------
+void bubbleSort(Database *);
+void swap(Student *a, Student *b);
 
 Database *db_init();
 

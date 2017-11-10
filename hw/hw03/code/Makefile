@@ -21,13 +21,13 @@ run:
 
 .PHONY: build
 build: ${EXE}
-	@echo  Simple compiler named mycc has been compiled
+	@echo "Program compiled successfully"
 
 ${EXE}: ${OBJS} 
-	${CC} ${CFLAGS}-o ${EXE} ${OBJS}
+	${CC} ${CFLAGS} -o ${EXE} ${OBJS}
 
 .c.o:
-	${CC} ${CFLAGS} -c $<  -o $@
+	${CC} ${CFLAGS} -c $< -o $@
 
 
 .PHONY: val
@@ -39,10 +39,3 @@ val:
 clean:
 	# clean out cache and temporary files
 	@find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
-
-
-.PHONY: depend
-depend: ${SRCS}
-	makedepend ${INCLUDES} $^
-
-# DO NOT DELETE THIS LINE -- make depend needs it

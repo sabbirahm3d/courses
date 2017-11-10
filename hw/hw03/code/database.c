@@ -12,8 +12,6 @@
 /*
  * Allocates a new Student. NULL on failure.
  */
-
-
 Student *
 new_student(char **name, List_of_Grades *list_of_grades, float final_grade) {
 
@@ -136,43 +134,43 @@ int cmp_last_name(char *node1, char *node2) {
  * and return the Student, NULL on failure.
  */
 
-void sort_students(Database *self) {
-
-    for (int i = 0; i < self->len; i++) {
-
-        Student *current = self->head;
-        Student *next = current->next;
-        Student *previous = NULL;
-
-        while (next) {
-
-            if (cmp_last_name(current->name, next->name) > 0) {
-
-                if (current == self->head) {
-                    self->head = next;
-                } else {
-                    previous->next = next;
-                }
-
-                current->next = next->next;
-                next->next = current;
-
-                previous = next;
-                next = current->next;
-
-            } else {
-
-                previous = current;
-                current = current->next;
-                next = current->next;
-
-            }
-
-        }
-
-    }
-
-}
+//void sort_students(Database *self) {
+//
+//    for (int i = 0; i < self->len; i++) {
+//
+//        Student *current = self->head;
+//        Student *next = current->next;
+//        Student *prev = NULL;
+//
+//        while (next) {
+//
+//            if (cmp_last_name(current->name, next->name) > 0) {
+//
+//                if (current == self->head) {
+//                    self->head = next;
+//                } else {
+//                    prev->next = next;
+//                }
+//
+//                current->next = next->next;
+//                next->next = current;
+//
+//                prev = next;
+//                next = current->next;
+//
+//            } else {
+//
+//                prev = current;
+//                current = current->next;
+//                next = current->next;
+//
+//            }
+//
+//        }
+//
+//    }
+//
+//}
 
 
 Student *db_push(Database *self, Student *node) {
@@ -212,7 +210,7 @@ void db_remove(Database *self, Student *node) {
 
 //    if (self->free) self->free(node->name);
     free(node->name);
-//    node->name = NULL;
+    node->name = NULL;
 
     destroy_list_of_grades(node->list_of_grades);
     free(node);
@@ -239,3 +237,55 @@ void destroy_db(Database *self) {
     free(self);
 
 }
+
+
+void sort_students(Database *self) {
+
+    int swapped;
+    Student *cur;
+    Student *tail = NULL;
+
+    /* Checking for empty list */
+    if (!self->len){
+        return;
+    }
+
+    do {
+        swapped = 0;
+        cur = self->head;
+
+        while (cur->next != tail) {
+
+            if (cmp_last_name(cur->name, cur->next->name) > 0) {
+                swap(cur, cur->next);
+                swapped = 1;
+            }
+
+            cur = cur->next;
+
+        }
+
+        tail = cur;
+
+    } while (swapped);
+
+}
+
+/* function to swap data of two nodes a and b*/
+void swap(Student *a, Student *b) {
+
+    char *temp_name = a->name;
+    float temp_final_grade = a->final_grade;
+    List_of_Grades *temp_list_of_grades = a->list_of_grades;
+
+    a->name = b->name;
+    b->name = temp_name;
+
+    a->final_grade = b->final_grade;
+    b->final_grade = temp_final_grade;
+
+    a->list_of_grades = b->list_of_grades;
+    b->list_of_grades = temp_list_of_grades;
+
+}
+
