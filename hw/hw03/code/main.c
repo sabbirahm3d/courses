@@ -7,12 +7,9 @@
 const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
-const char file_io_opt[] = "Please indicate.\n0. Do not sort\n1. Sort"
-        ".\nChoose: ";
 char user_line[50];
 char user_grade[5];
 
-int SORTDEBUG = 1;
 int UNSORTED = 1;  // flag for sorting the database
 
 // ------------------ Helper function declarations ------------------
@@ -95,9 +92,7 @@ void print_db(Database *database) {
     if (database->len) {
 
         if (UNSORTED) {
-            if (!SORTDEBUG) {
-                sort_students(database);
-            }
+            sort_students(database);
             UNSORTED = 0;
         }
 
@@ -558,20 +553,10 @@ int main(int argc, char **argv) {
     if (argc > 1) {
 
         Database *database = db_init();
-        int menu_choice, init_choice = 0;
+        int menu_choice;
         int loop_flag = 1;
 
         init_db(database, argv[1]);
-
-        printf("%s", file_io_opt);
-        // prompt user for choice
-        if (fgets(user_line, 3, stdin) != NULL) {
-            sscanf(user_line, "%d", &init_choice);
-        }
-
-        if (init_choice) {
-            SORTDEBUG = 0;
-        }
 
         while (loop_flag) {
 
