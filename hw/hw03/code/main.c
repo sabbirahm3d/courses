@@ -7,15 +7,45 @@
 const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
+const char file_io_opt[] = "Please indicate if the input file should be "
+        "loaded to initialize the database.\n0. Do not initialize the "
+        "database.\n1. Initialize the database with the input file (contains "
+        "bugs detailed in the report).\nChoose: ";
 char user_line[50];
 char user_grade[5];
 
-int UNSORTED = 1;
+int UNSORTED = 1;  // flag for sorting the database
+
+// ------------------ Helper function declarations ------------------
+
+int display_menu();
+
+char *get_letter_grade(float);
+
+void print_db(Database *);
+
+float calculate_grade(List_of_Grades *);
+
+void search_name(Database *);
+
+void search_by_grade(Database *);
+
+void add_data(Database *);
+
+void remove_data(Database *);
+
+void close_db(Database *);
+
+void remove_cr(char *);
+
+int init_db(Database *, char *);
+
 
 /*
  * Displays the main menu to the user and prompts for their input. The
  * function then returns the user's input to be treated as their choice from
- * the main menu prompt. */
+ * the main menu prompt.
+ * */
 int display_menu() {
 
     // holds user input
@@ -149,12 +179,12 @@ void search_name(Database *database) {
 
     while (loop_flag) {
 
-        char *name = malloc(20 * sizeof(char));
+        char *name_to_search = malloc(20 * sizeof(char));
         int found = 0;
 
         printf("---------- Search by Name ----------\nEnter name: ");
         if (fgets(user_line, 20, stdin) != NULL) {
-            sscanf(user_line, "%[^\n]", name);
+            sscanf(user_line, "%[^\n]", name_to_search);
         }
 
         Student *temp;
@@ -162,30 +192,23 @@ void search_name(Database *database) {
 
         while ((temp = list_iterator_next(it))) {
 
-            grade_t *temp1;
             list_of_grades_it_t *grades_it = list_of_grades_iterator_new(temp->list_of_grades);
 
-            while ((temp1 = list_of_grades_iterator_next(grades_it))) {
-
-                if (!strcasecmp(temp->name, name)) {
-                    printf("Found student: %s\n", temp->name);
-//                printf("Student data: %.2f%%\n", temp->list_of_grades);
-                    found = 1;
-                }
+            if (!strcasecmp(temp->name, name_to_search)) {
+                printf("Found student: %s\n", temp->name);
+                printf("Student grade: %.2f%% (%c)", temp->final_grade,
+                       *get_letter_grade(temp->final_grade));
+                found = 1;
             }
 
             if (grades_it) {
                 free(grades_it);
             }
 
-            if (temp1) {
-                free(temp1);
-            }
-
         }
 
         if (!found) {
-            printf("Student: %s is not in database", name);
+            printf("Student: %s is not in database", name_to_search);
         }
         printf("\n");
 
@@ -194,7 +217,7 @@ void search_name(Database *database) {
             sscanf(user_grade, "%d", &loop_flag);
         }
 
-        free(name);
+        free(name_to_search);
         free(temp);
         list_iterator_destroy(it);
 
@@ -222,7 +245,7 @@ void search_by_grade(Database *database) {
 
         while ((temp = list_iterator_next(it))) {
 
-            if (!strcasecmp(get_letter_grade(temp->final_grade), letter_grade)) {
+            if (*get_letter_grade(temp->final_grade) == *letter_grade) {
 
                 printf("Found student: %s\n", temp->name);
                 printf("Student data: %.2f\n", temp->final_grade);
@@ -234,7 +257,7 @@ void search_by_grade(Database *database) {
 
         if (!found) {
             printf("No students with a final_grade of %c in database",
-                   letter_grade);
+                   *letter_grade);
         }
         printf("\n");
 
@@ -339,17 +362,17 @@ void remove_data(Database *database) {
 
     while (loop_flag) {
 
-        char *name = malloc(20 * sizeof(char));
+        char *name_to_remove = malloc(20 * sizeof(char));
         printf("---------- Remove Students ----------\nEnter name: ");
         if (fgets(user_line, 20, stdin) != NULL) {
-            sscanf(user_line, "%[^\n]", name);
+            sscanf(user_line, "%[^\n]", name_to_remove);
         }
 
         Student *temp;
         list_iterator_t *it = list_iterator_new(database);
 
         while ((temp = list_iterator_next(it))) {
-            if (!strcasecmp(temp->name, name)) {
+            if (!strcasecmp(temp->name, name_to_remove)) {
                 printf("Removing: %s\n", temp->name);
                 db_remove(database, temp);
             }
@@ -360,7 +383,7 @@ void remove_data(Database *database) {
             sscanf(user_grade, "%d", &loop_flag);
         }
 
-        free(name);
+        free(name_to_remove);
         free(temp);
         list_iterator_destroy(it);
 
@@ -390,12 +413,12 @@ void close_db(Database *database) {
 }
 
 
-void remove_all_chars(char *str, char c) {
+void remove_cr(char *str) {
 
     char *pr = str, *pw = str;
     while (*pr) {
         *pw = *pr++;
-        pw += (*pw != c);
+        pw += (*pw != '\r');
     }
     *pw = '\0';
 
@@ -435,11 +458,13 @@ int init_db(Database *database, char *file_path) {
 
         while (file_buf_tokens != NULL) {
 
-            remove_all_chars(file_buf_tokens, '\r');
+            remove_cr(file_buf_tokens);
+
             if (strlen(file_buf_tokens) > 1) {
+
                 students[student_id][strlen(students[student_id])] = '\n';
                 strcat(students[student_id], file_buf_tokens);
-                printf("\nconcat\n\n %s", students[student_id]);
+
             } else {
                 student_id++;
             }
@@ -453,7 +478,7 @@ int init_db(Database *database, char *file_path) {
         for (int i = 0; i < 2; i++) {
 
             char *student_tokens = strtok(students[i], "\n");
-            char *name = malloc(50 * sizeof(char));
+            char *name = malloc(10 * sizeof(char));
             List_of_Grades *list_of_grades = list_of_grades_init();
 
             while (student_tokens != NULL) {
@@ -501,7 +526,6 @@ int init_db(Database *database, char *file_path) {
         }
 
         for (int i = 0; i < 2; i++) {
-//            printf("before %s\n", students[i]);
             free(students[i]);
             students[i] = NULL;
         }
@@ -524,16 +548,24 @@ int main(int argc, char **argv) {
     if (argc > 1) {
 
         Database *database = db_init();
-        int choice;
+        int menu_choice, init_choice = 0;
         int loop_flag = 1;
 
-        init_db(database, argv[1]);
+        printf("%s", file_io_opt);
+        // prompt user for choice
+        if (fgets(user_line, 3, stdin) != NULL) {
+            sscanf(user_line, "%d", &init_choice);
+        }
+
+        if (init_choice) {
+            init_db(database, argv[1]);
+        }
 
         while (loop_flag) {
 
-            choice = display_menu();
+            menu_choice = display_menu();
 
-            switch (choice) {
+            switch (menu_choice) {
 
                 case 1: {
 
@@ -576,7 +608,7 @@ int main(int argc, char **argv) {
 
                 case 0: {
 
-                    // terminate program
+                    // terminate program and call the destructors
                     loop_flag = 0;
                     close_db(database);
 
