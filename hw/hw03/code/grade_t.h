@@ -2,8 +2,8 @@
 // Created by sabbir on 11/9/17.
 //
 
-#ifndef CODE_GRADE_T_H
-#define CODE_GRADE_T_H
+#ifndef GRADE_T_H
+#define GRADE_T_H
 
 
 // -------------------------- STRUCTS --------------------------
@@ -69,4 +69,4 @@ typedef struct {
 
 
 
-#endif //CODE_GRADE_T_H
+#endif // GRADE_T_H

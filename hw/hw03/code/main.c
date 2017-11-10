@@ -7,8 +7,10 @@
 const char menu_main_str[] = "---------- MAIN MENU ----------\n1. Print "
         "Database\n2. Search by Name\n3. Search by Grade\n4. Add Student\n5. "
         "Remove Student\n0. Exit\nChoose: ";
-char user_line[50];
-char user_grade[5];
+char user_line_student_name[MAXSTUDENTNAME];
+char user_line_grade_name[MAXASSNNAME];
+char user_grade[MAXINTINPUT];
+char user_choice[MAXINTINPUT];
 
 int UNSORTED = 1;  // flag for sorting the database
 
@@ -50,8 +52,8 @@ int display_menu() {
     printf("%s", menu_main_str);
 
     // prompt user for choice
-    if (fgets(user_line, 3, stdin) != NULL) {
-        sscanf(user_line, "%d", &choice);
+    if (fgets(user_line_student_name, 3, stdin) != NULL) {
+        sscanf(user_line_student_name, "%d", &choice);
     }
 
     return choice;
@@ -184,8 +186,8 @@ void search_name(database_t *database) {
         int found = 0;
 
         printf("---------- Search by Name ----------\nEnter name: ");
-        if (fgets(user_line, 20, stdin) != NULL) {
-            sscanf(user_line, "%[^\n]", name_to_search);
+        if (fgets(user_line_student_name, MAXSTUDENTNAME, stdin) != NULL) {
+            sscanf(user_line_student_name, "%[^\n]", name_to_search);
         }
 
         student_t *temp;
@@ -214,8 +216,8 @@ void search_name(database_t *database) {
         printf("\n");
 
         printf("Search more students? (0/1): ");
-        if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%d", &loop_flag);
+        if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+            sscanf(user_choice, "%d", &loop_flag);
         }
 
         free(name_to_search);
@@ -240,8 +242,8 @@ void search_by_grade(database_t *database) {
         int found = 0;
 
         printf("---------- Search by Grade ----------\nEnter grade: ");
-        if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%c", letter_grade);
+        if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+            sscanf(user_choice, "%c", letter_grade);
         }
 
         student_t *temp;
@@ -266,8 +268,8 @@ void search_by_grade(database_t *database) {
         printf("\n");
 
         printf("Search more students? (0/1): ");
-        if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%d", &loop_flag);
+        if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+            sscanf(user_choice, "%d", &loop_flag);
         }
 
         free(letter_grade);
@@ -287,7 +289,7 @@ void add_data(database_t *database) {
 
     while (loop_flag) {
 
-        char *name = malloc(50 * sizeof(char));
+        char *name = malloc(MAXSTUDENTNAME * sizeof(char));
         list_of_grades_t *list_of_grades = list_of_grades_init();
 
         int inner_loop_flag = 1;
@@ -295,20 +297,20 @@ void add_data(database_t *database) {
         printf("---------- Add Students ----------\n");
 
         printf("Enter name: ");
-        if (fgets(user_line, 50, stdin) != NULL) {
-            sscanf(user_line, "%[^\n]", name);
+        if (fgets(user_line_student_name, MAXSTUDENTNAME, stdin) != NULL) {
+            sscanf(user_line_student_name, "%[^\n]", name);
         }
 
         while (inner_loop_flag) {
 
-            char *assn_name = malloc(20 * sizeof(char));
+            char *assn_name = malloc(MAXASSNNAME * sizeof(char));
             unsigned int assn_type;
             float grade, weight;
 
             // prompt user for list_of_grades
             printf("Enter type of assignment.\n0 = quiz, 1 = test: ");
-            if (fgets(user_grade, 5, stdin) != NULL) {
-                sscanf(user_grade, "%d", &assn_type);
+            if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+                sscanf(user_choice, "%d", &assn_type);
             }
 
             if (!assn_type) {
@@ -321,18 +323,18 @@ void add_data(database_t *database) {
 
             }
 
-            if (fgets(user_line, 20, stdin) != NULL) {
-                sscanf(user_line, "%[^\n]", assn_name);
+            if (fgets(user_line_student_name, MAXASSNNAME, stdin) != NULL) {
+                sscanf(user_line_student_name, "%[^\n]", assn_name);
             }
 
             printf("Enter grade: ");
-            if (fgets(user_line, 20, stdin) != NULL) {
-                sscanf(user_line, "%f", &grade);
+            if (fgets(user_grade, MAXINTINPUT, stdin) != NULL) {
+                sscanf(user_grade, "%f", &grade);
             }
 
             printf("Enter weight: ");
-            if (fgets(user_line, 20, stdin) != NULL) {
-                sscanf(user_line, "%f", &weight);
+            if (fgets(user_grade, MAXINTINPUT, stdin) != NULL) {
+                sscanf(user_grade, "%f", &weight);
             }
 
             list_of_grades_push(list_of_grades,
@@ -340,8 +342,8 @@ void add_data(database_t *database) {
 
             printf("Assignment: %s added to student.\n"
                            "Add more assignments? (0/1): ", assn_name);
-            if (fgets(user_grade, 5, stdin) != NULL) {
-                sscanf(user_grade, "%d", &inner_loop_flag);
+            if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+                sscanf(user_choice, "%d", &inner_loop_flag);
             }
 
         }
@@ -350,8 +352,8 @@ void add_data(database_t *database) {
                 (list_of_grades)));
         printf("Student: %s added to database.\nAdd more students? (0/1): ",
                name);
-        if (fgets(user_grade, 5, stdin) != NULL) {
-            sscanf(user_grade, "%d", &loop_flag);
+        if (fgets(user_choice, MAXINTINPUT, stdin) != NULL) {
+            sscanf(user_choice, "%d", &loop_flag);
         }
 
         printf("\n");
@@ -373,8 +375,8 @@ void remove_data(database_t *database) {
 
         char *name_to_remove = malloc(20 * sizeof(char));
         printf("---------- Remove Students ----------\nEnter name: ");
-        if (fgets(user_line, 20, stdin) != NULL) {
-            sscanf(user_line, "%[^\n]", name_to_remove);
+        if (fgets(user_line_student_name, 20, stdin) != NULL) {
+            sscanf(user_line_student_name, "%[^\n]", name_to_remove);
         }
 
         student_t *temp;
@@ -464,10 +466,13 @@ int init_db(database_t *database, char *file_path) {
         buffer[size] = '\0';
 
         int student_id = 0;
-        char **students = malloc(2 * sizeof(char *));
+        char **students = malloc(STUDENTSINFILE * sizeof(char *));
 
-        for (int i = 0; i < 2; i++) {
-            students[i] = malloc((size / 2 + 20) * sizeof(*students[i]));
+        for (int i = 0; i < STUDENTSINFILE; i++) {
+            students[i] = malloc(
+                    (size / STUDENTSINFILE + MAXSTUDENTNAME)
+                            * sizeof(*students[i])
+            );
         }
 
         // copy the const string main menu prompt to be tokenized
@@ -492,10 +497,10 @@ int init_db(database_t *database, char *file_path) {
 
         int index = 0;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < STUDENTSINFILE; i++) {
 
             char *student_tokens = strtok(students[i], "\n");
-            char *name = malloc(10 * sizeof(char));
+            char *name = malloc(MAXSTUDENTNAME * sizeof(char));
             list_of_grades_t *list_of_grades = list_of_grades_init();
 
             while (student_tokens != NULL) {
@@ -506,7 +511,7 @@ int init_db(database_t *database, char *file_path) {
 
                 } else {
 
-                    char *assn_name = malloc(20 * sizeof(char));
+                    char *assn_name = malloc(MAXASSNNAME * sizeof(char));
                     float grade, weight;
 
                     sscanf(
@@ -542,7 +547,7 @@ int init_db(database_t *database, char *file_path) {
             buffer = NULL;
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < STUDENTSINFILE; i++) {
             free(students[i]);
             students[i] = NULL;
         }
