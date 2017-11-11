@@ -11,7 +11,7 @@ SRCS = main.c menu.c database.c list_of_grades.c
 OBJS = ${SRCS:.c=.o}
 
 # define the executable file 
-EXE = linkedlist
+EXE = hw03.o
 
 
 .PHONY: run
