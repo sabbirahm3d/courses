@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from mips import MIPS
+from mips import MIPS, MIPSSET
 
 
 class Assembler(object):
 
-    def __init__(self, instructions):
+    def __init__(self, instructions, instmem, datamem):
 
         self.instructions = instructions
-        self.MIPS = MIPS()
+        self.registers = [None] * 32
+        self.MIPS = MIPS(instmem, datamem, self.registers)
 
     def assemble(self):
 
@@ -18,4 +19,4 @@ class Assembler(object):
 
     def parse_line(self, line):
 
-        getattr(self.MIPS, line[0].lower())(line)
+        getattr(self.MIPS, MIPSSET[line[0]]["func"])(line[1:])

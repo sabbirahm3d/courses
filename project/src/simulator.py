@@ -6,6 +6,9 @@ from sys import argv
 
 from assembler import Assembler
 
+INSTMEM = [None] * 100
+DATAMEM = [None] * 32
+
 
 def init_mem(mem_file_path):
 
@@ -13,6 +16,8 @@ def init_mem(mem_file_path):
 
         with open(mem_file_path) as mem_file:
             return mem_file.read().split("\n")
+
+        # print DATAMEM
 
     except IOError:
         raise SystemExit("Please provide a valid input data file")
@@ -58,8 +63,8 @@ if __name__ == "__main__":
 
     else:
         instructions = parse_inst(argv[1])
-        init_mem(argv[2])
+        DATAMEM = init_mem(argv[2])
 
-        print instructions
-        obj = Assembler(instructions)
+        # print instructions
+        obj = Assembler(instructions, INSTMEM, DATAMEM)
         obj.assemble()
