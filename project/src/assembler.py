@@ -25,19 +25,14 @@ class Assembler(object):
         prog_ctr = 0
 
         while file_size != prog_ctr:
-            # print
             prog_ctr = self.parse_line(
                 self.instructions[prog_ctr]["label"],
                 self.instructions[prog_ctr]["instruction"], prog_ctr
             )
             print self.MIPS.REG
-            # print self.MIPS.DATAMEM
-            # += 1
 
     def parse_line(self, label, line, prog_ctr):
 
-        # if label:
-        #     self.get_label_line(label)
         opcode, reg = line[0], line[1:]
         print "\x1b[6;30;44m", line, "\x1b[0m"
 
