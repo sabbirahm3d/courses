@@ -50,97 +50,148 @@ class MIPS(object):
 
     def parse_addr(self, addr):
 
-        print "ADDR", addr
         if "(" in addr:
-            print self.to_dec(addr[0])
             return self.REG[self.to_dec(addr[0]) + self.parse_reg(addr)]
         else:
             return self.to_dec(addr)
 
-    def halt(self, ops):
+    def halt(self, ops, prog_ctr):
 
-        print MIPSSET["HLT"], ops
+        # print MIPSSET["HLT"], ops
+        return prog_ctr + 1
 
-    def jump(self, ops):
+    def jump(self, ops, prog_ctr):
 
-        print MIPSSET["J"], ops
+        # print MIPSSET["J"], ops
+        return prog_ctr + 1
 
-    def branch_eq(self, ops):
+    def branch_eq(self, ops, prog_ctr):
 
-        print MIPSSET["BEQ"], ops
+        rs = self.parse_reg(ops[0])
+        rt = self.parse_reg(ops[1])
+        print self.REG[rs], self.REG[rt], self.REG[rs] == self.REG[rt]
+        return self.REG[rs] == self.REG[rt]
 
-    def branch_neq(self, ops):
+    def branch_neq(self, ops, prog_ctr):
 
-        print MIPSSET["BNE"], ops
+        rs = self.parse_reg(ops[0])
+        rt = self.parse_reg(ops[1])
+        print self.REG[rs], self.REG[rt], self.REG[rs] != self.REG[rt]
+        return self.REG[rs] != self.REG[rt]
 
-    def load_imm(self, ops):
+    def load_imm(self, ops, prog_ctr):
 
-        print "\x1b[6;30;41mLOAD IMM\x1b[0m", ops
         reg = self.parse_reg(ops[0])
-        print "R", reg, "MEM[", self.REG[reg], "]"
-        print self.REG
         addr = self.parse_addr(ops[-1])
         self.REG[reg] = addr
-        print "R", reg, "MEM[", self.REG[reg], "]"
-        print self.REG
-        print '{:032b}'.format(addr)
-        return addr
+        # print '{:032b}'.format(addr)
+        return prog_ctr + 1
 
-    def load_up_imm(self, ops):
+    def load_up_imm(self, ops, prog_ctr):
 
-        addr = self.load_imm(ops)
-        print '{:032b}'.format(addr << 16)
-
-    def and_reg(self, ops):
-
-        print MIPSSET["AND"], ops
-
-    def and_imm(self, ops):
-
-        print MIPSSET["ANDI"], ops
-
-    def or_reg(self, ops):
-
-        print MIPSSET["OR"], ops
-
-    def or_imm(self, ops):
-
-        print MIPSSET["ORI"], ops
-
-    def load_word(self, ops):
-
-        print "\x1b[6;30;42mLOAD WORD\x1b[0m", ops
         reg = self.parse_reg(ops[0])
-        print "R", reg, "MEM[", self.REG[reg], "]"
-        print self.REG
+        addr = self.parse_addr(ops[-1]) << 16
+        self.REG[reg] = addr
+        # print '{:032b}'.format(addr)
+        return prog_ctr + 1
+
+    def and_reg(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        rt = self.parse_reg(ops[2])
+
+        self.REG[rd] = self.REG[rs] & self.REG[rt]
+        return prog_ctr + 1
+
+    def and_imm(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        imm = self.parse_addr(ops[2])
+
+        self.REG[rd] = self.REG[rs] & imm
+        return prog_ctr + 1
+
+    def or_reg(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        rt = self.parse_reg(ops[2])
+
+        self.REG[rd] = self.REG[rs] | self.REG[rt]
+        return prog_ctr + 1
+
+    def or_imm(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        imm = self.parse_addr(ops[2])
+
+        self.REG[rd] = self.REG[rs] | imm
+        return prog_ctr + 1
+
+    def load_word(self, ops, prog_ctr):
+
+        reg = self.parse_reg(ops[0])
         self.REG[reg] = self.parse_addr(ops[-1])
-        print "R", reg, "MEM[", self.REG[reg], "]"
-        print self.REG
+        return prog_ctr + 1
 
-    def store_word(self, ops):
+    def store_word(self, ops, prog_ctr):
 
-        print MIPSSET["SW"], ops
+        # print MIPSSET["SW"], ops
+        return prog_ctr + 1
 
-    def add_reg(self, ops):
+    def add_reg(self, ops, prog_ctr):
 
-        print MIPSSET["ADD"], ops
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        rt = self.parse_reg(ops[2])
 
-    def add_imm(self, ops):
+        self.REG[rd] = self.REG[rs] + self.REG[rt]
+        return prog_ctr + 1
 
-        print MIPSSET["ADDI"], ops
+    def add_imm(self, ops, prog_ctr):
 
-    def sub_reg(self, ops):
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        imm = self.parse_addr(ops[2])
 
-        print MIPSSET["SUB"], ops
+        self.REG[rd] = self.REG[rs] + imm
+        return prog_ctr + 1
 
-    def sub_imm(self, ops):
+    def sub_reg(self, ops, prog_ctr):
 
-        print MIPSSET["SUBI"], ops
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        rt = self.parse_reg(ops[2])
 
-    def mult_reg(self, ops):
+        self.REG[rd] = self.REG[rs] - self.REG[rt]
+        return prog_ctr + 1
 
-        print MIPSSET["MULT"], ops
+    def sub_imm(self, ops, prog_ctr):
 
-    def mult_imm(self, ops):
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        imm = self.parse_addr(ops[2])
 
-        print MIPSSET["MULTI"], ops
+        self.REG[rd] = self.REG[rs] - imm
+        return prog_ctr + 1
+
+    def mult_reg(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        rt = self.parse_reg(ops[2])
+
+        self.REG[rd] = self.REG[rs] * self.REG[rt]
+        return prog_ctr + 1
+
+    def mult_imm(self, ops, prog_ctr):
+
+        rd = self.parse_reg(ops[0])
+        rs = self.parse_reg(ops[1])
+        imm = self.parse_addr(ops[2])
+
+        self.REG[rd] = self.REG[rs] * imm
+        return prog_ctr + 1

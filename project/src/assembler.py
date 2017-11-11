@@ -12,11 +12,57 @@ class Assembler(object):
         self.registers = [None] * 32
         self.MIPS = MIPS(instmem, datamem, self.registers)
 
+    def get_label_line(self, label):
+
+        for line_num, line in enumerate(self.instructions):
+            if label == line["label"]:
+                print label, "at", line_num
+                return line_num
+
     def assemble(self):
 
-        for instruction in self.instructions:
-            self.parse_line(instruction["instruction"])
+        file_size = len(self.instructions)
+        prog_ctr = 0
 
-    def parse_line(self, line):
+        while file_size != prog_ctr:
+            # print
+            prog_ctr = self.parse_line(
+                self.instructions[prog_ctr]["label"],
+                self.instructions[prog_ctr]["instruction"], prog_ctr
+            )
+            print self.MIPS.REG
+            # print self.MIPS.DATAMEM
+            # += 1
 
-        getattr(self.MIPS, MIPSSET[line[0]]["func"])(line[1:])
+    def parse_line(self, label, line, prog_ctr):
+
+        # if label:
+        #     self.get_label_line(label)
+        opcode, reg = line[0], line[1:]
+        print "\x1b[6;30;44m", line, "\x1b[0m"
+
+        if opcode == "BEQ":
+            if self.MIPS.branch_eq(reg, prog_ctr):
+                prog_ctr = self.get_label_line(reg[-1])
+            else:
+                prog_ctr += 1
+
+        elif opcode == "BNE":
+            if self.MIPS.branch_neq(reg, prog_ctr):
+                prog_ctr = self.get_label_line(reg[-1])
+            else:
+                prog_ctr += 1
+
+        elif opcode == "J":
+            self.MIPS.jump(reg, prog_ctr)
+            prog_ctr += 1
+
+        elif opcode == "HLT":
+            self.MIPS.halt(reg, prog_ctr)
+            prog_ctr += 1
+
+        else:
+            getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr)
+            prog_ctr += 1
+
+        return prog_ctr
