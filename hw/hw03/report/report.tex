@@ -58,10 +58,17 @@
         the database were developed first. Basic functionality of the linked
         lists, such as adding and removing nodes were developed in the initial
         stages, followed by an iterator wrapper to help print out the contents
-        of the linked list. The concepts of using iterators and doubly-linked
-        lists were influenced from \texttt{Clibs} \cite{clibs}. No code was borrowed from
-        their implementation. The sorting functionality was implemented using a
-        simple bubble sort algorithm modified from the snippet provided by
+        of the linked list. \\~\\
+        \noindent The concepts of using iterators and doubly-linked
+        lists were influenced from \texttt{Clibs} \cite{clibs}. No code was
+        borrowed from their implementation. Using a doubly-linked list allowed
+        efficiency in the \codeword{db_remove()} method. Linking the previous
+        node of the current node queued for removal could be referenced in
+        constant time; whereas a singly-linked would have to iterate through
+        the entire linked list to reach the previous node of the current node.
+        \\~\\
+        \noindent The sorting functionality was implemented using a simple
+        bubble sort algorithm modified from the snippet provided by
         \texttt{GeeksforGeeks} \cite{gfg}.
 
         \subsection{list\_of\_grades} The nodes and linked list containers
@@ -132,8 +139,8 @@
     validating the functionality of the program such as duplicate last names
     being properly sorted, invalid letter grades as inputs, etc.
 
-    \section{Code}
-    The C scripts used for the implementation has been attached alongside the report.
+    \section{Code} The C scripts used for the implementation has been attached
+    alongside the report.
 
         \subsection{main.c} Driver file for Homework 3: Grade Database
         Management.
@@ -168,10 +175,14 @@
         \end{itemize}
 
     \begin{thebibliography}{9}
-        \bibitem{clibs} Clibs Authors. ``Package manager for the C programming langage.'' \textit{clib(1)}. Accessed \today, \textit{http://clibs.org/}.
+        \bibitem{clibs} Clibs Authors. ``Package manager for the C programming
+        langage.'' \textit{clib(1)}. Accessed \today,
+        \textit{http://clibs.org/}.
 
-        \bibitem{gfg} GeeksforGeeks. ``C Program for Bubble Sort on Linked List.'' \textit{GeeksforGeeks}. Accessed \today, \textit{http://www.geeksforgeeks.org/c-program-bubble-sort-linked-list/}.
+        \bibitem{gfg} GeeksforGeeks. ``C Program for Bubble Sort on Linked
+        List.'' \textit{GeeksforGeeks}. Accessed \today,
+        \textit{http://www.geeksforgeeks.org/c-program-bubble-sort-linked-
+        list/}.
     \end{thebibliography}
 
 \end{document}
-

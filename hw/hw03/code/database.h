@@ -1,8 +1,8 @@
 /*
- * list_of_grades.h
+ * database.h
  *
  * This file contains the prototypes for the functions and declarations of
- * structs used for the list_of_grades linked lists.
+ * structs used for the database linked lists.
  *
  * */
 

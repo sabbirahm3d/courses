@@ -19,7 +19,8 @@
  * Initialize a student_t node.
  *
  * inputs:
- *      name: full name of student
+ *      first_name: first name of student
+ *      last_name: last name of student
  *      list_of_grades: pointer to filled list_of_grades_t linked list
  *      final_grade: final letter grade of student
  *
