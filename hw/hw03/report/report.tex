@@ -130,6 +130,15 @@
         \subsection{Invalid Choices} The program will continue displaying the
         Main Menu until a valid choice is inputted by the user.
 
+        \subsection{File I/O} Providing an input file as a command line
+        argument is optional. If a path to an input file with valid data is
+        provided, the program will parse the input to initialize the database
+        with those students. The number of students in the input file must be
+        predetermined for the program to properly parse the data. The number of
+        students may be modified with the \codeword{STUDENTSINFILE} constant.
+        The constant is currently set to $2$. If no input file is provided, the
+        database will be initialized empty.
+
     \section{Testing and Troubleshooting} Managing memory leaks proved to be
     much more challenging than the actual implementation of the project.
     \texttt{<strings.h>} functions consisted of several constraints regarding
