@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors: Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../../structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\textbf{Homework 5: Snake Levels and Obstacles | Preliminary
+    Design}}{\today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background} For this assignment, a modification of the previously
+    implemented snake game with levels and obstacles will be implemented.
+
+    \section{Design Approach} Most of the modules from the previous version of
+    the game will be used in the implementation. Additional modules to handle
+    the LCD driver and high-level game state machine will be included. The
+    state machine will consist of 100 states representing the 100 levels in the
+    game. Each states will increment only if the size of the snake body exceeds
+    5.
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{top_level_design.png}
+            \caption{Schematic of the Implementation of the Game}
+            \label{fig:schematic}
+        \end{center}
+    \end{figure}
+    \newpage
+
+\end{document}
