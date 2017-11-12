@@ -24,12 +24,15 @@ class Assembler(object):
         file_size = len(self.instructions)
         prog_ctr = 0
 
+        print self.MIPS.DATAMEM
         while file_size != prog_ctr:
             prog_ctr = self.parse_line(
                 self.instructions[prog_ctr]["label"],
                 self.instructions[prog_ctr]["instruction"], prog_ctr
             )
             print self.MIPS.REG
+
+        print self.MIPS.DATAMEM
 
     def parse_line(self, label, line, prog_ctr):
 
@@ -49,8 +52,8 @@ class Assembler(object):
                 prog_ctr += 1
 
         elif opcode == "J":
-            self.MIPS.jump(reg, prog_ctr)
-            prog_ctr += 1
+            # self.MIPS.jump(reg, prog_ctr)
+            prog_ctr = self.get_label_line(reg[-1])
 
         elif opcode == "HLT":
             self.MIPS.halt(reg, prog_ctr)
