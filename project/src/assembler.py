@@ -1,38 +1,40 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from pprint import pprint
+
 from mips import MIPS, MIPSSET
 
 
 class Assembler(object):
 
-    def __init__(self, instructions, instmem, datamem):
+    def __init__(self, instructions, datamem):
 
-        self.instructions = instructions
-        self.registers = [None] * 32
-        self.MIPS = MIPS(instmem, datamem, self.registers)
+        self.INST = instructions
+        self.MIPS = MIPS(datamem, [None] * 32)
+        self.TABLE = [i["instruction"] for i in self.INST]
 
     def get_label_line(self, label):
 
-        for line_num, line in enumerate(self.instructions):
+        for line_num, line in enumerate(self.INST):
             if label == line["label"]:
-                print label, "at", line_num
+                # print label, "at", line_num
                 return line_num
 
     def assemble(self):
 
-        file_size = len(self.instructions)
+        file_size = len(self.INST)
         prog_ctr = 0
 
-        print self.MIPS.DATAMEM
+        pprint(self.MIPS.DATAMEM)
         while file_size != prog_ctr:
             prog_ctr = self.parse_line(
-                self.instructions[prog_ctr]["label"],
-                self.instructions[prog_ctr]["instruction"], prog_ctr
+                self.INST[prog_ctr]["label"],
+                self.INST[prog_ctr]["instruction"], prog_ctr
             )
             print self.MIPS.REG
 
-        print self.MIPS.DATAMEM
+        pprint(self.MIPS.DATAMEM)
 
     def parse_line(self, label, line, prog_ctr):
 
@@ -60,6 +62,7 @@ class Assembler(object):
             prog_ctr += 1
 
         else:
+
             try:
                 getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr)
                 prog_ctr += 1

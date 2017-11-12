@@ -7,7 +7,7 @@ from sys import argv
 from assembler import Assembler
 
 INSTMEM = [None] * 100
-DATAMEM = [None] * 32
+SYSMEM = [None] * 32
 
 
 def init_mem(mem_file_path):
@@ -17,7 +17,7 @@ def init_mem(mem_file_path):
         with open(mem_file_path) as mem_file:
             return mem_file.read().split("\n")
 
-        # print DATAMEM
+        # print SYSMEM
 
     except IOError:
         raise SystemExit("Please provide a valid input data file")
@@ -26,6 +26,7 @@ def init_mem(mem_file_path):
 def parse_inst(inst_file_path):
 
     instructions = []
+    addr = 0
 
     try:
 
@@ -36,24 +37,49 @@ def parse_inst(inst_file_path):
 
             for inst in split_comments:
 
+                addr += 1
                 instruction = inst[0].split(":")
                 label = ""
 
                 if len(instruction) == 2:
                     label, instruction = instruction
 
-                instructions.append(
-                    {
-                        "instruction": "".join(instruction).split(),
-                        "comment": "".join(inst[1:]),
-                        "label": label
-                    }
-                )
+                instruction = "".join(instruction).split()
+                if instruction:
+                    INSTMEM[addr] = " ".join(instruction)
+                    instructions.append(
+                        {
+                            "instruction": instruction,
+                            "comment": "".join(inst[1:]),
+                            "label": label
+                        }
+                    )
 
-            return [inst for inst in instructions if inst["instruction"]]
+            return instructions
 
     except IOError:
         raise SystemExit("Please provide a valid input instructions file")
+
+
+def output_formatter(table):
+
+    col_names = ("Cycle number for each stage",
+                 "IF", "ID", "EX4", "MEM", "WB")
+    inst_fmt = "{:>32}" * 2
+    row_fmt = "{:>8}" * (len(col_names))
+    print inst_fmt.format(
+        "", *col_names[0:2]
+    ), row_fmt.format(
+        "", *col_names[1:]
+    )
+
+    for inst, _if, _id, _ex4, _mem, _wb in zip(
+            table, range(12), range(12), range(12), range(12), range(12)):
+        print inst_fmt.format(
+            "", " ".join(inst)
+        ), row_fmt.format(
+            "", _if, _id, _ex4, _mem, _wb
+        )
 
 
 if __name__ == "__main__":
@@ -63,8 +89,7 @@ if __name__ == "__main__":
 
     else:
         instructions = parse_inst(argv[1])
-        DATAMEM = init_mem(argv[2])
+        SYSMEM = INSTMEM + init_mem(argv[2])
 
-        # print instructions
-        obj = Assembler(instructions, INSTMEM, DATAMEM)
+        obj = Assembler(instructions, SYSMEM)
         obj.assemble()

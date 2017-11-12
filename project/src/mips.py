@@ -60,9 +60,8 @@ def dec_to_hex(num):
 
 class MIPS(object):
 
-    def __init__(self, instmem, datamem, registers):
+    def __init__(self, datamem, registers):
 
-        self.INSTMEM = instmem
         self.DATAMEM = datamem
         self.REG = registers
 
@@ -70,7 +69,7 @@ class MIPS(object):
 
         if "(" in addr:
             return parse_offset(addr) + dec_to_hex(
-                self.REG[parse_reg(addr)]) - 100
+                self.REG[parse_reg(addr)])
 
         else:
             return to_dec(addr)
