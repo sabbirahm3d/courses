@@ -21,6 +21,11 @@ class Assembler(object):
                 # print label, "at", line_num
                 return line_num
 
+    def calculate_cycle(self, inst):
+
+        from random import randint
+        return randint(1, 50)
+
     def assemble(self):
 
         file_size = len(self.INST)
@@ -35,6 +40,7 @@ class Assembler(object):
             print self.MIPS.REG
 
         pprint(self.MIPS.DATAMEM)
+        pprint(self.TABLE)
 
     def parse_line(self, label, line, prog_ctr):
 

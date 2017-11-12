@@ -6,7 +6,7 @@ from sys import argv
 
 from assembler import Assembler
 
-INSTMEM = [None] * 100
+INSTMEM = [None] * 25
 SYSMEM = [None] * 32
 
 
@@ -37,7 +37,6 @@ def parse_inst(inst_file_path):
 
             for inst in split_comments:
 
-                addr += 1
                 instruction = inst[0].split(":")
                 label = ""
 
@@ -46,7 +45,11 @@ def parse_inst(inst_file_path):
 
                 instruction = "".join(instruction).split()
                 if instruction:
-                    INSTMEM[addr] = " ".join(instruction)
+                    INSTMEM[addr] = {
+                        "instruction": instruction,
+                        "comment": "".join(inst[1:]),
+                        "label": label
+                    }
                     instructions.append(
                         {
                             "instruction": instruction,
@@ -54,6 +57,7 @@ def parse_inst(inst_file_path):
                             "label": label
                         }
                     )
+                    addr += 1
 
             return instructions
 
