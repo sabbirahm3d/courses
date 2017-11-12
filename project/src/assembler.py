@@ -52,7 +52,7 @@ class Assembler(object):
                 prog_ctr += 1
 
         elif opcode == "J":
-            # self.MIPS.jump(reg, prog_ctr)
+            self.MIPS.jump(reg, prog_ctr)
             prog_ctr = self.get_label_line(reg[-1])
 
         elif opcode == "HLT":
@@ -60,7 +60,11 @@ class Assembler(object):
             prog_ctr += 1
 
         else:
-            getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr)
-            prog_ctr += 1
+            try:
+                getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr)
+                prog_ctr += 1
+
+            except KeyError:
+                raise SystemExit("Invalid opcode: " + opcode)
 
         return prog_ctr
