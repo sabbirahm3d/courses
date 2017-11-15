@@ -8,11 +8,13 @@ from mips import MIPS, MIPSSET
 
 class Assembler(object):
 
-    def __init__(self, instructions, datamem):
+    def __init__(self, sys_memory):
 
-        self.INST = instructions
-        self.MIPS = MIPS(datamem, [None] * 32)
-        self.TABLE = [i["instruction"] for i in self.INST]
+        inst_mem = sys_memory[:25]
+        self.INST = [line for line in inst_mem if line]
+        self.MIPS = MIPS(sys_memory, [None] * 32)
+        self.TABLE = [[i["instruction"]] for i in self.INST]
+        self.CLKCYCLE = self.NUMINST = len(self.INST)
 
     def get_label_line(self, label):
 
@@ -23,46 +25,76 @@ class Assembler(object):
 
     def calculate_cycle(self, inst):
 
-        from random import randint
-        return randint(1, 50)
+        def get_if_cycle(cycle):
+
+            return cycle + 1
+
+        def get_id_cycle(cycle):
+
+            return cycle + 1
+
+        def get_ex4_cycle(cycle):
+
+            return cycle + 1
+
+        def get_mem_cycle(cycle):
+
+            return cycle + 1
+
+        def get_wb_cycle(cycle):
+
+            return cycle + 1
+
+        cycles = []
+        for func in (
+            get_if_cycle, get_id_cycle,
+            get_ex4_cycle, get_mem_cycle,
+            get_wb_cycle
+        ):
+            self.CLKCYCLE = func(self.CLKCYCLE)
+            cycles.append(self.CLKCYCLE)
+
+        return cycles
 
     def assemble(self):
 
         file_size = len(self.INST)
         prog_ctr = 0
 
-        pprint(self.MIPS.DATAMEM)
+        # pprint(self.MIPS.DATAMEM)
         while file_size != prog_ctr:
             prog_ctr = self.parse_line(
                 self.INST[prog_ctr]["label"],
-                self.INST[prog_ctr]["instruction"], prog_ctr
+                self.INST[prog_ctr]["instruction"],
+                prog_ctr
             )
-            print self.MIPS.REG
+            self.TABLE[(prog_ctr - 1) % self.NUMINST].append(
+                self.calculate_cycle(self.INST[(prog_ctr - 1) %
+                                               self.NUMINST]["instruction"][0]))
+            # self.TABLE.append(prog_ctr)
+            # print self.MIPS.REG
 
-        pprint(self.MIPS.DATAMEM)
+        # pprint(self.MIPS.DATAMEM)
         pprint(self.TABLE)
 
     def parse_line(self, label, line, prog_ctr):
 
         opcode, reg = line[0], line[1:]
-        print "\x1b[6;30;44m", line, "\x1b[0m"
+        # print "\x1b[6;30;44m", line, "\x1b[0m"
 
-        if opcode == "BEQ":
-            if self.MIPS.branch_eq(reg, prog_ctr):
+        # conditional branches
+        if opcode in {"BEQ", "BNE"}:
+            if getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr):
                 prog_ctr = self.get_label_line(reg[-1])
             else:
                 prog_ctr += 1
 
-        elif opcode == "BNE":
-            if self.MIPS.branch_neq(reg, prog_ctr):
-                prog_ctr = self.get_label_line(reg[-1])
-            else:
-                prog_ctr += 1
-
+        # unconditional branch
         elif opcode == "J":
             self.MIPS.jump(reg, prog_ctr)
             prog_ctr = self.get_label_line(reg[-1])
 
+        # halt
         elif opcode == "HLT":
             self.MIPS.halt(reg, prog_ctr)
             prog_ctr += 1
@@ -70,10 +102,12 @@ class Assembler(object):
         else:
 
             try:
+                # other opcodes
                 getattr(self.MIPS, MIPSSET[opcode]["func"])(reg, prog_ctr)
                 prog_ctr += 1
 
             except KeyError:
+                # unsupported opcode
                 raise SystemExit("Invalid opcode: " + opcode)
 
         return prog_ctr

@@ -17,15 +17,12 @@ def init_mem(mem_file_path):
         with open(mem_file_path) as mem_file:
             return mem_file.read().split("\n")
 
-        # print SYSMEM
-
     except IOError:
         raise SystemExit("Please provide a valid input data file")
 
 
 def parse_inst(inst_file_path):
 
-    instructions = []
     addr = 0
 
     try:
@@ -50,16 +47,7 @@ def parse_inst(inst_file_path):
                         "comment": "".join(inst[1:]),
                         "label": label
                     }
-                    instructions.append(
-                        {
-                            "instruction": instruction,
-                            "comment": "".join(inst[1:]),
-                            "label": label
-                        }
-                    )
                     addr += 1
-
-            return instructions
 
     except IOError:
         raise SystemExit("Please provide a valid input instructions file")
@@ -95,5 +83,5 @@ if __name__ == "__main__":
         instructions = parse_inst(argv[1])
         SYSMEM = INSTMEM + init_mem(argv[2])
 
-        obj = Assembler(instructions, SYSMEM)
+        obj = Assembler(SYSMEM)
         obj.assemble()
