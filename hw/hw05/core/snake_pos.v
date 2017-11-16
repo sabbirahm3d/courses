@@ -22,22 +22,22 @@
 module snake_pos(
         input wire clk, input wire grow,
         input wire dead, input wire [1:0] dir,
-        output reg [8:0] head_x, output reg [8:0] snake_x1,
-        output reg [8:0] snake_x2, output reg [8:0] snake_x3,
-        output reg [8:0] snake_x4, output reg [8:0] head_y,
-        output reg [8:0] snake_y1, output reg [8:0] snake_y2,
-        output reg [8:0] snake_y3, output reg [8:0] snake_y4
+        output reg [4:0] head_x, output reg [4:0] snake_x1,
+        output reg [4:0] snake_x2, output reg [4:0] snake_x3,
+        output reg [4:0] snake_x4, output reg [4:0] head_y,
+        output reg [4:0] snake_y1, output reg [4:0] snake_y2,
+        output reg [4:0] snake_y3, output reg [4:0] snake_y4
     );
 
-    reg [8:0] next_x, next_y;  // new position for the head
+    reg [4:0] next_x, next_y;  // new position for the head
     reg [2:0] size;  // total size of the snake body including its head
-    reg [8:0] mask [4:0];  // an array of mask
+    reg [4:0] mask [4:0];  // an array of mask
     parameter SEG_WIDTH = 20;  // width of a segment
-    parameter [8:0] ZEROS = {9{1'b0}};  // array of zeros
-    parameter [8:0] ONES = {9{1'b1}};  // array of ones
+    parameter [4:0] ZEROS = {5{1'b0}};  // array of zeros
+    parameter [4:0] ONES = {5{1'b1}};  // array of ones
 
-    // initial coordinates of the head (300)
-    parameter [8:0] INIT = 9'b100101100;
+    // initial coordinates of the head (24)
+    parameter [4:0] INIT = 5'b11000;
 
     initial begin
 
@@ -124,7 +124,7 @@ module snake_pos(
             // increment the size
             size = size + 1;
             // mask the new segment with 1
-            mask[size] = {9{ONES}};
+            mask[size] = {5{ONES}};
 
         // if the snake is dead, do nothing with the segments
         end else begin
