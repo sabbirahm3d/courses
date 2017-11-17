@@ -19,6 +19,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////
+
 module top(
         input wire CLK_50MHZ,
         input wire RESET,
@@ -34,6 +35,8 @@ module top(
 
     // control signals for collision
     wire bite, die, grow, enable, rst, rst_size;
+
+    wire [1:0] level;
 
     // direction of movement
     wire [1:0] dir;
@@ -66,17 +69,6 @@ module top(
         .dir(dir)
     );
 
-    game_state game_state_instance(
-        .clk(CLK_50MHZ), .rst(rst), .enable(enable),
-        .head_x(head_x), .head_y(head_y), 
-        .snake_x1(snake_x1), .snake_y1(snake_y1), 
-        .snake_x2(snake_x2), .snake_y2(snake_y2),
-        .snake_x3(snake_x3), .snake_y3(snake_y3),
-        .snake_x4(snake_x4), .snake_y4(snake_y4),
-        .food_x(food_x), .food_y(food_y),
-        .grow(grow), .die(die), .rst_size(rst_size)
-    );
-
     food_pos food_pos_instance(
         .clk(CLK_50MHZ),
         .enable(grow), .clr(clr),
@@ -95,6 +87,18 @@ module top(
         .snake_x4(snake_x4), .snake_y4(snake_y4)
     );
 
+    game_state game_state_instance(
+        .clk(CLK_50MHZ), .rst(rst), .enable(enable),
+        .head_x(head_x), .head_y(head_y), 
+        .snake_x1(snake_x1), .snake_y1(snake_y1), 
+        .snake_x2(snake_x2), .snake_y2(snake_y2),
+        .snake_x3(snake_x3), .snake_y3(snake_y3),
+        .snake_x4(snake_x4), .snake_y4(snake_y4),
+        .food_x(food_x), .food_y(food_y),
+        .grow(grow), .die(die),
+        .level(level), .rst_size(rst_size)
+    );
+
     vga_sync vga_sync_instance(
         .clk(CLK_50MHZ),
         .hsync(hsync), .vsync(vsync),
@@ -104,8 +108,8 @@ module top(
     );
 
     vga_layout layout(
-        .clk(CLK_50MHZ), .blank(blank),
-        .pos_h(hsync), .pos_v(vsync),
+        .clk(CLK_50MHZ), .level(level),
+        .blank(blank), .pos_h(hsync), .pos_v(vsync),
         .food_x(food_x), .food_y(food_y),
         .head_x(head_x), .head_y(head_y), 
         .snake_x1(snake_x1), .snake_y1(snake_y1), 

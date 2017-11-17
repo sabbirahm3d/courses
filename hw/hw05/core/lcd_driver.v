@@ -19,6 +19,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////
+
 module LCDDriver(
         input wire start_write,  // pulse 1 clk period to begin LCD write
         input wire [6:0] dis_pos,  // used during write strobe

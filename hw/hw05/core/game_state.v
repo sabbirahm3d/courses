@@ -28,7 +28,8 @@ module game_state(
         input wire [4:0] snake_y1, input wire [4:0] snake_y2,
         input wire [4:0] snake_y3, input wire [4:0] snake_y4,
         input wire [4:0] food_x, input wire [4:0] food_y,
-        output reg grow, output reg die, output reg rst_size
+        output reg grow, output reg die,
+        output reg [1:0] level, output reg rst_size
     );
 
     //-------------Internal Constants--------------------------
@@ -80,10 +81,12 @@ module game_state(
 
                 state_lvl1: begin
 
+                    level <= 1;
+
                     curr_obs <= curr_obs + 1;
 
-                    obj_x <= curr_obs + 10;
-                    obj_y <= curr_obs * 10 + 1;
+                    obj_x <= curr_obs * 10 + 10;
+                    obj_y <= curr_obs * 5 + 10;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
@@ -107,10 +110,12 @@ module game_state(
 
                 state_lvl2: begin
 
+                    level <= 2;
+
                     curr_obs <= curr_obs + 1;
 
-                    obj_x <= curr_obs + 10;
-                    obj_y <= curr_obs * 10 + 1;
+                    obj_x <= curr_obs * 10 + 10;
+                    obj_y <= curr_obs * 5 + 10;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
@@ -134,16 +139,18 @@ module game_state(
 
                 state_lvl3: begin
 
+                    level <= 3;
+
                     curr_obs <= curr_obs + 1;
 
-                    obj_x <= curr_obs + 10;
-                    obj_y <= curr_obs * 10 + 1;
+                    obj_x <= curr_obs * 10 + 10;
+                    obj_y <= curr_obs * 5 + 10;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
                     end
 
-                    if ((bites == 5) && ~collided_flag && curr_obs == 20) begin
+                    if ((bites == 5) && ~collided_flag && curr_obs == 30) begin
                         next_state <= state_lvl3;
                         bites <= 3'b0;
                         rst_size <= 1;
@@ -161,6 +168,7 @@ module game_state(
 
                 default: begin
                     curr_state <= state_lvl0;
+                    level <= 0;
                 end
 
             endcase

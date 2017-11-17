@@ -20,7 +20,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 module vga_layout(
-        input wire clk, input wire blank,
+        input wire clk, input wire [1:0] level,
+        input wire blank,
         input wire [9:0] pos_h, input wire [9:0] pos_v,
         input wire [8:0] food_x, input wire [8:0] food_y,
         input wire [4:0] head_x, input wire [4:0] head_y,
@@ -40,7 +41,8 @@ module vga_layout(
     wire flag_on_fence;  // high only when over rectangle 
     wire flag_on_snake;
     wire flag_on_food;
-    // traditional cartesean coordinates, (left, bottom)=(0,0)
+    wire flag_on_lvl1_obs, flag_on_lvl2_obs, flag_on_lvl3_obs;
+    // traditional cartesean coordinates, (left, bottom)=(0, 0)
     wire [9:0] x, y;
 
     // combinatorial logic to calculate x,y coordinate system 
@@ -66,9 +68,25 @@ module vga_layout(
         (y >= food_y && y < (food_y + PIXEL_WIDTH))
     );
 
-   // combinatorial logic and registers (seqential logic) that load on rising
-   // clock edge 
-   always @(posedge clk) begin 
+    // food_x, food_y
+    assign flag_on_lvl1_obs = (
+        (x >= 30 && x < 120) &&
+        (y >= 25 && y < 70)
+    );
+
+    assign flag_on_lvl2_obs = (
+        (x >= 130 && x < 220) &&
+        (y >= 75 && y < 120)
+    );
+
+    assign flag_on_lvl3_obs = (
+        (x >= 230 && x < 320) &&
+        (y >= 125 && y < 170)
+    );
+
+    // combinatorial logic and registers (seqential logic) that load on rising
+    // clock edge 
+    always @(posedge clk) begin
 
         blue <=  ~flag_on_fence & ~blank;
         red <= flag_on_food & ~blank;
