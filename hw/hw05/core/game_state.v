@@ -20,15 +20,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 module game_state(
-        input wire clk, // clk
-        input wire rst, // Active high, syn rst
+        input wire clk,
+        input wire rst, input wire enable,
         input wire [4:0] head_x, input wire [4:0] snake_x1,
         input wire [4:0] snake_x2, input wire [4:0] snake_x3,
         input wire [4:0] snake_x4, input wire [4:0] head_y,
         input wire [4:0] snake_y1, input wire [4:0] snake_y2,
         input wire [4:0] snake_y3, input wire [4:0] snake_y4,
         input wire [4:0] food_x, input wire [4:0] food_y,
-        output reg grow, output reg die
+        output reg grow, output reg die, output reg rst_size
     );
 
     //-------------Internal Constants--------------------------
@@ -45,6 +45,7 @@ module game_state(
     wire is_collision;
     reg collided_flag;
     integer obs_num;
+    reg [4:0] curr_obs;
 
     collision check_col(
         .clk(clk),
@@ -57,105 +58,114 @@ module game_state(
 
     always @(posedge clk) begin
 
-        next_state = 2'b00;
+        if (rst) begin
+            next_state <= 2'b00;
+            curr_obs <= 5'b00000;
 
-        case(curr_state)
+        end else begin
 
-            state_lvl0: begin
+            case(curr_state)
 
-                if ((bites == 5) && ~is_collision) begin
-                    next_state <= state_lvl1;
-                    bites <= 3'b0;
-                end else begin
-                    die <= 1;
-                    next_state <= state_lvl0;
+                state_lvl0: begin
+
+                    if ((bites == 5) && ~is_collision) begin
+                        next_state <= state_lvl1;
+                        bites <= 3'b0;
+                    end else begin
+                        die <= 1;
+                        next_state <= state_lvl0;
+                    end
+
                 end
 
-            end
+                state_lvl1: begin
 
-            state_lvl1: begin
+                    curr_obs <= curr_obs + 1;
 
-                for (obs_num = 1; obs_num < 11; obs_num = obs_num + 1) begin:
-
-                    obs_coords1 obstacle(
-                        clk,
-                        obs_num,
-                        obj_x, obj_y
-                    );
+                    obj_x <= curr_obs + 10;
+                    obj_y <= curr_obs * 10 + 1;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
                     end
 
+                    if ((bites == 5) && ~collided_flag && curr_obs == 10) begin
+                        next_state <= state_lvl2;
+                        bites <= 3'b0;
+                        rst_size <= 1;
+
+                    end else if (
+                        (bites < 5) && ~collided_flag && curr_obs < 10) begin
+                        next_state <= state_lvl1;
+
+                    end else if (collided_flag) begin
+                        die <= 1;
+                        next_state <= state_lvl0;
+                    end
+
                 end
 
-                if ((bites == 5) && ~collided_flag) begin
-                    next_state <= state_lvl2;
-                    bites <= 3'b0;
-                end else begin
-                    die <= 1;
-                    next_state <= state_lvl0;
-                end
+                state_lvl2: begin
 
-            end
+                    curr_obs <= curr_obs + 1;
 
-            state_lvl2: begin
-
-                for (obs_num = 11; obs_num < 21; obs_num = obs_num + 1) begin:
-
-                    obs_coords2 obstacle(
-                        clk,
-                        obs_num,
-                        obj_x, obj_y
-                    );
+                    obj_x <= curr_obs + 10;
+                    obj_y <= curr_obs * 10 + 1;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
                     end
 
+                    if ((bites == 5) && ~collided_flag && curr_obs == 20) begin
+                        next_state <= state_lvl3;
+                        bites <= 3'b0;
+                        rst_size <= 1;
+
+                    end else if (
+                        (bites < 5) && ~collided_flag && curr_obs < 20) begin
+                        next_state <= state_lvl2;
+
+                    end else begin
+                        die <= 1;
+                        next_state <= state_lvl0;
+                    end
+
                 end
 
-                if ((bites == 5) && ~collided_flag) begin
-                    next_state <= state_lvl3;
-                    bites <= 3'b0;
-                end else begin
-                    die <= 1;
-                    next_state <= state_lvl0;
-                end
+                state_lvl3: begin
 
-            end
+                    curr_obs <= curr_obs + 1;
 
-            state_lvl3: begin
-
-                for (obs_num = 21; obs_num < 31; obs_num = obs_num + 1) begin:
-
-                    obs_coords3 obstacle(
-                        clk,
-                        obs_num,
-                        obj_x, obj_y
-                    );
+                    obj_x <= curr_obs + 10;
+                    obj_y <= curr_obs * 10 + 1;
 
                     if (~is_collision) begin
                         collided_flag <= 1;
                     end
 
+                    if ((bites == 5) && ~collided_flag && curr_obs == 20) begin
+                        next_state <= state_lvl3;
+                        bites <= 3'b0;
+                        rst_size <= 1;
+
+                    end else if (
+                        (bites < 5) && ~collided_flag && curr_obs < 30) begin
+                        next_state <= state_lvl3;
+
+                    end else begin
+                        die <= 1;
+                        next_state <= state_lvl0;
+                    end
+
                 end
 
-                if ((bites == 5) && ~collided_flag) begin
-                    next_state <= state_lvl3;
-                    bites <= 3'b0;
-                end else begin
-                    die <= 1;
-                    next_state <= state_lvl0;
+                default: begin
+                    curr_state <= state_lvl0;
                 end
 
-            end
+            endcase
 
-            default: begin
-                curr_state <= state_lvl0;
-            end
-
-        endcase
+        end
 
     end
 

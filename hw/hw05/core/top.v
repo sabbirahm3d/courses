@@ -30,10 +30,10 @@ module top(
     );
 
     // clock buffered by pacemaker
-    wire clk;
+    // wire clk;
 
     // control signals for collision
-    wire bite, dead, grow;
+    wire bite, die, grow, enable, rst, rst_size;
 
     // direction of movement
     wire [1:0] dir;
@@ -45,124 +45,58 @@ module top(
     wire  pix_clk;
 
     // coordinates for the food
-    wire [8:0] food_x, food_y;
+    wire [4:0] food_x, food_y;
+    // wire [4:0] obj_x, obj_y;
 
     // coordinates for the snake segments
-    wire [8:0] snake_x31, snake_x30, snake_x29, snake_x28,
-        snake_x27, snake_x26, snake_x25, snake_x24,
-        snake_x23, snake_x22, snake_x21, snake_x20,
-        snake_x19, snake_x18, snake_x17, snake_x16,
-        snake_x15, snake_x14, snake_x13, snake_x12,
-        snake_x11, snake_x10, snake_x9, snake_x8,
-        snake_x7, snake_x6, snake_x5, snake_x4,
-        snake_x3, snake_x2, snake_x1, snake_x0;
-
-    wire [8:0] snake_y31, snake_y30, snake_y29, snake_y28,
-        snake_y27, snake_y26, snake_y25, snake_y24,
-        snake_y23, snake_y22, snake_y21, snake_y20,
-        snake_y19, snake_y18, snake_y17, snake_y16,
-        snake_y15, snake_y14, snake_y13, snake_y12,
-        snake_y11, snake_y10, snake_y9, snake_y8,
-        snake_y7, snake_y6, snake_y5, snake_y4,
-        snake_y3, snake_y2, snake_y1, snake_y0;
-
+    wire [4:0] snake_x4, snake_x3, snake_x2, snake_x1, head_x;
+    wire [4:0] snake_y4, snake_y3, snake_y2, snake_y1, head_y;
 
     pacemaker pacemaker_instance(
         .clk(CLK_50MHZ),
         .boost(grow),
-        .p(clk)
+        .p(enable)
     );
 
     direction direction_instance(
         .east(BTN_EAST),
         .west(BTN_WEST),
         .reset(RESET),
-        .clk(clk),
+        .clk(CLK_50MHZ),
         .dir(dir)
     );
 
-    collision collision_instance(
-        .clk(clk),
+    game_state game_state_instance(
+        .clk(CLK_50MHZ), .rst(rst), .enable(enable),
+        .head_x(head_x), .head_y(head_y), 
+        .snake_x1(snake_x1), .snake_y1(snake_y1), 
+        .snake_x2(snake_x2), .snake_y2(snake_y2),
+        .snake_x3(snake_x3), .snake_y3(snake_y3),
+        .snake_x4(snake_x4), .snake_y4(snake_y4),
         .food_x(food_x), .food_y(food_y),
-        .snake_x0(snake_x0), .snake_x1(snake_x1),
-        .snake_x2(snake_x2), .snake_x3(snake_x3),
-        .snake_x4(snake_x4), .snake_x5(snake_x5),
-        .snake_x6(snake_x6), .snake_x7(snake_x7),
-        .snake_x8(snake_x8), .snake_x9(snake_x9),
-        .snake_x10(snake_x10), .snake_x11(snake_x11),
-        .snake_x12(snake_x12), .snake_x13(snake_x13),
-        .snake_x14(snake_x14), .snake_x15(snake_x15),
-        .snake_x16(snake_x16), .snake_x17(snake_x17),
-        .snake_x18(snake_x18), .snake_x19(snake_x19),
-        .snake_x20(snake_x20), .snake_x21(snake_x21),
-        .snake_x22(snake_x22), .snake_x23(snake_x23),
-        .snake_x24(snake_x24), .snake_x25(snake_x25),
-        .snake_x26(snake_x26), .snake_x27(snake_x27),
-        .snake_x28(snake_x28), .snake_x29(snake_x29),
-        .snake_x30(snake_x30), .snake_x31(snake_x31),
-        .snake_y0(snake_y0), .snake_y1(snake_y1),
-        .snake_y2(snake_y2), .snake_y3(snake_y3),
-        .snake_y4(snake_y4), .snake_y5(snake_y5),
-        .snake_y6(snake_y6), .snake_y7(snake_y7),
-        .snake_y8(snake_y8), .snake_y9(snake_y9),
-        .snake_y10(snake_y10), .snake_y11(snake_y11),
-        .snake_y12(snake_y12), .snake_y13(snake_y13),
-        .snake_y14(snake_y14), .snake_y15(snake_y15),
-        .snake_y16(snake_y16), .snake_y17(snake_y17),
-        .snake_y18(snake_y18), .snake_y19(snake_y19),
-        .snake_y20(snake_y20), .snake_y21(snake_y21),
-        .snake_y22(snake_y22), .snake_y23(snake_y23),
-        .snake_y24(snake_y24), .snake_y25(snake_y25),
-        .snake_y26(snake_y26), .snake_y27(snake_y27),
-        .snake_y28(snake_y28), .snake_y29(snake_y29),
-        .snake_y30(snake_y30), .snake_y31(snake_y31),
-        .bite(bite), .dead(dead)
+        .grow(grow), .die(die), .rst_size(rst_size)
     );
 
     food_pos food_pos_instance(
-        .clk(clk),
+        .clk(CLK_50MHZ),
         .enable(grow), .clr(clr),
         .food_x(food_x), .food_y(food_y)
     );
 
     snake_pos snake_pos_instance(
-        .clk(clk), .dead(dead), .grow(grow), .dir(dir),
-        .snake_x0(snake_x0), .snake_x1(snake_x1),
-        .snake_x2(snake_x2), .snake_x3(snake_x3),
-        .snake_x4(snake_x4), .snake_x5(snake_x5),
-        .snake_x6(snake_x6), .snake_x7(snake_x7),
-        .snake_x8(snake_x8), .snake_x9(snake_x9),
-        .snake_x10(snake_x10), .snake_x11(snake_x11),
-        .snake_x12(snake_x12), .snake_x13(snake_x13),
-        .snake_x14(snake_x14), .snake_x15(snake_x15),
-        .snake_x16(snake_x16), .snake_x17(snake_x17),
-        .snake_x18(snake_x18), .snake_x19(snake_x19),
-        .snake_x20(snake_x20), .snake_x21(snake_x21),
-        .snake_x22(snake_x22), .snake_x23(snake_x23),
-        .snake_x24(snake_x24), .snake_x25(snake_x25),
-        .snake_x26(snake_x26), .snake_x27(snake_x27),
-        .snake_x28(snake_x28), .snake_x29(snake_x29),
-        .snake_x30(snake_x30), .snake_x31(snake_x31),
-        .snake_y0(snake_y0), .snake_y1(snake_y1),
-        .snake_y2(snake_y2), .snake_y3(snake_y3),
-        .snake_y4(snake_y4), .snake_y5(snake_y5),
-        .snake_y6(snake_y6), .snake_y7(snake_y7),
-        .snake_y8(snake_y8), .snake_y9(snake_y9),
-        .snake_y10(snake_y10), .snake_y11(snake_y11),
-        .snake_y12(snake_y12), .snake_y13(snake_y13),
-        .snake_y14(snake_y14), .snake_y15(snake_y15),
-        .snake_y16(snake_y16), .snake_y17(snake_y17),
-        .snake_y18(snake_y18), .snake_y19(snake_y19),
-        .snake_y20(snake_y20), .snake_y21(snake_y21),
-        .snake_y22(snake_y22), .snake_y23(snake_y23),
-        .snake_y24(snake_y24), .snake_y25(snake_y25),
-        .snake_y26(snake_y26), .snake_y27(snake_y27),
-        .snake_y28(snake_y28), .snake_y29(snake_y29),
-        .snake_y30(snake_y30), .snake_y31(snake_y31)
+        .clk(CLK_50MHZ),
+        .grow(grow), .die(die),
+        .enable(enable), .rst(rst_size),
+        .dir(dir),
+        .head_x(head_x), .head_y(head_y), 
+        .snake_x1(snake_x1), .snake_y1(snake_y1), 
+        .snake_x2(snake_x2), .snake_y2(snake_y2),
+        .snake_x3(snake_x3), .snake_y3(snake_y3),
+        .snake_x4(snake_x4), .snake_y4(snake_y4)
     );
 
     vga_sync vga_sync_instance(
-        .clk(clk),
+        .clk(CLK_50MHZ),
         .hsync(hsync), .vsync(vsync),
         .hcount(hcount), .vcount(vcount),
         .pix_clk(pix_clk),
@@ -170,41 +104,14 @@ module top(
     );
 
     vga_layout layout(
-        .clk(clk), .blank(blank),
+        .clk(CLK_50MHZ), .blank(blank),
         .pos_h(hsync), .pos_v(vsync),
         .food_x(food_x), .food_y(food_y),
-        .snake_x0(snake_x0), .snake_x1(snake_x1),
-        .snake_x2(snake_x2), .snake_x3(snake_x3),
-        .snake_x4(snake_x4), .snake_x5(snake_x5),
-        .snake_x6(snake_x6), .snake_x7(snake_x7),
-        .snake_x8(snake_x8), .snake_x9(snake_x9),
-        .snake_x10(snake_x10), .snake_x11(snake_x11),
-        .snake_x12(snake_x12), .snake_x13(snake_x13),
-        .snake_x14(snake_x14), .snake_x15(snake_x15),
-        .snake_x16(snake_x16), .snake_x17(snake_x17),
-        .snake_x18(snake_x18), .snake_x19(snake_x19),
-        .snake_x20(snake_x20), .snake_x21(snake_x21),
-        .snake_x22(snake_x22), .snake_x23(snake_x23),
-        .snake_x24(snake_x24), .snake_x25(snake_x25),
-        .snake_x26(snake_x26), .snake_x27(snake_x27),
-        .snake_x28(snake_x28), .snake_x29(snake_x29),
-        .snake_x30(snake_x30), .snake_x31(snake_x31),
-        .snake_y0(snake_y0), .snake_y1(snake_y1),
-        .snake_y2(snake_y2), .snake_y3(snake_y3),
-        .snake_y4(snake_y4), .snake_y5(snake_y5),
-        .snake_y6(snake_y6), .snake_y7(snake_y7),
-        .snake_y8(snake_y8), .snake_y9(snake_y9),
-        .snake_y10(snake_y10), .snake_y11(snake_y11),
-        .snake_y12(snake_y12), .snake_y13(snake_y13),
-        .snake_y14(snake_y14), .snake_y15(snake_y15),
-        .snake_y16(snake_y16), .snake_y17(snake_y17),
-        .snake_y18(snake_y18), .snake_y19(snake_y19),
-        .snake_y20(snake_y20), .snake_y21(snake_y21),
-        .snake_y22(snake_y22), .snake_y23(snake_y23),
-        .snake_y24(snake_y24), .snake_y25(snake_y25),
-        .snake_y26(snake_y26), .snake_y27(snake_y27),
-        .snake_y28(snake_y28), .snake_y29(snake_y29),
-        .snake_y30(snake_y30), .snake_y31(snake_y31),
+        .head_x(head_x), .head_y(head_y), 
+        .snake_x1(snake_x1), .snake_y1(snake_y1), 
+        .snake_x2(snake_x2), .snake_y2(snake_y2),
+        .snake_x3(snake_x3), .snake_y3(snake_y3),
+        .snake_x4(snake_x4), .snake_y4(snake_y4),
         .red(VGA_RED), .green(VGA_GREEN), .blue(VGA_BLUE)
     );
 

@@ -31,7 +31,7 @@ module obstacle(
 
     always @(posedge clk) begin
 
-        obs_x <= obs_num + 1;
+        obs_x <= obs_num + 10;
         obs_y <= obs_num * 10 + 1;
 
     end

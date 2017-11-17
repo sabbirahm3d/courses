@@ -20,13 +20,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 module snake_pos(
-        input wire clk, input wire grow,
-        input wire dead, input wire [1:0] dir,
-        output reg [4:0] head_x, output reg [4:0] snake_x1,
-        output reg [4:0] snake_x2, output reg [4:0] snake_x3,
-        output reg [4:0] snake_x4, output reg [4:0] head_y,
-        output reg [4:0] snake_y1, output reg [4:0] snake_y2,
-        output reg [4:0] snake_y3, output reg [4:0] snake_y4
+        input wire clk,
+        input wire grow, input wire die,
+        input wire enable, input wire rst,
+        input wire [1:0] dir,
+        output reg [4:0] head_x, output reg [4:0] head_y,
+        output reg [4:0] snake_x1, output reg [4:0] snake_y1,
+        output reg [4:0] snake_x2, output reg [4:0] snake_y2,
+        output reg [4:0] snake_x3, output reg [4:0] snake_y3,
+        output reg [4:0] snake_x4, output reg [4:0] snake_y4
     );
 
     reg [4:0] next_x, next_y;  // new position for the head
@@ -70,66 +72,70 @@ module snake_pos(
 
     always @(posedge clk) begin
 
-        // if the snake is not dead and not growing, it will continue moving in
+        // if the snake is not die and not growing, it will continue moving in
         // the desired direction
-        if (~grow && ~dead) begin
+        if (enable) begin
 
-            if (dir == 0) begin
+            if (~grow && ~die) begin
 
-                next_x = head_x + SEG_WIDTH;
-                next_y = head_y;
-                $display("RIGHT");
+                if (dir == 0) begin
 
-            end else if (dir == 1) begin
+                    next_x = head_x + SEG_WIDTH;
+                    next_y = head_y;
+                    $display("RIGHT");
 
-                next_x = head_x;
-                next_y = head_y - SEG_WIDTH;
-                $display("DOWN");
+                end else if (dir == 1) begin
 
-            end else if (dir == 2) begin
+                    next_x = head_x;
+                    next_y = head_y - SEG_WIDTH;
+                    $display("DOWN");
 
-                next_x = head_x - SEG_WIDTH;
-                next_y = head_y;
-                $display("LEFT");
+                end else if (dir == 2) begin
 
-            end else if (dir == 3) begin
+                    next_x = head_x - SEG_WIDTH;
+                    next_y = head_y;
+                    $display("LEFT");
 
-                next_x = head_x;
-                next_y = head_y + SEG_WIDTH;
-                $display("UP");
+                end else if (dir == 3) begin
 
+                    next_x = head_x;
+                    next_y = head_y + SEG_WIDTH;
+                    $display("UP");
+
+                end
+
+                // shift left the x segments, then mask it
+                {
+                    snake_x4, snake_x3, snake_x2, snake_x1, head_x
+                } = ({
+                        snake_x3, snake_x2, snake_x1, head_x, next_x
+                    } & {
+                        mask[4], mask[3], mask[2], mask[1], mask[0]
+                    });
+
+                // shift left the y segments, then mask it
+                {
+                    snake_y4, snake_y3, snake_y2, snake_y1, head_y
+                } = ({
+                        snake_y3, snake_y2, snake_y1, head_y, next_y
+                    } & {
+                        mask[4], mask[3], mask[2], mask[1], mask[0]
+                    });
+
+            // if the snake is growing
+            end else if (grow && ~die) begin
+
+                // increment the size
+                size = size + 1;
+                // mask the new segment with 1
+                mask[size] = {5{ONES}};
+
+            // if the snake is dead, do nothing with the segments
+            end else begin
+                $display("DEAD");
             end
 
-            // shift left the x segments, then mask it
-            {
-                snake_x4, snake_x3, snake_x2, snake_x1, head_x
-            } = ({
-                    snake_x3, snake_x2, snake_x1, head_x, next_x
-                } & {
-                    mask[4], mask[3], mask[2], mask[1], mask[0]
-                });
-
-            // shift left the y segments, then mask it
-            {
-                snake_y4, snake_y3, snake_y2, snake_y1, head_y
-            } = ({
-                    snake_y3, snake_y2, snake_y1, head_y, next_y
-                } & {
-                    mask[4], mask[3], mask[2], mask[1], mask[0]
-                });
-
-        // if the snake is growing
-        end else if (grow && ~dead) begin
-
-            // increment the size
-            size = size + 1;
-            // mask the new segment with 1
-            mask[size] = {5{ONES}};
-
-        // if the snake is dead, do nothing with the segments
-        end else begin
-            $display("DEAD");
-        end
+        end  // enable
 
     end
 

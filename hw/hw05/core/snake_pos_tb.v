@@ -21,7 +21,7 @@
 //////////////////////////////////////////////////////////////////////////////
 module snake_pos_tb;
 
-    reg sys_clk, clk, grow, dead;
+    reg sys_clk, clk, grow, die;
 
     // direction
     reg [1:0] dir;
@@ -38,12 +38,13 @@ module snake_pos_tb;
     );
 
     snake_pos snake_pos_instance(
-        .clk(clk), .dead(dead), .grow(grow), .dir(dir),
-        .snake_x4(snake_x4), .snake_x3(snake_x3),
-        .snake_x2(snake_x2), .snake_x1(snake_x1),
-        .head_x(head_x), .snake_y4(snake_y4),
-        .snake_y3(snake_y3), .snake_y2(snake_y2),
-        .snake_y1(snake_y1), .head_y(head_y),
+        .clk(clk), .die(die), .grow(grow), .enable(enable),
+        .dir(dir),
+        .head_x(head_x), .head_y(head_y), 
+        .snake_x1(snake_x1), .snake_y1(snake_y1), 
+        .snake_x2(snake_x2), .snake_y2(snake_y2),
+        .snake_x3(snake_x3), .snake_y3(snake_y3),
+        .snake_x4(snake_x4), .snake_y4(snake_y4)
     );
 
     always begin
@@ -62,7 +63,7 @@ module snake_pos_tb;
         // move snake right
         dir = 0;
         grow = 0;
-        dead = 0;
+        die = 0;
 
         $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
         snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
@@ -102,7 +103,7 @@ module snake_pos_tb;
         #100
         // kill the snake
         dir = 1;
-        dead = 1;
+        die = 1;
 
         $display("(%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d), (%0d, %0d)",
         snake_x4, snake_y4, snake_x3, snake_y3, snake_x2, snake_y2, snake_x1,
