@@ -21,24 +21,25 @@
 //////////////////////////////////////////////////////////////////////////////
 module snake_pos_tb;
 
-    reg sys_clk, clk, grow, die;
+    reg clk, enable, grow, die, rst;
 
     // direction
     reg [1:0] dir;
 
     // coordinates for the snake segments
-    wire [8:0] snake_x4, snake_x3, snake_x2, snake_x1, head_x;
-    wire [8:0] snake_y4, snake_y3, snake_y2, snake_y1, head_y;
-
+    wire [4:0] snake_x4, snake_x3, snake_x2, snake_x1, head_x;
+    wire [4:0] snake_y4, snake_y3, snake_y2, snake_y1, head_y;
 
     pacemaker pacemaker_instance(
-        .clk(sys_clk),
+        .clk(clk),
         .boost(grow),
-        .p(clk)
+        .p(enable)
     );
 
     snake_pos snake_pos_instance(
-        .clk(clk), .die(die), .grow(grow), .enable(enable),
+        .clk(clk),
+        .grow(grow), .die(die),
+        .enable(enable), .rst(rst),
         .dir(dir),
         .head_x(head_x), .head_y(head_y), 
         .snake_x1(snake_x1), .snake_y1(snake_y1), 
@@ -57,6 +58,8 @@ module snake_pos_tb;
     initial begin
 
         clk = 0;
+        enable = 1;
+        rst = 0;
 
         #10;
 

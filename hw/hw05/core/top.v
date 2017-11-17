@@ -30,11 +30,8 @@ module top(
         output wire VGA_BLUE
     );
 
-    // clock buffered by pacemaker
-    // wire clk;
-
     // control signals for collision
-    wire bite, die, grow, enable, rst, rst_size;
+    wire bite, die, grow, enable, rst_size;
 
     wire [1:0] level;
 
@@ -49,7 +46,6 @@ module top(
 
     // coordinates for the food
     wire [4:0] food_x, food_y;
-    // wire [4:0] obj_x, obj_y;
 
     // coordinates for the snake segments
     wire [4:0] snake_x4, snake_x3, snake_x2, snake_x1, head_x;
@@ -88,7 +84,7 @@ module top(
     );
 
     game_state game_state_instance(
-        .clk(CLK_50MHZ), .rst(rst), .enable(enable),
+        .clk(CLK_50MHZ), .rst(RESET), .enable(enable),
         .head_x(head_x), .head_y(head_y), 
         .snake_x1(snake_x1), .snake_y1(snake_y1), 
         .snake_x2(snake_x2), .snake_y2(snake_y2),
