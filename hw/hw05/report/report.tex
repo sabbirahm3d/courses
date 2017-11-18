@@ -26,65 +26,56 @@
 
     The game was to conform to the following specifications:
 
-    \begin{itemize}
+        \begin{itemize}
 
-        \item The obstacles should be drawn in magenta, but otherwise are like
-        the fence and the game should stop once the snake (head) overlays an
-        obstacle.
+            \item The obstacles should be drawn in magenta, but otherwise are
+            like the fence and the game should stop once the snake (head)
+            overlays an obstacle.
 
-        \item The game field should be initiated with no obstacles in the field
-        of play for Level 0, and proceed just as in HW4 until the 5th apple is
-        eaten.
+            \item The game field should be initiated with no obstacles in the
+            field of play for Level 0, and proceed just as in HW4 until the 5th
+            apple is eaten.
 
-        \item Every time the player eats 5 apples within a level, a new level
-        should be generated with 10 more obstacles than the previous level and
-        play should restart on that level.
+            \item Every time the player eats 5 apples within a level, a new
+            level should be generated with 10 more obstacles than the previous
+            level and play should restart on that level.
 
-            \begin{itemize}
+                \begin{itemize}
 
-                \item Level 0 has no obstacles, Level 1 has ten obstacles,
-                Level 2 has twenty obstacles, and so on...
+                    \item Level 0 has no obstacles, Level 1 has ten obstacles,
+                    Level 2 has twenty obstacles, and so on...
 
-                \item The snake size is reinitialized to 1 to start each level
+                    \item The snake size is reinitialized to 1 to start each
+                    level
 
-            \end{itemize}
+                \end{itemize}
 
-        \item The level score, and the level should be displayed on the LCD
-        display. The display should be as follows:
+            \item The level score, and the level should be displayed on the LCD
+            display. The display should be as follows:
 
-            \[ Lyy \]
+                \[ \texttt{Lyy} \]
 
-            with (yy) denoting the current level.
+                with (yy) denoting the current level.
 
-        \item If the snake goes onto the fence, the game should freeze.
+            \item When the game ends, append an E as follows:
 
-        \item If the snake goes onto the food, the length of the snake should
-        increase by one grid segment on the next movement with a trailing body,
-        per the behavior of the game shown in the provided link. The moving
-        head be green, and the grown body should be cyan (green+blue).
+                \[ \texttt{LyyE} \]
 
-        \item Each time the snake reaches the food, another food should be
-        positioned in a manor seemly random to the user.
+        \end{itemize}
 
-        \item Each subsequent time the snake eats food, the segment length
-        should grow by one, up to a length of 32 (including the head).
-
-        \item If the head of the snake overlaps a body segment then the game
-        should freeze.
-
-        \item If the length of the snake reaches 32, the game should instead
-        increase in speed by reducing the update interval by roughly 10 ms.
-
-    \end{itemize}
-
-    \section{Design Approach} Several discrete modules were used to implement
-    the game: \texttt{direction} \texttt{snake\_pos}, \texttt{food\_pos},
-    \texttt{collision}, \texttt{pacemaker} and \texttt{vga\_layout}. Since the
-    preliminary design, the \texttt{rotary\_oneshot} module was removed due to
-    the modification  These submodules will be connected using a top level
-    module that may be visualized with the schematic diagram configured as a
-    block diagram in Figure \ref{fig:schematic}. All the modules implicitly
-    accept clock cycles as inputs.
+    \section{Design Approach} Several discrete modules from the previous
+    implementation were used in this version. The \texttt{direction},
+    \texttt{food\_pos} and \texttt{pacemaker} modules were left unmodified. The
+    \texttt{snake\_pos} module was modified to truncate the size of the snake
+    from 32 to 5. The \texttt{vga\_layout} module was modified to include the
+    new coordinate pairs of the obstacles. Additional submodules:
+    \texttt{game\_state} and \texttt{lcd\_driver} were integrated into the
+    design.
+ 
+    These submodules were connected using a top level module that may be
+    visualized with the schematic diagram configured as a block diagram in
+    Figure \ref{fig:schematic}. All the modules implicitly accept clock cycles
+    as inputs.
 
     \begin{figure}[ht]
         \begin{center}
@@ -101,13 +92,13 @@
         This module sets an enable to the \texttt{snake\_pos} module to notify
         a change in direction.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{direction_wav.png}
-                \caption{Waveform of the Testbench of \texttt{direction}}
-                \label{fig:direction_wav}
-            \end{center}
-        \end{figure}
+        % \begin{figure}[ht]
+        %     \begin{center}
+        %         \includegraphics[width=1\textwidth]{direction_wav.png}
+        %         \caption{Waveform of the Testbench of \texttt{direction}}
+        %         \label{fig:direction_wav}
+        %     \end{center}
+        % \end{figure}
 
         The sample output demonstrates the \texttt{dir} signal incrementing
         when \texttt{east} is high and decrementing when \texttt{west} is high.
@@ -118,13 +109,13 @@
         counter and a linear feedback shift register to generate the pseudo-
         random coordinates.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{food_pos_wav.png}
-                \caption{Waveform of the Testbench of \texttt{food\_pos}}
-                \label{fig:food_pos_wav}
-            \end{center}
-        \end{figure}
+        % \begin{figure}[ht]
+        %     \begin{center}
+        %         \includegraphics[width=1\textwidth]{food_pos_wav.png}
+        %         \caption{Waveform of the Testbench of \texttt{food\_pos}}
+        %         \label{fig:food_pos_wav}
+        %     \end{center}
+        % \end{figure}
 
         The sample output demonstrates the seemingly random coordinates
         generated for \texttt{food\_x} and \texttt{food\_y}.
@@ -140,13 +131,13 @@
         timed by \texttt{pacemaker} to control the speed of the moving snake
         body.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{snake_pos_wav.png}
-                \caption{Waveform of the Testbench of \texttt{snake\_pos}}
-                \label{fig:snake_pos_wav}
-            \end{center}
-        \end{figure}
+        % \begin{figure}[ht]
+        %     \begin{center}
+        %         \includegraphics[width=1\textwidth]{snake_pos_wav.png}
+        %         \caption{Waveform of the Testbench of \texttt{snake\_pos}}
+        %         \label{fig:snake_pos_wav}
+        %     \end{center}
+        % \end{figure}
 
         The signals were reorganized to highlight the relevant waveforms. The
         sample output demonstrates the movement of the individual body segments
@@ -165,13 +156,13 @@
         food. If a collision between the snake head and the fence is detected,
         the game is frozen.
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{collision_wav.png}
-                \caption{Waveform of the Testbench of \texttt{collision}}
-                \label{fig:collision_wav}
-            \end{center}
-        \end{figure}
+        % \begin{figure}[ht]
+        %     \begin{center}
+        %         \includegraphics[width=1\textwidth]{collision_wav.png}
+        %         \caption{Waveform of the Testbench of \texttt{collision}}
+        %         \label{fig:collision_wav}
+        %     \end{center}
+        % \end{figure}
 
         The signals were reorganized to highlight the relevant waveforms. The
         sample output indicates the conditions to which a collision is
