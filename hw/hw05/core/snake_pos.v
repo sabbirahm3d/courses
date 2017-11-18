@@ -43,63 +43,65 @@ module snake_pos(
 
     initial begin
 
-        // snake starts off at 0-length
-        // the head is created after the initial clock cycle
-        size = 0;
-
-        // set all snake-x segments but the head to 0
-        {
-            snake_x4, snake_x3, snake_x2, snake_x1, head_x
-        } = {
-            {4{ZEROS}}, INIT
-        };
-
-        // set all snake-y segments but the head to 0
-        {
-            snake_y4, snake_y3, snake_y2, snake_y1, head_y
-        } = {
-            {4{ZEROS}}, INIT
-        };
-
-        // initialize all the elements of the mask to 0 except the 0th one 
-        {   
-            mask[4], mask[3], mask[2], mask[1], mask[0]
-        } = {
-            {4{ZEROS}}, {1{ONES}}
-        };
-
     end
 
     always @(posedge clk) begin
 
-        // if the snake is not die and not growing, it will continue moving in
-        // the desired direction
-        if (enable) begin
+        if (rst) begin
+
+            // snake starts off at 0-length
+            // the head is created after the initial clock cycle
+            size = 0;
+
+            // set all snake-x segments but the head to 0
+            {
+                snake_x4, snake_x3, snake_x2, snake_x1, head_x
+            } = {
+                {4{ZEROS}}, INIT
+            };
+
+            // set all snake-y segments but the head to 0
+            {
+                snake_y4, snake_y3, snake_y2, snake_y1, head_y
+            } = {
+                {4{ZEROS}}, INIT
+            };
+
+            // initialize all the elements of the mask to 0 except the 0th one 
+            {   
+                mask[4], mask[3], mask[2], mask[1], mask[0]
+            } = {
+                {4{ZEROS}}, {1{ONES}}
+            };
+
+        end else if (enable) begin  // if the snake is not dead and not
+                                    // growing, it will continue moving in the
+                                    // desired direction
 
             if (~grow && ~die) begin
 
-                if (dir == 0) begin
+                if (dir == 0) begin  // right
 
-                    next_x = head_x + SEG_WIDTH;
+                    next_x = head_x + SEG_WIDTH;  // increment x-segments
                     next_y = head_y;
                     $display("RIGHT");
 
-                end else if (dir == 1) begin
+                end else if (dir == 1) begin  // down
 
                     next_x = head_x;
-                    next_y = head_y - SEG_WIDTH;
+                    next_y = head_y - SEG_WIDTH;  // decrement y segments
                     $display("DOWN");
 
-                end else if (dir == 2) begin
+                end else if (dir == 2) begin  // left
 
-                    next_x = head_x - SEG_WIDTH;
+                    next_x = head_x - SEG_WIDTH;  // decrement x segments
                     next_y = head_y;
                     $display("LEFT");
 
-                end else if (dir == 3) begin
+                end else if (dir == 3) begin  // up
 
                     next_x = head_x;
-                    next_y = head_y + SEG_WIDTH;
+                    next_y = head_y + SEG_WIDTH;  // increment y segments
                     $display("UP");
 
                 end
