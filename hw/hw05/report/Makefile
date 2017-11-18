@@ -7,7 +7,7 @@ all: convert
 convert: convert1 convert2
 convert1 convert2:
 	# convert LaTex file to PDF
-	@pdflatex -shell-escape ${DOC}.tex
+	@pdflatex -shell-escape ${DOC}
 
 
 .PHONY: clean

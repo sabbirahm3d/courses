@@ -1,0 +1,191 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors: Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../../structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo {\textbf{Homework 5: Snake Levels and Obstacles Report}}
+    {\today} {Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background} For this assignment, the previous Snake Game from HW04
+    was reimplemented with additional features such as levels and obstacles.
+
+    The game was to conform to the following specifications:
+
+    \begin{itemize}
+
+        \item The obstacles should be drawn in magenta, but otherwise are like
+        the fence and the game should stop once the snake (head) overlays an
+        obstacle.
+
+        \item The game field should be initiated with no obstacles in the field
+        of play for Level 0, and proceed just as in HW4 until the 5th apple is
+        eaten.
+
+        \item Every time the player eats 5 apples within a level, a new level
+        should be generated with 10 more obstacles than the previous level and
+        play should restart on that level.
+
+            \begin{itemize}
+
+                \item Level 0 has no obstacles, Level 1 has ten obstacles,
+                Level 2 has twenty obstacles, and so on...
+
+                \item The snake size is reinitialized to 1 to start each level
+
+            \end{itemize}
+
+        \item The level score, and the level should be displayed on the LCD
+        display. The display should be as follows:
+
+            \[ Lyy \]
+
+            with (yy) denoting the current level.
+
+        \item If the snake goes onto the fence, the game should freeze.
+
+        \item If the snake goes onto the food, the length of the snake should
+        increase by one grid segment on the next movement with a trailing body,
+        per the behavior of the game shown in the provided link. The moving
+        head be green, and the grown body should be cyan (green+blue).
+
+        \item Each time the snake reaches the food, another food should be
+        positioned in a manor seemly random to the user.
+
+        \item Each subsequent time the snake eats food, the segment length
+        should grow by one, up to a length of 32 (including the head).
+
+        \item If the head of the snake overlaps a body segment then the game
+        should freeze.
+
+        \item If the length of the snake reaches 32, the game should instead
+        increase in speed by reducing the update interval by roughly 10 ms.
+
+    \end{itemize}
+
+    \section{Design Approach} Several discrete modules were used to implement
+    the game: \texttt{direction} \texttt{snake\_pos}, \texttt{food\_pos},
+    \texttt{collision}, \texttt{pacemaker} and \texttt{vga\_layout}. Since the
+    preliminary design, the \texttt{rotary\_oneshot} module was removed due to
+    the modification  These submodules will be connected using a top level
+    module that may be visualized with the schematic diagram configured as a
+    block diagram in Figure \ref{fig:schematic}. All the modules implicitly
+    accept clock cycles as inputs.
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{top_level_design.png}
+            \caption{Block Diagram of the Implementation of the Game}
+            \label{fig:schematic}
+        \end{center}
+    \end{figure}
+    \newpage
+
+        \subsection{direction} The \texttt{direction} module is used to control
+        the user inputs. The inputs are one-shotted, debounced and fed into the
+        internal state machine to determine the direction the user intended.
+        This module sets an enable to the \texttt{snake\_pos} module to notify
+        a change in direction.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{direction_wav.png}
+                \caption{Waveform of the Testbench of \texttt{direction}}
+                \label{fig:direction_wav}
+            \end{center}
+        \end{figure}
+
+        The sample output demonstrates the \texttt{dir} signal incrementing
+        when \texttt{east} is high and decrementing when \texttt{west} is high.
+
+        \subsection{food\_pos} This module generates the \texttt{food\_x} and
+        \texttt{food\_y} coordinates of the food when enabled by the
+        \texttt{collision} module. The module combinedly utilizes an internal
+        counter and a linear feedback shift register to generate the pseudo-
+        random coordinates.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{food_pos_wav.png}
+                \caption{Waveform of the Testbench of \texttt{food\_pos}}
+                \label{fig:food_pos_wav}
+            \end{center}
+        \end{figure}
+
+        The sample output demonstrates the seemingly random coordinates
+        generated for \texttt{food\_x} and \texttt{food\_y}.
+
+        \subsection{snake\_pos} The \texttt{snake\_pos} module generates the
+        coordinates for the 32 segments of the snake body, including its head.
+        The module takes in the 2 bit direction from \texttt{direction} and 2
+        enable control signals from \texttt{collision}. The control signals,
+        \texttt{grow} and \texttt{dead} are used to indicate the state of the
+        snake body. If \texttt{grow} is enabled, the module utilizes
+        \texttt{dir} to shift the body segments. If \texttt{dead} is enabled,
+        the body segments freeze to indicate end of the game. Its clock is
+        timed by \texttt{pacemaker} to control the speed of the moving snake
+        body.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{snake_pos_wav.png}
+                \caption{Waveform of the Testbench of \texttt{snake\_pos}}
+                \label{fig:snake_pos_wav}
+            \end{center}
+        \end{figure}
+
+        The signals were reorganized to highlight the relevant waveforms. The
+        sample output demonstrates the movement of the individual body segments
+        by utilizing the internal shift register. Only the initial segments
+        change due to the snake body's growth being restricted to a length of 2
+        in the test bench.
+
+        \subsection{collision} \texttt{collision} accepts the coordinates of
+        the food and the snake segments and determines if a collision has been
+        detected. If a collision has not been detected, it sends out an enable
+        signal to the \texttt{snake\_pos} module. If a collision with the snake
+        body, specifically the snake head, with the food is detected, the
+        module sends a signal to \texttt{pacemaker} to determine the interval
+        at which the snake should move. This module has an internal counter
+        that speeds up when the snake head had made 32 collisions with the
+        food. If a collision between the snake head and the fence is detected,
+        the game is frozen.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{collision_wav.png}
+                \caption{Waveform of the Testbench of \texttt{collision}}
+                \label{fig:collision_wav}
+            \end{center}
+        \end{figure}
+
+        The signals were reorganized to highlight the relevant waveforms. The
+        sample output indicates the conditions to which a collision is
+        classified as \texttt{grow} and \texttt{dead}.
+
+        \subsection{vga\_layout} This module draws the fence of the game, and
+        the snake and the randomly placed food on the VGA display.
+
+        \subsection{Other Modules} Other minor modules have been utilized for
+        the implementation. \texttt{pacemaker} is used to send out control
+        signals to the other modules such that they update at reasonable rates.
+        The module consists of an internal counter that speeds up the update
+        rate once the game has registered over 31 bites of the food.
+        \texttt{vga\_sync} is used to synchronize the outputs to the VGA
+        display.
+
+\end{document}
