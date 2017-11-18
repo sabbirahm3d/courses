@@ -10,8 +10,7 @@ class Assembler(object):
 
     def __init__(self, sys_memory):
 
-        inst_mem = sys_memory[:25]
-        self.INST = [line for line in inst_mem if line]
+        self.INST = filter(None, sys_memory[:25])
         self.MIPS = MIPS(sys_memory, [None] * 32)
         self.TABLE = [[i["label"], i["instruction"]] for i in self.INST]
         self.CLKCYCLE = self.NUMINST = len(self.INST)

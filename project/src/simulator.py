@@ -59,7 +59,7 @@ def dump_table(table, file_name="output.txt"):
     col_names = ("Cycle Number for Each Stage",
                  "IF", "ID", "EX4", "MEM", "WB")
     inst_fmt = "{:<32}"
-    row_fmt = "{:>8}" * (len(col_names))
+    row_fmt = "{:<8}" * (len(col_names))
 
     with open(file_name, "w") as output_file:
 
