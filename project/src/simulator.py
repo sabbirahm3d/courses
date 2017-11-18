@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 from pprint import pprint
 from sys import argv
 
@@ -53,25 +55,30 @@ def parse_inst(inst_file_path):
         raise SystemExit("Please provide a valid input instructions file")
 
 
-def output_formatter(table):
+def output_formatter(table, file_name="output.txt"):
 
-    col_names = ("Cycle number for each stage",
+    col_names = ("Cycle Number for Each Stage",
                  "IF", "ID", "EX4", "MEM", "WB")
-    inst_fmt = "{:>32}" * 2
-    row_fmt = "{:>8}" * (len(col_names))
-    print inst_fmt.format(
-        "", *col_names[0:2]
-    ), row_fmt.format(
-        "", *col_names[1:]
-    )
+    inst_fmt = "{:<32}" * 2
+    row_fmt = "{:>12}" * (len(col_names))
 
-    for inst, _if, _id, _ex4, _mem, _wb in zip(
-            table, range(12), range(12), range(12), range(12), range(12)):
-        print inst_fmt.format(
-            "", " ".join(inst)
-        ), row_fmt.format(
-            "", _if, _id, _ex4, _mem, _wb
+    with open(file_name, "w") as output_file:
+        print(
+            inst_fmt.format("", *col_names[0:2]),
+            row_fmt.format("", *col_names[1:]),
+            file=output_file
         )
+        for label, inst, cycles in table:
+            if label:
+                inst = "{:<8}".format(label + ": ") + " ".join(inst)
+            else:
+                inst = "{:<8}".format(" ") + " ".join(inst)
+
+            print(
+                inst_fmt.format("", inst),
+                row_fmt.format("", *cycles),
+                file=output_file
+            )
 
 
 if __name__ == "__main__":
@@ -85,3 +92,5 @@ if __name__ == "__main__":
 
         obj = Assembler(SYSMEM)
         obj.assemble()
+
+        output_formatter(obj.TABLE, argv[3])

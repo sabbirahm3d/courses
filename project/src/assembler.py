@@ -13,7 +13,7 @@ class Assembler(object):
         inst_mem = sys_memory[:25]
         self.INST = [line for line in inst_mem if line]
         self.MIPS = MIPS(sys_memory, [None] * 32)
-        self.TABLE = [[i["instruction"]] for i in self.INST]
+        self.TABLE = [[i["label"], i["instruction"]] for i in self.INST]
         self.CLKCYCLE = self.NUMINST = len(self.INST)
 
     def get_label_line(self, label):
@@ -61,7 +61,7 @@ class Assembler(object):
         file_size = len(self.INST)
         prog_ctr = 0
 
-        # pprint(self.MIPS.DATAMEM)
+        pprint(self.MIPS.DATAMEM)
         while file_size != prog_ctr:
             prog_ctr = self.parse_line(
                 self.INST[prog_ctr]["label"],
@@ -69,10 +69,12 @@ class Assembler(object):
                 prog_ctr
             )
             self.TABLE[(prog_ctr - 1) % self.NUMINST].append(
-                self.calculate_cycle(self.INST[(prog_ctr - 1) %
-                                               self.NUMINST]["instruction"][0]))
+                self.calculate_cycle(
+                    self.INST[(prog_ctr - 1) % self.NUMINST]["instruction"][0]
+                )
+            )
             # self.TABLE.append(prog_ctr)
-            # print self.MIPS.REG
+            print self.MIPS.REG
 
         # pprint(self.MIPS.DATAMEM)
         pprint(self.TABLE)
@@ -80,7 +82,7 @@ class Assembler(object):
     def parse_line(self, label, line, prog_ctr):
 
         opcode, reg = line[0], line[1:]
-        # print "\x1b[6;30;44m", line, "\x1b[0m"
+        print "\x1b[6;30;44m", line, "\x1b[0m"
 
         # conditional branches
         if opcode in {"BEQ", "BNE"}:

@@ -68,11 +68,11 @@ class MIPS(object):
     def parse_addr(self, addr):
 
         if "(" in addr:
-            return (parse_offset(addr) + dec_to_hex(
-                self.REG[parse_reg(addr)]) / 4)
+            return (
+                parse_offset(addr) + dec_to_hex(self.REG[parse_reg(addr)]) / 4
+            )
 
-        else:
-            return to_dec(addr)
+        return to_dec(addr)
 
     def and_reg(self, ops, prog_ctr):
 
