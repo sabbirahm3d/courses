@@ -3,7 +3,6 @@
 
 from __future__ import print_function
 
-from pprint import pprint
 from sys import argv
 
 from assembler import Assembler
@@ -55,19 +54,21 @@ def parse_inst(inst_file_path):
         raise SystemExit("Please provide a valid input instructions file")
 
 
-def output_formatter(table, file_name="output.txt"):
+def dump_table(table, file_name="output.txt"):
 
     col_names = ("Cycle Number for Each Stage",
                  "IF", "ID", "EX4", "MEM", "WB")
-    inst_fmt = "{:<32}" * 2
-    row_fmt = "{:>12}" * (len(col_names))
+    inst_fmt = "{:<32}"
+    row_fmt = "{:>8}" * (len(col_names))
 
     with open(file_name, "w") as output_file:
+
         print(
-            inst_fmt.format("", *col_names[0:2]),
+            inst_fmt.format(col_names[0]),
             row_fmt.format("", *col_names[1:]),
             file=output_file
         )
+
         for label, inst, cycles in table:
             if label:
                 inst = "{:<8}".format(label + ": ") + " ".join(inst)
@@ -75,7 +76,7 @@ def output_formatter(table, file_name="output.txt"):
                 inst = "{:<8}".format(" ") + " ".join(inst)
 
             print(
-                inst_fmt.format("", inst),
+                inst_fmt.format(inst),
                 row_fmt.format("", *cycles),
                 file=output_file
             )
@@ -87,10 +88,10 @@ if __name__ == "__main__":
         raise SystemExit("Please provide all the required input files")
 
     else:
-        instructions = parse_inst(argv[1])
+        parse_inst(argv[1])
         SYSMEM = INSTMEM + init_mem(argv[2])
 
-        obj = Assembler(SYSMEM)
-        obj.assemble()
+        asm_obj = Assembler(SYSMEM)
+        asm_obj.assemble()
 
-        output_formatter(obj.TABLE, argv[3])
+        dump_table(asm_obj.TABLE, argv[3])
