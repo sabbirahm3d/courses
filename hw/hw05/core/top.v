@@ -86,8 +86,6 @@ module top(
     game_state game_state_instance(
         .clk(CLK_50MHZ), .rst(RESET), .enable(enable),
         .head_x(head_x), .head_y(head_y), 
-        .snake_x1(snake_x1), .snake_y1(snake_y1), 
-        .snake_x2(snake_x2), .snake_y2(snake_y2),
         .snake_x3(snake_x3), .snake_y3(snake_y3),
         .snake_x4(snake_x4), .snake_y4(snake_y4),
         .food_x(food_x), .food_y(food_y),

@@ -41,10 +41,6 @@ module snake_pos(
     // initial coordinates of the head (24)
     parameter [4:0] INIT = 5'b11000;
 
-    initial begin
-
-    end
-
     always @(posedge clk) begin
 
         if (rst) begin

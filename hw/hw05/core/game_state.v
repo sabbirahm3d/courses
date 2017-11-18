@@ -23,11 +23,9 @@
 module game_state(
         input wire clk,
         input wire rst, input wire enable,
-        input wire [4:0] head_x, input wire [4:0] snake_x1,
-        input wire [4:0] snake_x2, input wire [4:0] snake_x3,
-        input wire [4:0] snake_x4, input wire [4:0] head_y,
-        input wire [4:0] snake_y1, input wire [4:0] snake_y2,
-        input wire [4:0] snake_y3, input wire [4:0] snake_y4,
+        input wire [4:0] head_x, input wire [4:0] head_y,
+        input wire [4:0] snake_x3, input wire [4:0] snake_y3,
+        input wire [4:0] snake_x4, input wire [4:0] snake_y4,
         input wire [4:0] food_x, input wire [4:0] food_y,
         output reg grow, output reg die,
         output reg [1:0] level, output reg rst_size
@@ -86,6 +84,7 @@ module game_state(
             level <= 2'b0;
             obs_num <= 5'b0;
             dis_pos <= 2'b0;
+            die <= 0;
 
         end else begin
 
