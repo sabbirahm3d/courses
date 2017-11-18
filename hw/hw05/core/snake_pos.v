@@ -41,13 +41,38 @@ module snake_pos(
     // initial coordinates of the head (24)
     parameter [4:0] INIT = 5'b11000;
 
+    initial begin
+
+        // snake starts off at 0-length
+        // the head is created after the initial clock cycle
+        size = 0;
+
+        // set all snake-x segments but the head to 0
+        {
+            snake_x4, snake_x3, snake_x2, snake_x1, head_x
+        } = {
+            {4{ZEROS}}, INIT
+        };
+
+        // set all snake-y segments but the head to 0
+        {
+            snake_y4, snake_y3, snake_y2, snake_y1, head_y
+        } = {
+            {4{ZEROS}}, INIT
+        };
+
+        // initialize all the elements of the mask to 0 except the 0th one 
+        {   
+            mask[4], mask[3], mask[2], mask[1], mask[0]
+        } = {
+            {4{ZEROS}}, {1{ONES}}
+        };
+
+    end
+
     always @(posedge clk) begin
 
         if (rst) begin
-
-            // snake starts off at 0-length
-            // the head is created after the initial clock cycle
-            size = 0;
 
             // set all snake-x segments but the head to 0
             {
@@ -63,12 +88,7 @@ module snake_pos(
                 {4{ZEROS}}, INIT
             };
 
-            // initialize all the elements of the mask to 0 except the 0th one 
-            {   
-                mask[4], mask[3], mask[2], mask[1], mask[0]
-            } = {
-                {4{ZEROS}}, {1{ONES}}
-            };
+            size = 0;
 
         end else if (enable) begin  // if the snake is not dead and not
                                     // growing, it will continue moving in the
