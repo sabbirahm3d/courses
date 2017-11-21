@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract
+% Structural Definitions File
+% Version 1.0 (December 8 2014)
+%
+% Created by:
+% Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry} % Required to modify the page layout
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage[font=scriptsize, labelfont=bf]{caption}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{listings}  % for code verbatim and console outputs
+
+\setlength{\textwidth}{16cm} % Width of the text on the page
+\setlength{\textheight}{23cm} % Height of the text on the page
+\setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
+\setlength{\topmargin}{-1.25cm} % Reduce the top margin
+
+\setlength{\parindent}{0mm} % Don't indent paragraphs
+\setlength{\parskip}{2.5mm} % Whitespace between paragraphs
+\renewcommand{\baselinestretch}{1.2}
+
+\renewcommand\familydefault{\sfdefault}  % default font for entire document
+
+\definecolor{green}{rgb}{0.18, 0.55, 0.34}
+
+\graphicspath{ {figures/} }
+\captionsetup[table]{skip=10pt}
+
+\lstset{language=C, keywordstyle={\bfseries \color{black}}}
+
+\newcounter{nalg}[section] % defines algorithm counter for chapter-level
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}} %defines appearance of the algorithm counter
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+
+%defines the algorithm listing environment
+\lstnewenvironment{pseudocode}[1][] {   
+    \refstepcounter{nalg} %increments algorithm number
+    \captionsetup{labelformat=algocaption,labelsep=colon}
+    \lstset{
+        mathescape=true,
+        frame=tB,
+        numbers=left,
+        numberstyle=\tiny,
+        basicstyle=\scriptsize,
+        keywordstyle=\color{black}\bfseries\em,
+        keywords={,input, output, return, datatype, function, in, if, else, foreach, while, begin, end, },
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}{}
