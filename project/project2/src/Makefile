@@ -32,7 +32,7 @@ build: ${EXE}
 ${EXE}: ${OBJS} 
 	${CC} ${CPPFLAGS} -o ${EXE} ${OBJS}
 
-.c.o:
+.cpp .o:
 	${CC} ${CPPFLAGS} -c $< -o $@
 
 
@@ -50,8 +50,8 @@ genseqs:
 
 .PHONY: clean
 clean:
-	# clean out cache and temporary files
-	@find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
+	# clean out binary files
+	@find . -name "*.o" -type f -delete
 
 
 .PHONY: reset
