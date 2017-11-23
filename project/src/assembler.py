@@ -6,6 +6,18 @@ from pprint import pprint
 from mips import MIPS, MIPSSET
 
 
+class Hazards(object):
+
+    def __init__(self):
+
+        pass
+
+    # @staticmethod
+    # def inst_cache_miss(row_num, col_num, cycle):
+
+    #     if not row_num % 4:
+
+
 class Assembler(object):
 
     def __init__(self, sys_memory):
@@ -13,13 +25,13 @@ class Assembler(object):
         self.INST = filter(None, sys_memory[:25])
         self.MIPS = MIPS(sys_memory, [None] * 32)
         self.TABLE = [[i["label"], i["instruction"]] for i in self.INST]
+        self.UNROLLEDINST = []
         self.CLKCYCLE = self.NUMINST = len(self.INST)
 
     def get_label_line(self, label):
 
         for line_num, line in enumerate(self.INST):
             if label == line["label"]:
-                # print label, "at", line_num
                 return line_num
 
     def calculate_cycle(self, inst):
@@ -62,26 +74,93 @@ class Assembler(object):
 
         pprint(self.MIPS.DATAMEM)
         while file_size != prog_ctr:
+            self.UNROLLEDINST.append(self.INST[prog_ctr]["instruction"])
             prog_ctr = self.parse_line(
                 self.INST[prog_ctr]["label"],
                 self.INST[prog_ctr]["instruction"],
                 prog_ctr
             )
-            self.TABLE[(prog_ctr - 1) % self.NUMINST].append(
-                self.calculate_cycle(
-                    self.INST[(prog_ctr - 1) % self.NUMINST]["instruction"][0]
-                )
-            )
+            # self.TABLE[(prog_ctr - 1) % self.NUMINST].append(
+            #     self.calculate_cycle(
+            #         self.INST[(prog_ctr - 1) % self.NUMINST]["instruction"][0]
+            #     )
+            # )
             # self.TABLE.append(prog_ctr)
             print self.MIPS.REG
 
         # pprint(self.MIPS.DATAMEM)
-        pprint(self.TABLE)
+        # pprint(self.TABLE)
+
+    def compute_cycle(self):
+
+        self.UNROLLEDINST = [[i, 20 * [None]] for i in self.UNROLLEDINST]
+
+        unrolled_iter = xrange(len(self.UNROLLEDINST))
+
+        for row in unrolled_iter:
+
+            inst_cache_miss_cycles = 11
+            stage = 5
+            cur_inst = MIPSSET[self.UNROLLEDINST[row][0][0]]
+            ex_stages = cur_inst["cycle"]
+            row_iter = xrange(len(self.UNROLLEDINST[row][-1]))
+            for col in row_iter:
+
+                if not row % 4:
+                    if inst_cache_miss_cycles:
+                        self.UNROLLEDINST[row][-1][col] = "stall"
+                        inst_cache_miss_cycles -= 1
+
+                    # break from loop after dealing with instruction cache
+                    # misses
+                    # if not inst_cache_miss_cycles:
+                    #     self.UNROLLEDINST[row][-1][col] = "IF"
+                        # break
+
+                else:
+
+                    if col:
+
+                        if self.UNROLLEDINST[row - 1][-1][col] == "stall":
+                            self.UNROLLEDINST[row][-1][col] = "stall"
+
+                        elif self.UNROLLEDINST[row - 1][-1][col] != "stall":
+
+                            if stage == 5:
+                                self.UNROLLEDINST[row][-1][col] = "IF"
+
+                            elif stage == 4:
+                                self.UNROLLEDINST[row][-1][col] = "ID"
+
+                            elif stage == 3:
+                                if ex_stages > 0:
+                                    self.UNROLLEDINST[row][-1][col] = "EX" + \
+                                        str(cur_inst["cycle"] - ex_stages + 1)
+                                    ex_stages -= 1
+                                    stage += 1
+
+                            elif stage == 2:
+                                self.UNROLLEDINST[row][-1][col] = "MEM"
+
+                            elif stage == 1:
+                                self.UNROLLEDINST[row][-1][col] = "WB"
+
+                            stage -= 1
+
+                        print col, \
+                            self.UNROLLEDINST[row - 1][0], \
+                            self.UNROLLEDINST[row - 1][-1][col], \
+                            self.UNROLLEDINST[row][0], \
+                            self.UNROLLEDINST[row][-1][col]
+
+                        # if cur_inst["cycle"] == 1:
+
+            pprint(self.UNROLLEDINST)
 
     def parse_line(self, label, line, prog_ctr):
 
         opcode, reg = line[0], line[1:]
-        print "\x1b[6;30;44m", line, "\x1b[0m"
+        print "\x1b[6;30;44m" + " ".join(line) + "\x1b[0m"
 
         # conditional branches
         if opcode in {"BEQ", "BNE"}:

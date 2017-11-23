@@ -93,5 +93,6 @@ if __name__ == "__main__":
 
         asm_obj = Assembler(SYSMEM)
         asm_obj.assemble()
+        asm_obj.compute_cycle()
 
-        dump_table(asm_obj.TABLE, argv[3])
+        # dump_table(asm_obj.TABLE, argv[3])
