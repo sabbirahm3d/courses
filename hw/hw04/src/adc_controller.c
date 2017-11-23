@@ -34,14 +34,14 @@ void ADCSetup() {
 //Call this function to start an ADC conversion
 void ADCStartConversion() {
 
-    ADCSRA |= 1 << ADSC; //this is automatically cleared
+    ADCSRA |= 1 << ADSC;  // this is automatically cleared
 
 }
 
 
 void ADCClearConversionFlag() {
 
-    ADCSRA |= (1 << ADIF); //all interrupt flags are cleared by writing a one
+    ADCSRA |= (1 << ADIF); // all interrupt flags are cleared by writing a one
 
 }
 
