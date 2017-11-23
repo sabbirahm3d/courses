@@ -103,19 +103,14 @@ class Assembler(object):
             stage = 5
             cur_inst = MIPSSET[self.UNROLLEDINST[row][0][0]]
             ex_stages = cur_inst["cycle"]
+
             row_iter = xrange(len(self.UNROLLEDINST[row][-1]))
             for col in row_iter:
 
-                if not row % 4:
+                if not row % 4 and inst_cache_miss_cycles:
                     if inst_cache_miss_cycles:
                         self.UNROLLEDINST[row][-1][col] = "stall"
                         inst_cache_miss_cycles -= 1
-
-                    # break from loop after dealing with instruction cache
-                    # misses
-                    # if not inst_cache_miss_cycles:
-                    #     self.UNROLLEDINST[row][-1][col] = "IF"
-                        # break
 
                 else:
 
@@ -126,6 +121,11 @@ class Assembler(object):
 
                         elif self.UNROLLEDINST[row - 1][-1][col] != "stall":
 
+                            print "stage", stage, ex_stages,
+
+                            if not ex_stages and stage == 3:
+                                stage -= 1
+
                             if stage == 5:
                                 self.UNROLLEDINST[row][-1][col] = "IF"
 
@@ -133,6 +133,7 @@ class Assembler(object):
                                 self.UNROLLEDINST[row][-1][col] = "ID"
 
                             elif stage == 3:
+
                                 if ex_stages > 0:
                                     self.UNROLLEDINST[row][-1][col] = "EX" + \
                                         str(cur_inst["cycle"] - ex_stages + 1)
@@ -147,7 +148,8 @@ class Assembler(object):
 
                             stage -= 1
 
-                        print col, \
+                        print \
+                            col, \
                             self.UNROLLEDINST[row - 1][0], \
                             self.UNROLLEDINST[row - 1][-1][col], \
                             self.UNROLLEDINST[row][0], \
