@@ -1,4 +1,4 @@
-# Makefile to ease trivial tasks for the project
+# CMSC 411, Fall 2017, Term project Makefile
 
 INST?=$(shell find . -name "inst*.txt")
 DATA?=$(shell find . -name "data*.txt")

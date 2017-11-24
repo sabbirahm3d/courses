@@ -93,13 +93,14 @@ class Assembler(object):
 
     def compute_cycle(self):
 
-        self.UNROLLEDINST = [[i, 20 * [None]] for i in self.UNROLLEDINST]
+        self.UNROLLEDINST = [[i, 100 * [None]] for i in self.UNROLLEDINST]
 
         unrolled_iter = xrange(len(self.UNROLLEDINST))
 
+        i_cache_misses = 1
         for row in unrolled_iter:
 
-            inst_cache_miss_cycles = 11
+            i_cache_miss_ctr = (i_cache_misses * 12) - 1
             stage = 5
             cur_inst = MIPSSET[self.UNROLLEDINST[row][0][0]]
             ex_stages = cur_inst["cycle"]
@@ -107,57 +108,58 @@ class Assembler(object):
             row_iter = xrange(len(self.UNROLLEDINST[row][-1]))
             for col in row_iter:
 
-                if not row % 4 and inst_cache_miss_cycles:
-                    if inst_cache_miss_cycles:
-                        self.UNROLLEDINST[row][-1][col] = "stall"
-                        inst_cache_miss_cycles -= 1
+                if not row % 4 and i_cache_miss_ctr:
+                    if i_cache_miss_ctr:
+                        self.UNROLLEDINST[row][-1][col] = "WAIT"
+                        i_cache_miss_ctr -= 1
+
+                    if not i_cache_miss_ctr:
+                        i_cache_misses += 1
 
                 else:
 
-                    if col:
+                    if self.UNROLLEDINST[row - 1][-1][col] == "WAIT":
+                        self.UNROLLEDINST[row][-1][col] = "WAIT"
 
-                        if self.UNROLLEDINST[row - 1][-1][col] == "stall":
-                            self.UNROLLEDINST[row][-1][col] = "stall"
+                    elif self.UNROLLEDINST[row - 1][-1][col] == "IF":
+                        self.UNROLLEDINST[row][-1][col] = "WAIT"
 
-                        elif self.UNROLLEDINST[row - 1][-1][col] != "stall":
+                    else:
 
-                            print "stage", stage, ex_stages,
-
-                            if not ex_stages and stage == 3:
-                                stage -= 1
-
-                            if stage == 5:
-                                self.UNROLLEDINST[row][-1][col] = "IF"
-
-                            elif stage == 4:
-                                self.UNROLLEDINST[row][-1][col] = "ID"
-
-                            elif stage == 3:
-
-                                if ex_stages > 0:
-                                    self.UNROLLEDINST[row][-1][col] = "EX" + \
-                                        str(cur_inst["cycle"] - ex_stages + 1)
-                                    ex_stages -= 1
-                                    stage += 1
-
-                            elif stage == 2:
-                                self.UNROLLEDINST[row][-1][col] = "MEM"
-
-                            elif stage == 1:
-                                self.UNROLLEDINST[row][-1][col] = "WB"
-
+                        if not ex_stages and stage == 3:
                             stage -= 1
 
-                        print \
-                            col, \
-                            self.UNROLLEDINST[row - 1][0], \
-                            self.UNROLLEDINST[row - 1][-1][col], \
-                            self.UNROLLEDINST[row][0], \
-                            self.UNROLLEDINST[row][-1][col]
+                        if stage == 5:
+                            self.UNROLLEDINST[row][-1][col] = "IF"
 
-                        # if cur_inst["cycle"] == 1:
+                        elif stage == 4:
+                            self.UNROLLEDINST[row][-1][col] = "ID"
 
-            pprint(self.UNROLLEDINST)
+                        elif stage == 3:
+
+                            if ex_stages > 0:
+                                self.UNROLLEDINST[row][-1][col] = "EX" + \
+                                    str(cur_inst["cycle"] - ex_stages + 1)
+                                ex_stages -= 1
+                                stage += 1
+
+                        elif stage == 2:
+                            self.UNROLLEDINST[row][-1][col] = "MEM"
+
+                        elif stage == 1:
+                            self.UNROLLEDINST[row][-1][col] = "WB"
+                            break
+
+                        stage -= 1
+
+                    print \
+                        col, \
+                        self.UNROLLEDINST[row - 1][0], \
+                        self.UNROLLEDINST[row - 1][-1][col], \
+                        self.UNROLLEDINST[row][0], \
+                        self.UNROLLEDINST[row][-1][col]
+
+        pprint(self.UNROLLEDINST)
 
     def parse_line(self, label, line, prog_ctr):
 

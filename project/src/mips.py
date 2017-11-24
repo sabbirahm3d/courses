@@ -4,7 +4,7 @@
 import re
 
 MIPSSET = {
-    "HLT": {"cycle": -1, "func": "halt"},
+    "HLT": {"cycle": 0, "func": "halt"},
     "J": {"cycle": 0, "func": "jump"},
     "BEQ": {"cycle": 0, "func": "branch_eq"},
     "BNE": {"cycle": 0, "func": "branch_neq"},
@@ -42,18 +42,11 @@ def to_dec(num):
 
     if "H" in num:
         return int(num.replace("H", ""), 16)
-    elif "B" in num:
-        return bin_to_dec(num.replace("B", ""))
 
-    return int(num.replace("D", ""))
+    return int(num)
 
 
-def bin_to_dec(num):
-
-    return int(num, 2)
-
-
-def dec_to_hex(num):
+def hex_to_dec_to_hex(num):
 
     return int(hex(num)[2:])
 
@@ -69,7 +62,8 @@ class MIPS(object):
 
         if "(" in addr:
             return (
-                parse_offset(addr) + dec_to_hex(self.REG[parse_reg(addr)]) / 4
+                parse_offset(addr) +
+                hex_to_dec_to_hex(self.REG[parse_reg(addr)]) / 4
             )
 
         return to_dec(addr)
