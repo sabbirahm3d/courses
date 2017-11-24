@@ -34,38 +34,38 @@ class Assembler(object):
             if label == line["label"]:
                 return line_num
 
-    def calculate_cycle(self, inst):
+    # def calculate_cycle(self, inst):
 
-        def get_if_cycle(cycle):
+    #     def get_if_cycle(cycle):
 
-            return cycle + 1
+    #         return cycle + 1
 
-        def get_id_cycle(cycle):
+    #     def get_id_cycle(cycle):
 
-            return cycle + 1
+    #         return cycle + 1
 
-        def get_ex4_cycle(cycle):
+    #     def get_ex4_cycle(cycle):
 
-            return cycle + 1
+    #         return cycle + 1
 
-        def get_mem_cycle(cycle):
+    #     def get_mem_cycle(cycle):
 
-            return cycle + 1
+    #         return cycle + 1
 
-        def get_wb_cycle(cycle):
+    #     def get_wb_cycle(cycle):
 
-            return cycle + 1
+    #         return cycle + 1
 
-        cycles = []
-        for func in (
-            get_if_cycle, get_id_cycle,
-            get_ex4_cycle, get_mem_cycle,
-            get_wb_cycle
-        ):
-            self.CLKCYCLE = func(self.CLKCYCLE)
-            cycles.append(self.CLKCYCLE)
+    #     cycles = []
+    #     for func in (
+    #         get_if_cycle, get_id_cycle,
+    #         get_ex4_cycle, get_mem_cycle,
+    #         get_wb_cycle
+    #     ):
+    #         self.CLKCYCLE = func(self.CLKCYCLE)
+    #         cycles.append(self.CLKCYCLE)
 
-        return cycles
+    #     return cycles
 
     def assemble(self):
 
@@ -175,12 +175,10 @@ class Assembler(object):
 
         # unconditional branch
         elif opcode == "J":
-            self.MIPS.jump(reg, prog_ctr)
             prog_ctr = self.get_label_line(reg[-1])
 
         # halt
         elif opcode == "HLT":
-            self.MIPS.halt(reg, prog_ctr)
             prog_ctr += 1
 
         else:

@@ -40,10 +40,7 @@ def parse_offset(offset):
 
 def to_dec(num):
 
-    if "H" in num:
-        return int(num.replace("H", ""), 16)
-
-    return int(num)
+    return int(num.replace("H", ""), 16) if "H" in num else int(num)
 
 
 def hex_to_dec_to_hex(num):
@@ -177,20 +174,10 @@ class MIPS(object):
 
         rs = parse_reg(ops[0])
         rt = parse_reg(ops[1])
-        # print self.REG[rs], self.REG[rt], self.REG[rs] == self.REG[rt]
         return self.REG[rs] == self.REG[rt]
 
     def branch_neq(self, ops, prog_ctr):
 
         rs = parse_reg(ops[0])
         rt = parse_reg(ops[1])
-        # print self.REG[rs], self.REG[rt], self.REG[rs] != self.REG[rt]
         return self.REG[rs] != self.REG[rt]
-
-    def jump(self, ops, prog_ctr):
-
-        return None
-
-    def halt(self, ops, prog_ctr):
-
-        return None
