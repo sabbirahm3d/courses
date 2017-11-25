@@ -64,32 +64,71 @@ class Assembler(object):
         i_cache_miss_ctr = 11
 
         for row_num, row in enumerate(self.CLKCYCLE):
-            stage = 5
+
             for col_num, col in enumerate(self.CLKCYCLE[row_num]):
 
-                if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0]:
+                if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
+                        and "IF" not in row[:col_num]:
+
                     i_cache_miss_ctr -= 1
                     row[col_num] = "IMISS"
+
                     if not i_cache_miss_ctr:
                         mod4_inst.remove(col_num)
                         i_cache_miss_ctr = 11
 
+                    break
+
                 else:
+
+                    """
+                    Forwarding
+                    • MEM, EX 2, 3 -> EX 1
+                    • MEM, EX 1, 2, 3 -> ID
+                    • MEM -> MEM
+                    """
 
                     # if there was an instruction cache miss in the current
                     # cycle
                     if "IMISS" in row[:col_num]:
                         row[col_num] = "WAIT"
 
-                    elif "IF" in self.CLKCYCLE[row_num][:col_num]:
+                    # if previous instruction is in a fetch stage
+                    elif "IF" == self.CLKCYCLE[row_num][col_num - 1]:
                         row[col_num] = "WAIT"
 
+                    # if previous instruction is in a decoding stage or the
+                    # previous cycle was in a fetch stage
                     elif "IMISS" == self.CLKCYCLE[row_num - 1][col_num] \
                             or "ID" == self.CLKCYCLE[row_num][col_num - 1]:
                         row[col_num] = "IF"
 
-                    elif "IF" == self.CLKCYCLE[row_num - 1][col_num]:
+                    elif "IF" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "EX1" == self.CLKCYCLE[row_num][col_num - 1]:
                         row[col_num] = "ID"
+
+                    elif "ID" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "EX2" == self.CLKCYCLE[row_num][col_num - 1]:
+                        row[col_num] = "EX1"
+
+                    elif "EX1" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "EX3" == self.CLKCYCLE[row_num][col_num - 1]:
+                        row[col_num] = "EX2"
+
+                    elif "EX2" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "EX4" == self.CLKCYCLE[row_num][col_num - 1]:
+                        row[col_num] = "EX3"
+
+                    elif "EX3" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "MEM" == self.CLKCYCLE[row_num][col_num - 1]:
+                        row[col_num] = "EX4"
+
+                    elif "EX4" == self.CLKCYCLE[row_num - 1][col_num] \
+                            or "WB" == self.CLKCYCLE[row_num][col_num - 1]:
+                        row[col_num] = "MEM"
+
+                    elif "MEM" == self.CLKCYCLE[row_num - 1][col_num]:
+                        row[col_num] = "WB"
 
                     # elif "ID" == self.CLKCYCLE[row_num][col_num - 1]:
                     #     row[col_num] = "IF"
@@ -128,8 +167,10 @@ class Assembler(object):
 
                     #     stage -= 1
 
-        for i in self.CLKCYCLE:
-            print i
+        row_fmt = "{:<12}" * (col_num + 2)
+        print self.UNROLLEDINST
+        for i, j in enumerate(self.CLKCYCLE):
+            print row_fmt.format("", *([i + 1] + j))
 
     def parse_line(self, label, line, prog_ctr):
 
