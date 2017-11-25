@@ -1,16 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Contract
-% Structural Definitions File
-% Version 1.0 (December 8 2014)
+% Contract Structural Definitions File Version 1.0 (December 8 2014)
 %
-% Created by:
-% Vel (vel@latextemplates.com)
+% Created by: Vel (vel@latextemplates.com)
 % 
-% This file has been downloaded from:
-% http://www.LaTeXTemplates.com
+% This file has been downloaded from: http://www.LaTeXTemplates.com
 %
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,13 +43,19 @@
 
 \lstset{language=C, keywordstyle={\bfseries \color{black}}}
 
-\newcounter{nalg}[section] % defines algorithm counter for chapter-level
-\renewcommand{\thenalg}{\thesection .\arabic{nalg}} %defines appearance of the algorithm counter
-\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg} % defines a new caption label as Algorithm x.y
+% defines algorithm counter for chapter-level
+\newcounter{nalg}[section]
+
+%defines appearance of the algorithm counter
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}}
+
+% defines a new caption label as Algorithm x.y
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg}
 
 %defines the algorithm listing environment
-\lstnewenvironment{pseudocode}[1][] {   
+\lstnewenvironment{pseudocode}[1][] {
     \refstepcounter{nalg} %increments algorithm number
+
     \captionsetup{labelformat=algocaption,labelsep=colon}
     \lstset{
         mathescape=true,

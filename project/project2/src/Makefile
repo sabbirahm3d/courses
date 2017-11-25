@@ -1,3 +1,5 @@
+# main Makefile for Project 2
+
 SIZE = 10000
 SEQ1 = seq1.txt
 SEQ2 = seq2.txt
@@ -31,7 +33,7 @@ run:
 .PHONY: val
 val:
 	# check memory leaks
-	valgrind --leak-check=full -v --show-leak-kinds=all ./${EXE} ${SEQ1} ${SEQ2}
+	valgrind ./${EXE} ${SEQ1} ${SEQ2}
 
 
 # ---------- building targets ----------

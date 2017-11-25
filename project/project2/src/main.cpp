@@ -3,6 +3,9 @@
 #include <iostream>
 #include <cstring>
 
+// MAX on local: 1446
+// MAX on GL: 1772
+
 int max(int a, int b);
 
 int lcs(const char *, const char *, size_t, size_t, bool);
@@ -11,11 +14,11 @@ char *read_sequence(const char *file_name) {
 
     FILE *file = fopen(file_name, "rb");
     fseek(file, 0, SEEK_END);
-    long fsize = ftell(f);
+    long fsize = ftell(file);
     fseek(file, 0, SEEK_SET);
 
     auto buffer = (char *) malloc(fsize + 1);
-    fread(buffer, fsize, 1, f);
+    fread(buffer, fsize, 1, file);
     fclose(file);
 
     buffer[fsize] = '\0';
@@ -26,8 +29,8 @@ char *read_sequence(const char *file_name) {
 
 
 /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-int
-lcs(const char *seq1, const char *seq2, size_t m, size_t n, bool print_lcs) {
+int lcs(const char *seq1, const char *seq2, size_t m, size_t n,
+        bool print_lcs) {
 
     int L[m + 1][n + 1];
 
