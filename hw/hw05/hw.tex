@@ -146,6 +146,9 @@
             blocks.
 
             \textbf{Answer}
+
+            Since the block size is 1 word, $log_{2}(1)=0$ offset bits are
+            required.
             \begin{table}[h]
                 \centering
                 \caption{A Direct-mapped Cache With 16 One-word Blocks}
@@ -153,18 +156,18 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110 & & & miss   \\
-                    214 & 11010110 & & & miss   \\
-                    175 & 10101111 & & & miss   \\
-                    214 & 11010110 & & & hit    \\
-                    6   & 00000110 & & & hit    \\
-                    84  & 01010100 & & & miss   \\
-                    65  & 01000001 & & & miss   \\
-                    174 & 10101110 & & & hit    \\
-                    64  & 01000000 & & & hit    \\
-                    105 & 01101001 & & & miss   \\
-                    85  & 01010101 & & & hit    \\
-                    215 & 11010111 & & & hit    \\
+                    6   & 00000110  & 0000  & 0110  & miss  \\
+                    214 & 11010110  & 1101  & 0110  & miss  \\
+                    175 & 10101111  & 1010  & 1111  & miss  \\
+                    214 & 11010110  & 1101  & 0110  & hit   \\
+                    6   & 00000110  & 0000  & 0110  & miss  \\
+                    84  & 01010100  & 0101  & 0100  & miss  \\
+                    65  & 01000001  & 0100  & 0001  & miss  \\
+                    174 & 10101110  & 1010  & 1110  & miss  \\
+                    64  & 01000000  & 0100  & 0000  & miss  \\
+                    105 & 01101001  & 0110  & 1001  & miss  \\
+                    85  & 01010101  & 0101  & 0101  & miss  \\
+                    215 & 11010111  & 1101  & 0111  & miss  \\
                 \end{tabular*}
             \end{table}
             \newpage
@@ -173,6 +176,8 @@
             and a total size of eight blocks.
 
             \textbf{Answer}
+            Since the block size is 2 words, $log_{2}(2)=1$ offset bits are
+            required.
             \begin{table}[h]
                 \centering
                 \caption{A Direct-mapped Cache With Two-word Blocks And A Total
@@ -181,18 +186,18 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110 & & & miss   \\
-                    214 & 11010110 & & & miss   \\
-                    175 & 10101111 & & & miss   \\
-                    214 & 11010110 & & & hit    \\
-                    6   & 00000110 & & & hit    \\
-                    84  & 01010100 & & & miss   \\
-                    65  & 01000001 & & & miss   \\
-                    174 & 10101110 & & & hit    \\
-                    64  & 01000000 & & & hit    \\
-                    105 & 01101001 & & & miss   \\
-                    85  & 01010101 & & & hit    \\
-                    215 & 11010111 & & & hit    \\
+                    6   & 00000110  & 0000  & 011   & miss  \\
+                    214 & 11010110  & 1101  & 011   & miss  \\
+                    175 & 10101111  & 1010  & 111   & miss  \\
+                    214 & 11010110  & 1101  & 011   & hit   \\
+                    6   & 00000110  & 0000  & 011   & miss  \\
+                    84  & 01010100  & 0101  & 010   & miss  \\
+                    65  & 01000001  & 0100  & 000   & miss  \\
+                    174 & 10101110  & 1010  & 111   & miss  \\
+                    64  & 01000000  & 0100  & 000   & miss  \\
+                    105 & 01101001  & 0110  & 100   & miss  \\
+                    85  & 01010101  & 0101  & 010   & miss  \\
+                    215 & 11010111  & 1101  & 011   & miss  \\
                 \end{tabular*}
             \end{table}
             \newpage
