@@ -1,58 +1,94 @@
 /* Dynamic Programming C/C++ implementation of LCS problem */
-#include<bits/stdc++.h>
+#include <fstream>
+#include <iostream>
+#include <cstring>
 
 int max(int a, int b);
 
+int lcs(const char *, const char *, size_t, size_t, bool);
+
+char *read_sequence(const char *file_name) {
+
+    FILE *file = fopen(file_name, "rb");
+    fseek(file, 0, SEEK_END);
+    long fsize = ftell(f);
+    fseek(file, 0, SEEK_SET);
+
+    auto buffer = (char *) malloc(fsize + 1);
+    fread(buffer, fsize, 1, f);
+    fclose(file);
+
+    buffer[fsize] = '\0';
+
+    return buffer;
+
+}
+
+
 /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-size_t lcs(char *X, char *Y, size_t m, size_t n) {
+int
+lcs(const char *seq1, const char *seq2, size_t m, size_t n, bool print_lcs) {
 
     int L[m + 1][n + 1];
 
     /* Following steps build L[m+1][n+1] in bottom up fashion. Note
-       that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1] */
+       that L[i][j] contains length of LCS of seq1[0..i-1] and Y[0..j-1] */
     for (size_t i = 0; i <= m; i++) {
         for (size_t j = 0; j <= n; j++) {
             if (i == 0 || j == 0)
                 L[i][j] = 0;
-            else if (X[i - 1] == Y[j - 1])
+            else if (seq1[i - 1] == seq2[j - 1])
                 L[i][j] = L[i - 1][j - 1] + 1;
             else
                 L[i][j] = max(L[i - 1][j], L[i][j - 1]);
         }
     }
 
-    // Following code is used to print LCS
-    int index = L[m][n];
+    if (print_lcs) {
 
-    // Create a character array to store the lcs string
-    char lcs[index + 1];
-    lcs[index] = '\0'; // Set the terminating character
+        // Following code is used to print LCS
+        int index = L[m][n];
 
-    // Start from the right-most-bottom-most corner and
-    // one by one store characters in lcs[]
-    size_t i = m, j = n;
-    while (i > 0 && j > 0) {
-        // If current character in X[] and Y are same, then
-        // current character is part of LCS
-        if (X[i - 1] == Y[j - 1]) {
-            lcs[index - 1] = X[i - 1]; // Put current character in result
-            i--;
-            j--;
-            index--;     // reduce values of i, j and index
+        // Create a character array to store the lcs string
+        auto lcs = new char[index + 1];
+        lcs[index] = '\0'; // Set the terminating character
+
+        // Start from the right-most-bottom-most corner and
+        // one by one store characters in lcs[]
+        size_t i = m, j = n;
+        while (i > 0 && j > 0) {
+
+            // If current character in seq1[] and Y are same, then current
+            // character is part of LCS
+            if (seq1[i - 1] == seq2[j - 1]) {
+
+                // Put current character in result
+                lcs[index - 1] = seq1[i - 1];
+
+                // reduce values of i, j and index
+                i--;
+                j--;
+                index--;
+
+            } else if (L[i - 1][j] > L[i][j - 1]) {
+                // if not same, then find the larger of two and
+                // go in the direction of larger value
+                i--;
+            } else {
+                j--;
+            }
+
         }
 
-            // If not same, then find the larger of two and
-            // go in the direction of larger value
-        else if (L[i - 1][j] > L[i][j - 1])
-            i--;
-        else
-            j--;
+        // Print the lcs
+        printf("LCS: %s\n", lcs);
+        free(lcs);
+        lcs = NULL;
+
     }
 
-    // Print the lcs
-    std::cout << "LCS of " << X << " and " << Y << " is " << lcs << std::endl;
+    return L[m][n];
 
-    return strlen(lcs);
 }
 
 /* Utility function to get max of 2 integers */
@@ -63,14 +99,19 @@ int max(int a, int b) {
 }
 
 /* Driver program to test above function */
-int main() {
+int main(int argc, char *argv[]) {
 
-    char X[] = "GTAGCC";
-    char Y[] = "CATACATCATACGTGTAGGCCGAAGCGGCTGCGACGAGCCCCAAGGGGAAGA";
+    auto seq1 = read_sequence(argv[1]);
+    auto seq2 = read_sequence(argv[2]);
 
-    size_t length = lcs(X, Y, strlen(X), strlen(Y));
-    printf("Length of LCS is %zu\n", length);
+    int lcs_len = lcs(seq1, seq2, strlen(seq1), strlen(seq2), false);
+    std::cout << "Length of LCS is " << lcs_len << std::endl;
 
-    return 0;
+    free(seq1);
+    seq1 = NULL;
+    free(seq2);
+    seq2 = NULL;
+
+    return EXIT_SUCCESS;
 
 }

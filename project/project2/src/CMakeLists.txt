@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(divide_and_conquer)
+project(multithread_lcs)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
