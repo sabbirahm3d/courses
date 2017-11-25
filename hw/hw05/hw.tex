@@ -1,0 +1,146 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors: Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{extarticle}
+\input{../structure.tex} % specifies the document layout and style
+
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l} \textbf{#1} \\ \textbf{#2} \\ #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing} }
+    \end{centering} }
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}
+    {CMSC 411 - HW 05}
+    {\textbf{DATE:} \today}
+    \vspace{-0.3in}
+
+    \begin{enumerate}
+
+        \item The table below lists parameters for different direct-mapped cache designs.
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccc}
+                    & \textbf{Cache Data Size}  & \textbf{Cache Block Size} \\
+                \hline
+                i)  & 64 KB                     & 1 word                    \\
+                ii) & 64 KB                     & 2 words                   \\
+            \end{tabular*}
+        \end{table}
+
+        \begin{enumerate}
+
+            \item \textbf{Question} Calculate the total number of bits required
+            for the cache listed in the table, assuming a 32-bit address.
+
+            \textbf{Answer}
+
+            \item \textbf{Question} What is the total number of bits if the
+            cache is organized as a 4-way associative with one word blocks?
+
+            \textbf{Answer}
+
+        \end{enumerate}
+
+            \item For a pipeline with a perfect CPI=1 if no memory-access
+            related stall, consider the following program and cache behaviors.
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{1.5cm}}
+                    \textbf{Data Reads Per 1000 Instructions} & \textbf{Data
+                    Writes Per 1000 Instructions} & \textbf{Instruction Cache
+                    Miss Rate} & \textbf{Data Cache Miss Rate} & \textbf{Block
+                    Size (Byte)} \\
+                    \hline
+                    200 & 160 & 0.20\% & 2\% & 8 \\
+                \end{tabular}
+            \end{table}
+
+        \begin{enumerate}
+
+            \item \textbf{Question} For a write-through, write-allocate cache
+            with sufficiently large write buffer (i.e., no buffer caused
+            stalls), what’s the minimum read and write bandwidths (measured by
+            byte-per- cycle) needed to achieve a CPI of 2?
+
+            \textbf{Answer} 
+
+            \item \textbf{Question} For a write-back, write-allocate cache,
+            assuming 30\% of replaced data cache blocks are dirty, what’s the
+            minimal read and write bandwidths needed for a CPI of 2?
+
+            \textbf{Answer}
+
+        \end{enumerate}
+
+        \item Using the sequences of 32-bit memory read
+        references, given as word addresses in the following table:
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular*}{300pt}{@{\extracolsep{\fill}}
+            |c|c|c|c|c|c|c|c|c|c|c|c|}
+            \hline
+            6 & 214 & 175 & 214 & 6 & 84 & 65 & 174 & 64 & 105 & 85 & 215 \\
+            \hline
+            \end{tabular*}
+        \end{table}
+        \newpage
+
+        For each of these read accesses, identify the binary address, the tag,
+        the index, and whether it experiences a hit or a miss, for each of the
+        following cache configurations. Assume the cache is initially empty.
+
+        \begin{enumerate}
+
+            \item \textbf{Question} A direct-mapped cache with 16 one-word
+            blocks.
+
+            \textbf{Answer}
+
+
+            \item \textbf{Question} A direct-mapped cache with two-word blocks
+            and a total size of eight blocks.
+
+            \textbf{Answer}
+
+
+            \item \textbf{Question} A fully associative cache with two-word
+            blocks and a total size of eight words. Use LRU replacement.
+
+            \textbf{Answer}
+
+
+            \item \textbf{Question} A 2-way set associative cache with one-word
+            block size and total size of 8 words, while applying LRU
+            replacement policy.
+
+            \textbf{Answer}
+
+        \end{enumerate}
+
+    \end{enumerate}
+
+\end{document}
