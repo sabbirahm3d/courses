@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Template LaTeX Template Version 1.0 (December 8 2014)
 %
 % This template has been downloaded from: http://www.LaTeXTemplates.com
@@ -10,7 +10,7 @@
 %
 % Authors: Sabbir Ahmed
 % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt]{extarticle}
 \input{../structure.tex} % specifies the document layout and style
@@ -44,8 +44,8 @@
             \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccc}
                     & \textbf{Cache Data Size}  & \textbf{Cache Block Size} \\
                 \hline
-                i)  & 64 KB                     & 1 word                    \\
-                ii) & 64 KB                     & 2 words                   \\
+                i)  & 64 kB                     & 1 word                    \\
+                ii) & 64 kB                     & 2 words                   \\
             \end{tabular*}
         \end{table}
 
@@ -54,7 +54,34 @@
             \item \textbf{Question} Calculate the total number of bits required
             for the cache listed in the table, assuming a 32-bit address.
 
-            \textbf{Answer}
+            \textbf{Answer} \\
+            Using: 
+                \[ 2^{\text{n}} \times (\text{valid field size} + \text{tag
+                size} + \text{block size}) \]
+            where
+            \begin{equation*}
+                \begin{split}
+                    \text{tag size} & = 32 - (n + m + 2) \\
+                    n & = log_2(\text{cache data size}) \\
+                    m & = log_2(\text{block size}) \\
+                    \text{valid bits} & = 1 \\
+                \end{split}
+            \end{equation*}
+
+            For design i) total number of bits required:
+            \begin{equation*}
+                \begin{split}
+                    n & = log_2(\text{64 kB}) \\
+                    & = 16 \\
+                    m & = log_2(\text{2}) \\
+                    & = 1 \\
+                    \text{tag size} & = 32 - (16 + 1 + 2) \\
+                    & = 13 \\
+                    \text{valid bits} & = 1 \\
+                    \text{total bits} & = 2^{16} \times (1 + 13 + 2) \\
+                    & = 2^{20} \ \text{bits} \\
+                \end{split}
+            \end{equation*}
 
             \item \textbf{Question} What is the total number of bits if the
             cache is organized as a 4-way associative with one word blocks?
@@ -63,7 +90,7 @@
 
         \end{enumerate}
 
-            \item For a pipeline with a perfect CPI=1 if no memory-access
+            \item For a pipeline with a perfect CPI = 1 if no memory-access
             related stall, consider the following program and cache behaviors.
 
             \begin{table}[h]
@@ -95,8 +122,8 @@
 
         \end{enumerate}
 
-        \item Using the sequences of 32-bit memory read
-        references, given as word addresses in the following table:
+        \item Using the sequences of 32-bit memory read references, given as
+        word addresses in the following table:
 
         \begin{table}[h]
             \centering
@@ -119,25 +146,113 @@
             blocks.
 
             \textbf{Answer}
-
+            \begin{table}[h]
+                \centering
+                \caption{A Direct-mapped Cache With 16 One-word Blocks}
+                \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
+                    \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
+                    \textbf{Index} & \textbf{Hit / Miss} \\
+                    \hline
+                    6   & 00000110 & & & miss   \\
+                    214 & 11010110 & & & miss   \\
+                    175 & 10101111 & & & miss   \\
+                    214 & 11010110 & & & hit    \\
+                    6   & 00000110 & & & hit    \\
+                    84  & 01010100 & & & miss   \\
+                    65  & 01000001 & & & miss   \\
+                    174 & 10101110 & & & hit    \\
+                    64  & 01000000 & & & hit    \\
+                    105 & 01101001 & & & miss   \\
+                    85  & 01010101 & & & hit    \\
+                    215 & 11010111 & & & hit    \\
+                \end{tabular*}
+            \end{table}
+            \newpage
 
             \item \textbf{Question} A direct-mapped cache with two-word blocks
             and a total size of eight blocks.
 
             \textbf{Answer}
-
+            \begin{table}[h]
+                \centering
+                \caption{A Direct-mapped Cache With Two-word Blocks And A Total
+                Size Of Eight Blocks}
+                \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
+                    \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
+                    \textbf{Index} & \textbf{Hit / Miss} \\
+                    \hline
+                    6   & 00000110 & & & miss   \\
+                    214 & 11010110 & & & miss   \\
+                    175 & 10101111 & & & miss   \\
+                    214 & 11010110 & & & hit    \\
+                    6   & 00000110 & & & hit    \\
+                    84  & 01010100 & & & miss   \\
+                    65  & 01000001 & & & miss   \\
+                    174 & 10101110 & & & hit    \\
+                    64  & 01000000 & & & hit    \\
+                    105 & 01101001 & & & miss   \\
+                    85  & 01010101 & & & hit    \\
+                    215 & 11010111 & & & hit    \\
+                \end{tabular*}
+            \end{table}
+            \newpage
 
             \item \textbf{Question} A fully associative cache with two-word
             blocks and a total size of eight words. Use LRU replacement.
 
             \textbf{Answer}
-
+            \begin{table}[h]
+                \centering
+                \caption{A Fully Associative Cache With Two-word Blocks And A
+                Total Size Of Eight Words With LRU Replacement}
+                \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
+                    \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
+                    \textbf{Index} & \textbf{Hit / Miss} \\
+                    \hline
+                    6   & 00000110 & & & miss   \\
+                    214 & 11010110 & & & miss   \\
+                    175 & 10101111 & & & miss   \\
+                    214 & 11010110 & & & hit    \\
+                    6   & 00000110 & & & hit    \\
+                    84  & 01010100 & & & miss   \\
+                    65  & 01000001 & & & miss   \\
+                    174 & 10101110 & & & hit    \\
+                    64  & 01000000 & & & hit    \\
+                    105 & 01101001 & & & miss   \\
+                    85  & 01010101 & & & hit    \\
+                    215 & 11010111 & & & hit    \\
+                \end{tabular*}
+            \end{table}
+            \newpage
 
             \item \textbf{Question} A 2-way set associative cache with one-word
             block size and total size of 8 words, while applying LRU
             replacement policy.
 
             \textbf{Answer}
+            \begin{table}[h]
+                \centering
+                \caption{A 2-way Set Associative Cache With One-word Block Size
+                And Total Size Of 8 Words With LRU Replacement Policy}
+                \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
+                    \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
+                    \textbf{Index} & \textbf{Hit / Miss} \\
+                    \hline
+                    6   & 00000110 & & & miss   \\
+                    214 & 11010110 & & & miss   \\
+                    175 & 10101111 & & & miss   \\
+                    214 & 11010110 & & & hit    \\
+                    6   & 00000110 & & & hit    \\
+                    84  & 01010100 & & & miss   \\
+                    65  & 01000001 & & & miss   \\
+                    174 & 10101110 & & & hit    \\
+                    64  & 01000000 & & & hit    \\
+                    105 & 01101001 & & & miss   \\
+                    85  & 01010101 & & & hit    \\
+                    215 & 11010111 & & & hit    \\
+                \end{tabular*}
+            \end{table}
+            \newpage
 
         \end{enumerate}
 
