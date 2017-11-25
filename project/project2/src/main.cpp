@@ -3,12 +3,9 @@
 #include <iostream>
 #include <cstring>
 
-// MAX on local: 1446
-// MAX on GL: 1772
-
 int max(int a, int b);
 
-int lcs(const char *, const char *, size_t, size_t, bool);
+int serial_lcs(const char *, const char *, size_t, size_t, bool);
 
 char *read_sequence(const char *file_name) {
 
@@ -29,28 +26,32 @@ char *read_sequence(const char *file_name) {
 
 
 /* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-int lcs(const char *seq1, const char *seq2, size_t m, size_t n,
-        bool print_lcs) {
+int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
+               bool print_lcs) {
 
-    int L[m + 1][n + 1];
+    auto **lcs_table = new int *[m + 1];
+    for (size_t i = 0; i < m + 1; ++i)
+        lcs_table[i] = new int[n + 1];
 
     /* Following steps build L[m+1][n+1] in bottom up fashion. Note
        that L[i][j] contains length of LCS of seq1[0..i-1] and Y[0..j-1] */
     for (size_t i = 0; i <= m; i++) {
         for (size_t j = 0; j <= n; j++) {
             if (i == 0 || j == 0)
-                L[i][j] = 0;
+                lcs_table[i][j] = 0;
             else if (seq1[i - 1] == seq2[j - 1])
-                L[i][j] = L[i - 1][j - 1] + 1;
+                lcs_table[i][j] = lcs_table[i - 1][j - 1] + 1;
             else
-                L[i][j] = max(L[i - 1][j], L[i][j - 1]);
+                lcs_table[i][j] = max(lcs_table[i - 1][j], lcs_table[i][j - 1]);
         }
     }
 
+    // Following code is used to print LCS
+    int lcs_len = lcs_table[m][n];
+
     if (print_lcs) {
 
-        // Following code is used to print LCS
-        int index = L[m][n];
+        int index = lcs_len;
 
         // Create a character array to store the lcs string
         auto lcs = new char[index + 1];
@@ -73,7 +74,7 @@ int lcs(const char *seq1, const char *seq2, size_t m, size_t n,
                 j--;
                 index--;
 
-            } else if (L[i - 1][j] > L[i][j - 1]) {
+            } else if (lcs_table[i - 1][j] > lcs_table[i][j - 1]) {
                 // if not same, then find the larger of two and
                 // go in the direction of larger value
                 i--;
@@ -85,12 +86,20 @@ int lcs(const char *seq1, const char *seq2, size_t m, size_t n,
 
         // Print the lcs
         printf("LCS: %s\n", lcs);
-        free(lcs);
+        delete lcs;
         lcs = NULL;
 
     }
 
-    return L[m][n];
+    for (size_t i = 0; i < m + 1; ++i) {
+        delete[] lcs_table[i];
+        lcs_table[i] = NULL;
+    }
+
+    delete[]lcs_table;
+    lcs_table = NULL;
+
+    return lcs_len;
 
 }
 
@@ -107,12 +116,12 @@ int main(int argc, char *argv[]) {
     auto seq1 = read_sequence(argv[1]);
     auto seq2 = read_sequence(argv[2]);
 
-    int lcs_len = lcs(seq1, seq2, strlen(seq1), strlen(seq2), false);
+    int lcs_len = serial_lcs(seq1, seq2, strlen(seq1), strlen(seq2), true);
     std::cout << "Length of LCS is " << lcs_len << std::endl;
 
-    free(seq1);
+    delete seq1;
     seq1 = NULL;
-    free(seq2);
+    delete seq2;
     seq2 = NULL;
 
     return EXIT_SUCCESS;
