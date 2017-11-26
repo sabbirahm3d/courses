@@ -18,7 +18,9 @@
 
 int max2(int, int);
 
-int serial_lcs(const char *, const char *, size_t, size_t, bool= false);
+int serial_lcs(const char *, const char *, size_t, size_t, int **);
+
+void print_lcs(const char *, const char *, size_t, size_t, int **);
 
 char *read_sequence(const char *);
 
@@ -75,28 +77,22 @@ char *read_sequence(const char *file_name) {
 
 
 /*
- * Computes the longest common subsequence between the two sequences
+ * Computes the longest common subsequence between the two sequences using
+ * a serial implementation of the memoization method
  *
  * inputs:
  *      seq1        : sequence 1 buffer
  *      seq2        : sequence 2 buffer
  *      m           : size of sequence 1
  *      n           : size of sequence 2
- *      print_lcs   : <default: false> flag to print the longest common
- *                    subsequence
+ *      lcs_matrix   : empty 2D array to construct the LCS matrix
  *
  * output:
  *      length of the longest common subsequence
  *
  */
-int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
-               bool print_lcs) {
-
-    // dynamically allocate the (m + 1) * (n + 1) LCS table on heap
-    auto **lcs_table = new int *[m + 1];
-    for (size_t i = 0; i < m + 1; ++i) {
-        lcs_table[i] = new int[n + 1];
-    }
+int serial_lcs(const char *X, const char *Y, size_t m, size_t n,
+               int **lcs_matrix) {
 
     // use the memoization method to find the longest common subsequence
     for (size_t i = 0; i <= m; i++) {
@@ -106,87 +102,92 @@ int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
             // upper-leftmost cell
             if (!i || !j) {
 
-                lcs_table[i][j] = 0;
+                lcs_matrix[i][j] = 0;
 
-            } else if (seq1[i - 1] == seq2[j - 1]) {
+            } else if (X[i - 1] == Y[j - 1]) {
 
                 // current cell gets value of left diagonal cell and
                 // incremented
-                lcs_table[i][j] = lcs_table[i - 1][j - 1] + 1;
+                lcs_matrix[i][j] = lcs_matrix[i - 1][j - 1] + 1;
 
             } else {
 
                 // current cell gets maximum of the value between previous row
                 // and previous column
-                lcs_table[i][j] = max2(lcs_table[i - 1][j],
-                                       lcs_table[i][j - 1]);
+                lcs_matrix[i][j] = max2(lcs_matrix[i - 1][j],
+                                       lcs_matrix[i][j - 1]);
 
             }
 
         }
     }
 
-    // the last value of the table is the length of the LCS
-    int lcs_len = lcs_table[m][n];
+    // the last value of the matrix is the length of the LCS
+    return lcs_matrix[m][n];
+}
 
-    // if printing LCS flag is true
-    if (print_lcs) {
 
-        // cursor of the table
-        int cursor = lcs_len;
+/*
+ * Prints the longest common subsequence found
+ *
+ * inputs:
+ *      seq1        : sequence 1 buffer
+ *      seq2        : sequence 2 buffer
+ *      m           : size of sequence 1
+ *      n           : size of sequence 2
+ *      lcs_matrix   : LCS matrix
+ *
+ * output:
+ *      none
+ *
+ * */
+void print_lcs(const char *X, const char *Y, size_t m, size_t n,
+               int **lcs_matrix) {
 
-        // create a character array to store the lcs string
-        auto lcs_str = new char[cursor + 1];
-        lcs_str[cursor] = '\0'; // Set the terminating character
+    // cursor of the matrix
+    int cursor = lcs_matrix[m][n];
 
-        // init from the bottom-rightmost cell and store characters in lcs[]
-        size_t i = m, j = n;
-        while (i > 0 && j > 0) {
+    // create a character array to store the lcs string
+    auto lcs_str = new char[cursor + 1];
+    lcs_str[cursor] = '\0'; // Set the terminating character
 
-            // if current character in seq1[] and seq2[] are same, then current
-            // character is part of LCS
-            if (seq1[i - 1] == seq2[j - 1]) {
+    // init from the bottom-rightmost cell and store characters in lcs[]
+    size_t i = m, j = n;
+    while (i > 0 && j > 0) {
 
-                // result gets current character
-                lcs_str[cursor - 1] = seq1[i - 1];
+        // if current character in X[] and Y[] are same, then current
+        // character is part of LCS
+        if (X[i - 1] == Y[j - 1]) {
 
-                // decrement i, j and cursor
-                i--;
-                j--;
-                cursor--;
+            // result gets current character
+            lcs_str[cursor - 1] = X[i - 1];
 
-            }
-
-                // if not same, then find the larger of two and go in the
-                // direction of larger value
-            else if (lcs_table[i - 1][j] > lcs_table[i][j - 1]) {
-
-                i--;
-
-            } else {
-
-                j--;
-
-            }
+            // decrement i, j and cursor
+            i--;
+            j--;
+            cursor--;
 
         }
 
-        // print the lcs
-        std::cout << "LCS: " << lcs_str << std::endl;
-        delete lcs_str;
-        lcs_str = NULL;
+            // if not same, then find the larger of two and go in the
+            // direction of larger value
+        else if (lcs_matrix[i - 1][j] > lcs_matrix[i][j - 1]) {
+
+            i--;
+
+        } else {
+
+            j--;
+
+        }
 
     }
 
-    // delete dynamically allocated arrays
-    for (size_t i = 0; i < m + 1; ++i) {
-        delete[] lcs_table[i];
-        lcs_table[i] = NULL;
-    }
-    delete[]lcs_table;
-    lcs_table = NULL;
-
-    return lcs_len;
+    // print the lcs
+    std::cout << "Longest common subsequence found:" << std::endl << lcs_str <<
+              std::endl;
+    delete lcs_str;
+    lcs_str = NULL;
 
 }
 
@@ -198,17 +199,46 @@ int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
 int main(int argc, char *argv[]) {
 
     // initialize the two sequence buffers
-    auto seq1 = read_sequence(argv[1]);
-    auto seq2 = read_sequence(argv[2]);
+    char *X = read_sequence(argv[1]), *Y = read_sequence(argv[2]);
+    size_t m = strlen(X), n = strlen(Y);
+    clock_t start_t, end_t;
 
+    // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
+    auto **lcs_matrix = new int *[m + 1];
+    for (size_t i = 0; i < m + 1; ++i) {
+        lcs_matrix[i] = new int[n + 1];
+    }
+
+    // start timer
+    start_t = clock();
     // get length of LCS
-    int lcs_len = serial_lcs(seq1, seq2, strlen(seq1), strlen(seq2));
+    int lcs_len = serial_lcs(X, Y, m, n, lcs_matrix);
+    // stop timer
+    end_t = clock() - start_t;
     std::cout << "Length of LCS is " << lcs_len << std::endl;
 
-    delete seq1;
-    seq1 = NULL;
-    delete seq2;
-    seq2 = NULL;
+    std::cout.precision(3);  // set precision of floats in stdout
+    std::cout << "Serial algorithm took " << std::fixed <<
+              ((double) end_t) / CLOCKS_PER_SEC
+              << " seconds to compute the LCS." <<
+              std::endl;
+
+    // print the LCS
+    print_lcs(X, Y, m, n, lcs_matrix);
+
+    // delete dynamically allocated arrays
+    for (size_t i = 0; i < m + 1; ++i) {
+        delete[] lcs_matrix[i];
+        lcs_matrix[i] = NULL;
+    }
+    delete[]lcs_matrix;
+    lcs_matrix = NULL;
+
+    // delete buffers
+    delete X;
+    X = NULL;
+    delete Y;
+    Y = NULL;
 
     return EXIT_SUCCESS;
 

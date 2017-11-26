@@ -21,6 +21,11 @@
 
 \newcommand{\project}{Project 2: Multithread LCS}
 \newcommand{\members}{Sabbir Ahmed \& Zafar Mamarakhimov}
+\newcommand{\V}[1]{\textup{#1}}
+\newcommand{\lcs}{\V{lcs}}
+\newcommand{\seqone}{\V{X}}
+\newcommand{\seqtwo}{\V{Y}}
+\newcommand{\lcsstr}{\V{lcsstr}}
 
 \begin{document}
 
@@ -72,19 +77,19 @@
 \begin{pseudocode}[caption={Serial Longest Common Subsequence Length},
 label={alg1}]
 function serial_lcs(X, Y, m, n)
-    // allocate (m + 1) * (n + 1) LCS matrix
+    // allocate (m + 1) $\times$ (n + 1) LCS matrix
     lcs = new matrix[1, 2, .., m + 1][1, 2, .., n + 1]
     for i = 0 to m
         for j = 0 to n
-            if (i == 0 or j == 0)  // upper-leftmost cell
-                $lcs_{i, j}$ = 0
-            else if ($X_{i - 1}$ == $Y_{j - 1}$)
+            if (i == 0 or j == 0) // upper-leftmost cell
+                $\lcs_{i, j}$ = 0
+            else if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
                 // incremented left diagonal cell value
-                $lcs_{i, j}$ = $lcs_{i-1, j-1}$ + 1  
+                $\lcs_{i, j}$ = $\lcs_{i-1, j-1}$ + 1  
             else
                 // maximum between previous row and previous column
-                $lcs_{i, j}$ = max($lcs_{i-1, j}$ , $lcs_{i, j-1}$)
-    return $lcs_{m,n}$  // the last value of the table is the length
+                $\lcs_{i, j}$ = max($\lcs_{i-1, j}$, $\lcs_{i, j-1}$)
+    return $\lcs_{m,n}$  // the last value of the matrix is the length
 
 \end{pseudocode}
 
@@ -104,20 +109,25 @@ function serial_lcs(X, Y, m, n)
         The work for the algorithm, $O(m \times n)$, is quadratic if $m = n$.
         \newpage
 
+        \subsection{Printing The LCS} After computing the length, the matrix
+        may be used to print the LCS itself. Printing the subsequence is done
+        in a serial implementation since its analysis is not emphasized.
+        Algorithm \thesection .\ref{alg2} provides the pseudocode used to print
+        the LCS.
+
 \begin{pseudocode}[caption={Serial Longest Common Subsequence Printing},
 label={alg2}]
-function serial_lcs_print(X, Y, m, n, lcs, lcslen)
+function serial_lcs_print(X, Y, m, n, lcs)
     lcsstr = new string
-    cursor = lcslen  // cursor of the table
-    i = m, j = n  // init from the bottom-rightmost cell
+    cursor = $\lcs_{m,n}$ // cursor of the matrix
+    i = m, j = n // init from the bottom-rightmost cell
     while (i > 0 and j > 0)
         // if current character in X[] and Y[] are same
-        if ($X_{i - 1}$ == $Y_{j - 1}$)
-            $lcsstr_{cursor - 1}$ = $X_{i - 1}$  // result gets current character
-            i--, j--, cursor--  // decrement i, j and cursor
-
+        if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
+            $\lcsstr_{cursor - 1}$ = $\seqone_{i - 1}$  // result gets current character
+            i--, j--, cursor-- // decrement i, j and cursor
         // find the larger of two and go to that direction
-        else if ($lcs_{i - 1, j}$ > $lcs_{i,j - 1}$)
+        else if ($\lcs_{i - 1, j}$ > $\lcs_{i,j - 1}$)
             i--
         else
             j--
