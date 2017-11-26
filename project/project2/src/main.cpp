@@ -74,8 +74,6 @@ char *read_sequence(const char *file_name) {
 }
 
 
-/* Returns length of LCS for X[0..m-1], Y[0..n-1] */
-
 /*
  * Computes the longest common subsequence between the two sequences
  *
@@ -152,7 +150,7 @@ int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
                 // result gets current character
                 lcs_str[cursor - 1] = seq1[i - 1];
 
-                // decrement i, j and index
+                // decrement i, j and cursor
                 i--;
                 j--;
                 cursor--;
@@ -180,7 +178,7 @@ int serial_lcs(const char *seq1, const char *seq2, size_t m, size_t n,
 
     }
 
-    // delete dynamic arrays
+    // delete dynamically allocated arrays
     for (size_t i = 0; i < m + 1; ++i) {
         delete[] lcs_table[i];
         lcs_table[i] = NULL;

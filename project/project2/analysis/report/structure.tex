@@ -21,6 +21,7 @@
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
 \usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{courier}
 \usepackage{xparse}
 \usepackage{xcolor}
 \usepackage{listings}  % for code verbatim and console outputs
@@ -32,9 +33,7 @@
 
 \setlength{\parindent}{0mm} % Don't indent paragraphs
 \setlength{\parskip}{2.5mm} % Whitespace between paragraphs
-\renewcommand{\baselinestretch}{1.2}
-
-\renewcommand\familydefault{\sfdefault}  % default font for entire document
+\renewcommand{\baselinestretch}{1.5}
 
 \definecolor{green}{rgb}{0.18, 0.55, 0.34}
 
@@ -52,20 +51,22 @@
 % defines a new caption label as Algorithm x.y
 \DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg}
 
-%defines the algorithm listing environment
+% defines the algorithm listing environment
 \lstnewenvironment{pseudocode}[1][] {
-    \refstepcounter{nalg} %increments algorithm number
-
-    \captionsetup{labelformat=algocaption,labelsep=colon}
+    \refstepcounter{nalg}  % increments algorithm number
+    \captionsetup{font=normalsize, labelformat=algocaption, labelsep=colon}
     \lstset{
+        breaklines=true,
         mathescape=true,
-        frame=tB,
         numbers=left,
-        numberstyle=\tiny,
-        basicstyle=\scriptsize,
-        keywordstyle=\color{black}\bfseries\em,
-        keywords={,input, output, return, datatype, function, in, if, else, foreach, while, begin, end, },
+        numberstyle=\scriptsize,
+        basicstyle=\footnotesize\ttfamily,
+        keywordstyle=\color{black}\bfseries,
+        keywords={input, output, return, parallel, function, for, to, in, if,
+        else, foreach, while, and, or, new, print},
         xleftmargin=.04\textwidth,
         #1
     }
 }{}
+
+\renewcommand{\familydefault}{\sfdefault}  % default font for entire document
