@@ -56,27 +56,36 @@
 
             \textbf{Answer} \\
             Using: 
-                \[ 2^{\text{n}} \times (\text{valid field size} + \text{tag
+                \[ 2^{n} \times (\text{valid field size} + \text{tag
                 size} + \text{block size}) \]
             where
             \begin{equation*}
                 \begin{split}
                     \text{tag size} & = 32 - (n + m + 2) \\
-                    n & = log_2(\text{cache data size}) \\
-                    m & = log_2(\text{block size}) \\
+                    n & = \log_2(\text{cache data size}) \\
+                    m & = \log_2(\text{block size}) \\
                     \text{valid bits} & = 1 \\
                 \end{split}
             \end{equation*}
 
-            For design i) total number of bits required:
+            Total number of bits required for design i):
             \begin{equation*}
                 \begin{split}
-                    n & = log_2(\text{64 kB}) \\
-                    & = 16 \\
-                    m & = log_2(\text{2}) \\
-                    & = 1 \\
-                    \text{tag size} & = 32 - (16 + 1 + 2) \\
-                    & = 13 \\
+                    n & = \log_2(\text{64 kB}) = 16 \\
+                    m & = \log_2(\text{2}) = 1 \\
+                    \text{tag size} & = 32 - (16 + 1 + 2) = 13 \\
+                    \text{valid bits} & = 1 \\
+                    \text{total bits} & = 2^{16} \times (1 + 13 + 2) \\
+                    & = 2^{20} \ \text{bits} \\
+                \end{split}
+            \end{equation*}
+
+            Total number of bits required for design ii):
+            \begin{equation*}
+                \begin{split}
+                    n & = \log_2(\text{64 kB}) = 16 \\
+                    m & = \log_2(\text{2}) = 1 \\
+                    \text{tag size} & = 32 - (16 + 1 + 2) = 13 \\
                     \text{valid bits} & = 1 \\
                     \text{total bits} & = 2^{16} \times (1 + 13 + 2) \\
                     & = 2^{20} \ \text{bits} \\
@@ -110,15 +119,101 @@
             \item \textbf{Question} For a write-through, write-allocate cache
             with sufficiently large write buffer (i.e., no buffer caused
             stalls), what’s the minimum read and write bandwidths (measured by
-            byte-per- cycle) needed to achieve a CPI of 2?
+            byte-per-cycle) needed to achieve a CPI of 2?
 
-            \textbf{Answer} 
+            \textbf{Answer} \\ Let $I$ be the number of instructions and $W$ be
+            the read/write bandwidth.
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Data cache read miss penalty} &
+                    = I \times \frac{200}{1000} \times \frac{2}{100} \times
+                    \bigg(\frac{8}{W} + 1\bigg) \\
+                    & = 0.004I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Data cache write miss penalty} &
+                    = I \times \frac{160}{1000} \times \frac{2}{100} \times
+                    \bigg(\frac{8}{W} + 1\bigg) \\
+                    & = 0.0032I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Instruction cache read miss penalty} &
+                    = I \times \frac{0.20}{100} \times \bigg(\frac{8}{W} +
+                    1\bigg) \\
+                    & = 0.002I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            For CPI = 2,
+            \begin{equation*}
+                \begin{split}
+                    I \times 2 & = \text{Hit time + miss penalty} \\
+                    & = I + I \times (0.004 + 0.0032 + 0.002) \times
+                    \bigg(\frac{8}{W} + 1\bigg) \\
+                    & = 0.0092I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                   \Rightarrow I \times 2 & = 0.0092I \times \bigg(\frac{8}{W}
+                   + 1\bigg) \\
+                   2 & = 0.0092 \times \bigg(\frac{8}{W} + 1\bigg) \\
+                   \therefore W & \approx 0.037 \text{ byte per cycle} \\
+                \end{split}
+            \end{equation*}
 
             \item \textbf{Question} For a write-back, write-allocate cache,
             assuming 30\% of replaced data cache blocks are dirty, what’s the
             minimal read and write bandwidths needed for a CPI of 2?
 
-            \textbf{Answer}
+            \textbf{Answer} \\ Let $I$ be the number of instructions and $W$ be
+            the read/write bandwidth.
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Data cache read miss penalty} &
+                    = I \times \frac{200}{1000} \times \frac{2}{100} \times
+                    \bigg( 1+\frac{30}{100} \bigg) \times \bigg( \frac{8}{W} +
+                    1 \bigg) \\
+                    & = 0.0052I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Data cache write miss penalty} &
+                    = I \times \frac{160}{1000} \times \frac{2}{100} \times
+                    \bigg( 1+\frac{30}{100} \bigg) \times \bigg( \frac{8}{W} +
+                    1 \bigg) \\
+                    & = 0.00416I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{split}
+                    \text{Instruction cache read miss penalty} &
+                    = I \times \frac{0.20}{100} \times \bigg(\frac{8}{W} +
+                    1\bigg) \\
+                    & = 0.002I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                \end{split}
+            \end{equation*}
+
+            For CPI = 2,
+            \begin{equation*}
+                \begin{split}
+                    I \times 2 & = \text{Hit time + miss penalty} \\
+                    & = I + I \times (0.0052 + 0.00416 + 0.002) \times
+                    \bigg(\frac{8}{W} + 1\bigg) \\
+                    & = 0.01136I \times \bigg(\frac{8}{W} + 1\bigg) \\
+                   \Rightarrow I \times 2 & = 0.01136I \times \bigg(\frac{8}{W}
+                   + 1\bigg) \\
+                   2 & = 0.01136 \times \bigg(\frac{8}{W} + 1\bigg) \\
+                   \therefore W & \approx 0.046 \text{ byte per cycle} \\
+                \end{split}
+            \end{equation*}
 
         \end{enumerate}
 
@@ -147,7 +242,7 @@
 
             \textbf{Answer}
 
-            Since the block size is 1 word, $log_{2}(1)=0$ offset bits are
+            Since the block size is 1 word, $\log_{2}(1)=0$ offset bits are
             required.
             \begin{table}[h]
                 \centering
@@ -173,15 +268,15 @@
             \newpage
 
             \item \textbf{Question} A direct-mapped cache with two-word blocks
-            and a total size of eight blocks.
+            and a total size of 8 blocks.
 
             \textbf{Answer}
-            Since the block size is 2 words, $log_{2}(2)=1$ offset bits are
+            Since the block size is 2 words, $\log_{2}(2)=1$ offset bits are
             required.
             \begin{table}[h]
                 \centering
                 \caption{A Direct-mapped Cache With Two-word Blocks And A Total
-                Size Of Eight Blocks}
+                Size Of 8 Blocks}
                 \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
@@ -203,13 +298,13 @@
             \newpage
 
             \item \textbf{Question} A fully associative cache with two-word
-            blocks and a total size of eight words. Use LRU replacement.
+            blocks and a total size of 8 words. Use LRU replacement.
 
             \textbf{Answer}
             \begin{table}[h]
                 \centering
                 \caption{A Fully Associative Cache With Two-word Blocks And A
-                Total Size Of Eight Words With LRU Replacement}
+                Total Size Of 8 Words With LRU Replacement}
                 \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
@@ -234,7 +329,9 @@
             block size and total size of 8 words, while applying LRU
             replacement policy.
 
-            \textbf{Answer}
+            \textbf{Answer} \\ $\because \text{ The number of sets} =
+            \frac{\text{8 words}}{\text{2 blocks per set}} \text{ = 4 sets} \Rightarrow \text{2 index bits = 2 byte offset}$
+
             \begin{table}[h]
                 \centering
                 \caption{A 2-way Set Associative Cache With One-word Block Size
@@ -243,18 +340,18 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110 & & & miss   \\
-                    214 & 11010110 & & & miss   \\
-                    175 & 10101111 & & & miss   \\
-                    214 & 11010110 & & & hit    \\
-                    6   & 00000110 & & & hit    \\
-                    84  & 01010100 & & & miss   \\
-                    65  & 01000001 & & & miss   \\
-                    174 & 10101110 & & & hit    \\
-                    64  & 01000000 & & & hit    \\
-                    105 & 01101001 & & & miss   \\
-                    85  & 01010101 & & & hit    \\
-                    215 & 11010111 & & & hit    \\
+                    6   & 00000110 & 0000 & 01 & miss   \\
+                    214 & 11010110 & 1101 & 01 & miss   \\
+                    175 & 10101111 & 1010 & 11 & miss   \\
+                    214 & 11010110 & 1101 & 01 & hit    \\
+                    6   & 00000110 & 0000 & 01 & hit    \\
+                    84  & 01010100 & 0101 & 01 & miss   \\
+                    65  & 01000001 & 0100 & 00 & miss   \\
+                    174 & 10101110 & 1010 & 11 & hit    \\
+                    64  & 01000000 & 0100 & 00 & hit    \\
+                    105 & 01101001 & 0110 & 10 & miss   \\
+                    85  & 01010101 & 0101 & 01 & hit    \\
+                    215 & 11010111 & 1101 & 01 & hit    \\
                 \end{tabular*}
             \end{table}
             \newpage
