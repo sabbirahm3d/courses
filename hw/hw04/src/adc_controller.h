@@ -8,14 +8,14 @@
 
 void adc_init();
 
-void ADCStartConversion();
+void adc_start_flag();
 
-void ADCClearConversionFlag();
+void adc_clear_flag();
 
-int ADCIsConversionCompleteFlagSet();
+int adc_is_set_flag();
 
-uint16_t ADCGet();
+uint16_t get_adc();
 
-int ADCAquire();
+int adc_acquire();
 
 #endif // ADC_CONTROLLER_H

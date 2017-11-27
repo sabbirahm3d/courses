@@ -22,9 +22,9 @@
 
 // --- constant strings stored in the program space for repeated use ---
 // strings to build menus
-const char PROGMEM ftl_str[] = "FTL";
-const char PROGMEM atl_str[] = "ATL";
-
+const char PROGMEM FLTSTR[] = "FTL";
+const char PROGMEM ATLSTR[] = "ATL";
+uint8_t INITADC;
 
 // ------------------ Helper function declarations ------------------
 
@@ -35,12 +35,87 @@ uint8_t press_down(void);
 
 uint8_t press_right(void);
 
+// SERVO FUNCTIONS
 void follow_the_light(void);
 
 void avoid_the_light(void);
 
 
-void lcd_init(void) {
+// ------------------ Helper function implementations ------------------
+
+// Look-up table used when converting ASCII to
+// LCD display data (segment control)
+unsigned int LCD_character_table[] = {
+        0x0A51,     // '*' (?)
+        0x2A80,     // '+'
+        0x0000,     // ',' (Not defined)
+        0x0A00,     // '-'
+        0x0A51,     // '.' Degree sign
+        0x0000,     // '/' (Not defined)
+        0x5559,     // '0'
+        0x0118,     // '1'
+        0x1e11,     // '2
+        0x1b11,     // '3
+        0x0b50,     // '4
+        0x1b41,     // '5
+        0x1f41,     // '6
+        0x0111,     // '7
+        0x1f51,     // '8
+        0x1b51,     // '9'
+        0x0000,     // ':' (Not defined)
+        0x0000,     // ';' (Not defined)
+        0x0000,     // '<' (Not defined)
+        0x0000,     // '=' (Not defined)
+        0x0000,     // '>' (Not defined)
+        0x0000,     // '?' (Not defined)
+        0x0000,     // '@' (Not defined)
+        0x0f51,     // 'A' (+ 'a')
+        0x3991,     // 'B' (+ 'b')
+        0x1441,     // 'C' (+ 'c')
+        0x3191,     // 'D' (+ 'd')
+        0x1e41,     // 'E' (+ 'e')
+        0x0e41,     // 'F' (+ 'f')
+        0x1d41,     // 'G' (+ 'g')
+        0x0f50,     // 'H' (+ 'h')
+        0x2080,     // 'I' (+ 'i')
+        0x1510,     // 'J' (+ 'j')
+        0x8648,     // 'K' (+ 'k')
+        0x1440,     // 'L' (+ 'l')
+        0x0578,     // 'M' (+ 'm')
+        0x8570,     // 'N' (+ 'n')
+        0x1551,     // 'O' (+ 'o')
+        0x0e51,     // 'P' (+ 'p')
+        0x9551,     // 'Q' (+ 'q')
+        0x8e51,     // 'R' (+ 'r')
+        0x9021,     // 'S' (+ 's')
+        0x2081,     // 'T' (+ 't')
+        0x1550,     // 'U' (+ 'u')
+        0x4448,     // 'V' (+ 'v')
+        0xc550,     // 'W' (+ 'w')
+        0xc028,     // 'X' (+ 'x')
+        0x2028,     // 'Y' (+ 'y')
+        0x5009,     // 'Z' (+ 'z')
+        0x0000,     // '[' (Not defined)
+        0x0000,     // '\' (Not defined)
+        0x0000,     // ']' (Not defined)
+        0x0000,     // '^' (Not defined)
+        0x0000      // '_'
+};
+
+
+/*****************************************************************************
+*
+*   Function name : LCD_Init
+*
+*   Returns :       None
+*
+*   Parameters :    None
+*
+*   Purpose :       Initialize LCD_displayData buffer.
+*                   Set up the LCD (timing, contrast, etc.)
+*
+*****************************************************************************/
+void lcd_init() {
 
     LCD_AllSegments(FALSE);  // Clear segment buffer.
 
@@ -66,11 +141,91 @@ void lcd_init(void) {
 
     //gLCD_Update_Required = FALSE;
 
-
 }
 
 
-void SetupInterrupts(void) {
+/*****************************************************************************
+*
+*   Function name : LCD_WriteDigit(char c, char digit)
+*
+*   Returns :       None
+*
+*   Parameters :    Inputs
+*                   c: The symbol to be displayed in a LCD digit
+*                   digit: In which digit (0-5) the symbol should be displayed
+*                   Note: Digit 0 is the first used digit on the LCD,
+*                   i.e LCD digit 2
+*
+*   Purpose :       Stores LCD control data in the LCD_displayData buffer.
+*                   (The LCD_displayData is latched in the LCD_SOF interrupt.)
+*
+*****************************************************************************/
+void LCD_WriteDigit(char c, char digit) {
+
+    unsigned int seg = 0x0000;                  // Holds the segment pattern
+    char mask, nibble;
+    char *ptr;
+    char i;
+
+
+    if (digit > 5)                              // Skip if digit is illegal
+        return;
+
+    //Lookup character table for segmet data
+    if ((c >= '*') && (c <= 'z')) {
+        // c is a letter
+        if (c >= 'a')                           // Convert to upper case
+            c &= ~0x20;                         // if necessarry
+
+        c -= '*';
+
+        seg = LCD_character_table[c];
+    }
+
+    // Adjust mask according to LCD segment mapping
+    if (digit & 0x01)
+        mask = 0x0F;                // Digit 1, 3, 5
+    else
+        mask = 0xF0;                // Digit 0, 2, 4
+
+    //ptr = LCD_Data + (digit >> 1);  // digit = {0,0,1,1,2,2}
+    ptr = (char *) pLCDREG + (digit >> 1);  // digit = {0,0,1,1,2,2}
+
+    for (i = 0; i < 4; i++) {
+        nibble = seg & 0x000F;
+        seg >>= 4;
+        if (digit & 0x01)
+            nibble <<= 4;
+        *ptr = (*ptr & mask) | nibble;
+        ptr += 5;
+    }
+}
+
+
+/*****************************************************************************
+*
+*   Function name : LCD_AllSegments(unsigned char input)
+*
+*   Returns :       None
+*
+*   Parameters :    show -  [TRUE;FALSE]
+*
+*   Purpose :       shows or hide all all LCD segments on the LCD
+*
+*****************************************************************************/
+void LCD_AllSegments(char show) {
+    unsigned char i;
+
+    if (show)
+        show = 0xFF;
+
+    // Set/clear all bits in all LCD registers
+    for (i = 0; i < LCD_REGISTER_COUNT; i++)
+        *(pLCDREG + i) = show;
+}
+
+
+void interrupts_init(void) {
     // Setup for Center Button Interrupt
 
     // Unmask bit for Center Button on Butterfly, PB4->PCINT12 to allow it
@@ -89,9 +244,8 @@ ISR(PCINT1_vect) {
 
     // toggle PORTB0 based on center button status being newly pressed, but
     // not when it is released
-    if (((PINB & (1 << 4)) == 0) &&
-            ((pinBPrev & (1 << 4)) != 0)) {
-        //if button pressed (bit is zero) and previous it wasn't
+    if (((PINB & (1 << 4)) == 0) && ((pinBPrev & (1 << 4)) != 0)) {
+        // if button pressed (bit is zero) and previous it wasn't
         PORTB ^= (1 << 0);  // toggle led on B0
     }
 
@@ -109,21 +263,21 @@ void init_pins(void) {
     PORTE |= 0b00001000;  // enable pull up resistor on pin E2, E3
 
     // setup output for servo
-    DDRB |= (1 << 5);    //enable PORTB5 as output
-    DDRB |= (1 << 0);    //enable PORTB0 as output for the first LED
-    DDRB |= (1 << 1);    //enable PORTB1 as output for the second LED
+    DDRB |= (1 << 5);    // enable PORTB5 as output
+    DDRB |= (1 << 0);    // enable PORTB0 as output for the first LED
+    DDRB |= (1 << 1);    // enable PORTB1 as output for the second LED
 
-    SetupInterrupts();    //setup the interrupts
-    sei();                //enable global interrupts
+    interrupts_init();    // setup the interrupts
+    sei();                // enable global interrupts
 
 }
 
 void adc_init() {
+
     // AVR Butteryfly Board Info:
     // The Neg. Temp. Coeff. resistor (NTC)      is on ADC channel 0
     // The Board Edge Voltage Input Reading (VR) is on ADC channel 1
     // The Light Dependant Resistor (LDR)        is on ADC channel 2
-
 
     // Disable Digital Input Buffer on pins being used for analog input to save
     // power using the Digital Input Disable Register
@@ -145,20 +299,20 @@ void adc_init() {
 }
 
 //Call this function to start an ADC conversion
-void ADCStartConversion() {
+void adc_start_flag() {
 
     ADCSRA |= 1 << ADSC;  // this is automatically cleared
 
 }
 
 
-void ADCClearConversionFlag() {
+void adc_clear_flag() {
 
     ADCSRA |= (1 << ADIF); // all interrupt flags are cleared by writing a one
 
 }
 
-int ADCIsConversionCompleteFlagSet() {
+int adc_is_set_flag() {
 
     return (ADCSRA & (1 << ADIF));
 
@@ -167,19 +321,19 @@ int ADCIsConversionCompleteFlagSet() {
 // modify this command to return ADC, value.  Hint: you can access it by using
 // the macro symbol ADC.  Note, if accessing the high and low bytes
 // individually, access ADCL first then ADCH
-uint16_t ADCGet() {
+uint16_t get_adc() {
 
     return ADC;
 
 }
 
 
-int ADCAquire() {
+int adc_acquire() {
 
-    ADCClearConversionFlag();
-    ADCStartConversion();
-    while (!ADCIsConversionCompleteFlagSet());
-    return ADCGet();
+    adc_clear_flag();
+    adc_start_flag();
+    while (!adc_is_set_flag());
+    return get_adc();
 
 }
 
@@ -204,9 +358,71 @@ uint8_t press_right() {
 
 }
 
+void move_servo(int degrees) {
+
+    PORTB &= (degrees & 0b00010000);
+
+}
+
+uint8_t max3(uint8_t a, uint8_t b, uint8_t c) {
+
+    uint8_t m = a;
+    (void) ((m < b) && (m = b)); //these are not conditional statements.
+    (void) ((m < c) && (m = c)); //these are just boolean expressions.
+    return m;
+
+}
+
+void follow_the_light() {
+
+    uint8_t angle_prev, angle_next;
+
+    move_servo(-10);
+    angle_prev = get_adc();
+    _delay_ms(500);
+
+    move_servo(20);
+    angle_next = get_adc();
+    _delay_ms(500);
+
+    // local sweep
+    uint8_t optimal_angle = max3(INITADC, angle_prev, angle_next);
+    lcd_puts_P(optimal_angle);
+
+    // full sweep
+    while (get_adc() < optimal_angle) {
+        _delay_ms(500);
+        move_servo(20);
+    }
 
 
-// ------------------ Helper function implementations ------------------
+}
+
+void avoid_the_light() {
+
+    uint8_t angle_prev, angle_next;
+
+    move_servo(-10);
+    angle_prev = get_adc();
+    _delay_ms(500);
+
+    move_servo(20);
+    angle_next = get_adc();
+    _delay_ms(500);
+
+    // local sweep
+    uint8_t optimal_angle = max3(INITADC, angle_prev, angle_next);
+    lcd_puts_P(optimal_angle);
+
+    // full sweep
+    while (get_adc() > optimal_angle) {
+        _delay_ms(500);
+        move_servo(20);
+    }
+
+
+}
+
 
 /*
  * Main function for the program. Sitting in a loop until terminated by the
@@ -219,7 +435,7 @@ int main() {
     adc_init();
     init_pins();
 
-    uint8_t mode;
+    uint8_t mode = 0;
 
     while (!press_right()) {
 
@@ -229,22 +445,12 @@ int main() {
             mode--;
         }
 
-        if (!(mode % 2)) {
-            lcd_puts_P(ftl_str);
-        } else {
-            lcd_puts_P(atl_str);
-        }
+        (mode % 2) ? lcd_puts_P(FLTSTR) : lcd_puts_P(ATLSTR);
 
-        if (press_right) {
-
-            if (!(mode % 2)) {
-                avoid_the_light();
-            } else {
-                follow_the_light();
-            }
-
-        }
     }
+
+    // pressing right breaks out of the loop
+    (mode % 2) ? follow_the_light() : avoid_the_light();
 
     return EXIT_SUCCESS;
 

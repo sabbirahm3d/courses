@@ -33,7 +33,7 @@
 //////////////
 //prototypes//
 //////////////
-void SetupInterrupts(void);
+void interrupts_init(void);
 
 void BootLoaderFixes(void);
 
@@ -65,7 +65,7 @@ int main(void) {
     DDRB |= (1 << 0);    //enable PORTB0 as output for the first LED
     DDRB |= (1 << 1);    //enable PORTB1 as output for the second LED
 
-    SetupInterrupts();    //setup the interrupts
+    interrupts_init();    //setup the interrupts
     sei();                //enable global interrupts
 
     PlayA();            // play A when program starts running
@@ -83,7 +83,7 @@ int main(void) {
 ////////////////////////
 
 
-void SetupInterrupts(void) {
+void interrupts_init(void) {
     // Setup for Center Button Interrupt
 
     // Unmask bit for Center Button on Butterfly, PB4->PCINT12 to allow it
