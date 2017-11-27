@@ -18,12 +18,13 @@
 #define pLCDREG ((unsigned char *)(0xEC))
 
 // DEVICE SPECIFIC!!! (ATmega169) First LCD segment register
-#define LCD_CONTRAST_LEVEL(level) LCDCCR=((LCDCCR&0xF0)|(0x0F & level))
+#define LCD_CONTRAST_LEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
 
 //Functions
 void LCD_Init(void);
 
-void LCD_WriteDigit(char input, char digit);  //digit can be 0 to 5
-void LCD_AllSegments(char show);
+void LCD_WriteDigit(char, char);  //digit can be 0 to 5
+
+void LCD_AllSegments(char);
 
 #endif // LCD_DRIVER_H

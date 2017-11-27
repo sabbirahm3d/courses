@@ -80,9 +80,9 @@ unsigned int LCD_character_table[] = {
 *****************************************************************************/
 void LCD_Init(void) {
 
-    LCD_AllSegments(FALSE);                     // Clear segment buffer.
+    LCD_AllSegments(FALSE);  // Clear segment buffer.
 
-    LCD_CONTRAST_LEVEL(LCD_INITIAL_CONTRAST);    //Set the LCD contrast level
+    LCD_CONTRAST_LEVEL(LCD_INITIAL_CONTRAST);  // Set the LCD contrast level
 
     // Select asynchronous clock source, enable all COM pins and enable all
     // segment pins.
@@ -147,10 +147,11 @@ void LCD_WriteDigit(char c, char digit) {
     }
 
     // Adjust mask according to LCD segment mapping
-    if (digit & 0x01)
-        mask = 0x0F;                // Digit 1, 3, 5
-    else
-        mask = 0xF0;                // Digit 0, 2, 4
+    if (digit & 0x01) {
+        mask = 0x0F;  // Digit 1, 3, 5
+    } else {  // Digit 0, 2, 4
+        mask = 0xF0;
+    }
 
     //ptr = LCD_Data + (digit >> 1);  // digit = {0,0,1,1,2,2}
     ptr = pLCDREG + (digit >> 1);  // digit = {0,0,1,1,2,2}
@@ -182,11 +183,13 @@ void LCD_AllSegments(char show) {
 
     unsigned char i;
 
-    if (show)
+    if (show) {
         show = 0xFF;
+    }
 
     // Set/clear all bits in all LCD registers
-    for (i = 0; i < LCD_REGISTER_COUNT; i++)
+    for (i = 0; i < LCD_REGISTER_COUNT; i++) {
         *(pLCDREG + i) = show;
+    }
 
 }

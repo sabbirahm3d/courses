@@ -3,6 +3,7 @@
 //
 
 #include <stdint.h>
+#include <avr/io.h>
 
 void ADCSetup() {
     // AVR Butteryfly Board Info:
@@ -14,7 +15,6 @@ void ADCSetup() {
     // Disable Digital Input Buffer on pins being used for analog input to save
     // power using the Digital Input Disable Register
     DIDR0 |= 0b00000001; //disable PF0 (ADC0) digital input buffer
-
 
     //Select Voltage Reference, Set Left-Ship Option, Set Input Channel
     int refSel_2b = 1;    //select avcc, change to 3 for 1.1V reference
