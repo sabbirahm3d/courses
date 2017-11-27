@@ -1,32 +1,51 @@
 /*
  * main.c
  *
- * Driver file for Homework 2: Song Composer. This script contains the
- * declarations and implementations of the menu functions and other functions
- * to handle user inputs and outputs (I/O).
+ * Driver file for Homework 4: Follow the Light. This script contains the
+ * declarations and implementations of the ADC driver, LCD interface, menu
+ * functions and other functions to handle user inputs and outputs (I/O).
  *
- * */
+ */
+
+// standard libraries
+//#include <stdio.h>
+//#include <stdlib.h>
 
 // AVR libraries
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#include "lcd_driver.h"
-#include "adc_controller.h"
+// ------------------ FUNCTION PROTOTYPES ------------------
+#define LCD_REGISTER_COUNT 20
 
-// --- constant strings stored in the program space for repeated use ---
-// strings to build menus
-const char PROGMEM FLTSTR[] = "FTL";
-const char PROGMEM ATLSTR[] = "ATL";
-uint8_t INITADC;
+#define LCD_INITIAL_CONTRAST 0x0F
 
-// ------------------ Helper function declarations ------------------
+// LCD Data Register 0    // DEVICE SPECIFIC!!! (ATmega169)
+#define pLCDREG ((unsigned char *)(0xEC))
+
+// DEVICE SPECIFIC!!! (ATmega169) First LCD segment register
+#define LCD_CONTRAST_LEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
+
+//Functions
+void lcd_init(void);
+
+void lcd_write_digit(char, int);  // digit can be 0 to 5
+
+void lcd_all_segs(unsigned char);
+
+
+void adc_init();
+
+void adc_start_flag();
+
+void adc_clear_flag();
+
+int adc_is_set_flag();
+
+uint16_t get_adc();
+
 
 // JOYSTICK FUNCTIONS
 uint8_t press_up(void);
@@ -40,12 +59,20 @@ void follow_the_light(void);
 
 void avoid_the_light(void);
 
+// HELPER FUNCTIONS
 
-// ------------------ Helper function implementations ------------------
+uint8_t max3(uint8_t, uint8_t, uint8_t);
+
+
+// --- constant strings stored in the program space for repeated use ---
+// strings to build menus
+const char PROGMEM FLTSTR[] = "FTL";
+const char PROGMEM ATLSTR[] = "ATL";
+uint8_t INITADC;
 
 // Look-up table used when converting ASCII to
 // LCD display data (segment control)
-unsigned int LCD_character_table[] = {
+unsigned int LCDCHARTABLE[] = {
         0x0A51,     // '*' (?)
         0x2A80,     // '+'
         0x0000,     // ',' (Not defined)
@@ -103,6 +130,8 @@ unsigned int LCD_character_table[] = {
 };
 
 
+// ------------------ Helper function implementations ------------------
+
 /*****************************************************************************
 *
 *   Function name : LCD_Init
@@ -117,7 +146,7 @@ unsigned int LCD_character_table[] = {
 *****************************************************************************/
 void lcd_init() {
 
-    LCD_AllSegments(FALSE);  // Clear segment buffer.
+    lcd_all_segs(0);  // Clear segment buffer.
 
     LCD_CONTRAST_LEVEL(LCD_INITIAL_CONTRAST);  // Set the LCD contrast level
 
@@ -131,15 +160,10 @@ void lcd_init() {
     // Enable LCD and set low power waveform
     LCDCRA = (1 << LCDEN) | (1 << LCDAB);
 
-    //Enable LCD start of frame interrupt
-    //LCDCRA |= (1<<LCDIE);  // fixed--don't need this
-
-    //updated 2006-10-10, setting LCD drive time to 1150us in FW rev 07,
-    //instead of previous 300us in FW rev 06. Due to some variations on the LCD
-    //glass provided to the AVR Butterfly production.
+    // updated 2006-10-10, setting LCD drive time to 1150us in FW rev 07,
+    // instead of previous 300us in FW rev 06. Due to some variations on the
+    // LCD glass provided to the AVR Butterfly production.
     LCDCCR |= (1 << LCDDC2) | (1 << LCDDC1) | (1 << LCDDC0);
-
-    //gLCD_Update_Required = FALSE;
 
 }
 
@@ -160,7 +184,7 @@ void lcd_init() {
 *                   (The LCD_displayData is latched in the LCD_SOF interrupt.)
 *
 *****************************************************************************/
-void LCD_WriteDigit(char c, char digit) {
+void lcd_write_digit(char c, int digit) {
 
     unsigned int seg = 0x0000;                  // Holds the segment pattern
     char mask, nibble;
@@ -179,14 +203,19 @@ void LCD_WriteDigit(char c, char digit) {
 
         c -= '*';
 
-        seg = LCD_character_table[c];
+        seg = LCDCHARTABLE[c];
     }
 
     // Adjust mask according to LCD segment mapping
-    if (digit & 0x01)
-        mask = 0x0F;                // Digit 1, 3, 5
-    else
-        mask = 0xF0;                // Digit 0, 2, 4
+    if (digit & 0x01) {
+
+        mask = 0x0F; // Digit 1, 3, 5
+
+    } else {  // Digit 0, 2, 4
+
+        mask = 0xF0;
+
+    }
 
     //ptr = LCD_Data + (digit >> 1);  // digit = {0,0,1,1,2,2}
     ptr = (char *) pLCDREG + (digit >> 1);  // digit = {0,0,1,1,2,2}
@@ -202,6 +231,20 @@ void LCD_WriteDigit(char c, char digit) {
 }
 
 
+void lcd_puts_P(const char c[]) { //same const char *c
+
+    uint8_t ch = pgm_read_byte(c);
+
+    int location = 0;
+
+    while (ch != 0) {
+        lcd_write_digit(ch, location);
+        ch = pgm_read_byte(++c);
+        location++;
+    }
+
+}
+
 /*****************************************************************************
 *
 *   Function name : LCD_AllSegments(unsigned char input)
@@ -213,15 +256,18 @@ void LCD_WriteDigit(char c, char digit) {
 *   Purpose :       shows or hide all all LCD segments on the LCD
 *
 *****************************************************************************/
-void LCD_AllSegments(char show) {
+void lcd_all_segs(unsigned char show) {
+
     unsigned char i;
 
-    if (show)
+    if (show){
         show = 0xFF;
+    }
 
     // Set/clear all bits in all LCD registers
-    for (i = 0; i < LCD_REGISTER_COUNT; i++)
+    for (i = 0; i < LCD_REGISTER_COUNT; i++){
         *(pLCDREG + i) = show;
+    }
 }
 
 
@@ -252,7 +298,7 @@ ISR(PCINT1_vect) {
     pinBPrev = PINB;  // save button status
 }
 
-void init_pins(void) {
+void pins_init(void) {
 
     // set B6, B7 as inputs, corresponding to the joystick UP and DOWN buttons
     DDRB &= ~(0b11100000);
@@ -287,7 +333,8 @@ void adc_init() {
     int refSel_2b = 1;    //select avcc, change to 3 for 1.1V reference
     int adlar_1b = 0;     //no need to left shift
     int muxSel_5b = 5;  //select ADC0 with single-ended conversion
-    ADMUX = (refSel_2b << REFS0) + (adlar_1b << ADLAR) + (muxSel_5b << MUX0);
+    ADMUX = (uint8_t) (refSel_2b << REFS0) + (adlar_1b << ADLAR) + (muxSel_5b
+            << MUX0);
 
     //enable adc and with interrupt disabled
     ADCSRA = (1 << ADEN) + (0 << ADSC) + (0 << ADATE) + (0 << ADIF) + (0
@@ -373,16 +420,6 @@ uint8_t max3(uint8_t a, uint8_t b, uint8_t c) {
 
 }
 
-void lcd_puts_P(const char  c[]) { //same const char *c
-	uint8_t ch = pgm_read_byte(c);
-	int location = 0;
-	while(ch != 0) {
-		LCD_WriteDigit(ch, location);
-		ch = pgm_read_byte(++c);
-		location ++;
-	}
-}
-
 void follow_the_light() {
 
     uint8_t angle_prev, angle_next;
@@ -397,7 +434,7 @@ void follow_the_light() {
 
     // local sweep
     uint8_t optimal_angle = max3(INITADC, angle_prev, angle_next);
-    lcd_puts_P(optimal_angle);
+    lcd_puts_P((char *) optimal_angle);
 
     // full sweep
     while (get_adc() < optimal_angle) {
@@ -408,6 +445,7 @@ void follow_the_light() {
 
 }
 
+//
 void avoid_the_light() {
 
     uint8_t angle_prev, angle_next;
@@ -422,7 +460,7 @@ void avoid_the_light() {
 
     // local sweep
     uint8_t optimal_angle = max3(INITADC, angle_prev, angle_next);
-    lcd_puts_P(optimal_angle);
+    lcd_puts_P((char *) optimal_angle);
 
     // full sweep
     while (get_adc() > optimal_angle) {
@@ -443,7 +481,7 @@ int main() {
 
     lcd_init();
     adc_init();
-    init_pins();
+    pins_init();
 
     uint8_t mode = 0;
 

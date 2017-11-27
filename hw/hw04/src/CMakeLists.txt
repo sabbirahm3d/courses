@@ -3,7 +3,7 @@ project(src)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c lcd_driver.h pin_change_interrupt.c adc_controller.h)
+set(SOURCE_FILES main.c)
 add_executable(src ${SOURCE_FILES})
 
 SET(DEVICE "atmega8")
