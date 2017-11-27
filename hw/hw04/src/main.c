@@ -15,6 +15,7 @@
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 
 #include "lcd_driver.h"
 #include "adc_controller.h"
@@ -28,260 +29,184 @@ const char PROGMEM atl_str[] = "ATL";
 // ------------------ Helper function declarations ------------------
 
 // JOYSTICK FUNCTIONS
-uint8_t press_up();
+uint8_t press_up(void);
 
-uint8_t press_down();
+uint8_t press_down(void);
 
-uint8_t press_right();
+uint8_t press_right(void);
+
+void follow_the_light(void);
+
+void avoid_the_light(void);
 
 
+void lcd_init(void) {
+
+    LCD_AllSegments(FALSE);  // Clear segment buffer.
+
+    LCD_CONTRAST_LEVEL(LCD_INITIAL_CONTRAST);  // Set the LCD contrast level
+
+    // Select asynchronous clock source, enable all COM pins and enable all
+    // segment pins.
+    LCDCRB = (1 << LCDCS) | (3 << LCDMUX0) | (7 << LCDPM0);
+
+    // Set LCD prescaler to give a framerate of 32,0 Hz
+    LCDFRR = (0 << LCDPS0) | (7 << LCDCD0);
+
+    // Enable LCD and set low power waveform
+    LCDCRA = (1 << LCDEN) | (1 << LCDAB);
+
+    //Enable LCD start of frame interrupt
+    //LCDCRA |= (1<<LCDIE);  // fixed--don't need this
+
+    //updated 2006-10-10, setting LCD drive time to 1150us in FW rev 07,
+    //instead of previous 300us in FW rev 06. Due to some variations on the LCD
+    //glass provided to the AVR Butterfly production.
+    LCDCCR |= (1 << LCDDC2) | (1 << LCDDC1) | (1 << LCDDC0);
+
+    //gLCD_Update_Required = FALSE;
 
 
-// Displays the
-uint8_t display_menu(const char[]);
+}
 
-void list_menu();
 
-void play_menu();
+void SetupInterrupts(void) {
+    // Setup for Center Button Interrupt
 
-void create_menu();
+    // Unmask bit for Center Button on Butterfly, PB4->PCINT12 to allow it
+    // to trigger interrupt flag PCIF1
+    PCMSK1 |= (1 << PCINT12);
+    EIMSK = (1 << PCIE1);    //Enable interrupt for flag PCIF1
 
-int match_score(const char *, const char *);
+}
 
-int best_match(char *user);
+// ISR DEFINITIONS//
+
+ISR(PCINT1_vect) {
+
+    // for storing previous value of port to detect
+    static uint8_t pinBPrev = 1;
+
+    // toggle PORTB0 based on center button status being newly pressed, but
+    // not when it is released
+    if (((PINB & (1 << 4)) == 0) &&
+            ((pinBPrev & (1 << 4)) != 0)) {
+        //if button pressed (bit is zero) and previous it wasn't
+        PORTB ^= (1 << 0);  // toggle led on B0
+    }
+
+    pinBPrev = PINB;  // save button status
+}
+
+void init_pins(void) {
+
+    // set B6, B7 as inputs, corresponding to the joystick UP and DOWN buttons
+    DDRB &= ~(0b11100000);
+    // set E2, E3 as inputs, corresponding to the joystick RIGHT button
+    DDRE &= ~(0b00001000);
+
+    PORTB |= 0b11100000;  // enable pull up resistors on B5, B6, B7
+    PORTE |= 0b00001000;  // enable pull up resistor on pin E2, E3
+
+    // setup output for servo
+    DDRB |= (1 << 5);    //enable PORTB5 as output
+    DDRB |= (1 << 0);    //enable PORTB0 as output for the first LED
+    DDRB |= (1 << 1);    //enable PORTB1 as output for the second LED
+
+    SetupInterrupts();    //setup the interrupts
+    sei();                //enable global interrupts
+
+}
+
+void adc_init() {
+    // AVR Butteryfly Board Info:
+    // The Neg. Temp. Coeff. resistor (NTC)      is on ADC channel 0
+    // The Board Edge Voltage Input Reading (VR) is on ADC channel 1
+    // The Light Dependant Resistor (LDR)        is on ADC channel 2
+
+
+    // Disable Digital Input Buffer on pins being used for analog input to save
+    // power using the Digital Input Disable Register
+    DIDR0 |= 0b00000001; //disable PF0 (ADC0) digital input buffer
+
+    //Select Voltage Reference, Set Left-Ship Option, Set Input Channel
+    int refSel_2b = 1;    //select avcc, change to 3 for 1.1V reference
+    int adlar_1b = 0;     //no need to left shift
+    int muxSel_5b = XYZ;  //select ADC0 with single-ended conversion
+    ADMUX = (refSel_2b << REFS0) + (adlar_1b << ADLAR) + (muxSel_5b << MUX0);
+
+    //enable adc and with interrupt disabled
+    ADCSRA = (1 << ADEN) + (0 << ADSC) + (0 << ADATE) + (0 << ADIF) + (0
+            << ADIE) + (0 << ADPS0);
+
+    //Set auto conversion source
+    //ADCSRB &= 0b11111000; //autoconversion (ADATAE) not set so trigger
+    // source is not used
+}
+
+//Call this function to start an ADC conversion
+void ADCStartConversion() {
+
+    ADCSRA |= 1 << ADSC;  // this is automatically cleared
+
+}
+
+
+void ADCClearConversionFlag() {
+
+    ADCSRA |= (1 << ADIF); // all interrupt flags are cleared by writing a one
+
+}
+
+int ADCIsConversionCompleteFlagSet() {
+
+    return (ADCSRA & (1 << ADIF));
+
+}
+
+// modify this command to return ADC, value.  Hint: you can access it by using
+// the macro symbol ADC.  Note, if accessing the high and low bytes
+// individually, access ADCL first then ADCH
+uint16_t ADCGet() {
+
+    return ADC;
+
+}
+
+
+int ADCAquire() {
+
+    ADCClearConversionFlag();
+    ADCStartConversion();
+    while (!ADCIsConversionCompleteFlagSet());
+    return ADCGet();
+
+}
+
+
+uint8_t press_up() {
+
+    return (PORTB & 0b10000000);
+
+}
+
+
+uint8_t press_down() {
+
+    return (PORTB & 0b01000000);
+
+}
+
+
+uint8_t press_right() {
+
+    return (PORTE & 0b00001000);
+
+}
+
 
 
 // ------------------ Helper function implementations ------------------
-
-/*
- * Displays the main menu to the user and prompts for their input. The
- * function then returns the user's input to be treated as their choice from
- * the main menu prompt. */
-uint8_t display_menu(const char menu[]) {
-
-    int choice, index = 0;
-    // copy the const string main menu prompt to be tokenized
-    char *menu_str_copy = strdup(menu);
-    char *menu_ptr = menu_str_copy;
-    char *menu_tokens;
-
-    // iterate through the main menu prompt and print at each newline char
-    while ((menu_tokens = strtok_r(menu_ptr, "\n", &menu_ptr))) {
-
-        // only print indices [1, 2, 3, 4]
-        if (index) {
-            printf_P("%d. ", index);
-        }
-        index++;
-        printf_P("%s\n", menu_tokens);
-    }
-    free(menu_str_copy);  // free up copy of string
-
-    // prompt user for choice
-    printf_P("%s", choice_str);
-    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
-        sscanf_P(user_line, "%d", &choice);
-    }
-
-    return (uint8_t) choice;
-
-}
-
-/*
- * Iterates through and lists out all the song titles. */
-void list_menu() {
-
-    printf_P("%s", database_str);
-    for (int i = 0; i < NUMBER_OF_SONGS; i++) {
-        printf_P("%d: %s%s\n", i, title_str, song_title_list[i]);
-    }
-
-
-}
-
-/*
- * Compares the user inputted query against title in the song title array.
- * `total_matches` is incremented after every successful matches of the two
- * tokenized strings and returned. */
-int match_score(const char count_query_string[], const char database[]) {
-
-    const char PROGMEM *count_query_ptr = count_query_string;
-    const char PROGMEM *database_ptr = database;
-    char *token_user, *token_stored;
-    int total_matches = 0;
-
-    // loop until the string does not contain any whitespace (' ') chars
-    while ((token_stored = strtok_r(database_ptr, " ", &database_ptr))) {
-
-        // loop until the string does not contain any whitespace (' ') chars
-        while ((token_user = strtok_r(count_query_ptr, " ", &count_query_ptr))) {
-
-            // case-insensitively compare the two tokens
-            if (!strcasecmp(token_user, token_stored)) {
-                total_matches++;
-            }
-
-        }
-
-    }
-
-    return total_matches;
-
-}
-
-/*
- * Calls 'match_score()' on individual titles in
- * the song title array to compare against the user inputted query.
- * 'best_choice' stores the index at which the 'match_score()' function
- * determined the title to best match the user query. */
-int best_match(char user[]) {
-
-    int best_choice = 0, highest_score = 0, cursor = 0;
-
-    // loop through each of the titles in the song title array and find their
-    // match score
-    for (int i = 0; i < NUMBER_OF_SONGS; i++) {
-
-        // only compare song titles that are non-empty
-        if (song_title_list[i] != '\0') {
-
-            // current match score
-            cursor = match_score(user, song_title_list[i]);
-
-            // best_choice gets assigned the index at which the maximum match
-            // score was achieved
-            if (cursor > highest_score) {
-                highest_score = cursor;
-                best_choice = i;
-            }
-        }
-    }
-
-    return best_choice;
-
-}
-
-
-/*
- * Displays the play menu to the user and prompts for their input. The user's
- * first input is treated as their choice in playing a song. The user is
- * prompted a second time to locate the desired song. */
-void play_menu() {
-
-    int play_choice, song_ix;
-    int index = 0;
-    // copy the const string main menu prompt to be tokenized
-    char *menu_str_copy = strdup(menu_play_str);
-    const char PROGMEM *menu_ptr = menu_str_copy;
-    char *menu_tokens;
-
-    // iterate through the main menu prompt and print at each newline char
-    while ((menu_tokens = strtok_r(menu_ptr, "\n", &menu_ptr))) {
-
-        // only print indices [1, 2]
-        if (index) {
-            printf_P("%d. ", index);
-        }
-
-        index++;
-        printf_P("%s\n", menu_tokens);
-
-    }
-    free(menu_str_copy);  // free up copy of string
-
-    // prompt user for their choice in the play menu
-    printf_P("%s", choice_str);
-    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
-        sscanf_P(user_line, "%d", &play_choice);
-    }
-
-    switch (play_choice) {
-
-        // search by title
-        case 1: {
-
-            char user_query[MAX_TITLE_LENGTH];
-            printf_P("%s", title_str);
-            if (fgets(user_line, MAX_TITLE_LENGTH, stdin) != NULL) {
-                sscanf_P(user_line, "%[^\n]", user_query);
-            }
-            // index of the user's desired song title
-            song_ix = best_match(user_query);
-
-            break;
-
-        }
-
-            // search by index
-        case 2: {
-
-            printf_P("%s", index_str);
-            if (fgets(user_line, 3, stdin) != NULL) {
-                sscanf_P(user_line, "%d", &song_ix);
-            }
-            break;
-
-        }
-
-        default: {
-            break;
-        }
-    }
-
-    // call 'play_song()' to play the user's desired song
-    play_song((uint8_t *) song_list[song_ix]);
-
-}
-
-/*
- * Displays the create menu to the user and prompts for their input. The user's
- * first input is treated as the title of the new song. The second input is
- * the notes of the song, finally followed by the third input indicating
- * their desired location to save the song. */
-void create_menu() {
-
-    char song_ascii[USER_LINE_MAX];
-    char song_title[MAX_TITLE_LENGTH];
-    char *full_song;
-    int new_song_ix;
-
-    // prompt for song title
-    printf_P("%s", title_str);
-    if (fgets(user_line, MAX_TITLE_LENGTH, stdin) != NULL) {
-        sscanf_P(user_line, "%[^\n]", song_title);
-    }
-
-    // prompt for song notes
-    printf_P("%s", notes_str);
-    if (fgets(user_line, USER_LINE_MAX, stdin) != NULL) {
-        sscanf_P(user_line, "%s", song_ascii);
-    }
-
-    // manually append a zero rest to the song
-    full_song = add_zero_rest(song_ascii);
-    // dynamically allocate size for the packed song array with half the size
-    // of the original user inputted notes array
-    uint8_t packed_song[strlen(full_song) / 2];
-    memset(packed_song, 0, sizeof(packed_song));
-    // store the user inputted notes array by packing individual notes and
-    // storing them into the packed_array
-    store_songs(packed_song, full_song);
-
-    // prompt for the desired location
-    printf_P("%s", index_str);
-    if (fgets(user_line, NUMBER_OF_SONGS - 1, stdin) != NULL) {
-        sscanf_P(user_line, "%d", &new_song_ix);
-    }
-
-    // assign the new title to the desired location of the song title array
-    memcpy(song_title_list[new_song_ix], song_title, MAX_SONG_LENGTH);
-    // assign the new song to the desired location of the song array
-    memcpy(song_list[new_song_ix], packed_song, MAX_SONG_LENGTH);
-
-    // alert the user on the successful addition of their song
-    printf_P("%s", song_success_str);
-
-}
 
 /*
  * Main function for the program. Sitting in a loop until terminated by the
@@ -290,8 +215,9 @@ void create_menu() {
  * desired functionalities. */
 int main() {
 
-    LCD_Init();
-    ADCSetup();
+    lcd_init();
+    adc_init();
+    init_pins();
 
     uint8_t mode;
 
@@ -310,15 +236,15 @@ int main() {
         }
 
         if (press_right) {
+
             if (!(mode % 2)) {
-                avoid_the_light(ftl_str);
+                avoid_the_light();
             } else {
-                follow_the_light(atl_str);
+                follow_the_light();
             }
 
         }
     }
-
 
     return EXIT_SUCCESS;
 

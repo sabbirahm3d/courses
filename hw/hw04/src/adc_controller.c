@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-void ADCSetup() {
+void adc_init() {
     // AVR Butteryfly Board Info:
     // The Neg. Temp. Coeff. resistor (NTC)      is on ADC channel 0
     // The Board Edge Voltage Input Reading (VR) is on ADC channel 1

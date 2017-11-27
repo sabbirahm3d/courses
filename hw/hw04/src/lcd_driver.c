@@ -78,7 +78,7 @@ unsigned int LCD_character_table[] = {
 *                   Set up the LCD (timing, contrast, etc.)
 *
 *****************************************************************************/
-void LCD_Init(void) {
+void lcd_init(void) {
 
     LCD_AllSegments(FALSE);  // Clear segment buffer.
 

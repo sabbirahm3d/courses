@@ -6,7 +6,7 @@
 #define ADC_CONTROLLER_H
 
 
-void ADCSetup();
+void adc_init();
 
 void ADCStartConversion();
 

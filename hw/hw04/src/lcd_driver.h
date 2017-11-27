@@ -21,7 +21,7 @@
 #define LCD_CONTRAST_LEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
 
 //Functions
-void LCD_Init(void);
+void lcd_init(void);
 
 void LCD_WriteDigit(char, char);  //digit can be 0 to 5
 

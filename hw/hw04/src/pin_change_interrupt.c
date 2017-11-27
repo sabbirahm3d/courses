@@ -50,7 +50,7 @@ int main(void) {
 #endif
 
     /* Initialize and Clear the LCD */
-    LCD_Init();
+    lcd_init();
     LCD_WriteDigit('N', 5);
 
     //Setup All Pushbuttons
