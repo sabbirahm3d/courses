@@ -286,7 +286,7 @@ void adc_init() {
     //Select Voltage Reference, Set Left-Ship Option, Set Input Channel
     int refSel_2b = 1;    //select avcc, change to 3 for 1.1V reference
     int adlar_1b = 0;     //no need to left shift
-    int muxSel_5b = XYZ;  //select ADC0 with single-ended conversion
+    int muxSel_5b = 5;  //select ADC0 with single-ended conversion
     ADMUX = (refSel_2b << REFS0) + (adlar_1b << ADLAR) + (muxSel_5b << MUX0);
 
     //enable adc and with interrupt disabled
@@ -371,6 +371,16 @@ uint8_t max3(uint8_t a, uint8_t b, uint8_t c) {
     (void) ((m < c) && (m = c)); //these are just boolean expressions.
     return m;
 
+}
+
+void lcd_puts_P(const char  c[]) { //same const char *c
+	uint8_t ch = pgm_read_byte(c);
+	int location = 0;
+	while(ch != 0) {
+		LCD_WriteDigit(ch, location);
+		ch = pgm_read_byte(++c);
+		location ++;
+	}
 }
 
 void follow_the_light() {
