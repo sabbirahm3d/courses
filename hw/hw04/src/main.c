@@ -11,66 +11,26 @@
 #include <stdlib.h>
 
 // AVR libraries
+#include <avr/interrupt.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-#include <avr/interrupt.h>
 
-// ------------------ FUNCTION PROTOTYPES ------------------
-#define LCD_REGISTER_COUNT 20
+// ------------------ CONSTANTS ------------------
+#define LCDREGCNT 20
+#define LCDINITCONTRAST 0x0F
+#define pLCDREG ((unsigned char *)(0xEC))  // LCD Data Register 0
+// First LCD segment register
+#define LCDCONTRASTLEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
 
-#define LCD_INITIAL_CONTRAST 0x0F
-
-// LCD Data Register 0    // DEVICE SPECIFIC!!! (ATmega169)
-#define pLCDREG ((unsigned char *)(0xEC))
-
-// DEVICE SPECIFIC!!! (ATmega169) First LCD segment register
-#define LCD_CONTRAST_LEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
-
-//Functions
-void lcd_init(void);
-
-void lcd_write_digit(char, int);  // digit can be 0 to 5
-
-void lcd_all_segs(unsigned char);
-
-
-void adc_init();
-
-void adc_start_flag();
-
-void adc_clear_flag();
-
-int adc_is_set_flag();
-
-uint16_t get_adc();
-
-
-// JOYSTICK FUNCTIONS
-uint8_t press_up(void);
-
-uint8_t press_down(void);
-
-uint8_t press_right(void);
-
-// SERVO FUNCTIONS
-void follow_the_light(void);
-
-void avoid_the_light(void);
-
-// HELPER FUNCTIONS
-
-uint8_t max3(uint8_t, uint8_t, uint8_t);
-
-
-// --- constant strings stored in the program space for repeated use ---
-// strings to build menus
+// menu strings
 const char PROGMEM FLTSTR[] = "FTL";
 const char PROGMEM ATLSTR[] = "ATL";
+
+// initial ADC value
 uint8_t INITADC;
 
-// Look-up table used when converting ASCII to
-// LCD display data (segment control)
+// truncated look-up table used when converting ASCII to LCD display data
 unsigned int LCDCHARTABLE[] = {
         0x5559,     // '0'
         0x0118,     // '1'
@@ -85,162 +45,9 @@ unsigned int LCDCHARTABLE[] = {
         0x0f51,     // 'A' (+ 'a')
         0x0e41,     // 'F' (+ 'f')
         0x1440,     // 'L' (+ 'l')
-        0x2081     // 'T' (+ 't')
+        0x2081      // 'T' (+ 't')
 };
 
-
-// ------------------ Helper function implementations ------------------
-
-/*****************************************************************************
-*
-*   Function name : LCD_Init
-*
-*   Returns :       None
-*
-*   Parameters :    None
-*
-*   Purpose :       Initialize LCD_displayData buffer.
-*                   Set up the LCD (timing, contrast, etc.)
-*
-*****************************************************************************/
-void lcd_init() {
-
-    lcd_all_segs(0);  // Clear segment buffer.
-
-    LCD_CONTRAST_LEVEL(LCD_INITIAL_CONTRAST);  // Set the LCD contrast level
-
-    // Select asynchronous clock source, enable all COM pins and enable all
-    // segment pins.
-    LCDCRB = (1 << LCDCS) | (3 << LCDMUX0) | (7 << LCDPM0);
-
-    // Set LCD prescaler to give a framerate of 32,0 Hz
-    LCDFRR = (0 << LCDPS0) | (7 << LCDCD0);
-
-    // Enable LCD and set low power waveform
-    LCDCRA = (1 << LCDEN) | (1 << LCDAB);
-
-    // updated 2006-10-10, setting LCD drive time to 1150us in FW rev 07,
-    // instead of previous 300us in FW rev 06. Due to some variations on the
-    // LCD glass provided to the AVR Butterfly production.
-    LCDCCR |= (1 << LCDDC2) | (1 << LCDDC1) | (1 << LCDDC0);
-
-}
-
-
-/*****************************************************************************
-*
-*   Function name : LCD_WriteDigit(char c, char digit)
-*
-*   Returns :       None
-*
-*   Parameters :    Inputs
-*                   c: The symbol to be displayed in a LCD digit
-*                   digit: In which digit (0-5) the symbol should be displayed
-*                   Note: Digit 0 is the first used digit on the LCD,
-*                   i.e LCD digit 2
-*
-*   Purpose :       Stores LCD control data in the LCD_displayData buffer.
-*                   (The LCD_displayData is latched in the LCD_SOF interrupt.)
-*
-*****************************************************************************/
-void lcd_write_digit(char c, int digit) {
-
-    unsigned int seg = 0x0000;                  // Holds the segment pattern
-    char mask, nibble;
-    char *ptr;
-    char i;
-
-
-    if (digit > 5)                              // Skip if digit is illegal
-        return;
-
-    //Lookup character table for segmet data
-    if ((c >= '*') && (c <= 'z')) {
-        // c is a letter
-        if (c >= 'a')                           // Convert to upper case
-            c &= ~0x20;                         // if necessarry
-
-        c -= '*';
-
-        seg = LCDCHARTABLE[c];
-    }
-
-    // Adjust mask according to LCD segment mapping
-    if (digit & 0x01) {
-
-        mask = 0x0F; // Digit 1, 3, 5
-
-    } else {  // Digit 0, 2, 4
-
-        mask = 0xF0;
-
-    }
-
-    //ptr = LCD_Data + (digit >> 1);  // digit = {0,0,1,1,2,2}
-    ptr = (char *) pLCDREG + (digit >> 1);  // digit = {0,0,1,1,2,2}
-
-    for (i = 0; i < 4; i++) {
-        nibble = seg & 0x000F;
-        seg >>= 4;
-        if (digit & 0x01)
-            nibble <<= 4;
-        *ptr = (*ptr & mask) | nibble;
-        ptr += 5;
-    }
-}
-
-
-void lcd_puts_P(const char c[]) { //same const char *c
-
-    uint8_t ch = pgm_read_byte(c);
-
-    int location = 0;
-
-    while (ch != 0) {
-        lcd_write_digit(ch, location);
-        ch = pgm_read_byte(++c);
-        location++;
-    }
-
-}
-
-/*****************************************************************************
-*
-*   Function name : LCD_AllSegments(unsigned char input)
-*
-*   Returns :       None
-*
-*   Parameters :    show -  [TRUE;FALSE]
-*
-*   Purpose :       shows or hide all all LCD segments on the LCD
-*
-*****************************************************************************/
-void lcd_all_segs(unsigned char show) {
-
-    unsigned char i;
-
-    if (show){
-        show = 0xFF;
-    }
-
-    // Set/clear all bits in all LCD registers
-    for (i = 0; i < LCD_REGISTER_COUNT; i++){
-        *(pLCDREG + i) = show;
-    }
-}
-
-
-void interrupts_init(void) {
-    // Setup for Center Button Interrupt
-
-    // Unmask bit for Center Button on Butterfly, PB4->PCINT12 to allow it
-    // to trigger interrupt flag PCIF1
-    PCMSK1 |= (1 << PCINT12);
-    EIMSK = (1 << PCIE1);    //Enable interrupt for flag PCIF1
-
-}
-
-// ISR DEFINITIONS//
 
 ISR(PCINT1_vect) {
 
@@ -257,6 +64,183 @@ ISR(PCINT1_vect) {
     pinBPrev = PINB;  // save button status
 }
 
+// ------------------ FUNCTION PROTOTYPES ------------------
+
+// ------------------ LCD FUNCTIONS ------------------
+
+void lcd_init(void);
+
+void lcd_write_digit(char, int);  // digit can be 0 to 5
+
+void lcd_all_segs(unsigned char);
+
+void lcd_puts_P(const char[]);
+
+// ------------------ ADC FUNCTIONS ------------------
+
+void adc_init();
+
+void adc_start_flag();
+
+void adc_clear_flag();
+
+int adc_is_set_flag();
+
+uint16_t get_adc();
+
+// ------------------ JOYSTICK FUNCTIONS ------------------
+
+uint8_t press_up(void);
+
+uint8_t press_down(void);
+
+uint8_t press_right(void);
+
+// ------------------ SERVO FUNCTIONS ------------------
+
+void follow_the_light(void);
+
+void avoid_the_light(void);
+
+// ------------------ HELPER FUNCTIONS ------------------
+
+uint8_t max3(uint8_t, uint8_t, uint8_t);
+
+
+// ------------------ FUNCTION IMPLEMENTATIONS ------------------
+
+
+/*
+ * Initialize LCD_displayData buffer. Set up the LCD (timing, contrast, etc.)
+ */
+void lcd_init() {
+
+    // clear segment buffer
+    lcd_all_segs(0);
+
+    // set the LCD contrast level
+    LCDCONTRASTLEVEL(LCDINITCONTRAST);
+
+    // select asynchronous clock source, enable all COM pins and enable all
+    // segment pins.
+    LCDCRB = (1 << LCDCS) | (3 << LCDMUX0) | (7 << LCDPM0);
+
+    // set LCD prescaler to give a framerate of 32,0 Hz
+    LCDFRR = (0 << LCDPS0) | (7 << LCDCD0);
+
+    // enable LCD and set low power waveform
+    LCDCRA = (1 << LCDEN) | (1 << LCDAB);
+
+    // updated 2006-10-10, setting LCD drive time to 1150us in FW rev 07,
+    // instead of previous 300us in FW rev 06. Due to some variations on the
+    // LCD glass provided to the AVR Butterfly production.
+    LCDCCR |= (1 << LCDDC2) | (1 << LCDDC1) | (1 << LCDDC0);
+
+}
+
+
+/*
+ * Stores LCD control data in the LCD_displayData buffer. (The LCD_displayData
+ * is latched in the LCD_SOF interrupt.)
+ */
+void lcd_write_digit(char c, int digit) {
+
+    unsigned int seg = 0x0000;  // holds the segment pattern
+    char mask, nibble;
+    char *ptr;
+    char i;
+
+    // skip if digit is illegal
+    if (digit > 5) {
+        return;
+    }
+
+    // lookup character table for segment data
+    if ((c >= '*') && (c <= 'z')) {  // c is a letter
+        // convert to upper case  if necessarry
+        if (c >= 'a') {
+            c &= ~0x20;
+        }
+        c -= '*';
+        seg = LCDCHARTABLE[c];
+    }
+
+    // adjust mask according to LCD segment mapping
+    if (digit & 0x01) {
+        // digit 1, 3, 5
+        mask = 0x0F;
+    } else {
+        // digit 0, 2, 4
+        mask = 0xF0;
+    }
+
+    ptr = (char *) pLCDREG + (digit >> 1);  // digit = {0,0,1,1,2,2}
+
+    for (i = 0; i < 4; i++) {
+        nibble = seg & 0x000F;
+        seg >>= 4;
+        if (digit & 0x01)
+            nibble <<= 4;
+        *ptr = (*ptr & mask) | nibble;
+        ptr += 5;
+    }
+
+}
+
+
+/*
+ * Flushes char arrays to LCD
+ */
+void lcd_puts_P(const char c[]) {
+
+    uint8_t ch = pgm_read_byte(c);
+
+    int location = 0;
+
+    while (ch != 0) {
+        lcd_write_digit(ch, location);
+        ch = pgm_read_byte(++c);
+        location++;
+    }
+
+}
+
+
+/*
+ * Shows or hide all all LCD segments on the LCD
+ */
+void lcd_all_segs(unsigned char show) {
+
+    unsigned char i;
+
+    if (show) {
+        show = 0xFF;
+    }
+
+    // Set/clear all bits in all LCD registers
+    for (i = 0; i < LCDREGCNT; i++) {
+        *(pLCDREG + i) = show;
+    }
+}
+
+
+/*
+ * Initializes all interrupts utlitized in the program
+ */
+void interrupts_init(void) {
+    // setup for center button interrupt
+
+    // unmask bit for Center Button on Butterfly, PB4->PCINT12 to allow it
+    // to trigger interrupt flag PCIF1
+    PCMSK1 |= (1 << PCINT12);
+    EIMSK = (1 << PCIE1);    // enable interrupt for flag PCIF1
+
+}
+
+
+/*
+ * Initializes all pins utlitized in the program
+ */
 void pins_init(void) {
 
     // set B6, B7 as inputs, corresponding to the joystick UP and DOWN buttons
@@ -264,47 +248,58 @@ void pins_init(void) {
     // set E2, E3 as inputs, corresponding to the joystick RIGHT button
     DDRE &= ~(0b00001000);
 
-    PORTB |= 0b11100000;  // enable pull up resistors on B5, B6, B7
-    PORTE |= 0b00001000;  // enable pull up resistor on pin E2, E3
+    // enable pull up resistors on B5, B6, B7
+    PORTB |= 0b11100000;
+    // enable pull up resistor on pin E2, E3
+    PORTE |= 0b00001000;
 
     // setup output for servo
-    DDRB |= (1 << 5);    // enable PORTB5 as output
-    DDRB |= (1 << 0);    // enable PORTB0 as output for the first LED
-    DDRB |= (1 << 1);    // enable PORTB1 as output for the second LED
+    // enable PORTB5 as output
+    DDRB |= (1 << 5);
+    // enable PORTB0 as output for the first LED
+    DDRB |= (1 << 0);
+    // enable PORTB1 as output for the second LED
+    DDRB |= (1 << 1);
 
-    interrupts_init();    // setup the interrupts
-    sei();                // enable global interrupts
+    // setup the interrupts
+    interrupts_init();
+    // enable global interrupts
+    sei();
 
 }
 
-void adc_init() {
 
-    // AVR Butteryfly Board Info:
-    // The Neg. Temp. Coeff. resistor (NTC)      is on ADC channel 0
-    // The Board Edge Voltage Input Reading (VR) is on ADC channel 1
-    // The Light Dependant Resistor (LDR)        is on ADC channel 2
+/*
+ * Initializes all ADC functionalities utlitized in the program
+ *
+ * AVR Butteryfly Board Info:
+ * The Neg. Temp. Coeff. resistor (NTC)      is on ADC channel 0
+ * The Board Edge Voltage Input Reading (VR) is on ADC channel 1
+ * The Light Dependant Resistor (LDR)        is on ADC channel 2
+ */
+void adc_init() {
 
     // Disable Digital Input Buffer on pins being used for analog input to save
     // power using the Digital Input Disable Register
-    DIDR0 |= 0b00000001; //disable PF0 (ADC0) digital input buffer
+    DIDR0 |= 0b00000001; // disable PF0 (ADC0) digital input buffer
 
-    //Select Voltage Reference, Set Left-Ship Option, Set Input Channel
-    int refSel_2b = 1;    //select avcc, change to 3 for 1.1V reference
-    int adlar_1b = 0;     //no need to left shift
-    int muxSel_5b = 5;  //select ADC0 with single-ended conversion
+    // Select Voltage Reference, Set Left-Ship Option, Set Input Channel
+    int refSel_2b = 1;  // select avcc, change to 3 for 1.1V reference
+    int adlar_1b = 0;  // no need to left shift
+    int muxSel_5b = 5;  // select ADC0 with single-ended conversion
     ADMUX = (uint8_t) (refSel_2b << REFS0) + (adlar_1b << ADLAR) + (muxSel_5b
             << MUX0);
 
-    //enable adc and with interrupt disabled
+    // enable adc and with interrupt disabled
     ADCSRA = (1 << ADEN) + (0 << ADSC) + (0 << ADATE) + (0 << ADIF) + (0
             << ADIE) + (0 << ADPS0);
 
-    //Set auto conversion source
-    //ADCSRB &= 0b11111000; //autoconversion (ADATAE) not set so trigger
-    // source is not used
 }
 
-//Call this function to start an ADC conversion
+
+/*
+ * Initializes the ADC conversion
+ */
 void adc_start_flag() {
 
     ADCSRA |= 1 << ADSC;  // this is automatically cleared
@@ -312,21 +307,30 @@ void adc_start_flag() {
 }
 
 
+/*
+ * Clear all flags in the ADC
+ */
 void adc_clear_flag() {
 
-    ADCSRA |= (1 << ADIF); // all interrupt flags are cleared by writing a one
+    // all interrupt flags are cleared by writing a one
+    ADCSRA |= (1 << ADIF);
 
 }
 
+
+/*
+ * Checks status of ADC set flag
+ */
 int adc_is_set_flag() {
 
     return (ADCSRA & (1 << ADIF));
 
 }
 
-// modify this command to return ADC, value.  Hint: you can access it by using
-// the macro symbol ADC.  Note, if accessing the high and low bytes
-// individually, access ADCL first then ADCH
+
+/*
+ * Returns the current value of ADC
+ */
 uint16_t get_adc() {
 
     return ADC;
@@ -334,7 +338,10 @@ uint16_t get_adc() {
 }
 
 
-int adc_acquire() {
+/*
+ * Returns the value of ADC after clearing all flags
+ */
+uint8_t adc_acquire() {
 
     adc_clear_flag();
     adc_start_flag();
@@ -344,6 +351,9 @@ int adc_acquire() {
 }
 
 
+/*
+ * Returns status of JOYSTICK UP
+ */
 uint8_t press_up() {
 
     return (PORTB & 0b10000000);
@@ -351,6 +361,9 @@ uint8_t press_up() {
 }
 
 
+/*
+ * Returns status of JOYSTICK DOWN
+ */
 uint8_t press_down() {
 
     return (PORTB & 0b01000000);
@@ -358,37 +371,56 @@ uint8_t press_down() {
 }
 
 
+/*
+ * Returns status of JOYSTICK RIGHT
+ */
 uint8_t press_right() {
 
     return (PORTE & 0b00001000);
 
 }
 
+
+/*
+ * Sends signals to the servo to move by the inputted variable degree
+ */
 void move_servo(int degrees) {
 
     PORTB &= (degrees & 0b00010000);
 
 }
 
+
+/*
+ * Returns the maximum of 3 integers
+ */
 uint8_t max3(uint8_t a, uint8_t b, uint8_t c) {
 
     uint8_t m = a;
-    (void) ((m < b) && (m = b)); //these are not conditional statements.
-    (void) ((m < c) && (m = c)); //these are just boolean expressions.
+
+    // simple boolean expressions for fast comparison
+    (void) ((m < b) && (m = b));
+    (void) ((m < c) && (m = c));
+
     return m;
 
 }
 
+
+/*
+ * Initializes the servo to follow the most illuminated areas from the light
+ * source
+ */
 void follow_the_light() {
 
     uint8_t angle_prev, angle_next;
 
     move_servo(-10);
-    angle_prev = get_adc();
+    angle_prev = adc_acquire();
     _delay_ms(500);
 
     move_servo(20);
-    angle_next = get_adc();
+    angle_next = adc_acquire();
     _delay_ms(500);
 
     // local sweep
@@ -396,7 +428,7 @@ void follow_the_light() {
     lcd_puts_P((char *) optimal_angle);
 
     // full sweep
-    while (get_adc() < optimal_angle) {
+    while (adc_acquire() < optimal_angle) {
         _delay_ms(500);
         move_servo(20);
     }
@@ -404,17 +436,21 @@ void follow_the_light() {
 
 }
 
-//
+
+/*
+ * Initializes the servo to follow the least illuminated areas from the light
+ * source
+ */
 void avoid_the_light() {
 
     uint8_t angle_prev, angle_next;
 
     move_servo(-10);
-    angle_prev = get_adc();
+    angle_prev = adc_acquire();
     _delay_ms(500);
 
     move_servo(20);
-    angle_next = get_adc();
+    angle_next = adc_acquire();
     _delay_ms(500);
 
     // local sweep
@@ -422,7 +458,7 @@ void avoid_the_light() {
     lcd_puts_P((char *) optimal_angle);
 
     // full sweep
-    while (get_adc() > optimal_angle) {
+    while (adc_acquire() > optimal_angle) {
         _delay_ms(500);
         move_servo(20);
     }
@@ -435,30 +471,44 @@ void avoid_the_light() {
  * Main function for the program. Sitting in a loop until terminated by the
  * user, this function acts as the controller for the rest of the program. It
  * prompts users on their choices in the main menu and directs them to the
- * desired functionalities. */
+ * desired functionalities.
+ */
 int main() {
 
+    // initialize LCD, ADC and ports
     lcd_init();
     adc_init();
     pins_init();
 
-	lcd_puts_P(FLTSTR);
+    // initialize LCD with the selection menu
+    lcd_puts_P(FLTSTR);
+
+    // mode to determine if user selected FTL or ATL
     uint8_t mode = 0;
 
+    // initial value of ADC
+    INITADC = adc_acquire();
+
+    // sits in loop until user presses right
     while (!press_right()) {
 
+        // increment or decrement mode
         if (press_up()) {
             mode++;
         } else if (press_down()) {
             mode--;
         }
 
+        // display menu string depending on value of mode
         (mode % 2) ? lcd_puts_P(FLTSTR) : lcd_puts_P(ATLSTR);
 
     }
 
     // pressing right breaks out of the loop
     (mode % 2) ? follow_the_light() : avoid_the_light();
+
+    // wait a sufficient amount of time before termination
+    _delay_ms(10000);
 
     return EXIT_SUCCESS;
 
