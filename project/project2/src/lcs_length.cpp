@@ -73,6 +73,9 @@ char *read_sequence(const char *file_name, size_t seq_len) {
     fclose(file);
 
     buffer[file_size] = '\0';
+    if (seq_len > strlen(buffer)) {
+        seq_len = strlen(buffer);
+    }
     memcpy(buffer, buffer, seq_len);
     buffer[seq_len] = '\0';
 
@@ -206,12 +209,8 @@ int main(int argc, char *argv[]) {
 
     std::istringstream m_ss(argv[2]), n_ss(argv[4]);
     size_t m, n;
-    if (!(m_ss >> m)) {
-        std::cerr << "Invalid number " << argv[2] << std::endl;
-        return EXIT_FAILURE;
-    }
-    if (!(n_ss >> n)) {
-        std::cerr << "Invalid number " << argv[4] << std::endl;
+    if (!((m_ss >> m) || (n_ss >> n))) {
+        std::cerr << "Invalid integer inputted." << std::endl;
         return EXIT_FAILURE;
     }
 
@@ -219,13 +218,16 @@ int main(int argc, char *argv[]) {
     char *X = read_sequence(argv[1], m);
     char *Y = read_sequence(argv[3], n);
 
+    // actual lengths of truncated strings if inputted length > max length
+    m = strlen(X);
+    n = strlen(Y);
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     auto **lcs_matrix = new int *[m + 1];
     for (size_t i = 0; i < m + 1; ++i) {
         lcs_matrix[i] = new int[n + 1];
     }
 
-    double start_t, end_t;
+    double start_t, end_t;  // timing variables
 
     // start timer
     start_t = omp_get_wtime();
@@ -241,7 +243,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds"
             " to compute the LCS." << std::endl;
 
-    // print the LCS
+    // for debugging purposes - print the LCS
     // print_lcs(X, Y, m, n, lcs_matrix);
 
     // delete dynamically allocated arrays
