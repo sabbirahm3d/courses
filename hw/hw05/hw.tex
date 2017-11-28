@@ -54,7 +54,8 @@
             \item \textbf{Question} Calculate the total number of bits required
             for the cache listed in the table, assuming a 32-bit address.
 
-            \textbf{Answer} \\
+            \textbf{Answer}
+
             Using: 
                 \[ 2^{n} \times (\text{valid field size} + \text{tag
                 size} + \text{block size}) \]
@@ -72,11 +73,11 @@
             \begin{equation*}
                 \begin{split}
                     n & = \log_2(\text{64 kB}) = 16 \\
-                    m & = \log_2(\text{2}) = 1 \\
-                    \text{tag size} & = 32 - (16 + 1 + 2) = 13 \\
+                    m & = \log_2(\text{1}) = 0 \\
+                    \text{tag size} & = 32 - (16 + 0 + 2) = 12 \\
                     \text{valid bits} & = 1 \\
-                    \text{total bits} & = 2^{16} \times (1 + 13 + 2) \\
-                    & = 2^{20} \ \text{bits} \\
+                    \text{total bits} & = 2^{16} \times (1 + 12 + 2) \\
+                    & = 15 \times 2^{16} \text{ tag bits} \\
                 \end{split}
             \end{equation*}
 
@@ -88,7 +89,7 @@
                     \text{tag size} & = 32 - (16 + 1 + 2) = 13 \\
                     \text{valid bits} & = 1 \\
                     \text{total bits} & = 2^{16} \times (1 + 13 + 2) \\
-                    & = 2^{20} \ \text{bits} \\
+                    & = 2^{20} \text{ tag bits} \\
                 \end{split}
             \end{equation*}
 
@@ -97,6 +98,31 @@
 
             \textbf{Answer}
 
+            Since there are 16 ($2^1$) bytes per block, a 32-bit address yields
+            32 - 1 = 31 bits to be used for index and tag. The number of sets:
+            \begin{equation*}
+                \begin{split}
+                    \text{number of sets} & = \log_2(\text{64 kB}) = 16 \\
+                \end{split}
+            \end{equation*}
+
+            Each degree of associativity decreases the number of sets by a
+            factor of 2 and thus decreases the number of bits used to index the
+            cache by 1 and increases the number of bits in the tag by 1.
+            \begin{equation*}
+                \begin{split}
+                    \frac{64 \text{ kB}}{4} & = 16 \text{ kB} \\
+                \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+                \begin{split}
+                    \text{total bits} & = (31 - 10) \times 1 \times 16 \text{ kB} \\
+                    & = \text{21} \times \text{16 K tag bits}
+                \end{split}
+            \end{equation*}
+
+        \newpage
         \end{enumerate}
 
             \item For a pipeline with a perfect CPI = 1 if no memory-access
@@ -217,6 +243,7 @@
 
         \end{enumerate}
 
+        \newpage
         \item Using the sequences of 32-bit memory read references, given as
         word addresses in the following table:
 
@@ -229,7 +256,6 @@
             \hline
             \end{tabular*}
         \end{table}
-        \newpage
 
         For each of these read accesses, identify the binary address, the tag,
         the index, and whether it experiences a hit or a miss, for each of the
@@ -242,8 +268,11 @@
 
             \textbf{Answer}
 
-            Since the block size is 1 word, $\log_{2}(1)=0$ offset bits are
-            required.
+            $\because$ 8 blocks, 1 word per block, 4 bytes per word,
+
+            $\therefore$ log$_{2}$(8) = 3-bit offset, 3-bit index and (16-3-3)
+            = 10 bits tag
+
             \begin{table}[h]
                 \centering
                 \caption{A Direct-mapped Cache With 16 One-word Blocks}
@@ -251,18 +280,18 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110  & 0000  & 0110  & miss  \\
-                    214 & 11010110  & 1101  & 0110  & miss  \\
-                    175 & 10101111  & 1010  & 1111  & miss  \\
-                    214 & 11010110  & 1101  & 0110  & hit   \\
-                    6   & 00000110  & 0000  & 0110  & miss  \\
-                    84  & 01010100  & 0101  & 0100  & miss  \\
-                    65  & 01000001  & 0100  & 0001  & miss  \\
-                    174 & 10101110  & 1010  & 1110  & miss  \\
-                    64  & 01000000  & 0100  & 0000  & miss  \\
-                    105 & 01101001  & 0110  & 1001  & miss  \\
-                    85  & 01010101  & 0101  & 0101  & miss  \\
-                    215 & 11010111  & 1101  & 0111  & miss  \\
+                    6   & 0000000000000110 & 0000000000 & 000 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 010 & miss  \\
+                    175 & 0000000010101111 & 0000000010 & 101 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 010 & hit   \\
+                    6   & 0000000000000110 & 0000000000 & 000 & hit   \\
+                    84  & 0000000001010100 & 0000000001 & 010 & miss  \\
+                    65  & 0000000001000001 & 0000000001 & 000 & miss  \\
+                    174 & 0000000010101110 & 0000000010 & 101 & miss  \\
+                    64  & 0000000001000000 & 0000000001 & 000 & miss  \\
+                    105 & 0000000001101001 & 0000000001 & 101 & miss  \\
+                    85  & 0000000001010101 & 0000000001 & 010 & miss  \\
+                    215 & 0000000011010111 & 0000000011 & 010 & miss  \\
                 \end{tabular*}
             \end{table}
             \newpage
@@ -271,8 +300,12 @@
             and a total size of 8 blocks.
 
             \textbf{Answer}
-            Since the block size is 2 words, $\log_{2}(2)=1$ offset bits are
-            required.
+
+            $\because$ 8 blocks, 2 words per block, 4 bytes per word,
+
+            $\therefore$ log$_{2}$(8) = 3-bit offset, 3-bit index and (16-3-3)
+            = 10 bits tag
+
             \begin{table}[h]
                 \centering
                 \caption{A Direct-mapped Cache With Two-word Blocks And A Total
@@ -281,18 +314,18 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110  & 0000  & 011   & miss  \\
-                    214 & 11010110  & 1101  & 011   & miss  \\
-                    175 & 10101111  & 1010  & 111   & miss  \\
-                    214 & 11010110  & 1101  & 011   & hit   \\
-                    6   & 00000110  & 0000  & 011   & miss  \\
-                    84  & 01010100  & 0101  & 010   & miss  \\
-                    65  & 01000001  & 0100  & 000   & miss  \\
-                    174 & 10101110  & 1010  & 111   & miss  \\
-                    64  & 01000000  & 0100  & 000   & miss  \\
-                    105 & 01101001  & 0110  & 100   & miss  \\
-                    85  & 01010101  & 0101  & 010   & miss  \\
-                    215 & 11010111  & 1101  & 011   & miss  \\
+                    6   & 0000000000000110 & 0000000000 & 000 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 010 & miss  \\
+                    175 & 0000000010101111 & 0000000010 & 101 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 010 & hit   \\
+                    6   & 0000000000000110 & 0000000000 & 000 & hit   \\
+                    84  & 0000000001010100 & 0000000001 & 010 & miss  \\
+                    65  & 0000000001000001 & 0000000001 & 000 & miss  \\
+                    174 & 0000000010101110 & 0000000010 & 101 & hit   \\
+                    64  & 0000000001000000 & 0000000001 & 000 & hit   \\
+                    105 & 0000000001101001 & 0000000001 & 101 & miss  \\
+                    85  & 0000000001010101 & 0000000001 & 010 & hit   \\
+                    215 & 0000000011010111 & 0000000011 & 010 & miss  \\
                 \end{tabular*}
             \end{table}
             \newpage
@@ -301,26 +334,34 @@
             blocks and a total size of 8 words. Use LRU replacement.
 
             \textbf{Answer}
+
+            $\because$ 8 blocks, 2 words per block, 4 tags
+
+            $\therefore$ log$_{2}$(8) = 3-bit offset, 0-bit index and (16-0-3)
+            = 13 bits tag
+
             \begin{table}[h]
                 \centering
                 \caption{A Fully Associative Cache With Two-word Blocks And A
-                Total Size Of 8 Words With LRU Replacement}
-                \begin{tabular*}{300pt}{@{\extracolsep{\fill}} ccccc}
-                    \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
-                    \textbf{Index} & \textbf{Hit / Miss} \\
+                Total Size Of 8 Words With LRU Replacement. The Integers Next to The Tags Indicate the Age of the Content}
+                \begin{tabular*}{400pt}{@{\extracolsep{\fill}} cp{2cm}ccccccccc}
+                    \textbf{Memory} & \textbf{00000000 + Binary} & \textbf{Tag 1} &&
+                    \textbf{Tag 2} && \textbf{Tag 3} && \textbf{Tag 4} &&  \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110 & & & miss   \\
-                    214 & 11010110 & & & miss   \\
-                    175 & 10101111 & & & miss   \\
-                    214 & 11010110 & & & hit    \\
-                    6   & 00000110 & & & hit    \\
-                    84  & 01010100 & & & miss   \\
-                    65  & 01000001 & & & miss   \\
-                    174 & 10101110 & & & hit    \\
-                    64  & 01000000 & & & hit    \\
-                    105 & 01101001 & & & miss   \\
-                    85  & 01010101 & & & hit    \\
-                    215 & 11010111 & & & hit    \\
+
+    6   & 00000110 & 00000 & 1 &       &   &       &   &       &   & miss \\
+    214 & 11010110 & 00000 & 2 & 11010 & 1 &       &   &       &   & miss \\
+    175 & 10101111 & 00000 & 3 & 11010 & 2 & 10101 & 1 &       &   & miss \\
+    214 & 11010110 & 00000 & 4 & 11010 & 1 & 10101 & 2 &       &   & hit  \\
+    6   & 00000110 & 00000 & 1 & 11010 & 2 & 10101 & 3 &       &   & hit  \\
+    84  & 01010100 & 00000 & 2 & 11010 & 3 & 10101 & 4 & 01010 & 1 & miss \\
+    65  & 01000001 & 00000 & 3 & 11010 & 4 & 01000 & 1 & 01010 & 2 & miss \\
+    174 & 10101110 & 00000 & 4 & 11010 & 5 & 10101 & 1 & 01010 & 3 & miss \\
+    64  & 01000000 & 00000 & 5 & 11010 & 6 & 01000 & 1 & 01010 & 4 & miss \\
+    105 & 01101001 & 00000 & 6 & 01101 & 1 & 01000 & 2 & 01010 & 5 & miss \\
+    85  & 01010101 & 00000 & 7 & 01101 & 2 & 01000 & 3 & 01010 & 1 & hit \\
+    215 & 11010111 & 11010 & 1 & 01101 & 3 & 01000 & 4 & 01010 & 2 & miss \\
+
                 \end{tabular*}
             \end{table}
             \newpage
@@ -329,8 +370,16 @@
             block size and total size of 8 words, while applying LRU
             replacement policy.
 
-            \textbf{Answer} \\ $\because \text{ The number of sets} =
-            \frac{\text{8 words}}{\text{2 blocks per set}} \text{ = 4 sets} \Rightarrow \text{2 index bits = 2 byte offset}$
+            \textbf{Answer}
+
+            $\because$ 8 blocks, 1 word per block, 4 bytes per word, 2 way-
+            set,
+
+            $\because \text{ The number of sets} =
+            \frac{\text{8 words}}{\text{2 blocks per set}} \text{ = 4 sets}$
+
+            $\therefore$ log$_{2}$(8) = 3-bit offset, 2-bit index and (16-2-3)
+            = 11 bits tag
 
             \begin{table}[h]
                 \centering
@@ -340,20 +389,39 @@
                     \textbf{Memory} & \textbf{Binary} & \textbf{Tag} &
                     \textbf{Index} & \textbf{Hit / Miss} \\
                     \hline
-                    6   & 00000110 & 0000 & 01 & miss   \\
-                    214 & 11010110 & 1101 & 01 & miss   \\
-                    175 & 10101111 & 1010 & 11 & miss   \\
-                    214 & 11010110 & 1101 & 01 & hit    \\
-                    6   & 00000110 & 0000 & 01 & hit    \\
-                    84  & 01010100 & 0101 & 01 & miss   \\
-                    65  & 01000001 & 0100 & 00 & miss   \\
-                    174 & 10101110 & 1010 & 11 & hit    \\
-                    64  & 01000000 & 0100 & 00 & hit    \\
-                    105 & 01101001 & 0110 & 10 & miss   \\
-                    85  & 01010101 & 0101 & 01 & hit    \\
-                    215 & 11010111 & 1101 & 01 & hit    \\
+                    6   & 0000000000000110 & 0000000000 & 00 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 10 & miss  \\
+                    175 & 0000000010101111 & 0000000010 & 01 & miss  \\
+                    214 & 0000000011010110 & 0000000011 & 10 & hit   \\
+                    6   & 0000000000000110 & 0000000000 & 00 & hit   \\
+                    84  & 0000000001010100 & 0000000001 & 10 & miss  \\
+                    65  & 0000000001000001 & 0000000001 & 00 & miss  \\
+                    174 & 0000000010101110 & 0000000010 & 01 & miss  \\
+                    64  & 0000000001000000 & 0000000001 & 00 & miss  \\
+                    105 & 0000000001101001 & 0000000001 & 01 & miss  \\
+                    85  & 0000000001010101 & 0000000001 & 10 & miss  \\
+                    215 & 0000000011010111 & 0000000011 & 10 & miss  \\
                 \end{tabular*}
             \end{table}
+
+            \begin{table}[h]
+                \centering
+                \caption{Contents of the Cache After Each Addition}
+                \begin{tabular*}{200pt}{@{\extracolsep{\fill}}cccc}
+                00 & 01 & 10 & 11 \\
+                \hline
+                6 & & &  \\
+                6 & & 214 &  \\
+                6 & 175 & 214 &  \\
+                6 & 175 & 214, 84 &  \\
+                6, 65 & 175 & 214, 84 &  \\
+                65, 64 & 174 & 214, 84 &  \\
+                65, 64 & 174, 105 & 214, 84 &  \\
+                65, 64 & 174, 105 & 84, 85 &  \\
+                65, 64 & 174, 105 & 85, 215 &  \\
+                \end{tabular*}
+            \end{table}
+
             \newpage
 
         \end{enumerate}
