@@ -5,19 +5,16 @@ SEQ1 = seq1.txt
 SEQ2 = seq2.txt
 SEQ1LEN = 10000
 SEQ2LEN = 10000
+SUBMITFILE = jobid.txt
 
-
-# define the C compiler to use
+# define the C++ compiler to use
 CC := g++
 
 # define any compile-time flags
 CPPFLAGS := -std=c++11 -Wall -fopenmp
 
 # define the C++ source files
-SRCS = lcs_length.cpp
-
-# define the C++ object files 
-OBJS := ${SRCS:.cpp=.o}
+SRC = lcs_length.cpp
 
 # define the executable file 
 EXE = lcs_length
@@ -40,15 +37,9 @@ val:
 
 # ---------- building targets ----------
 
-${EXE}: ${OBJS} 
-	${CC} ${CPPFLAGS} -o ${EXE} ${OBJS}
-
-.cpp .o:
-	${CC} ${CPPFLAGS} -c $< -o $@
-
 .PHONY: build
-build: ${EXE}
-	@echo "Program compiled successfully"
+build:
+	${CC} ${CPPFLAGS} ${SRC} -o ${EXE}
 
 
 # ---------- generating random sequences targets ----------
@@ -75,7 +66,7 @@ initslurm:
 
 .PHONY: slurmsubmit
 slurmsubmit:
-	sbatch ${EXE} slurm
+	sbatch ${EXE} slurm > ${SUBMITFILE}
 
 .PHONY: slurmstat
 slurmstat:
@@ -83,7 +74,7 @@ slurmstat:
 
 .PHONY: slurmqueue
 slurmqueue:
-	squeue | ${USER}
+	squeue | grep ${USER}
 
 # ---------- cleaning targets ----------
 
@@ -96,9 +87,9 @@ clean:
 reset:
 	# reset data files
 	${MAKE} --no-print-directory clean
-	if [ -f ${SEQ1} ]; then >${SEQ1};\
+	@if [ -f ${SEQ1} ]; then >${SEQ1};\
 	else touch ${SEQ1}; \
 	fi
-	if [ -f ${SEQ2} ]; then >${SEQ2};\
+	@if [ -f ${SEQ2} ]; then >${SEQ2};\
 	else touch ${SEQ2}; \
 	fi
