@@ -3,29 +3,31 @@
 SIZE = 10000
 SEQ1 = seq1.txt
 SEQ2 = seq2.txt
+SEQ1LEN = 10000
+SEQ2LEN = 10000
 
 
 # define the C compiler to use
 CC := g++
 
 # define any compile-time flags
-CPPFLAGS := -std=c++0x -Wall
+CPPFLAGS := -std=c++11 -Wall -fopenmp
 
 # define the C++ source files
-SRCS = main.cpp
+SRCS = lcs_length.cpp
 
 # define the C++ object files 
 OBJS := ${SRCS:.cpp=.o}
 
 # define the executable file 
-EXE = main
+EXE = lcs_length
 
 # ---------- executing targets ----------
 
 .PHONY: run
 run:
 	# run executable
-	./${EXE} ${SEQ1} ${SEQ2}
+	./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
 
 
 # ---------- memory checking targets ----------
@@ -33,7 +35,7 @@ run:
 .PHONY: val
 val:
 	# check memory leaks
-	valgrind ./${EXE} ${SEQ1} ${SEQ2}
+	valgrind ./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
 
 
 # ---------- building targets ----------
@@ -64,12 +66,31 @@ genseqs:
 	${MAKE} -s genrand > ${SEQ2}
 
 
+# ---------- SLURM batch targets ----------
+
+.PHONY: initslurm
+initslurm:
+	module load intel/compiler
+	module load slurm
+
+.PHONY: slurmsubmit
+slurmsubmit:
+	sbatch ${EXE} slurm
+
+.PHONY: slurmstat
+slurmstat:
+	sstat ${JOBID}
+
+.PHONY: slurmqueue
+slurmqueue:
+	squeue | ${USER}
+
 # ---------- cleaning targets ----------
 
 .PHONY: clean
 clean:
 	# clean out binary files
-	find . \( -name "*.o" -o -name "main" \) -type f -delete
+	find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
 
 .PHONY: reset
 reset:

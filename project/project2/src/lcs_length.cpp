@@ -10,9 +10,12 @@
  *
  * */
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
-#include <cstring>
+#include <sstream>
+
+#include <omp.h>
 
 // ------------------------- FUNCTION PROTOTYPES -------------------------
 
@@ -22,7 +25,7 @@ int serial_lcs(const char *, const char *, size_t, size_t, int **);
 
 void print_lcs(const char *, const char *, size_t, size_t, int **);
 
-char *read_sequence(const char *);
+char *read_sequence(const char *, size_t);
 
 
 // ------------------------- FUNCTION DECLARATIONS -------------------------
@@ -56,7 +59,7 @@ int max2(int a, int b) {
  *      sequence buffer
  *
  */
-char *read_sequence(const char *file_name) {
+char *read_sequence(const char *file_name, size_t seq_len) {
 
     FILE *file = fopen(file_name, "rb");
 
@@ -70,6 +73,8 @@ char *read_sequence(const char *file_name) {
     fclose(file);
 
     buffer[file_size] = '\0';
+    memcpy(buffer, buffer, seq_len);
+    buffer[seq_len] = '\0';
 
     return buffer;
 
@@ -115,7 +120,7 @@ int serial_lcs(const char *X, const char *Y, size_t m, size_t n,
                 // current cell gets maximum of the value between previous row
                 // and previous column
                 lcs_matrix[i][j] = max2(lcs_matrix[i - 1][j],
-                                       lcs_matrix[i][j - 1]);
+                                        lcs_matrix[i][j - 1]);
 
             }
 
@@ -198,10 +203,21 @@ void print_lcs(const char *X, const char *Y, size_t m, size_t n,
  * */
 int main(int argc, char *argv[]) {
 
+
+    std::istringstream m_ss(argv[2]), n_ss(argv[4]);
+    size_t m, n;
+    if (!(m_ss >> m)) {
+        std::cerr << "Invalid number " << argv[2] << std::endl;
+        return EXIT_FAILURE;
+    }
+    if (!(n_ss >> n)) {
+        std::cerr << "Invalid number " << argv[4] << std::endl;
+        return EXIT_FAILURE;
+    }
+
     // initialize the two sequence buffers
-    char *X = read_sequence(argv[1]), *Y = read_sequence(argv[2]);
-    size_t m = strlen(X), n = strlen(Y);
-    clock_t start_t, end_t;
+    char *X = read_sequence(argv[1], m);
+    char *Y = read_sequence(argv[3], n);
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     auto **lcs_matrix = new int *[m + 1];
@@ -209,22 +225,24 @@ int main(int argc, char *argv[]) {
         lcs_matrix[i] = new int[n + 1];
     }
 
+    double start_t, end_t;
+
     // start timer
-    start_t = clock();
+    start_t = omp_get_wtime();
+
     // get length of LCS
     int lcs_len = serial_lcs(X, Y, m, n, lcs_matrix);
+
     // stop timer
-    end_t = clock() - start_t;
-    std::cout << "Length of LCS is " << lcs_len << std::endl;
+    end_t = omp_get_wtime() - start_t;
 
     std::cout.precision(3);  // set precision of floats in stdout
-    std::cout << "Serial algorithm took " << std::fixed <<
-              ((double) end_t) / CLOCKS_PER_SEC
-              << " seconds to compute the LCS." <<
-              std::endl;
+    std::cout << "Length of LCS is " << lcs_len << std::endl;
+    std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds"
+            " to compute the LCS." << std::endl;
 
     // print the LCS
-    print_lcs(X, Y, m, n, lcs_matrix);
+    // print_lcs(X, Y, m, n, lcs_matrix);
 
     // delete dynamically allocated arrays
     for (size_t i = 0; i < m + 1; ++i) {
