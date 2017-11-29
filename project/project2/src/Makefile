@@ -59,11 +59,6 @@ genseqs:
 
 # ---------- SLURM batch targets ----------
 
-.PHONY: initslurm
-initslurm:
-	module load intel/compiler
-	module load slurm
-
 .PHONY: slurmsubmit
 slurmsubmit:
 	sbatch ${EXE} slurm > ${SUBMITFILE}

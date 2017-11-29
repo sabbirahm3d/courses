@@ -1,5 +1,5 @@
 /*
- * Sabbir Ahmed, Zafar Mamarakhimov
+ * Sabbir Ahmed
  * 11/30/2017
  *
  *
@@ -8,7 +8,38 @@
  * The main driver file for Project 2: Multithread LCS. This file contains
  * the implementation of the serial longest common subsequence algorithm.
  *
- * */
+ * Usage after build:
+ *
+ *      ./lcs_length /path/to/seq1.txt seq1_len /path/to/seq2.txt seq2_len
+ *
+ * The attached Makefile may be utilized to build and run this script with
+ * the command line arguments.
+ *
+ * The C++ compiler is set to gcc by default:
+ *
+ *      make build
+ *
+ * The Intel compiler may instead be used by:
+ *
+ *      make build CC=icpc
+ *
+ * For running the executable:
+ *
+ *      make run SEQ1 SEQ1LEN SEQ2 SEQ2LEN
+ *
+ * where the default values are:
+ *
+ *      SEQ1 = seq1.txt
+ *      SEQ1LEN = 10000
+ *      SEQ2 = seq2.txt
+ *      SEQ2LEN = 10000
+ *
+ * Memory leaks may also be checked with a target with similar arguments and
+ * default values:
+ *
+ *      make val SEQ1 SEQ1LEN SEQ2 SEQ2LEN
+ *
+ */
 
 #include <cstring>
 #include <fstream>
@@ -22,8 +53,6 @@
 int max2(int, int);
 
 int serial_lcs(const char *, const char *, size_t, size_t, int **);
-
-int parallel_lcs(const char *, const char *, size_t, size_t, int **);
 
 void print_lcs(const char *, const char *, size_t, size_t, int **);
 
@@ -141,57 +170,6 @@ int serial_lcs(const char *X, const char *Y, size_t m, size_t n,
 }
 
 
-int parallel_lcs(const char *X, const char *Y, size_t m, size_t n,
-                 int **lcs_matrix) {
-
-    int nthreads, tid;
-    size_t i, j;
-#pragma omp parallel shared(X, Y, nthreads) private(i, tid)
-    {
-        tid = omp_get_thread_num();
-        if (tid == 0) {
-            nthreads = omp_get_num_threads();
-            printf("Number of threads = %d\n", nthreads);
-        }
-
-        printf("Thread %d starting...\n", tid);
-
-#pragma omp for
-
-        // use the memoization method to find the longest common subsequence
-        for (i = 0; i <= m; i++) {
-
-            for (j = 0; j <= n; j++) {
-
-                // upper-leftmost cell
-                if (!i || !j) {
-
-                    lcs_matrix[i][j] = 0;
-
-                } else if (X[i - 1] == Y[j - 1]) {
-
-                    // current cell gets value of left diagonal cell and
-                    // incremented
-                    lcs_matrix[i][j] = lcs_matrix[i - 1][j - 1] + 1;
-
-                } else {
-
-                    // current cell gets maximum of the value between previous row
-                    // and previous column
-                    lcs_matrix[i][j] = max2(lcs_matrix[i - 1][j],
-                                            lcs_matrix[i][j - 1]);
-
-                }
-
-            }
-        }
-    }
-
-    // the last value of the matrix is the length of the LCS
-    return lcs_matrix[m][n];
-}
-
-
 /*
  * Prints the longest common subsequence found
  *
@@ -200,12 +178,12 @@ int parallel_lcs(const char *X, const char *Y, size_t m, size_t n,
  *      seq2        : sequence 2 buffer
  *      m           : size of sequence 1
  *      n           : size of sequence 2
- *      lcs_matrix   : LCS matrix
+ *      lcs_matrix  : LCS matrix
  *
  * output:
  *      none
  *
- * */
+ */
 void print_lcs(const char *X, const char *Y, size_t m, size_t n,
                int **lcs_matrix) {
 
@@ -260,7 +238,7 @@ void print_lcs(const char *X, const char *Y, size_t m, size_t n,
 /*
  * Main function for the script
  *
- * */
+ */
 int main(int argc, char *argv[]) {
 
     // streaming strings to validate sequence length inputs
@@ -287,54 +265,22 @@ int main(int argc, char *argv[]) {
 
     double start_t, end_t;  // timing variables
 
-//    // start timer
-//    start_t = omp_get_wtime();
-//
-//    // get length of LCS
-//    int serial_lcs_len = serial_lcs(X, Y, m, n, lcs_matrix);
-//
-//    // stop timer
-//    end_t = omp_get_wtime() - start_t;
-//
-//    std::cout.precision(3);  // set precision of floats in stdout
-//    std::cout << "Length of LCS is " << serial_lcs_len << std::endl;
-//    std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds"
-//            " to compute the LCS." << std::endl;
-//
-//    // for debugging purposes - print the LCS
-//    print_lcs(X, Y, m, n, lcs_matrix);
-//
-//    // delete dynamically allocated arrays
-//    for (size_t i = 0; i < m + 1; ++i) {
-//        delete[] lcs_matrix[i];
-//        lcs_matrix[i] = NULL;
-//    }
-//    delete[]lcs_matrix;
-//    lcs_matrix = NULL;
-
-    // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
-    lcs_matrix = new int *[m + 1];
-    for (size_t i = 0; i < m + 1; ++i) {
-        lcs_matrix[i] = new int[n + 1];
-    }
-
-
     // start timer
     start_t = omp_get_wtime();
 
     // get length of LCS
-    int parallel_lcs_len = parallel_lcs(X, Y, m, n, lcs_matrix);
+    int serial_lcs_len = serial_lcs(X, Y, m, n, lcs_matrix);
 
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
-    std::cout << "Length of LCS is " << parallel_lcs_len << std::endl;
-    std::cout << "Parallel algorithm took " << std::fixed << end_t << " seconds"
+    std::cout.precision(5);  // set precision of floats in stdout
+    std::cout << "Length of LCS is " << serial_lcs_len << std::endl;
+    std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds"
             " to compute the LCS." << std::endl;
 
-    // for debugging purposes - print the LCS
-    print_lcs(X, Y, m, n, lcs_matrix);
-
+    // for debugging purposes - uncomment the following line to print the LCS
+    // print_lcs(X, Y, m, n, lcs_matrix);
 
     // delete dynamically allocated arrays
     for (size_t i = 0; i < m + 1; ++i) {
