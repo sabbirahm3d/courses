@@ -276,9 +276,11 @@ int main(int argc, char *argv[]) {
     end_t = omp_get_wtime() - start_t;
 
     std::cout.precision(5);  // set precision of floats in stdout
-    std::cout << "Length of LCS is " << serial_lcs_len << std::endl;
-    std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds"
-            " to compute the LCS." << std::endl;
+    std::cout << "Length of X   : " << m << std::endl;
+    std::cout << "Length of Y   : " << m << std::endl;
+    std::cout << "Length of LCS : " << serial_lcs_len << std::endl;
+    std::cout << "Serial algorithm took " << std::fixed << end_t << " seconds."
+              << std::endl;
 
     // for debugging purposes - uncomment the following line to print the LCS
     // print_lcs(X, Y, m, n, lcs_matrix);
@@ -288,7 +290,7 @@ int main(int argc, char *argv[]) {
         delete[] lcs_matrix[i];
         lcs_matrix[i] = NULL;
     }
-    delete[]lcs_matrix;
+    delete[] lcs_matrix;
     lcs_matrix = NULL;
 
     // delete buffers
