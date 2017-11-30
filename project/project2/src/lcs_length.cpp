@@ -257,6 +257,7 @@ int main(int argc, char *argv[]) {
     // if inputted length > max length then inputted length = max length
     m = strlen(X);
     n = strlen(Y);
+
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     auto **lcs_matrix = new int *[m + 1];
     for (size_t i = 0; i < m + 1; ++i) {
