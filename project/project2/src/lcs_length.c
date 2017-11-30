@@ -15,13 +15,13 @@
  * The attached Makefile may be utilized to build and run this script with
  * the command line arguments.
  *
- * The C++ compiler is set to gcc by default:
+ * The C compiler is set to gcc by default:
  *
  *      make build
  *
  * The Intel compiler may instead be used by:
  *
- *      make build CC=icpc
+ *      make build CC=icc
  *
  * For running the executable:
  *
@@ -29,9 +29,9 @@
  *
  * where the default values are:
  *
- *      SEQ1 = seq1.txt
+ *      SEQ1    = seq1.txt
  *      SEQ1LEN = 10000
- *      SEQ2 = seq2.txt
+ *      SEQ2    = seq2.txt
  *      SEQ2LEN = 10000
  *
  * Memory leaks may also be checked with a target with similar arguments and
@@ -46,10 +46,14 @@
 #include <stdlib.h>
 
 #include <omp.h>
+#include <ctype.h>
 
 // ------------------------- FUNCTION PROTOTYPES -------------------------
 
 int max2(int, int);
+
+int is_num(const char []);
+
 
 int serial_lcs(const char *, const char *, unsigned int, unsigned int, int **);
 
@@ -75,6 +79,33 @@ char *read_sequence(const char *, unsigned int);
 int max2(int a, int b) {
 
     return (a > b) ? a : b;
+
+}
+
+
+/*
+ * Checks if char array is an integer
+ *
+ * inputs:
+ *      num: char array containing integer
+ *
+ * output:
+ *      0 if string is not an integer, 1 if it is
+ *
+ */
+int is_num(const char num[]) {
+
+
+    if (num[0] == '-') {  // negative numbers
+        return 0;
+    }
+    for (int i = 0; num[i]; i++) {
+        if (!isdigit(num[i])) {
+            return 0;
+        }
+    }
+
+    return 1;
 
 }
 
@@ -239,13 +270,16 @@ void print_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
  */
 int main(int argc, char *argv[]) {
 
-    // streaming strings to validate sequence length inputs
-//    std::istringstream m_ss(argv[2]), n_ss(argv[4]);
-    unsigned int m = 10000, n = 10000;
-//    if (!((m_ss >> m) || (n_ss >> n))) {
-//        std::cerr << "Invalid integer inputted." << std::endl;
-//        return EXIT_FAILURE;
-//    }
+    // validate user inputted sequence lengths
+    unsigned int m, n;
+    if (is_num(argv[2]) && is_num(argv[4])) {
+        m = (unsigned int) atoi(argv[2]);
+        n = (unsigned int) atoi(argv[4]);
+    } else {
+        printf("Invalid integer inputted.\n");
+        return EXIT_FAILURE;
+
+    }
 
     // initialize the two sequence buffers
     char *X = read_sequence(argv[1], m);
@@ -279,7 +313,7 @@ int main(int argc, char *argv[]) {
     printf("Serial algorithm took %.5f\n", end_t);
 
     // for debugging purposes - uncomment the following line to print the LCS
-    print_lcs(X, Y, m, n, lcs_matrix);
+    // print_lcs(X, Y, m, n, lcs_matrix);
 
     // delete dynamically allocated arrays
     for (unsigned int i = 0; i < m + 1; ++i) {

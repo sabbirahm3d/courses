@@ -7,16 +7,16 @@ SEQ1LEN = 10000
 SEQ2LEN = 10000
 SUBMITFILE = jobid.txt
 
-# define the C++ compiler to use
-CC := g++
+# define the C compiler to use
+CC := gcc
 
 # define any compile-time flags
-CPPFLAGS := -std=c++11 -Wall -fopenmp
+CFLAGS := -std=c99 -Wall -fopenmp
 
-# define the C++ source files
-SRC = lcs_length.cpp
+# define the C source files
+SRC = lcs_length.c
 
-# define the executable file 
+# define the executable file
 EXE = lcs_length
 
 # ---------- executing targets ----------
@@ -32,14 +32,14 @@ run:
 .PHONY: val
 val:
 	# check memory leaks
-	valgrind ./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
+	valgrind --leak-check=full --show-leak-kinds=all ./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
 
 
 # ---------- building targets ----------
 
 .PHONY: build
 build:
-	${CC} ${CPPFLAGS} ${SRC} -o ${EXE}
+	${CC} ${CFLAGS} ${SRC} -o ${EXE}
 
 
 # ---------- generating random sequences targets ----------

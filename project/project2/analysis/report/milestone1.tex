@@ -154,6 +154,11 @@ function serial_lcs_print(X, Y, m, n, lcs)
 
 \end{pseudocode}
 
-    \section{Testing and Debugging}
+    \section{Testing and Debugging} The source code was initially
+    developed in C++, but later translated to C. The Intel C++ Compiler,
+    \texttt{icpc}, did not appear to properly compile the source code. The
+    executable built without any warnings or errors, but the algorithm during
+    its execution appeared to skip steps. The current implementation in C
+    compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
 
 \end{document}
