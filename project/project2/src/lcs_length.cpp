@@ -52,11 +52,11 @@
 
 int max2(int, int);
 
-int serial_lcs(const char *, const char *, size_t, size_t, int **);
+int serial_lcs(const char *, const char *, unsigned int, unsigned int, int **);
 
-void print_lcs(const char *, const char *, size_t, size_t, int **);
+void print_lcs(const char *, const char *, unsigned int, unsigned int, int **);
 
-char *read_sequence(const char *, size_t);
+char *read_sequence(const char *, unsigned int);
 
 
 // ------------------------- FUNCTION DECLARATIONS -------------------------
@@ -91,7 +91,7 @@ int max2(int a, int b) {
  *      sequence buffer
  *
  */
-char *read_sequence(const char *file_name, size_t seq_len) {
+char *read_sequence(const char *file_name, unsigned int seq_len) {
 
     FILE *file = fopen(file_name, "rb");
 
@@ -134,13 +134,13 @@ char *read_sequence(const char *file_name, size_t seq_len) {
  *      length of the longest common subsequence
  *
  */
-int serial_lcs(const char *X, const char *Y, size_t m, size_t n,
+int serial_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
                int **lcs_matrix) {
 
     // use the memoization method to find the longest common subsequence
-    for (size_t i = 0; i <= m; i++) {
+    for (unsigned int i = 0; i <= m; i++) {
 
-        for (size_t j = 0; j <= n; j++) {
+        for (unsigned int j = 0; j <= n; j++) {
 
             // upper-leftmost cell
             if (!i || !j) {
@@ -184,7 +184,7 @@ int serial_lcs(const char *X, const char *Y, size_t m, size_t n,
  *      none
  *
  */
-void print_lcs(const char *X, const char *Y, size_t m, size_t n,
+void print_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
                int **lcs_matrix) {
 
     // cursor of the matrix
@@ -195,7 +195,7 @@ void print_lcs(const char *X, const char *Y, size_t m, size_t n,
     lcs_str[cursor] = '\0'; // Set the terminating character
 
     // init from the bottom-rightmost cell and store characters in lcs[]
-    size_t i = m, j = n;
+    unsigned int i = m, j = n;
     while (i > 0 && j > 0) {
 
         // if current character in X[] and Y[] are same, then current
@@ -243,7 +243,7 @@ int main(int argc, char *argv[]) {
 
     // streaming strings to validate sequence length inputs
     std::istringstream m_ss(argv[2]), n_ss(argv[4]);
-    size_t m, n;
+    unsigned int m, n;
     if (!((m_ss >> m) || (n_ss >> n))) {
         std::cerr << "Invalid integer inputted." << std::endl;
         return EXIT_FAILURE;
@@ -260,7 +260,7 @@ int main(int argc, char *argv[]) {
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     auto **lcs_matrix = new int *[m + 1];
-    for (size_t i = 0; i < m + 1; ++i) {
+    for (unsigned int i = 0; i < m + 1; ++i) {
         lcs_matrix[i] = new int[n + 1];
     }
 
@@ -283,10 +283,10 @@ int main(int argc, char *argv[]) {
               << std::endl;
 
     // for debugging purposes - uncomment the following line to print the LCS
-    // print_lcs(X, Y, m, n, lcs_matrix);
+    print_lcs(X, Y, m, n, lcs_matrix);
 
     // delete dynamically allocated arrays
-    for (size_t i = 0; i < m + 1; ++i) {
+    for (unsigned int i = 0; i < m + 1; ++i) {
         delete[] lcs_matrix[i];
         lcs_matrix[i] = NULL;
     }
