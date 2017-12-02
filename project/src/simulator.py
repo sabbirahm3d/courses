@@ -44,7 +44,7 @@ def parse_inst(inst_file_path):
                 instruction = "".join(instruction).split()
                 if instruction:
                     INSTMEM[addr] = {
-                        "instruction": instruction,
+                        "inst": instruction,
                         "comment": "".join(inst[1:]),
                         "label": label,
                         "cycles": STAGES.copy()
@@ -70,14 +70,19 @@ def dump_table(table, file_name="output.txt"):
             file=output_file
         )
 
-        for label, inst, cycles in table:
-            if label:
-                inst = "{:<8}".format(label + ": ") + " ".join(inst)
+        for inst in table:
+            if inst["label"]:
+                inst_str = "{:<8}".format(inst["label"] + ": ") + \
+                    " ".join(inst["inst"])
             else:
-                inst = "{:<8}".format(" ") + " ".join(inst)
+                inst_str = "{:<8}".format(" ") + " ".join(inst["inst"])
+
+            cycles = []
+            for stage in col_names[1:]:
+                cycles.append(inst["cycles"][stage])
 
             print(
-                inst_fmt.format(inst),
+                inst_fmt.format(inst_str),
                 row_fmt.format("", *cycles),
                 file=output_file
             )
@@ -97,4 +102,4 @@ if __name__ == "__main__":
         asm_obj.compute_cycle()
         asm_obj.stats()
 
-        # dump_table(asm_obj.TABLE, argv[3])
+        dump_table(asm_obj.INST, argv[3])

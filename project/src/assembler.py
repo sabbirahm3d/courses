@@ -32,7 +32,6 @@ class Assembler(object):
 
         self.INST = filter(None, sys_memory[:25])
         self.MIPS = MIPS(sys_memory, [None] * 32)
-        self.TABLE = [[i["label"], i["instruction"]] for i in self.INST]
         self.UNROLLEDINST = []
         self.CLKCYCLE = []
 
@@ -49,10 +48,10 @@ class Assembler(object):
 
         # pprint(self.MIPS.DATAMEM)
         while file_size != prog_ctr:
-            self.UNROLLEDINST.append(self.INST[prog_ctr]["instruction"])
+            self.UNROLLEDINST.append(self.INST[prog_ctr]["inst"])
             prog_ctr = self.parse_line(
                 self.INST[prog_ctr]["label"],
-                self.INST[prog_ctr]["instruction"],
+                self.INST[prog_ctr]["inst"],
                 prog_ctr
             )
 
@@ -121,40 +120,40 @@ class Assembler(object):
                     row[col_num] = "WAIT"
 
                 # if previous instruction is in a fetch stage
-                elif "IF" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num][col_num - 1] == "IF":
                     row[col_num] = "WAIT"
 
                 # if previous instruction is in a decoding stage or the
                 # previous cycle was in a fetch stage
-                elif "IMISS" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "ID" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "IMISS" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "ID":
                     row[col_num] = "IF"
 
-                elif "IF" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "EX1" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "IF" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "EX1":
                     row[col_num] = "ID"
 
-                elif "ID" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "EX2" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "ID" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "EX2":
                     row[col_num] = "EX1"
 
-                elif "EX1" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "EX3" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "EX1" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "EX3":
                     row[col_num] = "EX2"
 
-                elif "EX2" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "EX4" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "EX2" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "EX4":
                     row[col_num] = "EX3"
 
-                elif "EX3" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "MEM" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "EX3" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "MEM":
                     row[col_num] = "EX4"
 
-                elif "EX4" == self.CLKCYCLE[row_num - 1][col_num] \
-                        or "WB" == self.CLKCYCLE[row_num][col_num - 1]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "EX4" \
+                        or self.CLKCYCLE[row_num][col_num - 1] == "WB":
                     row[col_num] = "MEM"
 
-                elif "MEM" == self.CLKCYCLE[row_num - 1][col_num]:
+                elif self.CLKCYCLE[row_num - 1][col_num] == "MEM":
                     row[col_num] = "WB"
 
                 if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
@@ -169,20 +168,20 @@ class Assembler(object):
 
     def stats(self):
 
-        row_fmt = "{:<12}" * 13
+        row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 1)
         print self.UNROLLEDINST
         for i, j in enumerate(self.CLKCYCLE):
             print row_fmt.format("", *([i + 1] + j))
 
-        for clk_cycle, unrolled_int in enumerate(self.CLKCYCLE):
+        for clk_cycle, unrolled_inst in enumerate(self.CLKCYCLE):
 
             for stage in STAGES.keys():
 
-                if stage in unrolled_int:
+                if stage in unrolled_inst:
                     for inst in self.INST:
-                        if inst["instruction"] == \
-                                self.UNROLLEDINST[unrolled_int.index(stage)]:
+                        if inst["inst"] == \
+                                self.UNROLLEDINST[unrolled_inst.index(stage)]:
                             inst["cycles"][stage] = clk_cycle + 1
                             break
 
-        pprint(self.INST)
+        # pprint(self.INST)
