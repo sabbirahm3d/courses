@@ -6,7 +6,7 @@
 // 
 // Create Date:    19:10:51 12/01/2017 
 // Design Name: 
-// Module Name:    fsm 
+// Module Name:    fsm_unit 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,15 +19,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////
-module fsm(
+module fsm_unit(
         input wire clk,
         input wire reset,
         input wire rx_empty,
         input wire tx_empty,
         input wire [7:0] rx_data,
-        output reg [7:0] tx_data,
-        output reg ld_tx_data,
-        output reg uld_rx_data
+        output reg [7:0] tx_data
     );
 
 
@@ -96,7 +94,7 @@ module fsm(
                 if (~rx_empty) begin
 
                     addr_reg = rx_data;
-                    uld_rx_data = 1;
+                    // uld_rx_data = 1;
                     next_state = state_addrlo;
 
                 end else begin
@@ -112,7 +110,7 @@ module fsm(
                 if (~rx_empty) begin
 
                     addr_reg = {addr_reg[3:0], rx_data};
-                    uld_rx_data = 1;
+                    // uld_rx_data = 1;
                     next_state = state_datahi;
 
                 end else begin
@@ -128,7 +126,7 @@ module fsm(
                 if (~rx_empty) begin
 
                     data_reg = rx_data;
-                    uld_rx_data = 1;
+                    // uld_rx_data = 1;
                     next_state = state_datalo;
 
                 end else begin
@@ -145,7 +143,7 @@ module fsm(
 
                     // send data to sqrt module
                     x_in = {data_reg, rx_data};
-                    uld_rx_data = 1;
+                    // uld_rx_data = 1;
                     addra = addr_reg;
                     next_state = state_ramwr;
 
@@ -181,7 +179,7 @@ module fsm(
                 if (tx_empty && (^douta != 1'bx)) begin
 
                     tx_data = douta[15:8];
-                    ld_tx_data = 1;
+                    // ld_tx_data = 1;
                     next_state = state_ramlo;
 
                 end else begin
@@ -197,7 +195,7 @@ module fsm(
                 if (tx_empty && (^douta != 1'bx)) begin
 
                     tx_data = douta[7:0];
-                    ld_tx_data = 1;
+                    // ld_tx_data = 1;
                     next_state = state_addrhi;
 
                 end else begin
