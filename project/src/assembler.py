@@ -5,6 +5,14 @@ from pprint import pprint
 
 from mips import MIPS, MIPSSET
 
+STAGES = {
+    "IF": None,
+    "ID": None,
+    "EX4": None,
+    "MEM": None,
+    "WB": None
+}
+
 
 class Hazards(object):
 
@@ -166,83 +174,15 @@ class Assembler(object):
         for i, j in enumerate(self.CLKCYCLE):
             print row_fmt.format("", *([i + 1] + j))
 
-        self.data = []
-        # for i, j in enumerate(self.UNROLLEDINST):
-        #     cur_inst = self.INST[i]
-        #     if cur_inst["instruction"] in self.UNROLLEDINST:
-        #         data = " ".join(cur_inst["instruction"])
-        #         if cur_inst["label"]:
-        #             data = "{:<8}".format(cur_inst["label"] + ": ") + data
-        #         self.data.append([data, []])
+        for clk_cycle, unrolled_int in enumerate(self.CLKCYCLE):
 
-        # print self.data
+            for stage in STAGES.keys():
 
-        for i, j in enumerate(self.UNROLLEDINST[::-1]):
-            print self.UNROLLEDINST[len(self.UNROLLEDINST) - 1 - i], j
-
-
-"""
-        unrolled_iter = xrange(len(self.UNROLLEDINST))
-
-        i_cache_misses = 1
-        for row in unrolled_iter:
-
-            i_cache_miss_ctr = (i_cache_misses * 12) - 1
-            stage = 5
-            cur_inst = MIPSSET[self.UNROLLEDINST[row][0][0]]
-            ex_stages = cur_inst["cycle"]
-
-            row_iter = xrange(len(self.UNROLLEDINST[row][-1]))
-            for col in row_iter:
-
-                if not row % 4 and i_cache_miss_ctr:
-                    if i_cache_miss_ctr:
-                        self.UNROLLEDINST[row][-1][col] = "WAIT"
-                        i_cache_miss_ctr -= 1
-
-                    if not i_cache_miss_ctr:
-                        i_cache_misses += 1
-
-                else:
-
-                    if self.UNROLLEDINST[row - 1][-1][col] == "WAIT":
-                        self.UNROLLEDINST[row][-1][col] = "WAIT"
-
-                    elif self.UNROLLEDINST[row - 1][-1][col] == "IF":
-                        self.UNROLLEDINST[row][-1][col] = "WAIT"
-
-                    else:
-
-                        if not ex_stages and stage == 3:
-                            stage -= 1
-
-                        if stage == 5:
-                            self.UNROLLEDINST[row][-1][col] = "IF"
-
-                        elif stage == 4:
-                            self.UNROLLEDINST[row][-1][col] = "ID"
-
-                        elif stage == 3:
-
-                            if ex_stages > 0:
-                                self.UNROLLEDINST[row][-1][col] = "EX" + \
-                                    str(cur_inst["cycle"] - ex_stages + 1)
-                                ex_stages -= 1
-                                stage += 1
-
-                        elif stage == 2:
-                            self.UNROLLEDINST[row][-1][col] = "MEM"
-
-                        elif stage == 1:
-                            self.UNROLLEDINST[row][-1][col] = "WB"
+                if stage in unrolled_int:
+                    for inst in self.INST:
+                        if inst["instruction"] == \
+                                self.UNROLLEDINST[unrolled_int.index(stage)]:
+                            inst["cycles"][stage] = clk_cycle + 1
                             break
 
-                        stage -= 1
-
-                    print \
-                        col, \
-                        self.UNROLLEDINST[row - 1][0], \
-                        self.UNROLLEDINST[row - 1][-1][col], \
-                        self.UNROLLEDINST[row][0], \
-                        self.UNROLLEDINST[row][-1][col]
-"""
+        pprint(self.INST)

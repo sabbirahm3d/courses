@@ -5,7 +5,7 @@ from __future__ import print_function
 
 from sys import argv
 
-from assembler import Assembler
+from assembler import STAGES, Assembler
 
 INSTMEM = [None] * 25
 SYSMEM = [None] * 32
@@ -46,7 +46,8 @@ def parse_inst(inst_file_path):
                     INSTMEM[addr] = {
                         "instruction": instruction,
                         "comment": "".join(inst[1:]),
-                        "label": label
+                        "label": label,
+                        "cycles": STAGES.copy()
                     }
                     addr += 1
 
