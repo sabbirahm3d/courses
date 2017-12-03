@@ -31,6 +31,7 @@ module top_tb;
     reg baud_clk;
     integer bitIndex, byteIndex;
     reg [7:0] byte8;
+    wire [7:0] loopbackdata;
 
     // Outputs
     wire txd;
@@ -40,7 +41,8 @@ module top_tb;
         .reset(reset), 
         .rxd(rxd), 
         .txd(txd), 
-        .clk(clk)
+        .clk(clk),
+        .loopbackdata(loopbackdata)
     );
 
     initial clk = 0;
@@ -99,7 +101,7 @@ module top_tb;
     end
 
     always @(negedge baud_clk) begin
-        $display("@negedge baud_clk:  rxd:%b,txd:%b",rxd,txd);
+        $display("@negedge baud_clk:  rxd:%b,txd:%b", rxd, txd);
     end
 
     initial begin

@@ -23,10 +23,11 @@ module top(
         input wire clk,
         input wire reset,
         input wire rxd,
-        output wire txd
+        output wire txd,
+        output wire [7:0] loopbackdata
     );
 
-    wire [7:0] loopbackdata;
+    // wire [7:0] loopbackdata;
     wire flagnewdata_n;
     reg [3:0] state;
     wire tx_empty;
@@ -54,10 +55,10 @@ module top(
                                         // input serial byte
     );
 
-    fsm_unit fsm_uut(
-        .clk(clk), 
+    controller controller_unit(
+        .clk(clk),
         .reset(reset),
-        .rx_empty(flagnewdata_n),
+        .rx_empty(~flagnewdata_n),
         .tx_empty(tx_empty),
         .rx_data(loopbackdata),
         .tx_data(loopbackdata)
