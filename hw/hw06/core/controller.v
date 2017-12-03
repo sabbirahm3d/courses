@@ -79,11 +79,9 @@ module controller(
 
         if (reset) begin
 
-            cur_state <= state_addrhi;
+            cur_state = state_addrhi;
 
         end else begin
-
-            $display("state %b", cur_state);
 
             case(cur_state)
 
@@ -91,13 +89,12 @@ module controller(
 
                     if (~rx_empty) begin
 
-                        $display("controller %b", rx_data);
-                        addr_reg <= rx_data;
-                        cur_state <= state_addrlo;
+                        addr_reg = rx_data;
+                        cur_state = state_addrlo;
 
                     end else begin
 
-                        cur_state <= state_addrhi;
+                        cur_state = state_addrhi;
 
                     end
 
@@ -107,12 +104,13 @@ module controller(
 
                     if (~rx_empty) begin
 
-                        addr_reg <= {addr_reg[3:0], rx_data};
-                        cur_state <= state_datahi;
+                        addr_reg = {addr_reg[3:0], rx_data};
+                        // $display("controller2 %b", addr_reg);
+                        cur_state = state_datahi;
 
                     end else begin
 
-                        cur_state <= state_addrlo;
+                        cur_state = state_addrlo;
 
                     end
 
@@ -122,12 +120,13 @@ module controller(
 
                     if (~rx_empty) begin
 
-                        data_reg <= rx_data;
-                        cur_state <= state_datalo;
+                        data_reg = rx_data;
+                        // $display("controller3 %b", data_reg);
+                        cur_state = state_datalo;
 
                     end else begin
 
-                        cur_state <= state_datahi;
+                        cur_state = state_datahi;
 
                     end
 
@@ -138,13 +137,14 @@ module controller(
                     if (~rx_empty) begin
 
                         // send data to sqrt module
-                        x_in <= {data_reg, rx_data};
-                        addra <= addr_reg;
-                        cur_state <= state_ramwr;
+                        x_in = {data_reg, rx_data};
+                        addra = addr_reg;
+                        nd = 1;
+                        cur_state = state_ramwr;
 
                     end else begin
 
-                        cur_state <= state_datalo;
+                        cur_state = state_datalo;
 
                     end
 
@@ -155,15 +155,15 @@ module controller(
                     // if sqrt is done
                     if (rdy) begin
 
-                        addra <= addr_reg;
+                        addra = addr_reg;
                         // data input to RAM
-                        dina <= x_out;
-                        wea <= 1;
-                        cur_state <= state_ramhi;
+                        dina = x_out;
+                        wea = 1;
+                        cur_state = state_ramhi;
 
                     end else begin
 
-                        cur_state <= state_ramwr;
+                        cur_state = state_ramwr;
 
                     end
 
@@ -173,12 +173,12 @@ module controller(
 
                     if (tx_empty && (^douta != 1'bx)) begin
 
-                        tx_data <= douta[15:8];
-                        cur_state <= state_ramlo;
+                        tx_data = douta[15:8];
+                        cur_state = state_ramlo;
 
                     end else begin
 
-                        cur_state <= state_ramhi;
+                        cur_state = state_ramhi;
 
                     end
 
@@ -188,12 +188,12 @@ module controller(
 
                     if (tx_empty && (^douta != 1'bx)) begin
 
-                        tx_data <= douta[7:0];
-                        cur_state <= state_addrhi;
+                        tx_data = douta[7:0];
+                        cur_state = state_addrhi;
 
                     end else begin
 
-                        cur_state <= state_ramlo;
+                        cur_state = state_ramlo;
 
                     end
 

@@ -24,10 +24,10 @@ module top(
         input wire reset,
         input wire rxd,
         output wire txd,
-        output wire [7:0] loopbackdata
+        output wire [7:0] loopbackdataout
     );
 
-    // wire [7:0] loopbackdata;
+    wire [7:0] loopbackdata;
     wire flagnewdata_n;
     reg [3:0] state;
     wire tx_empty;
@@ -55,13 +55,15 @@ module top(
                                         // input serial byte
     );
 
+    defparam uart_unit.CLK_DIVISION = 443;
+
     controller controller_unit(
         .clk(clk),
         .reset(reset),
         .rx_empty(~flagnewdata_n),
         .tx_empty(tx_empty),
         .rx_data(loopbackdata),
-        .tx_data(loopbackdata)
+        .tx_data(loopbackdataout)
     );
 
     always @(posedge clk) begin

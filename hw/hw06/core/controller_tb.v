@@ -45,6 +45,7 @@ module controller_tb;
     initial begin
         clk = 0;
         rx_empty = 0;
+        tx_empty = 0;
         reset = 1;
     end
 
@@ -56,18 +57,16 @@ module controller_tb;
 
     initial begin
 
-        #100;
+        #30;
         reset = 0;
         // init memory_buff from file
         $readmemh("memory_hex_in.txt", memory_buffer);
 
-        // Wait 100 ns for global reset to finish
-        #100;
         for (byte_i = 0; byte_i < 31; byte_i = byte_i + 1) begin
 
-            rx_data = memory_buffer[byte_i];
-            $display("yo %b", rx_data);
             #20;
+            rx_data = memory_buffer[byte_i];
+            #200;
 
         end
 
