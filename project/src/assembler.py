@@ -16,10 +16,6 @@ class Assembler(object):
         self.UNROLLEDINST = []
         self.CLKCYCLE = []
 
-    def is_data_miss(self, col_num):
-
-        return self.UNROLLEDINST[col_num][0] in {"LW", "SW"}
-
     def get_label_line(self, label):
 
         for line_num, line in enumerate(self.INST):
@@ -79,15 +75,15 @@ class Assembler(object):
             raise SystemExit(
                 "Assemble instructions before computing their clock cycles.")
 
-        num_rows = 100
+        num_rows = 60
         num_cols = len(self.UNROLLEDINST)
         self.CLKCYCLE = [([None] * num_cols) for row in xrange(num_rows)]
-        hazards_obj = Hazards(self.CLKCYCLE)
+        hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
 
         mod4_inst = [i for i in xrange(num_cols) if not i % 4]
         mem_inst = 0
         for inst in xrange(num_cols):
-            if self.is_data_miss(inst):
+            if hazards.is_data_miss(inst):
                 mem_inst += 1
 
         i_cache_miss_ctr = 11
@@ -97,18 +93,18 @@ class Assembler(object):
 
             for col_num, col in enumerate(self.CLKCYCLE[row_num]):
 
-                row[col_num] = hazards_obj.get_current_stage(
+                row[col_num] = hazards.get_current_stage(
                     row_num=row_num,
                     col_num=col_num
                 )
 
                 if mem_inst and d_cache_miss_ctr and \
-                        self.is_data_miss(col_num) and \
+                        hazards.is_data_miss(col_num) and \
                         self.CLKCYCLE[row_num - 1][col_num] in \
-                        {"EX4", hazards_obj.d_miss}:
+                        {"EX4", hazards.d_miss}:
 
                     d_cache_miss_ctr -= 1
-                    row[col_num] = hazards_obj.d_miss
+                    row[col_num] = hazards.d_miss
 
                     if not d_cache_miss_ctr:
                         mem_inst -= 1
@@ -119,7 +115,7 @@ class Assembler(object):
 
                     d_cache_miss_ctr = 12
                     i_cache_miss_ctr -= 1
-                    row[col_num] = hazards_obj.i_miss
+                    row[col_num] = hazards.i_miss
 
                     if not i_cache_miss_ctr:
                         mod4_inst.remove(col_num)

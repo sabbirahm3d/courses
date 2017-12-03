@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from mips import MIPSSET
 
 STAGES = {
     "IF": None,
@@ -13,11 +14,40 @@ STAGES = {
 
 class Hazards(object):
 
-    def __init__(self, clock_cycles):
+    def __init__(self, clock_cycles, instructions):
 
         self.clock_cycles = clock_cycles
+        self.unrolled_inst = instructions
         self.i_miss = "IMISS"
         self.d_miss = "DMISS"
+
+    def is_data_miss(self, col_num):
+
+        return self.unrolled_inst[col_num][0] in {"LW", "SW"}
+
+    def data_ready(self, prev_stage, cur_stage, cur_inst):
+
+        prev_max = MIPSSET[self.unrolled_inst[cur_inst - 1][0]]["cycle"]
+        cur_max = MIPSSET[self.unrolled_inst[cur_inst][0]]["cycle"]
+
+        if prev_stage and "EX" in prev_stage:
+            return prev_stage[-1] >= prev_max
+            # print self.unrolled_inst[cur_inst - 1], \
+            #     self.unrolled_inst[cur_inst]
+            # if prev_stage[-1] >= prev_max:
+            #     print "READY PREV", prev_stage[-1], prev_max
+            # else:
+            #     print "NOT READY PREV", prev_stage[-1], prev_max
+
+        return True
+
+        # if cur_stage and "EX" in cur_stage:
+        #     if cur_stage[-1] >= cur_max:
+        #         print "READY CUR", cur_stage[-1], cur_max
+        #     else:
+        #         print "NOT READY CUR", cur_stage[-1], cur_max
+
+        return prev_max, prev_stage, cur_max, cur_stage
 
     def get_current_stage(self, row_num, col_num):
         """
@@ -27,46 +57,46 @@ class Hazards(object):
         • MEM -> EX1, ID
         """
 
+        prev_stage = self.clock_cycles[row_num][col_num - 1]
+        prev_cycle = self.clock_cycles[row_num - 1][col_num]
+        cur_stage = self.clock_cycles[row_num][col_num]
+
+        if not self.data_ready(
+            prev_stage=prev_stage,
+            cur_stage=cur_stage,
+            cur_inst=col_num
+        ):
+            return prev_stage
+
         # if there was an instruction cache miss in the current
         # cycle
         if self.i_miss in self.clock_cycles[row_num][:col_num] or \
-                self.d_miss in self.clock_cycles[row_num][:col_num]:
-            return "WAIT"
-
-        # if previous instruction is in a fetch stage
-        elif self.clock_cycles[row_num][col_num - 1] == "IF":
+                prev_stage == "IF":
             return "WAIT"
 
         # if previous instruction is in a decoding stage or the
         # previous cycle was in a fetch stage
-        elif self.clock_cycles[row_num - 1][col_num] == self.i_miss or \
-                self.clock_cycles[row_num][col_num - 1] == "ID":
+        elif prev_cycle == self.i_miss or prev_stage == "ID":
             return "IF"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "IF" or \
-                self.clock_cycles[row_num][col_num - 1] == "EX1":
+        elif prev_cycle == "IF" or prev_stage == "EX1":
             return "ID"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "ID" or \
-                self.clock_cycles[row_num][col_num - 1] == "EX2":
+        elif prev_cycle == "ID" or prev_stage == "EX2":
             return "EX1"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "EX1" or \
-                self.clock_cycles[row_num][col_num - 1] == "EX3":
+        elif prev_cycle == "EX1" or prev_stage == "EX3":
             return "EX2"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "EX2" or \
-                self.clock_cycles[row_num][col_num - 1] == "EX4":
+        elif prev_cycle == "EX2" or prev_stage == "EX4":
             return "EX3"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "EX3" or \
-                self.clock_cycles[row_num][col_num - 1] == "MEM":
+        elif prev_cycle == "EX3" or prev_stage == "MEM":
             return "EX4"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "EX4" or \
-            self.clock_cycles[row_num - 1][col_num] == self.d_miss or \
-                self.clock_cycles[row_num][col_num - 1] == "WB":
+        elif prev_cycle == "EX4" or prev_cycle == self.d_miss or \
+                prev_stage == "WB":
             return "MEM"
 
-        elif self.clock_cycles[row_num - 1][col_num] == "MEM":
+        elif prev_cycle == "MEM":
             return "WB"
