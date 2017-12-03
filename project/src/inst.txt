@@ -7,6 +7,5 @@ LOOP:   MULT    R6, R5, R6      # factorial *= I;
         ADD     R7, R7, R6      # sum += factorial;
         ADDI    R5, R5, 1h      # i++;
         BNE     R5, R3, LOOP
-        SW      R5, 31(R1)
         HLT
         HLT
