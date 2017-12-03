@@ -22,44 +22,23 @@
 module controller(
         input wire clk,
         input wire reset,
+
         input wire rx_empty,
         input wire tx_empty,
         input wire [7:0] rx_data,
-        output reg [7:0] tx_data
+        output reg [7:0] tx_data,
+
+        input wire ram_ready,
+        output reg ram_wea,
+        output reg [11:0] ram_addr,
+        output reg [15:0] ram_data_in,
+        input wire [15:0] ram_data_out,
+
+        input wire sqrt_ready,
+        output reg sqrt_nd,
+        input wire [15:0] sqrt_out,
+        output reg [15:0] sqrt_in
     );
-
-
-    // --------------- SQRT MODULE ---------------
-
-    reg         nd = 0;
-    reg [15:0]  x_in;
-    wire [8:0]  x_out;
-    wire rdy;
-
-    sqrt sqrt_unit(
-        .clk(clk), // input clk
-        .nd(nd), // input nd
-        .x_in(x_in), // input [15 : 0] x_in
-        .x_out(x_out), // output [8 : 0] x_out
-        .rdy(rdy) // output rdy
-    );
-
-
-    // --------------- RAM MODULE ---------------
-
-    reg         wea = 1'b1;
-    reg [11:0]  addra;
-    reg [15:0]  dina;
-    wire [15:0] douta;
-
-    ram ram_unit(
-        .clka(clk), // input clka
-        .wea(wea), // input [0 : 0] wea
-        .addra(addra), // input [11 : 0] addra
-        .dina(dina), // input [15 : 0] dina
-        .douta(douta) // output [15 : 0] douta
-    );
-
 
     // --------------- INTERNAL VARIABLES ---------------
 
@@ -137,9 +116,8 @@ module controller(
                     if (~rx_empty) begin
 
                         // send data to sqrt module
-                        x_in = {data_reg, rx_data};
-                        addra = addr_reg;
-                        nd = 1;
+                        sqrt_in = {data_reg, rx_data};
+                        sqrt_nd = 1;
                         cur_state = state_ramwr;
 
                     end else begin
@@ -153,12 +131,12 @@ module controller(
                 state_ramwr: begin
 
                     // if sqrt is done
-                    if (rdy) begin
+                    if (sqrt_ready) begin
 
-                        addra = addr_reg;
+                        ram_addr = addr_reg;
                         // data input to RAM
-                        dina = x_out;
-                        wea = 1;
+                        ram_data_in = sqrt_out;
+                        ram_wea = 1;
                         cur_state = state_ramhi;
 
                     end else begin
@@ -171,9 +149,9 @@ module controller(
 
                 state_ramhi : begin
 
-                    if (tx_empty && (^douta != 1'bx)) begin
+                    if (tx_empty && (^ram_data_out != 1'bx)) begin
 
-                        tx_data = douta[15:8];
+                        tx_data = ram_data_out[15:8];
                         cur_state = state_ramlo;
 
                     end else begin
@@ -186,9 +164,9 @@ module controller(
 
                 state_ramlo : begin
 
-                    if (tx_empty && (^douta != 1'bx)) begin
+                    if (tx_empty && (^ram_data_out != 1'bx)) begin
 
-                        tx_data = douta[7:0];
+                        tx_data = ram_data_out[7:0];
                         cur_state = state_addrhi;
 
                     end else begin

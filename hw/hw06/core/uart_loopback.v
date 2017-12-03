@@ -27,11 +27,11 @@ module top(
         output wire [7:0] loopbackdataout
     );
 
-    wire [7:0] loopbackdata;
-    wire flagnewdata_n;
-    reg [3:0] state;
-    wire tx_empty;
-    reg ld_tx_data;
+    wire [7:0]  loopbackdata;
+    wire        flagnewdata_n;
+    reg [3:0]   state;
+    wire        tx_empty;
+    reg         ld_tx_data;
 
     uart uart_unit(
         .clk(clk),
@@ -57,13 +57,57 @@ module top(
 
     defparam uart_unit.CLK_DIVISION = 443;
 
+    // --------------- SQRT MODULE ---------------
+
+    wire        sqrt_nd;
+    wire [15:0] sqrt_in;
+    wire [8:0]  sqrt_out;
+    wire        sqrt_ready;
+
+    sqrt sqrt_unit(
+        .clk(clk), // input clk
+        .nd(sqrt_nd), // input nd
+        .x_in(sqrt_in), // input [15 : 0] x_in
+        .x_out(sqrt_out), // output [8 : 0] x_out
+        .rdy(sqrt_ready) // output rdy
+    );
+
+
+    // --------------- RAM MODULE ---------------
+
+    wire        ram_wea;
+    wire [11:0] ram_addr;
+    wire [15:0] ram_data_in;
+    wire        ram_ready;
+    wire [15:0] ram_data_out;
+
+    ram ram_unit(
+        .clka(clk), // input clka
+        .wea(ram_wea), // input [0 : 0] wea
+        .addra(ram_addr), // input [11 : 0] addra
+        .dina(ram_data_in), // input [15 : 0] dina
+        .douta(ram_data_out) // output [15 : 0] douta
+    );
+
+
+    // --------------- CONTROLLER MODULE ---------------
+
     controller controller_unit(
-        .clk(clk),
-        .reset(reset),
-        .rx_empty(~flagnewdata_n),
-        .tx_empty(tx_empty),
-        .rx_data(loopbackdata),
-        .tx_data(loopbackdataout)
+        .clk(clk), 
+        .reset(reset), 
+        .rx_empty(flagnewdata_n), 
+        .tx_empty(tx_empty), 
+        .rx_data(loopbackdata), 
+        .tx_data(loopbackdataout), 
+        .ram_ready(ram_ready), 
+        .ram_wea(ram_wea), 
+        .ram_addr(ram_addr), 
+        .ram_data_in(ram_data_in), 
+        .ram_data_out(ram_data_out), 
+        .sqrt_ready(sqrt_ready), 
+        .sqrt_nd(sqrt_nd), 
+        .sqrt_out(sqrt_out), 
+        .sqrt_in(sqrt_in)
     );
 
     always @(posedge clk) begin
