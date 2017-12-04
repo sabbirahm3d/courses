@@ -230,29 +230,40 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
         }
     }
 
-
-    int weight = 0;
-    for (unsigned int k = 2; k <= m; k++) {
-        if (weight < (m - n)) {
-            weight++;
+    int nthreads, tid;
+#pragma omp parallel shared(nthreads) private(tid)
+    {
+        tid = omp_get_thread_num();
+        if (tid == 0) {
+            nthreads = omp_get_num_threads();
+            printf("Number of threads = %d\n", nthreads);
         }
 
-#pragma omp parallel for
-        for (unsigned int j = k; j <= (n + weight); j++) {
+        printf("Thread %d starting...\n", tid);
+        
+        int weight = 0;
+        for (unsigned int k = 2; k <= m; k++) {
+            if (weight < (m - n)) {
+                weight++;
+            }
 
-            if (Y[n - j + k - 1] == X[j - 1]) {
+#pragma omp for
+            for (unsigned int j = k; j <= (n + weight); j++) {
 
-                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j - 1] + 1;
+                if (Y[n - j + k - 1] == X[j - 1]) {
 
-            } else if (lcs_matrix[n - j + k - 1][j] >= lcs_matrix[n - j + k][j -
-                    1]) {
+                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j - 1] + 1;
 
-                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
+                } else if (lcs_matrix[n - j + k - 1][j] >= lcs_matrix[n - j + k][j -
+                        1]) {
 
-            } else {
+                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
 
-                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
+                } else {
 
+                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
+
+                }
             }
         }
     }
@@ -354,22 +365,10 @@ int main(int argc, char *argv[]) {
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     int *lcs_matrix_serial[m + 1], *lcs_matrix_parallel[m + 1];
 
-    int nthreads, tid;
-#pragma omp parallel shared(nthreads) private(tid)
-    {
-        tid = omp_get_thread_num();
-        if (tid == 0) {
-            nthreads = omp_get_num_threads();
-            printf("Number of threads = %d\n", nthreads);
-        }
-
-        printf("Thread %d starting...\n", tid);
-
-#pragma omp for
-        for (unsigned int i = 0; i < m + 1; ++i) {
-            lcs_matrix_serial[i] = (int *) malloc((n + 1) * sizeof(int));
-            lcs_matrix_parallel[i] = (int *) malloc((n + 1) * sizeof(int));
-        }
+#pragma omp parallel for
+    for (unsigned int i = 0; i < m + 1; ++i) {
+        lcs_matrix_serial[i] = (int *) malloc((n + 1) * sizeof(int));
+        lcs_matrix_parallel[i] = (int *) malloc((n + 1) * sizeof(int));
     }
 
     double start_t, end_t;  // timing variables
