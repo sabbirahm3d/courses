@@ -230,40 +230,29 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
         }
     }
 
-    int nthreads, tid;
-#pragma omp parallel shared(nthreads) private(tid)
-    {
-        tid = omp_get_thread_num();
-        if (tid == 0) {
-            nthreads = omp_get_num_threads();
-            printf("Number of threads = %d\n", nthreads);
+
+    int weight = 0;
+    for (unsigned int k = 2; k <= m; k++) {
+        if (weight < (m - n)) {
+            weight++;
         }
 
-        printf("Thread %d starting...\n", tid);
-        
-        int weight = 0;
-        for (unsigned int k = 2; k <= m; k++) {
-            if (weight < (m - n)) {
-                weight++;
-            }
+#pragma omp parallel for
+        for (unsigned int j = k; j <= (n + weight); j++) {
 
-#pragma omp for
-            for (unsigned int j = k; j <= (n + weight); j++) {
+            if (Y[n - j + k - 1] == X[j - 1]) {
 
-                if (Y[n - j + k - 1] == X[j - 1]) {
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j - 1] + 1;
 
-                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j - 1] + 1;
+            } else if (lcs_matrix[n - j + k - 1][j] >= lcs_matrix[n - j + k][j -
+                    1]) {
 
-                } else if (lcs_matrix[n - j + k - 1][j] >= lcs_matrix[n - j + k][j -
-                        1]) {
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
 
-                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
+            } else {
 
-                } else {
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
 
-                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
-
-                }
             }
         }
     }
@@ -363,12 +352,19 @@ int main(int argc, char *argv[]) {
     n = strlen(Y);
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
-    int *lcs_matrix_serial[m + 1], *lcs_matrix_parallel[m + 1];
+    int *lcs_matrix_serial[m + 1],
+            *lcs_matrix_parallel1[m + 1],
+            *lcs_matrix_parallel2[m + 1],
+            *lcs_matrix_parallel3[m + 1],
+            *lcs_matrix_parallel4[m + 1];
 
 #pragma omp parallel for
     for (unsigned int i = 0; i < m + 1; ++i) {
         lcs_matrix_serial[i] = (int *) malloc((n + 1) * sizeof(int));
-        lcs_matrix_parallel[i] = (int *) malloc((n + 1) * sizeof(int));
+        lcs_matrix_parallel1[i] = (int *) malloc((n + 1) * sizeof(int));
+        lcs_matrix_parallel2[i] = (int *) malloc((n + 1) * sizeof(int));
+        lcs_matrix_parallel3[i] = (int *) malloc((n + 1) * sizeof(int));
+        lcs_matrix_parallel4[i] = (int *) malloc((n + 1) * sizeof(int));
     }
 
     double start_t, end_t;  // timing variables
@@ -386,16 +382,61 @@ int main(int argc, char *argv[]) {
     printf("Length of LCS %d\n", lcs_len);
     printf("Serial algorithm took %.5f\n", end_t);
 
+
+    omp_set_num_threads(1);
+
     // start timer
     start_t = omp_get_wtime();
 
     // get length of LCS
-    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel);
+    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel1);
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
     printf("Length of LCS %d\n", lcs_len);
-    printf("Parallel algorithm took %.5f\n", end_t);
+    printf("1 Parallel algorithm took %.5f\n", end_t);
+
+
+    omp_set_num_threads(2);
+
+    // start timer
+    start_t = omp_get_wtime();
+
+    // get length of LCS
+    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel2);
+    // stop timer
+    end_t = omp_get_wtime() - start_t;
+
+    printf("Length of LCS %d\n", lcs_len);
+    printf("2 Parallel algorithm took %.5f\n", end_t);
+
+
+    omp_set_num_threads(3);
+
+    // start timer
+    start_t = omp_get_wtime();
+
+    // get length of LCS
+    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel3);
+    // stop timer
+    end_t = omp_get_wtime() - start_t;
+
+    printf("Length of LCS %d\n", lcs_len);
+    printf("3 Parallel algorithm took %.5f\n", end_t);
+
+    omp_set_num_threads(4);
+
+    // start timer
+    start_t = omp_get_wtime();
+
+    // get length of LCS
+    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel4);
+    // stop timer
+    end_t = omp_get_wtime() - start_t;
+
+    printf("Length of LCS %d\n", lcs_len);
+    printf("4 Parallel algorithm took %.5f\n", end_t);
+
 
     // for debugging purposes - uncomment the following line to print the LCS
     // lcs_print(X, Y, m, n, lcs_matrix_serial);
