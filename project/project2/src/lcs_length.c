@@ -173,19 +173,16 @@ int lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
                int **lcs_matrix) {
 
     // use the memoization method to find the longest common subsequence
-    for (unsigned int i = 1; i <= m; i++) {
+    for (unsigned int i = 0; i <= m; i++) {
 
-        for (unsigned int j = 1; j <= n; j++) {
+        for (unsigned int j = 0; j <= n; j++) {
 
-//            // upper-leftmost cell
-//            if (!i || !j) {
-//
-//                printf("Here\n");
-//
-//                lcs_matrix[i][j] = 0;
-//
-//            } else
-            if (X[i - 1] == Y[j - 1]) {
+            // upper-leftmost cell
+            if (!i || !j) {
+
+                lcs_matrix[i][j] = 0;
+
+            } else if (X[i - 1] == Y[j - 1]) {
 
                 // current cell gets value of left diagonal cell and
                 // incremented
