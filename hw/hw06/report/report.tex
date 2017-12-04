@@ -26,6 +26,16 @@
     An essential skill to develop is the coding of a control finite state
     machine (FSM) to interface modules.
 
+    Figure \ref{fig:datapath} provides the datapath of the interface. Students
+    must identify the status and control signals and create a state machine to
+    control them.
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.35\textwidth]{data_path.png}
+            \caption{Datapath of the Project}
+            \label{fig:datapath}
+        \end{center}
+    \end{figure}
         \subsection{Requirements}
 
         \begin{itemize}
@@ -68,16 +78,83 @@
         \end{itemize}
 
     \section{Design Approach} The source code for interfacing with UART was
-    provided. The controller FSM was implemented in 7 states visualized in
-    Figure \ref{fig:states}. The module provides all the glue logic required to
-    interface the UART with the \texttt{sqrt} module and the block RAM.
+    provided. The controller FSM was implemented to provide all the glue logic
+    required to interface the UART with the \texttt{sqrt} module and the block
+    RAM. The multiplexer controlling the \texttt{tx\_data} in the datapath is
+    integrated into the controller module as the states \texttt{ramhi} and
+    \texttt{ramlo}. Figure \ref{fig:block} provides the top-level block diagram
+    of the project implementation.
 
-    \begin{figure}[ht]
-        \begin{center}
-            \includegraphics[width=1\textwidth]{state_diagram.png}
-            \caption{State Diagram of the Implementation of the Controller}
-            \label{fig:states}
-        \end{center}
-    \end{figure}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{state_diagram.png}
+                \caption{Block Diagram of the Implementation}
+                \label{fig:block}
+            \end{center}
+        \end{figure}
+
+        \subsection{Controller FSM} The controller FSM consists of 7 states
+        visualized in Figure \ref{fig:states}.
+
+            \begin{figure}[ht]
+                \begin{center}
+                    \includegraphics[width=1\textwidth]{state_diagram.png}
+                    \caption{State Diagram of the Implementation of the
+                    Controller}
+                    \label{fig:states}
+                \end{center}
+            \end{figure}
+
+            \subsubsection{addrhi} This is the initial state of the controller
+            to detect when the high bytes of the RAM block address from
+            \texttt{rx\_data} have been transferred from the UART. The state
+            proceeds to \texttt{addrlo} when the shifter at \texttt{rx} is
+            empty and \texttt{AH} is ready.
+
+            \subsubsection{addrlo} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{AH} is ready. This is the second state of the
+            controller to detect when the low bytes of the RAM block address
+            from \texttt{rx\_data} have been transferred from the UART. The
+            state saves the entire 12-bit address of the RAM block and then
+            proceeds to \texttt{datahi} when the shifter at \texttt{rx} is
+            empty and \texttt{AL} is ready.
+
+            \subsubsection{datahi} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{AL} is ready. This is the third state of the
+            controller to detect when the high bytes of the RAM block input
+            data from \texttt{rx\_data} have been transferred from the UART.
+            The state proceeds to \texttt{datahi} when the shifter at
+            \texttt{rx} is empty and \texttt{DH} is ready.
+
+            \subsubsection{datalo} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{DH} is ready. This is the fourth state of the
+            controller to detect when the low bytes of the RAM block input data
+            from \texttt{rx\_data} have been transferred from the UART. The
+            state sends the entire 16-bit data to the \texttt{sqrt} module and
+            then proceeds to \texttt{ramwr} when the shifter at \texttt{rx} is
+            empty and \texttt{DL} is ready.
+
+            \subsubsection{ramwr} Activated when the \texttt{sqrt} module is
+            and \texttt{DL} is ready. This is the fifth state of the controller
+            to write to the RAM block. The state sends the entire 12-bit
+            address and the output of the \texttt{sqrt} module to the RAM block
+            and then proceeds to \texttt{ramhi}.
+
+            \subsubsection{ramhi} Activated when the shifter at \texttt{tx} is
+            empty and data read from the RAM block is valid and ready. This is
+            the sixth state of the controller to read from the RAM block with
+            the same address and passed back to the UART. The state sends the
+            high 8-bit data read from the \texttt{sqrt} module to the
+            \texttt{tx\_data} in the UART.
+
+            \subsubsection{ramlo} Activated when the shifter at \texttt{tx} is
+            empty and data read from the RAM block is valid and ready. This is
+            the final state of the controller to read from the RAM block with
+            the same address and passed back to the UART. The state sends the
+            low 8-bit data read from the \texttt{sqrt} module to the
+            \texttt{tx\_data} in the UART.
+
+    \section{Testing} The project submission includes test benches for the
+    controller as well as the top-level module integrating all the modules.
 
 \end{document}

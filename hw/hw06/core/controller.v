@@ -20,20 +20,24 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 module controller(
+        // clock and reset signals
         input wire clk,
         input wire reset,
 
+        // UART control and data signals
         input wire rx_empty,
         input wire tx_empty,
         input wire [7:0] rx_data,
         output reg [7:0] tx_data,
 
+        // RAM block control and data signals
         input wire ram_ready,
         output reg ram_wea,
         output reg [11:0] ram_addr,
         output reg [15:0] ram_data_in,
         input wire [15:0] ram_data_out,
 
+        // sqrt control and data signals
         input wire sqrt_ready,
         output reg sqrt_nd,
         input wire [15:0] sqrt_out,
@@ -58,6 +62,7 @@ module controller(
 
         if (reset) begin
 
+            // initial state
             cur_state = state_addrhi;
 
         end else begin
@@ -84,7 +89,6 @@ module controller(
                     if (~rx_empty) begin
 
                         addr_reg = {addr_reg[3:0], rx_data};
-                        // $display("controller2 %b", addr_reg);
                         cur_state = state_datahi;
 
                     end else begin
@@ -100,7 +104,6 @@ module controller(
                     if (~rx_empty) begin
 
                         data_reg = rx_data;
-                        // $display("controller3 %b", data_reg);
                         cur_state = state_datalo;
 
                     end else begin
@@ -133,10 +136,9 @@ module controller(
                     // if sqrt is done
                     if (sqrt_ready) begin
 
-                        ram_addr = addr_reg;
-                        // data input to RAM
-                        ram_data_in = sqrt_out;
-                        ram_wea = 1;
+                        ram_addr = addr_reg;  // address of RAM
+                        ram_data_in = sqrt_out;  // data input to RAM
+                        ram_wea = 1;  // RAM write enable
                         cur_state = state_ramhi;
 
                     end else begin
