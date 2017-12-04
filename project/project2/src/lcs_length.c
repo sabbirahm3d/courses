@@ -41,12 +41,14 @@
  *
  */
 
+#include <ctype.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+
+#include <math.h>
 
 #include <omp.h>
-#include <ctype.h>
 
 // ------------------------- FUNCTION PROTOTYPES -------------------------
 
@@ -55,9 +57,12 @@ int max2(int, int);
 int is_num(const char []);
 
 
-int serial_lcs(const char *, const char *, unsigned int, unsigned int, int **);
+int lcs_length(const char *, const char *, unsigned int, unsigned int, int **);
 
-void print_lcs(const char *, const char *, unsigned int, unsigned int, int **);
+int p_lcs_length(const char *, const char *, unsigned int, unsigned int, int
+**);
+
+void lcs_print(const char *, const char *, unsigned int, unsigned int, int **);
 
 char *read_sequence(const char *, unsigned int);
 
@@ -164,20 +169,23 @@ char *read_sequence(const char *file_name, unsigned int seq_len) {
  *      length of the longest common subsequence
  *
  */
-int serial_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
+int lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
                int **lcs_matrix) {
 
     // use the memoization method to find the longest common subsequence
-    for (unsigned int i = 0; i <= m; i++) {
+    for (unsigned int i = 1; i <= m; i++) {
 
-        for (unsigned int j = 0; j <= n; j++) {
+        for (unsigned int j = 1; j <= n; j++) {
 
-            // upper-leftmost cell
-            if (!i || !j) {
-
-                lcs_matrix[i][j] = 0;
-
-            } else if (X[i - 1] == Y[j - 1]) {
+//            // upper-leftmost cell
+//            if (!i || !j) {
+//
+//                printf("Here\n");
+//
+//                lcs_matrix[i][j] = 0;
+//
+//            } else
+            if (X[i - 1] == Y[j - 1]) {
 
                 // current cell gets value of left diagonal cell and
                 // incremented
@@ -199,6 +207,62 @@ int serial_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
     return lcs_matrix[m][n];
 }
 
+int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
+                 int **lcs_matrix) {
+
+
+    // use the memoization method to find the longest common subsequence
+    for (unsigned int i = 1; i <= n; i++) {
+#pragma omp parallel for
+        for (unsigned int j = 1; j <= i; j++) {
+
+            if (Y[i - j] == X[j - 1]) {
+
+                lcs_matrix[i - j + 1][j] = lcs_matrix[i - j][j - 1] + 1;
+
+            } else if (lcs_matrix[i - j][j] >= lcs_matrix[i - j + 1][j - 1]) {
+
+                lcs_matrix[i - j + 1][j] = lcs_matrix[i - j][j];
+
+            } else {
+
+                lcs_matrix[i - j + 1][j] = lcs_matrix[i - j + 1][j - 1];
+
+            }
+
+        }
+    }
+
+
+    int weight = 0;
+    for (unsigned int k = 2; k <= m; k++) {
+        if (weight < (m - n)) {
+            weight++;
+        }
+
+#pragma omp parallel for
+        for (unsigned int j = k; j <= (n + weight); j++) {
+
+            if (Y[n - j + k - 1] == X[j - 1]) {
+
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j - 1] + 1;
+
+            } else if (lcs_matrix[n - j + k - 1][j] >= lcs_matrix[n - j + k][j -
+                    1]) {
+
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
+
+            } else {
+
+                lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
+
+            }
+        }
+    }
+
+    return lcs_matrix[m][n];
+
+}
 
 /*
  * Prints the longest common subsequence found
@@ -214,7 +278,7 @@ int serial_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
  *      none
  *
  */
-void print_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
+void lcs_print(const char *X, const char *Y, unsigned int m, unsigned int n,
                int **lcs_matrix) {
 
     // cursor of the matrix
@@ -257,7 +321,7 @@ void print_lcs(const char *X, const char *Y, unsigned int m, unsigned int n,
     }
 
     // print the lcs
-    printf("Longest common subsequence: %s\n", lcs_str);
+    printf("Longest common subsequence:\n%s\n", lcs_str);
     free(lcs_str);
     lcs_str = NULL;
 
@@ -291,9 +355,24 @@ int main(int argc, char *argv[]) {
     n = strlen(Y);
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
-    int *lcs_matrix[m + 1];
-    for (unsigned int i = 0; i < m + 1; ++i) {
-        lcs_matrix[i] = (int *) malloc((n + 1) * sizeof(int));
+    int *lcs_matrix_serial[m + 1], *lcs_matrix_parallel[m + 1];
+
+    int nthreads, tid;
+#pragma omp parallel shared(nthreads) private(tid)
+    {
+        tid = omp_get_thread_num();
+        if (tid == 0) {
+            nthreads = omp_get_num_threads();
+            printf("Number of threads = %d\n", nthreads);
+        }
+
+        printf("Thread %d starting...\n", tid);
+
+#pragma omp for
+        for (unsigned int i = 0; i < m + 1; ++i) {
+            lcs_matrix_serial[i] = (int *) malloc((n + 1) * sizeof(int));
+            lcs_matrix_parallel[i] = (int *) malloc((n + 1) * sizeof(int));
+        }
     }
 
     double start_t, end_t;  // timing variables
@@ -302,23 +381,33 @@ int main(int argc, char *argv[]) {
     start_t = omp_get_wtime();
 
     // get length of LCS
-    int serial_lcs_len = serial_lcs(X, Y, m, n, lcs_matrix);
-
+    int lcs_len = lcs_length(X, Y, m, n, lcs_matrix_serial);
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
     printf("Length of X %d\n", m);
     printf("Length of Y %d\n", n);
-    printf("Length of LCS %d\n", serial_lcs_len);
+    printf("Length of LCS %d\n", lcs_len);
     printf("Serial algorithm took %.5f\n", end_t);
 
+    // start timer
+    start_t = omp_get_wtime();
+
+    // get length of LCS
+    lcs_len = p_lcs_length(X, Y, m, n, lcs_matrix_parallel);
+    // stop timer
+    end_t = omp_get_wtime() - start_t;
+
+    printf("Length of LCS %d\n", lcs_len);
+    printf("Parallel algorithm took %.5f\n", end_t);
+
     // for debugging purposes - uncomment the following line to print the LCS
-    // print_lcs(X, Y, m, n, lcs_matrix);
+    // lcs_print(X, Y, m, n, lcs_matrix_serial);
 
     // delete dynamically allocated arrays
     for (unsigned int i = 0; i < m + 1; ++i) {
-        free(lcs_matrix[i]);
-        lcs_matrix[i] = NULL;
+        free(lcs_matrix_serial[i]);
+        lcs_matrix_serial[i] = NULL;
     }
 
     // delete buffers

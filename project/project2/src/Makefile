@@ -11,13 +11,16 @@ SUBMITFILE = jobid.txt
 CC := gcc
 
 # define any compile-time flags
-CFLAGS := -std=c99 -Wall -fopenmp
+CFLAGS := -std=c99 -Wall -fopenmp -lm
 
 # define the C source files
 SRC = lcs_length.c
 
 # define the executable file
 EXE = lcs_length
+
+yo:
+	$(CC) lol.c -fopenmp -ansi -Wall -std=c99 -lm -g -o lcs-omp
 
 # ---------- executing targets ----------
 
@@ -39,7 +42,7 @@ val:
 
 .PHONY: build
 build:
-	${CC} ${CFLAGS} ${SRC} -o ${EXE}
+	${CC} ${SRC} ${CFLAGS} -o ${EXE}
 
 
 # ---------- generating random sequences targets ----------
