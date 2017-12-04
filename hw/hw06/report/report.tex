@@ -87,7 +87,7 @@
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{state_diagram.png}
+                \includegraphics[width=1\textwidth]{block_diagram.png}
                 \caption{Block Diagram of the Implementation}
                 \label{fig:block}
             \end{center}
@@ -154,7 +154,24 @@
             low 8-bit data read from the \texttt{sqrt} module to the
             \texttt{tx\_data} in the UART.
 
+    \newpage
     \section{Testing} The project submission includes test benches for the
     controller as well as the top-level module integrating all the modules.
+    Figure \ref{fig:tbwav} shows an example use of the implementation with the
+    memory file contents: 01, 01, 00, 04.
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{controller_tb_wav.png}
+            \caption{Sample Testbench Waveform of the Controller Module}
+            \label{fig:tbwav}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{fig:tbwav} demonstrates the unit after its final state. The
+    address to the RAM block was passed as 0001 0000 0001 (low 4 bits of the
+    high 01 hex value and the entire low 01 hex value). The data passed to the
+    \texttt{sqrt} module was 0000 0000 0000 0100 (00 and 04). The \texttt{sqrt}
+    module returns 0000 0010 ($\sqrt{\text{4}}=\text{2}$).
 
 \end{document}
