@@ -205,6 +205,7 @@ int lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
 int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
                  int **lcs_matrix, int *threads) {
 
+    omp_set_num_threads(*threads);
 #pragma omp parallel
     {
 
@@ -338,9 +339,22 @@ int main(int argc, char *argv[]) {
 
     // validate user inputted sequence lengths
     unsigned int m, n;
-    if (is_num(argv[2]) && is_num(argv[4])) {
+    int threads;
+    if (argc > 2 && is_num(argv[2]) && is_num(argv[4])) {
+
         m = (unsigned int) atoi(argv[2]);
         n = (unsigned int) atoi(argv[4]);
+
+        if (argc == 6 && is_num(argv[5])) {
+
+            threads = atoi(argv[5]);
+
+        } else {
+
+            threads = 4;
+
+        }
+
     } else {
         printf("Invalid integer inputted.\n");
         return EXIT_FAILURE;
@@ -357,7 +371,6 @@ int main(int argc, char *argv[]) {
     n = strlen(Y);
 
     double start_t, end_t;  // timing variables
-    int threads = 4;
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     int *lcs_matrix[m + 1];
@@ -376,11 +389,7 @@ int main(int argc, char *argv[]) {
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
-    printf("%d cores: %.5f s\n", threads, end_t);
-
-    // for debugging purposes - uncomment the following line to print the LCS
-    // printf("LCS length %d s\n", lcs_len);
-    // lcs_print(X, Y, m, n, lcs_matrix_serial);
+    printf("Cores used: %d\nExecution time: %.5f s\n", threads, end_t);
 
     // delete dynamically allocated arrays
     for (unsigned int i = 0; i < m + 1; ++i) {

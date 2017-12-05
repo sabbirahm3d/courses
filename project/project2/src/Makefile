@@ -5,6 +5,7 @@ SEQ1 = seq1.txt
 SEQ2 = seq2.txt
 SEQ1LEN = 10000
 SEQ2LEN = 10000
+THREADS = $(shell nproc --all)
 SUBMITFILE = jobid.txt
 
 # define the C compiler to use
@@ -24,7 +25,7 @@ EXE = lcs_length
 .PHONY: run
 run:
 	# run executable
-	./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
+	./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN} ${THREADS}
 
 
 # ---------- memory checking targets ----------
