@@ -372,6 +372,7 @@ int main(int argc, char *argv[]) {
 
 
     if (m < n) {
+
         unsigned int temp_m = m;
         m = n;
         n = temp_m;
@@ -379,39 +380,35 @@ int main(int argc, char *argv[]) {
         char *temp_x = X;
         X = Y;
         Y = temp_x;
+
     }
 
     double start_t, end_t;  // timing variables
 
     // dynamically allocate the (m + 1) * (n + 1) LCS matrix on heap
     int *lcs_matrix[m + 1];
-    int *lcs_matrix1[m + 1];
 
 #pragma omp parallel for
     for (unsigned int i = 0; i < m + 1; i++) {
         lcs_matrix[i] = (int *) malloc((m + 1) * sizeof(int));
-        lcs_matrix1[i] = (int *) malloc((n + 1) * sizeof(int));
     }
 
     // start timer
     start_t = omp_get_wtime();
 
     // get length of LCS
-    int len = p_lcs_length(X, Y, m, n, lcs_matrix, &threads);
-    int slen = lcs_length(X, Y, m, n, lcs_matrix1);
+    p_lcs_length(X, Y, m, n, lcs_matrix, &threads);
 
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
     printf("Cores used: %d\nExecution time: %.5f s\n", threads, end_t);
-    printf("serial len %d\n", slen);
-    printf("parallel len %d\n", len);
 
-//    // delete dynamically allocated arrays
-//    for (unsigned int i = 0; i < m + 1; ++i) {
-//        free(lcs_matrix[i]);
-//        lcs_matrix[i] = NULL;
-//    }
+    // delete dynamically allocated arrays
+    for (unsigned int i = 0; i < m + 1; ++i) {
+        free(lcs_matrix[i]);
+        lcs_matrix[i] = NULL;
+    }
 
     // delete buffers
     free(X);
