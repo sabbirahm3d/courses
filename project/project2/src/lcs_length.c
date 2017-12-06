@@ -406,7 +406,7 @@ int main(int argc, char *argv[]) {
     end_t = omp_get_wtime() - start_t;
 
     // printf("Cores used: %d\n", threads);
-    printf("Execution time: %.5f s\n", end_t);
+    printf("%.5f\n", end_t);
 
     // delete dynamically allocated arrays
     for (unsigned int i = 0; i < m + 1; i++) {
