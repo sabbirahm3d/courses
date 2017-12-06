@@ -60,10 +60,6 @@ genseqs:
 
 # ---------- SLURM batch targets ----------
 
-.PHONY: slurmsubmit
-slurmsubmit:
-	sbatch ${EXE} slurm > ${SUBMITFILE}
-
 .PHONY: slurmstat
 slurmstat:
 	sstat ${JOBID}
@@ -71,6 +67,7 @@ slurmstat:
 .PHONY: slurmqueue
 slurmqueue:
 	squeue | grep ${USER}
+
 
 # ---------- cleaning targets ----------
 

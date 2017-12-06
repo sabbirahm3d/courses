@@ -12,10 +12,10 @@ do
         for (( k = 0; k <= j; k++))
         do
 
-            echo "CORES: ${cores[i]} LEN1: ${seqlens[j]} LEN2: ${seqlens[k]}";
+            echo "CORES: ${cores[i]} LEN1: ${seqlens[k]} LEN2: ${seqlens[j]}";
             for (( l = 1; l <= 5; l++))
             do
-                make run SEQ1LEN=${seqlens[j]} SEQ2LEN=${seqlens[k]} THREADS=${cores[i]}
+                make -s run SEQ1LEN=${seqlens[k]} SEQ2LEN=${seqlens[j]} THREADS=${cores[i]};
             done
 
         done
