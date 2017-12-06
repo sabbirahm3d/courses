@@ -33,7 +33,7 @@ run:
 .PHONY: val
 val:
 	# check memory leaks
-	valgrind --leak-check=full --show-leak-kinds=all ./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN}
+	valgrind --leak-check=full --show-leak-kinds=all ./${EXE} ${SEQ1} ${SEQ1LEN} ${SEQ2} ${SEQ2LEN} ${THREADS}
 
 
 # ---------- building targets ----------

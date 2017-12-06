@@ -370,16 +370,19 @@ int main(int argc, char *argv[]) {
     m = strlen(X);
     n = strlen(Y);
 
-
+    int swapped = 0;
     if (m < n) {
 
         unsigned int temp_m = m;
         m = n;
         n = temp_m;
 
-        char *temp_x = X;
+        char *temp_seq = X;
         X = Y;
-        Y = temp_x;
+        Y = temp_seq;
+        free(temp_seq);
+        temp_seq = NULL;
+        swapped = 1;
 
     }
 
@@ -402,19 +405,22 @@ int main(int argc, char *argv[]) {
     // stop timer
     end_t = omp_get_wtime() - start_t;
 
-    printf("Cores used: %d\nExecution time: %.5f s\n", threads, end_t);
+    // printf("Cores used: %d\n", threads);
+    printf("Execution time: %.5f s\n", end_t);
 
     // delete dynamically allocated arrays
-    for (unsigned int i = 0; i < m + 1; ++i) {
+    for (unsigned int i = 0; i < m + 1; i++) {
         free(lcs_matrix[i]);
         lcs_matrix[i] = NULL;
     }
 
     // delete buffers
+    if (!swapped) {
+        free(Y);
+        Y = NULL;
+    }
     free(X);
     X = NULL;
-    free(Y);
-    Y = NULL;
 
     return EXIT_SUCCESS;
 
