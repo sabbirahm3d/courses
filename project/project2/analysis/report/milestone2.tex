@@ -89,58 +89,46 @@ parallel for i = 0 to m + 1
 
 \end{pseudocode}
 
-    \section{Serial Algorithm} Milestone 1 required implementation of the
-    serial LCS length algorithm and its analysis. Algorithm \thesection
-    .\ref{alg2} provides the pseudocode for computing the length of the LCS.
-    The serial algorithm utilizes the memoization method to compute the LCS.
-
-\begin{pseudocode}[caption={Serial Longest Common Subsequence Length},
-label={alg2}]
-function LCS-LENGTH(X, Y, m, n)
-    // allocate (m + 1) $\times$ (n + 1) LCS matrix
-    lcs = new matrix[1, 2, .., m + 1][1, 2, .., n + 1]
-    for i = 0 to m
-        for j = 0 to n
-            // if upper-leftmost cell, content is 0
-            if (i == 0 or j == 0)
-                $\lcs_{i, j}$ = 0
-            // if equal, content is the left diagonal value incremented by 1
-            else if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
-                $\lcs_{i, j}$ = $\lcs_{i-1, j-1}$ + 1  
-            // maximum between previous row and previous column values
-            else
-                $\lcs_{i, j}$ = max($\lcs_{i-1, j}$, $\lcs_{i, j-1}$)
-    return $\lcs_{m,n}$  // the last value of the matrix is the length
-
-\end{pseudocode}
-
-    \newpage
-    Table \ref{table:serialmat} visualizes the serial implementation of
-    computing the LCS length using the Algorithm \thesection .\ref{alg2}. In
-    Milestone 2, it was observed that the value of the cells depended on the
-    cells above, left or top-left of itself. The cells in the other directions
-    have no effect. This
+    \section{Serial Algorithm} Table \ref{table:serialmat} visualizes the
+    serial implementation of computing the LCS length of sample strings using
+    the algorithm described in equation (15.9) of \textit{Introduction to
+    Algorithms} \cite{Cormen:2009:IAT:1614191}.
 
 \begin{table}[h]
-    \caption{LCS Matrix Constructed from the Serial Algorithm \thesection
-    .\ref{alg2}} \label{table:serialmat}
+    \caption{LCS Matrix Constructed when Comparing \texttt{GCGTCA} and
+    \texttt{ACGAA}} \label{table:serialmat}
     \centering
     \setlength\tabcolsep{0pt}
-    \begin{tabular}{|@{\rule[-0.4cm]{0pt}{1cm}}*{8}{M{1cm} |}}
+    \begin{tabular}{|@{\rule[-0.5cm]{0pt}{1cm}}*{8}{M{1cm} |}}
     \hline
-    & $\bm{\varnothing}$ & \textbf{G} & \textbf{C} & \textbf{G} & \textbf{T} & \textbf{C} & \textbf{A} \\
+    & \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{C}} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{T}} & \tikzmark{0}{\textbf{C}} &
+    \tikzmark{0}{\textbf{A}} \\
     \hline
-    $\bm{\varnothing}$ & \tikzmark{a0}{0} & \tikzmark{a1}{0} & \tikzmark{a2}{0} & \tikzmark{a3}{0} & \tikzmark{a4}{0} & \tikzmark{a5}{0} & \tikzmark{a6}{0} \\
+    \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{a0}{0} & \tikzmark{a1}{0} &
+    \tikzmark{a2}{0} & \tikzmark{a3}{0} & \tikzmark{a4}{0} & \tikzmark{a5}{0} &
+    \tikzmark{a6}{0} \\
     \hline
-    \textbf{A} & \tikzmark{b0}{0} & \tikzmark{b1}{0} & \tikzmark{b2}{0} & \tikzmark{b3}{0} & \tikzmark{b4}{0} & \tikzmark{b5}{0} & \tikzmark{b6}{1} \\
+    \tikzmark{0}{\textbf{A}} & \tikzmark{b0}{0} & \tikzmark{b1}{0} &
+    \tikzmark{b2}{0} & \tikzmark{b3}{0} & \tikzmark{b4}{0} & \tikzmark{b5}{0} &
+    \tikzmark{b6}{1} \\
     \hline
-    \textbf{C} & \tikzmark{c0}{0} & \tikzmark{c1}{0} & \tikzmark{c2}{1} & \tikzmark{c3}{1} & \tikzmark{c4}{1} & \tikzmark{c5}{1} & \tikzmark{c6}{1} \\
+    \tikzmark{0}{\textbf{C}} & \tikzmark{c0}{0} & \tikzmark{c1}{0} &
+    \tikzmark{c2}{1} & \tikzmark{c3}{1} & \tikzmark{c4}{1} & \tikzmark{c5}{1} &
+    \tikzmark{c6}{1} \\
     \hline
-    \textbf{G} & \tikzmark{d0}{0} & \tikzmark{d1}{1} & \tikzmark{d2}{1} & \tikzmark{d3}{2} & \tikzmark{d4}{2} & \tikzmark{d5}{2} & \tikzmark{d6}{2} \\
+    \tikzmark{0}{\textbf{G}} & \tikzmark{d0}{0} & \tikzmark{d1}{1} &
+    \tikzmark{d2}{1} & \tikzmark{d3}{2} & \tikzmark{d4}{2} & \tikzmark{d5}{2} &
+    \tikzmark{d6}{2} \\
     \hline
-    \textbf{A} & \tikzmark{e0}{0} & \tikzmark{e1}{1} & \tikzmark{e2}{1} & \tikzmark{e3}{2} & \tikzmark{e4}{2} & \tikzmark{e5}{2} & \tikzmark{e6}{3} \\
+    \tikzmark{0}{\textbf{A}} & \tikzmark{e0}{0} & \tikzmark{e1}{1} &
+    \tikzmark{e2}{1} & \tikzmark{e3}{2} & \tikzmark{e4}{2} & \tikzmark{e5}{2} &
+    \tikzmark{e6}{3} \\
     \hline
-    \textbf{A} & \tikzmark{f0}{0} & \tikzmark{f1}{1} & \tikzmark{f2}{1} & \tikzmark{f3}{2} & \tikzmark{f4}{2} & \tikzmark{f5}{2} & \tikzmark{f6}{3} \\
+    \tikzmark{0}{\textbf{A}} & \tikzmark{f0}{0} & \tikzmark{f1}{1} &
+    \tikzmark{f2}{1} & \tikzmark{f3}{2} & \tikzmark{f4}{2} & \tikzmark{f5}{2} &
+    \tikzmark{f6}{3} \\
     \hline
     \end{tabular}
 
@@ -181,7 +169,40 @@ function LCS-LENGTH(X, Y, m, n)
 
 \end{table}
 
-        \vspace{-1in}
+    \vspace{-1in}
+    In Milestone 2, it was observed that the value of the cells depended on the
+    cells above, left or top-left of itself. The cells in the other directions
+    have no effect. This property allowing for subproblems to be independently
+    solvable builds the foundation for the algorithm for the parallel
+    implementation to find the LCS length.
+
+    Milestone 1 required implementation of the serial LCS length algorithm and
+    its analysis. Algorithm \thesection .\ref{alg2} provides the pseudocode for
+    computing the length of the LCS. The serial algorithm utilizes the bottom-
+    up approach to compute the LCS.
+
+\newpage
+\begin{pseudocode}[caption={Serial Longest Common Subsequence Length},
+label={alg2}]
+function LCS-LENGTH(X, Y, m, n)
+    // allocate (m + 1) $\times$ (n + 1) LCS matrix
+    lcs = new matrix[1, 2, .., m + 1][1, 2, .., n + 1]
+    for i = 0 to m
+        for j = 0 to n
+            // if upper-leftmost cell, content is 0
+            if (i == 0 or j == 0)
+                $\lcs_{i, j}$ = 0
+            // if equal, content is the left diagonal value incremented by 1
+            else if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
+                $\lcs_{i, j}$ = $\lcs_{i-1, j-1}$ + 1  
+            // maximum between previous row and previous column values
+            else
+                $\lcs_{i, j}$ = max($\lcs_{i-1, j}$, $\lcs_{i, j-1}$)
+    return $\lcs_{m,n}$  // the last value of the matrix is the length
+
+\end{pseudocode}
+
+        % \vspace{-1in}
         \subsection{Time Complexity} The running time of the serial algorithm
         provides the work, $T_{1}$, of the algorithm. Simple analysis of the
         algorithm provided in the snippet Algorithm \thesection .\ref{alg2}
@@ -228,9 +249,111 @@ function SERIAL-LCS-PRINT(X, Y, m, n, lcs)
 
     \section{Parallel Algorithm} Milestone 2 required implementation of the
     parallel LCS length algorithm. Algorithm \thesection .\ref{alg4} provides
-    the pseudocode for computing the length of the LCS. Unlike the serial
-    implementation, the parallel version of the algorithm requires a variation
+    the pseudocode for computing the length of the LCS. This version of the
+    implementation uses the same LCS matrix to generate the same cell values.
+    The parallel implementation however computes the values using a method that
+    avoids race conditions. 
 
+\begin{table}[h]
+    \caption{LCS Matrix Constructed when Comparing \texttt{GCGTCA} and
+    \texttt{ACGAA} with the Diagonal Subproblems Highlighted}
+    \label{table:serialmat}
+    \centering
+    \setlength\tabcolsep{0pt}
+    \begin{tabular}{|@{\rule[-0.5cm]{0pt}{1cm}}*{8}{M{1cm} |}}
+    \hline
+    & \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{C}} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{T}} & \tikzmark{0}{\textbf{C}} &
+    \tikzmark{0}{\textbf{A}} \\
+
+    \hline
+
+    \tikzmark{0}{$\bm{\varnothing}$} & \cellcolor{black!50}\tikzmark{a0}{0} &
+    \cellcolor{black!20}\tikzmark{a1}{0} & \tikzmark{a2}{0} &
+    \cellcolor{black!50}\tikzmark{a3}{0} & \cellcolor{black!20}\tikzmark{a4}{0}
+    & \tikzmark{a5}{0} & \cellcolor{black!50}\tikzmark{a6}{0} \\
+
+    \hline
+
+    \tikzmark{0}{\textbf{A}} & \cellcolor{black!20}\tikzmark{b0}{0} &
+    \tikzmark{b1}{0} & \cellcolor{black!50}\tikzmark{b2}{0} &
+    \cellcolor{black!20}\tikzmark{b3}{0} & \tikzmark{b4}{0} &
+    \cellcolor{black!50}\tikzmark{b5}{0} & \cellcolor{black!20}\tikzmark{b6}{1}
+    \\
+
+    \hline
+
+    \tikzmark{0}{\textbf{C}} & \tikzmark{c0}{0} &
+    \cellcolor{black!50}\tikzmark{c1}{0} & \cellcolor{black!20}\tikzmark{c2}{1}
+    & \tikzmark{c3}{1} & \cellcolor{black!50}\tikzmark{c4}{1} &
+    \cellcolor{black!20}\tikzmark{c5}{1} & \tikzmark{c6}{1} \\
+
+    \hline
+
+    \tikzmark{0}{\textbf{G}} & \cellcolor{black!50}\tikzmark{d0}{0} &
+    \cellcolor{black!20}\tikzmark{d1}{1} & \tikzmark{d2}{1} &
+    \cellcolor{black!50}\tikzmark{d3}{2} & \cellcolor{black!20}\tikzmark{d4}{2}
+    & \tikzmark{d5}{2} & \cellcolor{black!50}\tikzmark{d6}{2} \\
+
+    \hline
+
+    \tikzmark{0}{\textbf{A}} & \cellcolor{black!20}\tikzmark{e0}{0} &
+    \tikzmark{e1}{1} & \cellcolor{black!50}\tikzmark{e2}{1} &
+    \cellcolor{black!20}\tikzmark{e3}{2} & \tikzmark{e4}{2} &
+    \cellcolor{black!50}\tikzmark{e5}{2} &
+    \cellcolor{black!20}\tikzmark{e6}{3} \\
+
+    \hline
+
+    \tikzmark{0}{\textbf{A}} & \tikzmark{f0}{0} &
+    \cellcolor{black!50}\tikzmark{f1}{1} & \cellcolor{black!20}\tikzmark{f2}{1}
+    & \tikzmark{f3}{2} & \cellcolor{black!50}\tikzmark{f4}{2} &
+    \cellcolor{black!20}\tikzmark{f5}{2} & \tikzmark{f6}{3} \\
+
+    \hline
+    \end{tabular}
+
+    \link{b1}{b0}
+    \link{b2}{b1}
+    \link{b3}{b2}
+    \link{b4}{b3}
+    \link{b5}{b4}
+    \link{b6}{a5}
+
+    \link{c1}{c0}
+    \link{c2}{b1}
+    \link{c3}{c2}
+    \link{c4}{c3}
+    \link{c5}{b4}
+    \link{c6}{c5}
+
+    \link{d1}{c0}
+    \link{d2}{d1}
+    \link{d3}{c2}
+    \link{d4}{d3}
+    \link{d5}{d4}
+    \link{d6}{d5}
+
+    \link{e1}{d1}
+    \link{e2}{e1}
+    \link{e3}{d3}
+    \link{e4}{e3}
+    \link{e5}{e4}
+    \link{e6}{d5}
+
+    \link{f1}{e1}
+    \link{f2}{f1}
+    \link{f3}{e3}
+    \link{f4}{f3}
+    \link{f5}{f4}
+    \link{f6}{e5}
+
+\end{table}
+\newpage
+\vspace{-1in}
+
+    fbhdsbfdsbfjdbskfbdsjfbhj
 
 \begin{pseudocode}[caption={Parallel Longest Common Subsequence Length},
 label={alg4}]
@@ -266,5 +389,7 @@ function P-LCS-LENGTH(X, Y, m, n)
         built without any warnings or errors, but the algorithm during its
         execution appeared to skip steps. The current implementation in C
         compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
+
+    \bibliography{references}
 
 \end{document}
