@@ -114,27 +114,33 @@ function LCS-LENGTH(X, Y, m, n)
 
 \end{pseudocode}
 
-\newpage
+    \newpage
+    Table \ref{table:serialmat} visualizes the serial implementation of
+    computing the LCS length using the Algorithm \thesection .\ref{alg2}. In
+    Milestone 2, it was observed that the value of the cells depended on the
+    cells above, left or top-left of itself. The cells in the other directions
+    have no effect. This
+
 \begin{table}[h]
     \caption{LCS Matrix Constructed from the Serial Algorithm \thesection
-    .\ref{alg2}}
+    .\ref{alg2}} \label{table:serialmat}
     \centering
     \setlength\tabcolsep{0pt}
     \begin{tabular}{|@{\rule[-0.4cm]{0pt}{1cm}}*{8}{M{1cm} |}}
     \hline
     & $\bm{\varnothing}$ & \textbf{G} & \textbf{C} & \textbf{G} & \textbf{T} & \textbf{C} & \textbf{A} \\
     \hline
-    $\bm{\varnothing}$  & \tikzmark{a0}{0} & \tikzmark{a1}{0} & \tikzmark{a2}{0} & \tikzmark{a3}{0} & \tikzmark{a4}{0} & \tikzmark{a5}{0} & \tikzmark{a6}{0} \\
+    $\bm{\varnothing}$ & \tikzmark{a0}{0} & \tikzmark{a1}{0} & \tikzmark{a2}{0} & \tikzmark{a3}{0} & \tikzmark{a4}{0} & \tikzmark{a5}{0} & \tikzmark{a6}{0} \\
     \hline
-    \textbf{A}          & \tikzmark{b0}{0} & \tikzmark{b1}{0} & \tikzmark{b2}{0} & \tikzmark{b3}{0} & \tikzmark{b4}{0} & \tikzmark{b5}{0} & \tikzmark{b6}{1} \\
+    \textbf{A} & \tikzmark{b0}{0} & \tikzmark{b1}{0} & \tikzmark{b2}{0} & \tikzmark{b3}{0} & \tikzmark{b4}{0} & \tikzmark{b5}{0} & \tikzmark{b6}{1} \\
     \hline
-    \textbf{C}          & \tikzmark{c0}{0} & \tikzmark{c1}{0} & \tikzmark{c2}{1} & \tikzmark{c3}{1} & \tikzmark{c4}{1} & \tikzmark{c5}{1} & \tikzmark{c6}{1} \\
+    \textbf{C} & \tikzmark{c0}{0} & \tikzmark{c1}{0} & \tikzmark{c2}{1} & \tikzmark{c3}{1} & \tikzmark{c4}{1} & \tikzmark{c5}{1} & \tikzmark{c6}{1} \\
     \hline
-    \textbf{G}          & \tikzmark{d0}{0} & \tikzmark{d1}{1} & \tikzmark{d2}{1} & \tikzmark{d3}{2} & \tikzmark{d4}{2} & \tikzmark{d5}{2} & \tikzmark{d6}{2} \\
+    \textbf{G} & \tikzmark{d0}{0} & \tikzmark{d1}{1} & \tikzmark{d2}{1} & \tikzmark{d3}{2} & \tikzmark{d4}{2} & \tikzmark{d5}{2} & \tikzmark{d6}{2} \\
     \hline
-    \textbf{A}          & \tikzmark{e0}{0} & \tikzmark{e1}{1} & \tikzmark{e2}{1} & \tikzmark{e3}{2} & \tikzmark{e4}{2} & \tikzmark{e5}{2} & \tikzmark{e6}{3} \\
+    \textbf{A} & \tikzmark{e0}{0} & \tikzmark{e1}{1} & \tikzmark{e2}{1} & \tikzmark{e3}{2} & \tikzmark{e4}{2} & \tikzmark{e5}{2} & \tikzmark{e6}{3} \\
     \hline
-    \textbf{A}          & \tikzmark{f0}{0} & \tikzmark{f1}{1} & \tikzmark{f2}{1} & \tikzmark{f3}{2} & \tikzmark{f4}{2} & \tikzmark{f5}{2} & \tikzmark{f6}{3} \\
+    \textbf{A} & \tikzmark{f0}{0} & \tikzmark{f1}{1} & \tikzmark{f2}{1} & \tikzmark{f3}{2} & \tikzmark{f4}{2} & \tikzmark{f5}{2} & \tikzmark{f6}{3} \\
     \hline
     \end{tabular}
 
@@ -149,7 +155,7 @@ function LCS-LENGTH(X, Y, m, n)
     \link{c2}{b1}
     \link{c3}{c2}
     \link{c4}{c3}
-    \link{c5}{c4}
+    \link{c5}{b4}
     \link{c6}{c5}
 
     \link{d1}{c0}
@@ -175,6 +181,7 @@ function LCS-LENGTH(X, Y, m, n)
 
 \end{table}
 
+        \vspace{-1in}
         \subsection{Time Complexity} The running time of the serial algorithm
         provides the work, $T_{1}$, of the algorithm. Simple analysis of the
         algorithm provided in the snippet Algorithm \thesection .\ref{alg2}
@@ -191,13 +198,13 @@ function LCS-LENGTH(X, Y, m, n)
         The work for the algorithm, $\Theta(m \times n)$, is quadratic if $m =
         n$.
 
-        \subsection{Printing The LCS} After computing the length, the matrix
-        may be used to print the LCS itself. Printing the subsequence is done
-        in a serial implementation since the project does not emphasize its
-        analysis. Since its implementation is not necessary for the scope of
-        the project, the LCS printing functionality will be used for debugging
-        purposes only. Algorithm \thesection .\ref{alg3} provides the
-        pseudocode used to print the LCS.
+        \subsection{Printing the Longest Common Subsequence} After computing
+        the length, the matrix may be used to print the LCS itself. Printing
+        the subsequence is done in a serial implementation since the project
+        does not emphasize its analysis. Since its implementation is not
+        necessary for the scope of the project, the LCS printing functionality
+        will be used for debugging purposes only. Algorithm \thesection
+        .\ref{alg3} provides the pseudocode used to print the LCS.
 
 \begin{pseudocode}[caption={Serial Longest Common Subsequence Printing},
 label={alg3}]
