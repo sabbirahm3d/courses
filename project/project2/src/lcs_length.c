@@ -202,6 +202,22 @@ int lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
     return lcs_matrix[m][n];
 }
 
+/*
+ * Computes the longest common subsequence between the two sequences using
+ * a parallel implementation of the memoization method
+ *
+ * inputs:
+ *      seq1        : sequence 1 buffer
+ *      seq2        : sequence 2 buffer
+ *      m           : size of sequence 1
+ *      n           : size of sequence 2
+ *      lcs_matrix  : empty 2D array to construct the LCS matrix
+ *      threads     : number of threads to run concurrently
+ *
+ * output:
+ *      length of the longest common subsequence
+ *
+ */
 int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
                  int **lcs_matrix, int *threads) {
 
@@ -234,28 +250,28 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
         }
 
 
-        int weight = 0;
-        for (unsigned int k = 2; k < m + 1; k++) {
-            if (weight < (m - n)) {
-                weight++;
+        int cost = 0;
+        for (unsigned int i = 2; i < m + 1; i++) {
+            if (cost < (m - n)) {
+                cost++;
             }
 
 #pragma omp for
-            for (unsigned int j = k; j < (n + weight) + 1; j++) {
+            for (unsigned int j = i; j < (n + cost) + 1; j++) {
 
-                if (Y[n - j + k - 1] == X[j - 1]) {
+                if (Y[n - j + i - 1] == X[j - 1]) {
 
-                    lcs_matrix[n - j + k][j] =
-                            lcs_matrix[n - j + k - 1][j - 1] + 1;
+                    lcs_matrix[n - j + i][j] =
+                            lcs_matrix[n - j + i - 1][j - 1] + 1;
 
-                } else if (lcs_matrix[n - j + k - 1][j] >=
-                        lcs_matrix[n - j + k][j - 1]) {
+                } else if (lcs_matrix[n - j + i - 1][j] >=
+                        lcs_matrix[n - j + i][j - 1]) {
 
-                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k - 1][j];
+                    lcs_matrix[n - j + i][j] = lcs_matrix[n - j + i - 1][j];
 
                 } else {
 
-                    lcs_matrix[n - j + k][j] = lcs_matrix[n - j + k][j - 1];
+                    lcs_matrix[n - j + i][j] = lcs_matrix[n - j + i][j - 1];
 
                 }
             }

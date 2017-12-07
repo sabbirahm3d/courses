@@ -20,6 +20,27 @@
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
+\usepackage[thinlines]{easytable}
+\usepackage{colortbl}
+\usepackage{bm}
+\usepackage{tabularx}
+\usepackage{tikz}
+
+% \renewcommand\column[1]{m{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+% \newcolumntype{M}{>{\centering\arraybackslash}m{1cm}}
+% \renewcommand\tabularxcolumn[1]{m{#1}}
+% \newcolumntype{M}{>{\centering\arraybackslash}m{1cm}}
+
+\newcommand\tikzmark[2]{%
+\tikz[remember picture,baseline] \node[inner sep=3.5pt, outer sep=0.5] (#1){#2};%
+}
+
+\newcommand\link[2]{%
+\begin{tikzpicture}[remember picture, overlay, >=stealth, shift={(0,0)}]
+  \draw[->] (#1) to (#2);
+\end{tikzpicture}%
+}
 \usepackage{avant} % Use the Avantgarde font for headings
 \usepackage{courier}
 \usepackage{xparse}
