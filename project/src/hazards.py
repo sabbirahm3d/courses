@@ -41,14 +41,6 @@ class Hazards(object):
 
         return True
 
-        # if cur_stage and "EX" in cur_stage:
-        #     if cur_stage[-1] >= cur_max:
-        #         print "READY CUR", cur_stage[-1], cur_max
-        #     else:
-        #         print "NOT READY CUR", cur_stage[-1], cur_max
-
-        return prev_max, prev_stage, cur_max, cur_stage
-
     def get_current_stage(self, row_num, col_num):
         """
         Forwarding
@@ -61,12 +53,12 @@ class Hazards(object):
         prev_cycle = self.clock_cycles[row_num - 1][col_num]
         cur_stage = self.clock_cycles[row_num][col_num]
 
-        if not self.data_ready(
-            prev_stage=prev_stage,
-            cur_stage=cur_stage,
-            cur_inst=col_num
-        ):
-            return prev_stage
+        # if not self.data_ready(
+        #     prev_stage=prev_stage,
+        #     cur_stage=cur_stage,
+        #     cur_inst=col_num
+        # ):
+        #     return prev_stage
 
         # if there was an instruction cache miss in the current
         # cycle

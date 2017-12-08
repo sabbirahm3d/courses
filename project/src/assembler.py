@@ -88,6 +88,7 @@ class Assembler(object):
 
         i_cache_miss_ctr = 11
         d_cache_miss_ctr = 11
+        dstall = False
 
         for row_num, row in enumerate(self.CLKCYCLE):
 
@@ -98,17 +99,22 @@ class Assembler(object):
                     col_num=col_num
                 )
 
+                if row[col_num] == "MEM" and dstall:
+                    row[col_num] = self.CLKCYCLE[row_num - 1][col_num]
+
                 if mem_inst and d_cache_miss_ctr and \
                         hazards.is_data_miss(col_num) and \
                         self.CLKCYCLE[row_num - 1][col_num] in \
                         {"EX4", hazards.d_miss}:
 
+                    dstall = True
                     d_cache_miss_ctr -= 1
                     row[col_num] = hazards.d_miss
 
                     if not d_cache_miss_ctr:
                         mem_inst -= 1
                         d_cache_miss_ctr = 12
+                        dstall = False
 
                 if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
                         and "IF" not in row[:col_num]:
@@ -123,7 +129,7 @@ class Assembler(object):
 
     def stats(self):
 
-        row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 1)
+        row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 2)
         print self.UNROLLEDINST
         for i, j in enumerate(self.CLKCYCLE):
             print row_fmt.format("", *([i + 1] + j))
