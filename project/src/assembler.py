@@ -15,6 +15,10 @@ class Assembler(object):
         self.MIPS = MIPS(sys_memory, [None] * 32)
         self.UNROLLEDINST = []
         self.CLKCYCLE = []
+        self.IREQUESTS = 0
+        self.IHITS = 0
+        self.DREQUESTS = 0
+        self.DHITS = 0
 
     def get_label_line(self, label):
 
@@ -79,8 +83,11 @@ class Assembler(object):
         num_rows = 10 * num_cols
         self.CLKCYCLE = [([None] * num_cols) for row in xrange(num_rows)]
         hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
-
         mod4_inst = [i for i in xrange(num_cols) if not i % 4]
+
+        self.IREQUESTS = num_cols
+        self.IHITS = num_cols - len(mod4_inst)
+
         mem_inst = 0
         for inst in xrange(num_cols):
             if hazards.is_data_miss(inst):
@@ -115,6 +122,7 @@ class Assembler(object):
                         mem_inst -= 1
                         d_cache_miss_ctr = 12
                         dstall = False
+                        self.DREQUESTS += 1
 
                 if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
                         and "IF" not in row[:col_num]:
@@ -154,3 +162,12 @@ class Assembler(object):
             for stage, cycle in inst["cycles"].items():
                 if not cycle:
                     inst["cycles"][stage] = ""
+
+        self.INST.append(
+            (
+                str(self.IREQUESTS),
+                str(self.IHITS),
+                str(self.DREQUESTS),
+                str(self.DHITS),
+            )
+        )

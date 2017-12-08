@@ -7,7 +7,7 @@ from sys import argv
 
 from assembler import STAGES, Assembler
 
-INSTMEM = [None] * 25
+INSTMEM = [None] * 32
 SYSMEM = [None] * 32
 
 
@@ -62,6 +62,13 @@ def dump_table(table, file_name="output.txt"):
     inst_fmt = "{:<32}"
     row_fmt = "{:<8}" * (len(col_names))
 
+    stat_str = (
+        "Total number of access requests for instruction cache: ",
+        "Number of instruction cache hits: ",
+        "Total number of access requests for data cache: ",
+        "Number of data cache hits: "
+    )
+
     with open(file_name, "w") as output_file:
 
         print(
@@ -70,7 +77,7 @@ def dump_table(table, file_name="output.txt"):
             file=output_file
         )
 
-        for inst in table:
+        for inst in table[:-1]:
             if inst["label"]:
                 inst_str = "{:<8}".format(inst["label"] + ": ") + \
                     " ".join(inst["inst"])
@@ -86,6 +93,9 @@ def dump_table(table, file_name="output.txt"):
                 row_fmt.format("", *cycles),
                 file=output_file
             )
+
+        for index, line in enumerate(stat_str):
+            print(line + table[-1][index], file=output_file)
 
 
 if __name__ == "__main__":

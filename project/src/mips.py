@@ -60,7 +60,7 @@ class MIPS(object):
         if "(" in addr:
             return (
                 parse_offset(addr) +
-                hex_to_dec_to_hex(self.REG[parse_reg(addr)]) / 4
+                hex_to_dec_to_hex(self.REG[parse_reg(addr)]) / 4 + 7  # 32 - 25
             )
 
         return to_dec(addr)
