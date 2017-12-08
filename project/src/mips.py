@@ -150,14 +150,12 @@ class MIPS(object):
         rt = parse_reg(ops[0])
         addr = self.parse_addr(ops[-1])
         self.REG[rt] = addr
-        # print
 
     def load_up_imm(self, ops, prog_ctr):
 
         rt = parse_reg(ops[0])
         addr = self.parse_addr(ops[-1]) << 16
         self.REG[rt] = addr
-        # print '{:032b}'.format(addr)
 
     def load_word(self, ops, prog_ctr):
 

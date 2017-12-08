@@ -15,10 +15,10 @@ class Assembler(object):
         self.MIPS = MIPS(sys_memory, [None] * 32)
         self.UNROLLEDINST = []
         self.CLKCYCLE = []
-        self.IREQUESTS = 0
+        self.IREQS = 0
         self.IHITS = 0
-        self.DREQUESTS = 0
-        self.DHITS = 0
+        self.DREQS = 0
+        self.DHITS = -1
 
     def get_label_line(self, label):
 
@@ -43,7 +43,6 @@ class Assembler(object):
     def parse_line(self, label, line, prog_ctr):
 
         opcode, reg = line[0], line[1:]
-        # print "\x1b[6;30;44m" + " ".join(line) + "\x1b[0m"
 
         # conditional branches
         if opcode in {"BEQ", "BNE"}:
@@ -85,7 +84,7 @@ class Assembler(object):
         hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
         mod4_inst = [i for i in xrange(num_cols) if not i % 4]
 
-        self.IREQUESTS = num_cols
+        self.IREQS = num_cols
         self.IHITS = num_cols - len(mod4_inst)
 
         mem_inst = 0
@@ -106,7 +105,7 @@ class Assembler(object):
                     col_num=col_num
                 )
 
-                if row[col_num] == "MEM" and dstall:
+                if dstall and row[col_num] == "MEM":
                     row[col_num] = self.CLKCYCLE[row_num - 1][col_num]
 
                 if mem_inst and d_cache_miss_ctr and \
@@ -122,7 +121,8 @@ class Assembler(object):
                         mem_inst -= 1
                         d_cache_miss_ctr = 12
                         dstall = False
-                        self.DREQUESTS += 1
+                        self.DREQS += 1
+                        self.DHITS += 1
 
                 if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
                         and "IF" not in row[:col_num]:
@@ -148,7 +148,7 @@ class Assembler(object):
                 if stage in unrolled_inst:
                     for inst in self.INST:
 
-                        if inst["inst"][0] in {"BNE", "BEQ", "HLT"} and \
+                        if inst["inst"][0] in {"BNE", "BEQ", "J", "HLT"} and \
                                 stage not in {"IF", "ID"}:
                             inst["cycles"][stage] = None
                             break
@@ -165,9 +165,9 @@ class Assembler(object):
 
         self.INST.append(
             (
-                str(self.IREQUESTS),
+                str(self.IREQS),
                 str(self.IHITS),
-                str(self.DREQUESTS),
+                str(self.DREQS),
                 str(self.DHITS),
             )
         )
