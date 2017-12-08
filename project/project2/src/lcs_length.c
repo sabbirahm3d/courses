@@ -250,14 +250,14 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
         }
 
 
-        int cost = 0;
+        int diagonal_len = 0;
         for (unsigned int i = 2; i < m + 1; i++) {
-            if (cost < (m - n)) {
-                cost++;
+            if (diagonal_len < (m - n)) {
+                diagonal_len++;
             }
 
 #pragma omp for
-            for (unsigned int j = i; j < (n + cost) + 1; j++) {
+            for (unsigned int j = i; j < (n + diagonal_len) + 1; j++) {
 
                 if (Y[n - j + i - 1] == X[j - 1]) {
 
