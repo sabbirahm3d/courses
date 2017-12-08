@@ -60,13 +60,9 @@ genseqs:
 
 # ---------- SLURM batch targets ----------
 
-.PHONY: slurmstat
-slurmstat:
-	sstat ${JOBID}
-
-.PHONY: slurmqueue
-slurmqueue:
-	squeue | grep ${USER}
+.PHONY: queue
+queue:
+	squeue -u ${USER}
 
 
 # ---------- cleaning targets ----------
