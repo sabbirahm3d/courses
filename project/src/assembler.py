@@ -75,8 +75,8 @@ class Assembler(object):
             raise SystemExit(
                 "Assemble instructions before computing their clock cycles.")
 
-        num_rows = 60
         num_cols = len(self.UNROLLEDINST)
+        num_rows = 10 * num_cols
         self.CLKCYCLE = [([None] * num_cols) for row in xrange(num_rows)]
         hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
 
@@ -130,7 +130,6 @@ class Assembler(object):
     def stats(self):
 
         row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 2)
-        print self.UNROLLEDINST
         for i, j in enumerate(self.CLKCYCLE):
             print row_fmt.format("", *([i + 1] + j))
 
@@ -140,9 +139,18 @@ class Assembler(object):
 
                 if stage in unrolled_inst:
                     for inst in self.INST:
-                        if inst["inst"] == \
+
+                        if inst["inst"][0] in {"BNE", "BEQ", "HLT"} and \
+                                stage not in {"IF", "ID"}:
+                            inst["cycles"][stage] = None
+                            break
+
+                        elif inst["inst"] == \
                                 self.UNROLLEDINST[unrolled_inst.index(stage)]:
                             inst["cycles"][stage] = clk_cycle + 1
                             break
 
-        # pprint(self.INST)
+        for inst in self.INST:
+            for stage, cycle in inst["cycles"].items():
+                if not cycle:
+                    inst["cycles"][stage] = ""

@@ -25,19 +25,20 @@ class Hazards(object):
 
         return self.unrolled_inst[col_num][0] in {"LW", "SW"}
 
-    def data_ready(self, prev_stage, cur_stage, cur_inst):
+    def data_ready(self, prev_stage, cur_stage, cur_inst, prev_cycle):
 
-        prev_max = MIPSSET[self.unrolled_inst[cur_inst - 1][0]]["cycle"]
+        prev_min = MIPSSET[self.unrolled_inst[cur_inst - 1][0]]["cycle"]
         cur_max = MIPSSET[self.unrolled_inst[cur_inst][0]]["cycle"]
 
-        if prev_stage and "EX" in prev_stage:
-            return prev_stage[-1] >= prev_max
+        if prev_stage and prev_cycle and "EX" in prev_cycle and "EX" in prev_stage and "MULT" == self.unrolled_inst[cur_inst - 1][0]:
+            print self.unrolled_inst[cur_inst - 1], "prev_stage", prev_stage, "prev_min", prev_min
             # print self.unrolled_inst[cur_inst - 1], \
             #     self.unrolled_inst[cur_inst]
-            # if prev_stage[-1] >= prev_max:
-            #     print "READY PREV", prev_stage[-1], prev_max
+            # if prev_stage[-1] >= prev_min:
+            #     print "READY PREV", prev_stage[-1], prev_min
             # else:
-            #     print "NOT READY PREV", prev_stage[-1], prev_max
+            #     print "NOT READY PREV", prev_stage[-1], prev_min
+            return prev_stage[-1] < prev_min
 
         return True
 
@@ -53,15 +54,16 @@ class Hazards(object):
         prev_cycle = self.clock_cycles[row_num - 1][col_num]
         cur_stage = self.clock_cycles[row_num][col_num]
 
-        # if not self.data_ready(
-        #     prev_stage=prev_stage,
-        #     cur_stage=cur_stage,
-        #     cur_inst=col_num
-        # ):
-        #     return prev_stage
+        if not self.data_ready(
+            prev_stage=prev_stage,
+            cur_stage=cur_stage,
+            cur_inst=col_num,
+            prev_cycle=prev_cycle
+        ):
+            print "HOOOOOOOOOOOOO", prev_cycle
+            return prev_cycle
 
-        # if there was an instruction cache miss in the current
-        # cycle
+        # if there was an instruction cache miss in the current cycle
         if self.i_miss in self.clock_cycles[row_num][:col_num] or \
                 prev_stage == "IF":
             return "WAIT"
