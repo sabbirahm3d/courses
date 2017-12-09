@@ -148,21 +148,38 @@ class Assembler(object):
                 if stage in unrolled_inst:
                     for inst in self.INST:
 
-                        if inst["inst"][0] in {"BNE", "BEQ", "J", "HLT"} and \
-                                stage not in {"IF", "ID"}:
-                            inst["cycles"][stage] = None
-                            break
-
-                        elif inst["inst"] == \
+                        if inst["inst"] == \
                                 self.UNROLLEDINST[unrolled_inst.index(stage)]:
                             inst["cycles"][stage] = clk_cycle + 1
-                            break
 
-        for inst in self.INST:
+        halt_flag = 0
+        halt_cycles = []
+        reversed_inst = self.INST[::-1]
+
+        for index, inst in enumerate(reversed_inst):
             for stage, cycle in inst["cycles"].items():
+
+                if inst["inst"][0] == "HLT":
+                    if not halt_flag and cycle:
+
+                        halt_cycles.append(cycle - 1)
+
+                        if len(halt_cycles) == 2:
+                            inst["cycles"][stage] = ""
+                        else:
+                            inst["cycles"][stage] = \
+                                reversed_inst[index + 1]["cycles"]["IF"] + 1
+
+                    else:
+                        if inst["cycles"][stage]:
+                            inst["cycles"][stage] = halt_cycles.pop(0)
+
                 if not cycle:
                     inst["cycles"][stage] = ""
 
+            halt_flag = 1
+
+        print halt_cycles
         self.INST.append(
             (
                 str(self.INSTREQS),

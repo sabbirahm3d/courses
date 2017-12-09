@@ -44,14 +44,15 @@ class Hazards(object):
 
     def get_current_stage(self, row_num, col_num):
         """
-            Forwarding
-            • EX2, EX3, EX4 -> EX1
-            • EX1, EX2, EX3, EX4 -> ID
-            • MEM -> EX1, ID
+        Forwarding
+        • EX2, EX3, EX4 -> EX1
+        • EX1, EX2, EX3, EX4 -> ID
+        • MEM -> EX1, ID
         """
 
         prev_inst_stage = self.clock_cycles[row_num][col_num - 1]
         prev_cycle = self.clock_cycles[row_num - 1][col_num]
+        cur_inst = self.unrolled_inst[col_num]
 
         if not self.data_ready(
             prev_inst_stage=prev_inst_stage,
@@ -73,21 +74,25 @@ class Hazards(object):
         elif prev_cycle == "IF" or prev_inst_stage == "EX1":
             return "ID"
 
-        elif prev_cycle == "ID" or prev_inst_stage == "EX2":
-            return "EX1"
+        else:
+            if cur_inst[0] in {"BNE", "BEQ", "J", "HLT"}:
+                return "WAIT"
 
-        elif prev_cycle == "EX1" or prev_inst_stage == "EX3":
-            return "EX2"
+            elif prev_cycle == "ID" or prev_inst_stage == "EX2":
+                return "EX1"
 
-        elif prev_cycle == "EX2" or prev_inst_stage == "EX4":
-            return "EX3"
+            elif prev_cycle == "EX1" or prev_inst_stage == "EX3":
+                return "EX2"
 
-        elif prev_cycle == "EX3" or prev_inst_stage == "MEM":
-            return "EX4"
+            elif prev_cycle == "EX2" or prev_inst_stage == "EX4":
+                return "EX3"
 
-        elif prev_cycle == "EX4" or prev_cycle == self.data_miss or \
-                prev_inst_stage == "WB":
-            return "MEM"
+            elif prev_cycle == "EX3" or prev_inst_stage == "MEM":
+                return "EX4"
 
-        elif prev_cycle == "MEM":
-            return "WB"
+            elif prev_cycle == "EX4" or prev_cycle == self.data_miss or \
+                    prev_inst_stage == "WB":
+                return "MEM"
+
+            elif prev_cycle == "MEM":
+                return "WB"

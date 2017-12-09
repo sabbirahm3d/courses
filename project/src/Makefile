@@ -4,13 +4,14 @@ INST?=$(shell find . -name "inst*.txt")
 DATA?=$(shell find . -name "data*.txt")
 OUT?="output.txt"
 
-all: run
+all: debug
 
-.PHONY: run
-run: clean
+.PHONY: debug
+debug: clean
 	# execute the main script
 	@python main.py ${INST} ${DATA} ${OUT}
-	@cat ${OUT}
+	@echo "\n"
+	@diff -y --width=170 ${OUT} actual.txt
 
 
 .PHONY: clean
