@@ -12,4 +12,4 @@ cmake-build-debug/
 *.pyc
 .venv*/
 __pycache__/
-# settings.py  # commented to include for now
+secret.py

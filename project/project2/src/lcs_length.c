@@ -226,7 +226,8 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
     {
 
         *threads = omp_get_num_threads();
-        // use the memoization method to find the longest common subsequence
+
+        // first diagonal half of the matrix
         for (unsigned int i = 1; i < n + 1; i++) {
 #pragma omp for
             for (unsigned int j = 1; j < i + 1; j++) {
@@ -249,7 +250,7 @@ int p_lcs_length(const char *X, const char *Y, unsigned int m, unsigned int n,
             }
         }
 
-
+        // second diagonal half of the matrix
         int diagonal_len = 0;
         for (unsigned int i = 2; i < m + 1; i++) {
             if (diagonal_len < (m - n)) {
