@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Helper script to automate generation of execution times of lcs_length on 1,
+# 2, 4, 8, and 16 cores
+
 set -o errexit
 
 cores=( 1 2 4 8 16 )
