@@ -202,7 +202,7 @@ function LCS-LENGTH(X, Y, m, n)
 \end{pseudocode}
 
         % \vspace{-1in}
-        \subsection{Time Complexity} The running time of the serial
+        \subsection{Time Complexity - Work} The running time of the serial
         implementation provides the work, $T_{1}$, of the algorithm. Simple
         analysis of the algorithm provided in the snippet Algorithm \thesection
         .\ref{alg2} suggests a non-linear running time from the nested loop.
@@ -467,7 +467,7 @@ function P-LCS-LENGTH(X, Y, m, n)
 
 \end{pseudocode}
 
-        \subsection{Time Complexity} The running time for the parallel
+        \subsection{Time Complexity - Span} The running time for the parallel
         implementation provides the span, $T_{\infty}$ of the algorithm.
         Computing the runtime of the parallel implementation with an undefined
         number of processors will yield the span of the algorithm.
@@ -497,6 +497,32 @@ function P-LCS-LENGTH(X, Y, m, n)
         \end{equation*}
 
         The span for the algorithm, $\Theta(m+n)$, is linear if $m = n$.
+
+        \subsection{Parallelism and Speedup} Parallelism is the ratio of the
+        work to the span of the algorithm, $T_1/T_\infty$. It represents the
+        maximum possible speedup on $P$ processors. Computing the parallelism
+        for the LCS algorithm:
+        \begin{equation*}
+            \begin{split}
+                \frac{T_1}{T_\infty} & = \frac{\Theta(mn)}{\Theta(m+n)} \\
+                & = \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
+                \text{If $m = n$,} & \\
+                & \rightarrow \lim_{n\to\infty} \Theta\Bigg(\frac{n^2}{2n}\Bigg) \\
+                & \approx \Theta(n) \\
+            \end{split}
+        \end{equation*}
+
+        Speedup is similar to parallelism, where it is the ratio of runtime of
+        the serial execution to the parallel execution with $P$ processors,
+        $T_1/T_P$. Speedup is bounded by the parallelism of the algorithm,
+        \begin{equation*}
+            \begin{split}
+                \frac{T_1}{T_P} & \le \frac{T_1}{T_\infty} \\
+                & \le \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
+                & \le \Theta(n) \\
+            \end{split}
+        \end{equation*}
+        The speedup for the algorithm appears near-linear for $P$ processors.
 
     \section{Testing and Debugging} 
 
