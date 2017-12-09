@@ -50,17 +50,19 @@ def hex_to_dec_to_hex(num):
 
 class MIPS(object):
 
-    def __init__(self, datamem, registers):
+    def __init__(self, datamem=[], registers=[]):
 
         self.DATAMEM = datamem
         self.REG = registers
 
     def parse_addr(self, addr):
 
+        # if there is an offset in the immediate value
         if "(" in addr:
+            # 100/4 = 25 -> 32 - 25 = 7
             return (
                 parse_offset(addr) +
-                hex_to_dec_to_hex(self.REG[parse_reg(addr)]) / 4 + 7  # 32 - 25
+                hex_to_dec_to_hex(self.REG[parse_reg(addr)]) / 4 + 7
             )
 
         return to_dec(addr)

@@ -15,10 +15,10 @@ class Assembler(object):
         self.MIPS = MIPS(sys_memory, [None] * 32)
         self.UNROLLEDINST = []
         self.CLKCYCLE = []
-        self.IREQS = 0
-        self.IHITS = 0
-        self.DREQS = 0
-        self.DHITS = -1
+        self.INSTREQS = 0
+        self.INSTHITS = 0
+        self.DATAREQS = 0
+        self.DATAHITS = -1
 
     def get_label_line(self, label):
 
@@ -31,8 +31,7 @@ class Assembler(object):
         file_size = len(self.INST)
         prog_ctr = 0
 
-        # pprint(self.MIPS.DATAMEM)
-        while file_size != prog_ctr:
+        while prog_ctr != file_size:
             self.UNROLLEDINST.append(self.INST[prog_ctr]["inst"])
             prog_ctr = self.parse_line(
                 self.INST[prog_ctr]["label"],
@@ -81,21 +80,20 @@ class Assembler(object):
         num_cols = len(self.UNROLLEDINST)
         num_rows = 10 * num_cols
         self.CLKCYCLE = [([None] * num_cols) for row in xrange(num_rows)]
-        hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST, self.MIPS.REG)
+        hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
         mod4_inst = [i for i in xrange(num_cols) if not i % 4]
 
-        self.IREQS = num_cols
-        self.IHITS = num_cols - len(mod4_inst)
+        self.INSTREQS = num_cols
+        self.INSTHITS = num_cols - len(mod4_inst)
 
         mem_inst = 0
         for inst in xrange(num_cols):
             if hazards.is_data_miss(inst):
                 mem_inst += 1
 
-        i_cache_miss_ctr = 11
-        d_cache_miss_ctr = 11
-        dstall = False
-        pprint(self.MIPS.REG)
+        inst_miss_ctr = 11
+        data_miss_ctr = 11
+        data_stall = False
 
         for row_num, row in enumerate(self.CLKCYCLE):
 
@@ -106,35 +104,36 @@ class Assembler(object):
                     col_num=col_num
                 )
 
-                if dstall and row[col_num] == "MEM":
+                if data_stall and row[col_num] == "MEM":
                     row[col_num] = self.CLKCYCLE[row_num - 1][col_num]
 
-                if mem_inst and d_cache_miss_ctr and \
+                if mem_inst and data_miss_ctr and \
                         hazards.is_data_miss(col_num) and \
                         self.CLKCYCLE[row_num - 1][col_num] in \
-                        {"EX4", hazards.d_miss}:
+                        {"EX4", hazards.data_miss}:
 
-                    dstall = True
-                    d_cache_miss_ctr -= 1
-                    row[col_num] = hazards.d_miss
+                    data_stall = True
+                    data_miss_ctr -= 1
+                    row[col_num] = hazards.data_miss
 
-                    if not d_cache_miss_ctr:
+                    if not data_miss_ctr:
                         mem_inst -= 1
-                        d_cache_miss_ctr = 12
-                        dstall = False
-                        self.DREQS += 1
-                        self.DHITS += 1
+                        data_miss_ctr = 12
+                        data_stall = False
+                        self.DATAREQS += 1
+                        self.DATAHITS += 1
 
-                if mod4_inst and i_cache_miss_ctr and col_num == mod4_inst[0] \
+                if mod4_inst and inst_miss_ctr \
+                    and col_num == mod4_inst[0] \
                         and "IF" not in row[:col_num]:
 
-                    d_cache_miss_ctr = 12
-                    i_cache_miss_ctr -= 1
-                    row[col_num] = hazards.i_miss
+                    data_miss_ctr = 12
+                    inst_miss_ctr -= 1
+                    row[col_num] = hazards.inst_miss
 
-                    if not i_cache_miss_ctr:
+                    if not inst_miss_ctr:
                         mod4_inst.remove(col_num)
-                        i_cache_miss_ctr = 12
+                        inst_miss_ctr = 12
 
     def stats(self):
 
@@ -166,9 +165,9 @@ class Assembler(object):
 
         self.INST.append(
             (
-                str(self.IREQS),
-                str(self.IHITS),
-                str(self.DREQS),
-                str(self.DHITS),
+                str(self.INSTREQS),
+                str(self.INSTHITS),
+                str(self.DATAREQS),
+                str(self.DATAHITS),
             )
         )
