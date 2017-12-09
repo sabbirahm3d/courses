@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Report
 % LaTeX Template
 % Version 1.0 (December 8 2014)
@@ -14,14 +14,18 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[usletter, 12pt]{article}
+\documentclass[usletter, 11pt]{extarticle}
 \input{structure.tex}  % document layout and style
 
-% Member's information
-\newcommand{\project}{Project 1: Divide and Conquer}
-\newcommand{\members}{Sabbir Ahmed \& Zafar Mamarakhimov}
+\newcommand{\project}{Project 2: Multithread LCS}
+\newcommand{\members}{Sabbir Ahmed}
+\newcommand{\V}[1]{\textup{#1}}
+\newcommand{\lcs}{\V{lcs}}
+\newcommand{\seqone}{\V{X}}
+\newcommand{\seqtwo}{\V{Y}}
+\newcommand{\lcsstr}{\V{lcsstr}}
 
 \begin{document}
 
@@ -30,10 +34,10 @@
         \vspace*{\fill} % Add whitespace above to center the title page content
         \begin{center}
 
-            {\LARGE \project~Analysis Report}\\ [1.5cm]
+            {\LARGE \project~Final Report}\\ [1.5cm]
 
             \today
-            
+
             \vspace*{\fill}
 
             \members
@@ -43,253 +47,510 @@
 
     \end{titlepage}
 
-    \section{Description}
-    A recursive, divide-and-conquer algorithm was developed and analyzed to multiply together lists of complex numbers. Two different multiplication methods were used to compute the same products to analyze the crossover point.
+    \section{Description} The longest common subsequence (LCS) problem is to be
+    implemented for the assignment. The objective of this project is to design,
+    analyze, and implement a multithreaded version of the LCS length algorithm.
+    A memoized or bottom-up approach. In either case, the goal is to design an
+    algorithm that makes efficient use of multiple processors.
 
-        \subsection{Background}
+    Analysis is required once the LCS length algorithm is designed. The work
+    $T_{1}(m, n)$ and the span $T_{\infty}(m, n)$ are to be computed, where $m$
+    and $n$ are the lengths of the input sequences $X$ and $Y$, respectively.
+    Finally, the parallelism is to be computed along with an estimate of a
+    range of parameters ($m$, $n$, and $P$) for which linear or near-linear
+    speed-up may be expected.
 
-        Multiplying two complex numbers are similar to multiplying polynomials. Let $z_{1}=x_{1}+iy_{1}$ and $z_{2}=x_{2}+iy_{2}$ be two complex numbers. Then their product is
-            \[ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y2+y_{1}x_{2}) \]
+    The last part of the project is to implement the LCS length algorithm in C
+    or C++ using OpenMP on UMBC's maya cluster and measure its performance
+    empirically using 1, 2, 4, and 8 processors (optionally, it may be tested
+    on 16 processors; most maya nodes have eight cores, but some have 16). Test
+    data and LCS lengths of various sizes are to be generated to demonstrate
+    the performance characteristics of the algorithm. The algorithm to recover
+    the LCS must also be implemented, but this need not be multithreaded.
 
-        The computation of a single complex product requires four real products and two real additions (subtraction is just addition with one operand negative and the "$+i$" does not count as an addition as this is really just notation to separate the real and imaginary parts).
+    \section{Initialization} The matrix is initialized to store the LCS before
+    computation. Since the implementation utilizes a two-dimensional array
+    allocated on the heap to represent the matrix, initialization was possible
+    in $\Theta(m)$ time. Since Milestone 2, the initialization loop was
+    parallelized to bring the runtime down to $\Theta(\text{lg}(m))$. This
+    method is faster than iterating through all the cells of the matrix to
+    assign each to a placeholder. Algorithm \thesection .\ref{alg1} provides
+    the implementation used to initialize the matrix.
 
-        As it turns out, there is a way to reduce the number of real multiplications needed to compute a complex product.
-            \[ (x_{1}+y_{1})(x_{2}+y_{2})=x_{1}x_{2}+(x_{1}y_{2}+y_{1}x_{2})+y_{1}y_{2} \]
-
-        Let $t$ denote the product $(x_{1}+y_{1})(x_{2}+y_{2})$; then if the real products $r=x_{1}x_{2}$ and $s=y_{1}y_{2}$ are computed, the complex product is just
-            \[ z_{1}z_{2}=(r-s)+i(t-r-s) \]
-
-        Now, this computation only requires three real multiplications, but increases the number of additions to five. Since multiplication is the more expensive operation, it is expected for the reduction in the number of multiplies to pay-off, at least if the numbers are large enough.
-
-        When multiplying a list of numbers, the difference between three or four real multiplications per complex multiplication can make a significant difference in the running time, especially if individual real multiplications are expensive.
-
-    \section{Crossover Point}
-
-        The point at which the asymptotically better algorithm becomes faster is known as the \textit{crossover point}.
-
-        \subsection{Theoretical Results}
-        Assume multiplication of two $b$-bit integers is $O(b^{2})$ and addition of two $b$-bit integers is $O(b)$.
-
-        Consider, if $n = 2$, then computing the product of the list simply requires a single complex multiplication. For \texttt{cmul3()}, this means three multiplies of $b$-bit numbers, and five additions. There are some constants $c>0$ and $d>0$ such that the time to compute a $b$-bit multiply is bounded by $cb^2$ and the time for a $b$-bit addition is bounded by $db$.  Therefore, the time to multiply the two complex numbers, considering only multiplications and additions, is bounded by $3cb^2+5db$.
-
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=1\textwidth]{multiplication_tree.png}
-                \caption{Tree Visualization of the Divide and Conquer Method of Multiplication. $n$ is the Number of Integers Multiplied} \label{multiplication_tree}
-            \end{center}
-        \end{figure}
-
-        According to the binary tree visualized, the number of bits grow by $\frac{n}{2}$, where $n$ is the total number of integers being multiplied. The recurrence relation may be derived from this method:
-
-        \begin{equation*}
-            \begin{split}
-                f_1(n) & = 3c \Bigg( \frac{n}{2}b \Bigg)^2 + 5d \Bigg(\frac{n}{2}b \Bigg) \\
-                & = \frac{3}{4}cb^2n^2+\frac{5}{2}dbn \\
-            \end{split}
-        \end{equation*}
-
-        Similarly, for \texttt{cmul4()} would make four $b$-bit multiplies and two $b$-bit additions, so its running time is bounded by $4cb^2+2db$. The recurrence relation may be derived from this method:
-
-        \begin{equation*}
-            \begin{split}
-                f_2(n) & = 4c \Bigg( \frac{n}{2}b \Bigg)^2 + 2d \Bigg(\frac{n}{2}b \Bigg) \\
-                & = cb^2n^2+dbn \\
-            \end{split}
-        \end{equation*}
-
-        Asymptotically, the runtime for either of the methods may be computed using the recurrence relation. Since the multiplication of $n$ integers require $\frac{n}{2}f(b)$ computations:
-        \begin{equation*}
-            \begin{split}
-                & = xb^2T \bigg(\frac{n}{2}\bigg), x > 0 \\
-            \end{split}
-        \end{equation*}
-
-        Each levels of the tree comprises of $2^ib^2n$, for $i = 0, 1, \ldots, \lceil lgn\rceil$. Therefore:
-
-        \begin{equation*}
-            \begin{split}
-                \sum_{i=0}^{\lceil lgn\rceil} 2^ixb^2n & = xb^2n\sum_{i=0}^{\lceil lgn\rceil} 2^i \\
-                & = xb^2n \bigg(\frac{2^{\lceil lgn\rceil+1}-1}{2-1}\bigg) \\
-                & = xb^2n \bigg(2^{\lceil lgn\rceil+1}-1\bigg) \\
-                & \leq xb^2n \bigg(2^{\lceil lgn+1\rceil+1}-1\bigg) \\
-                & \approx xb^2n \big(2^{lgn}-1\big) \\
-                & = xb^2n (n-1) \\
-                & = xb^2n^2 - xb^2n \\
-                & = \mathcal{O}(b^2n^2) \\
-            \end{split}
-        \end{equation*}
-
-        Referring back to the multiplication functions, $f_1$ and $f_2$ can also be used to estimate the crossover points.
-
-        \begin{equation*}
-            \begin{split}
-                f_1(n) & = f_2(n) \\
-                \frac{3}{4}cb^2n^2+\frac{5}{2}dbn & = cb^2n^2+dbn \\
-                b & = \frac{6c}{d}\frac{1}{n} \\
-                \Rightarrow b & \propto \frac{1}{n}
-            \end{split}
-        \end{equation*}
-
-        Therefore, the bit size is inversely proportional to the number of multiplications when computing the crossover point. The larger the number of multiplications, the earlier the two methods will crossover.
-
-    \clearpage
+    Reading the sequences from the one-line input files, truncating them if
+    necessary and storing them into buffers all take constant time operations.
     \newpage
-    \section{Implementation}
-    The project was written in C++11 and built with GCC v5.4.0. The GMP library, along with its C++ wrapper, GMPXX, were used to handle the multiprecision arithmetic. The recursive divide-and-conquer functions for both the three- and four-multiplication methods were implemented identically. The algorithm of the implementation is described in the pseudocode snippet provided in Algorithm \thesection.\ref{alg1}.
 
-\begin{pseudocode}[caption={Divide and Conquer Multiplication}, label={alg1}]
-function cmulx_list(complex_array, first, last):
-
-    // if length of the array is 1
-    if (first == last):
-        return complex_array[first]
-
-    mid = (first + last) / 2
-    left_half = cmulx_list(complex_array, first, mid)
-    right_half = cmulx_list(complex_array, mid + 1, last)
-
-    return cmulx(left_half, right_half)
+\begin{pseudocode}[caption={Initialization of the Longest Common Subsequence
+Matrix}, label={alg1}]
+lcs_matrix = pointer array(m + 1);
+parallel for i = 0 to m + 1
+    $\lcs_{i}$ = pointer array(n + 1);
 
 \end{pseudocode}
 
-    The two multiplication methods were implemented using the pseudocode described in Algorithm \ref{alg2} and Algorithm \ref{alg3}.
+    \section{Serial Algorithm} Milestone 1 required implementation of the
+    serial LCS length algorithm and its analysis. Table \ref{table:serialmat}
+    visualizes the serial implementation of computing the LCS length of sample
+    strings using the algorithm described in equation (15.9) of
+    \textit{Introduction to Algorithms} \cite{Cormen:2009:IAT:1614191}.
 
-\begin{pseudocode}[caption={Four Multiplication}, label={alg2}]
-function cmul4(z1, z2):
+\begin{table}[h]
+    \caption{LCS matrix constructed when comparing \texttt{GCGTCA} and
+    \texttt{ACGAA}} \label{table:serialmat}
+    \centering
+    \setlength\tabcolsep{0pt}
+    \begin{tabular}{|@{\rule[-0.5cm]{0pt}{1cm}}*{8}{M{1cm} |}}
+    \hline
+    & \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{C}} & \tikzmark{0}{\textbf{G}} &
+    \tikzmark{0}{\textbf{T}} & \tikzmark{0}{\textbf{C}} &
+    \tikzmark{0}{\textbf{A}} \\
+    \hline
+    \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{a0}{0} & \tikzmark{a1}{0} &
+    \tikzmark{a2}{0} & \tikzmark{a3}{0} & \tikzmark{a4}{0} & \tikzmark{a5}{0} &
+    \tikzmark{a6}{0} \\
+    \hline
+    \tikzmark{0}{\textbf{A}} & \tikzmark{b0}{0} & \tikzmark{b1}{0} &
+    \tikzmark{b2}{0} & \tikzmark{b3}{0} & \tikzmark{b4}{0} & \tikzmark{b5}{0} &
+    \tikzmark{b6}{1} \\
+    \hline
+    \tikzmark{0}{\textbf{C}} & \tikzmark{c0}{0} & \tikzmark{c1}{0} &
+    \tikzmark{c2}{1} & \tikzmark{c3}{1} & \tikzmark{c4}{1} & \tikzmark{c5}{1} &
+    \tikzmark{c6}{1} \\
+    \hline
+    \tikzmark{0}{\textbf{G}} & \tikzmark{d0}{0} & \tikzmark{d1}{1} &
+    \tikzmark{d2}{1} & \tikzmark{d3}{2} & \tikzmark{d4}{2} & \tikzmark{d5}{2} &
+    \tikzmark{d6}{2} \\
+    \hline
+    \tikzmark{0}{\textbf{A}} & \tikzmark{e0}{0} & \tikzmark{e1}{1} &
+    \tikzmark{e2}{1} & \tikzmark{e3}{2} & \tikzmark{e4}{2} & \tikzmark{e5}{2} &
+    \tikzmark{e6}{3} \\
+    \hline
+    \tikzmark{0}{\textbf{A}} & \tikzmark{f0}{0} & \tikzmark{f1}{1} &
+    \tikzmark{f2}{1} & \tikzmark{f3}{2} & \tikzmark{f4}{2} & \tikzmark{f5}{2} &
+    \tikzmark{f6}{3} \\
+    \hline
+    \end{tabular}
 
-    pair[0, 1];
-    pair[0] = z1[0] * z2[0] - z1[1] * z2[1];  // x1 * x2 - y1 * y2
-    pair[1] = z1[0] * z2[1] + z1[1] * z2[0];  // x1 * y2 + y1 * x2
+    \link{b1}{b0}
+    \link{b2}{b1}
+    \link{b3}{b2}
+    \link{b4}{b3}
+    \link{b5}{b4}
+    \link{b6}{a5}
 
-    return pair;
+    \link{c1}{c0}
+    \link{c2}{b1}
+    \link{c3}{c2}
+    \link{c4}{c3}
+    \link{c5}{b4}
+    \link{c6}{c5}
+
+    \link{d1}{c0}
+    \link{d2}{d1}
+    \link{d3}{c2}
+    \link{d4}{d3}
+    \link{d5}{d4}
+    \link{d6}{d5}
+
+    \link{e1}{d1}
+    \link{e2}{e1}
+    \link{e3}{d3}
+    \link{e4}{e3}
+    \link{e5}{e4}
+    \link{e6}{d5}
+
+    \link{f1}{e1}
+    \link{f2}{f1}
+    \link{f3}{e3}
+    \link{f4}{f3}
+    \link{f5}{f4}
+    \link{f6}{e5}
+
+\end{table}
+
+    \vspace{-1in}
+    In Milestone 2, it was observed that the value of the cells depended on the
+    cells above, left or top-left of itself. The cells in the other directions
+    have no effect. This property allowing for subproblems to be independently
+    solvable builds the foundation for the algorithm for the parallel
+    implementation to find the LCS length.
+
+    Algorithm \thesection .\ref{alg2} provides the pseudocode for
+    computing the length of the LCS. The serial algorithm utilizes the bottom-up approach to compute the LCS.
+
+\newpage
+\begin{pseudocode}[caption={Serial Longest Common Subsequence Length},
+label={alg2}]
+function LCS-LENGTH(X, Y, m, n)
+    // allocate (m + 1) $\times$ (n + 1) LCS matrix
+    lcs = new matrix[1, 2, .., m + 1][1, 2, .., n + 1]
+    for i = 0 to m
+        for j = 0 to n
+            // if upper-leftmost cell, content is 0
+            if (i == 0 or j == 0)
+                $\lcs_{i, j}$ = 0
+            // if equal, content is the left diagonal value incremented by 1
+            else if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
+                $\lcs_{i, j}$ = $\lcs_{i-1, j-1}$ + 1  
+            // maximum between previous row and previous column values
+            else
+                $\lcs_{i, j}$ = max($\lcs_{i-1, j}$, $\lcs_{i, j-1}$)
+    return $\lcs_{m,n}$  // the last value of the matrix is the length
 
 \end{pseudocode}
 
-\begin{pseudocode}[caption={Three Multiplication}, label={alg3}]
-function cmul3(z1, z2):
+        % \vspace{-1in}
+        \subsection{Time Complexity} The running time of the serial
+        implementation provides the work, $T_{1}$, of the algorithm. Simple
+        analysis of the algorithm provided in the snippet Algorithm \thesection
+        .\ref{alg2} suggests a non-linear running time from the nested loop.
+        The inner loop (line 5) iterates $n$ times with several constant
+        conditional checks, while the outer loop (line 4) iterates $m$ times.
+        The runtime is therefore:
+        \begin{equation*}
+            \begin{split}
+                T_1(m, n) & = \Theta(mn) \\
+            \end{split}
+        \end{equation*}
 
-    r, s = 0  // temporary variables
-    pair[0, 1];
+        The work for the algorithm, $\Theta(mn)$, is quadratic if $m = n$.
 
-    r = z1[0] * z2[0];  // x1 * x2
-    s = z1[1] * z2[1];  // y1 * y2
+        \subsection{Printing the Longest Common Subsequence} After computing
+        the length, the matrix may be used to print the LCS itself. Printing
+        the subsequence is done in a serial implementation since the project
+        does not emphasize its analysis. Since its implementation is not
+        necessary for the scope of the project, the LCS printing functionality
+        will be used for debugging purposes only. Algorithm \thesection
+        .\ref{alg3} provides the pseudocode used to print the LCS.
 
-    pair[0] = r - s;
-    pair[1] = (z1[0] + z1[1]) * (z2[0] + z2[1]) - r - s;
-
-    return pair;
+\begin{pseudocode}[caption={Serial Longest Common Subsequence Printing},
+label={alg3}]
+function SERIAL-LCS-PRINT(X, Y, m, n, lcs)
+    lcsstr = new string
+    cursor = $\lcs_{m,n}$ // cursor of the matrix
+    i = m, j = n // init from the bottom-rightmost cell
+    while (i > 0 and j > 0)
+        // if current character in X[] and Y[] are same
+        if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
+            $\lcsstr_{cursor - 1}$ = $\seqone_{i - 1}$  // result gets current character
+            i--, j--, cursor-- // decrement i, j and cursor
+        // find the larger of two and go to that direction
+        else if ($\lcs_{i - 1, j}$ > $\lcs_{i,j - 1}$)
+            i--
+        else
+            j--
+    print lcsstr
 
 \end{pseudocode}
 
-    \clearpage
+    \section{Parallel Algorithm} Milestone 2 required implementation of the
+    parallel LCS length algorithm. This version of the implementation uses the
+    same LCS matrix to generate the same cell values. Table
+    \ref{table:serialmatsubprob} revisits the matrix generated by the serial
+    implementation and highlights the independent subproblems.
     \newpage
-    \section{Testing and Timing}
 
-        \subsection{Platform Specifications}
-        Before generating the statistics used in the document, information on the CPU and memory usage of the hosting machine were obtained. The following tables details the specifications captured before initializing the testing procedure.
+\begin{table}[h]
+    \caption{LCS matrix constructed when comparing \texttt{GCGTCA} and
+    \texttt{ACGAA} with the diagonal subproblems highlighted}
+    \label{table:serialmatsubprob}
+    \centering
+    \setlength\tabcolsep{0pt}
 
+    \begin{tabular}{|@{\rule[-0.5cm]{0pt}{1cm}}*{8}{M{1cm} |}}
+        \hline
+        & \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{0}{\textbf{G}} &
+        \tikzmark{0}{\textbf{C}} & \tikzmark{0}{\textbf{G}} &
+        \tikzmark{0}{\textbf{T}} & \tikzmark{0}{\textbf{C}} &
+        \tikzmark{0}{\textbf{A}} \\
 
-        \begin{table}[h]
-            \caption{Information about the CPU Architecture, Generated by \textit{\$ lscpu}}
-            \centering
-            \begin{tabular*}{300pt}{@{\extracolsep{\fill}} p{5cm} p{5cm}}
+        \hline
 
-            \textbf{Component} & \textbf{Specification} \\
-            \hline
-            Architecture:          & x86\_64 \\
-            CPU op-mode(s):        & 32-bit, 64-bit \\
-            Byte Order:            & Little Endian \\
-            CPU(s):                & 4 \\
-            On-line CPU(s) list:   & 0-3 \\
-            Thread(s) per core:    & 2 \\
-            Core(s) per socket:    & 2 \\
-            Socket(s):             & 1 \\
-            NUMA node(s):          & 1 \\
-            Vendor ID:             & GenuineIntel \\
-            CPU family:            & 6 \\
-            Model:                 & 142 \\
-            Model name:            & Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz \\
-            Stepping:              & 9 \\
-            CPU MHz:               & 1824.398 \\
-            CPU max MHz:           & 3100.0000 \\
-            CPU min MHz:           & 400.0000 \\
-            BogoMIPS:              & 5423.89 \\
-            Virtualization:        & VT-x \\
-            L1d cache:             & 32K \\
-            L1i cache:             & 32K \\
-            L2 cache:              & 256K \\
-            L3 cache:              & 3072K \\
-            NUMA node0 CPU(s):     & 0-3 \\
-            \end{tabular*}
-        \end{table}
+        \tikzmark{0}{$\bm{\varnothing}$} &
+        \cellcolor{Apricot!25}\tikzmark{a0}{0} &
+        \cellcolor{Aquamarine!25}\tikzmark{a1}{0} &
+        \cellcolor{BlueViolet!25}\tikzmark{a2}{0} &
+        \cellcolor{BrickRed!25}\tikzmark{a3}{0} &
+        \cellcolor{Goldenrod!25}\tikzmark{a4}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a5}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{a6}{0} \\
 
-        \begin{table}[h]
-            \caption{Information about the Memory, Generated by \textit{\$ free -gh}}
-            \centering
-            \begin{tabular*}{400pt}{@{\extracolsep{\fill}} ccccccc}
+        \hline
 
-            \textbf{Component} & \textbf{total} & \textbf{used} & \textbf{free} & \textbf{shared} & \textbf{buff/cache} & \textbf{available} \\
-            \hline
-            Mem: & 3.7G & 2.0G & 344M & 291M & 1.4G & 555M \\
-            Swap: & 7.8G & 1.1G & 6.7G & & & \\
-            \end{tabular*}
-        \end{table}
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Aquamarine!25}\tikzmark{b0}{0} &
+        \cellcolor{BlueViolet!25}\tikzmark{b1}{0} &
+        \cellcolor{BrickRed!25}\tikzmark{b2}{0} &
+        \cellcolor{Goldenrod!25}\tikzmark{b3}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{b4}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{b5}{0} &
+        \cellcolor{YellowOrange!25}\tikzmark{b6}{1} \\
 
-        \subsection{Testing Methodology}
-        The divide and conquer functions of individual multiplication methods were timed. An example of the output time is provided in Figure \ref{time_sample}.
+        \hline
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=0.3\textwidth]{time_sample.png}
-                \caption{Sample Output of The Program Generated by cmplx\_numbers\_32\_008bit.txt} \label{time_sample}
-            \end{center}
-        \end{figure}
+        \tikzmark{0}{\textbf{C}} & \cellcolor{BlueViolet!25}\tikzmark{c0}{0} &
+        \cellcolor{BrickRed!25}\tikzmark{c1}{0} &
+        \cellcolor{Goldenrod!25}\tikzmark{c2}{1} &
+        \cellcolor{Fuchsia!25}\tikzmark{c3}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{c4}{1} &
+        \cellcolor{YellowOrange!25}\tikzmark{c5}{1} &
+        \cellcolor{SeaGreen!25}\tikzmark{c6}{1} \\
 
-        The program, however, generates its output after a single iteration of the function call. The output times may vary on each execution due to the hosting machine fluctuating on its core and memory usage from other running processes. Therefore, further steps were taken to compute additional statistics on the timings.
+        \hline
 
-        The sample input data consisted of integers of 8, 10, 20, 30, 40, 100, and 200 bits divided into 32 and 64 repetitions. An additional Makefile has been provided to generate timings on multiple iterations. 200 iterations were used to compute the current statistics. Furthermore, each iteration recompiles before running the program. A clean compilation prevents any external influences and overhead from the system on the individual timings. All the outputs for a single input are dumped to a buffer file, which is later parsed by an external helper script to generate the (1) means and (2) element-to-element differences.
+        \tikzmark{0}{\textbf{G}} & \cellcolor{BrickRed!25}\tikzmark{d0}{0} &
+        \cellcolor{Goldenrod!25}\tikzmark{d1}{1} &
+        \cellcolor{Fuchsia!25}\tikzmark{d2}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{d3}{2} &
+        \cellcolor{YellowOrange!25}\tikzmark{d4}{2} &
+        \cellcolor{SeaGreen!25}\tikzmark{d5}{2} &
+        \cellcolor{Salmon!25}\tikzmark{d6}{2} \\
 
-        \clearpage
-        \newpage
-        \subsection{Results}
-        The distribution of the element-to-element differences were plotted against the size of the input data. Outliers were excluded when generating the box plots. Data points residing above the x-axis indicate instances when \texttt{cmul4()} yielded slower runtimes than \texttt{cmul3()} (i.e. \texttt{cmul4()} - \texttt{cmul3()} < 0). The data points on the negative region represent instances when \texttt{cmul4()} - \texttt{cmul3()} > 0, indicating faster runtimes by \texttt{cmul4()} than \texttt{cmul3()}.
+        \hline
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=0.9\textwidth]{32diffs.png}
-                \caption{Distribution of Differences in The Multiplication Methods for n=32} \label{32diffs}
-            \end{center}
-        \end{figure}
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Goldenrod!25}\tikzmark{e0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{e1}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e2}{1} &
+        \cellcolor{YellowOrange!25}\tikzmark{e3}{2} &
+        \cellcolor{SeaGreen!25}\tikzmark{e4}{2} &
+        \cellcolor{Salmon!25}\tikzmark{e5}{2} &
+        \cellcolor{YellowGreen!25}\tikzmark{e6}{3} \\
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=0.9\textwidth]{64diffs.png}
-                \caption{Distribution of Differences in The Multiplication Methods for n=64} \label{64diffs}
-            \end{center}
-        \end{figure}
-        \clearpage
-        \newpage
+        \hline
 
-        The means of the times generated during testing were also plotted.
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=0.80\textwidth]{32means.png}
-                \caption{Means of The Multiplication Methods, with the Crossover Point $\epsilon$\texttt{[}75, 100\texttt{]} bits for n=32} \label{32diffs}
-            \end{center}
-        \end{figure}
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Fuchsia!25}\tikzmark{f0}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f1}{1} &
+        \cellcolor{YellowOrange!25}\tikzmark{f2}{1} &
+        \cellcolor{SeaGreen!25}\tikzmark{f3}{2} &
+        \cellcolor{Salmon!25}\tikzmark{f4}{2} &
+        \cellcolor{YellowGreen!25}\tikzmark{f5}{2} &
+        \cellcolor{Maroon!25}\tikzmark{f6}{3} \\
 
-        \begin{figure}[ht]
-            \begin{center}
-                \includegraphics[width=0.80\textwidth]{64means.png}
-                \caption{Means of The Multiplication Methods, with the Crossover Point $\epsilon$\texttt{[}40, 60\texttt{]} bits for n=64} \label{64diffs}
-            \end{center}
-        \end{figure}
+        \hline
 
-        \clearpage
-        \newpage
-        \subsection{Troubleshooting}
-        In the initial design of the source code, the execution times generated were being skewed by the implementation of the overloaded operators in the C++11 wrapper. The wrapper utilized an additional functionality that enabled the compiler to control the number of cores being used. Since the data were generated using a machine with 4 CPUs, this functionality appeared to generate faster execution times for larger input data. This functionality was removed from the system libraries, and the data were regenerated.
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{\tiny [1]} &
+        \multicolumn{1}{c}{\tiny [2]} & \multicolumn{1}{c}{} &
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} &
+        \multicolumn{1}{c}{}
 
-        These modifications did not require any changes to the source code since the initial design, but they were updated with minor modifications that do not affect the outputs.
+    \end{tabular}
+
+\end{table}
+
+    The parallel implementation must generate the same values in the cells
+    using these subproblems to avoid race conditions between threads.
+
+    To iterate through the cells in these diagonal independent subproblems, the
+    algorithm must consider the constraint that the lengths of the diagonal
+    subproblems do not monotonically increase. The lengths increase until the
+    diagonal label as [1] (highlighted in \tikz{\draw[fill=Fuchsia!25,line
+    width=0.5pt] rectangle(1.25ex,1.25ex);}) and decreases after the diagonal
+    labeled as [2] (highlighted in \tikz{\draw[fill=MidnightBlue!25,line
+    width=0.5pt] rectangle(1.25ex,1.25ex);}).
+
+    To avoid issues with bounds of the lengths of the diagonals, the parallel
+    algorithm splits the matrix into two halves visualized in Table
+    \ref{table:halves}.
+
+\begin{table}[h]
+    \caption{LCS matrix constructed when comparing \texttt{GCGTCA} and
+    \texttt{ACGAA} highlighting its two halves used for the parallel algorithm.}
+    \label{table:halves}
+    \centering
+    \setlength\tabcolsep{0pt}
+
+    \begin{tabular}{|@{\rule[-0.5cm]{0pt}{1cm}}*{8}{M{1cm} |}}
+        \hline
+        & \tikzmark{0}{$\bm{\varnothing}$} & \tikzmark{0}{\textbf{G}} &
+        \tikzmark{0}{\textbf{C}} & \tikzmark{0}{\textbf{G}} &
+        \tikzmark{0}{\textbf{T}} & \tikzmark{0}{\textbf{C}} &
+        \tikzmark{0}{\textbf{A}} \\
+
+        \hline
+
+        \tikzmark{0}{$\bm{\varnothing}$} &
+        \cellcolor{Fuchsia!25}\tikzmark{a0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a1}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a2}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a3}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a4}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{a5}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{a6}{0} \\
+
+        \hline
+
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Fuchsia!25}\tikzmark{b0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{b1}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{b2}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{b3}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{b4}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{b5}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{b6}{1} \\
+
+        \hline
+
+        \tikzmark{0}{\textbf{C}} & \cellcolor{Fuchsia!25}\tikzmark{c0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{c1}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{c2}{1} &
+        \cellcolor{Fuchsia!25}\tikzmark{c3}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{c4}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{c5}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{c6}{1} \\
+
+        \hline
+
+        \tikzmark{0}{\textbf{G}} & \cellcolor{Fuchsia!25}\tikzmark{d0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{d1}{1} &
+        \cellcolor{Fuchsia!25}\tikzmark{d2}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{d3}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{d4}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{d5}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{d6}{2} \\
+
+        \hline
+
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Fuchsia!25}\tikzmark{e0}{0} &
+        \cellcolor{Fuchsia!25}\tikzmark{e1}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e2}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e3}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e4}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e5}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{e6}{3} \\
+
+        \hline
+
+        \tikzmark{0}{\textbf{A}} & \cellcolor{Fuchsia!25}\tikzmark{f0}{0} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f1}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f2}{1} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f3}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f4}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f5}{2} &
+        \cellcolor{MidnightBlue!25}\tikzmark{f6}{3} \\
+
+        \hline
+
+    \end{tabular}
+
+\end{table}
+\newpage
+
+    Algorithm \thesection .\ref{alg4} provides the pseudocode for computing the
+    length of the LCS.
+
+\begin{pseudocode}[caption={Parallel Longest Common Subsequence Length},
+label={alg4}]
+function P-LCS-LENGTH(X, Y, m, n)
+    // first half of the matrix
+    for i = 1 to n
+        parallel for j = 1 to i
+            if $\seqtwo_{i - j}$ == $\seqone_{j - 1}$
+                $\lcs_{i - j + 1, j}$ = $\lcs_{i - j, j - 1}$ + 1
+            else if $\lcs_{i - j, j}$ $\ge$ $\lcs_{i - j + 1, j - 1}$
+                $\lcs_{i - j + 1, j}$ = $\lcs_{i - j, j}$
+            else
+                $\lcs_{i - j + 1, j}$ = $\lcs_{i - j + 1, j - 1}$
+    // second half of the matrix
+    diagonal_len = 0
+    for i = 2 to m
+        // if the diagonal length is not at its maximum
+        if diagonal_len < (m - n)
+            diagonal_len++  // increment the maximum diagonal length
+        parallel for j = i to (n + diagonal_len)
+            if $\seqtwo_{n - j + i - 1}$ == $\seqone_{j - 1}$
+                $\lcs_{n - j + i, j}$ = $\lcs_{n - j + i - 1, j - 1}$ + 1
+            else if $\lcs_{n - j + i - 1, j}$ $\ge$ $\lcs_{n - j + i, j - 1}$
+                $\lcs_{n - j + i, j}$ = $\lcs_{n - j + i - 1, j}$
+            else
+                $\lcs_{n - j + i, j}$ = $\lcs_{n - j + i, j - 1}$
+    return $\lcs_{m,n}$  // the last value of the matrix is the length
+
+\end{pseudocode}
+
+        \subsection{Time Complexity} The running time for the parallel
+        implementation provides the span, $T_{\infty}$ of the algorithm.
+        Computing the runtime of the parallel implementation with an undefined
+        number of processors will yield the span of the algorithm.
+
+        The two loops handling their corresponding half of the LCS matrix
+        consist of symmetric operations with identical runtimes of varying
+        sizes, $m$ and $n$. Therefore, computing the runtime for one of these
+        loops is sufficient.
+
+        The inner \texttt{\textbf{parallel}} loop spawns all its
+        ITER$_\infty$($j$) concurrently with an unbounded number of processors.
+        Since $\underset{1 \le j \le i}{\text{\small max }}\text{ITER($j$)}$ =
+        $\Theta(i)$, (congruently $\underset{i \le j \le n+d}{\text{\small max
+        }}\text{ITER($j$)}$ = $\Theta(i)$ for the second half of the matrix),
+        the \texttt{\textbf{parallel}} loop is $\Theta(i)$.
+
+        The overhead for the loops come from the outer loops iterating for the
+        total number of diagonals. The number of diagonals is congruent to the
+        sum of the lengths of the sequences minus the $\varnothing$ character,
+        since the implementation skips the first iterations to optimize space.
+        The runtime is therefore:
+        \begin{equation*}
+            \begin{split}
+                T_\infty(m, n) & = \Theta(m+n-1) \\
+                & = \Theta(m+n) \\
+            \end{split}
+        \end{equation*}
+
+        The span for the algorithm, $\Theta(m+n)$, is linear if $m = n$.
+
+% \begin{table}
+    \newpage
+    \begin{longtable}{|c|c|c|c|c|c|}
+    & \multicolumn{5}{c}{\textbf{Execution Time}} \\
+    \textbf{Sequence Lengths} & \textbf{1 Core} & \textbf{2 Cores} & \textbf{4 Cores} & \textbf{8 Cores} & \textbf{16 Cores} \\
+500$\times$500       & 0.00132 & 0.00085 & 0.00074 & 0.00081 & 0.00619 \\
+500$\times$1000      & 0.00173 & 0.00091 & 0.00093 & 0.00113 & 0.00749 \\
+1000$\times$1000     & 0.00778 & 0.00295 & 0.00203 & 0.00191 & 0.00680 \\
+500$\times$2500      & 0.00601 & 0.00351 & 0.00326 & 0.00340 & 0.00753 \\
+1000$\times$2500     & 0.02358 & 0.00782 & 0.00536 & 0.00496 & 0.01099 \\
+2500$\times$2500     & 0.06988 & 0.03521 & 0.01718 & 0.01211 & 0.01751 \\
+500$\times$5000      & 0.01174 & 0.00798 & 0.00733 & 0.00757 & 0.01370 \\
+1000$\times$5000     & 0.05913 & 0.01697 & 0.01156 & 0.01100 & 0.01902 \\
+2500$\times$5000     & 0.16671 & 0.07894 & 0.03575 & 0.02002 & 0.03167 \\
+5000$\times$5000     & 0.36594 & 0.17528 & 0.08599 & 0.04275 & 0.04227 \\
+500$\times$10000     & 0.02344 & 0.01675 & 0.01582 & 0.01587 & 0.02706 \\
+1000$\times$10000    & 0.14117 & 0.03535 & 0.02702 & 0.02553 & 0.03445 \\
+2500$\times$10000    & 0.40571 & 0.18924 & 0.08861 & 0.03861 & 0.04907 \\
+5000$\times$10000    & 0.84709 & 0.44313 & 0.19429 & 0.09228 & 0.06786 \\
+10000$\times$10000   & 1.62424 & 0.84876 & 0.42658 & 0.21194 & 0.12452 \\
+500$\times$25000     & 0.07587 & 0.04237 & 0.03851 & 0.03946 & 0.06207 \\
+1000$\times$25000    & 0.38554 & 0.10670 & 0.06793 & 0.06461 & 0.08672 \\
+2500$\times$25000    & 1.29024 & 0.55931 & 0.21134 & 0.09250 & 0.10915 \\
+5000$\times$25000    & 2.56334 & 1.32716 & 0.57491 & 0.22862 & 0.14928 \\
+10000$\times$25000   & 4.95778 & 2.61067 & 1.42275 & 0.59635 & 0.30502 \\
+25000$\times$25000   & 12.8376 & 6.74628 & 3.61627 & 1.81664 & 0.86447 \\
+500$\times$50000     & 0.33343 & 0.14526 & 0.09436 & 0.08132 & 0.11722 \\
+1000$\times$50000    & 0.80969 & 0.39848 & 0.19656 & 0.14247 & 0.15441 \\
+2500$\times$50000    & 2.96173 & 1.20282 & 0.53493 & 0.27511 & 0.23781 \\
+5000$\times$50000    & 5.90636 & 3.07472 & 1.25649 & 0.57563 & 0.36795 \\
+10000$\times$50000   & 11.7655 & 6.14264 & 3.22639 & 1.29430 & 0.66344 \\
+25000$\times$50000   & 29.2438 & 15.3071 & 8.12103 & 4.10569 & 1.83671 \\
+50000$\times$50000   & 59.41108& 30.94504& 16.52633& 8.51268 & 4.18818 \\
+500$\times$100000    & 0.75508 & 0.38384 & 0.23663 & 0.18413 & 0.22643 \\
+1000$\times$100000   & 1.72948 & 0.85551 & 0.48736 & 0.30923 & 0.32154 \\
+2500$\times$100000   & 6.11345 & 2.51991 & 1.16686 & 0.64060 & 0.50087 \\
+5000$\times$100000   & 12.48135& 6.48731 & 2.78458 & 1.23304 & 0.79432 \\
+10000$\times$100000  & 24.24921& 12.92104& 6.85141 & 2.84215 & 1.41117 \\
+25000$\times$100000  & 59.10952& 30.98594& 17.28448& 8.86489 & 4.04930 \\
+50000$\times$100000  & 118.8275& 62.16034& 33.55820& 17.96266& 9.00409 \\
+100000$\times$100000 & 253.86608& 135.25331 & 70.53762 & 37.20588 & 18.47668 \\
+    \end{longtable}
+% \end{table}
+
+    \section{Testing and Debugging} 
+
+        \subsection{Milestone 1} The source code was initially developed in
+        C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
+        did not appear to properly compile the source code. The executable
+        built without any warnings or errors, but the algorithm during its
+        execution appeared to skip steps. The current implementation in C
+        compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
+
+    \bibliography{references}
 
 \end{document}
