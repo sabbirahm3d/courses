@@ -9,7 +9,7 @@ all: run
 .PHONY: run
 run: clean
 	# execute the main script
-	@python simulator.py ${INST} ${DATA} ${OUT}
+	@python main.py ${INST} ${DATA} ${OUT}
 	@cat ${OUT}
 
 

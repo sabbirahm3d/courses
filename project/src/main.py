@@ -5,7 +5,7 @@ from __future__ import print_function
 
 from sys import argv
 
-from assembler import STAGES, Assembler
+from simulator.assembler import STAGES, Assembler
 
 INSTMEM = [None] * 32
 SYSMEM = [None] * 32

@@ -14,10 +14,12 @@ STAGES = {
 
 class Hazards(object):
 
-    def __init__(self, clock_cycles, instructions):
+    def __init__(self, clock_cycles, instructions, registers):
 
         self.clock_cycles = clock_cycles
         self.unrolled_inst = instructions
+        self.REG = registers
+
         self.i_miss = "IMISS"
         self.d_miss = "DMISS"
 

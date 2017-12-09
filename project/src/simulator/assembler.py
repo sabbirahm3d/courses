@@ -81,7 +81,7 @@ class Assembler(object):
         num_cols = len(self.UNROLLEDINST)
         num_rows = 10 * num_cols
         self.CLKCYCLE = [([None] * num_cols) for row in xrange(num_rows)]
-        hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST)
+        hazards = Hazards(self.CLKCYCLE, self.UNROLLEDINST, self.MIPS.REG)
         mod4_inst = [i for i in xrange(num_cols) if not i % 4]
 
         self.IREQS = num_cols
@@ -95,6 +95,7 @@ class Assembler(object):
         i_cache_miss_ctr = 11
         d_cache_miss_ctr = 11
         dstall = False
+        pprint(self.MIPS.REG)
 
         for row_num, row in enumerate(self.CLKCYCLE):
 
