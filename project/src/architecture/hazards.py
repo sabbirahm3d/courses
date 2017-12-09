@@ -34,10 +34,6 @@ class Hazards(object):
             if prev_inst_stage and prev_cycle:
                 if "EX" in prev_inst_stage and \
                         int(prev_inst_stage[-1]) in {2, 3, 4}:
-                    print "min:", prev_inst_min,
-                    print " prev_inst:", prev_inst_stage,
-                    print " prev_cycle:", prev_cycle,
-                    print " ready?", prev_inst_min <= int(prev_inst_stage[-1])
                     return prev_inst_min < int(prev_inst_stage[-1])
 
         return True

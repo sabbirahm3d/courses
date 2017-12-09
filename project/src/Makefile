@@ -9,7 +9,7 @@ all: debug
 .PHONY: debug
 debug: clean
 	# execute the main script
-	@python main.py ${INST} ${DATA} ${OUT}
+	@python simulator.py ${INST} ${DATA} ${OUT}
 	@echo "\n"
 	@diff -y --width=170 ${OUT} actual.txt
 

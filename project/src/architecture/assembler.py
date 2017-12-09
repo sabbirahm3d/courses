@@ -137,9 +137,11 @@ class Assembler(object):
 
     def stats(self):
 
-        row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 2)
-        for i, j in enumerate(self.CLKCYCLE):
-            print row_fmt.format("", *([i + 1] + j))
+        # for debugging purposes only - uncomment the following snippet to view
+        # the two-dimensional representation of the clock cycles
+        # row_fmt = "{:<8}" * (len(self.UNROLLEDINST) + 2)
+        # for i, j in enumerate(self.CLKCYCLE):
+        #     print row_fmt.format("", *([i + 1] + j))
 
         for clk_cycle, unrolled_inst in enumerate(self.CLKCYCLE):
 
@@ -179,7 +181,6 @@ class Assembler(object):
 
             halt_flag = 1
 
-        print halt_cycles
         self.INST.append(
             (
                 str(self.INSTREQS),

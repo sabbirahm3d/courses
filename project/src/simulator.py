@@ -5,7 +5,7 @@ from __future__ import print_function
 
 from sys import argv
 
-from simulator.assembler import STAGES, Assembler
+from architecture.assembler import STAGES, Assembler
 
 INSTMEM = [None] * 32
 SYSMEM = [None] * 32
@@ -89,8 +89,7 @@ def dump_table(table, file_name="output.txt"):
                 cycles.append(inst["cycles"][stage])
 
             print(
-                inst_fmt.format(inst_str),
-                row_fmt.format("", *cycles),
+                inst_fmt.format(inst_str), row_fmt.format("", *cycles),
                 file=output_file
             )
 
