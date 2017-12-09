@@ -25,20 +25,19 @@ class Hazards(object):
 
         return self.unrolled_inst[col_num][0] in {"LW", "SW"}
 
-    def data_ready(self, prev_stage, cur_stage, cur_inst, prev_cycle):
+    def data_ready(self, prev_inst_stage, cur_stage, cur_inst, prev_cycle):
 
-        prev_min = MIPSSET[self.unrolled_inst[cur_inst - 1][0]]["cycle"]
-        cur_max = MIPSSET[self.unrolled_inst[cur_inst][0]]["cycle"]
+        prev_inst_min = MIPSSET[self.unrolled_inst[cur_inst - 1][0]]["cycle"]
 
-        if prev_stage and prev_cycle and "EX" in prev_cycle and "EX" in prev_stage and "MULT" == self.unrolled_inst[cur_inst - 1][0]:
-            print self.unrolled_inst[cur_inst - 1], "prev_stage", prev_stage, "prev_min", prev_min
-            # print self.unrolled_inst[cur_inst - 1], \
-            #     self.unrolled_inst[cur_inst]
-            # if prev_stage[-1] >= prev_min:
-            #     print "READY PREV", prev_stage[-1], prev_min
-            # else:
-            #     print "NOT READY PREV", prev_stage[-1], prev_min
-            return prev_stage[-1] < prev_min
+        if self.unrolled_inst[cur_inst - 1][0] == "MULT":
+            if prev_inst_stage and prev_cycle:
+                if "EX" in prev_inst_stage and \
+                        int(prev_inst_stage[-1]) in {2, 3, 4}:
+                    print "min:", prev_inst_min,
+                    print " prev_inst:", prev_inst_stage,
+                    print " prev_cycle:", prev_cycle,
+                    print " ready?", prev_inst_min <= int(prev_inst_stage[-1])
+                    return prev_inst_min < int(prev_inst_stage[-1])
 
         return True
 
@@ -50,46 +49,46 @@ class Hazards(object):
         • MEM -> EX1, ID
         """
 
-        prev_stage = self.clock_cycles[row_num][col_num - 1]
+        prev_inst_stage = self.clock_cycles[row_num][col_num - 1]
         prev_cycle = self.clock_cycles[row_num - 1][col_num]
         cur_stage = self.clock_cycles[row_num][col_num]
 
         if not self.data_ready(
-            prev_stage=prev_stage,
+            prev_inst_stage=prev_inst_stage,
             cur_stage=cur_stage,
             cur_inst=col_num,
             prev_cycle=prev_cycle
         ):
-            print "HOOOOOOOOOOOOO", prev_cycle
+            # print "HOOOOOOOOOOOOO", prev_cycle, prev_inst_stage
             return prev_cycle
 
         # if there was an instruction cache miss in the current cycle
         if self.i_miss in self.clock_cycles[row_num][:col_num] or \
-                prev_stage == "IF":
+                prev_inst_stage == "IF":
             return "WAIT"
 
         # if previous instruction is in a decoding stage or the
         # previous cycle was in a fetch stage
-        elif prev_cycle == self.i_miss or prev_stage == "ID":
+        elif prev_cycle == self.i_miss or prev_inst_stage == "ID":
             return "IF"
 
-        elif prev_cycle == "IF" or prev_stage == "EX1":
+        elif prev_cycle == "IF" or prev_inst_stage == "EX1":
             return "ID"
 
-        elif prev_cycle == "ID" or prev_stage == "EX2":
+        elif prev_cycle == "ID" or prev_inst_stage == "EX2":
             return "EX1"
 
-        elif prev_cycle == "EX1" or prev_stage == "EX3":
+        elif prev_cycle == "EX1" or prev_inst_stage == "EX3":
             return "EX2"
 
-        elif prev_cycle == "EX2" or prev_stage == "EX4":
+        elif prev_cycle == "EX2" or prev_inst_stage == "EX4":
             return "EX3"
 
-        elif prev_cycle == "EX3" or prev_stage == "MEM":
+        elif prev_cycle == "EX3" or prev_inst_stage == "MEM":
             return "EX4"
 
         elif prev_cycle == "EX4" or prev_cycle == self.d_miss or \
-                prev_stage == "WB":
+                prev_inst_stage == "WB":
             return "MEM"
 
         elif prev_cycle == "MEM":
