@@ -18,45 +18,56 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module top(CLK_50MHZ, 
-           SW0, 
-           SW1, 
-           SW2, 
-           VGA_BLUE, 
-           VGA_GREEN, 
-           VGA_HSYNC, 
-           VGA_RED, 
-           VGA_VSYNC);
+module top(
+        input wire CLK_50MHZ,
+        input wire RESET,
+        input wire SW0,
+        input wire SW1,
+        input wire SW2,
+        output wire VGA_BLUE, 
+        output wire VGA_GREEN, 
+        output wire VGA_HSYNC, 
+        output wire VGA_RED, 
+        output wire VGA_VSYNC
+   );
 
-    input CLK_50MHZ;
-    input SW0;
-    input SW1;
-    input SW2;
-   output VGA_BLUE;
-   output VGA_GREEN;
-   output VGA_HSYNC;
-   output VGA_RED;
-   output VGA_VSYNC;
-   
-   wire [9:0] XLXN_2;
-   wire [9:0] XLXN_3;
-   wire XLXN_4;
-   
-   vga_sync  XLXI_1 (.clk(CLK_50MHZ), 
-                    .blank(XLXN_4), 
-                    .hcount(XLXN_3[9:0]), 
-                    .hsync(VGA_HSYNC), 
-                    .pix_clk(), 
-                    .vcount(XLXN_2[9:0]), 
-                    .vsync(VGA_VSYNC));
-   vga_rectangle  XLXI_2 (.blank(XLXN_4), 
-                         .clk(CLK_50MHZ), 
-                         .pos_h(XLXN_3[9:0]), 
-                         .pos_v(XLXN_2[9:0]), 
-                         .SW0(SW0), 
-                         .SW1(SW1), 
-                         .SW2(SW2), 
-                         .blue(VGA_BLUE), 
-                         .green(VGA_GREEN), 
-                         .red(VGA_RED));
+    wire [9:0] XLXN_2;
+    wire [9:0] XLXN_3;
+    wire XLXN_4;
+
+    wire CLK0_OUT;
+    wire CLK2X_OUT;
+
+
+    // Instantiate the module
+    dcm dcm_uut(
+        .CLKIN_IN(CLK_50MHZ), 
+        .RST_IN(RESET), 
+        .CLK0_OUT(CLK0_OUT), 
+        .CLK2X_OUT(CLK2X_OUT)
+    );
+
+    vga_sync  vga_sync_uut(
+        .clk(CLK2X_OUT), 
+        .blank(XLXN_4), 
+        .hcount(XLXN_3[9:0]), 
+        .hsync(VGA_HSYNC), 
+        .pix_clk(), 
+        .vcount(XLXN_2[9:0]), 
+        .vsync(VGA_VSYNC)
+    );
+
+    vga_circle  vga_circle_uut(
+        .blank(XLXN_4), 
+        .clk(CLK0_OUT), 
+        .pos_h(XLXN_3[9:0]), 
+        .pos_v(XLXN_2[9:0]), 
+        .SW0(SW0), 
+        .SW1(SW1), 
+        .SW2(SW2), 
+        .blue(VGA_BLUE), 
+        .green(VGA_GREEN), 
+        .red(VGA_RED)
+    );
+
 endmodule
