@@ -4,9 +4,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    16:41:15 12/10/2017 
+// Create Date:    17:39:24 12/10/2017 
 // Design Name: 
-// Module Name:    single_cycle_comp 
+// Module Name:    multi_cycle_comp 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,30 +19,50 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////
-module single_cycle_comp(
+module multi_cycle_comp(
         input wire clk,
         input wire [9:0] x,
         input wire [9:0] y,
         output reg in_circle
     );
 
-    parameter ONLYSTATE = 1'b0;
+    parameter SQUAREX       = 2'b00;
+    parameter ADDSQUAREY    = 2'b01;
+    parameter CMPRAD        = 2'b11;
     reg state;
+
+    reg [9:0] temp_flag;
 
     always @(posedge clk) begin
 
         case (state)
 
-            ONLYSTATE: begin
+            SQUAREX: begin
 
-                in_circle <= ((x * x + y * y) < 10000);
-                state <= ONLYSTATE;
+                temp_flag = x * x;
+                state = ADDSQUAREY;
+
+            end
+
+            ADDSQUAREY: begin
+
+                $monitor("before %b", state);
+                temp_flag = y * y;
+                state = CMPRAD;
+                $monitor("HERERR %b", state);
+
+            end
+
+            CMPRAD: begin
+
+                in_circle = temp_flag < 10000;
+                state = CMPRAD;
 
             end
 
             default: begin
 
-                state <= ONLYSTATE;
+                state = SQUAREX;
 
             end
 

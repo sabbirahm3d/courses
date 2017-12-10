@@ -4,9 +4,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    17:06:31 12/10/2017 
+// Create Date:    17:49:02 12/10/2017 
 // Design Name: 
-// Module Name:    single_cycle_comp_tb 
+// Module Name:    multi_cycle_comp_tb 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -19,13 +19,13 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////
-module single_cycle_comp_tb;
+module multi_cycle_comp_tb;
 
     reg clk;
     wire in_circle;  // high only when over circle
     reg [9:0] x, y;  // traditional cartesean coordinates
 
-    single_cycle_comp single_cycle_uut(
+    multi_cycle_comp multi_cycle_uut(
         .clk(clk),
         .x(x), .y(y),
         .in_circle(in_circle)
