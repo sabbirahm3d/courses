@@ -31,7 +31,7 @@ module vga_circle(
     );
 
     // additional intermediate logic signal wires
-    wire flag_on_rect;  // high only when over rectangle
+    wire in_circle;  // high only when over circle
     wire [9:0] x, y;  // traditional cartesean coordinates
 
     // combinatorial logic to calculate x,y coordinate system
@@ -41,16 +41,16 @@ module vga_circle(
     single_cycle_comp single_cycle_uut(
         .clk(clk),
         .x(x), .y(y),
-        .flag_on_rect(flag_on_rect)
+        .in_circle(in_circle)
     );
 
     // combinatorial logic and registers (seqential logic) that load on rising
     // clock edge
     always @(posedge clk) begin
 
-        red <= ~flag_on_rect & blank;
-        blue <= ~flag_on_rect & blank;
-        green <= ~flag_on_rect & blank;
+        red <= ~in_circle & blank;
+        blue <= ~in_circle & blank;
+        green <= ~in_circle & blank;
 
     end
 

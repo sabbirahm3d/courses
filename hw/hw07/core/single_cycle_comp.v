@@ -23,12 +23,12 @@ module single_cycle_comp(
         input wire clk,
         input wire [9:0] x,
         input wire [9:0] y,
-        output reg flag_on_rect
+        output reg in_circle
     );
 
     always @(posedge clk) begin
 
-        flag_on_rect <= ((x * x + y * y) < 10000);
+        in_circle <= ((x * x + y * y) < 10000);
 
     end
 
