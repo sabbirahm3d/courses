@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(code)
+project(777_for_7s)
 
 set(CMAKE_C_STANDARD 99)
 

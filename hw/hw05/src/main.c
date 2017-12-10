@@ -68,6 +68,8 @@ uint8_t push_button() {
 
 char *slot_machine() {
 
+//    demo stuff
+////////////////////////////
 #include <time.h>
 
     void delay(int number_of_seconds) {
@@ -80,12 +82,13 @@ char *slot_machine() {
         // looping till required time is not acheived
         while (clock() < start_time + milli_seconds);
     }
+///////////////////////////
 
-    while (1)
+    for (unsigned int i = 0; i < 100; i++)
         for (char c = 'A'; c <= 'F'; ++c) {
-            delay(100);
-            printf("%cAB", c);
-//            printf("\r");
+            delay(10);
+            printf("\033[H\033[J");
+            printf("%cAB\n", c);
         }
 
 }
