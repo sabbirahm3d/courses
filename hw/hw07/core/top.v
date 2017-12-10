@@ -21,9 +21,6 @@
 module top(
         input wire CLK_50MHZ,
         input wire RESET,
-        input wire SW0,
-        input wire SW1,
-        input wire SW2,
         output wire VGA_BLUE, 
         output wire VGA_GREEN, 
         output wire VGA_HSYNC, 
@@ -33,10 +30,10 @@ module top(
 
     wire [9:0] XLXN_2;
     wire [9:0] XLXN_3;
-    wire XLXN_4;
+    wire blank;
 
-    wire CLK0_OUT;
-    wire CLK2X_OUT;
+    wire CLK0_OUT;  // 50 MHz
+    wire CLK2X_OUT;  // 100 MHz
 
 
     // Instantiate the module
@@ -49,7 +46,7 @@ module top(
 
     vga_sync  vga_sync_uut(
         .clk(CLK2X_OUT), 
-        .blank(XLXN_4), 
+        .blank(blank), 
         .hcount(XLXN_3[9:0]), 
         .hsync(VGA_HSYNC), 
         .pix_clk(), 
@@ -58,13 +55,10 @@ module top(
     );
 
     vga_circle  vga_circle_uut(
-        .blank(XLXN_4), 
+        .blank(blank), 
         .clk(CLK0_OUT), 
         .pos_h(XLXN_3[9:0]), 
         .pos_v(XLXN_2[9:0]), 
-        .SW0(SW0), 
-        .SW1(SW1), 
-        .SW2(SW2), 
         .blue(VGA_BLUE), 
         .green(VGA_GREEN), 
         .red(VGA_RED)

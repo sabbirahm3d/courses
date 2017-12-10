@@ -21,22 +21,14 @@
 //////////////////////////////////////////////////////////////////////////////
 
 module vga_circle(
-            output reg red,
-            output reg green,
-            output reg blue,
-            input [9:0] pos_h,
-            input [9:0] pos_v,
-            input blank,
-            input clk,
-            input SW0,
-            input SW1,
-            input SW2
-        );
-
-    parameter WIDTH = 20;
-    parameter HEIGHT = 100;
-    parameter X_LEFT = 320;
-    parameter Y_BOTTOM = 240;
+        input wire clk,
+        input wire [9:0] pos_h,
+        input wire [9:0] pos_v,
+        input wire blank,
+        output reg red,
+        output reg green,
+        output reg blue
+    );
 
     // additional intermediate logic signal wires
     wire flag_on_rect;  // high only when over rectangle
@@ -46,49 +38,19 @@ module vga_circle(
     assign x = pos_h;
     assign y = 480 - pos_v;
 
-    // combinatorial logic to decide if present pixel is over a desired 
-    // rectangle region
-    assign flag_on_rect = x >= (X_LEFT) && x < (X_LEFT + WIDTH) && 
-                            y >= (Y_BOTTOM) && y < (Y_BOTTOM + HEIGHT);
+    single_cycle_comp single_cycle_uut(
+        .clk(clk),
+        .x(x), .y(y),
+        .flag_on_rect(flag_on_rect)
+    );
 
     // combinatorial logic and registers (seqential logic) that load on rising
     // clock edge
     always @(posedge clk) begin
 
-        case ({SW2, SW1, SW0})
-
-            3'b001:
-            begin
-                // yellow
-                red <= flag_on_rect & ~blank;
-                green <= flag_on_rect & ~blank;
-                blue <= ~flag_on_rect & blank;
-            end
-
-            3'b010:
-            begin
-                // magenta
-                red <= flag_on_rect & ~blank;
-                green <= ~flag_on_rect & blank;
-                blue <= flag_on_rect & ~blank;
-            end
-
-            3'b100:
-            begin
-                // cyan
-                red <= ~flag_on_rect & blank;
-                green <= flag_on_rect & ~blank;
-                blue <= flag_on_rect & ~blank;
-            end
-
-            default:
-            begin
-                red <= ~flag_on_rect & blank;
-                blue <= ~flag_on_rect & blank;
-                green <= ~flag_on_rect & blank;
-            end
-
-        endcase
+        red <= ~flag_on_rect & blank;
+        blue <= ~flag_on_rect & blank;
+        green <= ~flag_on_rect & blank;
 
     end
 
