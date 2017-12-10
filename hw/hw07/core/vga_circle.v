@@ -44,7 +44,7 @@ module vga_circle(
         .in_circle(in_circle)
     );
 
-    // combinatorial logic and registers (seqential logic) that load on rising
+    // combinatorial logic and registers (sequential logic) that load on rising
     // clock edge
     always @(posedge clk) begin
 

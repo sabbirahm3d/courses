@@ -26,9 +26,27 @@ module single_cycle_comp(
         output reg in_circle
     );
 
+    parameter ONLYSTATE = 1'b0;
+    reg state;
+
     always @(posedge clk) begin
 
-        in_circle <= ((x * x + y * y) < 10000);
+        case (state)
+
+            0: begin
+
+                in_circle <= ((x * x + y * y) < 10000);
+                state <= ONLYSTATE;
+
+            end
+
+            default: begin
+
+                state <= ONLYSTATE;
+
+            end
+
+        endcase
 
     end
 
