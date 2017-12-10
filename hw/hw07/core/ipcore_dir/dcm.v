@@ -7,11 +7,11 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : xaw2verilog
 //  /   /         Filename : dcm.v
-// /___/   /\     Timestamp : 12/10/2017 13:43:19
+// /___/   /\     Timestamp : 12/10/2017 16:19:21
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: xaw2verilog -st /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw07/core/ipcore_dir/./dcm.xaw /home/sabbir/Desktop/courses/CMPE415-Programmable-Logic-Devices/hw/hw07/core/ipcore_dir/./dcm
+//Command: xaw2verilog -st /home/sabbir/core/ipcore_dir/./dcm.xaw /home/sabbir/core/ipcore_dir/./dcm
 //Design Name: dcm
 //Device: xc3s500e-4fg320
 //
