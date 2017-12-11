@@ -39,7 +39,7 @@ module vga_circle(
     assign x = pos_h;
     assign y = 480 - pos_v;
 
-    multi_cycle_comp multie_cycle_uut(
+    multi_cycle_comp multi_cycle_uut(
         .clk(clk), .reset(reset),
         .x(x), .y(y),
         .in_circle(in_circle)
