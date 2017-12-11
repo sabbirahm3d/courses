@@ -21,12 +21,12 @@
 //////////////////////////////////////////////////////////////////////////////
 module single_cycle_comp_tb;
 
-    reg clk;
+    reg clk, reset;
     wire in_circle;  // high only when over circle
     reg [9:0] x, y;  // traditional cartesean coordinates
 
     single_cycle_comp single_cycle_uut(
-        .clk(clk),
+        .clk(clk), .reset(reset),
         .x(x), .y(y),
         .in_circle(in_circle)
     );
@@ -40,14 +40,21 @@ module single_cycle_comp_tb;
 
     initial begin
 
-        clk = 0;
+        clk = 1;
+        reset = 1;
 
         #20;
+        reset = 0;
+        #20;
+        x = 100;
+        y = 100;
 
-        x = 1000;
-        y = 1000;
+        #200;
 
-        #80;
+        reset = 1;
+
+        #20;
+        reset = 0;
 
         x = 10;
         y = 10;

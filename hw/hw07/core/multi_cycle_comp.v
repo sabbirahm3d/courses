@@ -32,7 +32,7 @@ module multi_cycle_comp(
     parameter CMPRAD    = 2'b11;
     reg [1:0] state;
 
-    reg [20:0] temp_flag;
+    reg [20:0] temp_out;
 
     always @(posedge clk) begin
 
@@ -44,25 +44,27 @@ module multi_cycle_comp(
 
             case (state)
 
+                // computes x^2
                 SQX: begin
 
-                    temp_flag <= x * x;
+                    temp_out <= (x * x);
                     state <= ADDSQY;
 
                 end
 
+                // computes x^2 + y^2
                 ADDSQY: begin
 
-                    temp_flag <= temp_flag + y * y;
+                    temp_out <= (temp_out + y * y);
                     state <= CMPRAD;
 
                 end
 
+                // compares x^2 + y^2 to 10000
                 CMPRAD: begin
 
-                    in_circle <= temp_flag < 10000;
+                    in_circle <= (temp_out < 10000);
                     state <= CMPRAD;
-                    $display("DONE %d", temp_flag);
 
                 end
 

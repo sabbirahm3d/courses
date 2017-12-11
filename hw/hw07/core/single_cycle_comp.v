@@ -21,32 +21,23 @@
 //////////////////////////////////////////////////////////////////////////////
 module single_cycle_comp(
         input wire clk,
+        input wire reset,
         input wire [9:0] x,
         input wire [9:0] y,
         output reg in_circle
     );
 
-    parameter ONLYSTATE = 1'b0;
-    reg state;
-
     always @(posedge clk) begin
 
-        case (state)
+        if (reset) begin
 
-            ONLYSTATE: begin
+            in_circle <= 0;
 
-                in_circle <= ((x * x + y * y) < 10000);
-                state <= ONLYSTATE;
+        end else begin
 
-            end
+            in_circle <= ((x * x + y * y) < 10000);
 
-            default: begin
-
-                state <= ONLYSTATE;
-
-            end
-
-        endcase
+        end
 
     end
 
