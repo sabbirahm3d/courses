@@ -29,11 +29,12 @@ module multi_cycle_comp(
 
     parameter SQX       = 2'b00;
     parameter SQY       = 2'b01;
-    parameter ADDXY     = 2'b11;
-    parameter CMPRAD    = 2'b10;
+    parameter ADDXY     = 2'b10;
+    parameter CMPRAD    = 2'b11;
     reg [1:0] state;
 
     reg [20:0] sqx_reg;
+    reg [20:0] sum_sq;
     reg [20:0] temp_out;
 
     always @(posedge clk) begin
@@ -49,17 +50,16 @@ module multi_cycle_comp(
                 // computes x^2
                 SQX: begin
 
-                    temp_out <= (x * x);
+                    sum_sq <= (x * x);
                     state <= SQY;
 
                 end
 
-                // computes x^2
+                // computes y^2
                 SQY: begin
 
-                    $display("before %d", temp_out);
-                    sqx_reg <= temp_out;
-                    temp_out <= y * y;
+                    sqx_reg <= sum_sq;
+                    sum_sq <= (y * y);
                     state <= ADDXY;
 
                 end
@@ -67,8 +67,7 @@ module multi_cycle_comp(
                 // computes x^2 + y^2
                 ADDXY: begin
 
-                    $display("after %d", temp_out);
-                    temp_out <= sqx_reg + temp_out;
+                    temp_out <= sqx_reg + sum_sq;
                     state <= CMPRAD;
 
                 end
@@ -76,7 +75,6 @@ module multi_cycle_comp(
                 // compares x^2 + y^2 to 10000
                 CMPRAD: begin
 
-                    $display("final %d", temp_out);
                     in_circle <= (temp_out < 10000);
                     state <= CMPRAD;
 

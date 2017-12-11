@@ -49,9 +49,10 @@ module vga_circle(
     // clock edge
     always @(posedge clk) begin
 
+        // cyan circle on black background
         red <= ~in_circle & blank;
-        blue <= ~in_circle & blank;
-        green <= ~in_circle & blank;
+        green <= in_circle & ~blank;
+        blue <= in_circle & ~blank;
 
     end
 

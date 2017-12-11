@@ -46,7 +46,7 @@ module top(
     );
 
     vga_sync  vga_sync_uut(
-        .clk(CLK2X_OUT), 
+        .clk(CLK0_OUT), 
         .blank(blank), 
         .hcount(XLXN_3[9:0]), 
         .hsync(VGA_HSYNC), 
@@ -58,7 +58,7 @@ module top(
     vga_circle  vga_circle_uut(
         .blank(blank),
         .reset(RESET),
-        .clk(CLK0_OUT),
+        .clk(CLK2X_OUT),
         .pos_h(XLXN_3[9:0]), 
         .pos_v(XLXN_2[9:0]), 
         .blue(VGA_BLUE), 

@@ -36,8 +36,8 @@ module vga_circle(
     wire [9:0] x, y;  // traditional cartesean coordinates
 
     // combinatorial logic to calculate x,y coordinate system
-    assign x = pos_h;
-    assign y = 480 - pos_v;
+    assign x = (pos_h - 320);
+    assign y = ((480 - pos_v) - 240);
 
     multi_cycle_comp multi_cycle_uut(
         .clk(clk), .reset(reset),
@@ -49,9 +49,10 @@ module vga_circle(
     // clock edge
     always @(posedge clk) begin
 
+        // cyan circle on black background
         red <= ~in_circle & blank;
-        blue <= ~in_circle & blank;
-        green <= ~in_circle & blank;
+        green <= in_circle & ~blank;
+        blue <= in_circle & ~blank;
 
     end
 
