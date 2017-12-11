@@ -55,10 +55,10 @@ module top(
         .vsync(VGA_VSYNC)
     );
 
-    vga_circle  vga_circle_uut(
+    vga_circle_single_cycle  vga_circle_single_cycle_uut(
         .blank(blank),
         .reset(RESET),
-        .clk(CLK0_OUT),
+        .clk(CLK0_OUT), 
         .pos_h(XLXN_3[9:0]), 
         .pos_v(XLXN_2[9:0]), 
         .blue(VGA_BLUE), 
