@@ -21,52 +21,54 @@
 //////////////////////////////////////////////////////////////////////////////
 module multi_cycle_comp(
         input wire clk,
+        input wire reset,
         input wire [9:0] x,
         input wire [9:0] y,
         output reg in_circle
     );
 
-    parameter SQUAREX       = 2'b00;
-    parameter ADDSQUAREY    = 2'b01;
-    parameter CMPRAD        = 2'b11;
-    reg state;
+    parameter SQX       = 2'b00;
+    parameter ADDSQY    = 2'b01;
+    parameter CMPRAD    = 2'b11;
+    reg [1:0] state;
 
-    reg [9:0] temp_flag;
+    reg [20:0] temp_flag;
 
     always @(posedge clk) begin
 
-        case (state)
+        if (reset) begin
 
-            SQUAREX: begin
+            state <= SQX;
 
-                temp_flag = x * x;
-                state = ADDSQUAREY;
+        end else begin
 
-            end
+            case (state)
 
-            ADDSQUAREY: begin
+                SQX: begin
 
-                $monitor("before %b", state);
-                temp_flag = y * y;
-                state = CMPRAD;
-                $monitor("HERERR %b", state);
+                    temp_flag <= x * x;
+                    state <= ADDSQY;
 
-            end
+                end
 
-            CMPRAD: begin
+                ADDSQY: begin
 
-                in_circle = temp_flag < 10000;
-                state = CMPRAD;
+                    temp_flag <= temp_flag + y * y;
+                    state <= CMPRAD;
 
-            end
+                end
 
-            default: begin
+                CMPRAD: begin
 
-                state = SQUAREX;
+                    in_circle <= temp_flag < 10000;
+                    state <= CMPRAD;
+                    $display("DONE %d", temp_flag);
 
-            end
+                end
 
-        endcase
+            endcase
+
+        end
 
     end
 
