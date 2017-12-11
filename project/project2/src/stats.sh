@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Helper script to automate generation of execution times of lcs_length on 1,
-# 2, 4, 8, and 16 cores
+# 2, 4, 8, and 16 cores. This script is intended to be used with Slurm, but may
+# be executed independently as long-running job.
 
 set -o errexit
 
