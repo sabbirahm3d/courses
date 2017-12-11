@@ -35,7 +35,9 @@ module single_cycle_comp(
 
         end else begin
 
-            in_circle <= ((x * x + y * y) < 10000);
+            in_circle <= (
+                ((x - 320) * (x - 320) + (y - 240) * (y - 240)) < 10000
+            );
 
         end
 
