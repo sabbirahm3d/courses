@@ -40,7 +40,7 @@ module multi_cycle_comp(
     parameter RADIUS    = 10000;
 
     // temporary variables
-    reg signed [19:0] x_temp;
+    reg signed [19:0] coord_temp;
     reg signed [19:0] y_temp;
     reg signed [19:0] mul_temp;
 
@@ -57,7 +57,7 @@ module multi_cycle_comp(
                 // computes (x - xc) and (y - yc)
                 INIT: begin
 
-                    x_temp <= (x - XLEFT);
+                    coord_temp <= (x - XLEFT);
                     y_temp <= (y - YBOTTOM);
                     state <= SQUAREX;
 
@@ -66,7 +66,8 @@ module multi_cycle_comp(
                 // computes x^2
                 SQUAREX: begin
 
-                    mul_temp <= (x_temp * x_temp);
+                    mul_temp <= (coord_temp * coord_temp);
+                    coord_temp <= y_temp;
                     state <= SQUAREY;
 
                 end
@@ -74,8 +75,8 @@ module multi_cycle_comp(
                 // computes y^2
                 SQUAREY: begin
 
-                    x_temp <= mul_temp;
-                    mul_temp <= (y_temp * y_temp);
+                    mul_temp <= (coord_temp * coord_temp);
+                    coord_temp <= mul_temp;
                     state <= ADDCMP;
 
                 end
@@ -83,7 +84,7 @@ module multi_cycle_comp(
                 // compares x^2 + y^2 to 10000
                 ADDCMP: begin
 
-                    in_circle <= ((x_temp + mul_temp) < RADIUS);
+                    in_circle <= ((coord_temp + mul_temp) < RADIUS);
                     state <= INIT;
 
                 end
