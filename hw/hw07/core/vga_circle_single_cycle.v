@@ -31,12 +31,7 @@ module vga_circle_single_cycle(
         output reg blue
     );
 
-    // additional intermediate logic signal wires
     wire in_circle;  // high only when over circle
-    wire [9:0] x, y;  // traditional cartesean coordinates
-
-    assign x = pos_h;
-    assign y = 480 - pos_v;
 
     single_cycle_comp single_cycle_uut(
         .clk(clk),
@@ -48,10 +43,10 @@ module vga_circle_single_cycle(
 
     always @(posedge clk) begin
 
-        // cyan circle on black background
-        red <= ~in_circle & blank;
-        green <= in_circle & ~blank;
-        blue <= in_circle & ~blank;
+        // yellow circle on black background
+        red <= flag_on_rect & ~blank;
+        green <= flag_on_rect & ~blank;
+        blue <= ~flag_on_rect & blank;
 
     end
 

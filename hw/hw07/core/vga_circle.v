@@ -33,10 +33,6 @@ module vga_circle(
 
     // additional intermediate logic signal wires
     wire in_circle;  // high only when over circle
-    wire [9:0] x, y;  // traditional cartesean coordinates
-
-    assign x = pos_h;
-    assign y = 480 - pos_v;
 
     multi_cycle_comp multi_cycle_uut(
         .clk(clk),

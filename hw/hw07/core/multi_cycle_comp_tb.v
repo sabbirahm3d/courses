@@ -54,11 +54,6 @@ module multi_cycle_comp_tb;
 
         #480;
 
-        reset = 1;
-
-        #20;
-        reset = 0;
-
         // (10, 10) - outside the circle
         x = 10;
         y = 10;
