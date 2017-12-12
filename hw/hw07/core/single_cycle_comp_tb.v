@@ -26,8 +26,10 @@ module single_cycle_comp_tb;
     reg [9:0] x, y;  // traditional cartesean coordinates
 
     single_cycle_comp single_cycle_uut(
-        .clk(clk), .reset(reset),
-        .x(x), .y(y),
+        .clk(clk),
+        .reset(reset),
+        .x(x),
+        .y(y),
         .in_circle(in_circle)
     );
 
@@ -42,12 +44,13 @@ module single_cycle_comp_tb;
 
         clk = 1;
         reset = 1;
-
         #20;
         reset = 0;
         #20;
-        x = 100;
-        y = 100;
+
+        // (360, 240) - inside the circle
+        x = 360;
+        y = 240;
 
         #200;
 
@@ -56,6 +59,7 @@ module single_cycle_comp_tb;
         #20;
         reset = 0;
 
+        // (10, 10) - outside the circle
         x = 10;
         y = 10;
 

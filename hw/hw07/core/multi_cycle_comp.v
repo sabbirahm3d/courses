@@ -27,16 +27,22 @@ module multi_cycle_comp(
         output reg in_circle
     );
 
+    // state registers
     parameter INIT      = 2'b00;
-    parameter SQX       = 2'b01;
-    parameter SQY       = 2'b10;
+    parameter SQUAREX   = 2'b01;
+    parameter SQUAREY   = 2'b10;
     parameter ADDCMP    = 2'b11;
     reg [1:0] state;
 
-    reg signed [20:0] x_reg;
-    reg signed [20:0] y_reg;
-    reg signed [20:0] sum_sq;
-    reg signed [20:0] temp_out;
+    // dimension constants
+    parameter XLEFT     = 320;
+    parameter YBOTTOM   = 240;
+    parameter RADIUS    = 10000;
+
+    // temporary variables
+    reg signed [20:0] x_temp;
+    reg signed [20:0] y_temp;
+    reg signed [20:0] mul_temp;
 
     always @(posedge clk) begin
 
@@ -51,33 +57,33 @@ module multi_cycle_comp(
                 // computes (x - xc) and (y - yc)
                 INIT: begin
 
-                    x_reg <= (x - 320);
-                    y_reg <= (y - 240);
-                    state <= SQX;
+                    x_temp <= (x - XLEFT);
+                    y_temp <= (y - YBOTTOM);
+                    state <= SQUAREX;
 
                 end
 
                 // computes x^2
-                SQX: begin
+                SQUAREX: begin
 
-                    sum_sq <= (x_reg * x_reg);
-                    state <= SQY;
+                    mul_temp <= (x_temp * x_temp);
+                    state <= SQUAREY;
 
                 end
 
                 // computes y^2
-                SQY: begin
+                SQUAREY: begin
 
-                    x_reg <= sum_sq;
-                    sum_sq <= (y_reg * y_reg);
+                    x_temp <= mul_temp;
+                    mul_temp <= (y_temp * y_temp);
                     state <= ADDCMP;
 
                 end
 
-                // computes x^2 + y^2 < 10000
+                // compares x^2 + y^2 to 10000
                 ADDCMP: begin
 
-                    in_circle <= ((x_reg + sum_sq) < 10000);
+                    in_circle <= ((x_temp + mul_temp) < RADIUS);
                     state <= INIT;
 
                 end
