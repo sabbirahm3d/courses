@@ -40,9 +40,9 @@ module multi_cycle_comp(
     parameter RADIUS    = 10000;
 
     // temporary variables
-    reg signed [20:0] x_temp;
-    reg signed [20:0] y_temp;
-    reg signed [20:0] mul_temp;
+    reg signed [19:0] x_temp;
+    reg signed [19:0] y_temp;
+    reg signed [19:0] mul_temp;
 
     always @(posedge clk) begin
 

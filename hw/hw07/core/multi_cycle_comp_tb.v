@@ -52,7 +52,7 @@ module multi_cycle_comp_tb;
         x = 360;
         y = 240;
 
-        #200;
+        #480;
 
         reset = 1;
 
