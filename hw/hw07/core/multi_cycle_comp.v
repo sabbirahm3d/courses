@@ -41,7 +41,7 @@ module multi_cycle_comp(
 
     // temporary variables
     reg signed [19:0] coord_temp;
-    reg signed [19:0] y_temp;
+    reg signed [9:0] y_temp;
     reg signed [19:0] mul_temp;
 
     always @(posedge clk) begin
