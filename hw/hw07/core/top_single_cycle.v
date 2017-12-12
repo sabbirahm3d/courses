@@ -19,7 +19,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module top(
+module top_single_cycle(
         input wire CLK_50MHZ,
         input wire RESET,
         output wire VGA_BLUE, 

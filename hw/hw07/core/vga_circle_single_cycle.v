@@ -20,7 +20,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-module vga_circle(
+module vga_circle_single_cycle(
         input wire clk,
         input wire reset,
         input wire [9:0] pos_h,

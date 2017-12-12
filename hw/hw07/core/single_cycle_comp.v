@@ -27,6 +27,11 @@ module single_cycle_comp(
         output reg in_circle
     );
 
+    // state registers
+    parameter INIT      = 2'b00;
+    parameter COMPUTE   = 2'b01;
+    reg [1:0] state;
+
     // dimension constants
     parameter XLEFT     = 320;
     parameter YBOTTOM   = 240;
@@ -37,14 +42,30 @@ module single_cycle_comp(
         if (reset) begin
 
             in_circle <= 0;
+            state <= INIT;
 
         end else begin
 
-            // (x - xc)^2 + (y - yc)^2 < 10000
-            in_circle <= (
-                ((x - XLEFT) * (x - XLEFT) +
-                    (y - YBOTTOM) * (y - YBOTTOM)) < RADIUS
-            );
+            case(state)
+
+                INIT: begin
+
+                    state <= COMPUTE;
+
+                end
+
+                COMPUTE: begin
+
+                    // (x - xc)^2 + (y - yc)^2 < 10000
+                    in_circle <= (
+                        ((x - XLEFT) * (x - XLEFT) +
+                            (y - YBOTTOM) * (y - YBOTTOM)) < RADIUS
+                    );
+                    state <= INIT;
+
+                end
+
+            endcase
 
         end
 

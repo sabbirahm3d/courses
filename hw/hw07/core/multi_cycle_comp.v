@@ -52,7 +52,7 @@ module multi_cycle_comp(
 
         end else begin
 
-            case (state)
+            case(state)
 
                 // computes (x - xc) and (y - yc)
                 INIT: begin
