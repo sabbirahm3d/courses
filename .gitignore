@@ -19,7 +19,7 @@
 !*.ucf
 !*.xco
 !*.xise
-!*ipcore_dir/
+!*.xaw
 
 # special case to file patterns
 *_pad.txt
