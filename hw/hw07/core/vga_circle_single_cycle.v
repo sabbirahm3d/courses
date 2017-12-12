@@ -44,9 +44,9 @@ module vga_circle_single_cycle(
     always @(posedge clk) begin
 
         // yellow circle on black background
-        red <= flag_on_rect & ~blank;
-        green <= flag_on_rect & ~blank;
-        blue <= ~flag_on_rect & blank;
+        red <= in_circle & ~blank;
+        green <= in_circle & ~blank;
+        blue <= ~in_circle & blank;
 
     end
 
