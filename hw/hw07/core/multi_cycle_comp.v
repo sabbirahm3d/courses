@@ -4,7 +4,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    17:39:24 12/10/2017 
+// Create Date:    18:54:14 12/09/2017 
 // Design Name: 
 // Module Name:    multi_cycle_comp 
 // Project Name: 
@@ -24,25 +24,23 @@ module multi_cycle_comp(
         input wire reset,
         input wire [9:0] x,
         input wire [9:0] y,
-        output reg in_circle
+        output reg circleFlag
     );
 
-    // state registers
-    parameter INIT      = 2'b00;
-    parameter SQUAREX   = 2'b01;
-    parameter SQUAREY   = 2'b10;
-    parameter ADDCMP    = 2'b11;
+    parameter INIT    	= 2'b00;
+    parameter SquareX   = 2'b01;
+    parameter SquareY   = 2'b10;
+    parameter Compare   = 2'b11;
     reg [1:0] state;
+	 
+	 parameter XLEFT = 320;
+	 parameter YBOTTOM = 240;
+	 parameter RADIUS = 10000;
 
-    // dimension constants
-    parameter XLEFT     = 320;
-    parameter YBOTTOM   = 240;
-    parameter RADIUS    = 10000;
+    reg signed [19:0] subX;
+    reg signed [9:0] subY;
+    reg signed [19:0] sumSquared;
 
-    // temporary variables
-    reg signed [19:0] coord_temp;
-    reg signed [9:0] y_temp;
-    reg signed [19:0] mul_temp;
 
     always @(posedge clk) begin
 
@@ -52,39 +50,40 @@ module multi_cycle_comp(
 
         end else begin
 
-            case(state)
+            case (state)
 
-                // computes (x - xc) and (y - yc)
+                // computes the subtractions 
                 INIT: begin
 
-                    coord_temp <= (x - XLEFT);
-                    y_temp <= (y - YBOTTOM);
-                    state <= SQUAREX;
+                    subX <= (x - XLEFT);
+                    subY <= (y - YBOTTOM);
+                    state <= SquareX;
+						  
 
                 end
 
                 // computes x^2
-                SQUAREX: begin
+                SquareX: begin
 
-                    mul_temp <= (coord_temp * coord_temp);
-                    coord_temp <= y_temp;
-                    state <= SQUAREY;
+                    sumSquared <= (subX * subX);
+						  subX <= subY;
+                    state <= SquareY;
 
                 end
 
                 // computes y^2
-                SQUAREY: begin
+                SquareY: begin
 
-                    mul_temp <= (coord_temp * coord_temp);
-                    coord_temp <= mul_temp;
-                    state <= ADDCMP;
+                    subX <=sumSquared;
+                    sumSquared <= (subX * subX);
+                    state <= Compare;
 
                 end
 
-                // compares x^2 + y^2 to 10000
-                ADDCMP: begin
+                // compares x^2 + y^2 to 10000 and assigns the flag
+                Compare: begin
 
-                    in_circle <= ((coord_temp + mul_temp) < RADIUS);
+                    circleFlag <= ((subX + sumSquared) < RADIUS);
                     state <= INIT;
 
                 end
