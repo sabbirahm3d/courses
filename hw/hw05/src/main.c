@@ -54,6 +54,7 @@ const char PROGMEM FEDSTR[] = "FED";
 char *WORD;
 int WALLET = 10;
 int BET = 1;
+int GAMBLE = 0;
 
 // initial ADC value
 uint8_t INITADC;
@@ -431,7 +432,7 @@ uint8_t multiplier(char *word) {
 
     if (!strcmp(word, BACSTR) || !strcmp(word, CAFSTR) || !strcmp(word, DEFSTR)
             || !strcmp(word, FABSTR) || !strcmp(word, FAESTR)
-            || !strcmp(word, FAC)) {
+            || !strcmp(word, FACSTR)) {
 
         return 1;
 
