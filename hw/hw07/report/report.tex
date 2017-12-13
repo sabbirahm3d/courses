@@ -18,6 +18,10 @@
 \usepackage{array}
 \usepackage{multirow}
 \usepackage[font=small, labelfont=bf]{caption}
+\usepackage{listings}
+\lstset{
+    mathescape=True
+}
 \captionsetup[table]{skip=10pt}
 \renewcommand{\arraystretch}{1.2}
 
@@ -34,6 +38,18 @@
     computations in a serial fashion. In this project, students will display a
     circle on the screen, examine analysis reports, and modify synthesis
     options.
+
+    Before the implementation, the previous VGA rectangle was resynthesized to
+    generate its timing report with the newly added Digital Clock Manager
+    (DCM). Figure \ref{fig:recttime} provides the clock report generated,
+    showing it met the timing constraints.
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{recttime.png}
+            \caption{Screen capture of the clock report of the rectangle.}
+            \label{fig:recttime}
+        \end{center}
+    \end{figure}
 
     \section{Implementation} Multiple designs were implemented to analyze their
     effects on resource sharing and timing constraints.
@@ -283,6 +299,7 @@ N/A \\
             \end{tabular*}
 
         \end{table}
+        \newpage
 
         \subsection{Multiple Cycle Computation Design without Resource Sharing}
         The design for this multiple cycles implementation is identical to the
@@ -314,5 +331,32 @@ N/A \\
             \end{tabular*}
 
         \end{table}
+
+\newpage
+\section{Listings}
+\begin{lstlisting}[language=Verilog, caption=Single Cycle Computation State Machine]
+always @(posedge clk) begin
+    if (reset) begin
+        in_circle <= 0;
+        state <= INIT;
+    end else begin
+        case (state)
+            INIT: begin
+                state <= COMPUTE;
+            end
+            COMPUTE: begin
+                // (x - x$_C$)$^2$ + (y - y$_C$)$^2$ < 10000
+                in_circle <= (
+                    ((x - XLEFT) * (x - XLEFT) +    // (x - x$_C$)$^2$ +
+                    (y - YBOTTOM) * (y - YBOTTOM))  // (y - y$_C$)$^2$
+                    < RADIUS                        // < 10000
+                );
+                state <= INIT;
+            end
+        endcase
+    end
+end
+\end{lstlisting}
+
 
 \end{document}

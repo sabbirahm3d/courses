@@ -46,7 +46,7 @@ module single_cycle_comp(
 
         end else begin
 
-            case(state)
+            case (state)
 
                 INIT: begin
 
