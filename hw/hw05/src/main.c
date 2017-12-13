@@ -22,6 +22,12 @@
 
 
 // ------------------ CONSTANTS ------------------
+#ifndef F_CPU
+#define F_CPU 8000000UL
+#endif
+
+#define PORTB5_MASK  0b00100000
+#define MIN_PULSE_WIDTH 10
 #define LCDREGCNT 20
 #define LCDINITCONTRAST 0x0F
 #define pLCDREG ((unsigned char *)(0xEC))  // LCD Data Register 0
@@ -77,13 +83,6 @@ unsigned int LCDCHARTABLE[] = {
         0x0111,     // '7
         0x1f51,     // '8
         0x1b51,     // '9'
-        0x0000,     // ':' (Not defined)
-        0x0000,     // ';' (Not defined)
-        0x0000,     // '<' (Not defined)
-        0x0000,     // '=' (Not defined)
-        0x0000,     // '>' (Not defined)
-        0x0000,     // '?' (Not defined)
-        0x0000,     // '@' (Not defined)
         0x0f51,     // 'A' (+ 'a')
         0x3991,     // 'B' (+ 'b')
         0x1441,     // 'C' (+ 'c')
@@ -113,6 +112,18 @@ ISR(PCINT1_vect) {
 }
 
 // ------------------ FUNCTION PROTOTYPES ------------------
+
+// ------------------ BUZZER FUNCTIONS ------------------
+
+void MusicSetupPort(void);
+
+void MusicRest(void);
+
+void MusicPlayA(void);
+
+void MusicSetupTimer1(void);
+
+void MusicSetNote(int);
 
 // ------------------ LCD FUNCTIONS ------------------
 
@@ -151,7 +162,7 @@ uint8_t multiplier(char *);
 
 void spin(void);
 
-uint8_t welcome_screen(void);
+void welcome_screen(void);
 
 // ------------------ HELPER FUNCTIONS ------------------
 
@@ -159,6 +170,58 @@ uint8_t max3(uint8_t, uint8_t, uint8_t);
 
 
 // ------------------ FUNCTION IMPLEMENTATIONS ------------------
+
+
+void MusicSetupPort() {
+    DDRB |= PORTB5_MASK; //enable PORTB5 as output
+}
+
+void MusicSetNote(int period_us) {
+    ICR1 = period_us / 2;
+    OCR1A = period_us / 4;
+    TCNT1 = 0;
+}
+
+void MusicRest() {
+    OCR1A = 0;
+};
+
+void MusicPlayA() {
+    MusicSetNote(2272);
+    MusicRest();
+}
+
+void MusicSetupTimer1() {
+    /* Timer/Counter1 Control Register A */
+    int value_TCCR1A_COM1A_2b = 2; //clear on match up, set on match down
+    int value_TCCR1A_COM1B_2b = 0; //disable
+    //this one is spread over both regsters
+    int value_TCCR1AB_WGM1_4b = 8; //PWM+frequency control using register ICR1
+    /* Timer/Counter1 Control Register B */
+    int value_TCCR1B_ICNC1_1b = 0; //no input capture noise cancel
+    int value_TCCR1B_ICES1_1b = 0; //Dont Care since not used
+    int value_TCCR1B_CS1_3b = 2; //use clock prescaler 8
+    TCCR1A = (value_TCCR1A_COM1A_2b << COM1A0) + (value_TCCR1A_COM1B_2b
+            << COM1B0) + ((value_TCCR1AB_WGM1_4b & 0x3) << WGM10);
+    TCCR1B = (value_TCCR1B_ICNC1_1b << ICNC1) + (value_TCCR1B_ICES1_1b
+            << ICES1) + (((value_TCCR1AB_WGM1_4b & 0b00001100) >> 2)
+            << WGM12) + (value_TCCR1B_CS1_3b << CS10);
+
+    /* Timer/Counter1 Input Capture Register */
+    //also used for frequency setting
+    ICR1 = 0xFF / 2; //16 bits //just some initial value
+
+
+
+    /* Timer/Counter 1 Interrupt Mask Register */
+    int value_TIMSK1_ICIE1_1b = 0;//input capture int. enable
+    int value_TIMSK1_OCIE1B_1b = 0;//output compare int. enable
+    int value_TIMSK1_OCIE1A_1b = 0;//output compare int. enable
+    int value_TIMSK1_TOIE1_1b = 0;//overflow int. enable
+    TIMSK1 = (value_TIMSK1_ICIE1_1b << ICIE1) + (value_TIMSK1_OCIE1B_1b
+            << OCIE1B) + (value_TIMSK1_OCIE1A_1b << OCIE1A) + (
+            value_TIMSK1_TOIE1_1b << TOIE1);
+}
 
 
 /*
@@ -324,7 +387,7 @@ void pins_init(void) {
  */
 void increase_bet() {
 
-    if (BET < 9) {
+    if ((BET < 9) && (BET < WALLET)) {
         BET++;
     }
 
@@ -372,7 +435,19 @@ uint8_t which_button() {
         lcd_puts_P(WELCOMESTR);
     }
 
-    return welcome_screen();
+    if (push_button()) {
+        return 1;
+    } else if (press_up()) {
+        return 2;
+    } else if (press_down()) {
+        return 3;
+    } else if (press_left()) {
+        return 4;
+    } else if (press_right()) {
+        return 5;
+    }
+
+    welcome_screen();
 
 }
 
@@ -519,21 +594,13 @@ void spin() {
 
 
 /*
- * Displays the main menu to the user and prompts for their input. The
- * function then returns the user's input to be treated as their choice from
- * the main menu prompt. */
-uint8_t welcome_screen() {
-
-    int choice;
-    char user_line[20];
+ * Displays the welcome screen 
+ */
+void welcome_screen() {
 
     if (push_button()) {
         return 1;
-    } else if (fgets(user_line, 20, stdin) != NULL) {
-        sscanf(user_line, "%d", &choice);
     }
-
-    return (uint8_t) choice;
 
 }
 
