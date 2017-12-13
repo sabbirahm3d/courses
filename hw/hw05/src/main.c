@@ -7,12 +7,11 @@
  *
  */
 
-
+// standard libraries
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-
 #include <time.h>
 
 
@@ -30,25 +29,26 @@
 #define LCDCONTRASTLEVEL(level) LCDCCR = ((LCDCCR & 0xF0) | (0x0F & (level)))
 
 const char PROGMEM WELCOMESTR[] = "HELLO";
-const char PROGMEM BAC[] = "BAC";
-const char PROGMEM CAF[] = "CAF";
-const char PROGMEM DEF[] = "DEF";
-const char PROGMEM FAB[] = "FAB";
-const char PROGMEM FAE[] = "FAE";
-const char PROGMEM FAC[] = "FAC";
-const char PROGMEM ADC_str[] = "ADC";
-const char PROGMEM CAD[] = "CAD";
-const char PROGMEM DAE[] = "DAE";
-const char PROGMEM DEB[] = "DEB";
-const char PROGMEM FEB[] = "FEB";
-const char PROGMEM CAB[] = "CAB";
-const char PROGMEM FAD[] = "FAD";
-const char PROGMEM FDA[] = "FDA";
-const char PROGMEM ACE[] = "ACE";
-const char PROGMEM BAD[] = "BAD";
-const char PROGMEM BED[] = "BED";
-const char PROGMEM DAB[] = "DAB";
-const char PROGMEM FED[] = "FED";
+// slot words with multipliers stored in program memory
+const char PROGMEM BACSTR[] = "BAC";
+const char PROGMEM CAFSTR[] = "CAF";
+const char PROGMEM DEFSTR[] = "DEF";
+const char PROGMEM FABSTR[] = "FAB";
+const char PROGMEM FAESTR[] = "FAE";
+const char PROGMEM FACSTR[] = "FAC";
+const char PROGMEM ADCSTR[] = "ADC";
+const char PROGMEM CADSTR[] = "CAD";
+const char PROGMEM DAESTR[] = "DAE";
+const char PROGMEM DEBSTR[] = "DEB";
+const char PROGMEM FEBSTR[] = "FEB";
+const char PROGMEM CABSTR[] = "CAB";
+const char PROGMEM FADSTR[] = "FAD";
+const char PROGMEM FDASTR[] = "FDA";
+const char PROGMEM ACESTR[] = "ACE";
+const char PROGMEM BADSTR[] = "BAD";
+const char PROGMEM BEDSTR[] = "BED";
+const char PROGMEM DABSTR[] = "DAB";
+const char PROGMEM FEDSTR[] = "FED";
 
 
 char *WORD;
@@ -60,6 +60,12 @@ uint8_t INITADC;
 
 // truncated look-up table used when converting ASCII to LCD display data
 unsigned int LCDCHARTABLE[] = {
+        0x0A51,     // '*' (?)
+        0x2A80,     // '+'
+        0x0000,     // ',' (Not defined)
+        0x0A00,     // '-'
+        0x0A51,     // '.' Degree sign
+        0x0000,     // '/' (Not defined)
         0x5559,     // '0'
         0x0118,     // '1'
         0x1e11,     // '2
@@ -70,10 +76,23 @@ unsigned int LCDCHARTABLE[] = {
         0x0111,     // '7
         0x1f51,     // '8
         0x1b51,     // '9'
+        0x0000,     // ':' (Not defined)
+        0x0000,     // ';' (Not defined)
+        0x0000,     // '<' (Not defined)
+        0x0000,     // '=' (Not defined)
+        0x0000,     // '>' (Not defined)
+        0x0000,     // '?' (Not defined)
+        0x0000,     // '@' (Not defined)
         0x0f51,     // 'A' (+ 'a')
+        0x3991,     // 'B' (+ 'b')
+        0x1441,     // 'C' (+ 'c')
+        0x3191,     // 'D' (+ 'd')
+        0x1e41,     // 'E' (+ 'e')
         0x0e41,     // 'F' (+ 'f')
+        0x0f50,     // 'H' (+ 'h')
         0x1440,     // 'L' (+ 'l')
-        0x2081      // 'T' (+ 't')
+        0x1551,     // 'O' (+ 'o')
+        0x9021,     // 'S' (+ 's')
 };
 
 
@@ -104,19 +123,9 @@ void lcd_all_segs(unsigned char);
 
 void lcd_puts_P(const char[]);
 
-// ------------------ ADC FUNCTIONS ------------------
-
-void adc_init();
-
-void adc_start_flag();
-
-void adc_clear_flag();
-
-int adc_is_set_flag();
-
-uint16_t get_adc();
-
 // ------------------ JOYSTICK FUNCTIONS ------------------
+
+uint8_t which_button(void);
 
 uint8_t press_up(void);
 
@@ -124,11 +133,24 @@ uint8_t press_down(void);
 
 uint8_t press_right(void);
 
-// ------------------ SERVO FUNCTIONS ------------------
+uint8_t press_left(void);
 
-void follow_the_light(void);
+uint8_t push_button(void);
 
-void avoid_the_light(void);
+// ------------------ MENU FUNCTIONS ------------------
+void increase_bet(void);
+
+void reset(void);
+
+void slot_machine_screen(void);
+
+void earnings_screen(void);
+
+uint8_t multiplier(char *);
+
+void spin(void);
+
+uint8_t welcome_screen(void);
 
 // ------------------ HELPER FUNCTIONS ------------------
 
@@ -296,7 +318,9 @@ void pins_init(void) {
 
 }
 
-
+/*
+ * Increases bet of the user up to the maximum
+ */
 void increase_bet() {
 
     if (BET < 9) {
@@ -305,6 +329,9 @@ void increase_bet() {
 
 }
 
+/*
+ * Resets all values and states of the user
+ */
 void reset() {
 
     BET = 1;
@@ -312,7 +339,9 @@ void reset() {
 
 }
 
-
+/*
+ * Displays current bet amount of user and the slot machine slots
+ */
 void slot_machine_screen() {
 
     lcd_puts_P("%d AAA");
@@ -320,6 +349,9 @@ void slot_machine_screen() {
 
 }
 
+/*
+ * Displays the earning screen if the user has any, else ends game
+ */
 void earnings_screen() {
 
     if (WALLET > 0) {
@@ -329,6 +361,20 @@ void earnings_screen() {
     }
 
 }
+
+/*
+ * Assigns user inputs to integers for convenient option management
+ */
+uint8_t which_button() {
+
+    if (!GAMBLE) {
+        lcd_puts_P(WELCOMESTR);
+    }
+
+    return welcome_screen();
+
+}
+
 
 /*
  * Returns status of JOYSTICK UP
@@ -360,6 +406,15 @@ uint8_t press_right() {
 }
 
 /*
+ * Returns status of JOYSTICK LEFT
+ */
+uint8_t press_left() {
+
+    return (PORTE & 0b00001000);
+
+}
+
+/*
  * Returns status of JOYSTICK RIGHT
  */
 uint8_t push_button() {
@@ -369,31 +424,34 @@ uint8_t push_button() {
 }
 
 
+/*
+ * Returns multiplier of the word the slots landed on
+ */
 uint8_t multiplier(char *word) {
 
-    if (!strcmp(word, BAC) || !strcmp(word, CAF) || !strcmp(word, DEF)
-            || !strcmp(word, FAB) || !strcmp(word, FAE)
+    if (!strcmp(word, BACSTR) || !strcmp(word, CAFSTR) || !strcmp(word, DEFSTR)
+            || !strcmp(word, FABSTR) || !strcmp(word, FAESTR)
             || !strcmp(word, FAC)) {
 
         return 1;
 
-    } else if (!strcmp(word, ADC_str) || !strcmp(word, CAD) ||
-            !strcmp(word, DAE) || !strcmp(word, DEB)
-            || !strcmp(word, FEB)) {
+    } else if (!strcmp(word, ADCSTR) || !strcmp(word, CADSTR) ||
+            !strcmp(word, DAESTR) || !strcmp(word, DEBSTR)
+            || !strcmp(word, FEBSTR)) {
 
         return 2;
 
-    } else if (!strcmp(word, CAB) || !strcmp(word, FAD)
-            || !strcmp(word, FDA)) {
+    } else if (!strcmp(word, CABSTR) || !strcmp(word, FADSTR)
+            || !strcmp(word, FDASTR)) {
 
         return 3;
 
-    } else if (!strcmp(word, ACE) || !strcmp(word, BAD)) {
+    } else if (!strcmp(word, ACESTR) || !strcmp(word, BADSTR)) {
 
         return 4;
 
-    } else if (!strcmp(word, BED) || !strcmp(word, DAB)
-            || !strcmp(word, FED)) {
+    } else if (!strcmp(word, BEDSTR) || !strcmp(word, DABSTR)
+            || !strcmp(word, FEDSTR)) {
 
         return 5;
 
@@ -403,14 +461,16 @@ uint8_t multiplier(char *word) {
 
     }
 
-
 }
 
-
-uint8_t spin() {
-
-//    demo stuff
-////////////////////////////
+/*
+ * "Spins" the 3 character word to simulate a slot machine. Each of the slots
+ * spin at different rates. The spinning halts per character after subsequent
+ * push button interrupts are generated. The final word is then passed in to
+ * the multiplier() function to determine its multiplier and recalculate the
+ * global bet amount.
+ */
+void spin() {
 
     void delay(int number_of_seconds) {
         // Converting time into milli_seconds
@@ -422,18 +482,17 @@ uint8_t spin() {
         // looping till required time is not achieved
         while (clock() < start_time + milli_seconds);
     }
-
     srand(time(NULL));
     int r = rand() % 50;
-///////////////////////////
 
     uint8_t j = 0, k = 0;
     WORD = (char *) malloc((4 * sizeof(char)));
     for (unsigned int i = 0; i < 100; i++)
+        // print from 'A' to 'F'
         for (char c = 'A'; c <= 'F'; ++c) {
             _delay_ms(10);
             if (k < 3 && (j % 50) == r) {
-                printf("%c\n", c);
+                lcd_puts_P(c);
                 WORD[k] = c;
                 k++;
             }
@@ -445,7 +504,7 @@ uint8_t spin() {
 
 
     WORD[3] = '\0';
-    printf("SLOT: %s\n", WORD);
+    lcd_puts_P(WORD);
 
     int spin_result = multiplier(WORD);
 
@@ -474,17 +533,6 @@ uint8_t welcome_screen() {
     }
 
     return (uint8_t) choice;
-
-}
-
-
-uint8_t which_button() {
-
-    if (!GAMBLE) {
-        printf(WELCOMESTR);
-    }
-
-    return welcome_screen();
 
 }
 
@@ -551,7 +599,6 @@ int main() {
 
 
     }
-
 
     return EXIT_SUCCESS;
 
