@@ -94,12 +94,11 @@
     \codeword{lcd_puts_P}.
 
     \section{Usage} The project depends on user inputs from the Butterfly
-    joystick. The program sits in a loop until the \texttt{RIGHT} joystick
-    button is pressed. The user may press the \texttt{UP} or \texttt{DOWN}
-    joystick buttons to toggle between the \texttt{FTL} and \texttt{ATL} modes.
-    After a mode is selected, the servo begins sweeping with its corresponding
-    configuration. The program terminates 10 seconds after a
-    \texttt{LOCALSWEEP} followed by a \texttt{FULLSWEEP} are executed.
+    joystick and push button. The program sits in a loop until the
+    \texttt{PUSH} button is pressed. The user may press the \texttt{UP},
+    \texttt{DOWN}, \texttt{LEFT} or \texttt{RIGHT} joystick buttons to toggle
+    between the screens and options as per the description. The inputs are
+    interrupt driven, and the LCD alerts the user whenever necessary.
 
     \section{Testing and Troubleshooting} Debugging the functionalities of the
     program required extensive usage of hardware. This attribute resulted in
