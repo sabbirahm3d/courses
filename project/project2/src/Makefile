@@ -9,7 +9,7 @@ THREADS = $(shell nproc --all)
 SUBMITFILE = jobid.txt
 
 # define the C compiler to use
-CC := gcc
+CC := icc
 
 # define any compile-time flags
 CFLAGS := -std=c99 -Wall -fopenmp

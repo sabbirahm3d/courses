@@ -15,17 +15,17 @@
  * The attached Makefile may be utilized to build and run this script with
  * the command line arguments.
  *
- * The C compiler is set to gcc by default:
+ * The C compiler is set to the Intel compiler, icc by default:
  *
  *      make build
  *
- * The Intel compiler may instead be used by:
+ * GCC may instead be used by:
  *
- *      make build CC=icc
+ *      make build CC=gcc
  *
  * For running the executable:
  *
- *      make run SEQ1 SEQ1LEN SEQ2 SEQ2LEN
+ *      make run SEQ1 SEQ1LEN SEQ2 SEQ2LEN THREADS
  *
  * where the default values are:
  *
@@ -33,11 +33,12 @@
  *      SEQ1LEN = 10000
  *      SEQ2    = seq2.txt
  *      SEQ2LEN = 10000
+ *      THREADS = nproc --all
  *
  * Memory leaks may also be checked with a target with similar arguments and
  * default values:
  *
- *      make val SEQ1 SEQ1LEN SEQ2 SEQ2LEN
+ *      make val SEQ1 SEQ1LEN SEQ2 SEQ2LEN THREADS
  *
  */
 

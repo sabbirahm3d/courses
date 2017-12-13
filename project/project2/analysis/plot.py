@@ -31,18 +31,18 @@ def core_scatter(data, tickangle=0, bpad=100):
 
     layout = go.Layout(
         xaxis={
-            "title": "Sequence Lengths",
+            "title":
+            "$\\text{Sequence Lengths } (\\text{m} \\times \\text{n})$",
             "tickangle": tickangle,
         },
         yaxis={
-            "title": "Log Mean Time (s)",
+            "title": "$\\text{Log of Mean Time } (log_\\text{10}(\\text{s}))$",
         },
         font={
             "size": 18
         },
         height=900, width=1600,
         margin={
-            # "t": 2000,
             "b": bpad,
         }
     )
@@ -59,6 +59,7 @@ if __name__ == "__main__":
     equal_cols = set()
     unequal_rows = []
     unequal_cols = set()
+    figure_dir = "../report/figures/"
 
     with open("data.json") as data_file:
         data = json.load(data_file)
@@ -103,10 +104,10 @@ if __name__ == "__main__":
 
     fig = core_scatter(equal_cores)
     py.image.save_as(
-        fig, filename="equal.png"
+        fig, filename=figure_dir + "equal.png"
     )
 
     fig = core_scatter(unequal_cores, 90, 225)
     py.image.save_as(
-        fig, filename="unequal.png"
+        fig, filename=figure_dir + "unequal.png"
     )
