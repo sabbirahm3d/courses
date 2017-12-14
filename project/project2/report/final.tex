@@ -526,22 +526,41 @@ function P-LCS-LENGTH(X, Y, m, n)
         \end{equation*}
         The speedup for the algorithm appears near-linear for $P$ processors.
 
-    \section{Testing and Debugging} 
+    \section{Performance Evaluation} The performance of the parallel
+    implementation was measured on the maya nodes using 1, 2, 4, 8 and 16
+    processors. Slurm Workload Manager was used along with a Bash script to
+    generate different combinations of $P$ processors with various sequence
+    lengths, $m$ and $n$. Each combinations ran 5 times so that their mean
+    execution times could be computed for analysis.
 
-        \subsection{Milestone 1} The source code was initially developed in
-        C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
-        did not appear to properly compile the source code. The executable
-        built without any warnings or errors, but the algorithm during its
-        execution appeared to skip steps. The current implementation in C
-        compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
+        \subsection{Data Analysis} Once all the execution times generated,
+        their means were calculated for each combinations of $P$, $m$ and $n$.
+        The execution times where $m = n$ were separated from those with $m \ne
+        n$.
 
-        \subsection{Milestone 2} Measurement of the empirical running times
-        began using Slurm on the Maya clusters. Initially, the batch submission
-        script did not have sufficient memory to compute the LCS of 100,000
-        $\times$ 100,000 character length sequences. The memory had to be
-        increased by declaring \texttt{\#SBATCH --mem=50000} on the script's
-        preprocessor directives. The mean of the execution times for 1, 2, 4, 8
-        and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{equal.png}
+                \caption{Semi-log plot of $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence lengths, $m,n$, where $m=n$} \label{equal}
+            \end{center}
+        \end{figure}
+
+    % \section{Testing and Debugging} 
+
+    %     \subsection{Milestone 1} The source code was initially developed in
+    %     C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
+    %     did not appear to properly compile the source code. The executable
+    %     built without any warnings or errors, but the algorithm during its
+    %     execution appeared to skip steps. The current implementation in C
+    %     compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
+
+    %     \subsection{Milestone 2} Measurement of the empirical running times
+    %     began using Slurm on the Maya clusters. Initially, the batch submission
+    %     script did not have sufficient memory to compute the LCS of 100,000
+    %     $\times$ 100,000 character length sequences. The memory had to be
+    %     increased by declaring \texttt{\#SBATCH --mem=50000} on the script's
+    %     preprocessor directives. The mean of the execution times for 1, 2, 4, 8
+    %     and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
 
     \bibliography{references}
 

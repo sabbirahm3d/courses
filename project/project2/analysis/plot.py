@@ -36,7 +36,8 @@ def core_scatter(data, tickangle=0, bpad=100):
             "tickangle": tickangle,
         },
         yaxis={
-            "title": "$\\text{Log of Mean Time } (log_\\text{10}(\\text{s}))$",
+            "title":
+            "$\\text{Log of Mean Execution Time } (log_\\text{10}(\\text{s}))$",
         },
         font={
             "size": 18
