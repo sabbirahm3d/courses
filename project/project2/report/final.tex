@@ -349,8 +349,8 @@ function SERIAL-LCS-PRINT(X, Y, m, n, lcs)
     labeled as [2] (highlighted in \tikz{\draw[fill=MidnightBlue!25,line
     width=0.5pt] rectangle(1.25ex,1.25ex);}).
 
-    To avoid issues with bounds of the lengths of the diagonals, the parallel
-    algorithm splits the matrix into two halves visualized in Table
+    To avoid issues with bounds of the lengths of the anti-diagonals, the
+    parallel algorithm splits the matrix into two halves visualized in Table
     \ref{table:halves}.
 
 \begin{table}[h]
@@ -484,7 +484,7 @@ function P-LCS-LENGTH(X, Y, m, n)
         }}\text{ITER($j$)}$ = $\Theta(i)$, (congruently $\underset{i \le j \le
         n+d}{\text{max }}\text{ITER($j$)}$ = $\Theta(i)$ for the second
         half of the matrix), the \texttt{\textbf{parallel}} loop is
-        $\Theta(i)$.
+        $\Theta(i)$. \cite{Huang1989}
 
         The overhead for the loops come from the outer loops iterating for the
         total number of diagonals. The number of diagonals is congruent to the
@@ -533,15 +533,41 @@ function P-LCS-LENGTH(X, Y, m, n)
     lengths, $m$ and $n$. Each combinations ran 5 times so that their mean
     execution times could be computed for analysis.
 
-        \subsection{Data Analysis} Once all the execution times generated,
+        \subsection{Execution Times} Once all the execution times generated,
         their means were calculated for each combinations of $P$, $m$ and $n$.
         The execution times where $m = n$ were separated from those with $m \ne
-        n$.
+        n$. Figure \ref{equal} plots the execution times of the algorithm
+        against the sequence lengths.
 
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{equal.png}
-                \caption{Semi-log plot of $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence lengths, $m,n$, where $m=n$} \label{equal}
+                \caption{Plot of
+                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
+                lengths, $m,n$, where $m=n$.} \label{equal}
+            \end{center}
+        \end{figure}
+
+        Note the lengths of the sequences do not necessarily follow a constant
+        pattern (they increase in factors of \{2, 2.5, 2, 2, 2.5, 2, 2\}), due
+        to timing constraints of the job queue of Slurm. Also note that since
+        the execution times increase exponentially, differentiating between the
+        functions becomes difficult. Figure \ref{equal_log} provides a semi-logarithmic plot of the same data, representing the dependent variable in a logarithmic scale.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{equal_log.png}
+                \caption{Semi-logarithm plot of
+                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
+                lengths, $m,n$, where $m=n$.} \label{equal_log}
+            \end{center}
+        \end{figure}
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{unequal.png}
+                \caption{Semi-logarithm plot of
+                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
+                lengths, $m,n$, where $m\ne n$. } \label{equal}
             \end{center}
         \end{figure}
 
@@ -562,7 +588,8 @@ function P-LCS-LENGTH(X, Y, m, n)
     %     preprocessor directives. The mean of the execution times for 1, 2, 4, 8
     %     and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
 
-    \bibliography{references}
+    \newpage
+    \bibliography{algo,journal_parallel}
 
 \end{document}
 

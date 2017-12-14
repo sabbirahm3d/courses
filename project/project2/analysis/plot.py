@@ -10,7 +10,9 @@ import plotly.graph_objs as go
 from secret import API_KEY, USERNAME
 
 
-def core_scatter(data, tickangle=0, bpad=100):
+def core_scatter(data, tickangle=0, bpad=100,
+                 ytitle="$\\text{Log of Mean Execution Time } (log_\\text{10}(\\text{s}))$"
+                 ):
 
     plot_data = []
     cores = [1, 2, 4, 8, 16]
@@ -36,8 +38,7 @@ def core_scatter(data, tickangle=0, bpad=100):
             "tickangle": tickangle,
         },
         yaxis={
-            "title":
-            "$\\text{Log of Mean Execution Time } (log_\\text{10}(\\text{s}))$",
+            "title": ytitle,
         },
         font={
             "size": 18
@@ -80,11 +81,21 @@ if __name__ == "__main__":
         for core in equal_cols
     }
 
+    equal_cores_log = {
+        core: {
+            "x": [],
+            "y": [],
+        }
+        for core in equal_cols
+    }
+
     for row in equal_rows:
         for core in equal_cols:
             if row["core"] == core:
                 equal_cores[core]["x"].append(row["dims"])
-                equal_cores[core]["y"].append(log10(row["time"]))
+                equal_cores[core]["y"].append(row["time"])
+                equal_cores_log[core]["x"].append(row["dims"])
+                equal_cores_log[core]["y"].append(log10(row["time"]))
 
     unequal_cores = {
         core: {
@@ -103,9 +114,14 @@ if __name__ == "__main__":
     # credentials for plot.ly API
     py.sign_in(username=USERNAME, api_key=API_KEY)
 
-    fig = core_scatter(equal_cores)
+    fig = core_scatter(equal_cores, ytitle="Mean Execution Time (s)")
     py.image.save_as(
         fig, filename=figure_dir + "equal.png"
+    )
+
+    fig = core_scatter(equal_cores_log)
+    py.image.save_as(
+        fig, filename=figure_dir + "equal_log.png"
     )
 
     fig = core_scatter(unequal_cores, 90, 225)
