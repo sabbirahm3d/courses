@@ -191,7 +191,7 @@ function LCS-LENGTH(X, Y, m, n)
             // if upper-leftmost cell, content is 0
             if (i == 0 or j == 0)
                 $\lcs_{i, j}$ = 0
-            // if equal, content is the left diagonal value incremented by 1
+            // if equal, content is the left anti-diagonal value incremented by 1
             else if ($\seqone_{i - 1}$ == $\seqtwo_{j - 1}$)
                 $\lcs_{i, j}$ = $\lcs_{i-1, j-1}$ + 1  
             // maximum between previous row and previous column values
@@ -254,7 +254,7 @@ function SERIAL-LCS-PRINT(X, Y, m, n, lcs)
 
 \begin{table}[h]
     \caption{LCS matrix constructed when comparing \texttt{GCGTCA} and
-    \texttt{ACGAA} with the diagonal subproblems highlighted}
+    \texttt{ACGAA} with the anti-diagonal subproblems highlighted}
     \label{table:serialmatsubprob}
     \centering
     \setlength\tabcolsep{0pt}
@@ -341,11 +341,11 @@ function SERIAL-LCS-PRINT(X, Y, m, n, lcs)
     The parallel implementation must generate the same values in the cells
     using these subproblems to avoid race conditions between threads.
 
-    To iterate through the cells in these diagonal independent subproblems, the
-    algorithm must consider the constraint that the lengths of the diagonal
+    To iterate through the cells in these anti-diagonal independent subproblems, the
+    algorithm must consider the constraint that the lengths of the anti-diagonal
     subproblems do not monotonically increase. The lengths increase until the
-    diagonal label as [1] (highlighted in \tikz{\draw[fill=Fuchsia!25,line
-    width=0.5pt] rectangle(1.25ex,1.25ex);}) and decreases after the diagonal
+    anti-diagonal label as [1] (highlighted in \tikz{\draw[fill=Fuchsia!25,line
+    width=0.5pt] rectangle(1.25ex,1.25ex);}) and decreases after the anti-diagonal
     labeled as [2] (highlighted in \tikz{\draw[fill=MidnightBlue!25,line
     width=0.5pt] rectangle(1.25ex,1.25ex);}).
 
@@ -451,12 +451,12 @@ function P-LCS-LENGTH(X, Y, m, n)
             else
                 $\lcs_{i - j + 1, j}$ = $\lcs_{i - j + 1, j - 1}$
     // second half of the matrix
-    diagonal_len = 0
+    anti-diagonal_len = 0
     for i = 2 to m
-        // if the diagonal length is not at its maximum
-        if diagonal_len < (m - n)
-            diagonal_len++  // increment the maximum diagonal length
-        parallel for j = i to (n + diagonal_len)
+        // if the anti-diagonal length is not at its maximum
+        if anti-diagonal_len < (m - n)
+            anti-diagonal_len++  // increment the maximum anti-diagonal length
+        parallel for j = i to (n + anti-diagonal_len)
             if $\seqtwo_{n - j + i - 1}$ == $\seqone_{j - 1}$
                 $\lcs_{n - j + i, j}$ = $\lcs_{n - j + i - 1, j - 1}$ + 1
             else if $\lcs_{n - j + i - 1, j}$ $\ge$ $\lcs_{n - j + i, j - 1}$
@@ -487,7 +487,7 @@ function P-LCS-LENGTH(X, Y, m, n)
         $\Theta(i)$. \cite{Huang1989}
 
         The overhead for the loops come from the outer loops iterating for the
-        total number of diagonals. The number of diagonals is congruent to the
+        total number of anti-diagonals. The number of anti-diagonals is congruent to the
         sum of the lengths of the sequences minus the $\varnothing$ character,
         since the implementation skips the first iterations to optimize space.
         The runtime is therefore:
@@ -509,7 +509,8 @@ function P-LCS-LENGTH(X, Y, m, n)
                 \frac{T_1}{T_\infty} & = \frac{\Theta(mn)}{\Theta(m+n)} \\
                 & = \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
                 \text{If $m = n$,} & \\
-                & \rightarrow \lim_{n\to\infty} \Theta\Bigg(\frac{n^2}{2n}\Bigg) \\
+                & \rightarrow \lim_{n\to\infty}
+                \Theta\Bigg(\frac{n^2}{2n}\Bigg) \\
                 & \approx \Theta(n) \\
             \end{split}
         \end{equation*}
@@ -526,6 +527,26 @@ function P-LCS-LENGTH(X, Y, m, n)
         \end{equation*}
         The speedup for the algorithm appears near-linear for $P$ processors.
 
+        Another useful relationship between parallelism and the number of
+        processors is parallel slackness, $(T_1/T_\infty)/P$. If:
+        \begin{equation*}
+            \begin{split}
+                1 & < \frac{T_1/T_\infty}{P} \\
+                P & < \frac{T_1}{T_\infty} \\
+                P & < \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
+            \end{split}
+        \end{equation*}
+        linear speedup is achievable while usefully increasing the number of
+        processors. Since this project measured the algorithm's performance
+        using up to 16 processors, linear speedup is achievable if
+        \begin{equation*}
+            \begin{split}
+                P & < \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
+                16 & < \frac{mn}{m+n} \\
+            \end{split}
+        \end{equation*}
+        Therefore, if $m=n\ge32$, linear speedup is achievable.
+
     \section{Performance Evaluation} The performance of the parallel
     implementation was measured on the maya nodes using 1, 2, 4, 8 and 16
     processors. Slurm Workload Manager was used along with a Bash script to
@@ -541,7 +562,7 @@ function P-LCS-LENGTH(X, Y, m, n)
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{equal.png}
+                \includegraphics[width=1\textwidth]{equal_txmn.png}
                 \caption{Plot of
                 $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
                 lengths, $m,n$, where $m=n$.} \label{equal}
@@ -552,89 +573,50 @@ function P-LCS-LENGTH(X, Y, m, n)
         pattern (they increase in factors of \{2, 2.5, 2, 2, 2.5, 2, 2\}), due
         to timing constraints of the job queue of Slurm. Also note that since
         the execution times increase exponentially, differentiating between the
-        functions becomes difficult. Figure \ref{equal_log} provides a semi-logarithmic plot of the same data, representing the dependent variable in a logarithmic scale.
+        functions becomes difficult. Figure \ref{equal_log} provides a semi-
+        logarithmic plot of the same data, representing the dependent variable
+        in a logarithmic scale.
 
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{equal_log.png}
+                \includegraphics[width=1\textwidth]{equal_log_txmn.png}
                 \caption{Semi-logarithm plot of
                 $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
                 lengths, $m,n$, where $m=n$.} \label{equal_log}
             \end{center}
         \end{figure}
+
         \begin{figure}[ht]
             \begin{center}
-                \includegraphics[width=1\textwidth]{unequal.png}
+                \includegraphics[width=1\textwidth]{unequal_txmn.png}
                 \caption{Semi-logarithm plot of
                 $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
                 lengths, $m,n$, where $m\ne n$. } \label{equal}
             \end{center}
         \end{figure}
 
-    % \section{Testing and Debugging} 
 
-    %     \subsection{Milestone 1} The source code was initially developed in
-    %     C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
-    %     did not appear to properly compile the source code. The executable
-    %     built without any warnings or errors, but the algorithm during its
-    %     execution appeared to skip steps. The current implementation in C
-    %     compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
 
-    %     \subsection{Milestone 2} Measurement of the empirical running times
-    %     began using Slurm on the Maya clusters. Initially, the batch submission
-    %     script did not have sufficient memory to compute the LCS of 100,000
-    %     $\times$ 100,000 character length sequences. The memory had to be
-    %     increased by declaring \texttt{\#SBATCH --mem=50000} on the script's
-    %     preprocessor directives. The mean of the execution times for 1, 2, 4, 8
-    %     and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
+    \clearpage
+    \newpage
+    \section{Testing and Debugging} 
+
+        \subsection{Milestone 1} The source code was initially developed in
+        C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
+        did not appear to properly compile the source code. The executable
+        built without any warnings or errors, but the algorithm during its
+        execution appeared to skip steps. The current implementation in C
+        compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
+
+        \subsection{Milestone 2} Measurement of the empirical running times
+        began using Slurm on the Maya clusters. Initially, the batch submission
+        script did not have sufficient memory to compute the LCS of 100,000
+        $\times$ 100,000 character length sequences. The memory had to be
+        increased by declaring \texttt{\#SBATCH --mem=50000} on the script's
+        preprocessor directives. The mean of the execution times for 1, 2, 4, 8
+        and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
 
     \newpage
     \bibliography{algo,journal_parallel}
 
 \end{document}
-
-
-\iffalse
-    \newpage
-    \begin{longtable}{|c|c|c|c|c|c|}
-    & \multicolumn{5}{c}{\textbf{Execution Time}} \\
-    \textbf{Sequence Lengths} & \textbf{1 Core} & \textbf{2 Cores} & \textbf{4 Cores} & \textbf{8 Cores} & \textbf{16 Cores} \\
-500$\times$500       & 0.00132 & 0.00085 & 0.00074 & 0.00081 & 0.00619 \\
-500$\times$1000      & 0.00173 & 0.00091 & 0.00093 & 0.00113 & 0.00749 \\
-1000$\times$1000     & 0.00778 & 0.00295 & 0.00203 & 0.00191 & 0.00680 \\
-500$\times$2500      & 0.00601 & 0.00351 & 0.00326 & 0.00340 & 0.00753 \\
-1000$\times$2500     & 0.02358 & 0.00782 & 0.00536 & 0.00496 & 0.01099 \\
-2500$\times$2500     & 0.06988 & 0.03521 & 0.01718 & 0.01211 & 0.01751 \\
-500$\times$5000      & 0.01174 & 0.00798 & 0.00733 & 0.00757 & 0.01370 \\
-1000$\times$5000     & 0.05913 & 0.01697 & 0.01156 & 0.01100 & 0.01902 \\
-2500$\times$5000     & 0.16671 & 0.07894 & 0.03575 & 0.02002 & 0.03167 \\
-5000$\times$5000     & 0.36594 & 0.17528 & 0.08599 & 0.04275 & 0.04227 \\
-500$\times$10000     & 0.02344 & 0.01675 & 0.01582 & 0.01587 & 0.02706 \\
-1000$\times$10000    & 0.14117 & 0.03535 & 0.02702 & 0.02553 & 0.03445 \\
-2500$\times$10000    & 0.40571 & 0.18924 & 0.08861 & 0.03861 & 0.04907 \\
-5000$\times$10000    & 0.84709 & 0.44313 & 0.19429 & 0.09228 & 0.06786 \\
-10000$\times$10000   & 1.62424 & 0.84876 & 0.42658 & 0.21194 & 0.12452 \\
-500$\times$25000     & 0.07587 & 0.04237 & 0.03851 & 0.03946 & 0.06207 \\
-1000$\times$25000    & 0.38554 & 0.10670 & 0.06793 & 0.06461 & 0.08672 \\
-2500$\times$25000    & 1.29024 & 0.55931 & 0.21134 & 0.09250 & 0.10915 \\
-5000$\times$25000    & 2.56334 & 1.32716 & 0.57491 & 0.22862 & 0.14928 \\
-10000$\times$25000   & 4.95778 & 2.61067 & 1.42275 & 0.59635 & 0.30502 \\
-25000$\times$25000   & 12.8376 & 6.74628 & 3.61627 & 1.81664 & 0.86447 \\
-500$\times$50000     & 0.33343 & 0.14526 & 0.09436 & 0.08132 & 0.11722 \\
-1000$\times$50000    & 0.80969 & 0.39848 & 0.19656 & 0.14247 & 0.15441 \\
-2500$\times$50000    & 2.96173 & 1.20282 & 0.53493 & 0.27511 & 0.23781 \\
-5000$\times$50000    & 5.90636 & 3.07472 & 1.25649 & 0.57563 & 0.36795 \\
-10000$\times$50000   & 11.7655 & 6.14264 & 3.22639 & 1.29430 & 0.66344 \\
-25000$\times$50000   & 29.2438 & 15.3071 & 8.12103 & 4.10569 & 1.83671 \\
-50000$\times$50000   & 59.41108& 30.94504& 16.52633& 8.51268 & 4.18818 \\
-500$\times$100000    & 0.75508 & 0.38384 & 0.23663 & 0.18413 & 0.22643 \\
-1000$\times$100000   & 1.72948 & 0.85551 & 0.48736 & 0.30923 & 0.32154 \\
-2500$\times$100000   & 6.11345 & 2.51991 & 1.16686 & 0.64060 & 0.50087 \\
-5000$\times$100000   & 12.48135& 6.48731 & 2.78458 & 1.23304 & 0.79432 \\
-10000$\times$100000  & 24.24921& 12.92104& 6.85141 & 2.84215 & 1.41117 \\
-25000$\times$100000  & 59.10952& 30.98594& 17.28448& 8.86489 & 4.04930 \\
-50000$\times$100000  & 118.8275& 62.16034& 33.55820& 17.96266& 9.00409 \\
-100000$\times$100000 & 253.86608& 135.25331 & 70.53762 & 37.20588 & 18.47668 \\
-    \end{longtable}
-% \end{table}
-\endif
