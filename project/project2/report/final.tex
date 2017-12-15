@@ -478,19 +478,18 @@ function P-LCS-LENGTH(X, Y, m, n)
         loops is sufficient.
 
         \setstretch{1.9}
-        The inner \texttt{\textbf{parallel}} loop spawns all
-        its ITER$_\infty$($j$) concurrently with an unbounded number of
-        processors. Since $\underset{1 \le j \le i}{\text{max
-        }}\text{ITER($j$)}$ = $\Theta(i)$, (congruently $\underset{i \le j \le
-        n+d}{\text{max }}\text{ITER($j$)}$ = $\Theta(i)$ for the second
-        half of the matrix), the \texttt{\textbf{parallel}} loop is
-        $\Theta(i)$. \cite{Huang1989}
+        The inner \texttt{\textbf{parallel}} loop spawns all its
+        ITER$_\infty$($j$) concurrently with an unbounded number of processors.
+        Since $\underset{1 \le j \le i}{\text{max }}\text{ITER($j$)}$ =
+        $\Theta(i)$, (congruently $\underset{i \le j \le n+d}{\text{max
+        }}\text{ITER($j$)}$ = $\Theta(i)$ for the second half of the matrix),
+        the \texttt{\textbf{parallel}} loop is $\Theta(i)$ \cite{Huang1989}.
 
         The overhead for the loops come from the outer loops iterating for the
-        total number of anti-diagonals. The number of anti-diagonals is congruent to the
-        sum of the lengths of the sequences minus the $\varnothing$ character,
-        since the implementation skips the first iterations to optimize space.
-        The runtime is therefore:
+        total number of anti-diagonals. The number of anti-diagonals is
+        congruent to the sum of the lengths of the sequences minus the
+        $\varnothing$ character, since the implementation skips the first
+        iterations to optimize space. The runtime is therefore:
         \begin{equation*}
             \begin{split}
                 T_\infty(m, n) & = \Theta(m+n-1) \\
@@ -526,9 +525,10 @@ function P-LCS-LENGTH(X, Y, m, n)
             \end{split}
         \end{equation*}
         The speedup for the algorithm appears near-linear for $P$ processors.
-
+        \newpage
         Another useful relationship between parallelism and the number of
-        processors is parallel slackness, $(T_1/T_\infty)/P$. If:
+        processors is parallel slackness, $(T_1/T_\infty)/P$. Linear speedup is
+        achievable while usefully increasing the number of processors if
         \begin{equation*}
             \begin{split}
                 1 & < \frac{T_1/T_\infty}{P} \\
@@ -536,9 +536,8 @@ function P-LCS-LENGTH(X, Y, m, n)
                 P & < \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
             \end{split}
         \end{equation*}
-        linear speedup is achievable while usefully increasing the number of
-        processors. Since this project measured the algorithm's performance
-        using up to 16 processors, linear speedup is achievable if
+        Since this project measured the algorithm's performance using up to 16
+        processors, linear speedup is achievable if
         \begin{equation*}
             \begin{split}
                 P & < \Theta\Bigg(\frac{mn}{m+n}\Bigg) \\
@@ -563,9 +562,8 @@ function P-LCS-LENGTH(X, Y, m, n)
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{equal_txmn.png}
-                \caption{Plot of
-                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
-                lengths, $m,n$, where $m=n$.} \label{equal}
+                \caption{$\text{log}_{10}(\text{t}_{\text{exec}})$ against
+                sequence lengths, $m,n$, where $m=n$.} \label{equal}
             \end{center}
         \end{figure}
 
@@ -580,42 +578,45 @@ function P-LCS-LENGTH(X, Y, m, n)
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{equal_log_txmn.png}
-                \caption{Semi-logarithm plot of
-                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
-                lengths, $m,n$, where $m=n$.} \label{equal_log}
+                \caption{$\text{log}_{10}(\text{t}_{\text{exec}})$ against
+                sequence lengths, $m,n$, where $m=n$.} \label{equal_log}
             \end{center}
         \end{figure}
 
         \begin{figure}[ht]
             \begin{center}
                 \includegraphics[width=1\textwidth]{unequal_txmn.png}
-                \caption{Semi-logarithm plot of
-                $\text{log}_{10}(\text{t}_{\text{exec}})$ against sequence
-                lengths, $m,n$, where $m\ne n$. } \label{equal}
+                \caption{$\text{log}_{10}(\text{t}_{\text{exec}})$ against
+                sequence lengths, $m,n$, where $m\ne n$. } \label{unequal}
             \end{center}
         \end{figure}
 
+        \clearpage
+        \newpage
+        To measure the speedup per processor, the ratio of execution times of
+        $T_1$ to $T_P$ for $P=\{1,2,4,8,16\}$ were computed.
 
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{equal_t1tpxp.png}
+                \caption{$\text{Speedup } \bigg(\frac{T_1}{T_P} \bigg)$ against
+                number of processors, $P$, where $m=n$.} \label{equal_t1tpxp}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{unequal_t1tpxp.png}
+                \caption{$\text{Speedup } \bigg(\frac{T_1}{T_P} \bigg)$ against
+                number of processors, $P$, where $m\ne n$. }
+                \label{unequal_t1tpxp}
+            \end{center}
+        \end{figure}
+
+        Since the speedup, $T_1/T_P \ll P$, the parallel algorithm is said to
+        have possible linear speedup.
 
     \clearpage
-    \newpage
-    \section{Testing and Debugging} 
-
-        \subsection{Milestone 1} The source code was initially developed in
-        C++, but later translated to C. The Intel C++ Compiler, \texttt{icpc},
-        did not appear to properly compile the source code. The executable
-        built without any warnings or errors, but the algorithm during its
-        execution appeared to skip steps. The current implementation in C
-        compiles with both \texttt{gcc} and the Intel C Compiler, \texttt{icc}.
-
-        \subsection{Milestone 2} Measurement of the empirical running times
-        began using Slurm on the Maya clusters. Initially, the batch submission
-        script did not have sufficient memory to compute the LCS of 100,000
-        $\times$ 100,000 character length sequences. The memory had to be
-        increased by declaring \texttt{\#SBATCH --mem=50000} on the script's
-        preprocessor directives. The mean of the execution times for 1, 2, 4, 8
-        and 16 cores on the \texttt{hpcf2013} nodes were computed successfully.
-
     \newpage
     \bibliography{algo,journal_parallel}
 
