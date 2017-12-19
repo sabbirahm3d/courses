@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract Structural Definitions File Version 1.0 (December 8 2014)
+%
+% Created by: Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from: http://www.LaTeXTemplates.com
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry} % Required to modify the page layout
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage[font=scriptsize, labelfont=bf]{caption}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{courier}
+\usepackage{xparse}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}  % for code verbatim and console outputs
+\usepackage[square,numbers]{natbib}
+\bibliographystyle{abbrvnat}
+\usepackage{setspace}
+
+\usepackage{colortbl}
+\usepackage{bm}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{hhline}
+\usepackage{longtable}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand\tikzmark[2]{%
+\tikz[remember picture,baseline] \node[inner sep=3.5pt, outer sep=0.5] (#1){#2};%
+}
+\newcommand\link[2]{%
+\begin{tikzpicture}[remember picture, overlay, >=stealth, shift={(0,0)}]
+  \draw[->] (#1) to (#2);
+\end{tikzpicture}%
+}
+
+\setlength{\textwidth}{16cm} % Width of the text on the page
+\setlength{\textheight}{23cm} % Height of the text on the page
+\setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
+\setlength{\topmargin}{-1.25cm} % Reduce the top margin
+
+\setlength{\parindent}{0mm} % Don't indent paragraphs
+\setlength{\parskip}{2.5mm} % Whitespace between paragraphs
+\renewcommand{\baselinestretch}{1.5}
+
+\definecolor{green}{rgb}{0.18, 0.55, 0.34}
+
+\graphicspath{ {figures/} }
+\captionsetup[table]{skip=10pt}
+
+\lstset{language=C, keywordstyle={\bfseries \color{black}}}
+
+% defines algorithm counter for chapter-level
+\newcounter{nalg}[section]
+
+%defines appearance of the algorithm counter
+\renewcommand{\thenalg}{\thesection .\arabic{nalg}}
+
+% defines a new caption label as Algorithm x.y
+\DeclareCaptionLabelFormat{algocaption}{Algorithm \thenalg}
+
+% defines the algorithm listing environment
+\lstnewenvironment{pseudocode}[1][] {
+    \refstepcounter{nalg}  % increments algorithm number
+    \captionsetup{font=normalsize, labelformat=algocaption, labelsep=colon}
+    \lstset{
+        breaklines=true,
+        mathescape=true,
+        numbers=left,
+        numberstyle=\scriptsize,
+        basicstyle=\footnotesize\ttfamily,
+        keywordstyle=\color{black}\bfseries,
+        keywords={input, output, return, parallel, function, for, to, in, if,
+        else, foreach, while, and, or, new, print},
+        xleftmargin=.04\textwidth,
+        #1
+    }
+}{}
+
+% \renewcommand{\familydefault}{\sfdefault}  % default font for entire document

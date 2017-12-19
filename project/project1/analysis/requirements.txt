@@ -1,0 +1,15 @@
+certifi==2017.7.27.1
+chardet==3.0.4
+decorator==4.1.2
+idna==2.6
+ipython-genutils==0.2.0
+jsonschema==2.6.0
+jupyter-core==4.3.0
+nbformat==4.4.0
+numpy==1.13.3
+plotly==2.1.0
+pytz==2017.2
+requests==2.18.4
+six==1.11.0
+traitlets==4.3.2
+urllib3==1.22
