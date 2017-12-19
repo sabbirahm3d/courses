@@ -1,0 +1,16 @@
+Cycle Number for Each Stage              IF      ID      EX4     MEM     WB      
+        LI R1, 100H                      12      13      17      18      19      
+        LW R3, 0(R1)                     13      14      18      39      40      
+        LI R5, 1                         14      15      39      40      41      
+        LI R7, 0H                        15      16      40      41      42      
+        LI R6, 1H                        27      28      41      42      43      
+LOOP:   MULT R6, R5, R6                  28      29      42      43      44      
+        ADD R7, R7, R6                   29      42      46      47      48      
+        ADDI R5, R5, 1H                  42      43      47      48      49      
+        BNE R5, R3, LOOP                 54      55                              
+        HLT                              55      56                              
+        HLT                              57                              
+Total number of access requests for instruction cache: 11
+Number of instruction cache hits: 8
+Total number of access requests for data cache: 1
+Number of data cache hits: 0
