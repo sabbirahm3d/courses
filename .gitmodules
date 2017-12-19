@@ -4,6 +4,3 @@
 [submodule "CMPE-Capstone"]
 	path = CMPE-Capstone
 	url = https://github.com/sabbirahm3d/CMPE-Capstone
-[submodule "CMPE323-Signals-And-Systems"]
-	path = CMPE323-Signals-And-Systems
-	url = https://github.com/sabbirahm3d/CMPE323-Signals-And-Systems
