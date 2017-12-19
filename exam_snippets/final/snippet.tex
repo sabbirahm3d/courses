@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors: Sabbir Ahmed, Jeffrey Osazuwa, Howard To, Brian Weber
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{extarticle}
+\input{structure.tex} % specifies the document layout and style
+
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l} #1 \\ #2 \\ #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing} }
+    \end{centering} }
+\renewcommand{\baselinestretch}{1.5}  % space between lines
+
+\begin{document}
+
+
+    \documentinfo{Final Exams: Extra Credit Code Snippet}{Sabbir Ahmed}{Date:
+    \today}
+    \vspace{-0.1in}
+
+    \section{More Usefulness of \texttt{`printf()'}}
+    \texttt{printf()} is one of the most useful functions for beginners in the
+    C programming language. It is a very helpful tool when it comes to
+    debugging, checking statuses of dynamic variables, or simply printing to
+    console. What many users are unaware of is that the function may be used
+    for other very useful tricks. Like the last code snippet, here are some
+    additional tricks with \texttt{printf()}.
+
+    \subsection{\%m Specifier}
+
+    The following snippet will print out ``Success''.
+
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+    printf("%m");
+    return 0;
+}
+\end{lstlisting}
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{build1.png}
+            \caption{Running Snippet 1} \label{fig:build1}
+        \end{center}
+    \end{figure}
+
+    \texttt{\%m} only prints “Success” when \texttt{“errno == 0”}. It is short
+    for a string representation of the last observed error state. For instance,
+    if a function fails before the \texttt{printf()}, it will print something
+    rather different. Therefore, the snippet is equivalent to the following
+    line:
+
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+    printf("%s\n", strerror (errno));
+    return 0;
+}
+\end{lstlisting}
+
+    Note that the \texttt{\%m} specifier is a GNU C extension of
+    \texttt{printf()}.
+
+    \subsection{`*' Specifier}
+
+    Another feature with the format specifiers is that the asterisk character
+    (*) may be used to format the specifiers with variables. For example, the
+    following snippet:
+
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+    int sig_fig = 4;
+    double pi = 3.14159265358979323846;
+    printf("%.*f\n", sig_fig, pi);
+    return 0;
+}
+\end{lstlisting}
+
+    will generate the following output:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{build2.png}
+            \caption{Running Snippet 2} \label{fig:build2}
+        \end{center}
+    \end{figure}
+
+    Since \texttt{sig\_fig} was 4, the \texttt{\%.*f} specifier printed the
+    value of pi to 4 significant figures.
+
+
+\end{document}

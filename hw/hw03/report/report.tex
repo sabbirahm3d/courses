@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Report LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[usletter, 12pt]{article}
+\input{../../structure.tex} % Input the structure.tex file which specifies the document layout and style
+
+\newcommand{\project}{Homework 3: \\ Grade Database Management}
+\newcommand{\Sabbir}{Sabbir Ahmed}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        \vspace*{\fill} % Add whitespace above to center the title page content
+        \begin{center}
+
+            {\LARGE \project~Report}\\ [1.5cm]
+
+            Submitted: \today
+            
+            \vspace*{\fill}
+
+            \Sabbir
+
+        \end{center}
+        \vspace*{\fill} % Add whitespace below to center the title page content
+
+    \end{titlepage}
+
+    \section{Description} This project simulates a simple student and grade
+    database management system using linked lists. \\~\\
+    \noindent The program will read in a text file of students and their
+    grades. Each student will have their own node in a linked list containing
+    the student's name, a list of their grades and their grade average. A user
+    will be able to search for a student's name via the command line. The user
+    will also be able search a grade and to list out all students with that
+    grade. Along with being able to search for a student or grade, the user
+    will also be able to add and remove students from the database. \\~\\
+    \noindent This document serves as the final report for the project. The
+    report details the implementation of the project using C in a full Linux
+    environment. No AVR libraries or environments were used in the development.
+
+    \section{Implementation} The project was developed with a bottom-up
+    design. Functions with more frequent usage and higher priority were
+    developed first, and later pieced together to contribute to higher level
+    functionalities.
+
+        \subsection{database} The nodes and linked list containers making up
+        the database were developed first. Basic functionality of the linked
+        lists, such as adding and removing nodes were developed in the initial
+        stages, followed by an iterator wrapper to help print out the contents
+        of the linked list. \\~\\
+        \noindent The concepts of using iterators and doubly-linked
+        lists were influenced from \texttt{Clibs} \cite{clibs}. No code was
+        borrowed from their implementation. Using a doubly-linked list allowed
+        efficiency in the \codeword{db_remove()} method. Linking the previous
+        node of the current node queued for removal could be referenced in
+        constant time; whereas a singly-linked would have to iterate through
+        the entire linked list to reach the previous node of the current node.
+        \\~\\
+        \noindent The sorting functionality was implemented using a simple
+        bubble sort algorithm modified from the snippet provided by
+        \texttt{GeeksforGeeks} \cite{gfg}.
+
+        \subsection{list\_of\_grades} The nodes and linked list containers
+        making up the \texttt{grade\_t} structures were developed later.
+        \texttt{grade\_t} was implemented as a struct unionizing the two
+        \texttt{quiz\_t} and \texttt{test\_t} structs.
+
+        \subsection{Memory Management} \texttt{valgrind} was used to detect and
+        track memeory leaks of the program. An essential rule of thumb was
+        developed, where each instances of \texttt{mallocs} were followed by
+        \texttt{free} statements after usage. All memory leaks have been
+        accounted for in the current version of the program.
+
+    \section{Usage}
+    The project depends on user inputs from the terminal. Once executed, the
+    Main Menu is displayed, prompting the user for a choice of 6 options:
+    \texttt{Print Database}, \texttt{Search by Name}, \texttt{Search by Grade},
+    \texttt{Add Students}, \texttt{Remove Students} and \texttt{Exit}. All
+    these options, excluding \texttt{Print Database} and \texttt{Exit}, runs on
+    independent loops until the user decides to exit.
+
+        \subsection{Print Database} The \texttt{Print Database} option displays
+        all the students in the database, along with their assignment and final
+        course grades. The database is initialized if an input file with valid
+        student information is provided. If no input file is provided, the
+        database is initialized as an empty linked list.
+
+        \subsection{Search by Name} The \texttt{Search by Name} option allows
+        the user to search for a student and their grade information with their
+        last name. The user is prompted for the student's last name, and their
+        input is compared case-insensitively with the last names of all the
+        students in the database.
+
+        \subsection{Search by Grade} The \texttt{Search by Grade} option allows
+        the user to search for a student and their grade information with their
+        letter grade. The user is prompted for the their desired letter grade
+        (A, B, C, D, or F), and their input is compared with the final grades
+        of all the students in the database. The program will print out every
+        instances of student final grades matching the user input.
+
+        \subsection{Add Students} The \texttt{Add Students} option allows the
+        user to add new students to the database. The user is prompted for the
+        new student's name, and then given the option to select the type of the
+        new grade. The types include quizzes and tests. Once a grade type has
+        been established, the user gets prompted for the quiz / test name,
+        grade and weight. This process runs in a loop until the user is
+        satisfied with the student information.
+
+        \subsection{Remove Students} The \texttt{Remove Students} option allows
+        users to remove students from the database using their last names. The
+        user is prompted for the student's last name, and their input is
+        compared case-insensitively with the last names of all the students in
+        the database. Once a match has been established, the node is freed from
+        memory and the student is removed from the database.
+
+        \subsection{Exit} The Exit option breaks out of the loop and
+        immediately terminates the program.
+
+        \subsection{Invalid Choices} The program will continue displaying the
+        Main Menu until a valid choice is inputted by the user.
+
+        \subsection{File I/O} Providing an input file as a command line
+        argument is optional. If a path to an input file with valid data is
+        provided, the program will parse the input to initialize the database
+        with those students. The number of students in the input file must be
+        predetermined for the program to properly parse the data. The number of
+        students may be modified with the \codeword{STUDENTSINFILE} constant.
+        The constant is currently set to $2$. If no input file is provided, the
+        database will be initialized empty.
+
+    \section{Testing and Troubleshooting} Managing memory leaks proved to be
+    much more challenging than the actual implementation of the project.
+    \texttt{<strings.h>} functions consisted of several constraints regarding
+    the size of input string buffers, locations of the NULL terminator, etc.
+    Once all the memory leak was taken care of, the code was frozen and
+    documented. In the final stages, multiple test cases were considered in
+    validating the functionality of the program such as duplicate last names
+    being properly sorted, invalid letter grades as inputs, etc.
+
+    \section{Code} The C scripts used for the implementation has been attached
+    alongside the report.
+
+        \subsection{main.c} Driver file for Homework 3: Grade Database
+        Management.
+
+        \subsection{menu.c} Contains the implemention of the functions used to
+        provide high level interfaces to the data structures in the project.
+
+        \subsection{database.c} Contains the implementation of student\_t nodes
+        and database\_t linked lists constructors, methods and its
+        corresponding iterators.
+
+        \subsection{list\_of\_grades.c} Contains the implementation of grade\_t
+        nodes and list\_of\_grades\_t linked lists constructors, methods and
+        its corresponding iterators.
+
+        \subsection{Makefile} A Makefile has been provided with the project
+        with the following recipes.
+        \begin{itemize}
+
+            \item \codeword{build}: compile the program with GCC
+
+            \item \codeword{run INPUT=path/to/file.txt}: run the GCC-compiled
+            executable. If the optional \texttt{INPUT} arugment is not used,
+            the database is initialized empty.
+
+            \item \codeword{val INPUT=path/to/file.txt}: run \texttt{valgrind}
+            on the executable. If the optional \texttt{INPUT} arugment is not
+            used, the database is initialized empty.
+
+            \item \codeword{clean}: remove temporary and executable files 
+
+        \end{itemize}
+
+    \begin{thebibliography}{9}
+        \bibitem{clibs} Clibs Authors. ``Package manager for the C programming
+        langage.'' \textit{clib(1)}. Accessed \today,
+        \textit{http://clibs.org/}.
+
+        \bibitem{gfg} GeeksforGeeks. ``C Program for Bubble Sort on Linked
+        List.'' \textit{GeeksforGeeks}. Accessed \today,
+        \textit{http://www.geeksforgeeks.org/c-program-bubble-sort-linked-
+        list/}.
+    \end{thebibliography}
+
+\end{document}

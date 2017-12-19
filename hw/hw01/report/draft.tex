@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Note:
+% If you are using Apple OS X, go into structure.tex and uncomment the font
+% specifications for OS X and comment out the default specifications - this will
+% drastically increase how good the document looks. You will now need to
+% compile with XeLaTeX.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[usletter, 12pt]{article}
+\input{structure.tex} % Input the structure.tex file which specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+%   DYNAMIC CONTRACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+% Member's information
+\newcommand{\project}{Homework - Mastermind}
+\newcommand{\Sabbir}{Sabbir Ahmed}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+    %----------------------------------------------------------------------------------------
+    %   TITLE PAGE
+    %----------------------------------------------------------------------------------------
+
+    \begin{titlepage}
+
+        \vspace*{\fill} % Add whitespace above to center the title page content
+        \begin{center}
+
+            {\LARGE \project~Report Draft}\\ [1.5cm]
+
+            Submitted: \today
+            
+            \vspace*{\fill}
+
+            \Sabbir
+
+        \end{center}
+        \vspace*{\fill} % Add whitespace below to center the title page content
+
+    \end{titlepage}
+
+    \section{Description}
+
+        This project emulates a variant of the game "mastermind" on the AVR Dragon. The user will take guesses at the code using the joystick with combinations of up-down-left-right. A wrong input will sound a buzzer (piezoelectric element) and reset the user’s game. Completing the code will light an LED. At this point the game can be reset by pressing the push-button. All inputs will be logged over a serial interface (UART) to a computer reporting the state of the game.
+
+    \section{State Machine Implementation}
+
+        The game is implemented as a state machine, where each successful inputs progresses through the states.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{state_diagram.png}
+                \caption{State Diagram Implementation of the Game} \label{fig:state_diagram}
+            \end{center}
+        \end{figure}
+
+    \section{Code}
+
+        The assembly code used for the implementation has been attached and provided at the end of the report.
+
+        \subsection{mastermind.asm}
+        Contains the state machine implementation of the game.
+
+        \subsection{uart.asm}
+        Contains the specifications for the UART interface.
+
+    \newpage
+    \VerbatimInput{../code/main.asm}
+
+    \newpage
+    \VerbatimInput{../code/uart.asm}
+
+
+\end{document}

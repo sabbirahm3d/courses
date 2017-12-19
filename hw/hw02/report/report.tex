@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Report
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[usletter, 12pt]{article}
+\input{structure.tex} % Input the structure.tex file which specifies the document layout and style
+
+\newcommand{\project}{Homework 2: Song Composer}
+\newcommand{\Sabbir}{Sabbir Ahmed}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        \vspace*{\fill} % Add whitespace above to center the title page content
+        \begin{center}
+
+            {\LARGE \project~Report}\\ [1.5cm]
+
+            Submitted: \today
+            
+            \vspace*{\fill}
+
+            \Sabbir
+
+        \end{center}
+        \vspace*{\fill} % Add whitespace below to center the title page content
+
+    \end{titlepage}
+
+    \section{Description}
+    This project utilizes the AVR Butterfly through the terminal to allow a user to create up to 4 songs at a time, along with a title and author, and play them back. \\
+
+    \noindent This document serves as the final report for the project. The report details the implementation of the project using C and specific AVR libraries to handle memory allocation and user interface with the AVR system. The usage of the program along with its constraints are included as well.
+
+    \section{Implementation}
+    The project was implemented using C and the \codeword{AVR/io.h}, \codeword{AVR/pgmspace.h} and \codeword{util/delay.h} libraries included in AVR-GCC. \codeword{U0_UART} was included with the project prompt to direct all interfaces to the AVR hardware.
+
+        \subsection{Conversion of User Inputs and Notes}
+        Notes comprise of an ASCII character, (A-G, and R) and a duration of the note (0-31). They are converted from user inputted strings to \codeword{uint8_t} by left-shifting the integer value mapped to the ASCII character by 5 bits and adding the duration. \\
+        Unpacking the notes is done by right-shifting by 5 bits to retrieve the ASCII character or by bitwise logical and-ing with 0x1F (0b0001 1111) to retrieve the duration.
+
+        \subsection{Playing Notes}
+        Notes are played by the unpacked ASCII characters and durations. Each ASCII characters are associated with a frequency described in \codeword{music.h}. The frequency is used to compute the half period and the number of iterations for the Port B pin to set on and off. The following snippet demonstrates the playing of individual notes:
+
+\begin{lstlisting}
+/*
+ * Plays individual notes from the songs. */
+void play_note(uint8_t letter_ascii, uint8_t quarters) {
+
+    unsigned int num_iter, half_periods, freq;
+
+    // assign the frequency associated with the ASCII
+    // character note
+    freq = get_frequency(letter_ascii);
+    // compute the half period; 500000 / freq
+    half_periods = FREQ_TO_MS / freq;
+    // compute the number of iterations;
+    // (freq / 4) * duration
+    num_iter = freq / 4 * quarters;
+
+    // loop for num_iter times to play a note
+    for (int i = 0; i < num_iter; ++i) {
+
+        // set port B pin 5 low, and delay for
+        // half_period ms
+        PORTB = (PORTB5_SPEAKER_MASK & 0x00);
+        delay_ms(half_periods);
+
+        // set port B pin 5 high, and delay for
+        // half_period ms
+        PORTB = (PORTB5_SPEAKER_MASK & 0xFF);
+        delay_ms(half_periods);
+
+    }
+
+}
+\end{lstlisting}
+
+        \subsection{Memory Management}
+        Since the memory on the chip was limited, the data on the program space was forced to be under 1 kB. Extra steps had to be taken to prevent memory overflow. The \codeword{PROGMEM} macro was utilized in appropriate instances to explicitly allocate constant variables to the program space. Strings for displaying menu prompts and user alerts were reused across the program to minimize the number of string data type variables created.
+
+    \section{Usage}
+    The project depends on user inputs from the terminal. RealTerm or a similar serial terminal program is required to interface the board after uploading the compiled binaries. Once in the terminal, the Main Menu is displayed, prompting the user for a choice of 4 options: List, Play, New and Exit.
+
+        \subsection{List Menu}
+        The List option displays all the song titles in the database (represented by the \keyword{char}\codeword{song_title_list[}\keyword{NUMBER_OF_SONGS}\codeword{][}\keyword{USER_LINE_MAX}\codeword{]} array). The database starts empty when the program is initialized.
+
+        \subsection{Play Menu}
+        The Play option allows the user the play any songs created. The Play Menu consists of two options for locating the song to play: by title and by the index in the database. If the user chooses to search the song by the title, they are required to input their query in the proceeding prompts. The user's query is then compared with all the titles in the database. The program then plays the song with the title scoring the highest when being compared with the query. If the latter option is chosen, the user is prompted for a valid index of the song to be played.
+
+        \subsection{Create Menu}
+        The Create Menu is displayed when the New option is selected. This feature allows the user to add their own song notes along with their desired song title and location of the database for storing the song.
+
+        \subsection{Exit}
+        The Exit option breaks out of the loop and immediately terminates the program.
+
+        \subsection{Invalid Choices}
+        The program will continue displaying the Main Menu until a valid choice is inputted by the user.
+
+
+    \section{Testing and Troubleshooting}
+    A few hardware issues were discovered during the project. The UART failed to connect the AVR Butterfly to the host machine on multiple attempts, suggesting a need for a replacement as soon as possible. \\
+    \noindent Before uploading to the board, the implementation of the project was verified using GCC. A Makefile has been provided for compiling and running with GCC for debugging the program before uploading to the board. The Makefile comes with the following recipes:
+
+    \begin{itemize}
+
+        \item \codeword{compile}: to compile the program with GCC
+
+        \item \codeword{run}: to run the GCC-compiled executable
+
+        \item \codeword{clean}: to remove temporary and executable files 
+
+    \end{itemize}
+
+    \noindent In order to compile with GCC, the following changes must be made to the source code:
+
+    \begin{itemize}
+
+        \item Remove:
+\begin{lstlisting}
+stderr = stdout = stdin = &uart_stream;
+UARTInit();
+\end{lstlisting}
+        from \codeword{main()} in \codeword{main.c} to keep the standard IO untouched by the AVR libraries.
+
+        \item Remove the AVR libraries \codeword{AVR/io.h}, \codeword{AVR/pgmspace.h} and \codeword{util/delay.h} and the included \codeword{U0_UART.h}.
+
+        \item Remove any declarations of the macro \codeword{PROGMEM}.
+
+        \item Replace the program space directed functions such as \codeword{printf_P} and \codeword{sscanf_P} with the standard functions \codeword{printf} and \codeword{sscanf}.
+
+        \item Comment out the \codeword{_delay_ms()} functions in \codeword{music.c}.
+
+    \end{itemize}
+
+    \section{Code}
+    The C scripts used for the implementation has been attached alongside the report.
+
+        \subsection{main.c}
+        Driver file for Homework 2: Song Composer. This script contains the declarations and implementations of the menu functions and other functions to handle user inputs and outputs.
+
+        \subsection{music.h}
+        Contains the declarations for the functions in music.c and main.c
+
+        \subsection{music.c}
+        Contains the implementation of all the functionalities related to parsing user inputted song notes, packing and unpacking song notes, and utilizing the ports of the AVR to produce the notes via its speaker.
+
+\end{document}

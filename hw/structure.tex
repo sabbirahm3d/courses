@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contract
+% Structural Definitions File
+% Version 1.0 (December 8 2014)
+%
+% Created by:
+% Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry} % Required to modify the page layout
+\usepackage{multicol}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage[font=scriptsize, labelfont=bf]{caption}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{color}
+\usepackage{listings}  % for code verbatim and console outputs
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{gensymb}
+\usepackage{amsmath}  % equations
+\usepackage{amssymb}  % extention of symbols
+
+\setlength{\textwidth}{16cm} % Width of the text on the page
+\setlength{\textheight}{23cm} % Height of the text on the page
+\setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
+\setlength{\topmargin}{-1.25cm} % Reduce the top margin
+\renewcommand{\baselinestretch}{1.5}  % space between lines
+
+\renewcommand\familydefault{\sfdefault}  % default font for entire document
+
+\definecolor{azure}{rgb}{0.0, 0.5, 1.0}
+\definecolor{green}{rgb}{0.18, 0.55, 0.34}
+
+\NewDocumentCommand{\codeword}{v}{
+    \texttt{\textcolor{azure}{#1}}
+}
+
+\NewDocumentCommand{\keyword}{v}{
+    \texttt{\textcolor{green}{#1}}
+}
+
+\lstset{language=C,keywordstyle={\bfseries \color{azure}}}
+
+% Using typewriter font: \ttfamily inside \lstset
+\lstset{language=C,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green}\ttfamily,
+    morecomment=[l][\color{magenta}]{\#}
+}
