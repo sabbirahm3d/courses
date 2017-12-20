@@ -1,0 +1,15 @@
+.idea/
+cmake-build-debug/
+
+# executables
+*.o
+
+# LaTex temporary files
+*.aux
+*.log
+
+# Python environments and temporary files
+*.pyc
+.venv*/
+__pycache__/
+secret.py
