@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template LaTeX Template Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from: http://www.LaTeXTemplates.com
+%
+% Original author: Brandon Fryslie With extensive modifications by: Vel
+% (vel@latextemplates.com)
+%
+% License: CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors: Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../../structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo {\textbf{Homework 6: Report}}
+    {\today} {Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background} In this project students will learn to use generated
+    IP Cores: a block RAM and a CORDIC processor for calculating square root.
+    An essential skill to develop is the coding of a control finite state
+    machine (FSM) to interface modules.
+
+    Figure \ref{fig:datapath} provides the datapath of the interface. Students
+    must identify the status and control signals and create a state machine to
+    control them.
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=0.35\textwidth]{data_path.png}
+            \caption{Datapath of the Project}
+            \label{fig:datapath}
+        \end{center}
+    \end{figure}
+        \subsection{Requirements}
+
+        \begin{itemize}
+
+        \item The design should access 4 bytes from the serial port to initiate
+        action
+
+        \item The implementation should assume 4 bytes will be sent: ADDRESS-
+        HIGH, ADDRESS-LOW, DATA-HIGH, DATA-LOW
+
+        \item After 4 bytes are received the design should
+
+        \begin{itemize}
+
+            \item Read the contents of the RAM and send the HIGH-BYTE, then
+            LOW-BYTE back through the UART
+
+            \item Send the data bytes through the CORDIC Sqrt processor to
+            compute the result
+
+            \item The \texttt{sqrt} result just computed should be stored in
+            the RAM at the same address that was just read
+
+        \end{itemize}
+
+        \item The hardware design should use 115200 baud rate and require NO
+        modification to compile
+
+        \item The design must include a simulation of the top-level design and
+        discuss it in the report with a parameter to control baud rate. It is
+        strongly recommended to consider modify the baud rate for the purpose
+        of top-level simulation -- this should be controlled by a SINGLE
+        parameter set in the test- bench. The design should not modify the UART
+        implementation files.
+
+        \item The FSM controller must as much as possible rely on use of status
+        and control signals to manage the datapath timing, the design should
+        not rely on "fixed" waits. This represents a better abstraction.
+
+        \end{itemize}
+
+    \section{Design Approach} The source code for interfacing with UART was
+    provided. The controller FSM was implemented to provide all the glue logic
+    required to interface the UART with the \texttt{sqrt} module and the block
+    RAM. The multiplexer controlling the \texttt{tx\_data} in the datapath is
+    integrated into the controller module as the states \texttt{ramhi} and
+    \texttt{ramlo}. Figure \ref{fig:block} provides the top-level block diagram
+    of the project implementation.
+
+        \begin{figure}[ht]
+            \begin{center}
+                \includegraphics[width=1\textwidth]{block_diagram.png}
+                \caption{Block Diagram of the Implementation}
+                \label{fig:block}
+            \end{center}
+        \end{figure}
+
+        \subsection{Controller FSM} The controller FSM consists of 7 states
+        visualized in Figure \ref{fig:states}.
+
+            \begin{figure}[ht]
+                \begin{center}
+                    \includegraphics[width=1\textwidth]{state_diagram.png}
+                    \caption{State Diagram of the Implementation of the
+                    Controller}
+                    \label{fig:states}
+                \end{center}
+            \end{figure}
+
+            \subsubsection{addrhi} This is the initial state of the controller
+            to detect when the high bytes of the RAM block address from
+            \texttt{rx\_data} have been transferred from the UART. The state
+            proceeds to \texttt{addrlo} when the shifter at \texttt{rx} is
+            empty and \texttt{AH} is ready.
+
+            \subsubsection{addrlo} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{AH} is ready. This is the second state of the
+            controller to detect when the low bytes of the RAM block address
+            from \texttt{rx\_data} have been transferred from the UART. The
+            state saves the entire 12-bit address of the RAM block and then
+            proceeds to \texttt{datahi} when the shifter at \texttt{rx} is
+            empty and \texttt{AL} is ready.
+
+            \subsubsection{datahi} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{AL} is ready. This is the third state of the
+            controller to detect when the high bytes of the RAM block input
+            data from \texttt{rx\_data} have been transferred from the UART.
+            The state proceeds to \texttt{datahi} when the shifter at
+            \texttt{rx} is empty and \texttt{DH} is ready.
+
+            \subsubsection{datalo} Activated when the shifter at \texttt{rx} is
+            empty and \texttt{DH} is ready. This is the fourth state of the
+            controller to detect when the low bytes of the RAM block input data
+            from \texttt{rx\_data} have been transferred from the UART. The
+            state sends the entire 16-bit data to the \texttt{sqrt} module and
+            then proceeds to \texttt{ramwr} when the shifter at \texttt{rx} is
+            empty and \texttt{DL} is ready.
+
+            \subsubsection{ramwr} Activated when the \texttt{sqrt} module is
+            and \texttt{DL} is ready. This is the fifth state of the controller
+            to write to the RAM block. The state sends the entire 12-bit
+            address and the output of the \texttt{sqrt} module to the RAM block
+            and then proceeds to \texttt{ramhi}.
+
+            \subsubsection{ramhi} Activated when the shifter at \texttt{tx} is
+            empty and data read from the RAM block is valid and ready. This is
+            the sixth state of the controller to read from the RAM block with
+            the same address and passed back to the UART. The state sends the
+            high 8-bit data read from the \texttt{sqrt} module to the
+            \texttt{tx\_data} in the UART.
+
+            \subsubsection{ramlo} Activated when the shifter at \texttt{tx} is
+            empty and data read from the RAM block is valid and ready. This is
+            the final state of the controller to read from the RAM block with
+            the same address and passed back to the UART. The state sends the
+            low 8-bit data read from the \texttt{sqrt} module to the
+            \texttt{tx\_data} in the UART.
+
+    \newpage
+    \section{Testing} The project submission includes test benches for the
+    controller as well as the top-level module integrating all the modules.
+    Figure \ref{fig:tbwav} shows an example use of the implementation with the
+    memory file contents: 01, 01, 00, 04.
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{controller_tb_wav.png}
+            \caption{Sample Testbench Waveform of the Controller Module}
+            \label{fig:tbwav}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{fig:tbwav} demonstrates the unit after its final state. The
+    address to the RAM block was passed as 0001 0000 0001 (low 4 bits of the
+    high 01 hex value and the entire low 01 hex value). The data passed to the
+    \texttt{sqrt} module was 0000 0000 0000 0100 (00 and 04). The \texttt{sqrt}
+    module returns 0000 0010 ($\sqrt{\text{4}}=\text{2}$).
+
+\end{document}

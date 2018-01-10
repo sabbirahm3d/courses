@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structure
+% Structural Definitions File
+% Version 1.0 (December 8 2014)
+%
+% Created by:
+% Vel (vel@latextemplates.com)
+% 
+% This file has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{geometry} % Required to modify the page layout
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{setspace}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{caption} 
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{longtable}
+
+\setlength{\parindent}{0mm} % Don't indent paragraphs
+\setlength{\parskip}{2.5mm} % Whitespace between paragraphs
+
+\setlength{\textwidth}{16cm} % Width of the text on the page
+\setlength{\textheight}{23cm} % Height of the text on the page
+\setlength{\oddsidemargin}{0cm} % Width of the margin - negative to move text left, positive to move it right
+\setlength{\topmargin}{-1.25cm} % Reduce the top margin
+
+\renewcommand\familydefault{\sfdefault}  % default font for entire document
+
+% document info command
+\newcommand{\documentinfo}[3]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\graphicspath{ {figures/} }
+\captionsetup[table]{skip=10pt}
+
+\NewDocumentCommand{\inlsnip}{v}{
+    \texttt{\textcolor{blue}{#1}}
+}
+
+\lstset{language=C, keywordstyle={\bfseries \color{black}}}

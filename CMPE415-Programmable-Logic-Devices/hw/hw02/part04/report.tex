@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../common/structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 04}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Create a synthesizable sequential module that accepts two 4-bit inputs x and y and generates a 4-bit ouput q based on x and a function selector s. The selector should select the bit-wise operator to be applied to x and y in order to produce q. The output q should be a registered output, and so the module should accept clk signal clk. There should be no unesssisary cycle delays from input to the output.
+    \begin{itemize}
+        \item 0: and
+        \item 1: or
+        \item 2: xor
+        \item 3: nand
+        \item 4: nor
+    \end{itemize}
+
+    \section{Implementation}
+    The output `q' was generated in a case block with bitwise operators applied to the inputs `x' and 'y'.
+
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 4 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+    A table of the inputs and outputs generated in the test bench is also generated:
+
+    \begin{table}[h]
+
+        \caption{Inputs and Outputs of The Part 4 Test Bench}
+        \centering
+        \begin{tabular*}{200pt}{@{\extracolsep{\fill}} ccccc}
+
+            \textbf{x} & \textbf{op} & \textbf{y} & \textbf{q} & \textbf{s} \\
+            \hline
+            1001 & {\&} & 1010 & 1000 & 0 \\
+            0000 & {\&} & 1010 & 0000 & 0 \\
+            1110 & {\&} & 1010 & 1010 & 0 \\
+            1001 & {|} & 1010 & 1011 & 1 \\
+            0101 & {|} & 1010 & 1111 & 1 \\
+            1110 & {|} & 1010 & 1110 & 1 \\
+            1001 & \textasciicircum & 1010 & 0011 & 2 \\
+            1111 & \textasciicircum & 1010 & 0101 & 2 \\
+            1110 & \textasciicircum & 1010 & 0100 & 2 \\
+            1001 & {\textasciitilde \&} & 1010 & 0111 & 3 \\
+            0000 & {\textasciitilde \&} & 1010 & 1111 & 3 \\
+            1110 & {\textasciitilde \&} & 1010 & 0101 & 3 \\
+            1001 & {\textasciitilde | } & 1010 & 0100 & 4 \\
+            0101 & {\textasciitilde | } & 1010 & 0000 & 4 \\
+            1110 & {\textasciitilde | } & 1010 & 0001 & 4 \\
+        \end{tabular*}
+    \end{table}
+
+\end{document}

@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../common/structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\textbf{Question:} 05}{\textbf{DATE:} \today}{Sabbir Ahmed}
+    \vspace{-0.1in}
+
+    \section{Background}
+    Leveraging the concatenation operator, create a module that accepts a 64-bit input x, and swaps pairs of even-and odd bytes to produce a 64-bit output u. The output should be registered using a clock signal clk.
+
+    \section{Implementation}
+    The odd and even indices of 'x' were swapped in a simple while loop to create the output 'u'.
+
+    The module implementation along with its testbench can be found in the `scripts' directory. A sample of the waveform generated is provided:
+
+    \begin{figure}[ht]
+        \begin{center}
+            \includegraphics[width=1\textwidth]{wav.png}
+            \caption{Waveform Generated from Part 5 Test Bench} \label{fig:wav}
+        \end{center}
+    \end{figure}
+
+    The following output is dumped from the test bench as well, demonstrating the swapping of the bits:
+
+\begin{lstlisting}[language={}]
+x = 0101010101010101010101010101010101010101010101010101010101010101 when clk = 1
+u = 1010101010101010101010101010101010101010101010101010101010101010 when clk = 1
+x = 1101110111011101110111011101110111011101110111011101110111011101 when clk = 1
+u = 1110111011101110111011101110111011101110111011101110111011101110 when clk = 1
+x = 1101110111011101110111011101110111011101110111011101110111011101 when clk = 0
+u = 1110111011101110111011101110111011101110111011101110111011101110 when clk = 0
+x = 0010001000100010001000100010001000100010001000100010001000100010 when clk = 1
+u = 0001000100010001000100010001000100010001000100010001000100010001 when clk = 1
+\end{lstlisting}
+
+\end{document}
