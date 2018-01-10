@@ -4,3 +4,9 @@
 [submodule "CMPE-Capstone"]
 	path = CMPE-Capstone
 	url = https://github.com/sabbirahm3d/CMPE-Capstone
+[submodule "CMSC421"]
+	path = CMSC421-Operating-Systems
+	url = https://github.com/sabbirahm3d/CMSC421
+[submodule "CMPE320"]
+	path = CMPE320-Probability-Statistics-and-Random-Processes
+	url = https://github.com/sabbirahm3d/CMPE320
