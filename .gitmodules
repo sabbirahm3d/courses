@@ -7,3 +7,6 @@
 [submodule "CMPE320-Probability-Statistics-and-Random-Processes"]
 	path = CMPE320-Probability-Statistics-and-Random-Processes
 	url = https://github.com/sabbirahm3d/CMPE320
+[submodule "MATH407-Modern-Algebra-and-Number-Theory"]
+	path = MATH407-Modern-Algebra-and-Number-Theory
+	url = https://github.com/sabbirahm3d/MATH407-Modern-Algebra-and-Number-Theory.git
