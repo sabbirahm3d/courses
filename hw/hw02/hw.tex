@@ -1,0 +1,111 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+%----------------------------------------------------------------------------------------
+
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407} HW 02}
+    \vspace{-0.10in}
+
+    \begin{itemize}
+
+        \item[\textbf{A.1}] Let A, B, C be subsets of a given set S. Prove the
+        following statements.
+
+            \begin{itemize}
+
+                \item[\textbf{10}] $(A - B) \cup (B - A) = (A \cup B) - (A \cap
+                B)$
+
+                \item[\textbf{11}] $(A \cup B) \times C = (A \times C) \cup (B
+                \times C)$
+
+            \end{itemize}
+
+        \item[\textbf{A.4}]
+
+        \begin{itemize}
+
+            \item[\textbf{9}] Let $a_1, \ldots, a_n$ be positive real numbers,
+            $G_n$ = $\sqrt[n]{a_{1}a_{1}\ldots a_{n}}$, and $A_n$ =
+            $\frac{1}{n}\sum_{i=1}^{n}a_i$. Then $G_n$ is called the gemoteric
+            mean and $A_n$ is called the arithmetic mean. We wish to show that
+            $G_n \le A_n$.
+
+            \begin{enumerate}
+
+                \item Show that $G_2 \le A_2$.
+
+                \item Show that $G_{2^n} \le A_{2^n}$ by using induction on
+                $n$.
+
+                \item Show that $G_n \le A_n$.
+
+            \end{enumerate}
+
+            \textit{Hint:} Let $m$ be such that $2^m \ge n$, and set $a_{n+1}$
+            = $a_{n+2}$ = $a_{2^m}$ = $A_n$ and apply part (2).
+
+            \item[\textbf{10}] Let $a$ and $b$ be real numbers. Prove the
+            binomial theorem , which states that
+
+                \[ (a+b)^n = \sum_{i=0}^{n} \binom{n}{i}a^{i}b^{n-i} \text{\ \
+                where \ } \binom{n}{i}=\frac{n!}{i!(n-i)!} \]
+
+            and $n!$ = $n(n-1)\ldots 2 \cdot 1$ for $n \ge 1$ and $0! = 1$.
+
+            \textit{Hint:} $\binom{m+1}{k}=\binom{m}{k}+\binom{m}{k-1}$.
+
+            \item[\textbf{11}] Find a formula for the derivative of the product
+            of $n$ functions, and give a detailed proof by induction (assuming
+            the product rule for the derivative of two functions).
+
+            \item[\textbf{12}] Find a formula for the $n$th derivative of the
+            product of two functions, and give a detailed proof by induction.
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}
