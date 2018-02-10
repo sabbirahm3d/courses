@@ -41,10 +41,9 @@
     \end{centering}
 }
 
-\newcommand{\ans}{\textbf{Answer} \\ \ }
+\newcommand{\ans}{\textbf{Answer} \ }
 
 \begin{document}
-
 
     \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 01}
     \vspace{-0.2in}
@@ -54,14 +53,42 @@
         \item Let $A$ and $B$ be two sets. Under what conditions is the set $A
         \cap (A \cup B)^c$ empty?
 
-        \ans
+        \ans If $A = B$, then $A \cap (A \cup B)^c = A \cap (A \cup A)^c = A
+        \cap A^c = \varnothing$.
 
         \item Prove:
-            \begin{align*}
-                P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
-                \cap C) - P(C \cap A) + P(A \cap B \cap C)
-            \end{align*}
+        \begin{align*}
+            P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
+            \cap C) - P(C \cap A) + P(A \cap B \cap C)
+        \end{align*}
         \ans
+        Let $D = B \cup C$ such that $A \cup B \cup C = A \cup D$. Then:
+        \begin{align*}
+            P(A \cup B \cup C) & = P(A \cup D) \\
+            & = P(A) + P(D) - P(A \cap D) \\
+            & = P(A) + P(B \cup C) - P(A \cap D) \\
+            & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap D)
+        \end{align*}
+
+        Since $P(A \cap D) = P(A \cap (B \cup C) ) = P((A \cap B) \cup (A \cap
+        C))$ by the distributive law:
+        \begin{align*}
+        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap
+        D) \\
+        & = P(A) + P(B) + P(C) - P(B \cap C) - P((A \cap B) \cup (A \cap C))
+        \end{align*}
+        Since $P((A \cap B) \cup (A \cap C)) = P(A \cap B) + P(A \cap C) - P((A
+        \cap B) \cap (A \cap C))$:
+        \begin{align*}
+        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - (P(A \cap B) + P(A \cap C) -
+        P((A \cap B) \cap (A \cap C))) \\
+        & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap B) - P(A \cap C) + P(A
+        \cap B \cap C)
+        \end{align*}
+        \begin{align*}
+            \therefore P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
+            \cap C) - P(C \cap A) + P(A \cap B \cap C)
+        \end{align*}
 
         \item We are given that $P(A^c) = 0.6$, $P(B) = 0.3$, and $P(A \cap B)
         = 0.2$. Determine $P(A \cup B)$.
