@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\newcommand{\ans}{\textbf{Answer} \\ \ }
+
+\begin{document}
+
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 01}
+    \vspace{-0.2in}
+
+    \begin{enumerate}
+
+        \item Let $A$ and $B$ be two sets. Under what conditions is the set $A
+        \cap (A \cup B)^c$ empty?
+
+        \ans
+
+        \item Prove:
+            \begin{align*}
+                P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
+                \cap C) - P(C \cap A) + P(A \cap B \cap C)
+            \end{align*}
+        \ans
+
+        \item We are given that $P(A^c) = 0.6$, $P(B) = 0.3$, and $P(A \cap B)
+        = 0.2$. Determine $P(A \cup B)$.
+
+        \ans
+        \vspace{-0.4in}
+        \begin{align*}
+            \because P(A \cup B) & = P(A) + P(B) - P(A \cap B) \\
+            \because P(A^c) & = 1 - P(A) \\
+            \therefore P(A \cup B) & = (1 - 0.6) + 0.3 - 0.2 \\
+            & = 0.5 \\
+        \end{align*}
+
+        \vspace{-0.4in}
+        \item We roll a four-side die once and then we roll it as many times as
+        is necessary to obtain a different face than the one obtained in the
+        first roll. Let the outcome of the experiment be $(r_1, r_2)$ where
+        $r_1$ and $r_2$ are the results of the first and the last rolls,
+        respectively. Assume that all possible outcomes have equal probability.
+        Find the probability that:
+
+            \begin{enumerate}
+
+                \item $r_1$ is even.
+
+                \ans
+
+                \item Both $r_1$ and $r_2$ are even.
+
+                \ans
+
+                \item $r_1 + r_2 < 5$.
+
+                \ans
+
+            \end{enumerate}
+
+        \item You enter a special kind of chess tournament, whereby you play
+        one game with each of three opponents, but you get to choose the order
+        in which you play your opponents. You win the tournament if you win two
+        games in a row. You know your probability of a win against each of the
+        three opponents. What is your probability of winning the tournament,
+        assuming that you choose the optimal order of playing the opponents?
+
+        \ans
+
+        \item Alice and bob each choose at random a number between zero and
+        two. We assume a uniform probability law under which the probability of
+        an event is proportional to its area. Consider the following events:
+
+            \begin{enumerate}
+
+                \item The magnitude of the difference of the two numbers is
+                greater than 1/3.
+
+                \ans
+
+                \item At least one of the numbers is greater than 1/3.
+
+                \ans
+
+                \item The two numbers are equal.
+
+                \ans
+
+                \item Alice's number is greater than 1/3.
+
+                \ans
+
+            \end{enumerate}
+
+        Find the probabilities $P(A)$, $P(B)$, $P(A \cap B)$, $P(C)$, $P(D)$,
+        $P(A \cap D)$,
+
+        \item The disc containing the only copy of your term project just got
+        corrupted, and the disc got mixed up with three other corrupted discs
+        that were lying around. It is equally likely that any of the four discs
+        holds the corrupted remains of your term project. Your computer expert
+        friend offers to have a look, and you know from past experience that
+        his probability of finding your term project from any disc is 0.4
+        (assuming the term project is there). Given that he searches on disc 1
+        but cannot find your thesis, what is the probability that your thesis
+        is on disc $i$ for $i = 1, 2, 3, 4$?
+
+        \ans
+
+        \item A person has forgotten the last digit of a telephone number, so
+        he dials the number with the last digit randomly chosen. How many times
+        does he have to dial (not counting repetitions) in order that the
+        probability of dialing the correct number is more than 0.5
+
+        \ans
+
+        \item A new test has been developed to determine whether a given
+        student is overstressed. This test is 95\% accurate if the student is
+        not overstressed, but only 85\% accurate if the student is in fact
+        overstressed. It is known that 99.5\% of all students are overstressed.
+        Given that a particular student tests negative for stress, what is the
+        probability that the test results are correct, and that this student is
+        not overstressed?
+
+        \ans
+
+        \item A hiker starts by taking one of $n$ available trails, denoted $1,
+        2, \ldots, n$. An hour into the hike, trail $i$ subdivides into 1 +
+        $i$ subtrails, only one of which leads to the hiker’s destination. The
+        hiker has no map and makes random choices of trail and subtrail. What
+        is the probability of reaching the destination?
+
+        \ans
+
+    \end{enumerate}
+
+\end{document}
