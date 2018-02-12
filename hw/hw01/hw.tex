@@ -42,6 +42,7 @@
 }
 
 \newcommand{\ans}{\textbf{Answer} \ }
+\newcommand\given[1][]{\:#1\vert\:}
 
 \begin{document}
 
@@ -80,14 +81,14 @@
         Since $P((A \cap B) \cup (A \cap C)) = P(A \cap B) + P(A \cap C) - P((A
         \cap B) \cap (A \cap C))$:
         \begin{align*}
-        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - (P(A \cap B) + P(A \cap C) -
-        P((A \cap B) \cap (A \cap C))) \\
+        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - (P(A \cap B)
+        + P(A \cap C) - P((A \cap B) \cap (A \cap C))) \\
         & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap B) - P(A \cap C) + P(A
         \cap B \cap C)
         \end{align*}
         \begin{align*}
-            \therefore P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
-            \cap C) - P(C \cap A) + P(A \cap B \cap C)
+            \therefore P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B)
+            - P(B \cap C) - P(C \cap A) + P(A \cap B \cap C)
         \end{align*}
 
         \item We are given that $P(A^c) = 0.6$, $P(B) = 0.3$, and $P(A \cap B)
@@ -114,15 +115,20 @@
 
                 \item $r_1$ is even.
 
-                \ans
+                \ans Since the possible even outcomes $\in \{1, 2, 3, 4\}$ are
+                $\{2, 4\}$, then $P(\text{$r_1$ is even}) = 2/4 = 1/2$
 
                 \item Both $r_1$ and $r_2$ are even.
 
-                \ans
+                \ans Since the second roll $r_2$ is different from $r_1$, the
+                cardinality of $(r_1, r_2)$ is $4 \cdot 3 = 12$. Therefore,
+                $P(\text{$r_1$ and $r_2$ are even}) = 2/12 = 1/6$
 
                 \item $r_1 + r_2 < 5$.
 
-                \ans
+                \ans If $r_1 + r_2 < 5$ then the possible outcomes are only
+                $\{1, 2, 3, 4\}$ with a cardinality of 4. Therefore, $P(r_1 +
+                r_2 < 5) = 4/12 = 1/3$
 
             \end{enumerate}
 
@@ -133,9 +139,16 @@
         three opponents. What is your probability of winning the tournament,
         assuming that you choose the optimal order of playing the opponents?
 
-        \ans
+        \ans Let $W_i$ represent winning against player $i = 1, 2, 3$ and $p_i$
+        represent the probability of winning against player $i = 1, 2, 3$.
 
-        \item Alice and bob each choose at random a number between zero and
+        Then the sample space $S$:
+            \[ S = \{ W_{1}^{c}W_{2}^{c}W_{3}^{c}, \ W_{1}^{c}W_{2}^{c}W_{3}, \
+            W_{1}^{c}W_{2}W_{3}^{c}, \ W_{1}^{c}W_{2}W_{3}, \
+            W_{1}W_{2}^{c}W_{3}^{c}, \ W_{1}W_{2}^{c}W_{3}, \
+            W_{1}W_{2}W_{3}^{c}, \ W_{1}W_{2}W_{3} \} \]
+
+        \item Alice and Bob each choose at random a number between zero and
         two. We assume a uniform probability law under which the probability of
         an event is proportional to its area. Consider the following events:
 
@@ -144,7 +157,25 @@
                 \item The magnitude of the difference of the two numbers is
                 greater than 1/3.
 
-                \ans
+                \ans Let $x, y \in [0, 2]$ represent the numbers chosen by
+                Alice and Bob.
+                \begin{align*}
+                    x + y & > 3 \\
+                    3x - 3y & > 1
+                \end{align*}
+                \begin{align*}
+                    \text{area} & = \frac{1}{2} \cdot \frac{1}{3} \cdot
+                    \frac{1}{3} \\
+                    & = \frac{1}{18}
+                \end{align*}
+                \begin{align*}
+                    \text{required area} & = 2 \cdot 2 - \frac{1}{18} \\
+                    & = 4 - \frac{1}{18}
+                \end{align*}
+                \begin{align*}
+                    \text{probability} & = \frac{4 - \frac{1}{18}}{4} \\
+                    & = \frac{71}{72}
+                \end{align*}
 
                 \item At least one of the numbers is greater than 1/3.
 
@@ -173,14 +204,75 @@
         but cannot find your thesis, what is the probability that your thesis
         is on disc $i$ for $i = 1, 2, 3, 4$?
 
-        \ans
+        \ans Let $D_i$ represent the event that the term project in the disc
+        $i$ and $T$ represent the event the term project finds the thesis on
+        disc 1.
+
+            \begin{equation*}
+                \therefore P(D_i) = 0.25, \text{ \ for \ } i = 1, 2, 3, 4 \\
+            \end{equation*}
+            \begin{align*}
+                P(T \given D_1) & = 0.4 \\
+                P(T \given D_2) & = 0 \\
+                P(T \given D_3) & = 0 \\
+                P(T \given D_4) & = 0
+            \end{align*}
+            \begin{align*}
+                P(T \given D_1^c) & = 0.6 \\
+                P(T \given D_2^c) & = 1 \\
+                P(T \given D_3^c) & = 1 \\
+                P(T \given D_4^c) & = 1
+            \end{align*}
+
+        Using Bayes Rule to calculate $P(D_i \given T^c)$ for $i = 1, 2, 3, 4$:
+            \begin{align*}
+                P(D_i \given T^c) & = \frac{P(D_i)P(F^c \given
+                D_i)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)}
+            \end{align*}
+            \begin{align*}
+                P(D_1 \given T^c) & = \frac{P(D_1)P(F^c \given
+                D_1)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
+                & = \frac{P(D_1)P(F^c \given D_1)}{P(D_1)P(F^c \given D_1) +
+                P(D_2)P(F^c \given D_2) + P(D_3)P(F^c \given D_3) + P(D_4)P(F^c
+                \given D_4)} \\
+                & = \frac{(0.25 \cdot 0.6)}{(0.25 \cdot 0.6) + (0.25
+                \cdot 1) + (0.25 \cdot 1) + (0.25 \cdot 1)} \\
+                & = \frac{0.15}{0.90} \\
+                & = 0.1667
+            \end{align*}
+        Similarly,
+            \begin{align*}
+                P(D_2 \given T^c) & = \frac{P(D_2)P(F^c \given
+                D_2)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
+                & = \frac{0.25}{0.90} \\
+                & = 0.2778
+            \end{align*}
+            \begin{align*}
+                P(D_3 \given T^c) & = \frac{P(D_3)P(F^c \given
+                D_3)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
+                & = \frac{0.25}{0.90} \\
+                & = 0.2778
+            \end{align*}
+            \begin{align*}
+                P(D_4 \given T^c) & = \frac{P(D_4)P(F^c \given
+                D_4)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
+                & = \frac{0.25}{0.90} \\
+                & = 0.2778
+            \end{align*}
 
         \item A person has forgotten the last digit of a telephone number, so
         he dials the number with the last digit randomly chosen. How many times
         does he have to dial (not counting repetitions) in order that the
-        probability of dialing the correct number is more than 0.5
+        probability of dialing the correct number is more than 0.5?
 
-        \ans
+        \ans The probability of correct digit: 1/10. Let $n$ be the number of
+        dials. Then:
+        \begin{align*}
+            n \cdot \frac{1}{10} & > 0.5 \\
+            n & > 0.5 \cdot 10 \\
+            n & > 5
+        \end{align*}
+        Therefore, the minimum number of dials required is $n=6$.
 
         \item A new test has been developed to determine whether a given
         student is overstressed. This test is 95\% accurate if the student is
@@ -190,7 +282,13 @@
         probability that the test results are correct, and that this student is
         not overstressed?
 
-        \ans
+        \ans Let $S$ represent a non-overstressed student, and $N$ represent a
+        negative test. We need to find $P(S \given N)$.
+        \begin{align*}
+            P(S \given N) & = \frac{P(S^c)P(N \given S^c)}{P(N)} \\
+            & = \frac{0.005 \cdot 0.95}{0.005 \cdot 0.95 + 0.995 \cdot 0.15 }\\
+            & \approx 0.03
+        \end{align*}
 
         \item A hiker starts by taking one of $n$ available trails, denoted $1,
         2, \ldots, n$. An hour into the hike, trail $i$ subdivides into 1 +
@@ -198,7 +296,23 @@
         hiker has no map and makes random choices of trail and subtrail. What
         is the probability of reaching the destination?
 
-        \ans
+        \ans Let $T_i$ represent the event of starting with trail $i$.
+        \begin{align*}
+            P(T_i) & = \frac{1}{n} \text{ \ for \ } i = 1, 2, \ldots, n
+        \end{align*}
+        Let $D$ represent reaching the destination.
+        \begin{align*}
+            P(D \given T_i) & = \frac{1}{i+1} \text{ \ for \ } i = 1, 2,
+            \ldots, n
+        \end{align*}
+        By the total probability theorem, the probability of reaching the
+        destination is:
+        \begin{align*}
+            P(D) & = P(T_i)P(D \given T_i) \\
+            & = \frac{1}{n} \cdot \frac{1}{i+1} \\
+            & = \frac{1}{n(i+1)}
+        \end{align*}
+
 
     \end{enumerate}
 
