@@ -143,56 +143,102 @@
         represent the probability of winning against player $i = 1, 2, 3$.
 
         Then the sample space $S$:
-            \[ S = \{ W_{1}^{c}W_{2}^{c}W_{3}^{c}, \ W_{1}^{c}W_{2}^{c}W_{3}, \
-            W_{1}^{c}W_{2}W_{3}^{c}, \ W_{1}^{c}W_{2}W_{3}, \
-            W_{1}W_{2}^{c}W_{3}^{c}, \ W_{1}W_{2}^{c}W_{3}, \
-            W_{1}W_{2}W_{3}^{c}, \ W_{1}W_{2}W_{3} \} \]
+            \[ S = \{ W_{1}^{c}W_{2}W_{3}, \ W_{1}W_{2}W_{3}^{c}, \
+            W_{1}W_{2}W_{3} \} \]
+        If the order $p_1, p_2, p_3$ is chosen, then the probability of winning
+        is $p_1p_2+(1-p_1)p_2p_3$
+        \begin{align*}
+            p_1p_2+(1-p_1)p_2p_3 & = p_2(p_1 + p_3 - p_1p_3) \\
+            & = p_2(p_3 + p_1 - p_3p_1)
+        \end{align*}
+        The optimal order is playing against the player with the highest
+        probability of winning second, and the others do not matter in regards
+        to the order they are played.
 
         \item Alice and Bob each choose at random a number between zero and
         two. We assume a uniform probability law under which the probability of
         an event is proportional to its area. Consider the following events:
 
-            \begin{enumerate}
+            \begin{itemize}
 
-                \item The magnitude of the difference of the two numbers is
+                \item[A] The magnitude of the difference of the two numbers is
                 greater than 1/3.
 
-                \ans Let $x, y \in [0, 2]$ represent the numbers chosen by
-                Alice and Bob.
-                \begin{align*}
-                    x + y & > 3 \\
-                    3x - 3y & > 1
-                \end{align*}
-                \begin{align*}
-                    \text{area} & = \frac{1}{2} \cdot \frac{1}{3} \cdot
-                    \frac{1}{3} \\
-                    & = \frac{1}{18}
-                \end{align*}
-                \begin{align*}
-                    \text{required area} & = 2 \cdot 2 - \frac{1}{18} \\
-                    & = 4 - \frac{1}{18}
-                \end{align*}
-                \begin{align*}
-                    \text{probability} & = \frac{4 - \frac{1}{18}}{4} \\
-                    & = \frac{71}{72}
-                \end{align*}
+                \item[B] At least one of the numbers is greater than 1/3.
 
-                \item At least one of the numbers is greater than 1/3.
+                \item[C] The two numbers are equal.
 
-                \ans
+                \item[D] Alice's number is greater than 1/3.
 
-                \item The two numbers are equal.
+            \end{itemize}
 
-                \ans
+            Find the probabilities $P(A)$, $P(B)$, $P(A \cap B)$, $P(C)$,
+            $P(D)$, $P(A \cap D)$,
 
-                \item Alice's number is greater than 1/3.
+            \ans Let $x, y \in [0, 2]$ represent the numbers chosen by
+            Alice and Bob respectively. \\
+            To find $A$, $|x - y| > 1/3$:
+            \begin{align*}
+                x - y & > \frac{1}{3} \\
+                3x - 3y & > 1
+            \end{align*}
+            \begin{align*}
+                \text{area} & = \frac{1}{2} \cdot \frac{1}{3} \cdot
+                \frac{1}{3} \\
+                & = \frac{1}{18}
+            \end{align*}
+            \begin{align*}
+                \text{required area} & = 2 \cdot 2 - \frac{1}{18} \\
+                & = 4 - \frac{1}{18}
+            \end{align*}
+            \begin{align*}
+                P(A) & = \frac{4 - \frac{1}{18}}{4} \\
+                & = \frac{71}{72}
+            \end{align*}
 
-                \ans
+            To find $B$, either $x > 1/3$, $y > 1/3$ or $x > 1/3 \text{ \ and \
+            } y > 1/3$. Therefore, the remaining area becomes $x < 1/3$ and $y
+            < 1/3$.
+            \begin{align*}
+                \text{area} & = \frac{1}{9}
+            \end{align*}
+            \begin{align*}
+                \text{required area} & = 2 \cdot 2 - \frac{1}{9} \\
+                & = 4 - \frac{1}{9}
+            \end{align*}
+            \begin{align*}
+                P(B) & = \frac{4 - \frac{1}{9}}{4} \\
+                & = \frac{35}{36}
+            \end{align*}
+            $P(A \cap B) = P(B)$ since the intersection of at least one number
+            being greater than 1/3 and their difference being greater than 1/3
+            would cover the same area:
+            \begin{align*}
+                P(A \cap B) & = P(B)  \\
+                & = \frac{35}{36}
+            \end{align*}
 
-            \end{enumerate}
+            To find $C$, $x = y$. This implies $x - y = 0$, which cannot be
+            determined since there would be infinite points on the line.
+            \begin{align*}
+                P(C) & = \text{UNDETERMINED}
+            \end{align*}
 
-        Find the probabilities $P(A)$, $P(B)$, $P(A \cap B)$, $P(C)$, $P(D)$,
-        $P(A \cap D)$,
+            To find $D$, $x > 1/3$.
+            \begin{align*}
+                \text{required area} & = 2 \cdot (2 - \frac{1}{3}) \\
+                & = \frac{10}{3}
+            \end{align*}
+            \begin{align*}
+                P(D) & = \frac{\frac{10}{3}}{4} \\
+                & = \frac{5}{6}
+            \end{align*}
+            $P(C \cap D) = P(D)$ since $P(C)$ contains infinity and $P(D)$ is
+            included in there.
+            \begin{align*}
+                P(C \cap D) & = P(D) \\
+                & = \frac{5}{6}
+            \end{align*}
 
         \item The disc containing the only copy of your term project just got
         corrupted, and the disc got mixed up with three other corrupted discs
@@ -244,18 +290,8 @@
             \begin{align*}
                 P(D_2 \given T^c) & = \frac{P(D_2)P(F^c \given
                 D_2)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
-                & = \frac{0.25}{0.90} \\
-                & = 0.2778
-            \end{align*}
-            \begin{align*}
-                P(D_3 \given T^c) & = \frac{P(D_3)P(F^c \given
-                D_3)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
-                & = \frac{0.25}{0.90} \\
-                & = 0.2778
-            \end{align*}
-            \begin{align*}
-                P(D_4 \given T^c) & = \frac{P(D_4)P(F^c \given
-                D_4)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
+                & = P(D_3 \given T^c) \\
+                & = P(D_4 \given T^c) \\
                 & = \frac{0.25}{0.90} \\
                 & = 0.2778
             \end{align*}
