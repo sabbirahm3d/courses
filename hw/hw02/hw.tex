@@ -176,6 +176,7 @@
                 \vspace{0.2in}
 
                 \item Show that $G_n \le A_n$.
+
                 \textit{Hint:} Let $m$ be such that $2^m \ge n$, and set
                 $a_{n+1}$ = $a_{n+2}$ = $a_{2^m}$ = $A_n$ and apply part (2).
 
@@ -197,6 +198,34 @@
             \textit{Hint:} $\binom{m+1}{k}=\binom{m}{k}+\binom{m}{k-1}$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Base case: For $n = k = 0$:
+                \begin{align*}
+                    (a + b)^0 & = \sum_{i=0}^{0} \binom{n}{i}a^{i}b^{n-i} \\
+                    & = \binom{0}{0}a^{0}b^{0} \\
+                    & = 1
+                \end{align*}
+                Assume the proposition holds for $n = k + 1$. Then:
+                \begin{align*}
+                    (a + b)^{k+1} & = (a + b)(a + b)^{k} \\
+                    & = (a + b)\sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k-i} \\
+                    & = a\sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k-i} +
+                    b\sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k-i} \\
+                    & = \sum_{i=0}^{k} \binom{k}{i}a^{i+1}b^{k-i} +
+                    \sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k+1-i} \\
+                    & = \sum_{i=1}^{k+1} \binom{k}{i-1}a^{(i-1)+1}b^{k-(i-1)} +
+                    \sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k+1-i} \\
+                    & = \sum_{i=1}^{k+1} \binom{k}{i-1}a^{i}b^{k+1-i} +
+                    \sum_{i=0}^{k} \binom{k}{i}a^{i}b^{k+1-i} \\
+                    & = \binom{0}{0}a^{0}b^{k+1} + \sum_{i=1}^{k+1}
+                    \binom{k}{i-1}a^{i}b^{k+1-i} + \binom{0}{0}a^{k+1}b^{0} +
+                    \sum_{i=1}^{k} \binom{k}{i}a^{i}b^{k+1-i} \\
+                    & = \binom{0}{0}a^{0}b^{k+1} + \binom{k+1}{k+1}a^{k+1}b^{0}
+                    + \sum_{i=1}^{k}\bigg(\binom{k}{i} +
+                      \binom{k}{i-1}\bigg)a^{i}b^{k+1-i} \\
+                    & = b^{k+1} + a^{k+1} + \sum_{i=1}^{k}
+                    \binom{k+1}{i}a^{i}b^{k+1-i} \\
+                    & = \sum_{i=0}^{k+1}\binom{k+1}{i}a^{i}b^{k+1-i} \qedhere
+                \end{align*}
             \end{proof}
             \vspace{0.2in}
 
@@ -205,6 +234,38 @@
             the product rule for the derivative of two functions).
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Let $h = \prod_{i=1}^{n} f_i$ be the product of $n$ functions.
+                \\ We need to show:
+                \begin{equation*}
+                    h^\prime = f_1^\prime(f_2 \cdot f_3 \cdot \ldots \cdot f_n)
+                    + f_2^\prime(f_1 \cdot f_3 \cdot \ldots \cdot f_n) + \ldots
+                    + f_n^\prime(f_2 \cdot f_3 \cdot \ldots \cdot f_{n-1})
+                      \text{ \ (product rule) \ }
+                \end{equation*}
+                Base case: For $n = 2$, $h = \prod_{i=1}^{2} f_i$
+                \begin{equation*}
+                    h^\prime = f_1^\prime \cdot f_2 + f_2^\prime \cdot f_1
+                    \text{ \ (product rule) \ }
+                \end{equation*}
+                Suppose the proposition holds for $n = k \ge 2$, with $h = f_1
+                \cdot f_2 \cdot f_3 \cdot \ldots \cdot f_{k+1}$. Then:
+                \begin{align*}
+                    h^\prime & = (f_1 \cdot f_2 \cdot f_3 \cdot \ldots \cdot
+                    f_{k})^\prime f_{k+1} + f_{k+1}^\prime(f_1 \cdot f_2 \cdot
+                    f_3 \cdot \ldots \cdot f_{k}) \text{ \ (product rule) \ }
+                    \\
+                    & = \!\begin{multlined}[t][10.5cm]
+                        (f_1^\prime(f_2 \cdot f_3 \cdot \ldots \cdot f_k) +
+                        f_2^\prime(f_1 \cdot f_3 \cdot \ldots \cdot f_k) +
+                        \ldots \\ + f_k^\prime(f_2 \cdot f_3 \cdot \ldots \cdot
+                        f_{k-1})) f_{k+1} + f_{k+1}^\prime(f_1 \cdot f_2 \cdot
+                        f_3 \cdot \ldots \cdot f_{k})
+                    \end{multlined} \\
+                    & = f_1^\prime(f_2 \cdot f_3 \cdot \ldots \cdot f_{k+1})
+                    + f_2^\prime(f_1 \cdot f_3 \cdot \ldots \cdot f_{k+1}) +
+                      \ldots + f_{k+1}^\prime(f_2 \cdot f_3 \cdot \ldots \cdot
+                      f_{k}) \qedhere
+                \end{align*}
             \end{proof}
             \vspace{0.2in}
 
