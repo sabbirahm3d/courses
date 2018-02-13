@@ -22,8 +22,7 @@
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
 
-%----------------------------------------------------------------------------------------
-
+%------------------------------------------------------------------------------
 % document info command
 \newcommand{\documentinfo}[5]{
     \begin{centering}
@@ -46,7 +45,7 @@
 
 
     \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407} HW 02}
-    \vspace{-0.10in}
+    \vspace{-0.2in}
 
     \begin{itemize}
 
@@ -57,9 +56,59 @@
 
                 \item[\textbf{10}] $(A - B) \cup (B - A) = (A \cup B) - (A \cap
                 B)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Let $x \in (A - B) \cup (B - A)$. \\
+                    Therefore, $x \in (A - B)$ or $x \in (B - A)$.\\
+
+                    If $x \in (A - B)$, then $x \in A, x \not\in B$.\\
+                    Therefore:
+                    \begin{align*}
+                        x \in (A \cup B), \ x \not\in (A \cap B) \\
+                        \Rightarrow x \in (A \cup B) - (A \cap B)
+                    \end{align*}
+                    Similarly, if $x \in (B - A)$, then $x \in (A \cup B) - (A
+                    \cap B)$. \\ Therefore, $(A - B) \cup (B - A) \subseteq (A
+                    \cup B) - (A \cap B)$ \\
+
+                    Conversely, if $x \in (A \cup B) - (A \cap B)$, then $x \in
+                    (A \cup B), \ x \not\in (A \cap B)$ \\ If $x \in (A \cup
+                    B)$, then $x \in A$ or $x \in B$. \\ If $x \in A$, then $x
+                    \not\in B$. \\ Therefore:
+                    \begin{align*}
+                        x \in A, \ x \not\in B
+                        \Rightarrow x \in (A - B) \\
+                        \Rightarrow x \in (A - B) \cup (B - A)
+                    \end{align*}
+                    Similary, if $x \in B$, then $x \in (A - B) \cup (B - A)$.
+                    \\ Therefore, $(A \cup B) - (A \cap B) \subseteq (A - B)
+                    \cup (B - A)$ \\
+
+                    $\therefore (A - B) \cup (B - A) = (A \cup B) - (A \cap B)$
+                    \qedhere
+                \end{proof}
+                \vspace{0.2in}
 
                 \item[\textbf{11}] $(A \cup B) \times C = (A \times C) \cup (B
                 \times C)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Let $(x,y) \in (A \cup B) \times C$. \\
+                    Then:
+                    \begin{align*}
+                        & x \in (A \cup B), \ y \in C \\
+                        & \Rightarrow (x \in A, \ y \in C) \text{ \ or \ } (x
+                        \in B, \ y \in C) \\
+                        & \Leftrightarrow ((x, y) \in A \times C) \text{ \ or \
+                        } ((x, y) \in B \times C) \\
+                        & \Leftrightarrow (x, y) \in (A \times C) \cup (B
+                        \times C)
+                    \end{align*}
+
+                $\therefore (A \cup B) \times C = (A \times C) \cup (B \times
+                C)$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
 
             \end{itemize}
 
@@ -68,24 +117,74 @@
         \begin{itemize}
 
             \item[\textbf{9}] Let $a_1, \ldots, a_n$ be positive real numbers,
-            $G_n$ = $\sqrt[n]{a_{1}a_{1}\ldots a_{n}}$, and $A_n$ =
-            $\frac{1}{n}\sum_{i=1}^{n}a_i$. Then $G_n$ is called the gemoteric
+            $G_n = \sqrt[n]{a_{1}a_{2}\ldots a_{n}}$, and $A_n =
+            \frac{1}{n}\sum_{i=1}^{n}a_i$. Then $G_n$ is called the geometric
             mean and $A_n$ is called the arithmetic mean. We wish to show that
             $G_n \le A_n$.
 
             \begin{enumerate}
 
                 \item Show that $G_2 \le A_2$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Substituting $n = 2$:
+                    \vspace{-0.1in}
+                    \begin{align*}
+                        G_2 & = \sqrt[2]{a_{1}a_{2}\ldots a_{2}} \\
+                        & = \sqrt[2]{a_{1}a_{2}} \\
+                        & = \sqrt{a_{1}a_{2}} \\
+                        A_2 & = \frac{1}{2}\sum_{i=1}^{2}a_i \\
+                        & = \frac{1}{2}(a_1 + a_2)
+                    \end{align*}
+
+                    If $a_1 = a_2$, then $G_2 = a_1 = A_2 = a_1$. \\
+
+                    If $a_1 \neq a_2$, then let $a_1 = k, a_2 = nk+ 1$, $k
+                    \in \mathbb{R^{+}}$. \\ Then, $G_2 = \sqrt{(k)(k+1)}$,
+                    $G_2^2 = k^2+k$ \\ and $A_2 = \frac{1}{2}(2k + 1)$, $A_2^2
+                    = k^2 + k + \frac{1}{4}$ \\
+
+                    $\therefore G_2 \le A_2$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
 
                 \item Show that $G_{2^n} \le A_{2^n}$ by using induction on
                 $n$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    It was proven the proposition held for $n = 2^k \text{ for
+                    \ } k = 1 \Rightarrow 2$. \\
+                    Suppose the proposition holds for $n = 2^k, \text{ for \ }
+                    k > 1$. Therefore:
+                    \begin{align*}
+                        A_{2^k} & = \frac{1}{2^k}\sum_{i=1}^{2^k}a_i \\
+                        & = \frac{1}{2^k}(a_1 + a_2 + \ldots + a_{2^k}) \\
+                        & = \frac{\frac{1}{2^{k-1}}(a_1 + a_2 + \ldots +
+                        a_{2^{k-1}}) + \frac{1}{2^{k-1}}(a_{2^{k-1}+1} +
+                        a_{2^{k-1}+2} + \ldots + a_{2^k})}{2} \\
+                        & \ge \frac{\sqrt[2^{k-1}]{a_1 + a_2 + \ldots +
+                        a_{2^{k-1}}} + \sqrt[2^{k-1}]{a_{2^{k-1}+1} +
+                        a_{2^{k-1}+2} + \ldots + a_{2^k}}}{2} \\
+                        & \ge \sqrt{\sqrt[2^{k-1}]{a_1 + a_2 + \ldots +
+                        a_{2^{k-1}}} + \sqrt[2^{k-1}]{a_{2^{k-1}+1} +
+                        a_{2^{k-1}+2} + \ldots + a_{2^k}}} \\
+                        & \ge \sqrt[2^k]{a_{1}a_{2}\ldots a_{2^k}} \\
+                        & = G_{2^k}
+                    \end{align*}
+                    $\therefore G_{2^k} \le A_{2^k}$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
 
                 \item Show that $G_n \le A_n$.
+                \textit{Hint:} Let $m$ be such that $2^m \ge n$, and set
+                $a_{n+1}$ = $a_{n+2}$ = $a_{2^m}$ = $A_n$ and apply part (2).
+
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
 
             \end{enumerate}
-
-            \textit{Hint:} Let $m$ be such that $2^m \ge n$, and set $a_{n+1}$
-            = $a_{n+2}$ = $a_{2^m}$ = $A_n$ and apply part (2).
 
             \item[\textbf{10}] Let $a$ and $b$ be real numbers. Prove the
             binomial theorem , which states that
@@ -96,13 +195,25 @@
             and $n!$ = $n(n-1)\ldots 2 \cdot 1$ for $n \ge 1$ and $0! = 1$.
 
             \textit{Hint:} $\binom{m+1}{k}=\binom{m}{k}+\binom{m}{k-1}$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
 
             \item[\textbf{11}] Find a formula for the derivative of the product
             of $n$ functions, and give a detailed proof by induction (assuming
             the product rule for the derivative of two functions).
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
 
             \item[\textbf{12}] Find a formula for the $n$th derivative of the
             product of two functions, and give a detailed proof by induction.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
 
         \end{itemize}
 
