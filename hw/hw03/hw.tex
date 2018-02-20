@@ -21,7 +21,7 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
-
+\allowdisplaybreaks
 %------------------------------------------------------------------------------
 % document info command
 \newcommand{\documentinfo}[5]{
@@ -111,7 +111,8 @@
                 \item[\textbf{a}] $(6643, 2873)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
-                    $\because (6643, 2873) = 13 \Rightarrow 13 = n \cdot 6643 + m \cdot 2873$
+                    $\because (6643, 2873) = 13$ \\
+                    $\Rightarrow 13 = n \cdot 6643 + m \cdot 2873$
                     \begin{align*}
                         r_1 = 897 & = 1 \cdot 6643 - 2 \cdot 2873 \\
                         r_2 = 182 & = 1 \cdot 2873 - 3 \cdot 897 \\
@@ -135,12 +136,67 @@
                 \item[\textbf{c}] $(26460, 12600)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    $\because (26460, 12600) = 1260$ \\
+                    $\Rightarrow 1260 = n \cdot 26460 + m \cdot 12600$
+                    \begin{align*}
+                        r_1 = 1260 & = 1 \cdot 26460 - 2 \cdot 12600
+                    \end{align*}
+                    $\therefore 1260 = 1 \cdot 26460 - 2 \cdot 12600$, with $n
+                    = 1, m = -2$
                 \end{proof}
                 \vspace{0.2in}
 
                 \item[\textbf{e}] $(12091, 8439)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    $\because (12091, 8439) = 1$ \\
+                    $\Rightarrow 1 = n \cdot 12091 + m \cdot 8439$
+                    \begin{align*}
+                        % r_1 = 3652
+                        r_1 = 3652 & = 1 \cdot 12091 - 1 \cdot 8439 \\
+                        % r_2 = 1135
+                        r_2 = 1135 & = 1 \cdot 8439 - 2 \cdot 3652 \\
+                        & = 1 \cdot 8439 - 2 \cdot (1 \cdot 12091 - 1 \cdot 8439) \\
+                        & = 1 \cdot 8439 - 2 \cdot 12091 + 2 \cdot 8439 \\
+                        & = 3 \cdot 8439 - 2 \cdot 12091 \\
+                        % r_3 = 247
+                        r_3 = 247 & = 1 \cdot 3652 - 3 \cdot 1135 \\
+                        & = 1 \cdot (1 \cdot 12091 - 1 \cdot 8439) - 3 \cdot (3 \cdot 8439 - 2 \cdot 12091) \\
+                        & = 1 \cdot 12091 - 1 \cdot 8439 - 9 \cdot 8439 + 6 \cdot 12091 \\
+                        & = 7 \cdot 12091 - 10 \cdot 8439 \\
+                        % r_4 = 147
+                        r_4 = 147 & = 1 \cdot 1135 - 4 \cdot 247 \\
+                        & = 1 \cdot (3 \cdot 8439 - 2 \cdot 12091) - 4 \cdot (7 \cdot 12091 - 10 \cdot 8439) \\
+                        & = 3 \cdot 8439 - 2 \cdot 12091 - 28 \cdot 12091 + 40 \cdot 8439 \\
+                        & = 43 \cdot 8439 - 30 \cdot 12091 \\
+                        % r_5 = 100
+                        r_5 = 100 & = 1 \cdot 247 - 1 \cdot 147 \\
+                        & = 1 \cdot (7 \cdot 12091 - 10 \cdot 8439) - 1 \cdot (43 \cdot 8439 - 30 \cdot 12091) \\
+                        & = 7 \cdot 12091 - 10 \cdot 8439 - 43 \cdot 8439 + 30 \cdot 12091 \\
+                        & = 37 \cdot 12091 - 53 \cdot 8439 \\
+                        % r_6 = 47
+                        r_6 = 47 & = 1 \cdot 147 - 1 \cdot 100 \\
+                        & = 1 \cdot (43 \cdot 8439 - 30 \cdot 12091) - 1 \cdot (37 \cdot 12091 - 53 \cdot 8439) \\
+                        & = 43 \cdot 8439 - 30 \cdot 12091 - 37 \cdot 12091 + 53 \cdot 8439 \\
+                        & = 96 \cdot 8439 - 67 \cdot 12091 \\
+                        % r_7 = 6
+                        r_7 = 6 & = 1 \cdot 100 - 2 \cdot 47 \\
+                        & = 1 \cdot (37 \cdot 12091 - 53 \cdot 8439) - 2 \cdot (96 \cdot 8439 - 67 \cdot 12091) \\
+                        & = 37 \cdot 12091 - 53 \cdot 8439 - 192 \cdot 8439 + 134 \cdot 12091 \\
+                        & = 171 \cdot 12091 - 245 \cdot 8439 \\
+                        % r_8 = 5
+                        r_8 = 5 & = 1 \cdot 47 - 7 \cdot 6 \\
+                        & = 1 \cdot (96 \cdot 8439 - 67 \cdot 12091) - 7 \cdot (171 \cdot 12091 - 245 \cdot 8439) \\
+                        & = 96 \cdot 8439 - 67 \cdot 12091 - 1197 \cdot 12091 + 1715 \cdot 8439 \\
+                        & = 1811 \cdot 8439 - 1264 \cdot 12091 \\
+                        % r_9 = 1
+                        r_9 = 1 & = 1 \cdot 6 - 1 \cdot 5 \\
+                        & = 1 \cdot (171 \cdot 12091 - 245 \cdot 8439) - 1 \cdot (1811 \cdot 8439 - 1264 \cdot 12091) \\
+                        & = 171 \cdot 12091 - 245 \cdot 8439 - 1811 \cdot 8439 + 1264 \cdot 12091 \\
+                        & = 1435 \cdot 12091 - 2056 \cdot 8439
+                    \end{align*}
+                    $\therefore 1 = 1435 \cdot 12091 - 2056 \cdot 8439$, with
+                    $n = 1435, m = -2056$
                 \end{proof}
                 \vspace{0.2in}
 
