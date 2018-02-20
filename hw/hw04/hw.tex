@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407} HW 03}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{1.2}]
+
+        \begin{itemize}
+
+            \item[\textbf{7}] Let $m$ and $n$ be positive integers such that $m
+            + n = 57$ and $[m, n] = 680$. Find $m$ and $n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{10}] Show that $a\textbf{Z} \cap b\textbf{Z} = [a,
+            b]\textbf{Z}$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{16}] A positive integer $a$ is called a
+            \textbf{square} if $a = n^2$ for some $n \in \integers$. Show that
+            the integer $a > 1$ is an integer if and only if every exponent in
+            its prime factorization is even.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{20}] A positive integer is called \textbf{square-free} if it is a product of distinct primes. Prove that every
+            positive integer can be written uniquely as a product of a square
+            and a square-free integer.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}
