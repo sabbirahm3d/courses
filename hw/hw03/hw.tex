@@ -60,47 +60,44 @@
                 \item[\textbf{a}] $(6643, 2873)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
-                    $GCD(6643, 2873)$
                     \begin{align*}
-                        6643 & = 2873 \cdot 2 + 197 \\
-                        2873 & = 897 \cdot 3 + 182 \\
-                        897 & = 182 \cdot 4 + 169 \\
-                        182 & = 169 \cdot 1 + 13 \\
-                        169 & = 13 \cdot 13 + 0
+                        6643 & = 2873 \cdot 2 + 897, r_1 = 897 \\
+                        2873 & = 897 \cdot 3 + 182, r_2 = 182 \\
+                        897 & = 182 \cdot 4 + 169, r_3 = 169 \\
+                        182 & = 169 \cdot 1 + 13, r_4 = 13 \\
+                        169 & = 13 \cdot 13 + 0, r_5 = 0
                     \end{align*}
-                    $\therefore GCD(6643, 2873) = 13$ \qedhere
+                    $\therefore (6643, 2873) = 13$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
                 \item[\textbf{c}] $(26460, 12600)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
-                    $GCD(26460, 12600)$
                     \begin{align*}
-                        26460 & = 12600 \cdot 2 + 1260 \\
-                        12600 & = 1260 \cdot 10 + 0
+                        26460 & = 12600 \cdot 2 + 1260, r_1 = 1260 \\
+                        12600 & = 1260 \cdot 10 + 0, r_2 = 0
                     \end{align*}
-                    $\therefore GCD(26460, 12600) = 1260$ \qedhere
+                    $\therefore (26460, 12600) = 1260$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
                 \item[\textbf{e}] $(12091, 8439)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
-                    $GCD(12091, 8439)$
                     \begin{align*}
-                        12091 & = 8439 \cdot 1 + 3652 \\
-                        8439 & = 3652 \cdot 2 + 1135 \\
-                        3652 & = 1135 \cdot 3 + 247 \\
-                        1135 & = 247 \cdot 4 + 147 \\
-                        247 & = 147 \cdot 1 + 100 \\
-                        147 & = 100 \cdot 1 + 47 \\
-                        100 & = 47 \cdot 2 + 6 \\
-                        47 & = 6 \cdot 6 + 5 \\
-                        6 & = 5 \cdot 1 + 1 \\
-                        5 & = 1 \cdot 5 + 0
+                        12091 & = 8439 \cdot 1 + 3652, r_1 = 3652 \\
+                        8439 & = 3652 \cdot 2 + 1135, r_2 = 1135 \\
+                        3652 & = 1135 \cdot 3 + 247, r_3 = 247 \\
+                        1135 & = 247 \cdot 4 + 147, r_4 = 147 \\
+                        247 & = 147 \cdot 1 + 100, r_5 = 100 \\
+                        147 & = 100 \cdot 1 + 47, r_6 = 47 \\
+                        100 & = 47 \cdot 2 + 6, r_7 = 6 \\
+                        47 & = 6 \cdot 6 + 5, r_8 = 5 \\
+                        6 & = 5 \cdot 1 + 1, r_9 = 1 \\
+                        5 & = 1 \cdot 5 + 0, r_{10} = 0
                     \end{align*}
-                    $\therefore GCD(12091, 8439) = 1$ \qedhere
+                    $\therefore (12091, 8439) = 1$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
@@ -114,6 +111,24 @@
                 \item[\textbf{a}] $(6643, 2873)$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    $\because (6643, 2873) = 13 \Rightarrow 13 = n \cdot 6643 + m \cdot 2873$
+                    \begin{align*}
+                        r_1 = 897 & = 1 \cdot 6643 - 2 \cdot 2873 \\
+                        r_2 = 182 & = 1 \cdot 2873 - 3 \cdot 897 \\
+                        & =  1 \cdot 2873 - 3 \cdot (1 \cdot 6643 - 2 \cdot 2873) \\
+                        & =  1 \cdot 2873 - 3 \cdot 6643 + 6 \cdot 2873 \\
+                        & =  7 \cdot 2873 - 3 \cdot 6643 \\
+                        r_3 = 169 & = 1 \cdot 897 - 4 \cdot 182 \\
+                        & = 1 \cdot (1 \cdot 6643 - 2 \cdot 2873) - 4 \cdot (7
+                        \cdot 2873 - 3 \cdot 6643) \\
+                        & = 1 \cdot 6643 - 2 \cdot 2873 - 28 \cdot 2873 + 12 \cdot 6643 \\
+                        & = 13 \cdot 6643 - 30 \cdot 2873 \\
+                        r_4 = 13 & = 1 \cdot 182 - 1 \cdot 169 \\
+                        & = 1 \cdot (7 \cdot 2873 - 3 \cdot 6643) - 1 \cdot (13 \cdot 6643 - 30 \cdot 2873) \\
+                        & = 7 \cdot 2873 - 3 \cdot 6643 - 13 \cdot 6643 + 30 \cdot 2873 \\
+                        & = 37 \cdot 2873 - 16 \cdot 6643
+                    \end{align*}
+                    $\therefore 13 = 37 \cdot 2873 - 16 \cdot 6643$, with $n = -16, m = 37$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
