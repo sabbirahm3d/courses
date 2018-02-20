@@ -340,6 +340,17 @@
             common divisor of $a$ and $b$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Suppose $(a,b)$, then $(a,b) \given a$ and $(a,b) \given b$. \\
+                Since $a = bq + r$,\\
+                $\Rightarrow (a,b) \given a - bq = (a,b) \given r$ \\
+                Therefore $(a,b) \given b$ and $(a,b) \given r$ \\
+                $\Rightarrow (a,b) \given (b, r)$ \\
+                Conversely, suppose $(b,r)$, then $(b,r) \given b$ and $(b,r) \given r$. \\
+                Since $a = bq + r$,\\
+                $\Rightarrow (b,r) \given bq + r = (b,r) \given a$ \\
+                Therefore $(b,r) \given a$ and $(b,r) \given b$ \\
+                $\Rightarrow (b,r) \given (a, b)$ \\
+                $\therefore (a, b) = (b, r)$ \qedhere
             \end{proof}
             \vspace{0.2in}
 
