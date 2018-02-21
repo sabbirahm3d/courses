@@ -21,6 +21,7 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
+\allowdisplaybreaks
 
 %------------------------------------------------------------------------------
 % document info command
@@ -42,313 +43,214 @@
 }
 
 \newcommand{\ans}{\textbf{Answer} \ }
-\newcommand\given[1][]{\:#1\vert\:}
 
 \begin{document}
 
-    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 01}
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 02}
     \vspace{-0.2in}
 
     \begin{enumerate}
 
-        \item Let $A$ and $B$ be two sets. Under what conditions is the set $A
-        \cap (A \cup B)^c$ empty?
-
-        \ans If $A = B$, then $A \cap (A \cup B)^c = A \cap (A \cup A)^c = A
-        \cap A^c = \varnothing$.
-
-        \item Prove:
-        \begin{align*}
-            P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B) - P(B
-            \cap C) - P(C \cap A) + P(A \cap B \cap C)
-        \end{align*}
-        \ans
-        Let $D = B \cup C$ such that $A \cup B \cup C = A \cup D$. Then:
-        \begin{align*}
-            P(A \cup B \cup C) & = P(A \cup D) \\
-            & = P(A) + P(D) - P(A \cap D) \\
-            & = P(A) + P(B \cup C) - P(A \cap D) \\
-            & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap D)
-        \end{align*}
-
-        Since $P(A \cap D) = P(A \cap (B \cup C) ) = P((A \cap B) \cup (A \cap
-        C))$ by the distributive law:
-        \begin{align*}
-        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap
-        D) \\
-        & = P(A) + P(B) + P(C) - P(B \cap C) - P((A \cap B) \cup (A \cap C))
-        \end{align*}
-        Since $P((A \cap B) \cup (A \cap C)) = P(A \cap B) + P(A \cap C) - P((A
-        \cap B) \cap (A \cap C))$:
-        \begin{align*}
-        P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(B \cap C) - (P(A \cap B)
-        + P(A \cap C) - P((A \cap B) \cap (A \cap C))) \\
-        & = P(A) + P(B) + P(C) - P(B \cap C) - P(A \cap B) - P(A \cap C) + P(A
-        \cap B \cap C)
-        \end{align*}
-        \begin{align*}
-            \therefore P(A \cup B \cup C) & = P(A) + P(B) + P(C) - P(A \cap B)
-            - P(B \cap C) - P(C \cap A) + P(A \cap B \cap C)
-        \end{align*}
-
-        \item We are given that $P(A^c) = 0.6$, $P(B) = 0.3$, and $P(A \cap B)
-        = 0.2$. Determine $P(A \cup B)$.
-
-        \ans
-        \vspace{-0.4in}
-        \begin{align*}
-            \because P(A \cup B) & = P(A) + P(B) - P(A \cap B) \\
-            \because P(A^c) & = 1 - P(A) \\
-            \therefore P(A \cup B) & = (1 - 0.6) + 0.3 - 0.2 \\
-            & = 0.5 \\
-        \end{align*}
-
-        \vspace{-0.4in}
-        \item We roll a four-side die once and then we roll it as many times as
-        is necessary to obtain a different face than the one obtained in the
-        first roll. Let the outcome of the experiment be $(r_1, r_2)$ where
-        $r_1$ and $r_2$ are the results of the first and the last rolls,
-        respectively. Assume that all possible outcomes have equal probability.
-        Find the probability that:
-
-            \begin{enumerate}
-
-                \item $r_1$ is even.
-
-                \ans Since the possible even outcomes $\in \{1, 2, 3, 4\}$ are
-                $\{2, 4\}$, then $P(\text{$r_1$ is even}) = 2/4 = 1/2$
-
-                \item Both $r_1$ and $r_2$ are even.
-
-                \ans Since the second roll $r_2$ is different from $r_1$, the
-                cardinality of $(r_1, r_2)$ is $4 \cdot 3 = 12$. Therefore,
-                $P(\text{$r_1$ and $r_2$ are even}) = 2/12 = 1/6$
-
-                \item $r_1 + r_2 < 5$.
-
-                \ans If $r_1 + r_2 < 5$ then the possible outcomes are only
-                $\{1, 2, 3, 4\}$ with a cardinality of 4. Therefore, $P(r_1 +
-                r_2 < 5) = 4/12 = 1/3$
-
-            \end{enumerate}
-
-        \item You enter a special kind of chess tournament, whereby you play
-        one game with each of three opponents, but you get to choose the order
-        in which you play your opponents. You win the tournament if you win two
-        games in a row. You know your probability of a win against each of the
-        three opponents. What is your probability of winning the tournament,
-        assuming that you choose the optimal order of playing the opponents?
-
-        \ans Let $W_i$ represent winning against player $i = 1, 2, 3$ and $p_i$
-        represent the probability of winning against player $i = 1, 2, 3$.
-
-        Then the sample space $S$:
-            \[ S = \{ W_{1}^{c}W_{2}W_{3}, \ W_{1}W_{2}W_{3}^{c}, \
-            W_{1}W_{2}W_{3} \} \]
-        If the order $p_1, p_2, p_3$ is chosen, then the probability of winning
-        is $p_1p_2+(1-p_1)p_2p_3$
-        \begin{align*}
-            p_1p_2+(1-p_1)p_2p_3 & = p_2(p_1 + p_3 - p_1p_3) \\
-            & = p_2(p_3 + p_1 - p_3p_1)
-        \end{align*}
-        The optimal order is playing against the player with the highest
-        probability of winning second, and the others do not matter in regards
-        to the order they are played.
-
-        \item Alice and Bob each choose at random a number between zero and
-        two. We assume a uniform probability law under which the probability of
-        an event is proportional to its area. Consider the following events:
-
-            \begin{itemize}
-
-                \item[A] The magnitude of the difference of the two numbers is
-                greater than 1/3.
-
-                \item[B] At least one of the numbers is greater than 1/3.
-
-                \item[C] The two numbers are equal.
-
-                \item[D] Alice's number is greater than 1/3.
-
-            \end{itemize}
-
-            Find the probabilities $P(A)$, $P(B)$, $P(A \cap B)$, $P(C)$,
-            $P(D)$, $P(A \cap D)$,
-
-            \ans Let $x, y \in [0, 2]$ represent the numbers chosen by
-            Alice and Bob respectively. \\
-            To find $A$, $|x - y| > 1/3$:
+        % 1
+        \item The following problem was given to 60 students and doctors at the
+        famous Hevardi Medical School (HMS): Assume there exists a test to
+        detect a disease, say $D$, whose prevalence is 0.001, that is, the
+        probability, $P[D]$, that a person picked at random is suffering from
+        $D$, is 0.001 .The test has a false positive rate of 0.005 and a
+        correct detection rate of 1. The correct detection rate is the
+        probability that if you have $D$, the test will say that you have $D$.
+        Given that you test positive for $D$, what is the probability that you
+        actually have it? Many of the HMS experts answered 0.95 and the average
+        answer was 0.56. Show that your knowledge of probability is greater
+        than that of the HMS experts by getting the right answer of 0.17.
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Given: \\
+            $P(D) = 0.001$, $P(D^C) = 1 - P(D) = 0.999$ \\
+            $P(\text{positive} \given D) = 1$, $P(\text{positive} \given D^C) =
+            0.005$
+            Therefore, $P(D \given \text{positive})$:
             \begin{align*}
-                x - y & > \frac{1}{3} \\
-                3x - 3y & > 1
+                P(D \given \text{positive}) & = \frac{P(\text{positive} \given D)P(D)}{P(\text{positive} \given D)P(D) + P(\text{positive} \given D^C)P(D^C)} \\
+                & = \frac{(1)(0.001)}{(1)(0.001) + (0.005)(0.999)} \\
+                & = 0.1668 \\
+                & \approx 0.17 \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 2
+        \item In the ternary communication channel shown below, a 3 is sent
+        three times more frequently than a 1, and a 2 is sent two times more
+        frequently than a 1. A 1 is observed; what is the conditional
+        probability that a 1 was sent?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Let $P(\text{1}) = x$, so $P(\text{2}) = 2x$ and $P(\text{3}) =
+            3x$. \\
+            $P(\text{1}) + P(\text{2}) + P(\text{3}) = 1$ \\
+            $x + 2x + 3x = 1 \Rightarrow x = 1/6$ \\
+            Therefore, $P(\text{1}) = x = 1/6$ \\
+            $P(\text{2}) = 2x = 1/3$ \\
+            $P(\text{3}) = 3x = 1/2$ \\
+            Therefore:
+            \begin{align*}
+                & P(\text{1 sent} \given \text{1 obs}) = \frac{P(\text{1
+                sent and 1 obs})}{P(\text{1 obs})} \\
+                & = \frac{P(\text{1 obs} \given \text{1 sent})P(\text{1
+                sent})}{P(\text{1 obs} \given \text{1 sent})P(\text{1
+                sent}) + P(\text{1 obs} \given \text{2 sent})P(\text{2
+                sent}) + P(\text{1 obs} \given \text{3 sent})P(\text{3
+                sent})} \\
+                & = \frac{(1 - \alpha) \cdot \frac{1}{6}}{(1 - \alpha) \cdot \frac{1}{6} + \frac{\beta}{2} \cdot \frac{1}{3} + \frac{\gamma}{2} \cdot \frac{1}{2}} \\
+                & = \frac{\frac{(1 - \alpha)}{6}}{\frac{(1 - \alpha)}{6} + \frac{\beta}{6} + \frac{\gamma}{4}} \\
+                & = \frac{2(1 - \alpha)}{- 2\alpha + 2\beta + 3\gamma + 2} \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 3
+        \item A large class in probability theory is taking a multiple-choice
+        test. For a particular question on the test, the fraction of examinees
+        who know the answer is $p$; $1-p$ is the fraction that will guess. The
+        probability of answering a question correctly is unity for an examinee
+        who knows the answer and $1/m$ for a guessee; $m$ is the number of
+        multiple-choice alternatives. Compute the probability that an examinee
+        knew the answer to a question given that he or she has correctly
+        answered it.
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Let $K$ represent the examinee knowing the correct answer, and $A$
+            represent the examinee answering the correct answer. \\
+            Therefore, $P(K \cap A) = 1$ since the examinee answered correctly
+            if they knew the correct answer. $P(A)$ consists of the total examinees who know the correct answer and those who guessed with the $1/m$ probability.
+            \begin{align*}
+                P(K \given A) & = \frac{P(K \cap A)}{P(A)} \\
+                & = \frac{1}{p + (1-p)\frac{1}{m}} \\
+                & = \frac{1}{p + \frac{1}{m}-\frac{p}{m}} \\
+                & = \frac{m}{mp -p + 1} \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 4
+        \item Assume there are three machines A, B, and C in a semiconductor
+        manufacturing facility that makes chips. They manufacture,
+        respectively, 25, 35, and 40 percent of the total semiconductor chips
+        there. Of their outputs, respectively, 5, 4, and 2 percent of the chips
+        are defective. A chip is drawn randomly from the combined output of the
+        three machines and is found defective. What is the probability that
+        this defective chip is manufactured by machine A? by machine B? by
+        machine C?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Given: $P(A) = 0.25, P(B) = 0.35, P(C) = 0.40$. \\
+            Let $D$ represent the event of finding a defective chip.\\
+            Therefore $P(D \given A) = 0.05, P(D \given B) = 0.04, P(D \given C) = 0.02$.
+            \begin{align*}
+                P(A \given D) & = \frac{P(D \given A)P(A)}{P(D \given A)P(A) +
+                P(D \given B)P(B) + P(D \given C)P(C)} \\
+                & = \frac{(0.05)(0.25)}{(0.05)(0.25) + (0.04)(0.35) +
+                (0.02)(0.40)} \\
+                & = 0.3623
             \end{align*}
             \begin{align*}
-                \text{area} & = \frac{1}{2} \cdot \frac{1}{3} \cdot
-                \frac{1}{3} \\
-                & = \frac{1}{18}
+                P(B \given D) & = \frac{P(D \given B)P(B)}{P(D \given A)P(A) +
+                P(D \given B)P(B) + P(D \given C)P(C)} \\
+                & = \frac{(0.04)(0.35)}{(0.05)(0.25) + (0.04)(0.35) +
+                (0.02)(0.40)} \\
+                & = 0.4058
             \end{align*}
             \begin{align*}
-                \text{required area} & = 2 \cdot 2 - \frac{1}{18} \\
-                & = 4 - \frac{1}{18}
+                P(C \given D) & = \frac{P(D \given C)P(C)}{P(D \given A)P(A) +
+                P(D \given B)P(B) + P(D \given C)P(C)} \\
+                & = \frac{(0.02)(0.40)}{(0.05)(0.25) + (0.04)(0.35) +
+                (0.02)(0.40)} \\
+                & = 0.2319 \qedhere
             \end{align*}
-            \begin{align*}
-                P(A) & = \frac{4 - \frac{1}{18}}{4} \\
-                & = \frac{71}{72}
-            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
 
-            To find $B$, either $x > 1/3$, $y > 1/3$ or $x > 1/3 \text{ \ and \
-            } y > 1/3$. Therefore, the remaining area becomes $x < 1/3$ and $y
-            < 1/3$.
+        % 5
+        \item  A card is randomly selected from a standard deck of 52 cards.
+        Let $A$ be the event of selecting an ace and let $B$ be the event of
+        selecting a red card. There are 4 aces and 26 red cards in the normal
+        deck. Are $A$ and $B$ independent?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+
+        \end{proof}
+        \vspace{0.2in}
+
+        % 6
+        \item A fair die is tossed three times. Given that a 2 appears on the
+        first toss, what is the probability of obtaining the sum 7 on the three
+        tosses?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Since the first toss resulted in a 2, the other tosses have to
+            total to $7 - 2 = 5$ for the sum of the three tosses to be 7. \\
+            Therefore the combinations: $(1,4), (4, 1), (2,3), (3,2)$ are the
+            only ones that would work. \\ $\therefore P(\text{sum = 7}) = 4/(3
+            \cdot 12) = 4/36 = 1/9$ \qedhere
+        \end{proof}
+        \vspace{0.2in}
+
+        % 7
+        \item An Internet access provider (IAP) owns two servers. Each server
+        has a 50\% chance of being "down" independently of the other.
+        Fortunately, only one server is necessary to allow the IAP to provide
+        service to its customers, i.e., only one server is needed to keep the
+        IAP's system up. Suppose a customer tries to access the Internet on
+        four different occasions, which are sufficiently spaced apart in time,
+        so that we may assume that the states of the system corresponding to
+        these four occasions are independent. What is the probability that the
+        customer will only be able to access the Internet on 3 out of the 4
+        occasions?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Since $P(\text{Internet access}) = 1 - P(\text{no Internet
+            access})$ \\
+            $\Rightarrow 1 - P(\text{both servers not working})) = 1 -
+            (0.5)(0.5) = 0.75$ \\
+            Therefore, $P(\text{any one server not working})$:
             \begin{align*}
-                \text{area} & = \frac{1}{9}
+                P(\text{any one server not working}) & = \binom{4}{3} \cdot P(\text{no Internet access}) \cdot P(\text{Internet access}) \\
+                & = \binom{4}{3} \bigg(\frac{3}{4}\bigg)^3
+                \bigg(\frac{1}{4}\bigg)^1 \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 8
+        \item A peculiar six-sided die has uneven faces. In particular, the
+        faces showing 1 or 6 are 1 $\times$ 1.5 inches, the faces showing 2 or
+        5 are 1 $\times$ 0.4 inches, the faces showing 3 or 4 are 0.4 $\times$
+        1.5 inches. Assume that the probability of a particular face coming up
+        is proportional to its area. We independently roll the die twice. What
+        is the probability that we get doubles?
+        \item[\textbf{Ans}]
+        \begin{proof}[\unskip\nopunct]
+            Area of faces showing 1 or 6: $(1 \times 1.5) \text{\ in}^2 = 1.5
+            \text{\ in}^2$ \\
+            Area of faces showing 2 or 5: $(1 \times 0.4) \text{\ in}^2 = 0.4
+            \text{\ in}^2$ \\
+            Area of faces showing 3 or 4: $(0.4 \times 1.5) \text{\ in}^2 = 0.6
+            \text{\ in}^2$ \\
+            Total area: $2(1.5 + 0.4 + 0.6) = 5 \text{\ in}^2$. \\
+            \begin{align*}
+                P(\text{1 or 6}) & = \frac{1.5}{5} = 0.3 \\
+                P(\text{2 or 5}) & = \frac{0.4}{5} = 0.08 \\
+                P(\text{1 or 6}) & = \frac{0.6}{5} = 0.12
             \end{align*}
             \begin{align*}
-                \text{required area} & = 2 \cdot 2 - \frac{1}{9} \\
-                & = 4 - \frac{1}{9}
+                P(\text{doubles}) & = P(\text{1})P(\text{1}) + P(\text{2})P(\text{2}) + P(\text{3})P(\text{3}) + P(\text{4})P(\text{4}) + P(\text{5})P(\text{5}) + P(\text{6})P(\text{6}) \\
+                & = 2(0.3^2) + 2(0.08^2) + 2(0.12^2) \\
+                & = 0.2216
             \end{align*}
-            \begin{align*}
-                P(B) & = \frac{4 - \frac{1}{9}}{4} \\
-                & = \frac{35}{36}
-            \end{align*}
-            $P(A \cap B) = P(B)$ since the intersection of at least one number
-            being greater than 1/3 and their difference being greater than 1/3
-            would cover the same area:
-            \begin{align*}
-                P(A \cap B) & = P(B)  \\
-                & = \frac{35}{36}
-            \end{align*}
-
-            To find $C$, $x = y$. This implies $x - y = 0$, which cannot be
-            determined since there would be infinite points on the line.
-            \begin{align*}
-                P(C) & = \text{UNDETERMINED}
-            \end{align*}
-
-            To find $D$, $x > 1/3$.
-            \begin{align*}
-                \text{required area} & = 2 \cdot (2 - \frac{1}{3}) \\
-                & = \frac{10}{3}
-            \end{align*}
-            \begin{align*}
-                P(D) & = \frac{\frac{10}{3}}{4} \\
-                & = \frac{5}{6}
-            \end{align*}
-            $P(C \cap D) = P(D)$ since $P(C)$ contains infinity and $P(D)$ is
-            included in there.
-            \begin{align*}
-                P(C \cap D) & = P(D) \\
-                & = \frac{5}{6}
-            \end{align*}
-
-        \item The disc containing the only copy of your term project just got
-        corrupted, and the disc got mixed up with three other corrupted discs
-        that were lying around. It is equally likely that any of the four discs
-        holds the corrupted remains of your term project. Your computer expert
-        friend offers to have a look, and you know from past experience that
-        his probability of finding your term project from any disc is 0.4
-        (assuming the term project is there). Given that he searches on disc 1
-        but cannot find your thesis, what is the probability that your thesis
-        is on disc $i$ for $i = 1, 2, 3, 4$?
-
-        \ans Let $D_i$ represent the event that the term project in the disc
-        $i$ and $T$ represent the event the term project finds the thesis on
-        disc 1.
-
-            \begin{equation*}
-                \therefore P(D_i) = 0.25, \text{ \ for \ } i = 1, 2, 3, 4 \\
-            \end{equation*}
-            \begin{align*}
-                P(T \given D_1) & = 0.4 \\
-                P(T \given D_2) & = 0 \\
-                P(T \given D_3) & = 0 \\
-                P(T \given D_4) & = 0
-            \end{align*}
-            \begin{align*}
-                P(T \given D_1^c) & = 0.6 \\
-                P(T \given D_2^c) & = 1 \\
-                P(T \given D_3^c) & = 1 \\
-                P(T \given D_4^c) & = 1
-            \end{align*}
-
-        Using Bayes Rule to calculate $P(D_i \given T^c)$ for $i = 1, 2, 3, 4$:
-            \begin{align*}
-                P(D_i \given T^c) & = \frac{P(D_i)P(F^c \given
-                D_i)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)}
-            \end{align*}
-            \begin{align*}
-                P(D_1 \given T^c) & = \frac{P(D_1)P(F^c \given
-                D_1)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
-                & = \frac{P(D_1)P(F^c \given D_1)}{P(D_1)P(F^c \given D_1) +
-                P(D_2)P(F^c \given D_2) + P(D_3)P(F^c \given D_3) + P(D_4)P(F^c
-                \given D_4)} \\
-                & = \frac{(0.25 \cdot 0.6)}{(0.25 \cdot 0.6) + (0.25
-                \cdot 1) + (0.25 \cdot 1) + (0.25 \cdot 1)} \\
-                & = \frac{0.15}{0.90} \\
-                & = 0.1667
-            \end{align*}
-        Similarly,
-            \begin{align*}
-                P(D_2 \given T^c) & = \frac{P(D_2)P(F^c \given
-                D_2)}{\sum_{k=1}^{4}P(D_k)P(F^c \given D_k)} \\
-                & = P(D_3 \given T^c) \\
-                & = P(D_4 \given T^c) \\
-                & = \frac{0.25}{0.90} \\
-                & = 0.2778
-            \end{align*}
-
-        \item A person has forgotten the last digit of a telephone number, so
-        he dials the number with the last digit randomly chosen. How many times
-        does he have to dial (not counting repetitions) in order that the
-        probability of dialing the correct number is more than 0.5?
-
-        \ans The probability of correct digit: 1/10. Let $n$ be the number of
-        dials. Then:
-        \begin{align*}
-            n \cdot \frac{1}{10} & > 0.5 \\
-            n & > 0.5 \cdot 10 \\
-            n & > 5
-        \end{align*}
-        Therefore, the minimum number of dials required is $n=6$.
-
-        \item A new test has been developed to determine whether a given
-        student is overstressed. This test is 95\% accurate if the student is
-        not overstressed, but only 85\% accurate if the student is in fact
-        overstressed. It is known that 99.5\% of all students are overstressed.
-        Given that a particular student tests negative for stress, what is the
-        probability that the test results are correct, and that this student is
-        not overstressed?
-
-        \ans Let $S$ represent a non-overstressed student, and $N$ represent a
-        negative test. We need to find $P(S \given N)$.
-        \begin{align*}
-            P(S \given N) & = \frac{P(S^c)P(N \given S^c)}{P(N)} \\
-            & = \frac{0.005 \cdot 0.95}{0.005 \cdot 0.95 + 0.995 \cdot 0.15 }\\
-            & \approx 0.03
-        \end{align*}
-
-        \item A hiker starts by taking one of $n$ available trails, denoted $1,
-        2, \ldots, n$. An hour into the hike, trail $i$ subdivides into 1 +
-        $i$ subtrails, only one of which leads to the hiker’s destination. The
-        hiker has no map and makes random choices of trail and subtrail. What
-        is the probability of reaching the destination?
-
-        \ans Let $T_i$ represent the event of starting with trail $i$.
-        \begin{align*}
-            P(T_i) & = \frac{1}{n} \text{ \ for \ } i = 1, 2, \ldots, n
-        \end{align*}
-        Let $D$ represent reaching the destination.
-        \begin{align*}
-            P(D \given T_i) & = \frac{1}{i+1} \text{ \ for \ } i = 1, 2,
-            \ldots, n
-        \end{align*}
-        By the total probability theorem, the probability of reaching the
-        destination is:
-        \begin{align*}
-            P(D) & = P(T_i)P(D \given T_i) \\
-            & = \frac{1}{n} \cdot \frac{1}{i+1} \\
-            & = \frac{1}{n(i+1)}
-        \end{align*}
-
+            $\therefore P(\text{doubles}) = 0.2216$ \qedhere
+        \end{proof}
+        \vspace{0.2in}
 
     \end{enumerate}
 
