@@ -54,6 +54,25 @@
         % 1
         \item
         \begin{proof}[\unskip\nopunct]
+            With 3 $n$-sided rolls, there are $n^3$ possibilities. \\
+            The probability that either of the pair of persons roll the same
+            face of the die is therefore $n/n^3=1/n^2$. \\
+            Therefore
+            \begin{align*}
+                P(A_{12}) = P(A_{13}) = P(A_{23}) & = \frac{n}{n^3} \\
+                & = \frac{1}{n^2}
+            \end{align*}
+            But if both the events $A_{12}$ and $A_{13}$ takes place, that is
+            both persons $1$ and $2$ and persons $1$ and $3$ roll the same
+            face, then that yields $A_{23}$. \\
+            That is, if both persons $1$ and $2$ and persons $1$ and $3$ roll
+            the same face, then that implies persons $1$ and $3$ rolled the
+            same face.\\
+            But the outcome of person $3$'s roll is not dependent on the other
+            persons.\\
+            That is, pairwise $A_{12}$ and $A_{13}$, $A_{12}$ and $A_{23}$, and
+            $A_{13}$ and $A_{23}$ are independent.\\
+            But if considered individually, they are dependent. \qedhere
         \end{proof}
         \vspace{0.2in}
 
@@ -98,6 +117,48 @@
         \begin{proof}[\unskip\nopunct]
         \end{proof}
         \vspace{0.2in}
+
+        % 9
+        \item
+        \begin{proof}[\unskip\nopunct]
+        \end{proof}
+        \vspace{0.2in}
+
+        % 10
+        \item
+        The permutations of a word is given by:
+        \begin{equation*}
+            \frac{(\text{length of word})!}{(\text{repetitions of A})!(\text{repetitions of B})!\ldots (\text{repetitions of Z})!}
+        \end{equation*}
+        \begin{enumerate}
+
+            % 10a
+            \item
+            \begin{proof}[\unskip\nopunct]
+                Since there are no repeating characters, the permutation is
+                simply:
+                \begin{align*}
+                    \text{permutations} & = length(\text{children})! \\
+                    & = 8! \\
+                    & = 40320 \qedhere
+                \end{align*}
+            \end{proof}
+            \vspace{0.2in}
+
+            % 10b
+            \item
+            \begin{proof}[\unskip\nopunct]
+                Since the characters $o$ repeats 2 times, $k$ repeats 2 times,
+                and $e$ repeats 3 times:
+                \begin{align*}
+                    \text{permutations} & = \frac{length(\text{bookkeeper})!}{(\text{repetitions of o})!(\text{repetitions of k})!(\text{repetitions of e})!} \\
+                    & = \frac{10!}{2!2!3!} \\
+                    & = 151200 \qedhere
+                \end{align*}
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{enumerate}
 
     \end{enumerate}
 
