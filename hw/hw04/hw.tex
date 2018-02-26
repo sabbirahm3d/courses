@@ -72,10 +72,20 @@
             \end{proof}
             \vspace{0.2in}
 
-            \item[\textbf{10}] Show that $a\textbf{Z} \cap b\textbf{Z} = [a,
-            b]\textbf{Z}$.
+            \item[\textbf{10}] Show that $a\mathbb{Z} \cap b\mathbb{Z} = lcm[a,
+            b]\mathbb{Z}$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Let $x \in lcm[a,b]\mathbb{Z}$\\
+                Since, $a \given lcm[a,b]$ and $b \given lcm[a,b]$,\\
+                $a \given x$ and $b \given x$\\
+                Therefore, $x \in a\mathbb{Z} \cap b\mathbb{Z}$\\
+
+                Conversely, let $x \in a\mathbb{Z} \cap b\mathbb{Z}$\\
+                Then, $x \in a\mathbb{Z}$ and $x \in b\mathbb{Z}$\\
+                Then, $x \given a$ and $x \given b$\\
+                Therefore, $x ]\given lcm[a,b]$\\
+                $\Rightarrow x \in lcm[a,b]\mathbb{Z}$
             \end{proof}
             \vspace{0.2in}
 
@@ -85,6 +95,14 @@
             its prime factorization is even.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Suppose $a = p_{1}^{r_{1}} \cdot p_{2}^{r_{2}} \cdot \ldots \cdot p_{k}^{r_{k}}$, where $r_{i}$ is even.\\
+                Also, let $n = p_{1}^{r_{1}/2} \cdot p_{2}^{r_{2}/2} \cdot \ldots \cdot p_{k}^{r_{k}/2}$\\
+                Then, $a = n^2$\\
+
+                Conversely, suppose $a = n^2$.\\
+                Let $n = p_{1}^{s_{1}} \cdot p_{2}^{s_{2}} \cdot \ldots \cdot p_{l}^{s_{l}}$\\
+                Then, $a = p_{1}^{2s_{1}} \cdot p_{2}^{2s_{2}} \cdot \ldots \cdot p_{l}^{2s_{l}}$\\
+                Therefore, all the primes of $a$ have even powers. \qedhere
             \end{proof}
             \vspace{0.2in}
 
