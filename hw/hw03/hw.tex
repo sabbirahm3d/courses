@@ -109,9 +109,34 @@
 
         % 3
         \item
-        \begin{proof}[\unskip\nopunct]
-        \end{proof}
-        \vspace{0.2in}
+
+            \begin{enumerate}
+
+                \item
+                \begin{proof}[\unskip\nopunct]
+                    $A_1A_2A_4A_6$ and $A_1A_3A_5A_6$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item
+                \begin{proof}[\unskip\nopunct]
+
+                    Given,\\
+                    Probability that $a_1$ is closed $=p$\\
+                    Probability that $a_2$ and $a_4$ are closed $= p \cdot p = p^2$\\
+                    Probability that $a_3$ and $a_5$ are closed $= p \cdot p = p^2$\\
+                    Therefore, the probability that at least one closed path,
+                    \begin{align*}
+                        A_2A_4A_3A_5 & = 1-P(\text{neither paths are closed})\\
+                        & = 1-(1-p^2)(1-p^2)\\
+                        & = 1-(1-p^2)^2 \\
+                        & = p^2(1-(1-p^2)^2) \qedhere
+                    \end{align*}
+
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{enumerate}
 
         % 4
         \item
@@ -145,14 +170,51 @@
         % 5
         \item
         \begin{proof}[\unskip\nopunct]
+            Possible combinations for the sum of the two rolls to be 7: \\
+            \begin{equation*}
+                \{\{1,6\}, \{2,5\}, \{3,4\}, \{4,3\}, \{5,2\}, \{6,1\}\}
+            \end{equation*}
+            6 combinations, therefore $P(\text{sum = 7})=6/36=1/6$.\\
+            For 100 repetitions:
+            \begin{align*}
+                P(\text{sum = 7 10 times}) & = \binom{100}{10}\bigg(\frac{1}{6}\bigg)^{10}\bigg(1-\frac{1}{6}\bigg)^{100-10}\\
+                & \approx 0.021 \qedhere
+            \end{align*}
         \end{proof}
         \vspace{0.2in}
 
         % 6
-        \item
-        \begin{proof}[\unskip\nopunct]
-        \end{proof}
-        \vspace{0.2in}
+        \item Since the probability of destroying one BM by both the AMMs is\\
+        $1-P(\text{neither of the AMMs destroy}) = 1-0.2*0.2=0.96$
+            \begin{enumerate}
+
+                \item
+                \begin{proof}[\unskip\nopunct]
+                    With 6 BMs:
+                    \begin{align*}
+                        P(\text{all BMs are destroyed}) & = 0.96^6\\
+                        & = 0.78275 \qedhere
+                    \end{align*}
+                \end{proof}
+
+                \item
+                \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        P(\text{at least one BM gets through}) & = 1 - P(\text{all BMs are destroyed}) \\
+                        & = 1-0.96^6 \\
+                        & = 0.21724 \qedhere
+                    \end{align*}
+                \end{proof}
+
+                \item
+                \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        P(\text{exactly one BM gets through}) & = 6\cdot 0.96^5\cdot 0.04\\
+                        & = 0.19568 \qedhere
+                    \end{align*}
+                \end{proof}
+
+            \end{enumerate}
 
         % 7
         \item
@@ -167,9 +229,7 @@
             \addtolength{\jot}{1em}
             \begin{align*}
                 P(\text{>15 correct} \given \text{qualified}) & = \frac{P(\text{>15 correct} \cap \text{qualified})}{P(\text{qualified})} \\
-                & = \frac{q \sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5}{q\sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5 + (1-q)\sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5} \\
-                & = \frac{q \sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5}{\sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5} \\
-                & = q \qedhere
+                & = \frac{q \sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5}{q\sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5 + (1-q)\sum_{k=15}^{20} \binom{20}{15}(p)^{15}(1-p)^5} \qedhere
             \end{align*}
             \endgroup
         \end{proof}
@@ -214,6 +274,11 @@
         % 9
         \item
         \begin{proof}[\unskip\nopunct]
+            With 6 colors of jelly beans, without replacement, a negative binomial distribution can be simulated:
+            \begin{align*}
+                \binom{100+6-1}{6-1} & = \binom{105}{5} \\
+                & = 96560646 \qedhere
+            \end{align*}
         \end{proof}
         \vspace{0.2in}
 
@@ -230,11 +295,14 @@
             \begin{proof}[\unskip\nopunct]
                 Since there are no repeating characters, the permutation is
                 simply:
+                \begingroup
+                \addtolength{\jot}{1em}
                 \begin{align*}
                     \text{permutations} & = length(\text{children})! \\
                     & = 8! \\
                     & = 40320 \qedhere
                 \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
