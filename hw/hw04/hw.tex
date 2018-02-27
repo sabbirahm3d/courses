@@ -72,20 +72,22 @@
             \end{proof}
             \vspace{0.2in}
 
-            \item[\textbf{10}] Show that $a\mathbb{Z} \cap b\mathbb{Z} = lcm[a,
-            b]\mathbb{Z}$.
+            \item[\textbf{10}] Show that $a\mathbb{Z} \cap b\mathbb{Z} =
+            [a,b]\mathbb{Z}$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
-                Let $x \in lcm[a,b]\mathbb{Z}$\\
-                Since, $a \given lcm[a,b]$ and $b \given lcm[a,b]$,\\
+                Let $x \in [a,b]\mathbb{Z}$\\
+                Since, $a \given [a,b]$ and $b \given [a,b]$,\\
                 $a \given x$ and $b \given x$\\
                 Therefore, $x \in a\mathbb{Z} \cap b\mathbb{Z}$\\
 
-                Conversely, let $x \in a\mathbb{Z} \cap b\mathbb{Z}$\\
-                Then, $x \in a\mathbb{Z}$ and $x \in b\mathbb{Z}$\\
-                Then, $x \given a$ and $x \given b$\\
-                Therefore, $x ]\given lcm[a,b]$\\
-                $\Rightarrow x \in lcm[a,b]\mathbb{Z}$
+                Conversely,\\
+                since $a \given [a,b]$, then $[a,b] \in a\mathbb{Z}$\\
+                and $b \given [a,b]$, then $[a,b] \in b\mathbb{Z}$\\
+                Then, $[a,b] \in (a \cap b)\mathbb{Z}$
+
+                $\therefore a\mathbb{Z} \cap b\mathbb{Z} = [a,b]\mathbb{Z}$
+                \qedhere
             \end{proof}
             \vspace{0.2in}
 
@@ -111,6 +113,27 @@
             and a square-free integer.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                \texttt{\small NOTE: I needed help on this question}\\
+                Let $x \in \mathbb{Z^{+}}$ not be a square or a square-free integer.\\
+                Let
+                \begin{equation*}
+                    x = p_{1}^{r_1} \cdot p_{2}^{r_2} \cdot \ldots \cdot p_{k}^{r_k}
+                \end{equation*}
+                where $r_{i}$ for $1 \le i \le k$ can be either odd or even.\\
+                However, they all cannot be even since $x$ is not a square integer.\\
+
+                All the odd $r_i$'s can be represented as the sum of $r_i$ with all the even $r_i$'s.\\
+                For example,\\
+                if $r_i = 5$ (a prime integer),\\
+                then $r_i = 1 + 4$\\
+
+                If all the even $r_i$'s and all the exponents that are $1$ are grouped together,\\
+                $x$ can be represented as:
+                \begin{equation*}
+                    x = p_{1}^{s_1} \cdot p_{2}^{s_2} \cdot \ldots \cdot p_{k}^{s_k} \cdot p_{k+1} \cdot p_{k+2} \cdot \ldots \cdot p_{k+r}
+                \end{equation*}
+                where all the $s_i$'s are even.\\
+                This implies that $x$ is the product of a square and square free integer. \qedhere
             \end{proof}
             \vspace{0.2in}
 
