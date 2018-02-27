@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{extarticle}
+\input{../structure.tex} % specifies the document layout and style
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMSC 421} HW 01}
+    \vspace{-0.2in}
+
+    \begin{enumerate}[label=\textbf{\arabic*}]
+
+        \item Compare and contrast microkernel and monolithic kernel-based
+        operating systems. Name one kernel that follows each of these models.
+        \item[\textbf{Ans}]
+        A microkernel implements user and kernel services in different address
+        spaces, whereas a monolithic kernel system uses the same address space.
+        This separation makes microkernels easily extendable with new services
+        being added to its user space. The monolithic kernel requires the
+        entire kernel to be rebuilt after adding new services. Since only the
+        kernel services are located in its address spaces, the microkernels are
+        comparatively smaller than a monolithic kernel. Also, if a service
+        fails in a microkernel, the operating system remains unaffected.
+        Monolithic kernels, however, execute faster as they use system calls to
+        communicate between application and hardware. Microkernels rely on the
+        relatively slower message passing to communicate. Performance of
+        microkernels are also affected by increased system-function overhead.
+        Monolithic kernels also require lesser code in their design than
+        microkernels.
+        \vspace{0.2in}
+
+        \item What is the purpose of a system call? Give at least 3 concrete
+        examples of potential system calls in an OS and explain why each would
+        be a system call.
+        \item[\textbf{Ans}]
+
+        \item Describe what a context switch is. How does context switching
+        differ between processes and between threads within a single process?
+        \item[\textbf{Ans}]
+
+        \item Name two methods of IPC (interprocess communication) and discuss
+        the pros and cons of each.
+        \item[\textbf{Ans}]
+
+        \item What is the difference between a program being executed by a
+        single thread and one that is being executed by multiple threads?
+        Compare and contrast task parallelism and data parallelism as it
+        relates to multithreaded programs.
+        \item[\textbf{Ans}]
+
+    \end{enumerate}
+
+\end{document}
