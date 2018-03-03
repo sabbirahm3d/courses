@@ -54,24 +54,114 @@
         % 1
         \item
         \begin{proof}[\unskip\nopunct]
+            Given,\\
+            Probability of not losing the first game: $p_1=0.4$\\
+            Probability of losing the first game: $p_1^c=1-0.4=0.6$\\
+            Probability of not losing the second game: $p_2=0.7$\\
+            Probability of losing the second game: $p_2^c=1-0.7=0.3$\\
+
+            Therefore, the $pmf(X)$ where $X=0,1,2,4$ represents the number of
+            points earned over the weekend:
+            \begin{align*}
+                P(X=0) & = p_1^c \cdot p_2^c\\
+                & = 0.6 \cdot 0.3\\
+                & = 0.18
+            \end{align*}
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=1) & = \frac{p_1^c \cdot p_2}{2} + \frac{p_1 \cdot
+                p_2^c}{2}\\
+                & = \frac{0.6 \cdot 0.7}{2} + \frac{0.4 \cdot 0.3}{2}\\
+                & = 0.27
+            \end{align*}
+            \endgroup
         \end{proof}
         \vspace{0.2in}
 
         % 2
         \item
         \begin{proof}[\unskip\nopunct]
+            Given $p = 1/649640$.
+            Therefore,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X \ge 1) & = 1 - P(X = 0)\\
+                & = 1 - \Bigg(\frac{649640-1}{649640}\Bigg)^{649640}\\
+                & = 1 - \Bigg(1 - \frac{1}{649640}\Bigg)^{649640}\\
+            \end{align*}
+            If $n = 649640$
+            \begin{align*}
+                P(X \ge 1) & = 1 - \Bigg(1 - \frac{1}{n}\Bigg)^{n}\\
+                & = 1 - \lim_{n \rightarrow \infty}\Bigg(1 -
+                \frac{1}{n}\Bigg)^{n}\\
+                & = 1 - \frac{1}{e} \qedhere
+            \end{align*}
+            \endgroup
         \end{proof}
         \vspace{0.2in}
 
         % 3
         \item
         \begin{proof}[\unskip\nopunct]
+            A claim is first filed with the probability\\
+            $pq = (0.05)(1 - 0.05)^{n-1}=(0.05)(0.095)^{n-1}$
         \end{proof}
         \vspace{0.2in}
 
         % 4
         \item
         \begin{proof}[\unskip\nopunct]
+
+            \begin{enumerate}
+
+                \item $Y = X \ (mod \ 3)$\\
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,3,6,9\})\\
+                    & = \frac{4}{10}\\
+                    & = 0.4
+                \end{align*}
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,3,6,9\})\\
+                    & = \frac{4}{10}\\
+                    & = 0.4
+                \end{align*}
+                \begin{align*}
+                    P(Y = 1) & = P(X = \{1,4,7\})\\
+                    & = \frac{3}{10}\\
+                    & = 0.3
+                \end{align*}
+                \begin{align*}
+                    P(Y = 2) & = P(X = \{2,5,8\})\\
+                    & = \frac{3}{10}\\
+                    & = 0.3
+                \end{align*}
+
+                \item $Y = 5 \ (mod \ X + 1)$\\
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,4\})\\
+                    & = \frac{2}{10}\\
+                    & = 0.2
+                \end{align*}
+                \begin{align*}
+                    P(Y = 1) & = P(X = \{1,5\})\\
+                    & = \frac{2}{10}\\
+                    & = 0.2
+                \end{align*}
+                \begin{align*}
+                    P(Y = 2) & = P(X = \{2\})\\
+                    & = \frac{1}{10}\\
+                    & = 0.1
+                \end{align*}
+                \begin{align*}
+                    P(Y = 5) & = P(X = \{5,6,7,8,9\})\\
+                    & = \frac{5}{10}\\
+                    & = 0.5 \qedhere
+                \end{align*}
+
+            \end{enumerate}
+
         \end{proof}
         \vspace{0.2in}
 
