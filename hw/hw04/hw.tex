@@ -168,6 +168,47 @@
         % 5
         \item
         \begin{proof}[\unskip\nopunct]
+            Since $X$ is uniformly distributed over $[a, b]$,
+            \begin{align*}
+                p_X(k) & =
+                \begin{cases}
+                    \frac{1}{b-a+1}, & \text{if}\ k \in [a,b],\\
+                    0, & \text{otherwise}
+                \end{cases}
+            \end{align*}
+            and
+            \begin{align*}
+                max\{0,X\} & =
+                \begin{cases}
+                    X, & \text{if}\ X > 0\\
+                    0, & \text{if}\ X \le 0
+                \end{cases}
+            \end{align*}
+            Then,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(max\{0,X\} = 0) & = P(X \le 0)\\
+                & = \frac{|a| + 1}{b - a + 1}
+            \end{align*}
+            \endgroup
+            Similarly, for $min\{0,X\}$
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(min\{0,X\} = 0) & = P(X \ge 0)\\
+                & = \frac{b + 1}{b - a + 1}
+            \end{align*}
+            \endgroup
+            For $k > 0$,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(max\{0,X\} = k) & = P(max\{0,X\} = k)\\
+                & = P(X = k)\\
+                & = \frac{1}{b - a + 1} \qedhere
+            \end{align*}
+            \endgroup
         \end{proof}
         \vspace{0.2in}
 
@@ -180,12 +221,44 @@
         % 7
         \item
         \begin{proof}[\unskip\nopunct]
+            Since $P_x(X) = sin(X\pi) = 0$ for $X \in \mathbb{Z}$:
+            \begin{align*}
+                E[sin(X\pi)] & = \sum_{k \in \mathbb{Z}} kP_x(k)\\
+                & = 0
+            \end{align*}
+            Since $P_x(X) = cos(X\pi) = 1$ for $X \in \mathbb{Z}$:
+            \begin{align*}
+                E[cos(X\pi)] & = \sum_{k \in \mathbb{Z}} kP_x(k)\\
+                & = 1 \qedhere
+            \end{align*}
         \end{proof}
         \vspace{0.2in}
 
         % 8
         \item
         \begin{proof}[\unskip\nopunct]
+            \begin{enumerate}
+
+                \item Since the event where Fischer wins is independent, and a
+                win is determined by a win in the $(n+1)$th until $n$ ties:
+                \begin{equation*}
+                    \sum_{n \ge 0} (1-p-q)^{n-1}(p) = \frac{p}{p+q}
+                \end{equation*}
+
+                \item The PMF of the geometric probability
+                \begin{equation*}
+                    p_X(k) = (1-p-q)^{k-1}(p+q) \text{, for } k \ge 0
+                \end{equation*}
+                The mean of the geometric probability
+                \begin{equation*}
+                    E[p_X] = \frac{1}{p+q}
+                \end{equation*}
+                The variance of the geometric probability
+                \begin{equation*}
+                    var[p_X] = \frac{1-(p+q)}{(p+q)^2} \qedhere
+                \end{equation*}
+
+            \end{enumerate}
         \end{proof}
         \vspace{0.2in}
 
