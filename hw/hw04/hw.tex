@@ -53,6 +53,7 @@
 
         % 1
         \item
+        \textbf{NOT DONE}
         \begin{proof}[\unskip\nopunct]
             Given,\\
             Probability of not losing the first game: $p_1=0.4$\\
@@ -215,6 +216,53 @@
         % 6
         \item
         \begin{proof}[\unskip\nopunct]
+
+            \begin{enumerate}
+
+                \item Find $K$
+                \begin{align*}
+                    1 & = \sum_{K = -3}^{3} p_X(K)\\
+                    1 & = K\sum_{x = -3}^{3} x^2\\
+                    1 & = K(9 + 4 + 1 + 0 + 1 + 4 + 9) \\
+                    \Rightarrow K & = \frac{1}{28}
+                \end{align*}
+
+                \item Find the PMF of $Y$\\
+                Since $Y = |X|$, then $y \in \{0,1,2,3\}$\\
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_Y(0) & = p_X(0)\\
+                    & = 0
+                \end{align*}
+                \begin{align*}
+                    p_Y(1) & = p_X(-1) + p_X(1)\\
+                    & = \frac{1^2}{28} + \frac{1^2}{28}\\
+                    & = \frac{1}{14}
+                \end{align*}
+                \begin{align*}
+                    p_Y(2) & = p_X(-2) + p_X(2)\\
+                    & = \frac{2^2}{28} + \frac{2^2}{28}\\
+                    & = \frac{4}{14}
+                \end{align*}
+                \begin{align*}
+                    p_Y(3) & = p_X(-3) + p_X(3)\\
+                    & = \frac{3^2}{28} + \frac{3^2}{28}\\
+                    & = \frac{9}{14}
+                \end{align*}
+                \endgroup
+
+                \item General formula for $p_Y$
+                \begin{align*}
+                    p_Y & =
+                    \begin{cases}
+                        2p_X(y), & \text{if}\ y \in \{0,1,2,3\},\\
+                        0, & \text{otherwise}
+                    \end{cases} \qedhere
+                \end{align*}
+
+            \end{enumerate}
+
         \end{proof}
         \vspace{0.2in}
 
@@ -251,11 +299,11 @@
                 \end{equation*}
                 The mean of the geometric probability
                 \begin{equation*}
-                    E[p_X] = \frac{1}{p+q}
+                    E[X] = \frac{1}{p+q}
                 \end{equation*}
                 The variance of the geometric probability
                 \begin{equation*}
-                    var[p_X] = \frac{1-(p+q)}{(p+q)^2} \qedhere
+                    var[X] = \frac{1-(p+q)}{(p+q)^2} \qedhere
                 \end{equation*}
 
             \end{enumerate}
@@ -265,6 +313,12 @@
         % 9
         \item
         \begin{proof}[\unskip\nopunct]
+            Since the distribution is binomial with $n=10$
+            \begin{align*}
+                E[X] = np & \ge 10000-10\\
+                \Rightarrow np & \ge 9990\\
+                \Rightarrow p & \ge 0.999 \qedhere
+            \end{align*}
         \end{proof}
         \vspace{0.2in}
 
