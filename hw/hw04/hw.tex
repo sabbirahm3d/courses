@@ -42,8 +42,6 @@
     \end{centering}
 }
 
-\newcommand{\ans}{\textbf{Answer} \ }
-
 \begin{document}
 
     \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 04}
@@ -53,16 +51,14 @@
 
         % 1
         \item
-        \textbf{NOT DONE}
         \begin{proof}[\unskip\nopunct]
             Given,\\
-            Probability of not losing the first game: $p_1=0.4$\\
-            Probability of losing the first game: $p_1^c=1-0.4=0.6$\\
-            Probability of not losing the second game: $p_2=0.7$\\
-            Probability of losing the second game: $p_2^c=1-0.7=0.3$\\
+            probability of not losing the first game: $p_1=0.4$\\
+            probability of losing the first game: $p_1^c=1-0.4=0.6$\\
+            probability of not losing the second game: $p_2=0.7$\\
+            probability of losing the second game: $p_2^c=1-0.7=0.3$\\
 
-            Therefore, the $pmf(X)$ where $X=0,1,2,4$ represents the number of
-            points earned over the weekend:
+            Therefore, the $p_X$ where $X=0,1,2,4$ represents the number of points earned over the weekend:
             \begin{align*}
                 P(X=0) & = p_1^c \cdot p_2^c\\
                 & = 0.6 \cdot 0.3\\
@@ -76,7 +72,34 @@
                 & = \frac{0.6 \cdot 0.7}{2} + \frac{0.4 \cdot 0.3}{2}\\
                 & = 0.27
             \end{align*}
+            \begin{align*}
+                P(X=2) & = \frac{p_1^c \cdot p_2}{2} + \frac{p_1 \cdot
+                p_2^c}{2} + \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.6 \cdot 0.7}{2} + \frac{0.4 \cdot 0.3}{2} + \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.34
+            \end{align*}
+            \begin{align*}
+                P(X=3) & = \frac{p_1}{2} \cdot \frac{p_2}{2} + \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.7}{2} \cdot \frac{0.4}{2} + \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.14
+            \end{align*}
+            \begin{align*}
+                P(X=4) & = \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.07
+            \end{align*}
             \endgroup
+            \begin{equation*}
+                p_X(k) =
+                \begin{cases}
+                    0.18, & \text{if}\ k = 0,\\
+                    0.27, & \text{if}\ k = 1,\\
+                    0.34, & \text{if}\ k = 2,\\
+                    0.14, & \text{if}\ k = 3,\\
+                    0.07, & \text{if}\ k = 4,\\
+                    0, & \text{otherwise}
+                \end{cases} \qedhere
+            \end{equation*}
         \end{proof}
         \vspace{0.2in}
 
@@ -106,8 +129,24 @@
         % 3
         \item
         \begin{proof}[\unskip\nopunct]
-            A claim is first filed with the probability\\
-            $pq = (0.05)(1 - 0.05)^{n-1}=(0.05)(0.095)^{n-1}$
+            A claim is first filed with the geometric probability
+            \begin{align*}
+                p(1-p)^{n-1} & = (0.05)(1 - 0.05)^{n-1}\\
+                & =(0.05)(0.095)^{n-1}
+            \end{align*}
+            The total premium is
+            \begin{align*}
+                1000 \cdot \sum_{k=0}^{n-1} (0.9)^k & = 1000 \cdot \frac{1-0.9^n}{1-0.9}\\
+                & = 10000 \cdot (1-(0.9)^n)
+            \end{align*}
+            Therefore, the PMF is
+            \begin{equation*}
+                p_X(k) =
+                \begin{cases}
+                    0.05 \cdot (0.095)^{n-1}, & \text{if}\ k = 10000 \cdot (1-(0.9)^n), n = 1,2, \ldots,\\
+                    0, & \text{otherwise}
+                \end{cases} \qedhere
+            \end{equation*}
         \end{proof}
         \vspace{0.2in}
 
@@ -325,6 +364,21 @@
         % 10
         \item
         \begin{proof}[\unskip\nopunct]
+            Since
+            \begin{equation*}
+                var(X) = E[X^2] - (E[X])^2 \Rightarrow E[X^2] = var(X) + (E[X])^2
+            \end{equation*}
+            Then
+            \begin{align*}
+                E[(X_1 + \ldots + X_n)^2] & = var(X_1 + \ldots + X_n) + (E[(X_1 + \ldots + X_n)])^2\\
+                & = n \cdot var(X_1) + (n \cdot E[X_1])^2 \text{, (since the variables are identical)}\\
+                & = n \cdot (E[X_1^2] - (E[X_1])^2) + n^2 \cdot E[X_1]^2\\
+                & = n \cdot E[X_1^2] + (n^2-n) \cdot (E[X_1])^2
+            \end{align*}
+            Let $c = n$ and $d = n^2-n$, then
+            \begin{equation*}
+                E[(X_1 + \ldots + X_n)^2] = cE[X_1^2] + d(E[X_1])^2 \qedhere
+            \end{equation*}
         \end{proof}
         \vspace{0.2in}
 
