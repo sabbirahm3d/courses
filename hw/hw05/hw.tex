@@ -41,6 +41,8 @@
     \end{centering}
 }
 
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
 \begin{document}
 
     \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 04}
@@ -56,23 +58,45 @@
 
             \begin{itemize}
 
-                \item[\textbf{d}] $19x \equiv 1 \text{ (mod  36)}$
+                \item[\textbf{d}] $19x \equiv 1 \Mod{36}$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        19x & \equiv 1 \Mod{36} \\
+                        19x & = 1 + 36n \text{, for } n \in \integers\\
+                        \Rightarrow 1 & = 19x - 36n\\
+                        1 & = 19(19) - 36(10)
+                    \end{align*}
+                    Therefore, $x \equiv 19 \Mod{36}$
                 \end{proof}
                 \vspace{0.2in}
 
             \end{itemize}
 
             \item[\textbf{4}] Solve the following congruence: $20x \equiv 12
-            \text{ (mod  72)}$
+            \Mod{72}$
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Since $(20,72)=4$, there exists 4 solutions.
+                \begin{align*}
+                    20x & \equiv 12 \Mod{72} \\
+                    20x & = 12 + 72n \text{, for } n \in \integers\\
+                    \Rightarrow 5x & = 3 + 18n\\
+                    5x & \equiv 3 \Mod{18}
+                \end{align*}
+                Then, $x \equiv 15 \Mod{18} \Rightarrow 18 \mid (5x-3)$\\
+                Therefore,
+                \begin{align*}
+                    x & \equiv 15 \Mod{18}\\
+                    x & \equiv 33 \Mod{18}\\
+                    x & \equiv 51 \Mod{18}\\
+                    x & \equiv 69 \Mod{18} \qedhere
+                \end{align*}
             \end{proof}
             \vspace{0.2in}
 
             \item[\textbf{7}] The smallest positive solution of the congruence
-            $ax \equiv 0 \text{ (mod  $n$)}$ is called the additive order of
+            $ax \equiv 0 \Mod{n}$ is called the additive order of
             $a$ modulo $n$. Find the additive orders of each of the following
             elements, by solving the appropriate congruences.
 
@@ -81,12 +105,20 @@
                 \item[\textbf{b}] 7 modulo 12
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    The smallest positive solution: $7x \equiv 0 \Mod{12}$\\
+                    That is, the smallest positive integer $x$ such that $12
+                    \mid 7x \Rightarrow x=4$\\ Therefore, the additive order of
+                    7 modulo 12 is $x = 12$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
                 \item[\textbf{d}] 12 modulo 18
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    The smallest positive solution: $12x \equiv 0 \Mod{18}$\\
+                    That is, the smallest positive integer $x$ such that $18
+                    \mid 12x \Rightarrow x=3$\\ Therefore, the additive order
+                    of 12 modulo 18 is $x = 3$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
@@ -97,6 +129,13 @@
             modulo $n$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Since $3^4=81$ with a units digit of $1$,\\
+                then $3^{29}=(3^{4})^{7} \cdot 3$ with a units digit of $3$\\
+
+                Since $11^2=121$ with a units digit of $1$,\\
+                then $11^{12}=(11^{2})^{6}$ with a units digit of $1$\\
+
+                Therefore, the units digit of $3^{29}+11^{12}+15$ is: $1 + 3 + 5 = 9$ \qedhere
             \end{proof}
             \vspace{0.2in}
 
@@ -104,9 +143,18 @@
             error.
             \begin{itemize}
 
-                \item[\textbf{a}] $x^3+2x+2 \equiv 0 \text{ (mod  5)}$
+                \item[\textbf{a}] $x^3+2x+2 \equiv 0 \Mod{5}$
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    By trial and error
+                    \begin{align*}
+                        x=1 &\Rightarrow 5 \mid (1)^3+2(1)+2=5\\
+                        x=2 &\Rightarrow 5 \nmid (2)^3+2(2)+2=14\\
+                        x=3 &\Rightarrow 5 \mid (3)^3+2(3)+2=35\\
+                        x=4 &\Rightarrow 5 \nmid (4)^3+2(4)+2=74
+                    \end{align*}
+                    Therefore,\\
+                    $x \equiv 1 \Mod{5}$ and $x \equiv 3 \Mod{5}$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
@@ -114,12 +162,73 @@
 
             \item[\textbf{20}] Solve the following system of congruences.
             \begin{align*}
-                2x & \equiv 5 \text{ (mod  7)} & 3x & \equiv 4 \text{ (mod  8)}
+                2x & \equiv 5 \Mod{7} & 3x & \equiv 4 \Mod{8}
             \end{align*}
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+
+                Simplifying the congruences first,\\
+                $2x \equiv 5 \Mod{7}$
+                \begin{align*}
+                    2x & \equiv 5 \Mod{7} \\
+                    2v & \equiv 1 \Mod{7} \\
+                    2v & = 1 - 7n \text{, for } n \in \integers\\
+                    \Rightarrow 1 & = 2v + 7n\\
+                    1 & = 2(4) + 7(-1)\\
+                    \Rightarrow x & \equiv 4v \Mod{7}
+                \end{align*}
+                Therefore,
+                \begin{align*}
+                    2x & \equiv 4 \cdot 5 \Mod{7}\\
+                    x & \equiv 6 \Mod{7}
+                \end{align*}
+                And $3x \equiv 4 \Mod{8}$
+                \begin{align*}
+                    3x & \equiv 4 \Mod{8} \\
+                    3v & \equiv 1 \Mod{8} \\
+                    3v & = 1 - 8n \text{, for } n \in \integers\\
+                    \Rightarrow 1 & = 3v + 8n\\
+                    1 & = 3(3) + 8(-1)\\
+                    \Rightarrow x & \equiv 3v \Mod{8}
+                \end{align*}
+                Therefore,
+                \begin{align*}
+                    3x & \equiv 3 \cdot 4 \Mod{8}\\
+                    x & \equiv 4 \Mod{8}
+                \end{align*}
+                Now the system can be solved using the Chinese Remainder Theorem:
+                \begin{align*}
+                    x & \equiv 6 \Mod{7} & x & \equiv 4 \Mod{8}
+                \end{align*}
+                Since $(n_1,n_2)=(7,8)=1$, let $u_1 = 7k_1$ and $u_2 = 8k_2$\\
+                Then
+                \begin{align*}
+                    u_1+u_2=1 & \Rightarrow 7k_1 + 8k_2=1\\
+                    1 & = 7(-1) + 8(1)
+                \end{align*}
+                Thus
+                \begin{align*}
+                    u_1 = 7(-1) & = -7 \equiv 1 \Mod{8}\\
+                    u_1 = 7(-1) & = -7 \equiv 0 \Mod{7}
+                \end{align*}
+                And
+                \begin{align*}
+                    u_2 = 8(1) & = 8 \equiv 0 \Mod{8}\\
+                    u_2 = 8(1) & = 8 \equiv 1 \Mod{7}
+                \end{align*}
+                Therefore,
+                \begin{align*}
+                    x & = 6u_1 + 4u_2\\
+                    & = 6(-7) + 4(8)\\
+                    & = -10\\
+                \end{align*}
+                Therefore, the general solution with the smallest nonnegative integer is
+                \begin{align*}
+                    x & \equiv -10 \Mod{n_1n_2} \\
+                    x & \equiv -10 \Mod{56} \\
+                    x & \equiv 46 \Mod{56} \qedhere
+                \end{align*}
             \end{proof}
-            \vspace{0.2in}
 
         \end{itemize}
 
@@ -130,21 +239,66 @@
             \item[\textbf{2}] Make multiplication tables for the following
             sets.
 
-            \begin{itemize}
+            \begin{proof}[\unskip\nopunct]
 
-                \item[\textbf{b}] $\integers_7$
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                \end{proof}
-                \vspace{0.2in}
+                \begin{table}
+                    \centering
+                    \caption{\textbf{b:} Multiplication table of $\integers_7$}
+                    \renewcommand{\arraystretch}{2.5}
+                    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$\bm{\times}$ & $\bm{[0]}$ & $\bm{[1]}$ & $\bm{[2]}$ & $\bm{[3]}$ & $\bm{[4]}$ & $\bm{[5]}$ & $\bm{[6]}$ \\
+\hline
+$\bm{[0]}$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ \\
+\hline
+$\bm{[1]}$ & $[0]$ & $[1]$ & $[2]$ & $[3]$ & $[4]$ & $[5]$ & $[6]$ \\
+\hline
+$\bm{[2]}$ & $[0]$ & $[2]$ & $[4]$ & $[6]$ & $[1]$ & $[3]$ & $[5]$ \\
+\hline
+$\bm{[3]}$ & $[0]$ & $[3]$ & $[6]$ & $[2]$ & $[5]$ & $[1]$ & $[4]$ \\
+\hline
+$\bm{[4]}$ & $[0]$ & $[4]$ & $[1]$ & $[5]$ & $[2]$ & $[6]$ & $[3]$ \\
+\hline
+$\bm{[5]}$ & $[0]$ & $[5]$ & $[3]$ & $[1]$ & $[6]$ & $[4]$ & $[2]$ \\
+\hline
+$\bm{[6]}$ & $[0]$ & $[6]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ \\
+\hline
+                    \end{tabular}
+                \end{table}
 
-                \item[\textbf{c}] $\integers_8$
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                \end{proof}
-                \vspace{0.2in}
+            \end{proof}
 
-            \end{itemize}
+            \begin{proof}[\unskip\nopunct]
+
+                \begin{table}
+                    \centering
+                    \caption{\textbf{c:} Multiplication table of $\integers_8$}
+                    \renewcommand{\arraystretch}{2.5}
+                    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+$\bm{\times}$ & $\bm{[0]}$ & $\bm{[1]}$ & $\bm{[2]}$ & $\bm{[3]}$ & $\bm{[4]}$ & $\bm{[5]}$ & $\bm{[6]}$ & $\bm{[7]}$ \\
+\hline
+$\bm{[0]}$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ & $[0]$ \\
+\hline
+$\bm{[1]}$ & $[0]$ & $[1]$ & $[2]$ & $[3]$ & $[4]$ & $[5]$ & $[6]$ & $[7]$ \\
+\hline
+$\bm{[2]}$ & $[0]$ & $[2]$ & $[4]$ & $[6]$ & $[0]$ & $[2]$ & $[4]$ & $[6]$ \\
+\hline
+$\bm{[3]}$ & $[0]$ & $[3]$ & $[6]$ & $[1]$ & $[4]$ & $[7]$ & $[2]$ & $[5]$ \\
+\hline
+$\bm{[4]}$ & $[0]$ & $[4]$ & $[0]$ & $[4]$ & $[0]$ & $[4]$ & $[0]$ & $[4]$ \\
+\hline
+$\bm{[5]}$ & $[0]$ & $[5]$ & $[2]$ & $[7]$ & $[4]$ & $[1]$ & $[6]$ & $[3]$ \\
+\hline
+$\bm{[6]}$ & $[0]$ & $[6]$ & $[4]$ & $[2]$ & $[0]$ & $[6]$ & $[4]$ & $[2]$ \\
+\hline
+$\bm{[7]}$ & $[0]$ & $[7]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ & $[1]$ \\
+\hline
+                    \end{tabular}
+                \end{table}
+
+            \end{proof}
+            \newpage
 
             \item[\textbf{6}] Let $m$ and $n$ be positive integers such that
             $m\mid n$. Show that for any integer $a$, the congruence class
@@ -155,7 +309,7 @@
             \vspace{0.2in}
 
             \item[\textbf{9}] Let $(a, n)=1$. The smallest positive integer $k$
-            such that a $a^k \equiv 1 \text{ (mod  $n$)}$ is called the
+            such that $a^k \equiv 1 \Mod{n}$ is called the
             \textbf{multiplicative order} of $[a]$ in $\integers_n^\times$
             \begin{itemize}
 
@@ -163,6 +317,19 @@
                 $[5]$ in $\integers_{17}^\times$.
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+
+                    Show $2^k \equiv 1 \Mod{17}$, for $k \in \integers$\\
+                    Then, $2^k = 1 + 17n$, for $n \in \integers$\\
+                    Then, $n = (2^k-1)/17$\\
+                    Therefore, for $n$ to be an integer, $k = 8$.\\
+
+                    Similarly, show $5^k \equiv 1 \Mod{17}$, for $k \in \integers$\\
+                    Then, $5^k = 1 + 17n$, for $n \in \integers$\\
+                    Then, $n = (5^k-1)/17$\\
+                    Therefore, for $n$ to be an integer, $k = 16$.\\
+
+                    Therefore, the multiplicative order of $[2]$ and $[5]$ in $\integers_{17}^\times$ is $k=8$ \qedhere
+
                 \end{proof}
                 \vspace{0.2in}
 
@@ -176,7 +343,7 @@
             \vspace{0.2in}
 
             \item[\textbf{13}] An element $[a]$ of is said to be
-            \textbf{idempotent} if $[a]^2 [a]$.
+            \textbf{idempotent} if $[a]^2=[a]$.
             \begin{itemize}
 
                 \item[\textbf{b}] Find all idempotent elements of
@@ -191,8 +358,8 @@
             \item[\textbf{15}] If $n$ is not a prime power, show that
             $\integers_n$ has an idempotent element different from $[0]$ and
             $[1]$.\\ \textit{Hint}: Suppose that $n=bc$, with $(b, c)=1$. Solve
-            the simultaneous congruences $x \equiv 1 \text{ (mod  $b$)}$ and $x
-            \equiv 0 \text{ (mod  $c$)}$.
+            the simultaneous congruences $x \equiv 1 \Mod{b}$ and $x
+            \equiv 0 \Mod{c}$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
             \end{proof}
@@ -208,7 +375,7 @@
 
             \item[\textbf{26}] Let $p=2k+1$ be a prime number. Show that if $a$
             is an integer such that $p \nmid a$, then either $a^k \equiv 1
-            \text{ (mod  $p$)}$ or $a^k \equiv -1 \text{ (mod  $p$)}$
+            \Mod{p}$ or $a^k \equiv -1 \Mod{p}$
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
             \end{proof}
