@@ -5,19 +5,13 @@ CC = gcc
 CFLAGS = -Wall -std=gnu11
 
 # define the C source files
-SRCS = main.c
+SRCS = main.c util.c proc.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
 
 # define the executable file
 EXE = sabbash.o
-
-
-.PHONY: run
-run:
-	@./${EXE} ${INPUT}
-
 
 .PHONY: build
 build: ${EXE}
@@ -28,12 +22,6 @@ ${EXE}: ${OBJS}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o $@
-
-
-.PHONY: val
-val:
-	@valgrind ./${EXE} ${INPUT}
-
 
 .PHONY: clean
 clean:
