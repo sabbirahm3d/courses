@@ -305,10 +305,46 @@ $\bm{[7]}$ & $[0]$ & $[7]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ & $[1]$ \\
             $[a]_m$ is the union of the congruence classes $[a]_n, [a+m]_n, [a+2m]_n, \ldots, [a+n-m]_n$
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                To show
+                \begin{equation*}
+                    [a]_m = [a]_n \cup [a+m]_n \cup [a+2m]_n \cup \ldots \cup [a+n-m]_n
+                \end{equation*}
+                Let $x \in [a+km]_n$, for $k \in \integers$\\
+                Then $x \equiv a+km \Mod{n}$\\
+                $\Rightarrow x = a+km+ln$, for $l \in \integers$\\
+                Since $m \mid n$,\\
+                $n = pm$, for $p \in \integers$\\
+                Then
+                \begin{align*}
+                    x &= a+km+l(pm)\\
+                    & = a + (k+lp)m\\
+                    \Rightarrow x & \equiv a \Mod{m}\\
+                    \Rightarrow x & \in [a]_m
+                \end{align*}
+                Thus
+                \begin{equation*}
+                    [a]_n \cup [a+m]_n \cup [a+2m]_n \cup \ldots \cup [a+n-m]_n \subseteq [a]_m
+                \end{equation*}
+                Conversely,\\
+                Let $x \in [a]_m$\\
+                Then,
+                \begin{align*}
+                    x & \equiv a \Mod{m}\\
+                    \Rightarrow x & = a + lm \text{, for $l = k+n$}\\
+                    & = a + (k+n)m\\
+                    & = a + km + mn\\
+                    \Rightarrow x & \equiv km \Mod{n}\\
+                    \Rightarrow x & \in [a+km]_n
+                \end{align*}
+                Thus
+                \begin{equation*}
+                    [a]_m \subseteq [a]_n \cup [a+m]_n \cup [a+2m]_n \cup \ldots \cup [a+n-m]_n
+                \end{equation*}
+                $\therefore [a]_m = [a]_n \cup [a+m]_n \cup [a+2m]_n \cup \ldots \cup [a+n-m]_n$ \qedhere
             \end{proof}
             \vspace{0.2in}
 
-            \item[\textbf{9}] Let $(a, n)=1$. The smallest positive integer $k$
+            \item[\textbf{9}] Let $gcd(a, n)=1$. The smallest positive integer $k$
             such that $a^k \equiv 1 \Mod{n}$ is called the
             \textbf{multiplicative order} of $[a]$ in $\integers_n^\times$
             \begin{itemize}
@@ -335,12 +371,12 @@ $\bm{[7]}$ & $[0]$ & $[7]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ & $[1]$ \\
 
             \end{itemize}
 
-            \item[\textbf{10}] Let $(a, n)=1$. If $[a]$ has multiplicative
+            \item[\textbf{10}] Let $gcd(a, n)=1$. If $[a]$ has multiplicative
             order $k$ in $\integers_n^\times$, show that $k \mid \varphi(n)$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
-                By Euler's theorem, if $(a, n)=1$ then $a^{\varphi(n)} \equiv 1
-                \Mod{n}$\\
+                By Euler's theorem, if $gcd(a, n)=1$ then $a^{\varphi(n)}
+                \equiv 1 \Mod{n}$\\
                 Also, if $k$ is the multiplicative order of $[a]$, \\
                 then $k$ is the smallest positive interger such that $a^k \equiv 1 \Mod{n}$\\
                 Therefore, there exists an $m \in \integers$ such that
@@ -383,19 +419,47 @@ $\bm{[7]}$ & $[0]$ & $[7]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ & $[1]$ \\
 
             \item[\textbf{15}] If $n$ is not a prime power, show that
             $\integers_n$ has an idempotent element different from $[0]$ and
-            $[1]$.\\ \textit{Hint}: Suppose that $n=bc$, with $(b, c)=1$. Solve
-            the simultaneous congruences $x \equiv 1 \Mod{b}$ and $x
+            $[1]$.\\ \textit{Hint}: Suppose that $n=bc$, with $gcd(b, c)=1$.
+            Solve the simultaneous congruences $x \equiv 1 \Mod{b}$ and $x
             \equiv 0 \Mod{c}$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Let $n=bc$, with $gcd(b, c)=1$\\
+                Since $gcd(b,c)$, the Chinese remainder theorem may be applied to the congruences:
+                \begin{align*}
+                    x & \equiv 1 \Mod{b} & x & \equiv 0 \Mod{c}
+                \end{align*}
+                Consider\\
+                $x - 1 \equiv 0 \Mod{b}$ and $x \equiv 0 \Mod{c}$\\
+                That is
+                \begin{align*}
+                    x(x - 1) & \equiv 0 \Mod{bc}\\
+                    x^2 - x & \equiv 0 \Mod{bc}\\
+                    x^2 & \equiv x \Mod{bc}\\
+                    x^2 & \equiv x \Mod{n}\\
+                \end{align*}
+                Therefore, there exists an idempotent element in $\integers_n$ different from $[0]$ and $[1]$ \qedhere
             \end{proof}
             \vspace{0.2in}
 
             \item[\textbf{20}] Show that
-            $\varphi(1)+\varphi(p)+\ldots+\varphi(p^\alpha)=\varphi^\alpha$ for
+            $\varphi(1)+\varphi(p)+\ldots+\varphi(p^\alpha)=p^\alpha$ for
             any prime number $p$ and any positive integer $\alpha$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Since
+                \begin{align*}
+                    \varphi(p^\alpha) & = p^\alpha \Bigg(1-\frac{1}{p}\Bigg)\\
+                    & = p^\alpha - p\\
+                    & = p^{\alpha-1}(p - 1)
+                \end{align*}
+                Then
+                \begin{align*}
+                    \varphi(1)+\varphi(p)+\varphi(p^2)+\ldots+\varphi(p^\alpha)
+                    & = (p^{-1}(p - 1)) + (p^{0}(p - 1)) + (p^{1}(p - 1)) + \ldots + p^{\alpha-1}(p - 1) \\
+                    & = 1 + p-1 + p^2 - p \ldots + p^\alpha - p^{\alpha-1}\\
+                    & = p^\alpha \qedhere
+                \end{align*}
             \end{proof}
             \vspace{0.2in}
 
@@ -404,6 +468,21 @@ $\bm{[7]}$ & $[0]$ & $[7]$ & $[5]$ & $[4]$ & $[3]$ & $[2]$ & $[1]$ & $[1]$ \\
             \Mod{p}$ or $a^k \equiv -1 \Mod{p}$
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Using Fermat's little theorem:\\
+                If $p$ is prime and $p \nmid a$, then
+                \begin{align*}
+                    a^{p-1} & \equiv 1 \Mod{p}\\
+                    a^{(2k+1)-1} & \equiv 1 \Mod{(2k+1)}\\
+                    a^{2k} & \equiv 1 \Mod{(2k+1)}\\
+                    (a^{k})^2 & \equiv 1 \Mod{(2k+1)}
+                \end{align*}
+                Therefore,
+                \begin{equation*}
+                    a^{k} \equiv \pm 1 \Mod{p}
+                \end{equation*}
+                \begin{equation*}
+                    \therefore a^k \equiv 1 \Mod{p} \text{ or } a^k \equiv -1 \Mod{p} \qedhere
+                \end{equation*}
             \end{proof}
             \vspace{0.2in}
 
