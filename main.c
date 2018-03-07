@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
     // printed
     while (alive) {
 
-        printf(ANSI_COLOR_CYAN "\uE0B0" ANSI_COLOR_GREEN "$ " ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_CYAN ">" ANSI_COLOR_GREEN "$ " ANSI_COLOR_RESET);
 
         line = realloc(NULL, 0);
 
