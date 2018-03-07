@@ -48,6 +48,7 @@
 
     \begin{enumerate}[label=\textbf{\arabic*}]
 
+        % 1
         \item Compare and contrast microkernel and monolithic kernel-based
         operating systems. Name one kernel that follows each of these models.
         \item[\textbf{Ans}]
@@ -67,14 +68,22 @@
         microkernels.
         \vspace{0.2in}
 
+        % 2
         \item What is the purpose of a system call? Give at least 3 concrete
         examples of potential system calls in an OS and explain why each would
         be a system call.
         \item[\textbf{Ans}]
         System calls provide an interface to the services made available by an
-        operating system. Some examples of system calls include 
+        operating system. Some examples of system calls include reading user
+        inputs from a keyboard and a mouse. These are system calls because they
+        interface the hardware directly using low-level routines. Another
+        example of a system call is keeping track of and changing the work
+        directory, which is important for the system to know the user's
+        relative and absolute path. Opening and creating files are also system
+        calls, since they interface with the memory of the system.
         \vspace{0.2in}
 
+        % 3
         \item Describe what a context switch is. How does context switching
         differ between processes and between threads within a single process?
         \item[\textbf{Ans}]
@@ -82,9 +91,14 @@
         of the process running on the CPU so that it can restore that context
         when its processing is done. Context switching is the task of switching
         the CPU to another process. It requires performing a state save of the
-        current process and a state restore of a different process.
+        current process and a state restore of a different process. Context
+        switching is much more expensive and slower than switching between
+        threads in a multithreaded system. Because threads share the resources
+        of the process to which they belong, it is more economical to create
+        and context-switch threads.
         \vspace{0.2in}
 
+        % 4
         \item Name two methods of IPC (interprocess communication) and discuss
         the pros and cons of each.
         \item[\textbf{Ans}]
@@ -98,6 +112,7 @@
         migrate among the several caches.
         \vspace{0.2in}
 
+        % 5
         \item What is the difference between a program being executed by a
         single thread and one that is being executed by multiple threads?
         Compare and contrast task parallelism and data parallelism as it
