@@ -19,6 +19,9 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
+#define ANSI_COLOR_CYAN "\x1b[36m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 /*
  * Initialize the shell and all its signal handlers
@@ -91,7 +94,7 @@ int main(int argc, char *argv[]) {
     // printed
     while (alive) {
 
-        printf(">$ ");
+        printf(ANSI_COLOR_CYAN "\uE0B0" ANSI_COLOR_GREEN "$ " ANSI_COLOR_RESET);
 
         line = realloc(NULL, 0);
 
