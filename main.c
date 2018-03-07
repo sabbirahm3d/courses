@@ -19,7 +19,8 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-#define ANSI_COLOR_CYAN "\x1b[36m"
+#define ANSI_COLOR_GREY_BG "\x1b[48;5;241m"
+#define ANSI_COLOR_WHITE "\x1b[37m"
 #define ANSI_COLOR_GREEN "\x1b[32m"
 #define ANSI_COLOR_RESET "\x1b[0m"
 
@@ -81,6 +82,8 @@ int main(int argc, char *argv[]) {
 
     char *line; // buffer for the user input
     char **cmd_tokens; // array for the different tokens in the command
+    char *cur_dir = (char *) calloc(1024, sizeof(char));  // cwd string
+
     size_t len_cmd = 0;
     int num_tokens;
     int alive = 1;
@@ -94,7 +97,9 @@ int main(int argc, char *argv[]) {
     // printed
     while (alive) {
 
-        printf(ANSI_COLOR_CYAN ">" ANSI_COLOR_GREEN "$ " ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_GREY_BG ANSI_COLOR_WHITE " %s"
+                       ANSI_COLOR_RESET ANSI_COLOR_GREEN " $ "
+                       ANSI_COLOR_RESET, getcwd(cur_dir, 1024));
 
         line = realloc(NULL, 0);
 
