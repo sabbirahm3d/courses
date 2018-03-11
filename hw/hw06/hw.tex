@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 06}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{2.3}]
+
+        \begin{itemize}
+
+            \item[\textbf{1}] Consider the following permutations in $S_7$
+            \begin{align*}
+                \sigma & = \left(
+                    \begin{tabular}{ccccccc}
+                        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                        3 & 2 & 5 & 4 & 6 & 1 & 7
+                    \end{tabular}
+                \right) &
+                \tau & = \left(
+                    \begin{tabular}{ccccccc}
+                        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                        2 & 1 & 5 & 7 & 4 & 6 & 3
+                    \end{tabular}
+                \right)
+            \end{align*}
+            Compute the following products:
+            \begin{itemize}
+
+                \item[\textbf{b}] $\tau\sigma$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{f}] $\tau^{-1}\sigma\tau$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+            \item[\textbf{3}] Write $\left(
+                \begin{tabular}{cccccccccc}
+                    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+                    3 & 4 & 10 & 5 & 7 & 8 & 2 & 6 & 9 & 1
+                \end{tabular}
+            \right)$ as a product of disjoint cycles and as a product of
+            transpositions. Construct its associated diagram, find its inverse,
+            and find its order.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{5}] Let $3 \le m \le n$. Calculate $\sigma\tau^{-1}$
+            for the cycles $\sigma = (1,2,\ldots,m-1)$ and
+            $\tau=(1,2,\ldots,m-1,m)$ in $S_n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{11}] Prove that in $S_n$, with $n \ge 3$ , any even
+            permutation is a product of cycles of length three.\\
+            \textit{Hint}: $(a,b)(b,c)=(a,b,c)$ and
+            $(a,b)(c,d)=(a,b,c)(b,c,d)$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{15}] For $\alpha,\beta \in  S_n$, let
+            $\alpha\sim\beta$ if there exists $\sigma \in S_n$ such that
+            $\sigma\alpha\sigma^{-1}=\beta$. Show that $\sim$ is an equivalence
+            relation on $S_n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{16}] View $S_3$ as a subset of $S_5$, in the obvious
+            way. For $\sigma, \tau \in S_5$, define $\sigma \sim \tau$ if
+            $\sigma\tau^{-1} \in S_3$.
+            \begin{itemize}
+
+                \item[\textbf{a}] Show that $\sim$ is an equivalence relation
+                on $S_5$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{b}] Find the equivalence class of (4, 5).
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] Find the equivalence class of (1, 2, 3, 4, 5).
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{d}] Determine the total number of equivalence
+                classes.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}
