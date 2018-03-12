@@ -21,7 +21,7 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
-
+\allowdisplaybreaks
 %------------------------------------------------------------------------------
 % document info command
 \newcommand{\documentinfo}[5]{
@@ -47,7 +47,7 @@
 
 \begin{document}
 
-    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 06}
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407 - Modern Algebra and Number Theory:} HW 06}
     \vspace{-0.2in}
 
     \begin{itemize}
@@ -96,8 +96,8 @@
                                 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
                                 2 & 3 & 6 & 7 & 4 & 1 & 5
                             \end{tabular}
-                        \right)
-                    \end{align*} \qedhere
+                        \right) \qedhere
+                    \end{align*}
                     \endgroup
                 \end{proof}
                 \vspace{0.2in}
@@ -153,8 +153,8 @@
                                 2 & 3 & 6 & 7 & 4 & 1 & 5 \\
                                 5 & 7 & 3 & 4 & 1 & 2 & 6
                             \end{tabular}
-                        \right)
-                    \end{align*} \qedhere
+                        \right) \qedhere
+                    \end{align*}
                     \endgroup
                 \end{proof}
                 \vspace{0.2in}
@@ -336,15 +336,61 @@
             $(a,b)(c,d)=(a,b,c)(b,c,d)$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                To show any even permutation in $S_n$, with $n \ge 3$ is a product of cycles of length three, consider the case where the pair of transpositions are disjoint:
+                \begin{equation*}
+                    (a,b)(c,d) = (a,b,c)(b,c,d)
+                \end{equation*}
+                The product yields cycles of length three.\\
+                The other case would be the transpositions consisting of repeating elements, such as
+                \begin{equation*}
+                    (a,b)(b,c)=(a,b,c)
+                \end{equation*}
+                where the product yields cycles of length three as well. \qedhere
             \end{proof}
             \vspace{0.2in}
 
-            \item[\textbf{15}] For $\alpha,\beta \in  S_n$, let
+            \item[\textbf{15}] For $\alpha, \beta \in S_n$, let
             $\alpha\sim\beta$ if there exists $\sigma \in S_n$ such that
             $\sigma\alpha\sigma^{-1}=\beta$. Show that $\sim$ is an equivalence
             relation on $S_n$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                To prove \textbf{reflexivity}, let $\alpha = 1_S$\\
+                Then,
+                \begin{align*}
+                    \sigma\alpha\sigma^{-1} & = \sigma\sigma^{-1}\cdot 1_S\\
+                    & = 1 \cdot 1_S\\
+                    & = \alpha
+                \end{align*}
+                for any $\alpha \in S_n$\\
+                Therefore, $\alpha \sim \alpha$\\
+
+                To prove \textbf{symmetry}, let $\alpha \sim \beta$\\
+                Then, there exists $\sigma \in S_n$ such that $\sigma\alpha\sigma^{-1} = \beta$\\
+                Thus
+                \begin{align*}
+                    \sigma\alpha\sigma^{-1} &= \beta \\
+                    \Rightarrow \sigma^{-1}\sigma\alpha\sigma^{-1} &= \sigma^{-1}\beta\\
+                    \alpha\sigma^{-1} &= \sigma^{-1}\beta\\
+                    \Rightarrow \alpha\sigma^{-1}\sigma &= \sigma^{-1}\beta\sigma\\
+                    \alpha &= \sigma^{-1}\beta\sigma\\
+                    \Rightarrow \alpha &= \sigma^{-1}\beta(\sigma^{-1})^{-1}
+                \end{align*}
+                Or $\sigma^{-1}\beta(\sigma^{-1})^{-1} = \alpha$\\
+                Implying $\beta \sim \alpha$\\
+
+                The prove \textbf{transitivity}, let $\alpha \sim \beta$ and
+                $\beta \sim \gamma$\\
+                Then, there exists $\sigma_1, \sigma_2 \in S_n$ such that
+                $\sigma_1\alpha\sigma_1^{-1} = \beta$ and
+                $\sigma_2\beta\sigma_2^{-1} = \gamma$\\
+                Then $\sigma_2\sigma_1\alpha\sigma_1^{-1}\sigma_2^{-1} =
+                \gamma$,\\
+                Or $(\sigma_2\sigma_1)\alpha(\sigma_1\sigma_2)^{-1} =
+                \gamma$\\
+                Thus, $\alpha \sim \gamma$\\
+                Therefore, $\sim$ is an equivalence relation on $S_n$ \qedhere
+
             \end{proof}
             \vspace{0.2in}
 
@@ -357,12 +403,58 @@
                 on $S_5$.
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    To prove \textbf{reflexive}, let $\sigma \in S_3$\\
+                    Then,
+                    \begin{align*}
+                        \sigma\sigma^{-1}=1_{S_3} \in S_3
+                    \end{align*}
+                    Thus, $\sigma \sim \sigma$\\
+
+                    To prove \textbf{symmetric}, let $\sigma, \tau \in S_3$\\
+                    Then
+                    \begin{align*}
+                        \sigma \sim \tau & \in S_3\\
+                        \Rightarrow \sigma\tau^{-1} & \in S_3\\
+                        \Rightarrow (\sigma\tau^{-1})^{-1} & \in S_3\\
+                        \Rightarrow \sigma^{-1}\tau & \in S_3
+                    \end{align*}
+                    Thus, $\tau \sim \sigma$\\
+
+                    To prove \textbf{transitivity}, let $\sigma, \tau, \upsilon
+                    \in S_3$.\\
+                    Then, $\sigma \sim \tau \Rightarrow \sigma\tau^{-1} \in
+                    S_3$\\
+                    and $\tau \sim \upsilon \Rightarrow \tau\upsilon^{-1} \in
+                    S_3$\\
+                    Thus,
+                    \begin{align*}
+                        (\sigma\tau^{-1})(\tau\upsilon^{-1}) & \in S_3\\
+                        \sigma(\tau^{-1}\tau)\upsilon^{-1} & \in S_3\\
+                        \sigma\upsilon^{-1} & \in S_3\\
+                        \Rightarrow \sigma \sim \upsilon & \in S_3
+                    \end{align*}
+                    Therefore, $\sim$ is an equivalence relation on $S_5$
+                    \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
                 \item[\textbf{b}] Find the equivalence class of (4, 5).
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    Since $(4,5) \in S_3$, $\Rightarrow (4,5)(5,4) \in S_3$ and
+                    $(4,5) \sim (4,5)$\\
+                    Similarly,\\
+                    \begin{equation*}
+                        (4,5)(1,2,3)(5,4), (4,5)(1,3,2)(5,4) \in S_3
+                    \end{equation*}
+                    and
+                    \begin{equation*}
+                        (4,5)(1,2)(5,4), (4,5)(1,3)(5,4), (4,5)(2,3)(5,4) \in S_3
+                    \end{equation*}
+                    Therefore,
+                    \begin{equation*}
+                        [(4,5)] = \{(4,5), (1,2,3)(4,5), (1,3,2)(4,5), (1,2)(4,5), (1,3)(4,5), (2,3)(4,5)\} \qedhere
+                    \end{equation*}
                 \end{proof}
                 \vspace{0.2in}
 
@@ -376,6 +468,9 @@
                 classes.
                 \item[\textbf{Ans}]
                 \begin{proof}[\unskip\nopunct]
+                    $S_3$ contains $3!=6$ elements, and $S_5$ contains $5!=120$
+                    elements\\ Therefore, the number of equivalence classes are
+                    $120/6=20$ \qedhere
                 \end{proof}
                 \vspace{0.2in}
 
