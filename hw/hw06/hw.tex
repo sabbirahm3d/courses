@@ -282,6 +282,51 @@
             $\tau=(1,2,\ldots,m-1,m)$ in $S_n$.
             \item[\textbf{Ans}]
             \begin{proof}[\unskip\nopunct]
+                Given
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    \tau &= \left(
+                        \begin{tabular}{ccccccc}
+                            1 & 2 & 3 & \ldots & m-2 & m-1 & m \\
+                            2 & 3 & 4 & \ldots & m-1 & m & 1
+                        \end{tabular}
+                    \right) \\
+                    \tau^{-1} & = \left(
+                        \begin{tabular}{ccccccc}
+                            2 & 3 & 4 & \ldots & m-1 & m & 1 \\
+                            1 & 2 & 3 & \ldots & m-2 & m-1 & m
+                        \end{tabular}
+                    \right)\\
+                    &= \left(
+                        \begin{tabular}{ccccccc}
+                            1 & 2 & 3 & 4 & \ldots & m-1 & m \\
+                            m & 1 & 2 & 3 & \ldots & m-2 & m-1
+                        \end{tabular}
+                    \right)
+                \end{align*}
+                Therefore the product
+                \begin{align*}
+                    \sigma\tau^{-1} & = \left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-2 & m-1 \\
+                            2 & 3 & 4 & \ldots & m-1 & 1
+                        \end{tabular}
+                    \right)\left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-1 & m \\
+                            m & 1 & 2 & \ldots & m-2 & m-1
+                        \end{tabular}
+                    \right)\\
+                    & = \left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-1 & m \\
+                            m & 2 & 3 & \ldots & m-1 & 1
+                        \end{tabular}
+                    \right)\\
+                    & = (1,m) \qedhere
+                \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
