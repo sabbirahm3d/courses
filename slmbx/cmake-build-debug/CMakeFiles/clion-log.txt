@@ -1,4 +1,0 @@
-/opt/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx
--- Configuring done
--- Generating done
--- Build files have been written to: /home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug

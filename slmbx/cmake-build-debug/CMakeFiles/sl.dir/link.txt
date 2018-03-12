@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/sl.dir/main.c.o CMakeFiles/sl.dir/util.c.o  -o sl 

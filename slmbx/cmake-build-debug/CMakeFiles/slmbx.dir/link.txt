@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/slmbx.dir/main.c.o CMakeFiles/slmbx.dir/util.c.o  -o slmbx 

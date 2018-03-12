@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/msgskiplists.dir/main.c.o CMakeFiles/msgskiplists.dir/util.c.o  -o msgskiplists 

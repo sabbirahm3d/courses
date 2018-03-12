@@ -122,3 +122,6 @@ all.config
 
 # Kdevelop4
 *.kdev4
+
+# clion files and cmake temps
+cmake-build-debug/
