@@ -11,4 +11,4 @@ convert1 convert2:
 .PHONY: clean
 clean:
 	# clean out cache and temporary files
-	@find . \( -name '*.log' -o -name '*.aux' \) -delete
+	@find . \( -name '*.log' -o -name '*.aux' -o -name '*.pgf'  \) -delete
