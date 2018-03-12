@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="msgskiplists"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="msgskiplists">
+				<Option output="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/msgskiplists" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 msgskiplists"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="msgskiplists/fast">
+				<Option output="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/msgskiplists" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 msgskiplists/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/main.c">
+			<Option target="msgskiplists"/>
+		</Unit>
+		<Unit filename="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/rand.h">
+			<Option target="msgskiplists"/>
+		</Unit>
+		<Unit filename="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/util.c">
+			<Option target="msgskiplists"/>
+		</Unit>
+		<Unit filename="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/util.h">
+			<Option target="msgskiplists"/>
+		</Unit>
+		<Unit filename="/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

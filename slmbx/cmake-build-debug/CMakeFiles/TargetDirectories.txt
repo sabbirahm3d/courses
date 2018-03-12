@@ -1,0 +1,3 @@
+/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/sabbir/school/CMSC421-Operating-Systems/proj/proj1/project1-sabbirahm3d/slmbx/cmake-build-debug/CMakeFiles/slmbx.dir
