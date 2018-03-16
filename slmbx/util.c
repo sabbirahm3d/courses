@@ -4,11 +4,11 @@
 
 /*
  * Initializes the mailbox system, setting up the initial state of the skip
- * list. The ptrs parameter specifies the maximum number of pointers any node
+ * list. The ptrs parameter specifies the maximum number of pointers any msg_sl_node
  * in the list will be allowed to have. The prob parameter specifies the
- * inverse of the probability that a node will be promoted to having an
+ * inverse of the probability that a msg_sl_node will be promoted to having an
  * additional pointer in it (that is to say that if the function is called with
- * prob = 2 , then the probability that the node will have 2 pointers is 1 / 2
+ * prob = 2 , then the probability that the msg_sl_node will have 2 pointers is 1 / 2
  * and the probability that it will have 3 pointers is 1 / 4 , and so on). The
  * only valid values for the prob parameter are 2, 4, 8, and 16 — any other
  * data should result in an error being returned. Additionally, the ptrs
