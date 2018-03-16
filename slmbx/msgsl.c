@@ -9,15 +9,14 @@
 msg_sl *init_msg_sl(msg_sl *list) {
 
     int i;
-    msg_sl_node *header = (msg_sl_node *) malloc(sizeof(msg_sl_node));
+    msg_sl_node *header = malloc(sizeof(msg_sl_node));
 
     seed_random(rand());
     list->head = header;
     header->id = INT_MAX;
-    header->next = (msg_sl_node **) malloc(sizeof(msg_sl_node *) *
-                                                   (SKIPLIST_MAX_LEVEL + 1));
+    header->next = malloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
 
-    for (i = 0; i <= SKIPLIST_MAX_LEVEL; i++) {
+    for (i = 0; i <= MAXLVL; i++) {
         header->next[i] = list->head;
     }
 
@@ -28,58 +27,60 @@ msg_sl *init_msg_sl(msg_sl *list) {
 }
 
 
-static int rand_level() {
+int rand_level() {
 
     int level = 1;
     generate_random_int();
 
-    while ((rand() < RAND_MAX / 2) && (level < SKIPLIST_MAX_LEVEL)) {
+    while ((rand() < RAND_MAX / 2) && (level < MAXLVL)) {
         level++;
     }
 
-    printf("level %d\n", level);
+//    printf("level %d\n", level);
     return level;
 }
 
 
 int insert_msg_sl(msg_sl *list, int key, msg_q *data) {
 
-    msg_sl_node *update[SKIPLIST_MAX_LEVEL + 1];
-    msg_sl_node *x = list->head;
+    msg_sl_node *update[MAXLVL + 1];
+    msg_sl_node *head = list->head;
     int level;
 
     for (int i = list->level; i >= 1; i--) {
-        while (x->next[i]->id < key) {
-            x = x->next[i];
+        while (head->next[i]->id < key) {
+            head = head->next[i];
         }
-        update[i] = x;
+        update[i] = head;
     }
-    x = x->next[1];
+    head = head->next[1];
 
-    if (key == x->id) {
+    if (key == head->id) {
 
-        x->data = data;
+        head->msg_queue = data;
         return 0;
 
     } else {
 
         level = rand_level();
+
         if (level > list->level) {
             for (int i = list->level + 1; i <= level; i++) {
                 update[i] = list->head;
             }
+
             list->level = level;
+
         }
 
-        x = (msg_sl_node *) malloc(sizeof(msg_sl_node));
-        x->id = key;
-        x->data = data;
-        x->next = (msg_sl_node **) malloc(sizeof(msg_sl_node *) *
-                                                  (level + 1));
+        head = (msg_sl_node *) malloc(sizeof(msg_sl_node));
+        head->id = key;
+        head->msg_queue = data;
+        head->next = (msg_sl_node **) malloc(sizeof(msg_sl_node *) * (level + 1));
 
         for (int i = 1; i <= level; i++) {
-            x->next[i] = update[i]->next[i];
-            update[i]->next[i] = x;
+            head->next[i] = update[i]->next[i];
+            update[i]->next[i] = head;
         }
 
     }
@@ -94,16 +95,16 @@ msg_sl_node *search_msg_sl(msg_sl *list, int key) {
     msg_sl_node *x = list->head;
 
     for (int i = list->level; i >= 1; i--) {
-        while (x->next[i]->id < key)
+
+        while (x->next[i]->id < key) {
             x = x->next[i];
+        }
+
     }
+
     if (x->next[1]->id == key) {
 
         return x->next[1];
-
-    } else {
-
-        return NULL;
 
     }
 
@@ -119,7 +120,7 @@ void free_msg_sl_node(msg_sl_node *msg_sl_node_obj) {
         free(msg_sl_node_obj->next);
         msg_sl_node_obj->next = NULL;
 
-        destroy_msg_q(msg_sl_node_obj->data);
+        destroy_msg_q(msg_sl_node_obj->msg_queue);
 
         free(msg_sl_node_obj);
         msg_sl_node_obj = NULL;
@@ -131,7 +132,7 @@ void free_msg_sl_node(msg_sl_node *msg_sl_node_obj) {
 
 int remove_msg_sl(msg_sl *list, int key) {
 
-    msg_sl_node *update[SKIPLIST_MAX_LEVEL + 1];
+    msg_sl_node *update[MAXLVL + 1];
     msg_sl_node *x = list->head;
     for (int i = list->level; i >= 1; i--) {
         while (x->next[i]->id < key)
@@ -165,25 +166,26 @@ int remove_msg_sl(msg_sl *list, int key) {
 
 void destroy_msg_sl(msg_sl *list) {
 
-    msg_sl_node *current_node = list->head->next[1];
-    while (current_node != list->head) {
+    msg_sl_node *current = list->head->next[1];
+    while (current != list->head) {
 
-        msg_sl_node *next_node = current_node->next[1];
+        msg_sl_node *next_node = current->next[1];
 
-        free(current_node->next);
-        current_node->next = NULL;
+        destroy_msg_q(current->msg_queue);
 
-        free(current_node);
+        free(current->next);
+        current->next = NULL;
 
-        current_node = next_node;
+        free(current);
+        current = next_node;
 
     }
 
-    free(current_node->next);
-    current_node->next = NULL;
+    free(current->next);
+    current->next = NULL;
 
-    free(current_node);
-    current_node = NULL;
+    free(current);
+    current = NULL;
 
     free(list);
     list = NULL;
@@ -192,11 +194,14 @@ void destroy_msg_sl(msg_sl *list) {
 
 void dump_msg_sl(msg_sl *list) {
 
-    msg_sl_node *x = list->head;
-    while (x && x->next[1] != list->head) {
-        printf("%d[%d]->", x->next[1]->id, x->next[1]->data);
-        x = x->next[1];
+    msg_sl_node *temp = list->head;
+    while (temp && temp->next[1] != list->head) {
+        printf("{id: %d, lvl: %d, msg: [", temp->next[1]->id,
+               list->level);
+        dump_msg_q(temp->next[1]->msg_queue);
+        printf("]} -> \n");
+        temp = temp->next[1];
     }
-    printf("NIL\n");
+    printf("{NULL}\n");
 
 }

@@ -12,16 +12,15 @@ msg_q_node *create_msg_q_node(char *data) {
 }
 
 
-msg_q *init_msg_q() {
+msg_q *init_msg_q(msg_q *msg_queue) {
 
-    msg_q *msg_queue = (msg_q *) malloc(sizeof(msg_q));
     msg_queue->head = msg_queue->tail = NULL;
     return msg_queue;
 
 }
 
 
-void push_msg_q(msg_q *msg_queue, char *data) {
+void enqueue_msg_q(msg_q *msg_queue, char *data) {
 
     msg_q_node *temp = create_msg_q_node(data);
 
@@ -38,8 +37,8 @@ void push_msg_q(msg_q *msg_queue, char *data) {
 }
 
 
-// Function to remove a data from given queue q
-msg_q_node *pop_msg_q(msg_q *msg_queue) {
+// Function to remove a msg_queue from given queue q
+msg_q_node *dequeue_msg_q(msg_q *msg_queue) {
 
     // If msg_queue is empty, return NULL.
     if (msg_queue->head == NULL) {
@@ -58,6 +57,25 @@ msg_q_node *pop_msg_q(msg_q *msg_queue) {
 
 }
 
+// Function to remove a msg_queue from given queue q
+void dump_msg_q(msg_q *msg_queue) {
+
+    msg_q_node *temp = msg_queue->head;
+
+    while (temp != NULL) {
+
+        printf("%s -> ", temp->data);
+        temp = temp->next;
+
+    }
+
+    printf("NULL");
+
+    free(temp);
+    temp = NULL;
+
+}
+
 
 void destroy_msg_q(msg_q *msg_queue) {
 
@@ -72,7 +90,7 @@ void destroy_msg_q(msg_q *msg_queue) {
             msg_queue->tail = NULL;
         }
 
-        free(temp->data);
+//        free(temp->data);
         free(temp);
         temp = msg_queue->head;
 
@@ -82,3 +100,25 @@ void destroy_msg_q(msg_q *msg_queue) {
     msg_queue = NULL;
 
 }
+
+//int main() {
+//
+//    msg_q *msg_q_obj = malloc(sizeof(msg_q));
+//    init_msg_q(msg_q_obj);
+//
+//    enqueue_msg_q(msg_q_obj, "test0");
+//    enqueue_msg_q(msg_q_obj, "test1");
+//
+//    msg_q_node* test = dequeue_msg_q(msg_q_obj);
+//    free(test);
+//
+//    enqueue_msg_q(msg_q_obj, "test2");
+//    enqueue_msg_q(msg_q_obj, "test3");
+//
+//    dump_msg_q(msg_q_obj);
+//
+//    destroy_msg_q(msg_q_obj);
+//
+//    return 0;
+//
+//}

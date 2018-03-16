@@ -11,8 +11,8 @@
  * prob = 2 , then the probability that the msg_sl_node will have 2 pointers is 1 / 2
  * and the probability that it will have 3 pointers is 1 / 4 , and so on). The
  * only valid values for the prob parameter are 2, 4, 8, and 16 — any other
- * data should result in an error being returned. Additionally, the ptrs
- * parameter must be non-zero — a zero data should result in an error being
+ * msg_queue should result in an error being returned. Additionally, the ptrs
+ * parameter must be non-zero — a zero msg_queue should result in an error being
  * returned. Returns 0 on success. Only the root user (the user with a uid of
  * 0) should be allowed to call this function.
  *

@@ -10,12 +10,12 @@
 #include <stdio.h>
 #include <limits.h>
 
-#define SKIPLIST_MAX_LEVEL 6
+#define MAXLVL 6
 
 typedef struct msg_sl_node_t {
 
     int id;
-    msg_q *data;
+    msg_q *msg_queue;
     struct msg_sl_node_t **next;
 
 } msg_sl_node;
@@ -30,7 +30,7 @@ typedef struct msg_sl_t {
 
 msg_sl *init_msg_sl(msg_sl *);
 
-static int rand_level();
+int rand_level();
 
 int insert_msg_sl(msg_sl *, int, msg_q *);
 

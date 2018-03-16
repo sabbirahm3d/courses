@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -std=gnu11
 
 # define the C source files
-SRCS = main.c
+SRCS = main.c msgq.c msgsl.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
@@ -22,6 +22,13 @@ ${EXE}: ${OBJS}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o $@
+
+
+.PHONY: val
+val:
+    # check memory leaks
+	@valgrind --leak-check=full ./${EXE}
+
 
 .PHONY: clean
 clean:

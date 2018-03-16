@@ -23,11 +23,14 @@ typedef struct msg_q_t {
 
 msg_q_node *create_msg_q_node(char *);
 
-msg_q *init_msg_q();
+msg_q *init_msg_q(msg_q *);
 
-void push_msg_q(msg_q *, char *);
+void enqueue_msg_q(msg_q *, char *);
 
-msg_q_node *pop_msg_q(msg_q *);
+msg_q_node *dequeue_msg_q(msg_q *);
+
+void dump_msg_q(msg_q *);
+
 
 void destroy_msg_q(msg_q *);
 
