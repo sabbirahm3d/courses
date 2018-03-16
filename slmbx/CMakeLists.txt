@@ -3,5 +3,5 @@ project(slmbx)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES main.c rand.h util.c)
+set(SOURCE_FILES main.c rand.h util.c slds.c slqueue.c slqueue.h)
 add_executable(slmbx ${SOURCE_FILES})

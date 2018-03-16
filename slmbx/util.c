@@ -11,13 +11,15 @@
  * prob = 2 , then the probability that the node will have 2 pointers is 1 / 2
  * and the probability that it will have 3 pointers is 1 / 4 , and so on). The
  * only valid values for the prob parameter are 2, 4, 8, and 16 — any other
- * value should result in an error being returned. Additionally, the ptrs
- * parameter must be non-zero — a zero value should result in an error being
+ * data should result in an error being returned. Additionally, the ptrs
+ * parameter must be non-zero — a zero data should result in an error being
  * returned. Returns 0 on success. Only the root user (the user with a uid of
  * 0) should be allowed to call this function.
  *
  * */
 long slmbx_init(unsigned int ptrs, unsigned int prob){
+
+    return 0;
 
 };
 
@@ -28,6 +30,8 @@ long slmbx_init(unsigned int ptrs, unsigned int prob){
  *
  * */
 long slmbx_shutdown(void){
+
+    return 0;
 
 };
 
@@ -46,6 +50,8 @@ long slmbx_shutdown(void){
  * */
 long slmbx_create(unsigned int id, int protected){
 
+    return 0;
+
 };
 
 /*
@@ -56,6 +62,8 @@ long slmbx_create(unsigned int id, int protected){
  *
  * */
 long slmbx_destroy(unsigned int id){
+
+    return 0;
 
 };
 
@@ -74,18 +82,20 @@ long slmbx_count(unsigned int id){
 /*
  * Sends a new message to the mailbox identified by id if it exists and the
  * user has access to it. The message shall be read from the user-space pointer
- * msg and shall be len bytes long. Returns 0 on success or an appropriate
+ * msg_node and shall be len bytes long. Returns 0 on success or an appropriate
  * error code on failure.
  *
  * */
 long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len){
+
+    return 0;
 
 };
 
 /*
  * Reads the first message that is in the mailbox identified by id if it exists
  * and the user has access to it, storing either the entire length of the
- * message or len bytes to the user-space pointer msg , whichever is less. The
+ * message or len bytes to the user-space pointer msg_node, whichever is less. The
  * entire message is then removed from the mailbox (even if len was less than
  * the total length of the message). Returns the number of bytes copied to the
  * user space pointer on success or an appropriate error code on failure.
