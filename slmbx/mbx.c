@@ -2,6 +2,13 @@
 // Created by sabbir on 3/11/18.
 //
 
+#include <errno.h>
+#include <unistd.h>
+#include "msgsl.h"
+
+
+msg_sl *MAILBOX;
+
 /*
  * Initializes the mailbox system, setting up the initial state of the skip
  * list. The ptrs parameter specifies the maximum number of pointers any
@@ -11,18 +18,38 @@
  * function is called with prob = 2 , then the probability that the
  * msg_sl_node will have 2 pointers is 1 / 2 and the probability that it will
  * have 3 pointers is 1 / 4 , and so on). The only valid values for the prob
- * parameter are 2, 4, 8, and 16 - any other msg_queue should result in an
- * error being returned. Additionally, the ptrs parameter must be non-zero -
- * a zero msg_queue should result in an error being returned. Returns 0 on
- * success. Only the root user (the user with a uid of 0) should be allowed
- * to call this function.
+ * parameter are 2, 4, 8, and 16 - any other value should result in an error
+ * being returned. Additionally, the ptrs parameter must be non-zero - a zero
+ * msg_queue should result in an error being returned. Returns 0 on success.
+ * Only the root user (the user with a uid of 0) should be allowed to call
+ * this function.
  *
  * */
-long slmbx_init(unsigned int ptrs, unsigned int prob){
+long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
 
+    if (!getuid()) {
 
-    return 0;
+        if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
+
+            MAILBOX = malloc(sizeof(msg_sl));
+            init_msg_sl(MAILBOX, ptrs, prob);
+
+            return 0;
+
+        } else {
+
+            return EINVAL;
+
+        }
+
+
+    } else {
+
+        return EPERM;
+
+    }
+
 
 };
 
@@ -32,9 +59,19 @@ long slmbx_init(unsigned int ptrs, unsigned int prob){
  * be allowed to call this function.
  *
  * */
-long slmbx_shutdown(void){
+long slmbx_shutdown(void) {
 
-    return 0;
+    if (!getuid()) {
+
+        destroy_msg_sl(MAILBOX);
+
+        return 0;
+
+    } else {
+
+        return EPERM;
+
+    }
 
 };
 
@@ -51,7 +88,7 @@ long slmbx_shutdown(void){
  * an invalid ID and an appropriate error should be returned.
  *
  * */
-long slmbx_create(unsigned int id, int protected){
+long slmbx_create(unsigned int id, int protected) {
 
     return 0;
 
@@ -64,12 +101,11 @@ long slmbx_create(unsigned int id, int protected){
  * code on failure.
  *
  * */
-long slmbx_destroy(unsigned int id){
+long slmbx_destroy(unsigned int id) {
 
     return 0;
 
 };
-
 
 
 /*
@@ -78,7 +114,7 @@ long slmbx_destroy(unsigned int id){
  * on failure.
  *
  * */
-long slmbx_count(unsigned int id){
+long slmbx_count(unsigned int id) {
 
 };
 
@@ -89,7 +125,7 @@ long slmbx_count(unsigned int id){
  * error code on failure.
  *
  * */
-long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len){
+long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
     return 0;
 
@@ -104,7 +140,7 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len){
  * to the user space pointer on success or an appropriate error code on failure.
  *
  * */
-long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len){
+long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
 };
 
@@ -116,6 +152,6 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len){
  * an appropriate error code on failure.
  *
  * */
-long slmbx_length(unsigned int id){
+long slmbx_length(unsigned int id) {
 
 };

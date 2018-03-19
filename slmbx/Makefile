@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -std=gnu11
 
 # define the C source files
-SRCS = main.c msgq.c msgsl.c
+SRCS = main.c msgq.c msgsl.c mbx.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
