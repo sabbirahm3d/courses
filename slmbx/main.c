@@ -1,6 +1,7 @@
 //#include "util.h"
 //#include "rand.h"
 #include "msgsl.h"
+#include "extmath.h"
 
 #include <stdio.h>
 
@@ -8,7 +9,7 @@
 int main() {
 
     msg_sl *msg_sl_obj = malloc(sizeof(msg_sl));
-    init_msg_sl(msg_sl_obj);
+    init_msg_sl(msg_sl_obj, 16, 2);
 
     for (int i = 0; i < 5; i++) {
 
@@ -30,6 +31,7 @@ int main() {
     dump_msg_sl(msg_sl_obj);
 
     destroy_msg_sl(msg_sl_obj);
+
 
     return 0;
 

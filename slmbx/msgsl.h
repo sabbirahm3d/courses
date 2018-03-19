@@ -10,7 +10,6 @@
 #include <stdio.h>
 #include <limits.h>
 
-#define MAXLVL 6
 
 typedef struct msg_sl_node_t {
 
@@ -28,7 +27,7 @@ typedef struct msg_sl_t {
 } msg_sl;
 
 
-msg_sl *init_msg_sl(msg_sl *);
+msg_sl *init_msg_sl(msg_sl *, unsigned int, unsigned int);
 
 int rand_level();
 

@@ -2,14 +2,15 @@
 // Created by sabbir on 3/15/18.
 //
 
-#include "rand.h"
+#include "extmath.h"
 #include "msgsl.h"
 
 
-msg_sl *init_msg_sl(msg_sl *list) {
+msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
     int i;
     msg_sl_node *header = malloc(sizeof(msg_sl_node));
+    ceil_log(opand, base);
 
     seed_random(rand());
     list->head = header;
@@ -30,13 +31,12 @@ msg_sl *init_msg_sl(msg_sl *list) {
 int rand_level() {
 
     int level = 1;
-    generate_random_int();
 
-    while ((rand() < RAND_MAX / 2) && (level < MAXLVL)) {
+    while ((generate_random_int() < 32767 / PROB) && (level < MAXLVL)) {
         level++;
     }
 
-//    printf("level %d\n", level);
+    printf("max %d level %d %d\n", MAXLVL, level, next_random);
     return level;
 }
 
@@ -73,10 +73,10 @@ int insert_msg_sl(msg_sl *list, int key, msg_q *data) {
 
         }
 
-        head = (msg_sl_node *) malloc(sizeof(msg_sl_node));
+        head = malloc(sizeof(msg_sl_node));
         head->id = key;
         head->msg_queue = data;
-        head->next = (msg_sl_node **) malloc(sizeof(msg_sl_node *) * (level + 1));
+        head->next = malloc(sizeof(msg_sl_node *) * (level + 1));
 
         for (int i = 1; i <= level; i++) {
             head->next[i] = update[i]->next[i];
