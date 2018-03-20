@@ -6,14 +6,16 @@
 #define SLDS_H
 
 #include "msgq.h"
-#include <stdlib.h>
+
+//#include <limits.h>
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
 
 
 typedef struct msg_sl_node_t {
 
-    int id;
+    unsigned int id;
+    int uid;
     msg_q *msg_queue;
     struct msg_sl_node_t **next;
 
@@ -27,17 +29,17 @@ typedef struct msg_sl_t {
 } msg_sl;
 
 
+unsigned int rand_level();
+
 msg_sl *init_msg_sl(msg_sl *, unsigned int, unsigned int);
 
-int rand_level();
+int insert_msg_sl(msg_sl *, unsigned int, int);
 
-int insert_msg_sl(msg_sl *, int, msg_q *);
-
-msg_sl_node *search_msg_sl(msg_sl *, int);
+msg_sl_node *search_msg_sl(msg_sl *, unsigned int);
 
 void free_msg_sl_node(msg_sl_node *);
 
-int remove_msg_sl(msg_sl *, int);
+int remove_msg_sl(msg_sl *, unsigned int, int);
 
 void destroy_msg_sl(msg_sl *);
 

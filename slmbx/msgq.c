@@ -7,6 +7,7 @@ msg_q_node *create_msg_q_node(const char *data) {
     msg_q_node *temp = (msg_q_node *) malloc(sizeof(msg_q_node));
     temp->data = data;
     temp->next = NULL;
+
     return temp;
 
 }
@@ -16,6 +17,7 @@ msg_q *init_msg_q(msg_q *msg_queue) {
 
     msg_queue->head = msg_queue->tail = NULL;
     msg_queue->size = 0;
+
     return msg_queue;
 
 }

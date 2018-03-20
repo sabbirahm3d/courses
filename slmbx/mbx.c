@@ -5,9 +5,11 @@
 #include <errno.h>
 #include <unistd.h>
 #include "msgsl.h"
+#include "extmath.h"
 
 
-msg_sl *MAILBOX;
+msg_sl *MAILBOXSL;
+int UID;
 
 /*
  * Initializes the mailbox system, setting up the initial state of the skip
@@ -17,7 +19,7 @@ msg_sl *MAILBOX;
  * promoted to having an additional pointer in it (that is to say that if the
  * function is called with prob = 2 , then the probability that the
  * msg_sl_node will have 2 pointers is 1 / 2 and the probability that it will
- * have 3 pointers is 1 / 4 , and so on). The only valid values for the prob
+ * have 4 pointers is 1 / 4 , and so on). The only valid values for the prob
  * parameter are 2, 4, 8, and 16 - any other value should result in an error
  * being returned. Additionally, the ptrs parameter must be non-zero - a zero
  * msg_queue should result in an error being returned. Returns 0 on success.
@@ -27,13 +29,14 @@ msg_sl *MAILBOX;
  * */
 long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
+    UID = getuid();
 
-    if (!getuid()) {
+    if (!UID) {
 
         if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
 
-            MAILBOX = malloc(sizeof(msg_sl));
-            init_msg_sl(MAILBOX, ptrs, prob);
+            MAILBOXSL = malloc(sizeof(msg_sl));
+            init_msg_sl(MAILBOXSL, ptrs, prob);
 
             return 0;
 
@@ -61,9 +64,9 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * */
 long slmbx_shutdown(void) {
 
-    if (!getuid()) {
+    if (!UID) {
 
-        destroy_msg_sl(MAILBOX);
+        destroy_msg_sl(MAILBOXSL);
 
         return 0;
 
@@ -90,7 +93,27 @@ long slmbx_shutdown(void) {
  * */
 long slmbx_create(unsigned int id, int protected) {
 
-    return 0;
+    int protected_uid = (protected ? UID : -1);
+
+    if (!id || id == MAXID) {
+
+        return EINVAL;
+
+    } else {
+
+        if (search_msg_sl(MAILBOXSL, id) != NULL) {
+
+            insert_msg_sl(MAILBOXSL, id, protected_uid);
+
+            return 0;
+
+        } else {
+
+            return EEXIST;
+
+        }
+
+    }
 
 };
 
@@ -103,7 +126,7 @@ long slmbx_create(unsigned int id, int protected) {
  * */
 long slmbx_destroy(unsigned int id) {
 
-    return 0;
+    return remove_msg_sl(MAILBOXSL, id, UID) ? EPERM : 0;
 
 };
 
@@ -116,7 +139,28 @@ long slmbx_destroy(unsigned int id) {
  * */
 long slmbx_count(unsigned int id) {
 
+    msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
+
+    if (found_mbx != NULL) {
+
+        if (found_mbx->uid == UID || found_mbx->uid == -1) {
+
+            return found_mbx->msg_queue->size;
+
+        } else {
+
+            return EPERM;
+
+        }
+
+    } else {
+
+        return ENOENT;
+
+    }
+
 };
+
 
 /*
  * Sends a new message to the mailbox identified by id if it exists and the
@@ -130,6 +174,7 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
     return 0;
 
 };
+
 
 /*
  * Reads the first message that is in the mailbox identified by id if it exists
@@ -153,5 +198,6 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
  *
  * */
 long slmbx_length(unsigned int id) {
+
 
 };

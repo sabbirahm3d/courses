@@ -6,31 +6,9 @@
 #include "msgsl.h"
 
 
-msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
+unsigned int rand_level() {
 
-    int i;
-    msg_sl_node *header = malloc(sizeof(msg_sl_node));
-    ceil_log(opand, base);
-
-    seed_random(rand());
-    list->head = header;
-    header->id = INT_MAX;
-    header->next = malloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
-
-    for (i = 0; i <= MAXLVL; i++) {
-        header->next[i] = list->head;
-    }
-
-    list->level = 1;
-
-    return list;
-
-}
-
-
-int rand_level() {
-
-    int level = 1;
+    unsigned int level = 1;
 
     while ((generate_random_int() < 32767 / PROB) && (level < MAXLVL)) {
         level++;
@@ -41,28 +19,56 @@ int rand_level() {
 }
 
 
-int insert_msg_sl(msg_sl *list, int key, msg_q *data) {
+msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
+
+    msg_sl_node *header = malloc(sizeof(msg_sl_node));
+    ceil_log(opand, base);
+
+    seed_random(rand());
+    list->head = header;
+    header->id = MAXID;
+    header->next = malloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
+
+    for (int i = 0; i <= MAXLVL; i++) {
+        header->next[i] = list->head;
+    }
+
+    list->level = 1;
+
+    return list;
+
+}
+
+
+int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
+
+    msg_q *msg_queue = malloc(sizeof(msg_q));
+    init_msg_q(msg_queue);
 
     msg_sl_node *update[MAXLVL + 1];
     msg_sl_node *head = list->head;
-    int level;
 
     for (int i = list->level; i >= 1; i--) {
-        while (head->next[i]->id < key) {
+
+        while (head->next[i]->id < id) {
             head = head->next[i];
         }
         update[i] = head;
+
     }
+
     head = head->next[1];
 
-    if (key == head->id) {
+    if (id == head->id) {
 
-        head->msg_queue = data;
-        return 0;
+        head->msg_queue = msg_queue;
+        head->uid = uid;
+
+//        return 0;
 
     } else {
 
-        level = rand_level();
+        int level = rand_level();
 
         if (level > list->level) {
             for (int i = list->level + 1; i <= level; i++) {
@@ -74,8 +80,9 @@ int insert_msg_sl(msg_sl *list, int key, msg_q *data) {
         }
 
         head = malloc(sizeof(msg_sl_node));
-        head->id = key;
-        head->msg_queue = data;
+        head->id = id;
+        head->msg_queue = msg_queue;
+        head->uid = uid;
         head->next = malloc(sizeof(msg_sl_node *) * (level + 1));
 
         for (int i = 1; i <= level; i++) {
@@ -90,19 +97,19 @@ int insert_msg_sl(msg_sl *list, int key, msg_q *data) {
 }
 
 
-msg_sl_node *search_msg_sl(msg_sl *list, int key) {
+msg_sl_node *search_msg_sl(msg_sl *list, unsigned int id) {
 
     msg_sl_node *x = list->head;
 
     for (int i = list->level; i >= 1; i--) {
 
-        while (x->next[i]->id < key) {
+        while (x->next[i]->id < id) {
             x = x->next[i];
         }
 
     }
 
-    if (x->next[1]->id == key) {
+    if (x->next[1]->id == id) {
 
         return x->next[1];
 
@@ -130,19 +137,19 @@ void free_msg_sl_node(msg_sl_node *msg_sl_node_obj) {
 }
 
 
-int remove_msg_sl(msg_sl *list, int key) {
+int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
     msg_sl_node *update[MAXLVL + 1];
     msg_sl_node *x = list->head;
     for (int i = list->level; i >= 1; i--) {
-        while (x->next[i]->id < key)
+        while (x->next[i]->id < id)
             x = x->next[i];
         update[i] = x;
     }
 
     x = x->next[1];
 
-    if (x->id == key) {
+    if (x->id == id && x->next[1]->uid == uid) {
 
         for (int i = 1; i <= list->level; i++) {
             if (update[i]->next[i] != x)
@@ -197,7 +204,7 @@ void dump_msg_sl(msg_sl *list) {
     msg_sl_node *temp = list->head;
     while (temp && temp->next[1] != list->head) {
         printf("{id: %d, lvl: %d, msg: [", temp->next[1]->id,
-               list->level);
+               temp->next[1]->uid);
         dump_msg_q(temp->next[1]->msg_queue);
         printf("]} -> \n");
         temp = temp->next[1];
