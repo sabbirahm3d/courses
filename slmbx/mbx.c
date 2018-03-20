@@ -3,6 +3,7 @@
 //
 
 #include <errno.h>
+#include <string.h>
 #include <unistd.h>
 #include "msgsl.h"
 #include "extmath.h"
@@ -30,6 +31,13 @@ int UID;
 long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     UID = getuid();
+    // UID = 0;  // for debugging
+
+    if (MAILBOXSL != NULL) {
+
+        destroy_msg_sl(MAILBOXSL);
+
+    }
 
     // if root
     if (!UID) {
@@ -259,7 +267,17 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
-                msg = (unsigned char *) dequeue_msg_q(found_mbx->msg_queue)->data;
+                msg_q_node *msg_node = dequeue_msg_q(found_mbx->msg_queue);
+                size_t buf_size = len;
+                unsigned char *buffer = (unsigned char *) msg_node->data;
+
+                if (len > strlen(buffer)) {
+                    buf_size = strlen(buffer);
+                }
+                memcpy(buffer, buffer, buf_size);
+                strcpy(msg, buffer);
+                msg[buf_size] = '\0';
+                free(msg_node);
 
                 return 0;
 
