@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "msgq.h"
 
-msg_q_node *create_msg_q_node(const char *data) {
+msg_q_node *create_msg_q_node(const unsigned char *data) {
 
     msg_q_node *temp = (msg_q_node *) malloc(sizeof(msg_q_node));
     temp->data = data;
@@ -23,7 +23,7 @@ msg_q *init_msg_q(msg_q *msg_queue) {
 }
 
 
-void enqueue_msg_q(msg_q *msg_queue, const char *data) {
+void enqueue_msg_q(msg_q *msg_queue, const unsigned char *data) {
 
     msg_q_node *temp = create_msg_q_node(data);
     msg_queue->size++;
@@ -46,7 +46,9 @@ msg_q_node *dequeue_msg_q(msg_q *msg_queue) {
 
     // If msg_queue is empty, return NULL.
     if (msg_queue->head == NULL) {
+
         return NULL;
+
     }
 
     // Store previous head and move head one msg_sl_node ahead

@@ -31,8 +31,10 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     UID = getuid();
 
+    // if root
     if (!UID) {
 
+        // if probability is 2, 4, 8 or 16
         if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
 
             MAILBOXSL = malloc(sizeof(msg_sl));
@@ -45,7 +47,6 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
             return EINVAL;
 
         }
-
 
     } else {
 
@@ -64,15 +65,24 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * */
 long slmbx_shutdown(void) {
 
-    if (!UID) {
+    if (MAILBOXSL != NULL) {
 
-        destroy_msg_sl(MAILBOXSL);
+        if (!UID) {
 
-        return 0;
+            destroy_msg_sl(MAILBOXSL);
+            MAILBOXSL = NULL;
+
+            return 0;
+
+        } else {
+
+            return EPERM;
+
+        }
 
     } else {
 
-        return EPERM;
+        return ENODEV;
 
     }
 
@@ -93,25 +103,34 @@ long slmbx_shutdown(void) {
  * */
 long slmbx_create(unsigned int id, int protected) {
 
-    int protected_uid = (protected ? UID : -1);
+    if (MAILBOXSL != NULL) {
 
-    if (!id || id == MAXID) {
+        int protected_uid = (protected ? UID : -1);
 
-        return EINVAL;
+        if (!id || id == MAXID) {
 
-    } else {
-
-        if (search_msg_sl(MAILBOXSL, id) != NULL) {
-
-            insert_msg_sl(MAILBOXSL, id, protected_uid);
-
-            return 0;
+            return EINVAL;
 
         } else {
 
-            return EEXIST;
+            // if not found
+            if (search_msg_sl(MAILBOXSL, id) == NULL) {
+
+                insert_msg_sl(MAILBOXSL, id, protected_uid);
+
+                return 0;
+
+            } else {
+
+                return EEXIST;
+
+            }
 
         }
+
+    } else {
+
+        return ENODEV;
 
     }
 
@@ -126,7 +145,15 @@ long slmbx_create(unsigned int id, int protected) {
  * */
 long slmbx_destroy(unsigned int id) {
 
-    return remove_msg_sl(MAILBOXSL, id, UID) ? EPERM : 0;
+    if (MAILBOXSL != NULL) {
+
+        return remove_msg_sl(MAILBOXSL, id, UID) ? EPERM : 0;
+
+    } else {
+
+        return ENODEV;
+
+    }
 
 };
 
@@ -139,23 +166,31 @@ long slmbx_destroy(unsigned int id) {
  * */
 long slmbx_count(unsigned int id) {
 
-    msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
+    if (MAILBOXSL != NULL) {
 
-    if (found_mbx != NULL) {
+        msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
 
-        if (found_mbx->uid == UID || found_mbx->uid == -1) {
+        if (found_mbx != NULL) {
 
-            return found_mbx->msg_queue->size;
+            if (found_mbx->uid == UID || found_mbx->uid == -1) {
+
+                return found_mbx->msg_queue->size;
+
+            } else {
+
+                return EPERM;
+
+            }
 
         } else {
 
-            return EPERM;
+            return ENOENT;
 
         }
 
     } else {
 
-        return ENOENT;
+        return ENODEV;
 
     }
 
@@ -165,13 +200,42 @@ long slmbx_count(unsigned int id) {
 /*
  * Sends a new message to the mailbox identified by id if it exists and the
  * user has access to it. The message shall be read from the user-space pointer
- * msg_node and shall be len bytes long. Returns 0 on success or an appropriate
+ * msg and shall be len bytes long. Returns 0 on success or an appropriate
  * error code on failure.
  *
  * */
 long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
-    return 0;
+    if (MAILBOXSL != NULL) {
+
+        msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
+
+        if (found_mbx != NULL) {
+
+            if (found_mbx->uid == UID || found_mbx->uid == -1) {
+
+                enqueue_msg_q(found_mbx->msg_queue, msg);
+
+                return 0;
+
+            } else {
+
+                return EPERM;
+
+            }
+
+
+        } else {
+
+            return ENONET;
+
+        }
+
+    } else {
+
+        return ENODEV;
+
+    }
 
 };
 
@@ -179,13 +243,45 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 /*
  * Reads the first message that is in the mailbox identified by id if it exists
  * and the user has access to it, storing either the entire length of the
- * message or len bytes to the user-space pointer msg_node, whichever is less.
+ * message or len bytes to the user-space pointer msg, whichever is less.
  * The entire message is then removed from the mailbox (even if len was less
  * than the total length of the message). Returns the number of bytes copied
  * to the user space pointer on success or an appropriate error code on failure.
  *
  * */
 long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
+
+    if (MAILBOXSL != NULL) {
+
+        msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
+
+        if (found_mbx != NULL) {
+
+            if (found_mbx->uid == UID || found_mbx->uid == -1) {
+
+                msg = (unsigned char *) dequeue_msg_q(found_mbx->msg_queue)->data;
+
+                return 0;
+
+            } else {
+
+                return EPERM;
+
+            }
+
+
+        } else {
+
+            return ENONET;
+
+        }
+
+    } else {
+
+        return ENODEV;
+
+    }
+
 
 };
 

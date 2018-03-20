@@ -14,7 +14,7 @@ unsigned int rand_level() {
         level++;
     }
 
-    printf("max %d level %d %d\n", MAXLVL, level, next_random);
+//    printf("max %d level %d %d\n", MAXLVL, level, next_random);
     return level;
 }
 
@@ -22,9 +22,10 @@ unsigned int rand_level() {
 msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
     msg_sl_node *header = malloc(sizeof(msg_sl_node));
-    ceil_log(opand, base);
 
+    ceil_log(opand, base);
     seed_random(rand());
+
     list->head = header;
     header->id = MAXID;
     header->next = malloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
@@ -63,8 +64,7 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
         head->msg_queue = msg_queue;
         head->uid = uid;
-
-//        return 0;
+        return 0;
 
     } else {
 
@@ -163,6 +163,7 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
                 list->head->next[list->level] == list->head) {
             list->level--;
         }
+
         return 0;
 
     }
