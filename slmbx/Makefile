@@ -2,10 +2,13 @@
 CC = gcc
 
 # define any compile-time flags
-CFLAGS = -Wall -std=gnu11
+CFLAGS = -Wall -Wno-unused-function -std=gnu11
+
+# define the C header files
+DEPS = extmath.h
 
 # define the C source files
-SRCS = main.c msgq.c msgsl.c mbx.c
+SRCS = msgq.c msgsl.c mbx.c main.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
@@ -13,15 +16,16 @@ OBJS = ${SRCS:.c=.o}
 # define the executable file
 EXE = slmbx.o
 
+
 .PHONY: build
 build: ${EXE}
-	@echo "Program compiled successfully"
+	@echo "\033[0;32mProgram compiled successfully\033[0m"
 
 ${EXE}: ${OBJS}
-	${CC} ${CFLAGS} -o ${EXE} ${OBJS}
+	${CC} -o $@ $^ ${CFLAGS}
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o $@
+%.o: %.c ${DEPS}
+	${CC} -c -o $@ $< ${CFLAGS}
 
 
 .PHONY: val
@@ -32,5 +36,5 @@ val:
 
 .PHONY: clean
 clean:
-	# clean out cache and temporary files
+	# clean out cache, temporary files and executables
 	@find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
