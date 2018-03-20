@@ -20,9 +20,11 @@ unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 }
 
 size_t u_strlen(const unsigned char *s) {
+
     size_t i;
     for (i = 0; s[i] != '\0'; i++);
     return i;
+
 }
 
 
@@ -47,7 +49,8 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
 //    UID = getuid();
     UID = 0;  // for debugging
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         destroy_msg_sl(MAILBOXSL);
 
@@ -56,7 +59,8 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
     // if root
     if (!UID) {
 
-        // if probability is 2, 4, 8 or 16
+        // if probability is 2, 4, 8 or 16 and the number of pointers is
+        // non-zero
         if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
 
             MAILBOXSL = malloc(sizeof(msg_sl));
@@ -87,7 +91,8 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * */
 long slmbx_shutdown(void) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         if (!UID) {
 
@@ -125,7 +130,8 @@ long slmbx_shutdown(void) {
  * */
 long slmbx_create(unsigned int id, int protected) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         int protected_uid = (protected ? UID : -1);
 
@@ -136,7 +142,7 @@ long slmbx_create(unsigned int id, int protected) {
         } else {
 
             // if not found
-            if (search_msg_sl(MAILBOXSL, id) == NULL) {
+            if (!search_msg_sl(MAILBOXSL, id)) {
 
                 insert_msg_sl(MAILBOXSL, id, protected_uid);
 
@@ -167,7 +173,8 @@ long slmbx_create(unsigned int id, int protected) {
  * */
 long slmbx_destroy(unsigned int id) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         return remove_msg_sl(MAILBOXSL, id, UID) ? EPERM : 0;
 
@@ -188,11 +195,12 @@ long slmbx_destroy(unsigned int id) {
  * */
 long slmbx_count(unsigned int id) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
 
-        if (found_mbx != NULL) {
+        if (found_mbx) {
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
@@ -228,11 +236,12 @@ long slmbx_count(unsigned int id) {
  * */
 long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
         msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
 
-        if (found_mbx != NULL) {
+        if (found_mbx) {
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
@@ -242,6 +251,7 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
             } else {
 
+                // permission denied
                 return EPERM;
 
             }
@@ -273,30 +283,45 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
  * */
 long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
-    if (MAILBOXSL != NULL) {
+    // if the mailbox system was initialized
+    if (MAILBOXSL) {
 
+        // look for mailbox with the unique ID
         msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
 
-        if (found_mbx != NULL) {
+        // if mailbox exists
+        if (found_mbx) {
 
+            // if mailbox UID matches with the current user process, or global
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
-                msg_q_node *msg_node = dequeue_msg_q(found_mbx->msg_queue);
-                size_t buf_size = len;
-                unsigned char *buffer = (unsigned char *) msg_node->data;
+                // if mailbox has messages
+                if (found_mbx->msg_queue->size) {
 
-                if (len > u_strlen(buffer)) {
-                    buf_size = u_strlen(buffer);
+                    msg_q_node *msg_node = dequeue_msg_q(found_mbx->msg_queue);
+                    size_t buf_size = len;
+                    unsigned char *buffer = (unsigned char *) msg_node->data;
+
+                    if (len > u_strlen(buffer)) {
+                        buf_size = u_strlen(buffer);
+                    }
+                    memcpy(buffer, buffer, buf_size);
+                    u_strcpy(msg, buffer);
+                    msg[buf_size] = '\0';
+                    free(msg_node);
+
+                    return 0;
+
+                } else {
+
+                    // mailbox is empty
+                    return ESRCH;
+
                 }
-                memcpy(buffer, buffer, buf_size);
-                u_strcpy(msg, buffer);
-                msg[buf_size] = '\0';
-                free(msg_node);
-
-                return 0;
 
             } else {
 
+                // permission denied
                 return EPERM;
 
             }
@@ -304,12 +329,14 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
         } else {
 
+            // mailbox does not exist
             return ENONET;
 
         }
 
     } else {
 
+        // mailbox system was never initialized
         return ENODEV;
 
     }
@@ -327,32 +354,42 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
  * */
 long slmbx_length(unsigned int id) {
 
-
-    if (MAILBOXSL != NULL) {
+    if (MAILBOXSL) {
 
         msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
 
-        if (found_mbx != NULL) {
+        if (found_mbx) {
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
-                return u_strlen(found_mbx->msg_queue->head->data);
+                if (found_mbx->msg_queue->size) {
+
+                    return u_strlen(found_mbx->msg_queue->head->data);
+
+                } else {
+
+                    // mailbox is empty
+                    return ESRCH;
+
+                }
 
             } else {
 
+                // permission denied
                 return EPERM;
 
             }
 
-
         } else {
 
+            // mailbox does not exist
             return ENONET;
 
         }
 
     } else {
 
+        // mailbox system was never initialized
         return ENODEV;
 
     }

@@ -63,7 +63,6 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
         head->msg_queue = msg_queue;
         head->uid = uid;
-        return 0;
 
     } else {
 

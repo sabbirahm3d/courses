@@ -29,7 +29,7 @@ void enqueue_msg_q(msg_q *msg_queue, const unsigned char *data) {
     msg_queue->size++;
 
     // If msg_queue is empty, then new msg_sl_node is head and tail both
-    if (msg_queue->tail == NULL) {
+    if (!msg_queue->tail) {
         msg_queue->head = msg_queue->tail = temp;
         return;
     }
@@ -45,7 +45,7 @@ void enqueue_msg_q(msg_q *msg_queue, const unsigned char *data) {
 msg_q_node *dequeue_msg_q(msg_q *msg_queue) {
 
     // If msg_queue is empty, return NULL.
-    if (msg_queue->head == NULL) {
+    if (!msg_queue->head) {
 
         return NULL;
 
@@ -56,7 +56,7 @@ msg_q_node *dequeue_msg_q(msg_q *msg_queue) {
     msg_queue->head = msg_queue->head->next;
 
     // If head becomes NULL, then change tail also as NULL
-    if (msg_queue->head == NULL) {
+    if (!msg_queue->head) {
         msg_queue->tail = NULL;
     }
 
@@ -77,7 +77,7 @@ void dump_msg_q(msg_q *msg_queue) {
 
     msg_q_node *temp = msg_queue->head;
 
-    while (temp != NULL) {
+    while (temp) {
 
         printf("%s -> ", temp->data);
         temp = temp->next;
@@ -96,12 +96,12 @@ void destroy_msg_q(msg_q *msg_queue) {
 
     msg_q_node *temp = msg_queue->head;
 
-    while (temp != NULL) {
+    while (temp) {
 
         msg_queue->head = msg_queue->head->next;
 
         // If head becomes NULL, then change tail also as NULL
-        if (msg_queue->head == NULL) {
+        if (!msg_queue->head) {
             msg_queue->tail = NULL;
         }
 
