@@ -2,9 +2,8 @@
 // Created by sabbir on 3/15/18.
 //
 
-#ifndef SLQUEUE_H
-#define SLQUEUE_H
-
+#ifndef MSGQ_H
+#define MSGQ_H
 
 // A linked list (LL) msg_sl_node to store a queue entry
 typedef struct msg_q_node_t {
@@ -40,4 +39,4 @@ unsigned int count_msg_q(msg_q *);
 void destroy_msg_q(msg_q *);
 
 
-#endif // SLQUEUE_H
+#endif // MSGQ_H

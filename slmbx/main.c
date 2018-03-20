@@ -6,21 +6,24 @@
 
 int main() {
 
-    unsigned char *buffer = malloc(sizeof(char));
+    unsigned char *byte_buffer = (unsigned char *) "i ♥ u";
+    unsigned char *human_buffer = (unsigned char *) "i love you";
+    unsigned char *buf = malloc(sizeof(char));
 
-    printf("init: %ld\n", slmbx_init(16, 4));
+    printf("init: %ld\n", slmbx_init(16, 2));
     printf("create1: %ld\n", slmbx_create(4, 1));
-    printf("create2: %ld\n", slmbx_create(4, 1));
-    printf("send1: %ld\n", slmbx_send(4, "success1", 10));
-    printf("rec1: %ld\n", slmbx_recv(4, buffer, 2));
-    printf("msg: %s\n", buffer);
-    free(buffer);
-//    printf("send2: %ld\n", slmbx_send(4, "success2", 10));
-//    printf("send3: %ld\n", slmbx_send(3, "success3", 10));
-    printf("count1: %ld\n", slmbx_count(4));
-    printf("count2: %ld\n", slmbx_count(3));
-    printf("destroy: %ld\n", slmbx_shutdown());
-    printf("init: %ld\n", slmbx_init(16, 8));
+    printf("send1: %ld\n", slmbx_send(4, human_buffer, 10));
+    printf("send2: %ld\n", slmbx_send(4, byte_buffer, 10));
+
+    printf("len: %ld\n", slmbx_length(4));
+    printf("rec1: %ld ", slmbx_recv(4, buf, 5));
+    printf("msg: %s\n", buf);
+
+    printf("len: %ld\n", slmbx_length(4));
+    printf("rec1: %ld ", slmbx_recv(4, buf, 5));
+    printf("msg: %s\n", buf);
+
+    free(buf);
     printf("destroy: %ld\n", slmbx_shutdown());
 
     return 0;

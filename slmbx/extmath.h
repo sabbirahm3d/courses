@@ -2,8 +2,8 @@
 // Created by sabbir on 3/11/18.
 //
 
-#ifndef RAND_H
-#define RAND_H
+#ifndef EXTMATH_H
+#define EXTMATH_H
 
 #include <stdio.h>
 
@@ -14,7 +14,7 @@ static unsigned int INCREMENT = 12345;
 unsigned int MAXLVL;
 unsigned int PROB;
 
-static unsigned int generate_random_int() {
+static unsigned int generate_random_int(void) {
 
     next_random = next_random * MULTIPLIER + INCREMENT;
     return (next_random / 65536) % 32768;
@@ -41,6 +41,5 @@ static void ceil_log(unsigned int opand, unsigned int base) {
     PROB = base;
 
 }
-
 
 #endif // RAND_H

@@ -4,13 +4,27 @@
 
 #include <errno.h>
 #include <string.h>
-#include <unistd.h>
+
 #include "msgsl.h"
-#include "extmath.h"
 
 
 msg_sl *MAILBOXSL;
 int UID;
+
+unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
+
+    unsigned char *ret = dest;
+    while ((*dest++ = *src++));
+    return ret;
+
+}
+
+size_t u_strlen(const unsigned char *s) {
+    size_t i;
+    for (i = 0; s[i] != '\0'; i++);
+    return i;
+}
+
 
 /*
  * Initializes the mailbox system, setting up the initial state of the skip
@@ -30,8 +44,8 @@ int UID;
  * */
 long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
-    UID = getuid();
-    // UID = 0;  // for debugging
+//    UID = getuid();
+    UID = 0;  // for debugging
 
     if (MAILBOXSL != NULL) {
 
@@ -271,11 +285,11 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                 size_t buf_size = len;
                 unsigned char *buffer = (unsigned char *) msg_node->data;
 
-                if (len > strlen(buffer)) {
-                    buf_size = strlen(buffer);
+                if (len > u_strlen(buffer)) {
+                    buf_size = u_strlen(buffer);
                 }
                 memcpy(buffer, buffer, buf_size);
-                strcpy(msg, buffer);
+                u_strcpy(msg, buffer);
                 msg[buf_size] = '\0';
                 free(msg_node);
 
@@ -312,6 +326,36 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
  *
  * */
 long slmbx_length(unsigned int id) {
+
+
+    if (MAILBOXSL != NULL) {
+
+        msg_sl_node *found_mbx = search_msg_sl(MAILBOXSL, id);
+
+        if (found_mbx != NULL) {
+
+            if (found_mbx->uid == UID || found_mbx->uid == -1) {
+
+                return u_strlen(found_mbx->msg_queue->head->data);
+
+            } else {
+
+                return EPERM;
+
+            }
+
+
+        } else {
+
+            return ENONET;
+
+        }
+
+    } else {
+
+        return ENODEV;
+
+    }
 
 
 };

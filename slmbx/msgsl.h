@@ -6,8 +6,8 @@
 #define SLDS_H
 
 #include "msgq.h"
+#include "extmath.h"
 
-//#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
