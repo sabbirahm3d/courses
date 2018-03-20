@@ -245,7 +245,18 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
-                enqueue_msg_q(found_mbx->msg_queue, msg);
+                size_t buf_size = len;
+                unsigned char *buffer = malloc(sizeof(unsigned char));
+
+                if (len > u_strlen(msg)) {
+                    buf_size = u_strlen(msg);
+                }
+
+                u_strcpy(buffer, msg);
+                buffer[buf_size] = '\0';
+
+                enqueue_msg_q(found_mbx->msg_queue, buffer);
+                // free(buffer);
 
                 return 0;
 
@@ -305,7 +316,7 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                     if (len > u_strlen(buffer)) {
                         buf_size = u_strlen(buffer);
                     }
-                    memcpy(buffer, buffer, buf_size);
+
                     u_strcpy(msg, buffer);
                     msg[buf_size] = '\0';
                     free(msg_node);
