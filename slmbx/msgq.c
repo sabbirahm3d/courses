@@ -6,8 +6,6 @@ msg_q_node *create_msg_q_node(unsigned char *data) {
 
     msg_q_node *temp = (msg_q_node *) malloc(sizeof(msg_q_node));
     temp->data = data;
-//    temp->data[3] = '\0';
-//    (&temp->data)[3] = '\0';
     temp->next = NULL;
 
     return temp;

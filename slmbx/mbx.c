@@ -3,7 +3,6 @@
 //
 
 #include <errno.h>
-#include <string.h>
 
 #include "msgsl.h"
 
@@ -21,8 +20,12 @@ unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
 size_t u_strlen(const unsigned char *s) {
 
-    size_t i;
-    for (i = 0; s[i] != '\0'; i++);
+    size_t i = 0;
+
+    while (s[i] != '\0') {
+        i++;
+    }
+
     return i;
 
 }

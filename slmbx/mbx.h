@@ -1,6 +1,12 @@
 #ifndef MBX_H
 #define MBX_H
 
+#include <string.h>
+
+unsigned char *u_strcpy(unsigned char *, const unsigned char *);
+
+size_t u_strlen(const unsigned char *);
+
 long slmbx_init(unsigned int, unsigned int);
 
 long slmbx_shutdown(void);
