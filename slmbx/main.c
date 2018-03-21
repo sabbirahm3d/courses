@@ -2,13 +2,13 @@
 #include "mbx.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
 
     unsigned char *robot_buffer = (unsigned char *) "i ♥ you";
     unsigned char *human_buffer = (unsigned char *) "i love you";
     unsigned char *buf = malloc(sizeof(char));
+    unsigned char *buf1 = NULL;
 
     unsigned int id = 4;
     unsigned int msg_size = 5;
@@ -24,11 +24,12 @@ int main() {
     printf("msg1: %s\n", buf);
 
     printf("len2: %ld ", slmbx_length(id));
-    printf("rec2: %ld ", slmbx_recv(id, buf, msg_size));
-    printf("msg2: %s\n", buf);
+    printf("rec2: %ld ", slmbx_recv(id, buf1, msg_size));
+    printf("msg2: %s\n", buf1);
 
     printf("destroy: %ld\n", slmbx_shutdown());
     free(buf);
+    free(buf1);
 
     return 0;
 
