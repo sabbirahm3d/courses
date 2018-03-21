@@ -31,12 +31,10 @@ void enqueue_msg_q(msg_q *, unsigned char *);
 
 msg_q_node *dequeue_msg_q(msg_q *);
 
-void dump_msg_q(msg_q *);
-
 unsigned int count_msg_q(msg_q *);
-
 
 void destroy_msg_q(msg_q *);
 
+// void dump_msg_q(msg_q *);
 
 #endif // MSGQ_H

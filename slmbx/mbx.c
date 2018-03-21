@@ -2,10 +2,9 @@
 // Created by sabbir on 3/11/18.
 //
 
-#include <errno.h>
 
+#include "mbx.h"
 #include "msgsl.h"
-
 
 msg_sl *MAILBOXSL;
 int UID;
@@ -18,11 +17,11 @@ unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
 }
 
-size_t u_strlen(const unsigned char *s) {
+unsigned int u_strlen(const unsigned char *str) {
 
-    size_t i = 0;
+    unsigned int i = 0;
 
-    while (s[i] != '\0') {
+    while (str[i] != '\0') {
         i++;
     }
 
@@ -49,8 +48,16 @@ size_t u_strlen(const unsigned char *s) {
  * */
 long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
-//    UID = getuid();
-    UID = 0;  // for debugging
+    if (DEBUG_UID) {
+
+        // simulate user UID as root for full functionality
+        UID = 0;
+
+    } else {
+
+        UID = getuid();
+
+    }
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -313,7 +320,7 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                 if (found_mbx->msg_queue->size) {
 
                     msg_q_node *msg_node = dequeue_msg_q(found_mbx->msg_queue);
-                    size_t buf_size = len;
+                    unsigned int buf_size = len;
                     unsigned char *buffer = msg_node->data;
 
                     if (len > u_strlen(buffer)) {

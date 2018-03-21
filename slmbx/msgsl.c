@@ -2,6 +2,7 @@
 // Created by sabbir on 3/15/18.
 //
 
+#include <stdlib.h>
 #include "msgsl.h"
 
 
@@ -13,7 +14,6 @@ unsigned int rand_level() {
         level++;
     }
 
-//    printf("max %d level %d %d\n", MAXLVL, level, next_random);
     return level;
 }
 
@@ -198,6 +198,7 @@ void destroy_msg_sl(msg_sl *list) {
 
 }
 
+/*
 void dump_msg_sl(msg_sl *list) {
 
     msg_sl_node *temp = list->head;
@@ -211,3 +212,4 @@ void dump_msg_sl(msg_sl *list) {
     printf("{NULL}\n");
 
 }
+*/

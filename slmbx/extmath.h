@@ -5,8 +5,6 @@
 #ifndef EXTMATH_H
 #define EXTMATH_H
 
-#include <stdio.h>
-
 static unsigned int next_random = 9001;
 static unsigned int MAXID = 4294967295;
 static unsigned int MULTIPLIER = 1103515245;

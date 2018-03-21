@@ -1,6 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "msgq.h"
+#include <stdlib.h>
 
 msg_q_node *create_msg_q_node(unsigned char *data) {
 
@@ -72,26 +71,6 @@ unsigned int count_msg_q(msg_q *msg_queue) {
 }
 
 
-// Function to remove a msg_queue from given queue q
-void dump_msg_q(msg_q *msg_queue) {
-
-    msg_q_node *temp = msg_queue->head;
-
-    while (temp) {
-
-        printf("%s -> ", temp->data);
-        temp = temp->next;
-
-    }
-
-    printf("NULL");
-
-    free(temp);
-    temp = NULL;
-
-}
-
-
 void destroy_msg_q(msg_q *msg_queue) {
 
     msg_q_node *temp = msg_queue->head;
@@ -116,3 +95,25 @@ void destroy_msg_q(msg_q *msg_queue) {
     msg_queue = NULL;
 
 }
+
+
+/*
+// Function to remove a msg_queue from given queue q
+void dump_msg_q(msg_q *msg_queue) {
+
+    msg_q_node *temp = msg_queue->head;
+
+    while (temp) {
+
+        printf("%s -> ", temp->data);
+        temp = temp->next;
+
+    }
+
+    printf("NULL");
+
+    free(temp);
+    temp = NULL;
+
+}
+*/

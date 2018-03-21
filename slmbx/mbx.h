@@ -1,11 +1,19 @@
 #ifndef MBX_H
 #define MBX_H
 
-#include <string.h>
+#ifdef DEBUG
+#define DEBUG_UID 1
+#else
+#define DEBUG_UID 0
+#endif
+
+#include <errno.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 unsigned char *u_strcpy(unsigned char *, const unsigned char *);
 
-size_t u_strlen(const unsigned char *);
+unsigned int u_strlen(const unsigned char *);
 
 long slmbx_init(unsigned int, unsigned int);
 

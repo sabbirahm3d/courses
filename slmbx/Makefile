@@ -4,6 +4,12 @@ CC = gcc
 # define any compile-time flags
 CFLAGS = -Wall -Wno-unused-function -std=gnu11
 
+# define debug flags
+DEBUG ?= 0
+ifeq ($(DEBUG), 1)
+    CFLAGS += -DDEBUG
+endif
+
 # define the C header files
 DEPS = extmath.h
 

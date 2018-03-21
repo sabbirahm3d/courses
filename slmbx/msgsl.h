@@ -2,14 +2,11 @@
 // Created by sabbir on 3/15/18.
 //
 
-#ifndef SLDS_H
-#define SLDS_H
+#ifndef MSGSL_H
+#define MSGSL_H
 
 #include "msgq.h"
 #include "extmath.h"
-
-#include <stdio.h>
-#include <stdlib.h>
 
 
 typedef struct msg_sl_node_t {
@@ -43,6 +40,6 @@ int remove_msg_sl(msg_sl *, unsigned int, int);
 
 void destroy_msg_sl(msg_sl *);
 
-void dump_msg_sl(msg_sl *);
+// void dump_msg_sl(msg_sl *);
 
-#endif //SLDS_H
+#endif //MSGSL_H
