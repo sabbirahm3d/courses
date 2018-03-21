@@ -7,7 +7,7 @@
 
 // A linked list (LL) msg_sl_node to store a queue entry
 typedef struct msg_q_node_t {
-    const unsigned char *data;
+    unsigned char *data;
     struct msg_q_node_t *next;
 } msg_q_node;
 
@@ -23,11 +23,11 @@ typedef struct msg_q_t {
 } msg_q;
 
 
-msg_q_node *create_msg_q_node(const unsigned char *);
+msg_q_node *create_msg_q_node(unsigned char *);
 
 msg_q *init_msg_q(msg_q *);
 
-void enqueue_msg_q(msg_q *, const unsigned char *);
+void enqueue_msg_q(msg_q *, unsigned char *);
 
 msg_q_node *dequeue_msg_q(msg_q *);
 

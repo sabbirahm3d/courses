@@ -1,5 +1,5 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef MBX_H
+#define MBX_H
 
 long slmbx_init(unsigned int, unsigned int);
 

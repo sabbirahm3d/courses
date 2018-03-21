@@ -31,7 +31,7 @@ ${EXE}: ${OBJS}
 .PHONY: val
 val:
     # check memory leaks
-	@valgrind --leak-check=full ./${EXE}
+	@valgrind ./${EXE}
 
 
 .PHONY: clean

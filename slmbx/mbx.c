@@ -135,7 +135,7 @@ long slmbx_create(unsigned int id, int protected) {
 
         int protected_uid = (protected ? UID : -1);
 
-        if (!id || id == MAXID) {
+        if (!id || id >= MAXID) {
 
             return EINVAL;
 
@@ -311,7 +311,7 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
                     msg_q_node *msg_node = dequeue_msg_q(found_mbx->msg_queue);
                     size_t buf_size = len;
-                    unsigned char *buffer = (unsigned char *) msg_node->data;
+                    unsigned char *buffer = msg_node->data;
 
                     if (len > u_strlen(buffer)) {
                         buf_size = u_strlen(buffer);
@@ -319,6 +319,8 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
                     u_strcpy(msg, buffer);
                     msg[buf_size] = '\0';
+
+                    free(buffer);
                     free(msg_node);
 
                     return 0;

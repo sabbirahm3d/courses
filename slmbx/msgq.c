@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include "msgq.h"
 
-msg_q_node *create_msg_q_node(const unsigned char *data) {
+msg_q_node *create_msg_q_node(unsigned char *data) {
 
     msg_q_node *temp = (msg_q_node *) malloc(sizeof(msg_q_node));
     temp->data = data;
+//    temp->data[3] = '\0';
+//    (&temp->data)[3] = '\0';
     temp->next = NULL;
 
     return temp;
@@ -23,7 +25,7 @@ msg_q *init_msg_q(msg_q *msg_queue) {
 }
 
 
-void enqueue_msg_q(msg_q *msg_queue, const unsigned char *data) {
+void enqueue_msg_q(msg_q *msg_queue, unsigned char *data) {
 
     msg_q_node *temp = create_msg_q_node(data);
     msg_queue->size++;
@@ -105,7 +107,8 @@ void destroy_msg_q(msg_q *msg_queue) {
             msg_queue->tail = NULL;
         }
 
-//        free(temp->data);
+        free(temp->data);
+        temp->data = NULL;
         free(temp);
         temp = msg_queue->head;
 
@@ -115,31 +118,3 @@ void destroy_msg_q(msg_q *msg_queue) {
     msg_queue = NULL;
 
 }
-
-//int main() {
-//
-//    msg_q *msg_q_obj = malloc(sizeof(msg_q));
-//    init_msg_q(msg_q_obj);
-//
-//    printf("size: %d\n", count_msg_q(msg_q_obj));
-//    enqueue_msg_q(msg_q_obj, "test0");
-//    enqueue_msg_q(msg_q_obj, "test1");
-//
-//    printf("size: %d\n", count_msg_q(msg_q_obj));
-//    msg_q_node* test = dequeue_msg_q(msg_q_obj);
-//    free(test);
-//
-//    printf("size: %d\n", count_msg_q(msg_q_obj));
-//    enqueue_msg_q(msg_q_obj, "test2");
-//    enqueue_msg_q(msg_q_obj, "test3");
-//
-//    printf("size: %d\n", count_msg_q(msg_q_obj));
-//
-//    dump_msg_q(msg_q_obj);
-//
-//    printf("size: %d\n", count_msg_q(msg_q_obj));
-//    destroy_msg_q(msg_q_obj);
-//
-//    return 0;
-//
-//}
