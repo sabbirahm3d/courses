@@ -11,10 +11,10 @@ ifeq ($(DEBUG), 1)
 endif
 
 # define the C header files
-DEPS = extmath.h
+DEPS = utilmath.h
 
 # define the C source files
-SRCS = msgq.c msgsl.c mbx.c main.c
+SRCS = utilstr.c msgq.c msgsl.c mbx.c main.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}

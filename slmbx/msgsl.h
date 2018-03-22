@@ -6,7 +6,7 @@
 #define MSGSL_H
 
 #include "msgq.h"
-#include "extmath.h"
+#include "utilmath.h"
 
 
 typedef struct msg_sl_node_t {

@@ -1,16 +1,8 @@
 //
-// Created by sabbir on 3/11/18.
+// Created by sabbir on 3/22/18.
 //
 
-#ifndef EXTMATH_H
-#define EXTMATH_H
-
-static unsigned int next_random = 9001;
-static unsigned int MAXID = 4294967295;
-static unsigned int MULTIPLIER = 1103515245;
-static unsigned int INCREMENT = 12345;
-unsigned int MAXLVL;
-unsigned int PROB;
+#include "utilmath.h"
 
 static unsigned int generate_random_int(void) {
 
@@ -39,5 +31,3 @@ static void ceil_log(unsigned int opand, unsigned int base) {
     PROB = base;
 
 }
-
-#endif // RAND_H
