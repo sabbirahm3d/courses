@@ -5,7 +5,7 @@
 
 #include "mbx.h"
 #include "msgsl.h"
-#include "utilmath.h"
+#include "utilstr.h"
 
 msg_sl *MAILBOXSL;
 int UID;

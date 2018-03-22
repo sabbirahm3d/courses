@@ -8,6 +8,7 @@
 #include "msgq.h"
 #include "utilmath.h"
 
+static unsigned int MAXID = 4294967295;
 
 typedef struct msg_sl_node_t {
 

@@ -3,5 +3,5 @@ project(slmbx)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES utilmath.h msgsl.c msgq.c mbx.c main.c utilstr.c)
+set(SOURCE_FILES utilmath.h msgsl.c msgq.c mbx.c main.c utilstr.h)
 add_executable(slmbx ${SOURCE_FILES})

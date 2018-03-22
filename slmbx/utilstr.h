@@ -6,9 +6,25 @@
 #define UTILSTR_H
 
 
-unsigned char *u_strcpy(unsigned char *, const unsigned char *);
+unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
-unsigned int u_strlen(const unsigned char *);
+    unsigned char *ret = dest;
+    while ((*dest++ = *src++));
+    return ret;
+
+}
+
+unsigned int u_strlen(const unsigned char *str) {
+
+    unsigned int i = 0;
+
+    while (str[i] != '\0') {
+        i++;
+    }
+
+    return i;
+
+}
 
 
 #endif // UTILSTR_H

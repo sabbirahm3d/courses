@@ -6,7 +6,6 @@
 #define UTILMATH_H
 
 static unsigned int next_random = 9001;
-static unsigned int MAXID = 4294967295;
 static unsigned int MULTIPLIER = 1103515245;
 static unsigned int INCREMENT = 12345;
 unsigned int MAXLVL;
