@@ -89,10 +89,11 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * */
 long slmbx_shutdown(void) {
 
-    // if the mailbox system was initialized
-    if (MAILBOXSL) {
 
-        if (!UID) {
+    if (!UID) {
+
+        // if the mailbox system was initialized
+        if (MAILBOXSL) {
 
             destroy_msg_sl(MAILBOXSL);
             MAILBOXSL = NULL;
@@ -101,13 +102,13 @@ long slmbx_shutdown(void) {
 
         } else {
 
-            return -EPERM;
+            return -ENODEV;
 
         }
 
     } else {
 
-        return -ENODEV;
+        return -EPERM;
 
     }
 
@@ -212,7 +213,7 @@ long slmbx_count(unsigned int id) {
 
         } else {
 
-            return ENOENT;
+            return -ENOENT;
 
         }
 
@@ -430,5 +431,5 @@ long slmbx_length(unsigned int id) {
         return -ENODEV;
 
     }
-    
+
 };

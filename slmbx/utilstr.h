@@ -22,7 +22,7 @@ unsigned int u_strlen(const unsigned char *str) {
         i++;
     }
 
-    return i;
+    return ++i;
 
 }
 
