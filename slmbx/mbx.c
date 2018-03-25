@@ -257,8 +257,8 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
                     }
 
-                    if (len > u_strlen(msg)) {
-                        buf_size = u_strlen(msg);
+                    if (len > u_bytelen(msg)) {
+                        buf_size = u_bytelen(msg);
                     }
 
                     u_strcpy(buffer, msg);
@@ -332,8 +332,8 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                         unsigned int buf_size = len;
                         unsigned char *buffer = msg_node->data;
 
-                        if (len > u_strlen(buffer)) {
-                            buf_size = u_strlen(buffer);
+                        if (len > u_bytelen(buffer)) {
+                            buf_size = u_bytelen(buffer);
                         }
 
                         u_strcpy(msg, buffer);
@@ -402,7 +402,7 @@ long slmbx_length(unsigned int id) {
 
                 if (found_mbx->msg_queue->size) {
 
-                    return u_strlen(found_mbx->msg_queue->head->data);
+                    return u_bytelen(found_mbx->msg_queue->head->data);
 
                 } else {
 

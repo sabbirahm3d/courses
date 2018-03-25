@@ -13,7 +13,7 @@
 
 unsigned char *u_strcpy(unsigned char *, const unsigned char *);
 
-unsigned int u_strlen(const unsigned char *);
+unsigned int u_bytelen(const unsigned char *);
 
 long slmbx_init(unsigned int, unsigned int);
 

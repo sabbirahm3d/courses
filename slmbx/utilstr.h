@@ -14,15 +14,20 @@ unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
 }
 
-unsigned int u_strlen(const unsigned char *str) {
+unsigned int u_bytelen(const unsigned char *str) {
 
     unsigned int i = 0;
 
-    while (str[i] != '\0') {
+    if (str) {
+
+        while (*(str++) != '\0') {
+            i++;
+        }
+
         i++;
     }
 
-    return ++i;
+    return i;
 
 }
 
