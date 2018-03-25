@@ -193,6 +193,11 @@
         $X$ and $Y$ are the numbers of students that get an A and a B,
         respectively. calculate the joint PMF $p_{x,y}$.
         \begin{proof}[\unskip\nopunct]
+            Let $r = 1 - p - q$\\
+            Then, the multinomial distribution
+            \begin{align*}
+            p_{X,Y}(x, y) & = \frac{n!}{x!y!(n-x-y)!} \cdot p^x \cdot q^y \cdot r^{(n-x-j)} \text{ for } y=0,1,2..., \ 0 \le x+y \le n \qedhere
+            \end{align*}
         \end{proof}
         \vspace{0.2in}
 
@@ -279,6 +284,23 @@
         of 1s and let $Y$ be the number of 2s obtained. What is the joint PMF
         of $X$ and $Y$?
         \begin{proof}[\unskip\nopunct]
+            Let $R$ represent the number yielded after a roll\\
+            For a single trial,
+            \begin{equation*}
+                P(R=1) = P(R=2) = \frac{1}{6}
+            \end{equation*}
+            and
+            \begin{equation*}
+                P(R=3,4,5,6) = \frac{4}{6}
+            \end{equation*}
+            Therefore, the multinomial distribution
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                p_{X,Y}(x,y) &= \frac{4!}{x!y!(4-(x+y))!} \cdot P(R=1)^{x} \cdot P(R=2)^{y} \cdot P(R=3)^{(4-(x+y))} \\
+                & = \frac{4!}{x!y!(4-(x+y))!} \cdot \bigg( \frac{1}{6} \bigg)^{x} \cdot \bigg( \frac{1}{6} \bigg)^{y} \cdot \bigg( \frac{4}{6} \bigg)^{(4-x-y)} \qedhere
+            \end{align*}
+            \endgroup
         \end{proof}
         \vspace{0.2in}
 
@@ -307,9 +329,9 @@
                     & = \frac{1}{k}\cdot \frac{1}{4}, \ \text{ for } k=1,2,3,4, \ n=1,\ldots,k \\
                     & = \begin{cases}
                         \frac{1}{4k}, & \text{ if } k=1,2,3,4, \ n=1,\ldots,k,\\
-                        0, & \text{ otherwise } \qedhere
+                        0, & \text{ otherwise }
                     \end{cases}
-                \end{align*}
+                \end{align*} \qedhere
                 \endgroup
             \end{proof}
             \vspace{0.2in}
