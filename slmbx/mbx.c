@@ -59,7 +59,7 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
             // memory allocation failure
             if (!MAILBOXSL) {
 
-                return ENOMEM;
+                return -ENOMEM;
 
             }
 
@@ -69,16 +69,15 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
         } else {
 
-            return EINVAL;
+            return -EINVAL;
 
         }
 
     } else {
 
-        return EPERM;
+        return -EPERM;
 
     }
-
 
 };
 
@@ -102,13 +101,13 @@ long slmbx_shutdown(void) {
 
         } else {
 
-            return EPERM;
+            return -EPERM;
 
         }
 
     } else {
 
-        return ENODEV;
+        return -ENODEV;
 
     }
 
@@ -136,7 +135,7 @@ long slmbx_create(unsigned int id, int protected) {
 
         if (!id || id >= MAXID) {
 
-            return EINVAL;
+            return -EINVAL;
 
         } else {
 
@@ -149,7 +148,7 @@ long slmbx_create(unsigned int id, int protected) {
 
             } else {
 
-                return EEXIST;
+                return -EEXIST;
 
             }
 
@@ -157,7 +156,7 @@ long slmbx_create(unsigned int id, int protected) {
 
     } else {
 
-        return ENODEV;
+        return -ENODEV;
 
     }
 
@@ -175,11 +174,11 @@ long slmbx_destroy(unsigned int id) {
     // if the mailbox system was initialized
     if (MAILBOXSL) {
 
-        return remove_msg_sl(MAILBOXSL, id, UID) ? EPERM : 0;
+        return remove_msg_sl(MAILBOXSL, id, UID) ? -EPERM : 0;
 
     } else {
 
-        return ENODEV;
+        return -ENODEV;
 
     }
 
@@ -207,7 +206,7 @@ long slmbx_count(unsigned int id) {
 
             } else {
 
-                return EPERM;
+                return -EPERM;
 
             }
 
@@ -219,7 +218,7 @@ long slmbx_count(unsigned int id) {
 
     } else {
 
-        return ENODEV;
+        return -ENODEV;
 
     }
 
@@ -253,7 +252,7 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
                     // memory allocation failure
                     if (!buffer) {
 
-                        return ENOMEM;
+                        return -ENOMEM;
 
                     }
 
@@ -271,27 +270,27 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
                 } else {
 
                     // bad pointer
-                    return EFAULT;
+                    return -EFAULT;
 
                 }
 
             } else {
 
                 // permission denied
-                return EPERM;
+                return -EPERM;
 
             }
 
 
         } else {
 
-            return ENONET;
+            return -ENONET;
 
         }
 
     } else {
 
-        return ENODEV;
+        return -ENODEV;
 
     }
 
@@ -347,21 +346,21 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                     } else {
 
                         // bad pointer
-                        return EFAULT;
+                        return -EFAULT;
 
                     }
 
                 } else {
 
                     // mailbox is empty
-                    return ESRCH;
+                    return -ESRCH;
 
                 }
 
             } else {
 
                 // permission denied
-                return EPERM;
+                return -EPERM;
 
             }
 
@@ -369,17 +368,16 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
         } else {
 
             // mailbox does not exist
-            return ENONET;
+            return -ENONET;
 
         }
 
     } else {
 
         // mailbox system was never initialized
-        return ENODEV;
+        return -ENODEV;
 
     }
-
 
 };
 
@@ -408,30 +406,29 @@ long slmbx_length(unsigned int id) {
                 } else {
 
                     // mailbox is empty
-                    return ESRCH;
+                    return -ESRCH;
 
                 }
 
             } else {
 
                 // permission denied
-                return EPERM;
+                return -EPERM;
 
             }
 
         } else {
 
             // mailbox does not exist
-            return ENONET;
+            return -ENONET;
 
         }
 
     } else {
 
         // mailbox system was never initialized
-        return ENODEV;
+        return -ENODEV;
 
     }
-
-
+    
 };
