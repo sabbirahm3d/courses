@@ -1,5 +1,5 @@
-#include "msgq.h"
 #include <stdlib.h>
+#include "msgq.h"
 
 msg_q_node *create_msg_q_node(unsigned char *data) {
 

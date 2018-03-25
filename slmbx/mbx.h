@@ -7,13 +7,11 @@
 #define DEBUG_UID 0
 #endif
 
-#include <errno.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <linux/unistd.h>
+#include <linux/errno.h>
+#include <linux/kernel.h>
 
-unsigned char *u_strcpy(unsigned char *, const unsigned char *);
-
-unsigned int u_bytelen(const unsigned char *);
 
 long slmbx_init(unsigned int, unsigned int);
 

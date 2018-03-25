@@ -3,9 +3,9 @@
 //
 
 
-#include "mbx.h"
 #include "msgsl.h"
 #include "utilstr.h"
+#include "mbx.h"
 
 msg_sl *MAILBOXSL;
 int UID;

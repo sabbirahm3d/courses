@@ -5,7 +5,6 @@
 #ifndef UTILSTR_H
 #define UTILSTR_H
 
-
 unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
     unsigned char *ret = dest;

@@ -10,8 +10,6 @@ int main() {
     unsigned char *buf = malloc(sizeof(char));
     unsigned char *buf1 = NULL;
 
-    printf("char size %u\n", u_bytelen(robot_buffer));
-
     unsigned int id = 4;
     unsigned int msg_size = 999999;
 
