@@ -13,20 +13,20 @@
 #include <linux/kernel.h>
 
 
-long slmbx_init(unsigned int, unsigned int);
+asmlinkage long slmbx_init(unsigned int, unsigned int);
 
-long slmbx_shutdown(void);
+asmlinkage long slmbx_shutdown(void);
 
-long slmbx_create(unsigned int, int);
+asmlinkage long slmbx_create(unsigned int, int);
 
-long slmbx_destroy(unsigned int);
+asmlinkage long slmbx_destroy(unsigned int);
 
-long slmbx_count(unsigned int);
+asmlinkage long slmbx_count(unsigned int);
 
-long slmbx_send(unsigned int, const unsigned char *, unsigned int);
+asmlinkage long slmbx_send(unsigned int, const unsigned char *, unsigned int);
 
-long slmbx_recv(unsigned int, unsigned char *, unsigned int);
+asmlinkage long slmbx_recv(unsigned int, unsigned char *, unsigned int);
 
-long slmbx_length(unsigned int);
+asmlinkage long slmbx_length(unsigned int);
 
 #endif
