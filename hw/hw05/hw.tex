@@ -237,6 +237,7 @@
         parameters $n=10$ and $p=1/2$, how many tickets should she buy in order
         to maximize her expected profit?
         \begin{proof}[\unskip\nopunct]
+            Let $i$ be the number of tickets,
             \begin{align*}
                 i & = (n+1)p \\
                 & = (10 + 1)(0.5) \\
@@ -261,6 +262,14 @@
         \end{equation*}
         is uniform.
         \begin{proof}[\unskip\nopunct]
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=k \mid X+Y=n) & = \frac{P(X=k \mid X+Y=n)}{P(X+Y=n)} \\
+                & = \frac{P(X=k \mid Y=n-X)}{P(Y=n-X)}\\
+                & = \frac{P(X=k \mid Y=n-X)}{P(Y=n-X)}\\
+            \end{align*}
+            \endgroup
         \end{proof}
         \vspace{0.2in}
 
@@ -279,29 +288,113 @@
         variable that is equally likely to be 1, 2, 3, or 4. The number of
         books $N$ that he buys is random and depends on how long he shops
         according to the conditional PMF
-        \begin{align*}
-            p_{N \mid K}(n \mid k) = \frac{1}{k}, && \text{ for } n=1,\ldots,k
-        \end{align*}
+        \begin{equation*}
+            p_{N \mid K}(n \mid k) = \frac{1}{k}, \ \text{ for } n=1,\ldots,k
+        \end{equation*}
         \begin{enumerate}[label=(\alph*)]
 
             \item Find the joint PMF of $K$ and $N$
             \begin{proof}[\unskip\nopunct]
+                Since $K$ is equally likely to be 1, 2, 3, or 4
+                \begin{equation*}
+                    p_K(k) = \frac{1}{4}, \ \text{ for } k=1,2,3,4
+                \end{equation*}
+                Therefore
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_{N , K}(n , k) & = p_{N \mid K}(n \mid k) \cdot p_K(k)\\
+                    & = \frac{1}{k}\cdot \frac{1}{4}, \ \text{ for } k=1,2,3,4, \ n=1,\ldots,k \\
+                    & = \begin{cases}
+                        \frac{1}{4k}, & \text{ if } k=1,2,3,4, \ n=1,\ldots,k,\\
+                        0, & \text{ otherwise } \qedhere
+                    \end{cases}
+                \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
             \item Find the marginal PMF of $N$
             \begin{proof}[\unskip\nopunct]
+                The marginal PMF is given by
+                \begin{equation*}
+                    p_N(n) = \sum_{n}^{4}p_{N, K}(n,k)
+                \end{equation*}
+                Therefore,
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_N(n=1) & = \frac{1}{4} + \frac{1}{8} + \frac{1}{12} + \frac{1}{16} \\
+                    & = \frac{25}{48} \\
+                    p_N(n=2) & = \frac{1}{8} + \frac{1}{12} + \frac{1}{16} \\
+                    & = \frac{13}{48} \\
+                    p_N(n=3) & = \frac{1}{12} + \frac{1}{16} \\
+                    & = \frac{7}{48} \\
+                    p_N(n=4) & = \frac{1}{16} \\
+                    p_N(n > 4) & = 0 \qedhere
+                \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
             \item Find the conditional PMF of $K$ given that $N=2$
             \begin{proof}[\unskip\nopunct]
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_{K \mid 2}(k \mid 2) & = \frac{p_{N,K}(2,k)}{p_N(2)} \\
+                    & = \begin{cases}
+                        \frac{6}{13}, & \text{ if } n = 2, \\
+                        \frac{4}{13}, & \text{ if } n = 3, \\
+                        \frac{3}{13}, & \text{ if } n = 4, \\
+                        0, & \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                \endgroup \qedhere
             \end{proof}
             \vspace{0.2in}
 
             \item Find the conditional mean and variance of $K$, given that he
             bought at least 2 but no more than 3 books.
             \begin{proof}[\unskip\nopunct]
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_{K \mid (2 \le n \le 3)}(k) & = \frac{P(K=k,(2 \le n \le 3))}{p_N(2) + p_N(3)} \\
+                    \text{where } p_N(2) + p_N(3) & = \frac{5}{12} \\
+                    P(K=k,(2 \le n \le 3)) & = \begin{cases}
+                        \frac{1}{8}, & \text{ if } k = 2, \\
+                        \frac{1}{6}, & \text{ if } k = 3, \\
+                        \frac{1}{8}, & \text{ if } k = 4, \\
+                        0, & \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                \endgroup
+                Therefore,
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_{K \mid (2 \le n \le 3)}(k) & = \begin{cases}
+                        \frac{3}{10}, & \text{ if } k = 2, \\
+                        \frac{4}{10}, & \text{ if } k = 3, \\
+                        \frac{3}{10}, & \text{ if } k = 4, \\
+                        0, & \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                \endgroup
+                Conditional mean
+                \begin{equation*}
+                    E[K \mid (2 \le n \le 3)]=3
+                \end{equation*}
+                Conditional variance
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    var(K \mid (2 \le n \le 3)) & = E[K-E[K \mid (2 \le n \le 3)]^2 \mid (2 \le n \le 3)] \\
+                    & = \frac{3}{10}(2-3)^2 + \frac{2}{5}(0) + \frac{3}{10}(4-3)^2 \\
+                    & = \frac{3}{5} \qedhere
+                \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
@@ -310,6 +403,17 @@
             Condition on the events $\{N=1\},\ldots, \{N=4\}$, and use the
             total expectation theorem.
             \begin{proof}[\unskip\nopunct]
+                Let $T=C_1+\ldots + C_N$, where $E[C_i]=30$ for $i = 1, \ldots, N$\\
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    E[T] & = E[E[T \mid N]] \\
+                    & = E[N \cdot 30] \\
+                    & = 30E[N] \\
+                    & = 30 (1 \cdot \frac{25}{48} + 2 \cdot \frac{13}{48} + 3 \cdot \frac{7}{48} + 4 \cdot \frac{3}{48}) \\
+                    & = 52.5 \qedhere
+                \end{align*}
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
