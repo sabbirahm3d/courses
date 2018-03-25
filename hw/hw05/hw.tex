@@ -211,16 +211,30 @@
 
             \item Calculate $E[X]$ by first finding the PMF of $X$
             \begin{proof}[\unskip\nopunct]
-                Let $Y$ and $Z$ represent the number of undergraduate and
-                graduate students who receive an A, respectively.
+                Let $x_i$ for $i = 1,2,\ldots,300$ represent the event\\
+                where if $x_i=1$, student $i$ gets an A, and $x_i=0$ otherwise\\
+                The PMF, $p_X$:
+                \begin{align*}
+                    p_X(x_i \mid \text{Undergraduate})
+                    & = \begin{cases}
+                        1/3, & \text{ if } x_i = 1, \\
+                        2/3, & \text{ if } x_i = 0
+                    \end{cases} \\
+                    p_X(x_i \mid \text{Graduate})
+                    & = \begin{cases}
+                        1/2, & \text{ if } x_i = 1, \\
+                        1/2, & \text{ if } x_i = 0
+                    \end{cases}
+                \end{align*}
+                Therefore,
                 \begingroup
                 \addtolength{\jot}{1em}
                 \begin{align*}
-                    p_Y(y) & = \binom{250}{y}\bigg( \frac{1}{3} \bigg)^y\bigg( 1 - \frac{1}{3} \bigg)^{250-y}\\
-                    & = \binom{250}{y}\bigg( \frac{1}{3} \bigg)^y\bigg( \frac{2}{3} \bigg)^{250-y} \\
-                    p_Z(z) & = \binom{50}{z}\bigg( \frac{1}{2} \bigg)^z\bigg( 1 - \frac{1}{2} \bigg)^{50-z}\\
-                    & = \binom{50}{z}\bigg( \frac{1}{2} \bigg)^{50}
-                \end{align*}
+                    E[X] &= E \sum_{i=1}^{300} x_i \\
+                    &= 300E[x_i] \\
+                    &= 300 \bigg( \frac{1}{3} \cdot \frac{5}{6} + \frac{1}{2} \cdot \frac{1}{6} \bigg) \\
+                    & \approx 109
+                \end{align*} \qedhere
                 \endgroup
             \end{proof}
             \vspace{0.2in}
@@ -228,6 +242,21 @@
             \item Calculate $E[X]$ by viewing $X$ as a sum of random variables,
             whose mean is easily calculated.
             \begin{proof}[\unskip\nopunct]
+                Let $Y$ and $Z$ represent the number of undergraduate and
+                graduate students who receive an A, respectively\\
+                Therefore,
+                \begin{equation*}
+                    X = Y + Z
+                \end{equation*}
+                Thus, the expectation is
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    E[X] &= E[Y] + E[Z] \\
+                    &= 250 \cdot \frac{1}{3} + 50 \cdot \frac{1}{2} \\
+                    & \approx 109
+                \end{align*} \qedhere
+                \endgroup
             \end{proof}
             \vspace{0.2in}
 
@@ -260,7 +289,7 @@
         \begin{align*}
             p_X(k)=p_Y(k)=p(1-p)^{k-1}&& k=1,2,\ldots,
         \end{align*}
-        where $p$ is a scalar with $0,p<1$. Show that for any integer $n \ge
+        where $p$ is a scalar with $0$, $p<1$. Show that for any integer $n \ge
         2$, the conditional PMF
         \begin{equation*}
             P(X=k \mid X+Y=n)
@@ -270,11 +299,16 @@
             \begingroup
             \addtolength{\jot}{1em}
             \begin{align*}
-                P(X=k \mid X+Y=n) & = \frac{P(X=k \mid X+Y=n)}{P(X+Y=n)} \\
-                & = \frac{P(X=k \mid Y=n-X)}{P(Y=n-X)}\\
-                & = \frac{P(X=k \mid Y=n-X)}{P(Y=n-X)}\\
+                P(X=k \mid X+Y=n) & = \frac{P(X=k, X+Y=n)}{P(X+Y=n)} \\
+                & = \frac{P(X=k, Y=n-k)}{P(Y=n-k)}\\
+                & = \frac{P(X=k, Y=n-k)}{\sum_{k=0}^{n}P(X=k,Y=n-k)}\\
+                & = \frac{P(X=k) \cdot P(Y=n-k)}{\sum_{k=0}^{n}P(X=k,Y=n-k)}\\
+                & = \frac{p \cdot (1-p)^{k-1} \cdot p \cdot (1-p)^{n-k}}{\sum_{k=0}^{n}p \cdot p^{k-1} \cdot p \cdot (1-p)^{n-k}}\\
+                & = \frac{p^2 \cdot (1-p)^{n-1}}{p^2 \cdot (1-p)^{n-1} \cdot (n+1)}\\
+                & = \frac{1}{n+1}
             \end{align*}
             \endgroup
+            Therefore, $P(X=k \mid X+Y=n)$ is uniform \qedhere
         \end{proof}
         \vspace{0.2in}
 
