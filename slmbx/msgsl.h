@@ -6,9 +6,13 @@
 #define MSGSL_H
 
 #include "msgq.h"
-#include "utilmath.h"
 
 static unsigned int MAXID = 4294967295;
+static unsigned int next_random = 9001;
+static unsigned int MULTIPLIER = 1103515245;
+static unsigned int INCREMENT = 12345;
+unsigned int MAXLVL;
+unsigned int PROB;
 
 typedef struct msg_sl_node_t {
 
@@ -25,6 +29,14 @@ typedef struct msg_sl_t {
     msg_sl_node *head;
 
 } msg_sl;
+
+
+static unsigned int generate_random_int(void);
+
+static void seed_random(unsigned int);
+
+static void ceil_log(unsigned int, unsigned int);
+
 
 
 unsigned int rand_level(void);

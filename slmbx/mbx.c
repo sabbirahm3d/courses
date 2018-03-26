@@ -7,12 +7,38 @@
 #include <linux/errno.h>
 #include <linux/slab.h>
 #include <linux/unistd.h>
+
 #include "msgsl.h"
-#include "utilstr.h"
 #include "mbx.h"
 
 msg_sl *MAILBOXSL;
 int UID;
+
+
+unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
+
+    unsigned char *ret = dest;
+    while ((*dest++ = *src++));
+    return ret;
+
+}
+
+unsigned int u_bytelen(const unsigned char *str) {
+
+    unsigned int i = 0;
+
+    if (str) {
+
+        while (*(str++) != '\0') {
+            i++;
+        }
+
+        i++;
+    }
+
+    return i;
+
+}
 
 
 /*
@@ -40,7 +66,9 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     } else {
 
-        UID = current_uid();
+        kuid_t cred;
+        cred = current_uid();
+        UID = (int) cred.val;
 
     }
 
