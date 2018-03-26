@@ -30,7 +30,9 @@ msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
     header->id = MAXID;
     header->next = kmalloc(sizeof(msg_sl_node *) * (MAXLVL + 1), GFP_KERNEL);
 
-    for (int i = 0; i <= MAXLVL; i++) {
+    int i;
+
+    for (i = 0; i <= MAXLVL; i++) {
         header->next[i] = list->head;
     }
 
@@ -180,28 +182,28 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
 void destroy_msg_sl(msg_sl *list) {
 
-    msg_sl_node *current;
-    current = list->head->next[1];
+    msg_sl_node *cur_node;
+    cur_node = list->head->next[1];
 
-    while (current != list->head) {
+    while (cur_node != list->head) {
 
-        msg_sl_node *next_node = current->next[1];
+        msg_sl_node *next_node = cur_node->next[1];
 
-        destroy_msg_q(current->msg_queue);
+        destroy_msg_q(cur_node->msg_queue);
 
-        kfree(current->next);
-        current->next = NULL;
+        kfree(cur_node->next);
+        cur_node->next = NULL;
 
-        kfree(current);
-        current = next_node;
+        kfree(cur_node);
+        cur_node = next_node;
 
     }
 
-    kfree(current->next);
-    current->next = NULL;
+    kfree(cur_node->next);
+    cur_node->next = NULL;
 
-    kfree(current);
-    current = NULL;
+    kfree(cur_node);
+    cur_node = NULL;
 
     kfree(list);
     list = NULL;
