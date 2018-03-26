@@ -82,9 +82,11 @@ int main() {
     unsigned int recv_size = 8;
 
     printf("size of mailbox: %ld\n", slmbx_count_syscall(id));
+
     printf("create: %ld\n", slmbx_create_syscall(id, 1));
     printf("send1: %ld\n", slmbx_send_syscall(id, robot_buffer, send_size));
     printf("send2: %ld\n", slmbx_send_syscall(id, human_buffer, send_size));
+    printf("send3: %ld\n", slmbx_send_syscall(id, null_buf, send_size));
 
     printf("len1: %ld ", slmbx_length_syscall(id));
     printf("rec1: %ld ", slmbx_recv_syscall(id, good_buf, recv_size));
@@ -92,8 +94,13 @@ int main() {
     printf("size of mailbox: %ld\n", slmbx_count_syscall(id));
 
     printf("len2: %ld ", slmbx_length_syscall(id));
-    printf("rec2: %ld ", slmbx_recv_syscall(id, null_buf, recv_size));
-    printf("msg2: %s\n", null_buf);
+    printf("rec2: %ld ", slmbx_recv_syscall(id, good_buf, recv_size));
+    printf("msg2: %s\n", good_buf);
+    printf("size of mailbox: %ld\n", slmbx_count_syscall(id));
+
+    printf("len3: %ld ", slmbx_length_syscall(id));
+    printf("rec3: %ld ", slmbx_recv_syscall(id, good_buf, recv_size));
+    printf("msg3: %s\n", good_buf);
     printf("size of mailbox: %ld\n", slmbx_count_syscall(id));
 
     printf("destroy: %ld\n", slmbx_shutdown_syscall());
