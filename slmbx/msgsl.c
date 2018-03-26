@@ -5,7 +5,7 @@
 #include "msgsl.h"
 
 
-unsigned int rand_level() {
+unsigned int rand_level(void) {
 
     unsigned int level = 1;
 

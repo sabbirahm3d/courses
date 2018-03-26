@@ -27,7 +27,7 @@ typedef struct msg_sl_t {
 } msg_sl;
 
 
-unsigned int rand_level();
+unsigned int rand_level(void);
 
 msg_sl *init_msg_sl(msg_sl *, unsigned int, unsigned int);
 

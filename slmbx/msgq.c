@@ -1,8 +1,11 @@
+
+#include <linux/kernel.h>
+#include <linux/slab.h>
 #include "msgq.h"
 
 msg_q_node *create_msg_q_node(unsigned char *data) {
 
-    msg_q_node *temp = (msg_q_node *) kmalloc(sizeof(msg_q_node));
+    msg_q_node *temp = (msg_q_node *) kmalloc(sizeof(msg_q_node), GPL_KERNEL);
     temp->data = data;
     temp->next = NULL;
 
