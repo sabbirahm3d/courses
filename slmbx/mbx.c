@@ -2,7 +2,10 @@
 // Created by sabbir on 3/11/18.
 //
 
-
+#include <stdlib.h>
+#include <linux/unistd.h>
+#include <linux/errno.h>
+#include <linux/kernel.h>
 #include "msgsl.h"
 #include "utilstr.h"
 #include "mbx.h"
@@ -54,7 +57,7 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
         // non-zero
         if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
 
-            MAILBOXSL = kmalloc(sizeof(msg_sl));
+            MAILBOXSL = kmalloc(sizeof(msg_sl), GFP_KERNEL);
 
             // memory allocation failure
             if (!MAILBOXSL) {
@@ -248,7 +251,8 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
                 if (msg) {
 
                     unsigned int buf_size = len;
-                    unsigned char *buffer = kmalloc(sizeof(unsigned char));
+                    unsigned char *buffer = kmalloc(
+                        sizeof(unsigned char), GFP_KERNEL);
 
                     // memory allocation failure
                     if (!buffer) {
@@ -339,8 +343,8 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
                         u_strcpy(msg, buffer);
                         msg[buf_size] = '\0';
 
-                        free(buffer);
-                        free(msg_node);
+                        kfree(buffer);
+                        kfree(msg_node);
 
                         return 0;
 

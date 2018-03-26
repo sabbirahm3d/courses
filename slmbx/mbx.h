@@ -7,10 +7,6 @@
 #define DEBUG_UID 0
 #endif
 
-#include <linux/unistd.h>
-#include <linux/errno.h>
-#include <linux/kernel.h>
-
 
 long slmbx_init(unsigned int, unsigned int);
 
