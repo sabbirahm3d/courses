@@ -20,7 +20,7 @@ SRCS = main.c
 OBJS = ${SRCS:.c=.o}
 
 # define the executable file
-EXE = slmbx.o
+EXE = test.o
 
 
 .PHONY: build

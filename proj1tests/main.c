@@ -71,29 +71,29 @@ int main(int argc, char *argv[]) {
 
     unsigned char *robot_buffer = (unsigned char *) "i ♥ you";
     unsigned char *human_buffer = (unsigned char *) "i love you";
-    unsigned char *buf = kmalloc(sizeof(char), GFP_KERNEL);
+    unsigned char *buf = malloc(sizeof(char));
     unsigned char *buf1 = NULL;
 
     unsigned int id = 4;
     unsigned int send_size = 7;
     unsigned int recv_size = 5;
 
-    printf("create: %ld\n", slmbx_create_syscall(id, 1));
-    printf("send1: %ld\n", slmbx_send_syscall(id, human_buffer, send_size));
-    printf("send2: %ld\n", slmbx_send_syscall(id, robot_buffer, send_size));
+    // printf("create: %ld\n", slmbx_create_syscall(id, 1));
+    // printf("send1: %ld\n", slmbx_send_syscall(id, human_buffer, send_size));
+    // printf("send2: %ld\n", slmbx_send_syscall(id, robot_buffer, send_size));
 
-    printf("len1: %ld ", slmbx_length_syscall(id));
-    printf("rec1: %ld ", slmbx_recv_syscall(id, buf, recv_size));
-    printf("msg1: %s\n", buf);
+    // printf("len1: %ld ", slmbx_length_syscall(id));
+    // printf("rec1: %ld ", slmbx_recv_syscall(id, buf, recv_size));
+    // printf("msg1: %s\n", buf);
 
-    printf("len2: %ld ", slmbx_length_syscall(id));
-    printf("rec2: %ld ", slmbx_recv_syscall(id, buf1, recv_size));
-    printf("msg2: %s\n", buf1);
+    // printf("len2: %ld ", slmbx_length_syscall(id));
+    // printf("rec2: %ld ", slmbx_recv_syscall(id, buf1, recv_size));
+    // printf("msg2: %s\n", buf1);
 
     printf("destroy: %ld\n", slmbx_shutdown_syscall());
 
-    kfree(buf);
-    kfree(buf1);
+    free(buf);
+    free(buf1);
 
     return 0;
 
