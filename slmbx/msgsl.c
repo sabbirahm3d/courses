@@ -2,8 +2,9 @@
 // Created by sabbir on 3/15/18.
 //
 
+#include <linux/kernel.h>
+#include <linux/slab.h>
 #include "msgsl.h"
-
 
 unsigned int rand_level(void) {
 
@@ -19,14 +20,15 @@ unsigned int rand_level(void) {
 
 msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
-    msg_sl_node *header = kmalloc(sizeof(msg_sl_node));
+    msg_sl_node *header;
+    header = kmalloc(sizeof(msg_sl_node), GFP_KERNEL);
 
     ceil_log(opand, base);
     seed_random(9001);
 
     list->head = header;
     header->id = MAXID;
-    header->next = kmalloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
+    header->next = kmalloc(sizeof(msg_sl_node *) * (MAXLVL + 1), GFP_KERNEL);
 
     for (int i = 0; i <= MAXLVL; i++) {
         header->next[i] = list->head;
@@ -41,13 +43,17 @@ msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
 int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
-    msg_q *msg_queue = kmalloc(sizeof(msg_q));
+    msg_q *msg_queue;
+    msg_queue = kmalloc(sizeof(msg_q), GFP_KERNEL);
     init_msg_q(msg_queue);
 
     msg_sl_node *update[MAXLVL + 1];
-    msg_sl_node *head = list->head;
+    msg_sl_node *head;
+    head = list->head;
 
-    for (int i = list->level; i >= 1; i--) {
+    int i;
+
+    for (i = list->level; i >= 1; i--) {
 
         while (head->next[i]->id < id) {
             head = head->next[i];
@@ -68,7 +74,7 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
         int level = rand_level();
 
         if (level > list->level) {
-            for (int i = list->level + 1; i <= level; i++) {
+            for (i = list->level + 1; i <= level; i++) {
                 update[i] = list->head;
             }
 
@@ -76,13 +82,13 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
         }
 
-        head = kmalloc(sizeof(msg_sl_node));
+        head = kmalloc(sizeof(msg_sl_node), GFP_KERNEL);
         head->id = id;
         head->msg_queue = msg_queue;
         head->uid = uid;
-        head->next = kmalloc(sizeof(msg_sl_node *) * (level + 1));
+        head->next = kmalloc(sizeof(msg_sl_node *) * (level + 1), GFP_KERNEL);
 
-        for (int i = 1; i <= level; i++) {
+        for (i = 1; i <= level; i++) {
             head->next[i] = update[i]->next[i];
             update[i]->next[i] = head;
         }
@@ -97,8 +103,9 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 msg_sl_node *search_msg_sl(msg_sl *list, unsigned int id) {
 
     msg_sl_node *x = list->head;
+    int i;
 
-    for (int i = list->level; i >= 1; i--) {
+    for (i = list->level; i >= 1; i--) {
 
         while (x->next[i]->id < id) {
             x = x->next[i];
@@ -138,7 +145,9 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
     msg_sl_node *update[MAXLVL + 1];
     msg_sl_node *x = list->head;
-    for (int i = list->level; i >= 1; i--) {
+    int i;
+
+    for (i = list->level; i >= 1; i--) {
         while (x->next[i]->id < id)
             x = x->next[i];
         update[i] = x;
@@ -148,7 +157,7 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
     if (x->id == id && x->next[1]->uid == uid) {
 
-        for (int i = 1; i <= list->level; i++) {
+        for (i = 1; i <= list->level; i++) {
             if (update[i]->next[i] != x)
                 break;
             update[i]->next[i] = x->next[i];
@@ -171,7 +180,9 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
 void destroy_msg_sl(msg_sl *list) {
 
-    msg_sl_node *current = list->head->next[1];
+    msg_sl_node *current;
+    current = list->head->next[1];
+
     while (current != list->head) {
 
         msg_sl_node *next_node = current->next[1];

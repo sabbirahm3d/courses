@@ -55,7 +55,8 @@ msg_q_node *dequeue_msg_q(msg_q *msg_queue) {
     }
 
     // Store previous head and move head one msg_sl_node ahead
-    msg_q_node *temp = msg_queue->head;
+    msg_q_node *temp;
+    temp = msg_queue->head;
     msg_queue->head = msg_queue->head->next;
 
     // If head becomes NULL, then change tail also as NULL
