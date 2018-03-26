@@ -13,6 +13,7 @@ static unsigned int INCREMENT = 12345;
 unsigned int MAXLVL;
 unsigned int PROB;
 
+
 static unsigned int generate_random_int(void) {
 
     next_random = next_random * MULTIPLIER + INCREMENT;
