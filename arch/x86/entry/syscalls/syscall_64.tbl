@@ -339,14 +339,16 @@
 330	common	pkey_alloc		sys_pkey_alloc
 331	common	pkey_free		sys_pkey_free
 332	common	statx			sys_statx
-333 common  slmbx_init      slmbx_init
-334 common  slmbx_shutdown  slmbx_shutdown
-335 common  slmbx_create    slmbx_create
-336 common  slmbx_destroy   slmbx_destroy
-337 common  slmbx_count     slmbx_count
-338 common  slmbx_send      slmbx_send
-339 common  slmbx_recv      slmbx_recv
-340 common  slmbx_length    slmbx_length
+
+# project 1 system calls
+333	common	slmbx_init		slmbx_init
+334	common	slmbx_shutdown	slmbx_shutdown
+335	common	slmbx_create	slmbx_create
+336	common	slmbx_destroy	slmbx_destroy
+337	common	slmbx_count		slmbx_count
+338	common	slmbx_send		slmbx_send
+339	common	slmbx_recv		slmbx_recv
+340	common	slmbx_length	slmbx_length
 
 #
 # x32-specific system call numbers start at 512 to avoid cache impact
