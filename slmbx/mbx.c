@@ -3,8 +3,9 @@
 //
 
 #include <linux/kernel.h>
-#include <linux/slab.h>
+#include <linux/cred.h>
 #include <linux/errno.h>
+#include <linux/slab.h>
 #include <linux/unistd.h>
 #include "msgsl.h"
 #include "utilstr.h"
@@ -39,7 +40,7 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     } else {
 
-        UID = getuid();
+        UID = current_uid();
 
     }
 
