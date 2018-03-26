@@ -27,7 +27,7 @@ int UID;
  * this function.
  *
  * */
-asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
+long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     if (DEBUG_UID) {
 
@@ -54,7 +54,7 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
         // non-zero
         if (ptrs && (prob == 2 || prob == 4 || prob == 8 || prob == 16)) {
 
-            MAILBOXSL = malloc(sizeof(msg_sl));
+            MAILBOXSL = kmalloc(sizeof(msg_sl));
 
             // memory allocation failure
             if (!MAILBOXSL) {
@@ -87,7 +87,7 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * be allowed to call this function.
  *
  * */
-asmlinkage long slmbx_shutdown(void) {
+long slmbx_shutdown(void) {
 
 
     if (!UID) {
@@ -96,7 +96,7 @@ asmlinkage long slmbx_shutdown(void) {
         if (MAILBOXSL) {
 
             destroy_msg_sl(MAILBOXSL);
-            MAILBOXSL = NULL;
+            MAILBOXSL = '\0';
 
             return 0;
 
@@ -127,7 +127,7 @@ asmlinkage long slmbx_shutdown(void) {
  * an invalid ID and an appropriate error should be returned.
  *
  * */
-asmlinkage long slmbx_create(unsigned int id, int protected) {
+long slmbx_create(unsigned int id, int protected) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -170,7 +170,7 @@ asmlinkage long slmbx_create(unsigned int id, int protected) {
  * code on failure.
  *
  * */
-asmlinkage long slmbx_destroy(unsigned int id) {
+long slmbx_destroy(unsigned int id) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -192,7 +192,7 @@ asmlinkage long slmbx_destroy(unsigned int id) {
  * on failure.
  *
  * */
-asmlinkage long slmbx_count(unsigned int id) {
+long slmbx_count(unsigned int id) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -229,11 +229,11 @@ asmlinkage long slmbx_count(unsigned int id) {
 /*
  * Sends a new message to the mailbox identified by id if it exists and the
  * user has access to it. The message shall be read from the user-space pointer
- * msg and shall be len bytes asmlinkage long. Returns 0 on success or an appropriate
+ * msg and shall be len bytes long. Returns 0 on success or an appropriate
  * error code on failure.
  *
  * */
-asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
+long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -247,8 +247,8 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
                 // if buffer is a valid pointer
                 if (msg) {
 
-                    size_t buf_size = len;
-                    unsigned char *buffer = malloc(sizeof(unsigned char));
+                    unsigned int buf_size = len;
+                    unsigned char *buffer = kmalloc(sizeof(unsigned char));
 
                     // memory allocation failure
                     if (!buffer) {
@@ -307,7 +307,7 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
  * to the user space pointer on success or an appropriate error code on failure.
  *
  * */
-asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
+long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -390,7 +390,7 @@ asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len
  * an appropriate error code on failure.
  *
  * */
-asmlinkage long slmbx_length(unsigned int id) {
+long slmbx_length(unsigned int id) {
 
     if (MAILBOXSL) {
 

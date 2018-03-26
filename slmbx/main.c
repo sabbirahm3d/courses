@@ -7,7 +7,7 @@ int main() {
 
     unsigned char *robot_buffer = (unsigned char *) "i ♥ you";
     unsigned char *human_buffer = (unsigned char *) "i love you";
-    unsigned char *buf = malloc(sizeof(char));
+    unsigned char *buf = kmalloc(sizeof(char));
     unsigned char *buf1 = NULL;
 
     unsigned int id = 4;
@@ -28,8 +28,8 @@ int main() {
     printf("msg2: %s\n", buf1);
 
     printf("destroy: %ld\n", slmbx_shutdown());
-    free(buf);
-    free(buf1);
+    kfree(buf);
+    kfree(buf1);
 
     return 0;
 

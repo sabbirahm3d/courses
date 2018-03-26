@@ -1,9 +1,8 @@
-#include <stdlib.h>
 #include "msgq.h"
 
 msg_q_node *create_msg_q_node(unsigned char *data) {
 
-    msg_q_node *temp = (msg_q_node *) malloc(sizeof(msg_q_node));
+    msg_q_node *temp = (msg_q_node *) kmalloc(sizeof(msg_q_node));
     temp->data = data;
     temp->next = NULL;
 
@@ -84,14 +83,14 @@ void destroy_msg_q(msg_q *msg_queue) {
             msg_queue->tail = NULL;
         }
 
-        free(temp->data);
+        kfree(temp->data);
         temp->data = NULL;
-        free(temp);
+        kfree(temp);
         temp = msg_queue->head;
 
     }
 
-    free(msg_queue);
+    kfree(msg_queue);
     msg_queue = NULL;
 
 }

@@ -2,7 +2,6 @@
 // Created by sabbir on 3/15/18.
 //
 
-#include <stdlib.h>
 #include "msgsl.h"
 
 
@@ -20,14 +19,14 @@ unsigned int rand_level() {
 
 msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
-    msg_sl_node *header = malloc(sizeof(msg_sl_node));
+    msg_sl_node *header = kmalloc(sizeof(msg_sl_node));
 
     ceil_log(opand, base);
-    seed_random(rand());
+    seed_random(9001);
 
     list->head = header;
     header->id = MAXID;
-    header->next = malloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
+    header->next = kmalloc(sizeof(msg_sl_node *) * (MAXLVL + 1));
 
     for (int i = 0; i <= MAXLVL; i++) {
         header->next[i] = list->head;
@@ -42,7 +41,7 @@ msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
 
 int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
-    msg_q *msg_queue = malloc(sizeof(msg_q));
+    msg_q *msg_queue = kmalloc(sizeof(msg_q));
     init_msg_q(msg_queue);
 
     msg_sl_node *update[MAXLVL + 1];
@@ -77,11 +76,11 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
         }
 
-        head = malloc(sizeof(msg_sl_node));
+        head = kmalloc(sizeof(msg_sl_node));
         head->id = id;
         head->msg_queue = msg_queue;
         head->uid = uid;
-        head->next = malloc(sizeof(msg_sl_node *) * (level + 1));
+        head->next = kmalloc(sizeof(msg_sl_node *) * (level + 1));
 
         for (int i = 1; i <= level; i++) {
             head->next[i] = update[i]->next[i];
@@ -122,12 +121,12 @@ void free_msg_sl_node(msg_sl_node *msg_sl_node_obj) {
 
     if (msg_sl_node_obj) {
 
-        free(msg_sl_node_obj->next);
+        kfree(msg_sl_node_obj->next);
         msg_sl_node_obj->next = NULL;
 
         destroy_msg_q(msg_sl_node_obj->msg_queue);
 
-        free(msg_sl_node_obj);
+        kfree(msg_sl_node_obj);
         msg_sl_node_obj = NULL;
 
     }
@@ -179,21 +178,21 @@ void destroy_msg_sl(msg_sl *list) {
 
         destroy_msg_q(current->msg_queue);
 
-        free(current->next);
+        kfree(current->next);
         current->next = NULL;
 
-        free(current);
+        kfree(current);
         current = next_node;
 
     }
 
-    free(current->next);
+    kfree(current->next);
     current->next = NULL;
 
-    free(current);
+    kfree(current);
     current = NULL;
 
-    free(list);
+    kfree(list);
     list = NULL;
 
 }
