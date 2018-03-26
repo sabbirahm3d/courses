@@ -13,6 +13,8 @@
 
 msg_sl *MAILBOXSL;
 int UID;
+static unsigned int MAXID = 4294967295;
+unsigned int PROB;
 
 
 unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
