@@ -5,7 +5,7 @@
 #ifndef MSGQ_H
 #define MSGQ_H
 
-#define NULL (void *) 0
+// #define NULL (void *) 0
 
 // A msg_sl_node to store a queue entry
 typedef struct msg_q_node_t {

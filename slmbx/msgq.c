@@ -5,7 +5,8 @@
 
 msg_q_node *create_msg_q_node(unsigned char *data) {
 
-    msg_q_node *temp = (msg_q_node *) kmalloc(sizeof(msg_q_node), GPL_KERNEL);
+    msg_q_node *temp;
+    temp = (msg_q_node *) kmalloc(sizeof(msg_q_node), GFP_KERNEL);
     temp->data = data;
     temp->next = NULL;
 
@@ -26,7 +27,8 @@ msg_q *init_msg_q(msg_q *msg_queue) {
 
 void enqueue_msg_q(msg_q *msg_queue, unsigned char *data) {
 
-    msg_q_node *temp = create_msg_q_node(data);
+    msg_q_node *temp;
+    temp = create_msg_q_node(data);
     msg_queue->size++;
 
     // If msg_queue is empty, then new msg_sl_node is head and tail both
@@ -75,7 +77,8 @@ unsigned int count_msg_q(msg_q *msg_queue) {
 
 void destroy_msg_q(msg_q *msg_queue) {
 
-    msg_q_node *temp = msg_queue->head;
+    msg_q_node *temp;
+    temp = msg_queue->head;
 
     while (temp) {
 
