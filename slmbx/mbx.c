@@ -30,7 +30,7 @@ int UID;
  * this function.
  *
  * */
-long slmbx_init(unsigned int ptrs, unsigned int prob) {
+asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     if (DEBUG_UID) {
 
@@ -90,7 +90,7 @@ long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * be allowed to call this function.
  *
  * */
-long slmbx_shutdown(void) {
+asmlinkage long slmbx_shutdown(void) {
 
 
     if (!UID) {
@@ -130,7 +130,7 @@ long slmbx_shutdown(void) {
  * an invalid ID and an appropriate error should be returned.
  *
  * */
-long slmbx_create(unsigned int id, int protected) {
+asmlinkage long slmbx_create(unsigned int id, int protected) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -173,7 +173,7 @@ long slmbx_create(unsigned int id, int protected) {
  * code on failure.
  *
  * */
-long slmbx_destroy(unsigned int id) {
+asmlinkage long slmbx_destroy(unsigned int id) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -195,7 +195,7 @@ long slmbx_destroy(unsigned int id) {
  * on failure.
  *
  * */
-long slmbx_count(unsigned int id) {
+asmlinkage long slmbx_count(unsigned int id) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -232,11 +232,11 @@ long slmbx_count(unsigned int id) {
 /*
  * Sends a new message to the mailbox identified by id if it exists and the
  * user has access to it. The message shall be read from the user-space pointer
- * msg and shall be len bytes long. Returns 0 on success or an appropriate
+ * msg and shall be len bytes asmlinkage long. Returns 0 on success or an appropriate
  * error code on failure.
  *
  * */
-long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
+asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -311,7 +311,7 @@ long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
  * to the user space pointer on success or an appropriate error code on failure.
  *
  * */
-long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
+asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -394,7 +394,7 @@ long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
  * an appropriate error code on failure.
  *
  * */
-long slmbx_length(unsigned int id) {
+asmlinkage long slmbx_length(unsigned int id) {
 
     if (MAILBOXSL) {
 
