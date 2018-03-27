@@ -186,7 +186,9 @@ asmlinkage long slmbx_create(unsigned int id, int protected) {
             // if not found
             if (!search_msg_sl(MAILBOXSL, id)) {
 
+                mutex_lock(&MUTEXLOCK);
                 insert_msg_sl(MAILBOXSL, id, protected_uid);
+                mutex_unlock(&MUTEXLOCK);
 
                 return 0;
 
@@ -218,7 +220,12 @@ asmlinkage long slmbx_destroy(unsigned int id) {
     // if the mailbox system was initialized
     if (MAILBOXSL) {
 
-        return remove_msg_sl(MAILBOXSL, id, UID) ? -EPERM : 0;
+        mutex_lock(&MUTEXLOCK);
+        int remove_resp;
+        remove_resp = remove_msg_sl(MAILBOXSL, id, UID);
+        mutex_unlock(&MUTEXLOCK);
+
+        return remove_resp ? -EPERM : 0;
 
     } else {
 
@@ -289,8 +296,11 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
 
             if (found_mbx->uid == UID || found_mbx->uid == -1) {
 
+
                 // if buffer is a valid pointer
                 if (msg) {
+
+                    mutex_lock(&MUTEXLOCK);
 
                     unsigned int buf_size = len;
                     unsigned char *buffer = kmalloc(
@@ -311,6 +321,8 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
                     buffer[buf_size] = '\0';
 
                     enqueue_msg_q(found_mbx->msg_queue, buffer);
+
+                    mutex_unlock(&MUTEXLOCK);
 
                     return 0;
 
@@ -374,6 +386,8 @@ asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len
                     // if buffer is a valid pointer
                     if (msg) {
 
+                        mutex_lock(&MUTEXLOCK);
+
                         msg_q_node *msg_node;
                         unsigned int buf_size;
                         unsigned char *buffer;
@@ -391,6 +405,8 @@ asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len
 
                         kfree(buffer);
                         kfree(msg_node);
+
+                        mutex_unlock(&MUTEXLOCK);
 
                         return 0;
 

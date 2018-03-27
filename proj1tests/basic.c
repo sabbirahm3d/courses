@@ -13,11 +13,14 @@ int main() {
 
     unsigned char *robot_buffer = (unsigned char *) "i ♥ you";
     unsigned char *human_buffer = (unsigned char *) "i love you";
-    unsigned char *good_buf = malloc(sizeof(char));
+    unsigned char *buf = malloc(sizeof(char));
 
     unsigned int id = 4;
     unsigned int send_size = 10;
     unsigned int recv_size = 8;
+
+    int count;
+    int length;
 
     printf("Initialize system (%d ptrs, %d prob)", ptrs, prob);
     if (slmbx_init_syscall(ptrs, prob) == -1) {
@@ -27,8 +30,11 @@ int main() {
     printf("---------------------------------------------------------\n");
 
     printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
     }
     printf("\n");
 
@@ -55,70 +61,97 @@ int main() {
     printf("---------------------------------------------------------\n");
 
     printf("Length of first message in mbx (id: %d)", id);
-    if (slmbx_length_syscall(id) == -1) {
+    length = slmbx_length_syscall(id);
+    if (length == -1) {
+        printf("\t\terrno: %d", errno);
+    } else {
+        printf(": %d", length);
+    }
+    printf("\n");
+
+    printf("Size of mbx (id: %d)", id);
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
+        printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
+    }
+    printf("\n");
+
+    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, buf, id);
+    if (slmbx_recv_syscall(id, buf, recv_size) == -1) {
         printf("\t\terrno: %d", errno);
     }
     printf("\n");
 
     printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
-    }
-    printf("\n");
-
-    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, good_buf, id);
-    if (slmbx_recv_syscall(id, good_buf, recv_size) == -1) {
-        printf("\t\terrno: %d", errno);
-    }
-    printf("\n");
-
-    printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
-        printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
 
     printf("Length of first message in mbx (id: %d)", id);
-    if (slmbx_length_syscall(id) == -1) {
+    length = slmbx_length_syscall(id);
+    if (length == -1) {
+        printf("\t\terrno: %d", errno);
+    } else {
+        printf(": %d", length);
+    }
+    printf("\n");
+
+    printf("Size of mbx (id: %d)", id);
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
+        printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
+    }
+    printf("\n");
+
+    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, buf, id);
+    if (slmbx_recv_syscall(id, buf, recv_size) == -1) {
         printf("\t\terrno: %d", errno);
     }
     printf("\n");
 
     printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
-    }
-    printf("\n");
-
-    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, good_buf, id);
-    if (slmbx_recv_syscall(id, good_buf, recv_size) == -1) {
-        printf("\t\terrno: %d", errno);
-    }
-    printf("\n");
-
-    printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
-        printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
 
+    // free up testing buffers
+    free(buf);
+
     printf("Length of first message in mbx (id: %d)", id);
-    if (slmbx_length_syscall(id) == -1) {
+    length = slmbx_length_syscall(id);
+    if (length == -1) {
         printf("\t\terrno: %d", errno);
+    } else {
+        printf(": %d", length);
     }
     printf("\n");
 
-    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, good_buf, id);
-    if (slmbx_recv_syscall(id, good_buf, recv_size) == -1) {
+    printf("Receive %d bytes of %s in mbx (id: %d)", recv_size, buf, id);
+    if (slmbx_recv_syscall(id, buf, recv_size) == -1) {
         printf("\t\terrno: %d", errno);
     }
     printf("\n");
 
     printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
@@ -130,13 +163,13 @@ int main() {
     printf("\n");
 
     printf("Size of mbx (id: %d)", id);
-    if (slmbx_count_syscall(id) == -1) {
+    count = slmbx_count_syscall(id);
+    if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
+    } else {
+        printf(": %d", count);
     }
     printf("\n");
-
-    // free up testing buffers
-    free(good_buf);
 
     return 0;
 
