@@ -2,7 +2,6 @@
 // Created by sabbir on 3/15/18.
 //
 
-#include <linux/kernel.h>
 #include <linux/slab.h>
 #include "msgsl.h"
 

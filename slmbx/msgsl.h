@@ -30,9 +30,8 @@ static void seed_random(unsigned int);
 
 static void ceil_log(unsigned int, unsigned int);
 
-
-
 unsigned int rand_level(void);
+
 
 msg_sl *init_msg_sl(msg_sl *, unsigned int, unsigned int);
 

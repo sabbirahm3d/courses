@@ -6,7 +6,6 @@
 #include <linux/cred.h>
 #include <linux/errno.h>
 #include <linux/slab.h>
-#include <linux/unistd.h>
 
 #include "msgsl.h"
 #include "mbx.h"
@@ -73,6 +72,8 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
     }
 
+    printk("CURRENT UID: %d", UID);
+
     // if the mailbox system was initialized
     if (MAILBOXSL) {
 
@@ -122,7 +123,6 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
  * */
 asmlinkage long slmbx_shutdown(void) {
 
-
     if (!UID) {
 
         // if the mailbox system was initialized
@@ -141,7 +141,6 @@ asmlinkage long slmbx_shutdown(void) {
 
     } else {
 
-        printk("TESTING HERE: %ld", -EPERM);
         return -EPERM;
 
     }
