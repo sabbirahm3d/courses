@@ -1,5 +1,4 @@
 #include <errno.h>
-#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,9 +11,10 @@ int main() {
     unsigned int ptrs = 16;
     unsigned int prob = 2;
 
-    unsigned char *buf = (unsigned char *) "i ♥ you";
+    unsigned char *send_buf = (unsigned char *) "i ♥ you";
+    unsigned char *recv_buf = malloc(sizeof(char));
 
-    int MAXID = INT_MAX;
+    int MAXID = 1000;
     unsigned int send_size = MAXID;
     int failed = 0;
     int id = 1;
@@ -35,7 +35,7 @@ int main() {
 
     printf("Send %d messages... ", MAXID);
     for (int i = 0; i < MAXID; i++) {
-        if (slmbx_send_syscall(id, buf, send_size) == -1) {
+        if (slmbx_send_syscall(id, send_buf, send_size) == -1) {
             printf("FAILED! \t\t\terrno: %d\n", errno);
             failed = 1;
             break;
@@ -43,7 +43,17 @@ int main() {
     }
 
     if (!failed) {
+
         printf("SUCCESS!\n");
+        printf("Receive the %d messages... ", MAXID);
+        for (int i = 0; i < MAXID; i++) {
+            if (slmbx_recv_syscall(id, send_buf, recv_buf) == -1) {
+                printf("FAILED! \t\t\terrno: %d\n", errno);
+                failed = 1;
+                break;
+            }
+        }
+
     }
 
     printf("Size of mbx (id: %d)", id);
