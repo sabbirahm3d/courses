@@ -5,6 +5,7 @@
 #include <linux/kernel.h>
 #include <linux/cred.h>
 #include <linux/errno.h>
+#include <linux/mutex.h>
 #include <linux/slab.h>
 
 #include "msgsl.h"
@@ -13,6 +14,8 @@
 msg_sl *MAILBOXSL;
 int UID;
 static unsigned int MAXID = 4294967295;
+struct mutex MUTEXLOCK;
+mutex_init(&MUTEXLOCK);
 
 
 unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
@@ -58,6 +61,8 @@ unsigned int u_bytelen(const unsigned char *str) {
  *
  * */
 asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
+
+    mutex_lock(&MUTEXLOCK);
 
     if (DEBUG_UID) {
 
@@ -112,6 +117,8 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
         return -EPERM;
 
     }
+
+    mutex_unlock(&MUTEXLOCK);
 
 };
 
