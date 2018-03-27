@@ -141,6 +141,7 @@ asmlinkage long slmbx_shutdown(void) {
 
     } else {
 
+        printk("TESTING HERE: %ld", -EPERM);
         return -EPERM;
 
     }
