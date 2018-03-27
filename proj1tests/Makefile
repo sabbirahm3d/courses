@@ -4,30 +4,26 @@ CC = gcc
 # define any compile-time flags
 CFLAGS = -Wall -std=gnu11
 
-# define debug flags
-DEBUG ?= 0
-ifeq ($(DEBUG), 1)
-    CFLAGS += -DDEBUG
-endif
-
 # define the C header files
-# DEPS =
+DEPS = slmbxsyscall.h
 
 # define the C source files
-SRCS = main.c
+SRCS = basic.c nullptrs.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
 
 # define the executable file
-EXE = test.o
-
+EXE = ${SRCS:.c=.out}
 
 .PHONY: build
 build: ${EXE}
-	@echo "\033[0;32mProgram compiled successfully\033[0m"
+	@echo "\033[0;32mPrograms compiled successfully\033[0m"
 
-${EXE}: ${OBJS}
+basic.out: basic.o
+	${CC} -o $@ $^ ${CFLAGS}
+
+nullptrs.out: nullptrs.o
 	${CC} -o $@ $^ ${CFLAGS}
 
 %.o: %.c ${DEPS}
@@ -43,4 +39,4 @@ val:
 .PHONY: clean
 clean:
 	# clean out cache, temporary files and executables
-	@find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
+	@find . \( -name "*.o" -o -name "*.out" \) -type f -delete
