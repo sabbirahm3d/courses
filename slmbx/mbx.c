@@ -12,10 +12,13 @@
 #include "mbx.h"
 
 msg_sl *MAILBOXSL;
+
 int UID;
+
 static unsigned int MAXID = 4294967295;
+
+unsigned int MUTEXINIT = 0;
 struct mutex MUTEXLOCK;
-mutex_init(&MUTEXLOCK);
 
 
 unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
@@ -62,20 +65,18 @@ unsigned int u_bytelen(const unsigned char *str) {
  * */
 asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
-    mutex_lock(&MUTEXLOCK);
+    if (!MUTEXINIT) {
 
-    if (DEBUG_UID) {
-
-        // simulate user UID as root for full functionality
-        UID = 0;
-
-    } else {
-
-        kuid_t cred;
-        cred = current_uid();
-        UID = (int) cred.val;
+        mutex_init(&MUTEXLOCK);
+        MUTEXINIT = 1;
 
     }
+
+    mutex_lock(&MUTEXLOCK);
+
+    kuid_t cred;
+    cred = current_uid();
+    UID = (int) cred.val;
 
     printk("CURRENT UID: %d", UID);
 
@@ -98,27 +99,29 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
             // memory allocation failure
             if (!MAILBOXSL) {
 
+                mutex_unlock(&MUTEXLOCK);
                 return -ENOMEM;
 
             }
 
             init_msg_sl(MAILBOXSL, ptrs, prob);
 
+            mutex_unlock(&MUTEXLOCK);
             return 0;
 
         } else {
 
+            mutex_unlock(&MUTEXLOCK);
             return -EINVAL;
 
         }
 
     } else {
 
+        mutex_unlock(&MUTEXLOCK);
         return -EPERM;
 
     }
-
-    mutex_unlock(&MUTEXLOCK);
 
 };
 
