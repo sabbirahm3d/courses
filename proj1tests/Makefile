@@ -2,7 +2,7 @@
 CC = gcc
 
 # define any compile-time flags
-CFLAGS = -Wall -Wno-unused-function -std=gnu11
+CFLAGS = -Wall -std=gnu11
 
 # define debug flags
 DEBUG ?= 0
