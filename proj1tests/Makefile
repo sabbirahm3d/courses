@@ -8,13 +8,16 @@ CFLAGS = -Wall -std=gnu11
 DEPS = slmbxsyscall.h
 
 # define the C source files
-SRCS = basic.c nullptrs.c
+SRCS = basic.c nullrecvbuf.c nullsendbuf.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
 
-# define the executable file
+# define the executable files
 EXE = ${SRCS:.c=.out}
+
+# define the default executable
+TEST ?= basic
 
 .PHONY: build
 build: ${EXE}
@@ -23,11 +26,20 @@ build: ${EXE}
 basic.out: basic.o
 	${CC} -o $@ $^ ${CFLAGS}
 
-nullptrs.out: nullptrs.o
+nullrecvbuf.out: nullrecvbuf.o
+	${CC} -o $@ $^ ${CFLAGS}
+
+nullsendbuf.out: nullsendbuf.o
 	${CC} -o $@ $^ ${CFLAGS}
 
 %.o: %.c ${DEPS}
 	${CC} -c -o $@ $< ${CFLAGS}
+
+
+.PHONY: run
+run:
+	echo ${TEST:=.out}
+	@./${TEST:=.out}
 
 
 .PHONY: val
