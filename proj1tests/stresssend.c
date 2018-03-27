@@ -47,7 +47,7 @@ int main() {
         printf("SUCCESS!\n");
         printf("Receive the %d messages... ", MAXID);
         for (int i = 0; i < MAXID; i++) {
-            if (slmbx_recv_syscall(id, send_buf, recv_buf) == -1) {
+            if (slmbx_recv_syscall(id, recv_buf, send_size) == -1) {
                 printf("FAILED! \t\t\terrno: %d\n", errno);
                 failed = 1;
                 break;
