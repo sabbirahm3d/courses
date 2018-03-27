@@ -34,7 +34,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
 
@@ -65,7 +65,7 @@ int main() {
     if (length == -1) {
         printf("\t\terrno: %d", errno);
     } else {
-        printf(": %d", length);
+        printf("\t\tlength: %d", length);
     }
     printf("\n");
 
@@ -74,7 +74,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
 
@@ -89,7 +89,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
@@ -99,7 +99,7 @@ int main() {
     if (length == -1) {
         printf("\t\terrno: %d", errno);
     } else {
-        printf(": %d", length);
+        printf("\t\tlength: %d", length);
     }
     printf("\n");
 
@@ -108,7 +108,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
 
@@ -123,7 +123,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
@@ -136,7 +136,7 @@ int main() {
     if (length == -1) {
         printf("\t\terrno: %d", errno);
     } else {
-        printf(": %d", length);
+        printf("\t\tlength: %d", length);
     }
     printf("\n");
 
@@ -151,7 +151,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
@@ -167,7 +167,7 @@ int main() {
     if (count == -1) {
         printf("\t\t\t\terrno: %d", errno);
     } else {
-        printf(": %d", count);
+        printf("\t\t\t\tcount: %d", count);
     }
     printf("\n");
 

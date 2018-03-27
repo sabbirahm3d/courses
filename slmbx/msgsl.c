@@ -60,7 +60,11 @@ msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
     header = kmalloc(sizeof(msg_sl_node), GFP_KERNEL);
 
     ceil_log(opand, base);
-    seed_random(9001);
+
+    unsigned int rand;
+    get_random_bytes(&rand, sizeof(rand));
+
+    seed_random(rand);
 
     list->head = header;
     header->id = MAXID;
