@@ -11,8 +11,8 @@ int main() {
     unsigned int ptrs = 16;
     unsigned int prob = 2;
 
-    unsigned char *robot_buffer = (unsigned char *) "i ♥ you";
-    unsigned char *human_buffer = (unsigned char *) "i love you";
+    unsigned char *robot_buf = (unsigned char *) "i ♥ you";
+    unsigned char *human_buf = (unsigned char *) "i love you";
     unsigned char *buf = malloc(sizeof(char));
 
     unsigned int id = 4;
@@ -45,15 +45,15 @@ int main() {
     printf("\n");
 
     printf("Send %d bytes of '%s' to mbx (id: %d)", send_size,
-        robot_buffer, id);
-    if (slmbx_send_syscall(id, human_buffer, send_size) == -1) {
+        robot_buf, id);
+    if (slmbx_send_syscall(id, human_buf, send_size) == -1) {
         printf(" \terrno: %d", errno);
     }
     printf("\n");
 
     printf("Send %d bytes of '%s' to mbx (id: %d)", send_size,
-        human_buffer, id);
-    if (slmbx_send_syscall(id, human_buffer, send_size) == -1) {
+        human_buf, id);
+    if (slmbx_send_syscall(id, human_buf, send_size) == -1) {
         printf(" \terrno: %d", errno);
     }
     printf("\n");

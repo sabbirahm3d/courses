@@ -8,7 +8,7 @@ CFLAGS = -Wall -std=gnu11
 DEPS = slmbxsyscall.h
 
 # define the C source files
-SRCS = basic.c nullrecvbuf.c nullsendbuf.c
+SRCS = basic.c nullrecvbuf.c nullsendbuf.c stresscreate.c stresssend.c
 
 # define the C object files
 OBJS = ${SRCS:.c=.o}
@@ -17,7 +17,7 @@ OBJS = ${SRCS:.c=.o}
 EXE = ${SRCS:.c=.out}
 
 # define the default executable
-TEST ?= basic
+TEST ?= basic.out
 
 .PHONY: build
 build: ${EXE}
@@ -32,20 +32,25 @@ nullrecvbuf.out: nullrecvbuf.o
 nullsendbuf.out: nullsendbuf.o
 	${CC} -o $@ $^ ${CFLAGS}
 
+stresscreate.out: stresscreate.o
+	${CC} -o $@ $^ ${CFLAGS}
+
+stresssend.out: stresssend.o
+	${CC} -o $@ $^ ${CFLAGS}
+
 %.o: %.c ${DEPS}
 	${CC} -c -o $@ $< ${CFLAGS}
 
 
 .PHONY: run
 run:
-	echo ${TEST:=.out}
-	@./${TEST:=.out}
+	@./${TEST}
 
 
 .PHONY: val
 val:
     # check memory leaks
-	@valgrind ./${EXE}
+	@valgrind ./${TEST}
 
 
 .PHONY: clean
