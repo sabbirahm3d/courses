@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,7 +12,7 @@ int main() {
     unsigned int ptrs = 16;
     unsigned int prob = 2;
 
-    int MAXID = 20;
+    int MAXID = INT_MAX;
     int failed = 0;
 
     printf("Initialize system (%d ptrs, %d prob)", ptrs, prob);
@@ -21,7 +22,7 @@ int main() {
     printf("\n");
     printf("---------------------------------------------------------\n");
 
-    printf("Create %d mbx... ", MAXID);
+    printf("Create %d mailboxes... ", MAXID);
     for (int i = 0; i < MAXID; i++) {
         if (slmbx_create_syscall(i, 1) == -1) {
             printf("FAILED! \t\t\terrno: %d\n", errno);
@@ -31,7 +32,18 @@ int main() {
     }
 
     if (!failed) {
+
         printf("SUCCESS!\n");
+
+        printf("Delete all %d mailboxes... ", MAXID);
+        for (int i = 0; i < MAXID; i++) {
+            if (slmbx_destroy_syscall(i) == -1) {
+                printf("FAILED! \t\t\terrno: %d\n", errno);
+                failed = 1;
+                break;
+            }
+        }
+
     }
     printf("---------------------------------------------------------\n");
 

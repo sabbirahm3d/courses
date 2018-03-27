@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -13,7 +14,7 @@ int main() {
 
     unsigned char *buf = (unsigned char *) "i ♥ you";
 
-    int MAXID = 20;
+    int MAXID = INT_MAX;
     unsigned int send_size = MAXID;
     int failed = 0;
     int id = 1;
