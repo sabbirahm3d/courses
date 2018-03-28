@@ -223,6 +223,7 @@ asmlinkage long slmbx_destroy(unsigned int id) {
         mutex_lock(&MUTEXLOCK);
         int remove_resp;
         remove_resp = remove_msg_sl(MAILBOXSL, id, UID);
+        printk("remove_resp: %d\n", remove_resp);
         mutex_unlock(&MUTEXLOCK);
 
         return remove_resp ? -EPERM : 0;

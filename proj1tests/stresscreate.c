@@ -33,6 +33,7 @@ int main() {
     if (!failed) {
 
         printf("SUCCESS!\n");
+        failed = 0;
 
         printf("Delete all %d mailboxes... ", MAXID);
         for (int i = 0; i < MAXID; i++) {
@@ -44,6 +45,11 @@ int main() {
         }
 
     }
+
+    if (!failed) {
+        printf("SUCCESS!\n");
+    }
+
     printf("---------------------------------------------------------\n");
 
     printf("Destroy system");

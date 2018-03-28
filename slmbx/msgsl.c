@@ -2,6 +2,7 @@
 // Created by sabbir on 3/15/18.
 //
 
+#include <linux/kernel.h>
 #include <linux/slab.h>
 #include "msgsl.h"
 
@@ -211,6 +212,8 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
                 list->head->next[list->level] == list->head) {
             list->level--;
         }
+
+        printk("in remove_msg_sl, worked %d\n");
 
         return 0;
 
