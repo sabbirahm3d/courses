@@ -3,6 +3,7 @@
 //
 
 #include <linux/kernel.h>
+#include <linux/random.h>
 #include <linux/slab.h>
 #include "msgsl.h"
 
