@@ -213,7 +213,7 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
             list->level--;
         }
 
-        printk("in remove_msg_sl, worked %d\n");
+        printk("in remove_msg_sl, worked\n");
 
         return 0;
 

@@ -45,7 +45,19 @@ int main() {
     if (!failed) {
 
         printf("SUCCESS!\n");
-        failed = 1;
+
+        failed = 0;
+
+        printf("Size of mbx (id: %d)", id);
+        count = slmbx_count_syscall(id);
+        if (count == -1) {
+            printf("\t\t\t\terrno: %d", errno);
+        } else {
+            printf("\t\t\t\tcount: %d", count);
+        }
+        printf("\n");
+        printf("---------------------------------------------------------\n");
+
         printf("Receive the %d messages... ", MAXID);
         for (int i = 0; i < MAXID; i++) {
             if (slmbx_recv_syscall(id, recv_buf, send_size) == -1) {
