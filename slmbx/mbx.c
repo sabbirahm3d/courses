@@ -1,26 +1,36 @@
-//
-// Created by sabbir on 3/11/18.
-//
+/*
+ * Sabbir Ahmed
+ * CMSC 421: Project 1
+ *
+ * Implementation of the skiplist mailbox system calls.
+ *
+ * */
 
+// kernel headers
 #include <linux/kernel.h>
 #include <linux/cred.h>
 #include <linux/errno.h>
 #include <linux/mutex.h>
 #include <linux/slab.h>
 
+// local headers
 #include "msgsl.h"
 #include "mbx.h"
 
 msg_sl *MAILBOXSL;
 
-int UID;
+int UID;  // current UID of the user
 
-static unsigned int MAXID = 4294967295;
+const unsigned int MAXID = 4294967295;  // maximum skiplist ID acceptable
 
+// mutex locks
 unsigned int MUTEXINIT = 0;
 struct mutex MUTEXLOCK;
 
-
+/*
+ * Specialized version of <string.h/strcpy> to handle unsigned char*
+ *
+ * */
 unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
     unsigned char *ret = dest;
@@ -29,6 +39,10 @@ unsigned char *u_strcpy(unsigned char *dest, const unsigned char *src) {
 
 }
 
+/*
+ * Specialized version of <string.h/strlen> to handle unsigned char*
+ *
+ * */
 unsigned int u_bytelen(const unsigned char *str) {
 
     unsigned int i = 0;
@@ -65,23 +79,15 @@ unsigned int u_bytelen(const unsigned char *str) {
  * */
 asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
 
-    if (!MUTEXINIT) {
-
-        mutex_init(&MUTEXLOCK);
-        MUTEXINIT = 1;
-
-    }
-
-    mutex_lock(&MUTEXLOCK);
-
+    // get the real UID
     kuid_t cred;
     cred = current_uid();
     UID = (int) cred.val;
 
-    // if the mailbox system was initialized
+    // if the mailbox system was already initialized
     if (MAILBOXSL) {
 
-        destroy_msg_sl(MAILBOXSL);
+        return -EEXIST;
 
     }
 
@@ -97,26 +103,39 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
             // memory allocation failure
             if (!MAILBOXSL) {
 
-                mutex_unlock(&MUTEXLOCK);
                 return -ENOMEM;
 
             }
 
+            // if the mutex lock was never initialized
+            if (!MUTEXINIT) {
+
+                // initialize only once
+                mutex_init(&MUTEXLOCK);
+                MUTEXINIT = 1;
+
+            }
+
+            // grab the mutex lock
+            mutex_lock(&MUTEXLOCK);
+
             init_msg_sl(MAILBOXSL, ptrs, prob);
 
+            // unlock the thread
             mutex_unlock(&MUTEXLOCK);
+
             return 0;
 
         } else {
 
-            mutex_unlock(&MUTEXLOCK);
+            // invalid value passed
             return -EINVAL;
 
         }
 
     } else {
 
-        mutex_unlock(&MUTEXLOCK);
+        // permission denied
         return -EPERM;
 
     }
@@ -143,12 +162,14 @@ asmlinkage long slmbx_shutdown(void) {
 
         } else {
 
+            // mailbox system not initialized
             return -ENODEV;
 
         }
 
     } else {
 
+        // permission denied
         return -EPERM;
 
     }
@@ -192,6 +213,7 @@ asmlinkage long slmbx_create(unsigned int id, int protected) {
 
             } else {
 
+                // mailbox already exists
                 return -EEXIST;
 
             }
@@ -200,6 +222,7 @@ asmlinkage long slmbx_create(unsigned int id, int protected) {
 
     } else {
 
+        // mailbox system not initialized
         return -ENODEV;
 
     }
@@ -221,13 +244,14 @@ asmlinkage long slmbx_destroy(unsigned int id) {
         mutex_lock(&MUTEXLOCK);
         int remove_resp;
         remove_resp = remove_msg_sl(MAILBOXSL, id, UID);
-        printk("remove_resp: %d\n", remove_resp);
         mutex_unlock(&MUTEXLOCK);
 
+        // permission denied if 1 else success
         return remove_resp ? -EPERM : 0;
 
     } else {
 
+        // mailbox system not initialized
         return -ENODEV;
 
     }
@@ -257,18 +281,21 @@ asmlinkage long slmbx_count(unsigned int id) {
 
             } else {
 
+                // permission denied
                 return -EPERM;
 
             }
 
         } else {
 
+            // mailbox does not exist
             return -ENOENT;
 
         }
 
     } else {
 
+        // mailbox system not initialized
         return -ENODEV;
 
     }
@@ -283,7 +310,8 @@ asmlinkage long slmbx_count(unsigned int id) {
  * error code on failure.
  *
  * */
-asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned int len) {
+asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg,
+                           unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {
@@ -303,7 +331,7 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
 
                     unsigned int buf_size = len;
                     unsigned char *buffer = kmalloc(
-                        sizeof(unsigned char), GFP_KERNEL);
+                            sizeof(unsigned char), GFP_KERNEL);
 
                     // memory allocation failure
                     if (!buffer) {
@@ -342,12 +370,14 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
 
         } else {
 
+            // mailbox does not exist
             return -ENONET;
 
         }
 
     } else {
 
+        // mailbox system not initialized
         return -ENODEV;
 
     }
@@ -364,7 +394,8 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg, unsigned i
  * to the user space pointer on success or an appropriate error code on failure.
  *
  * */
-asmlinkage long slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
+asmlinkage long
+slmbx_recv(unsigned int id, unsigned char *msg, unsigned int len) {
 
     // if the mailbox system was initialized
     if (MAILBOXSL) {

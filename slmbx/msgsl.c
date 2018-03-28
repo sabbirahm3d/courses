@@ -264,8 +264,8 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
     cursor = cursor->next[1];
 
-    // if the ID and UID match
-    if ((cursor->id == id) && (cursor->uid == uid)) {
+    // if the ID matches and the UID matches or is unprotected (-1)
+    if ((cursor->id == id) && (cursor->uid == uid || cursor->uid == -1)) {
 
         // move the nodes after the current node
         for (i = 1; i <= list->level; i++) {
@@ -281,7 +281,6 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
                 list->head->next[list->level] == list->head) {
             list->level--;
         }
-
 
         return 0;
 

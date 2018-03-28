@@ -1,12 +1,14 @@
+/*
+ * Sabbir Ahmed
+ * CMSC 421: Project 1
+ *
+ * Prototypes of the skiplist mailbox system calls.
+ *
+ * */
+
+
 #ifndef MBX_H
 #define MBX_H
-
-#ifdef DEBUG
-#define DEBUG_UID 1
-#else
-#define DEBUG_UID 0
-#endif
-
 
 unsigned char *u_strcpy(unsigned char *, const unsigned char *);
 
