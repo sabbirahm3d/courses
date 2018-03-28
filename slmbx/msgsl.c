@@ -24,13 +24,13 @@ const unsigned int INCREMENT = 12345;
 
 unsigned int MAXLVL;  // maximum level of lanes in the skiplist
 unsigned int PROB;  // probability of a promotion of a skiplist node
-static unsigned int next_random = 9001; // seed for the generated random number
+unsigned int next_random = 9001; // seed for the generated random number
 
 /*
  * Linear congruential generator to generate the random numbers
  *
  * */
-static unsigned int generate_random_int(void) {
+unsigned int generate_random_int(void) {
 
     // 32-bit linear congruential generator parameters
     next_random = next_random * MULTIPLIER + INCREMENT;
@@ -42,7 +42,7 @@ static unsigned int generate_random_int(void) {
  * Seed the generated random number
  *
  * */
-static void seed_random(unsigned int seed) {
+void seed_random(unsigned int seed) {
 
     next_random = seed;
 
@@ -57,7 +57,7 @@ static void seed_random(unsigned int seed) {
  * ftp://ftp.cs.umd.edu/pub/skipLists/skiplists.pdf
  *
  * */
-static void ceil_log(unsigned int opand, unsigned int base) {
+void ceil_log(unsigned int opand, unsigned int base) {
 
     unsigned int level = 0;
     unsigned int total = 1;

@@ -30,11 +30,11 @@ typedef struct msg_sl_t {
 } msg_sl;
 
 // functions for generating the random levels and other mathematical terms
-static unsigned int generate_random_int(void);
+unsigned int generate_random_int(void);
 
-static void seed_random(unsigned int);
+void seed_random(unsigned int);
 
-static void ceil_log(unsigned int, unsigned int);
+void ceil_log(unsigned int, unsigned int);
 
 unsigned int rand_level(void);
 
