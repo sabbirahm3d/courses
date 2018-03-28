@@ -18,8 +18,6 @@
 // local headers
 #include "msgsl.h"
 
-const unsigned int MAXID = 4294967295;  // maximum skiplist ID acceptable
-
 // variables for the linear congruential generator
 const unsigned int MULTIPLIER = 1103515245;
 const unsigned int INCREMENT = 12345;
@@ -110,7 +108,7 @@ msg_sl *init_msg_sl(msg_sl *list, unsigned int opand, unsigned int base) {
     head = kmalloc(sizeof(msg_sl_node), GFP_KERNEL);
 
     list->head = head;
-    head->id = MAXID;
+    head->id = 4294967295;
     head->next = kmalloc(sizeof(msg_sl_node *) * (MAXLVL + 1), GFP_KERNEL);
 
     int i;

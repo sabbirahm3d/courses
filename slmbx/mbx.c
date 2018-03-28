@@ -17,11 +17,9 @@
 #include "msgsl.h"
 #include "mbx.h"
 
-msg_sl *MAILBOXSL;
+msg_sl *MAILBOXSL;  // mailbox skiplist
 
 int UID;  // current UID of the user
-
-const unsigned int MAXID = 4294967295;  // maximum skiplist ID acceptable
 
 // mutex locks
 unsigned int MUTEXINIT = 0;
@@ -196,7 +194,7 @@ asmlinkage long slmbx_create(unsigned int id, int protected) {
 
         int protected_uid = (protected ? UID : -1);
 
-        if (!id || id >= MAXID) {
+        if (!id || id >= 4294967295) {
 
             return -EINVAL;
 
@@ -329,7 +327,8 @@ asmlinkage long slmbx_send(unsigned int id, const unsigned char *msg,
 
                     mutex_lock(&MUTEXLOCK);
 
-                    unsigned int buf_size = len;
+                    unsigned int buf_size;
+                    buf_size = len;
                     unsigned char *buffer = kmalloc(
                             sizeof(unsigned char), GFP_KERNEL);
 
