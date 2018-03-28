@@ -34,7 +34,7 @@ int main() {
         failed = 0;
 
         printf("Delete all %d mailboxes... ", MAXID);
-        for (int i = 0; i < MAXID; i++) {
+        for (int i = 1; i < MAXID; i++) {
             if (slmbx_destroy_syscall(i) == -1) {
                 printf("FAILED! \t\t\terrno: %d\n", errno);
                 failed = 1;
