@@ -1,12 +1,17 @@
-//
-// Created by sabbir on 3/15/18.
-//
+/*
+ * Sabbir Ahmed
+ * CMSC 421: Project 1
+ *
+ * Prototypes and structs used in the implementation of a skiplist of queues.
+ *
+ * */
 
 #ifndef MSGSL_H
 #define MSGSL_H
 
 #include "msgq.h"
 
+// skiplist node
 typedef struct msg_sl_node_t {
 
     unsigned int id;
@@ -16,6 +21,7 @@ typedef struct msg_sl_node_t {
 
 } msg_sl_node;
 
+// skiplist container
 typedef struct msg_sl_t {
 
     int level;
@@ -23,7 +29,7 @@ typedef struct msg_sl_t {
 
 } msg_sl;
 
-
+// functions for generating the random levels and other mathematical terms
 static unsigned int generate_random_int(void);
 
 static void seed_random(unsigned int);
@@ -32,7 +38,7 @@ static void ceil_log(unsigned int, unsigned int);
 
 unsigned int rand_level(void);
 
-
+// skiplist methods
 msg_sl *init_msg_sl(msg_sl *, unsigned int, unsigned int);
 
 int insert_msg_sl(msg_sl *, unsigned int, int);
@@ -44,7 +50,5 @@ void free_msg_sl_node(msg_sl_node *);
 int remove_msg_sl(msg_sl *, unsigned int, int);
 
 void destroy_msg_sl(msg_sl *);
-
-void dump_msg_sl(msg_sl *);
 
 #endif //MSGSL_H
