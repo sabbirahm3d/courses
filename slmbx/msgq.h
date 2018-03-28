@@ -35,6 +35,6 @@ unsigned int count_msg_q(msg_q *);
 
 void destroy_msg_q(msg_q *);
 
-// void dump_msg_q(msg_q *);
+void dump_msg_q(msg_q *);
 
 #endif // MSGQ_H

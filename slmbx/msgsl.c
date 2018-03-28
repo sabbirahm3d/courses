@@ -146,20 +146,21 @@ int insert_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
 msg_sl_node *search_msg_sl(msg_sl *list, unsigned int id) {
 
-    msg_sl_node *x = list->head;
+    msg_sl_node *cursor
+    cursor = list->head;
     int i;
 
     for (i = list->level; i >= 1; i--) {
 
-        while (x->next[i]->id < id) {
-            x = x->next[i];
+        while (cursor->next[i]->id < id) {
+            cursor = cursor->next[i];
         }
 
     }
 
-    if (x->next[1]->id == id) {
+    if (cursor->next[1]->id == id) {
 
-        return x->next[1];
+        return cursor->next[1];
 
     }
 
@@ -187,27 +188,35 @@ void free_msg_sl_node(msg_sl_node *msg_sl_node_obj) {
 
 int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
+    printk("passed: id: %u uid: %d\n", id, uid);
+
     msg_sl_node *update[MAXLVL + 1];
-    msg_sl_node *x = list->head;
+    msg_sl_node *cursor;
+    cursor = list->head;
+
     int i;
 
     for (i = list->level; i >= 1; i--) {
-        while (x->next[i]->id < id)
-            x = x->next[i];
-        update[i] = x;
+        while (cursor->next[i]->id < id){
+            cursor = cursor->next[i];
+        }
+        update[i] = cursor;
     }
 
-    x = x->next[1];
+    cursor = cursor->next[1];
+    printk("passed: id: %u uid: %d\n", id, uid);
+    printk("cursor: id: %u uid: %d\n", cursor->id, uid);
 
-    if (x->id == id && x->next[1]->uid == uid) {
+    if (cursor->id == id && cursor->uid == uid) {
 
         for (i = 1; i <= list->level; i++) {
-            if (update[i]->next[i] != x)
+            if (update[i]->next[i] != cursor) {
                 break;
-            update[i]->next[i] = x->next[i];
+            }
+            update[i]->next[i] = cursor->next[i];
         }
 
-        free_msg_sl_node(x);
+        free_msg_sl_node(cursor);
 
         while (list->level > 1 &&
                 list->head->next[list->level] == list->head) {
@@ -220,52 +229,60 @@ int remove_msg_sl(msg_sl *list, unsigned int id, int uid) {
 
     }
 
+    printk("didn't work\n");
+    dump_msg_sl(list);
+
     return 1;
 
 }
 
 void destroy_msg_sl(msg_sl *list) {
 
-    msg_sl_node *cur_node;
-    cur_node = list->head->next[1];
+    msg_sl_node *cursor;
+    cursor = list->head->next[1];
 
-    while (cur_node != list->head) {
+    while (cursor != list->head) {
 
-        msg_sl_node *next_node = cur_node->next[1];
+        msg_sl_node *next_node = cursor->next[1];
 
-        destroy_msg_q(cur_node->msg_queue);
+        destroy_msg_q(cursor->msg_queue);
 
-        kfree(cur_node->next);
-        cur_node->next = NULL;
+        kfree(cursor->next);
+        cursor->next = NULL;
 
-        kfree(cur_node);
-        cur_node = next_node;
+        kfree(cursor);
+        cursor = next_node;
 
     }
 
-    kfree(cur_node->next);
-    cur_node->next = NULL;
+    kfree(cursor->next);
+    cursor->next = NULL;
 
-    kfree(cur_node);
-    cur_node = NULL;
+    kfree(cursor);
+    cursor = NULL;
 
     kfree(list);
     list = NULL;
 
 }
 
-/*
+
 void dump_msg_sl(msg_sl *list) {
 
-    msg_sl_node *temp = list->head;
-    while (temp && temp->next[1] != list->head) {
-        printf("{id: %d, lvl: %d, msg: [", temp->next[1]->id,
-               temp->next[1]->uid);
-        dump_msg_q(temp->next[1]->msg_queue);
-        printf("]} -> \n");
-        temp = temp->next[1];
+    msg_sl_node *cursor;
+    cursor = list->head;
+
+    while (cursor && cursor->next[1] != list->head) {
+
+        printk("{id: %d, lvl: %d, msg: [", cursor->next[1]->id,
+               cursor->next[1]->uid);
+        dump_msg_q(cursor->next[1]->msg_queue);
+        printk("]} -> \n");
+        cursor = cursor->next[1];
+
     }
-    printf("{NULL}\n");
+
+    printk("{NULL}\n");
 
 }
-*/
+

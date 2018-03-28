@@ -78,8 +78,6 @@ asmlinkage long slmbx_init(unsigned int ptrs, unsigned int prob) {
     cred = current_uid();
     UID = (int) cred.val;
 
-    printk("CURRENT UID: %d", UID);
-
     // if the mailbox system was initialized
     if (MAILBOXSL) {
 

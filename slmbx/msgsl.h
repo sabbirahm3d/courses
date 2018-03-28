@@ -45,6 +45,6 @@ int remove_msg_sl(msg_sl *, unsigned int, int);
 
 void destroy_msg_sl(msg_sl *);
 
-// void dump_msg_sl(msg_sl *);
+void dump_msg_sl(msg_sl *);
 
 #endif //MSGSL_H

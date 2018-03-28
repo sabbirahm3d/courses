@@ -102,23 +102,24 @@ void destroy_msg_q(msg_q *msg_queue) {
 }
 
 
-/*
+
 // Function to remove a msg_queue from given queue q
 void dump_msg_q(msg_q *msg_queue) {
 
-    msg_q_node *temp = msg_queue->head;
+    msg_q_node *temp;
+    temp = msg_queue->head;
 
     while (temp) {
 
-        printf("%s -> ", temp->data);
+        printk("%s -> ", temp->data);
         temp = temp->next;
 
     }
 
-    printf("NULL");
+    printk("NULL");
 
-    free(temp);
+    kfree(temp);
     temp = NULL;
 
 }
-*/
+

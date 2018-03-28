@@ -2,10 +2,10 @@
 CC = gcc
 
 # define any compile-time flags
-CFLAGS = -Wall -std=gnu11
+CFLAGS = -Wall -Wno-pointer-sign -std=gnu11
 
 # define the C header files
-DEPS = slmbxsyscall.h
+DEPS = slmbxsyscall.h customerrno.h
 
 # define the C source files
 SRCS = basic.c nullrecvbuf.c nullsendbuf.c stresscreate.c stresssend.c
