@@ -4,6 +4,7 @@ This directory contains several drivers for testing the `slmbx` system calls.
 
 ## Included files
 - `slmbxsyscall.h` contains the wrappers for the system calls
+- `customerrno.h` contains the string messages of the errnos used
 - `Makefile` has been provided for building all the executables.<br>The following is a list of useful targets for testing:
     - `make` builds all the executables provided in the `SRCS` array
     - `make run TEST=<test.out>` runs the `test.out` test executable. Default: `basic.out`

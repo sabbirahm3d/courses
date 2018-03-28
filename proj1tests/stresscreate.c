@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+#include "customerrno.h"
 #include "slmbxsyscall.h"
 
 int main() {
@@ -14,7 +15,7 @@ int main() {
 
     printf("Initialize system (%d ptrs, %d prob)", ptrs, prob);
     if (slmbx_init_syscall(ptrs, prob) == -1) {
-        printf("\t\terrno: %d", errno);
+        printf("\t\terrno: %d (%s)", errno, str_errno(errno));
     }
     printf("\n");
     printf("---------------------------------------------------------\n");
@@ -22,7 +23,7 @@ int main() {
     printf("Create %d mailboxes... ", MAXID);
     for (int i = 1; i < MAXID; i++) {
         if (slmbx_create_syscall(i, 1) == -1) {
-            printf("FAILED! \t\t\terrno: %d\n", errno);
+            printf("FAILED! \t\t\terrno: %d (%s)\n", errno, str_errno(errno));
             failed = 1;
             break;
         }
@@ -36,7 +37,7 @@ int main() {
         printf("Delete all %d mailboxes... ", MAXID);
         for (int i = 1; i < MAXID; i++) {
             if (slmbx_destroy_syscall(i) == -1) {
-                printf("FAILED! \t\t\terrno: %d\n", errno);
+                printf("FAILED! \t\t\terrno: %d (%s)\n", errno, str_errno(errno));
                 failed = 1;
                 break;
             }
@@ -52,7 +53,7 @@ int main() {
 
     printf("Destroy system");
     if (slmbx_shutdown_syscall() == -1) {
-        printf("\t\t\t\t\terrno: %d", errno);
+        printf("\t\t\t\t\terrno: %d (%s)", errno, str_errno(errno));
     }
     printf("\n");
 
