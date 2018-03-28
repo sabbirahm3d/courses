@@ -1,4 +1,4 @@
-# Project 1: Test Drivers
+# Project 1: System Call Test Drivers
 
 This directory contains several drivers for testing the `slmbx` system calls.
 
@@ -12,6 +12,7 @@ This directory contains several drivers for testing the `slmbx` system calls.
     - `make clean` clears all temporary objects and executables
 
 ## Tests
+Each one of the tests provided consist of both correct and incorrect usage of the system calls.
 - `basic.c` tests at least one call to all the system calls with a single user
 - `nullrecvbuf.c` tests reception of messages with invalid buffers
 - `nullsendbuf.c` tests transmission of messages with invalid buffers
