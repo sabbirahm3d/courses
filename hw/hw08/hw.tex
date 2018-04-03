@@ -1,0 +1,246 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+\allowdisplaybreaks
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 08}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{3.2}]
+
+        \begin{itemize}
+
+            \item[\textbf{1}] In $GL_2(R)$, find the order of each of the
+            following elements.
+            \begin{enumerate}
+
+                \item[\textbf{b}]
+                \begin{equation*}
+                    \left[
+                        \begin{tabular}{cc}
+                            0 & 1 \\
+                            -1 & 0
+                        \end{tabular}
+                    \right]
+                \end{equation*}
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{d}]
+                \begin{equation*}
+                    \left[
+                        \begin{tabular}{cc}
+                            -1 & 1 \\
+                            0 & 1
+                        \end{tabular}
+                    \right]
+                \end{equation*}
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{enumerate}
+
+            \item[\textbf{11}]
+            Let $S$ be a set, and let $a$ be a fixed element of $S$. Show that
+            $\{\sigma \in \text{Sym}(S) \mid \sigma(a)=a \}$ is a subgroup of
+            Sym($S$).
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{12}] For each of the following groups, find all
+            elements of finite order.
+            \begin{enumerate}
+
+                \item[\textbf{a}] $\mathbb{R}^{\times}$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{d}] $\mathbb{C}^{\times}$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{enumerate}
+
+            \item[\textbf{19}] Let $G$ be a group, and let $a \in G$. The set
+            $C(a) = \{ x \in G \mid xa = ax \}$ of all elements of $G$ that
+            commute with $a$ is called the \textbf{centralizer} of $a$.
+            \begin{enumerate}
+
+                \item[\textbf{a}] Show that $C(a)$ is a subgroup of $G$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{b}] Show that $\langle a \rangle \subseteq C(a)$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] Compute $C(a)$ if $G=S_3$ and $a = (1,2,3)$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{d}] Compute $C(a)$ if $G=S_3$ and $a = (1,2)$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{enumerate}
+
+            \item[\textbf{20}] Compute the centralizer in $\text{GL}_2(\mathbb{R})$ of the matrix $\left[\begin{tabular}{cc}
+                                        -1 & 1 \\
+                                        0 & 1
+                                    \end{tabular}\right]$
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{25}] Let $G$ be a finite group, let $n > 2$ be an
+            integer, and let $S$ be the set of elements of $G$ that have order
+            $n$. Show that $S$ has an even number of elements.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{itemize}
+
+        \item[\textbf{3.3}]
+
+        \begin{itemize}
+
+            \item[\textbf{4}] Find the cyclic subgroup generated by $\left[\begin{tabular}{cc}
+                2 & 1 \\
+                0 & 2
+            \end{tabular}\right]$ in $\text{GL}_2(\mathbb{Z}_3)$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{5}] Prove that if $G_1$ and $G_2$ are abelian groups,
+            then the direct product $G_1 \times G_2$ is abelian.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{8}] Let $G_1$ and $G_2$ be groups, with subgroups
+            $H_1$ and $H_2$, respectively. Show that $\{(x_1,x_2) \mid x_1 \in
+            H_1, x_2 \in H_2\}$ is a subgroup of the direct product $G_1 \times
+            G_2$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{11}] Let $G_1$ and $G_2$ be groups, and let $G$ be
+            the direct product $G_1 \times G_2$. Let $H=\{(x_1,x_2)\in G_1
+            \times G_2 \mid x_2 = e\}$ and let $K=\{(x_1,x_2)\in G_1 \times G_2
+            \mid x_1 = e\}$.
+
+            \begin{enumerate}
+
+                \item[\textbf{a}] Show that $H$ and $K$ are subgroups of $G$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{b}] Show that $HK=KH=G$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] Show that $H \cap K = \{e,e\}$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{enumerate}
+
+            \item[\textbf{13}] Let $p, q$ be distinct prime numbers, and let
+            $n=pq$. Show that $HK=\mathbb{Z}_{n}^{\times}$, for the subgroups
+            $H=\{[x] \in \mathbb{Z}_{n}^{\times} \mid x \equiv 1 \Mod p\}$ and
+            $K=\{[y] \in \mathbb{Z}_{n}^{\times} \mid y \equiv 1 \Mod q\}$ of
+            $\mathbb{Z}_{n}^{\times}$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{16}] Let $G$ be a group of order 6, and suppose that
+            $a, b \in G$ with $a$ of order 3 and $b$ of order 2. Show that
+            either $G$ is cyclic or $ab \neq ba$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}
