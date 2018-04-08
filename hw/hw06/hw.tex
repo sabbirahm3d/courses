@@ -21,34 +21,10 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
-\allowdisplaybreaks
-
-%------------------------------------------------------------------------------
-% document info command
-\newcommand{\documentinfo}[5]{
-    \begin{centering}
-        \parbox{2in}{
-        \begin{spacing}{1}
-            \begin{flushleft}
-                \begin{tabular}{l l}
-                    \textbf{#1} \\
-                    \textbf{DATE:} #2 \\
-                    #3 \\
-                \end{tabular}\\
-                \rule{\textwidth}{1pt}
-            \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
-
-\newcommand{\salign}[1]{\begingroup\addtolength{\jot}{#1em}}
-\setlist[enumerate]{label=\textbf{\arabic*}.,itemsep=2em}
-\newenvironment{cproof}{\begin{proof}[\unskip\nopunct]}{\end{proof}}
 
 \begin{document}
 
-    \documentinfo{Sabbir Ahmed}{\today}{\textbf{CMPE 320:} HW 06}
+    \documentinfo{\today}{06}
     \vspace{-0.2in}
 
     \begin{enumerate}
@@ -64,17 +40,53 @@
         pens taken in one trip will not affect the number of pens taken in any
         other trip.)
 
-        \begin{enumerate}[label=\textbf{\alph*}]
+        \begin{enumerate}
 
             \item The probability that Oscar gets a total of three pens on any
             particular day.
             \begin{cproof}
+
+                The probability that he gets 3 pens on his first trip
+                \begin{equation*}
+                    P_1 = \frac{1}{3}
+                \end{equation*}
+
+                The probability that he gets 2 pens on his first trip and 1 pen
+                on his second
+                \begin{equation*}
+                    P_2 = \frac{1}{3}\cdot\frac{1}{3}=\frac{1}{9}
+                \end{equation*}
+
+                The probability that he gets 1 pen on his first trip and 2 pens
+                on his second
+                \begin{equation*}
+                    P_3 = \frac{1}{3}\cdot\frac{1}{3}=\frac{1}{9}
+                \end{equation*}
+
+                The probability that he gets 3 pens on any particular day
+                \begin{equation*}
+                    P(\text{3 pens}) = \frac{1}{3}+\frac{1}{9}+\frac{1}{9}=\frac{5}{9} \qedhere
+                \end{equation*}
+
             \end{cproof}
 
             \item The conditional probability that he visited the supply room
             twice on a given day, given that it is a day in which he got a
             total of three pens.
             \begin{cproof}
+
+                The probability that he makes two trips
+                \salign{1}
+                \begin{align*}
+                    P(\text{two trips} \mid \text{3 pens}) & =
+                    \frac{P(\text{two trips} \cap \text{3 pens})}{P(\text{3
+                    pens})} \\
+                    & = \frac{P_2 + P_3}{P(\text{3 pens})} \\
+                    & = \frac{\frac{1}{9} + \frac{1}{9}}{\frac{5}{9}} \\
+                    & = \frac{2}{5} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item \textbf{E}$[N]$ and \textbf{E}$[N \mid C]$, where
@@ -83,23 +95,79 @@
             C]$ is the conditional expectation of $N$ given the event
             $C=\{N>3\}$.
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N] & = 2P(\text{2 pens}) + 3P(\text{3 pens}) + 4P(\text{4 pens}) + 5P(\text{5 pens}) \\
+                    & = 2P_2 + 3P(\text{3 pens}) + 4(P_1P_1P_1P_1) + 5(P_1P_1) \\
+                    & = 2\cdot\frac{1}{9} + 3\cdot\frac{5}{9} + 4\cdot\bigg(\frac{1}{9}\cdot\frac{1}{9}\bigg) + 5\cdot\bigg(\frac{1}{3}\cdot\frac{1}{3}\bigg)\\
+                    & = \frac{30}{9}
+                \end{align*}
+                \endgroup
+
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N \mid C] & = \textbf{E}[N \mid \{\text{4 pens,
+                    5 pens}\}] \\
+                    & = 4\cdot\frac{P(\text{4 pens})}{P(\text{4 pens}) + P(\text{5 pens})} + 5\cdot\frac{P(\text{5 pens})}{P(\text{4 pens}) + P(\text{5 pens})} \\
+                    & = 4\cdot\frac{\frac{1}{9}+\frac{1}{9}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} + 5\cdot\frac{\frac{1}{3}\cdot\frac{1}{3}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} \\
+                    & = \frac{13}{3}  \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item $\sigma_{N \mid C}$, the conditional standard deviation of
             the total number of pens Oscar gets on a particular day, where $N$
             and $C$ are as in part (c).
             \begin{cproof}
+
+                Since $\textbf{E}[N \mid C]= 13/3$,\\
+                $\textbf{E}[N^2 \mid C]$
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N^2 \mid C] & = \textbf{E}[N^2 \mid \{\text{4 pens, 5 pens}\}] \\
+                    & = 4^2\cdot\frac{P(\text{4 pens})}{P(\text{4 pens}) + P(\text{5 pens})} + 5^2\cdot\frac{P(\text{5 pens})}{P(\text{4 pens}) + P(\text{5 pens})} \\
+                    & = 4^2\cdot\frac{\frac{1}{9}+\frac{1}{9}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} + 5^2\cdot\frac{\frac{1}{3}\cdot\frac{1}{3}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} \\
+                    & = 19
+                \end{align*}
+                \endgroup
+
+                Therefore, $\sigma_{N \mid C}$
+                \salign{1}
+                \begin{align*}
+                    \sigma_{N \mid C} &= \sqrt{\textbf{E}[N^2 \mid C]-(\textbf{E}[N^2 \mid C])^2} \\
+                    & = \sqrt{19-\bigg(\frac{13}{3}\bigg)^2}\\
+                    & = \frac{\sqrt{2}}{3} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item The probability that he gets more than three pens on each of
             the next 16 days.
             \begin{cproof}
+                \salign{1}
+                \begin{align*}
+                    P(N > 3)^{16} & = \bigg(\frac{1}{3}\bigg)^{16}\\
+                    & = \frac{1}{3^{16}} \qedhere
+                \end{align*}
+                \endgroup
             \end{cproof}
 
             \item The conditional standard deviation of the total number of
             pens he gets in the next 16 days given that he gets more than three
             pens on each of those days.
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \sigma_{N_1,N_2,\ldots,N_{16} \mid C} &= \sqrt{16\cdot(\textbf{E}[N^2 \mid C]-(\textbf{E}[N^2 \mid C])^2)} \\
+                    & = \sqrt{16\cdot\bigg(19-\bigg(\frac{13}{3}\bigg)^2\bigg)}\\
+                    & = \frac{4\sqrt{2}}{3} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
         \end{enumerate}
@@ -128,19 +196,54 @@
         everything else. During a fixed time period of $n$ weeks, let $X$ be
         the number of weeks that he played the lottery and $Y$ be the number of
         weeks that he won.
-        \begin{enumerate}[label=\textbf{\alph*}]
+        \begin{enumerate}
 
             \item What is the probability that he played the lottery on any
             particular week, given that he did not win on that week?
             \begin{cproof}
+
+                Let $L_i$ represent the event that Joe played the lottery, \\
+                and $W_i$ represent the event that he won on week $i$ \\
+                Therefore,
+                \salign{1}
+                \begin{align*}
+                    P(L_i \mid W_i^c) &= \frac{P(W_i^c \mid L_i)P(L_i)}{P(W_i^c \mid L_i)P(L_i) + P(W_i^c \mid L_i^c)P(L_i^c)}\\
+                    & = \frac{(1-q)p}{(1-q)p+(1-p)} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item Find the conditional PMF $p_{Y \mid X}(y \mid x)$.
             \begin{cproof}
+
+                The binomial PMF:
+                \salign{1}
+                \begin{align*}
+                    p_{Y \mid X}(y \mid x) & =
+                    \begin{cases}
+                        \binom{x}{y}q^y(1-q)^{x-y} &, \text{ if } 0 \le y \le x,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item Find the joint PMF $p_{X, Y}(x, y)$.
             \begin{cproof}
+
+                Since $p_{X, Y}(x, y) = p_{Y \mid X}(y \mid x)p_X(x)$
+                \salign{1}
+                \begin{align*}
+                    p_{Y \mid X}(y \mid x) & =
+                    \begin{cases}
+                        \binom{x}{y}q^y(1-q)^{x-y}\binom{n}{x}p^x(1-p)^{n-x} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item Find the marginal PMF $p_{Y}(y)$. \\ \textit{Hint}: One
@@ -148,11 +251,43 @@
             algebra can be messy. However, if you think intuitively about the
             procedure that generates $Y$, you may be able to guess the answer.
             \begin{cproof}
+
+                Let $Y_i$ be a Bernoulli random variable that takes 1 when Joe wins, and 0 otherwise
+                \begin{align*}
+                    p_{Y_i}(y) & =
+                    \begin{cases}
+                        pq &, \text{ if } y = 1,\\
+                        1 - pq &, \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                Therefore, the marginal PMF
+                \salign{1}
+                \begin{align*}
+                    p_{Y}(y) & =
+                    \begin{cases}
+                        \binom{n}{y}(pq)^y(1-(pq))^{n-y} &, \text{ if } 0 \le y \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item Find the conditional PMF $p_{X \mid Y}(x \mid y)$. Do this
             algebraically using the preceding answers.
             \begin{cproof}
+
+                Since $p_{X \mid Y}(x \mid y) = \frac{p_{X, Y}(x, y)}{p_Y(y)}$
+                \salign{1}
+                \begin{align*}
+                    p_{X \mid Y}(x \mid y) & =
+                    \begin{cases}
+                        \frac{\binom{x}{y}q^y(1-q)^{x-y}\binom{n}{x}p^x(1-p)^{n-x}}{\binom{n}{y}(pq)^y(1-(pq))^{n-y}} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             \item Rederive the answer to part (e) by thinking as follows: for
@@ -184,6 +319,36 @@
         \end{equation*}
         and let $Y=X^2$. Calculate \textbf{E}$[Y]$ and $var(Y)$.
         \begin{cproof}
+
+            To compute \textbf{E}$[Y]$
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y] & = \textbf{E}[X^2] \\
+                & = \int_{1}^{2}x^2\cdot\frac{2x}{3}dx \\
+                & = \frac{2}{3}\cdot\frac{x^4}{4}\bigg\vert_1^2\\
+                & = \frac{5}{2}
+            \end{align*}
+            \endgroup
+
+            And
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y^2] & = \textbf{E}[X^4] \\
+                & = \int_{1}^{2}x^4\cdot\frac{2x}{3}dx \\
+                & = \frac{2}{3}\cdot\frac{x^6}{6}\bigg\vert_1^2\\
+                & = 7
+            \end{align*}
+            \endgroup
+
+            Therefore, $var(Y)$
+            \salign{1}
+            \begin{align*}
+                var(Y) & = \textbf{E}[Y^2] - (\textbf{E}[Y])^2 \\
+                & = 7 - \bigg(\frac{5}{2}\bigg)^2 \\
+                & = \frac{3}{4} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 6
@@ -221,6 +386,17 @@
         that satisfies $F_X(\mu)=1/2$. Find the median of the exponential
         random variable with parameter $\lambda$.
         \begin{cproof}
+
+            Let $m$ = median
+            \salign{1}
+            \begin{align*}
+                P(X < m) & = \int_{0}^{m}e^{-\lambda x}dx\\
+                & = (-\lambda e^{x})\vert_{0}^{m}\\
+                \Rightarrow 1 - \lambda e^{-m} & = 0.5\\
+                \Rightarrow m & = \ln(2)\lambda \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
     \end{enumerate}
