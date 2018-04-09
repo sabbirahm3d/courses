@@ -21,839 +21,93 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
-\allowdisplaybreaks
-%------------------------------------------------------------------------------
-% document info command
-\newcommand{\documentinfo}[5]{
-    \begin{centering}
-        \parbox{2in}{
-        \begin{spacing}{1}
-            \begin{flushleft}
-                \begin{tabular}{l l}
-                    #1 \\
-                    #2 \\
-                    #3 \\
-                \end{tabular}\\
-                \rule{\textwidth}{1pt}
-            \end{flushleft}
-        \end{spacing}
-        }
-    \end{centering}
-}
-
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 
 \begin{document}
 
-    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 08}
+    \documentinfo{\today}{08}
     \vspace{-0.2in}
 
     \begin{itemize}
 
-        \item[\textbf{3.2}]
+        \item[\textbf{3.4}]
         \begin{itemize}
 
-            \item[\textbf{1}] In $GL_2(R)$, find the order of each of the
-            following elements.
-            \begin{enumerate}
+            \item[\textbf{4}] Show that $\mathbb{Z}_{5}^{\times}$ is not
+            isomorphic to $\mathbb{Z}_{8}^{\times}$ by showing that the first
+            group has an element of order 4 but the second group does not
+            \begin{cproof}
 
-                \item[\textbf{b}]
+                The elements in each of the groups
+                \begin{align*}
+                    \{[1], [2], [3], [4]\} & \in \mathbb{Z}_{5}^{\times}\\
+                    \{[1], [3], [5], [7]\} & \in \mathbb{Z}_{8}^{\times}
+                \end{align*}
+
+                For $\mathbb{Z}_{5}^{\times}$\\
                 \begin{equation*}
-                    \left[
-                        \begin{tabular}{cc}
-                            0 & 1 \\
-                            -1 & 0
-                        \end{tabular}
-                    \right]
+                    [5]^2 = [1]
                 \end{equation*}
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                    \begingroup
-                    \addtolength{\jot}{1em}
-                    \begin{align*}
-                        \left(\left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right]\right)^2 & =
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right]
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right] =
-                        \left[
-                            \begin{tabular}{cc}
-                                -1 & 0 \\
-                                0 & -1
-                            \end{tabular}
-                        \right] \\
-                        \left(\left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right]\right)^3 & =
-                        \left[
-                            \begin{tabular}{cc}
-                                -1 & 0 \\
-                                0 & -1
-                            \end{tabular}
-                        \right]
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right] =
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & -1 \\
-                                1 & 0
-                            \end{tabular}
-                        \right] \\
-                        \left(\left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right]\right)^4 & =
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & -1 \\
-                                1 & 0
-                            \end{tabular}
-                        \right]
-                        \left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right] =
-                        \left[
-                            \begin{tabular}{cc}
-                                1 & 0 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]
-                    \end{align*}
-                    \endgroup
+                Therefore, $o()$
 
-                    Therefore,
-                    \begin{equation*}
-                    o\left(\left[
-                            \begin{tabular}{cc}
-                                0 & 1 \\
-                                -1 & 0
-                            \end{tabular}
-                        \right]\right)=4 \qedhere
-                    \end{equation*}
+            \end{cproof}
 
-                \end{proof}
-                \vspace{0.2in}
+            \item[\textbf{7}] Let $G$ be a group. Show that the group $(G, *)$
+            defined in Exercise 3 of Section 3. 1 is isomorphic to $G$.
+            \begin{cproof}
+            \end{cproof}
 
-                \item[\textbf{d}]
-                \begin{equation*}
-                    \left[
-                        \begin{tabular}{cc}
-                            -1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right]
-                \end{equation*}
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
+            \item[\textbf{11}] Let $G$ be the set of all matrices in
+            $GL_2(\mathbb{Z}_3)$ of the form $\left[\begin{tabular}{cc}
+                    m & b \\
+                    0 & 1
+                \end{tabular}\right]$. That is, $m, b \in \mathbb{Z}_3$ and
+            $m\neq [0]_3$. Show that $G$ is a subgroup of
+            $GL_2(\mathbb{Z}_3)$ that is isomorphic to $S_3$.
+            \begin{cproof}
+            \end{cproof}
 
-                    \begingroup
-                    \addtolength{\jot}{1em}
-                    \begin{align*}
-                        \left(\left[
-                            \begin{tabular}{cc}
-                                -1 & 1 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]\right)^2 & =
-                        \left[
-                            \begin{tabular}{cc}
-                                -1 & 1 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]
-                        \left[
-                            \begin{tabular}{cc}
-                                -1 & 1 \\
-                                0 & 1
-                            \end{tabular}
-                        \right] =
-                        \left[
-                            \begin{tabular}{cc}
-                                1 & 0 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]
-                    \end{align*}
-                    \endgroup
+            \item[\textbf{17}] Let $\phi: G_1 \rightarrow G_2$ be a group
+            isomorphism. Prove that if $H$ is asubgroup of $G_1$, then
+            $\phi(H)=\{y\in G_2 \mid y = \phi(h) \text{ for some } h \in H\}$
+            is a subgroup of $G_2$.
+            \begin{cproof}
 
-                    Therefore,
-                    \begin{equation*}
-                    o\left(\left[
-                            \begin{tabular}{cc}
-                                -1 & 1 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]\right)=2 \qedhere
-                    \end{equation*}
-
-                \end{proof}
-                \vspace{0.2in}
-
-            \end{enumerate}
-
-            \item[\textbf{11}]
-            Let $S$ be a set, and let $a$ be a fixed element of $S$. Show that
-            $\{\sigma \in \text{Sym}(S) \mid \sigma(a)=a \}$ is a subgroup of
-            Sym($S$).
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-                Let $H=\{\sigma \in \text{Sym}(S) \mid \sigma(a)=a \}$\\
-                Since $\sigma(a)$ is the identity function, $H$ is a non-empty subset\\
-                For $H$ to be subgroup, $\sigma\tau^{-1} \in H, \ \forall \sigma,\tau \in H$\\
-                Let $\sigma, \tau \in H$\\
-                Then,
+                Since $\phi:G_1 \rightarrow G_2$ is a group isomorphism,
+                $\phi(e_1)=e_2$\\
+                Since $H$ is a subgroup,
                 \begin{align*}
-                    \sigma(a) & = a\\
-                    \tau(a) & = a\\
-                    \tau^{-1}(a) & = a
+                    e_1 & \in H\\
+                    \Rightarrow e_2 & \in \phi(H)
                 \end{align*}
 
+                A non-empty set $G$ is a subgroup if $xy^{-1}\in G$, $\forall \
+                x,y\in G$\\
+                Let $x,y \in \phi(H)$\\
+                Then, there exists $h_1,h_2 \in H$, such that
+                \begin{align*}
+                    \phi(h_1) & = x\\
+                    \phi(h_2) & = y
+                \end{align*}
+                Also, since $\phi$ is homomorphic,
+                \begin{align*}
+                    \phi(h_2^{-1}) & = (\phi(h_2))^{-1}\\
+                    & = y^{-1}\\
+                    \phi(h_1h_2^{-1}) & = \phi(h_1)\phi(h_2^{-1})\\
+                    & = xy^{-1}
+                \end{align*}
+
+                Since $H$ is a subgroup, $h_1h_2^{-1}\in H$, $\forall \ h_1,h_2
+                \in H$\\
                 Therefore,
                 \begin{align*}
-                    (\sigma \circ \tau^{-1})(a) & = \sigma(\tau^{-1}(a))\\
-                    & = \sigma(a)\\
-                    & = a
-                \end{align*}
-                Therefore, $\sigma \circ \tau^{-1} \in H$, and $H$ is a
-                subgroup of $\text{Sym}(S)$ \qedhere
-
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{12}] For each of the following groups, find all
-            elements of finite order.
-            \begin{enumerate}
-
-                \item[\textbf{a}] $\mathbb{R}^{\times}$
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                    We want elements $r \in \mathbb{R}^{\times}$ such that $r^n
-                    =e=1$ for $n \in \mathbb{Z}^{+}$
-                    \begin{align*}
-                        r^n & = 1 \\
-                        r & = \pm 1, \text{with } n = 2
-                    \end{align*}
-                    Therefore, $\{-1, 1\} \in \mathbb{R}^{\times}$ \qedhere
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{b}] $\mathbb{C}^{\times}$
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                    We want elements $c \in \mathbb{C}^{\times}$ such that $c^n
-                    =e=1$ for $n \in \mathbb{Z}^{+}$
-                    \begin{align*}
-                        c^n & = 1 \\
-                        c & = \pm 1, \text{with } n = 2 \\
-                        c & = \pm i, \text{with } n = 4
-                    \end{align*}
-                    Therefore, $\{-1, 1, -i, i\} \in \mathbb{C}^{\times}$ \qedhere
-                \end{proof}
-                \vspace{0.2in}
-
-            \end{enumerate}
-
-            \item[\textbf{19}] Let $G$ be a group, and let $a \in G$. The set
-            $C(a) = \{ x \in G \mid xa = ax \}$ of all elements of $G$ that
-            commute with $a$ is called the \textbf{centralizer} of $a$.
-            \begin{enumerate}
-
-                \item[\textbf{a}] Show that $C(a)$ is a subgroup of $G$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                    Since $C(a) = \{ x \in G \mid xa = ax \}$,\\
-                    $ea = ab, e \in C(a)$\\
-                    Therefore, $C(a)$ is a non-empty set\\
-                    For $C(a)$ to be a subgroup, $xy^{-1} \in C(a), \ \forall x,y \in C(a)$\\
-                    Let $x,y, \in C(a)$,\\
-                    Then,
-                    \begin{align*}
-                        xa & = ax \\
-                        ya & = ay
-                    \end{align*}
-
-                    And,
-                    \begin{align*}
-                        ya & = ay \\
-                        (y^{-1}y)ay^{-1} & = y^{-1}a(yy^{-1}) \\
-                        ay^{-1} & = y^{-1}a
-                    \end{align*}
-
-                    Therefore,
-                    \begin{align*}
-                        xa & = ax \\
-                        \Rightarrow (xy^{-1})a & = x(y^{-1}a) \\
-                        & = x(ay^{-1}) \\
-                        & = (xa)y^{-1} \\
-                        & = (ax)y^{-1} \\
-                        & = a(xy^{-1})
-                    \end{align*}
-
-                    Therefore, $xy^{-1} \in C(a)$ and $C(a)$ is a subgroup of
-                    $G$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{b}] Show that $\langle a \rangle \subseteq C(a)$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-                    For $\langle a \rangle$ to be a generator of $C(a)$,\\
-                    \begin{equation*}
-                        \langle a \rangle = \{x \in G \mid x = a^n \text{ for some } n \in \mathbb{Z}\}
-                    \end{equation*}
-
-                    Let $x = a^n \in \langle a \rangle$\\
-                    Then,
-                    \begin{align*}
-                        xa & = a^na \\
-                        & = a^{n+1} \\
-                        & = a^{1+n} \\
-                        & = aa^n \\
-                        & = ax
-                    \end{align*}
-
-                    Therefore, $x \in \langle a \rangle \subseteq C(a)$
-                    \qedhere
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{c}] Compute $C(a)$ if $G=S_3$ and $a = (1,2,3)$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-
-                    \begin{align*}
-                        (1,2,3)(1) & = (1,2,3)\\
-                        & = (1,2,3)\\
-                        (1,2,3)(1,3,2) & = (1)\\
-                        (1,3,2)(1,2,3) & = (1)
-                    \end{align*}
-
-                    Therefore, $C(1,2,3)=\{(1),(1,2,3),(1,3,2)\}$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{d}] Compute $C(a)$ if $G=S_3$ and $a = (1,2)$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-
-                    \begin{align*}
-                        (1,2)(1) & = (1,2)\\
-                        (1)(1,2) & = (1,2)\\
-                        (1,2)(1,2) & = (1)
-                    \end{align*}
-
-                    Therefore, $C(1,2)=\{(1),(1,2)\}$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-            \end{enumerate}
-
-            \item[\textbf{20}] Compute the centralizer in $\text{GL}_2(\mathbb{R})$ of the matrix $\left[\begin{tabular}{cc}
-                                        -1 & 1 \\
-                                        0 & 1
-                                    \end{tabular}\right]$
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                Let $a=\left[\begin{tabular}{cc}
-                                -1 & 1 \\
-                                0 & 1
-                            \end{tabular}\right]$ and the centralizer $C(a) = \{ x \in G \mid xa = ax \}$\\
-                Let $x=\left[\begin{tabular}{cc}
-                                a & b \\
-                                c & d
-                            \end{tabular}\right]$, so,\\
-                \begin{align*}
-                    C(a) \Rightarrow
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            a & b \\
-                            c & d
-                        \end{tabular}
-                        \right] & =
-                    \left[
-                        \begin{tabular}{cc}
-                            a & b \\
-                            c & d
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right] \\
-                    \Rightarrow \left[
-                        \begin{tabular}{cc}
-                            a+c & b+d \\
-                            c & d
-                        \end{tabular}
-                    \right] & = \left[
-                        \begin{tabular}{cc}
-                            a & a+b \\
-                            c & c+d
-                        \end{tabular}
-                    \right]
-                \end{align*}
-                Therefore,
-                \begin{align*}
-                    a+c & = a\\
-                    \Rightarrow c & = 0\\
-                    b+d & = a + b\\
-                    \Rightarrow d & = a
-                \end{align*}
-                And
-                \begin{align*}
-                    \left[
-                        \begin{tabular}{cc}
-                            a & b \\
-                            c & d
-                        \end{tabular}
-                    \right] & \rightarrow \left[
-                        \begin{tabular}{cc}
-                            a & b \\
-                            0 & a
-                        \end{tabular}
-                    \right]
+                    \phi(h_1h_2^{-1}) & = xy^{-1}\\
+                    & \in \phi(H)
                 \end{align*}
 
-                Therefore,
-                \begin{equation*}
-                    C\left(\left[
-                        \begin{tabular}{cc}
-                            1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right]\right) = \left\{\left[
-                        \begin{tabular}{cc}
-                            a & b \\
-                            0 & a
-                        \end{tabular}
-                    \right] \;\middle|\; a,b \in \mathbb{R} \right\} \qedhere
-                \end{equation*}
+                That is, $\phi(h_1h_2^{-1}) \in \phi(H)$, $\forall \ x,y \in
+                \phi(H)$ \qedhere
 
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{25}] Let $G$ be a finite group, let $n > 2$ be an
-            integer, and let $S$ be the set of elements of $G$ that have order
-            $n$. Show that $S$ has an even number of elements.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                Let $a \in S$, so $o(a)=n>2$\\
-                Then, $a^n=e$\\
-                Consider the element,
-                \begin{align*}
-                    a^{-1} & \in S\\
-                    (a^{-1})^{n} & = (a^{n})^{-1}\\
-                    & = e
-                \end{align*}
-                Therefore, $o(a^{-1})=n$ and if $a \in S$ then $a^{-1} \in S$\\
-                Since the elements in $S$ can be paired with its inverse,\\
-                $S$ has an even number of elements \qedhere
-
-            \end{proof}
-            \vspace{0.2in}
-
-        \end{itemize}
-
-        \item[\textbf{3.3}]
-        \begin{itemize}
-
-            \item[\textbf{4}] Find the cyclic subgroup generated by $\left[\begin{tabular}{cc}
-                2 & 1 \\
-                0 & 2
-            \end{tabular}\right]$ in $\text{GL}_2(\mathbb{Z}_3)$.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                \begingroup
-                \addtolength{\jot}{1em}
-                \begin{align*}
-                    \left(\left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]\right)^2 & =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right] =
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right] \\
-                    \left(\left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]\right)^3 & =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 1 \\
-                            0 & 1
-                        \end{tabular}
-                    \right] =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 0 \\
-                            0 & 2
-                        \end{tabular}
-                    \right] \\
-                    \left(\left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]\right)^4 & =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 0 \\
-                            0 & 2
-                        \end{tabular}
-                    \right] =
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 2 \\
-                            0 & 1
-                        \end{tabular}
-                    \right] \\
-                    \left(\left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]\right)^5 & =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 2 \\
-                            0 & 1
-                        \end{tabular}
-                    \right] =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 2 \\
-                            0 & 2
-                        \end{tabular}
-                    \right] \\
-                    \left(\left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]\right)^6 & =
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 1 \\
-                            0 & 2
-                        \end{tabular}
-                    \right]
-                    \left[
-                        \begin{tabular}{cc}
-                            2 & 2 \\
-                            0 & 2
-                        \end{tabular}
-                    \right] =
-                    \left[
-                        \begin{tabular}{cc}
-                            1 & 0 \\
-                            0 & 1
-                        \end{tabular}
-                    \right]
-                \end{align*}
-                \endgroup
-
-                Therefore, the cyclic groups generated are
-                \begingroup
-                \addtolength{\jot}{1em}
-                \begin{equation*}
-                    \left\{
-                        \left[
-                            \begin{tabular}{cc}
-                                2 & 1 \\
-                                0 & 2
-                            \end{tabular}
-                        \right],
-                        \left[
-                            \begin{tabular}{cc}
-                                1 & 1 \\
-                                0 & 1
-                            \end{tabular}
-                        \right],
-                        \left[
-                            \begin{tabular}{cc}
-                                2 & 0 \\
-                                0 & 2
-                            \end{tabular}
-                        \right],
-                        \left[
-                            \begin{tabular}{cc}
-                                1 & 2 \\
-                                0 & 1
-                            \end{tabular}
-                        \right],
-                        \left[
-                            \begin{tabular}{cc}
-                                2 & 2 \\
-                                0 & 2
-                            \end{tabular}
-                        \right],
-                        \left[
-                            \begin{tabular}{cc}
-                                1 & 0 \\
-                                0 & 1
-                            \end{tabular}
-                        \right]
-                    \right\} \qedhere
-                \end{equation*}
-                \endgroup
-
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{5}] Prove that if $G_1$ and $G_2$ are abelian groups,
-            then the direct product $G_1 \times G_2$ is abelian.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                Let $x_1,x_2 \in G_1$, so $x_1x_2=x_2x_1$\\
-                and $y_1,y_2 \in G_2$ so $y_1y_2=y_2y_1$\\
-                Let $(x_1,y_1),(x_2,y_2) \in G_1G_2$\\
-                Consider
-                \begin{align*}
-                    (x_1,y_1)\times(x_2,y_2) & = (x_1x_2, y_1y_2)\\
-                    & = (x_2x_1 ,y_2y_1)\\
-                    & = (x_2,y_2)\times(x_1,y_1)\\
-                    \Rightarrow G_1 \times G_2 & = G_2 \times G_1
-                \end{align*}
-                Therefore, $G_1\times G_2$ is commutative and therefore abeilian \qedhere
-
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{8}] Let $G_1$ and $G_2$ be groups, with subgroups
-            $H_1$ and $H_2$, respectively. Show that $\{(x_1,x_2) \mid x_1 \in
-            H_1, x_2 \in H_2\}$ is a subgroup of the direct product $G_1 \times
-            G_2$.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                Since $H_1$ and $H_2$ are subgroups of $G_1$ and $G_2$ respectively,
-                \begin{align*}
-                    e_1 \in & H_1\\
-                    e_2 \in & H_2\\
-                    (e_1,e_2) \in & \{(x_1,x_2) \mid x_1 \in H_1, x_2 \in H_2\}
-                \end{align*}
-
-                Let $K$ be a non-empty subset\\
-                For $K$ to be a subgroup, $xy^{-1} \in K, \ \forall x,y \in K$\\
-                Let $(x_1,x_2),(y_1,y_2) \in \{(x_1,x_2) \mid x_1 \in H_1, x_2 \in H_2\}$\\
-                Then $x_1,y_1 \in H_1$, $x_2,y_2 \in H_2$\\
-                Therefore,
-                \begin{align*}
-                    (x_1,x_2)(y_1,y_2)^{-1} & = (x_1,x_2)(y_1^{-1},y_2^{-1})\\
-                    & = (x_1y_1^{-1},x_2y_2^{-1})
-                \end{align*}
-                And since $H_1$ and $H_2$ are subgroups,\\
-                if $x_1,y_1 \in H_1$, $x_2,y_2 \in H_2$,\\
-                then $x_1y_1^{-1} \in H_1$, $x_2y_2^{-1} \in H_2$\\
-                Therefore, $(x_1,x_2)(y_1,y_2)^{-1} \in \{(x_1,x_2) \mid x_1 \in H_1, x_2 \in H_2\}$ \qedhere
-
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{11}] Let $G_1$ and $G_2$ be groups, and let $G$ be
-            the direct product $G_1 \times G_2$. Let $H=\{(x_1,x_2)\in G_1
-            \times G_2 \mid x_2 = e\}$ and let $K=\{(x_1,x_2)\in G_1 \times G_2
-            \mid x_1 = e\}$.
-
-            \begin{enumerate}
-
-                \item[\textbf{a}] Show that $H$ and $K$ are subgroups of $G$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-
-                    Consider $H=\{(x_1,x_2)\in G_1 \times G_2 \mid x_2 = e\}$\\
-                    Since $e \in G_1$ and $e \in G_2$\\
-                    $(e,e) \in\{(x_1,x_2)\in G_1 \times G_2 \mid x_2 = e\}$\\
-                    A non-empty set $L$ is a subgroup if $xy^{-1} \in L, \ \forall x,y \in L$\\
-                    Let $(x_1,x_2), (y_1,y_2) \in H$ so,\\
-                    $x_1,y_1 \in G_1$ and $x_2,y_2 \in G_2$, where $x_2=y_2=e$\\
-                    Therefore,
-                    \begin{align*}
-                        (x_1,x_2)(y_1,y_2)^{-1} & = (x_1,x_2)(y_1^{-1},y_2^{-1})\\
-                        & = (x_1y_1^{-1},x_2y_2^{-1})
-                    \end{align*}
-                    And since $G_1$ and $G_2$ are groups,\\
-                    then $x_1y_1^{-1} \in G_1$, $x_2y_2^{-1} \in G_2$\\
-                    Since $x_2=y_2=e$
-                    \begin{align*}
-                        (x_1,x_2)(y_1,y_2)^{-1} & = (x_1,x_2)(y_1^{-1},y_2^{-1})\\
-                        & = (x_1y_1^{-1},e)
-                    \end{align*}
-                    Therefore, $H=\{(x_1,x_2)\in G_1 \times G_2 \mid x_2 = e\}$
-                    is a subgroup of $G_1 \times G_2$,\\
-                    and similarly for $K=\{(x_1,x_2)\in G_1 \times G_2 \mid x_1 = e\}$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{b}] Show that $HK=KH=G$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-
-                    Given
-                    \begin{align*}
-                        H &=\{(x_1,x_2)\in G_1 \times G_2 \mid x_2 = e\}\\
-                        K &=\{(x_1,x_2)\in G_1 \times G_2 \mid x_1 = e\}\\
-                        HK &= \{(x_1,y_1)(x_2,y_2) \mid (x_1,y_1)\in H, (x_2,y_2)\in K\}
-                    \end{align*}
-                    Since $(x_1,y_1)\in H, (x_2,y_2)\in K$, $y_1=x_2=e$\\
-                    Therefore
-                    \begin{align*}
-                        HK &= \{(x_1,y_1)(x_2,y_2) \mid (x_1,y_1)\in H, (x_2,y_2)\in K\}\\
-                        & = \{(x_1,e)(e,y_2) \mid (x_1,e)\in G_1, (e,y_2)\in G_2\}\\
-                        & = \{(x_1,y_2) \mid x_1 \in G_1, y_2\in G_2\}\\
-                        & = G
-                    \end{align*}
-                    Therefore, $HK=G$, and similarly for $KH=G$\\
-                    $HK=KH=G$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-                \item[\textbf{c}] Show that $H \cap K = \{e,e\}$.
-                \item[\textbf{Ans}]
-                \begin{proof}[\unskip\nopunct]
-
-                    Let $(x_1,x_2) \in H \cap K$\\
-                    Then, $(x_1,x_2) \in H$, $(x_1,x_2) \in K$\\
-                    If $(x_1,x_2) \in H$, then $x_2=e$\\
-                    And if $(x_1,x_2) \in K$, then $x_1=e$\\
-                    Therefore, $(x_1,x_2)=(e,e)$ \qedhere
-
-                \end{proof}
-                \vspace{0.2in}
-
-            \end{enumerate}
-
-            \item[\textbf{13}] Let $p, q$ be distinct prime numbers, and let
-            $n=pq$. Show that $HK=\mathbb{Z}_{n}^{\times}$, for the subgroups
-            $H=\{[x] \in \mathbb{Z}_{n}^{\times} \mid x \equiv 1 \Mod p\}$ and
-            $K=\{[y] \in \mathbb{Z}_{n}^{\times} \mid y \equiv 1 \Mod q\}$ of
-            $\mathbb{Z}_{n}^{\times}$.\\ \textit{Hint}: You can either use a
-            counting argument to show that $HK$ has $\varphi(n)$ elements, or
-            use the Chinese Remainder Theorem to show that the sets are the
-            same.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                Given, $HK$ is a subgroup of $\mathbb{Z}_{n}^{\times}$,\\
-                If $\forall a,b \in HK$
-                \begin{align*}
-                    a \equiv 1 \Mod {pq} \\
-                    b \equiv 1 \Mod {pq} \\
-                    ab \equiv 1 \Mod {pq}
-                \end{align*}
-                If $x \in H \cap K$
-                \begin{align*}
-                    x \equiv 1 \Mod p \\
-                    x \equiv 1 \Mod q
-                \end{align*}
-                And by the Chinese Remainder Theorem, $x=1$\\
-                Therefore,
-                \begin{align*}
-                    |HK| &=\varphi(n) \\
-                    & = |\mathbb{Z}_{n}^{\times}|\\
-                    \Rightarrow HK & = \mathbb{Z}_{n}^{\times} \qedhere
-                \end{align*}
-
-            \end{proof}
-            \vspace{0.2in}
-
-            \item[\textbf{16}] Let $G$ be a group of order 6, and suppose that
-            $a, b \in G$ with $a$ of order 3 and $b$ of order 2. Show that
-            either $G$ is cyclic or $ab \neq ba$.
-            \item[\textbf{Ans}]
-            \begin{proof}[\unskip\nopunct]
-
-                If $ab \neq ba$, then $G$ is non-abelian\\
-                If $ab = ba$, then\\
-                \begin{align*}
-                    (ab)^6 & = a^6b^6\\
-                    & = (a^3)^2(b^2)^3\\
-                    & \Rightarrow e \ (\because o(a) = 3, o(b) = 2)
-                \end{align*}
-                Since $o(ab)=6$, $G$ is cyclic generated by $ab$\\
-                Therefore, $G$ is cyclic or $ab \neq ba$ \qedhere
-
-            \end{proof}
-            \vspace{0.2in}
+            \end{cproof}
 
         \end{itemize}
 
