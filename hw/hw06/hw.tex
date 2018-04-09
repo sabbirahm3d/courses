@@ -187,6 +187,39 @@
         agree, find the probability that your detection programs will lead you
         to the right answer.
         \begin{cproof}
+
+            Let $V$ denote the computer has a virus, and $D$ denote the detection programs detected it
+            Therefore, given
+            \begin{align*}
+                P(D \mid V) &= 0.8\\
+                P(D \mid V^C) &= 0.9\\
+                P(V) &= 0.65\\
+                P(V^C) &= 0.35
+            \end{align*}
+
+            To find $P(D)$,
+            \salign{1}
+            \begin{align*}
+                P(V^C \cap D) & = P(D \mid V^C)\cdot P(V^C)\\
+                & = 0.9 \cdot 0.35& \\
+                & = 0.315\\
+                P(V \cap D) & = P(D \mid V)\cdot P(V)\\
+                & = 0.8 \cdot 0.65\\
+                & = 0.52\\
+                P(D) &= P(V \cap D) + P(V^C \cap D)\\
+                & = 0.835
+            \end{align*}
+            \endgroup
+
+            Therefore, $P(D)=0.835$ and $P(D^C)=0.165$\\
+            The probability that 9 or more of the 12 computers detect the virus
+            \salign{1}
+            \begin{align*}
+                P(X \ge 9) & = \sum_{i=9}^{12}\binom{12}{i}P(D)^{i}P(D^C)^{12-i}\\
+                & = 0.87835 \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 3
@@ -294,6 +327,25 @@
             each one of the $n - Y$ weeks that he did not win, the answer to
             part (a) should tell you something.
             \begin{cproof}
+                For each of the $n-Y$ weeks where he did not win, there were
+                $x-y$ weeks where Joe he played\\
+                Therefore,
+                \begin{equation*}
+                    P(L_i \mid W_i^C) = \frac{p-pq}{1-pq}
+                \end{equation*}
+                with the PMF
+                \salign{1}
+                \begin{align*}
+                    p_{X \mid Y}(x \mid y) & =
+                    \begin{cases}
+                        \binom{n-y}{x-y}\big(\frac{p-pq}{1-pq}\big)^{x-y}\big(1-\frac{p-pq}{1-pq}\big)^{n-x} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                \endgroup
+
+                Which is equivalent to the answer in part (e) \qedhere
+
             \end{cproof}
 
         \end{enumerate}
@@ -307,6 +359,66 @@
         time is uniformly distributed between 0 and 12 minutes, find the mean
         and variance of the reward of the runner-up.
         \begin{cproof}
+
+            For being one minute behind,
+            \salign{1}
+            \begin{align*}
+                P(X=1) & = \frac{1-0}{12-0}\\
+                & = \frac{1}{12}
+            \end{align*}
+            \endgroup
+
+            For being one to three minutes behind,
+            \salign{1}
+            \begin{align*}
+                P(1 < X \le 3) & = \frac{3-0}{12-0}-\frac{1-0}{12-0}\\
+                & = \frac{1}{6}
+            \end{align*}
+            \endgroup
+
+            For being three to six minutes behind,
+            \salign{1}
+            \begin{align*}
+                P(3 < X < 6) & = \frac{6-0}{12-0}-\frac{3-0}{12-0}\\
+                & = \frac{1}{4}
+            \end{align*}
+            \endgroup
+
+            To find the mean and variance,
+                \begin{table}[h]
+                    \centering
+                    \renewcommand{\arraystretch}{2.5}
+                    \begin{tabular}{|c|c|c|c|}
+                        \hline
+                        $\bm{y}$ & $\bm{P(y)}$ & $\bm{yP(y)}$ & $\bm{y^2P(y)}$ \\
+                        \hline
+                        $10$ & $\frac{1}{12}$ & $\frac{5}{6}$ & $\frac{25}{3}$ \\
+                        \hline
+                        $6$ & $\frac{1}{6}$ & $1$ & $6$ \\
+                        \hline
+                        $2$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $1$ \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y] &= \sum yP(y)\\
+                & = \frac{5}{6} + 1 + \frac{1}{2}\\
+                & = \frac{7}{3}
+            \end{align*}
+            \endgroup
+
+            And
+            \salign{1}
+            \begin{align*}
+                var(Y) &= \sum y^2P(y)-\bigg(\sum yP(y)\bigg)^2\\
+                & = \frac{25}{3} + 6 + 1 - \bigg(\frac{7}{3}\bigg)^2\\
+                & = \frac{89}{9} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 5
@@ -355,6 +467,18 @@
         \item The pdf of a RV $X$ is shown in Figure 6. The numbers in
         parentheses indicate area. Compute the value of $A$.
         \begin{cproof}
+
+            \salign{1}
+            \begin{align*}
+                \text{area at $x=2$ to $x=3$ + area under $Ae^{-x}$} & \Rightarrow \int_{1}^{4}f_X(x)dx =1 \\
+                \frac{1}{4} + \frac{1}{4} + \int_{1}^{4}Ae^{-x}dx & = 1\\
+                \int_{1}^{4}Ae^{-x}dx & = \frac{1}{2}\\
+                -Ae^{-x}\big\vert_{1}^{4} & = \frac{1}{2} \\
+                A(e^{-1}-e^{-4}) & = \frac{1}{2} \\
+                \Rightarrow A & = \frac{e^4}{2(e^3-1)} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 7
@@ -362,7 +486,8 @@
         $X$ with CDF
         \salign{1}
         \begin{equation*}
-            F_X(x) = \begin{cases}
+            F_X(x) =
+            \begin{cases}
                 1-\frac{a^3}{x^3} & \text{, if } x \ge a,\\
                 0 & \text{, if } x < a,
             \end{cases}
@@ -370,6 +495,36 @@
         \endgroup
         where $a$ is a positive constant.
         \begin{cproof}
+            Since the PDF is $\frac{d}{dx}F_X(x)$
+            \begin{align*}
+                f_X(x) & = \frac{d}{dx}F_X(x) \\
+                & =
+                \begin{cases}
+                    \frac{d}{dx}\big(1-\frac{a^3}{x^3}\big)=\frac{3a^3}{x^4} & \text{, if } x \ge a,\\
+                    0 & \text{, if } x < a,
+                \end{cases}
+            \end{align*}
+
+            Therefore, the mean
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[N] & = \int_{a}^{\infty}nf(n)dn \\
+                & = \int_{a}^{\infty}\frac{3a^3}{n^3}dn\\
+                & = 3a^3\bigg(\frac{-1}{2n^2}\bigg)\bigg\vert_{a}^{\infty}\\
+                & = \frac{3a}{2}
+            \end{align*}
+            \endgroup
+
+            And the variance
+            \salign{1}
+            \begin{align*}
+                var(N) & = \int_{a}^{\infty}n^2f(n)dn - (\textbf{E}[N])^2 \\
+                & = \int_{a}^{\infty}\frac{3a^3}{n^2}dn - \bigg(\frac{3a}{2}\bigg)^2\\
+                & = 3a^3\bigg(\frac{-1}{n}\bigg)\bigg\vert_{a}^{\infty}-\frac{9a^2}{4}\\
+                & = \frac{3a^2}{4} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 8
@@ -379,6 +534,25 @@
         equal probability $1/(11-i)$, independently of the scores in other
         tests. What is the PMF of the final score?
         \begin{cproof}
+
+            Let $X_i$ be the score of the $i$th test, and $m=max\{X_1,X_2,X_3\}$\\
+            By independence,
+            \salign{1}
+            \begin{align*}
+                P(m \le x) &= P(X_1 \le x)P(X_2 \le x)P(X_3 \le x)\\
+                & = \frac{x-2}{8}\cdot\frac{x-1}{9}\cdot\frac{x}{10}, \ \ 3 \le x \le 10
+            \end{align*}
+            \endgroup
+
+            Therefore, the PMF
+            \salign{1}
+            \begin{align*}
+                P_X(x) &= P(m \le x) - P(m \le x-1)\\
+                & = \frac{x-2}{8}\cdot\frac{x-1}{9}\cdot\frac{x}{10} - \frac{x-3}{8}\cdot\frac{x-2}{9}\cdot\frac{x-1}{10}\\
+                & = \frac{(x-2)(x-1)}{240}, \ \ 4 \le x \le 10 \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
         % 9
