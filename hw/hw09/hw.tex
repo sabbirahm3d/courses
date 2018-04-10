@@ -21,6 +21,7 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
+\include{tikz}
 
 \begin{document}
 
@@ -39,21 +40,49 @@
 
                 The elements in each of the groups
                 \begin{align*}
-                    \{[1], [2], [3], [4]\} & \in \mathbb{Z}_{5}^{\times}\\
-                    \{[1], [3], [5], [7]\} & \in \mathbb{Z}_{8}^{\times}
+                    \{[1], [2], [3], [4]\} & \in \mathbb{Z}_{5}^{\times},\ o(\mathbb{Z}_{5}^{\times}) = 4\\
+                    \{[1], [3], [5], [7]\} & \in \mathbb{Z}_{8}^{\times},\ o(\mathbb{Z}_{8}^{\times}) = 4
                 \end{align*}
 
-                For $\mathbb{Z}_{5}^{\times}$\\
-                \begin{equation*}
-                    [5]^2 = [1]
-                \end{equation*}
-                Therefore, $o()$
+                In $\mathbb{Z}_{5}^{\times}$
+                \begin{align*}
+                    [2]^4 &= [1], \ o([2]) = 4\\
+                    [3]^4 &= [1], \ o([3]) = 4\\
+                    [4]^2 &= [1], \ o([4]) = 2
+                \end{align*}
+                Therefore, $\mathbb{Z}_{5}^{\times}$ is a cyclic group with generators $[2]$ and $[3]$\\
+                In $\mathbb{Z}_{8}^{\times}$
+                \begin{align*}
+                    [3]^2 &= [1], \ o([3]) = 2\\
+                    [5]^2 &= [1], \ o([5]) = 2\\
+                    [7]^2 &= [1], \ o([7]) = 2
+                \end{align*}
+                No elements in $\mathbb{Z}_{8}^{\times}$ is of the same order as its group order\\
+                which implies $\mathbb{Z}_{8}^{\times}$ is non-cyclic\\
+                Therefore, $\mathbb{Z}_{5}^{\times}$ is not isomorphic to
+                $\mathbb{Z}_{8}^{\times}$ since the first group is cyclic
+                unlike the latter \qedhere
 
             \end{cproof}
 
             \item[\textbf{7}] Let $G$ be a group. Show that the group $(G, *)$
-            defined in Exercise 3 of Section 3. 1 is isomorphic to $G$.
+            defined in Exercise 3 of Section 3.1 is isomorphic to $G$.
             \begin{cproof}
+
+                Given $(G, *)$ is a group where $a*b=b\cdot a$\\
+                Let $\phi: (G, *) \rightarrow (G, \cdot)$ as
+                \begin{align*}
+                    \phi(a) & = \phi(e * a)\\
+                    & = a * e\\
+                    & = a, \ \forall \ a \in (G, *)
+                \end{align*}
+
+                We need to show $\phi(a*b)=\phi(a)\cdot\phi(b)$
+                \begin{align*}
+                    \phi(a*b) & = b \cdot a\\
+                    & = \phi(b)\cdot\phi(a)
+                \end{align*}
+
             \end{cproof}
 
             \item[\textbf{11}] Let $G$ be the set of all matrices in
@@ -64,6 +93,140 @@
             $m\neq [0]_3$. Show that $G$ is a subgroup of
             $GL_2(\mathbb{Z}_3)$ that is isomorphic to $S_3$.
             \begin{cproof}
+
+                Given
+                \begin{equation*}
+                    G = \left\{
+                        \left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                        \end{tabular}\right],
+                        \left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                        \end{tabular}\right],
+                        \left[\begin{tabular}{cc}
+                            1 & 2 \\
+                            0 & 1
+                        \end{tabular}\right],
+                        \left[\begin{tabular}{cc}
+                            2 & 0 \\
+                            0 & 1
+                        \end{tabular}\right],
+                        \left[\begin{tabular}{cc}
+                            2 & 1 \\
+                            0 & 1
+                        \end{tabular}\right],
+                        \left[\begin{tabular}{cc}
+                            2 & 2 \\
+                            0 & 1
+                        \end{tabular}\right]
+                    \right\}
+                \end{equation*}
+                The non-empty, finite set $G$ is a subgroup if $xy^{-1} \in G$, $\forall \ x,y \in G$\\
+
+                Let $\left[\begin{tabular}{cc}
+                            m & b \\
+                            0 & 1
+                    \end{tabular}\right],\left[\begin{tabular}{cc}
+                            n & a \\
+                            0 & 1
+                    \end{tabular}\right] \in G$, where $m,n \neq [0]_3$
+                Then
+                \begin{align*}
+                    \left[\begin{tabular}{cc}
+                            m & b \\
+                            0 & 1
+                    \end{tabular}\right]\left[\begin{tabular}{cc}
+                            n & a \\
+                            0 & 1
+                    \end{tabular}\right] & = \left[\begin{tabular}{cc}
+                            mn & b+am \\
+                            0 & 1
+                    \end{tabular}\right]
+                \end{align*}
+                Since $m,n \neq [0]_3$, then $mn \neq [0]_3$\\
+
+                Therefore $\left[\begin{tabular}{cc}
+                            mn & b+am \\
+                            0 & 1
+                    \end{tabular}\right] \in G$, and $G$ is a subgroup of
+                    $GL_2(\mathbb{Z}_3)$\\
+
+                Also, if $a=\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right], b=\left[\begin{tabular}{cc}
+                            2 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]$, $a,b \in G$,\\
+                then
+                \salign{1}
+                \begin{align*}
+                    a^3 & = \left(\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right)^3\\
+                    & = \left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    b^2 & = \left(\left[\begin{tabular}{cc}
+                            2 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right)^2\\
+                    & = \left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    a^2b & = \left(\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right)^2\left[\begin{tabular}{cc}
+                            1 & 2 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    & = \left[\begin{tabular}{cc}
+                            1 & 2 \\
+                            0 & 1
+                    \end{tabular}\right]\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    & = ba
+                \end{align*}
+                \endgroup
+                Therefore, $G$ is similar to $S_3=\{e,a,a^2,b,ab,a^2b\}$,\\
+                where $a^3=e$, $b^2=e$, $ba=a^2b$\\
+
+                Thus, let $\phi: G \rightarrow S_3$ as
+                \salign{1}
+                \begin{align*}
+                    \phi\left(\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right) & = (1,2,3)\\
+                    \phi\left(\left[\begin{tabular}{cc}
+                            2 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right) & = (1,2)
+                \end{align*}
+                \endgroup
+                Then
+                \salign{1}
+                \begin{align*}
+                    \phi\left(\left(\left[\begin{tabular}{cc}
+                            1 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right)^i\left(\left[\begin{tabular}{cc}
+                            2 & 1 \\
+                            0 & 1
+                    \end{tabular}\right]\right)^i\right) & = (1,2,3)^i(1,2)^i, \ i = 0,1,2, \ j = 0,1
+                \end{align*}
+                \endgroup
+
+                Which is both one-to-one and onto \qedhere
+
             \end{cproof}
 
             \item[\textbf{14}] Let $G=\{x \in \mathbb{R} \mid x > 0 \text{ and
@@ -71,10 +234,19 @@
             that $G$ is isomorphic to the multiplicative group
             $\mathbb{R}^{\times}$. (See Exercise 9 of Section 3.1.)
             \begin{cproof}
+
+                Assume $\phi: G \rightarrow \mathbb{R}^{\times}$ is one-to-one
+                and onto\\
+                Let $y \neq 0 \in \mathbb{R}^{\times}$, such that $e^y>0 \in G$
+                \begin{align*}
+                    \phi(e^y) & = \ln{e^y}\\
+                    & = y
+                \end{align*}
+
             \end{cproof}
 
             \item[\textbf{17}] Let $\phi: G_1 \rightarrow G_2$ be a group
-            isomorphism. Prove that if $H$ is asubgroup of $G_1$, then
+            isomorphism. Prove that if $H$ is a subgroup of $G_1$, then
             $\phi(H)=\{y\in G_2 \mid y = \phi(h) \text{ for some } h \in H\}$
             is a subgroup of $G_2$.
             \begin{cproof}
@@ -116,7 +288,7 @@
 
             \end{cproof}
 
-            \item[\textbf{24}] Let $G = \mathbb{R} - {-1}$. Define $*$ on $G$
+            \item[\textbf{24}] Let $G = \mathbb{R} - \{-1\}$. Define $*$ on $G$
             by $a*b = a+b+ab$. Show that $G$ is isomorphic to the
             multiplicative group $\mathbb{R}^{\times}$. (See Exercise 13 of
             Section 3.1.) \\ \textit{Hint}: Remember that an isomorphism maps
@@ -145,6 +317,26 @@
             element of order 30. List the powers of $a$ that have order 2,
             order 3 or order 5.
             \begin{cproof}
+
+                \begin{align*}
+                    (a^{15})^{2} & = e
+                \end{align*}
+                \begin{align*}
+                    (a^{10})^{3} & = e \\
+                    (a^{20})^{3} & = e
+                \end{align*}
+                \begin{align*}
+                    (a^{6})^{5} & = e \\
+                    (a^{12})^{5} & = e \\
+                    (a^{18})^{5} & = e \\
+                    (a^{24})^{5} & = e
+                \end{align*}
+
+                Therefore,\\
+                the powers of $a$ of order 2 is $a^{15}$\\
+                the powers of $a$ of order 3 are $a^{10},a^{20}$\\
+                the powers of $a$ of order 5 are $a^{6},a^{12},a^{18},a^{24}$ \qedhere
+
             \end{cproof}
 
             \item[\textbf{3}] Give the subgroup diagrams of the following
@@ -153,6 +345,20 @@
 
                 \item[\textbf{a}] $\mathbb{Z}_{24}$
                 \begin{cproof}
+
+                    The generators of $\mathbb{Z}_{24}$ are $\langle1\rangle,
+                    \langle2\rangle, \langle3\rangle, \langle6\rangle,
+                    \langle8\rangle, \langle12\rangle,\langle24\rangle$
+                    \begin{align*}
+                        \langle1\rangle & = \mathbb{Z}_{24}\\
+                        \langle2\rangle & = \{2,4,6,8,10,12,14,16,18,20,22,0\}\\
+                        \langle3\rangle & = \{3,6,9,12,15,18,21,0\}\\
+                        \langle4\rangle & = \{4,8,12,16,20,0\}\\
+                        \langle8\rangle & = \{8,16,0\}\\
+                        \langle12\rangle & = \{12,0\}\\
+                        \langle24\rangle & = \{0\}
+                    \end{align*}
+
                 \end{cproof}
 
                 \item[\textbf{b}] $\mathbb{Z}_{36}$
@@ -179,7 +385,8 @@
             \begin{cproof}
             \end{cproof}
 
-            \item[\textbf{17}] Let $G$ be the set of all $3\times 3$ matrices of the form $\left[\begin{tabular}{ccc}
+            \item[\textbf{17}] Let $G$ be the set of all $3\times 3$ matrices
+            of the form $\left[\begin{tabular}{ccc}
                     1 & b & c \\
                     0 & 1 & c \\
                     0 & 0 & 1
