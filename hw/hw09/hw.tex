@@ -22,6 +22,7 @@
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
 \include{tikz}
+\usetikzlibrary{arrows.meta}
 
 \begin{document}
 
@@ -80,7 +81,8 @@
                 We need to show $\phi(a*b)=\phi(a)\cdot\phi(b)$
                 \begin{align*}
                     \phi(a*b) & = b \cdot a\\
-                    & = \phi(b)\cdot\phi(a)
+                    & = b*e \cdot a*a\\
+                    & = \phi(b)\cdot\phi(a) \qedhere
                 \end{align*}
 
             \end{cproof}
@@ -295,6 +297,31 @@
             identity to identity. Use this fact to help find the necessary
             mapping.
             \begin{cproof}
+
+                Let $\phi: G \rightarrow \mathbb{R}^{\times}$ as
+                $\phi(a)=1+a$\\
+
+                Let $a=b$\\
+                Then, $1+a=1+b$\\
+                Therefore, $\phi(a)=\phi(b)$ and $\phi$ is well defined\\
+
+                Let $\phi(a)=\phi(b)$\\
+                Then $1+a=1+b$, which implies $a=b$\\
+                Therefore, $\phi$ is one-to-one\\
+
+                Let $x \in \mathbb{R}^{\times}$\\
+                Therefore, $x \neq 0$ and $\exists{y = x-1} \in G$\\
+                Since $\phi(x-1)=1+x-1=x$, $\phi$ is also onto\\
+
+                To show $\phi(a*b)=\phi(a)\phi(b)$, consider
+                \begin{align*}
+                    \phi(a*b) & = 1+(a*b)\\
+                    & = 1 + a + b + ab\\
+                    & = (1+a)(1+b)\\
+                    & = \phi(a)\phi(b)
+                \end{align*}
+                Therefore, $G \cong \mathbb{R}^{\times}$ \qedhere
+
             \end{cproof}
 
             \item[\textbf{26}] Let $G_1$ and $G_2$ be groups. A function from
@@ -302,9 +329,24 @@
             one-to-one correspondence will be called a group homomorphism, from
             the Greek word \textit{homos} meaning same. Show that $\phi:
             \text{GL}_2(\mathbb{R}) \rightarrow \mathbb{R}^{\times}$ defined by
-            $\phi(A)=\text{det}(A)$ for all matrices $A \in
-            \text{GL}_2(\mathbb{R})$ is a group homomorphism.
+            $\phi(A)=\det(A)$ for all matrices $A \in \text{GL}_2(\mathbb{R})$
+            is a group homomorphism.
             \begin{cproof}
+
+                Consider $\phi(A)=\det(A)$\\
+                Since $\text{GL}_2(\mathbb{R})$ is a field, it is also abelian,
+                and therefore
+                \begin{equation*}
+                    \det(AB) = \det(A)\det(B)
+                \end{equation*}
+                Thus,
+                \begin{align*}
+                    \phi(AB) & = \det(AB) \\
+                    & = \det(A)\det(B)\\
+                    & = \phi(A)\phi(B) \qedhere
+                \end{align*}
+
+
             \end{cproof}
 
         \end{itemize}
@@ -347,29 +389,136 @@
                 \begin{cproof}
 
                     The generators of $\mathbb{Z}_{24}$ are $\langle1\rangle,
-                    \langle2\rangle, \langle3\rangle, \langle6\rangle,
-                    \langle8\rangle, \langle12\rangle,\langle24\rangle$
+                    \langle2\rangle, \langle3\rangle, \langle4\rangle,
+                    \langle6\rangle, \langle8\rangle,
+                    \langle12\rangle, \langle0\rangle$
                     \begin{align*}
                         \langle1\rangle & = \mathbb{Z}_{24}\\
                         \langle2\rangle & = \{2,4,6,8,10,12,14,16,18,20,22,0\}\\
                         \langle3\rangle & = \{3,6,9,12,15,18,21,0\}\\
                         \langle4\rangle & = \{4,8,12,16,20,0\}\\
+                        \langle6\rangle & = \{6,12,18,0\}\\
                         \langle8\rangle & = \{8,16,0\}\\
                         \langle12\rangle & = \{12,0\}\\
-                        \langle24\rangle & = \{0\}
+                        \langle0\rangle & = \{0\}
                     \end{align*}
 
+                    \begin{figure}[h]
+                        \centering
+                        \caption{Subgroup Diagram of $\mathbb{Z}_{24}$}
+                        \begin{tikzpicture}[->,scale=1]
+                            \begin{scope}[every node/.style={circle}]
+                                \node (1) at (2,0) {$\mathbb{Z}_{24}$};
+                                \node (2) at (0,2) {$\langle2\rangle$};
+                                \node (3) at (4,2) {$\langle3\rangle$};
+                                \node (4) at (-2,4) {$\langle4\rangle$};
+                                \node (6) at (2,4) {$\langle6\rangle$};
+                                \node (8) at (-4,6) {$\langle8\rangle$};
+                                \node (12) at (0,6) {$\langle12\rangle$};
+                                \node (0) at (-2,8) {$\langle0\rangle$};
+                            \end{scope}
+                            \begin{scope}
+                                \path [-] (1) edge (2);
+                                \path [-] (2) edge (3);
+                                \path [-] (3) edge (1);
+                                \path [-] (2) edge (4);
+                                \path [-] (3) edge (6);
+                                \path [-] (4) edge (6);
+                                \path [-] (4) edge (8);
+                                \path [-] (6) edge (12);
+                                \path [-] (8) edge (12);
+                                \path [-] (8) edge (0);
+                                \path [-] (12) edge (0);
+                            \end{scope}
+                        \end{tikzpicture}
+                    \end{figure}
+
                 \end{cproof}
+                \newpage
 
                 \item[\textbf{b}] $\mathbb{Z}_{36}$
                 \begin{cproof}
+
+                    The generators of $\mathbb{Z}_{36}$ are $\langle1\rangle,
+                    \langle2\rangle, \langle3\rangle, \langle6\rangle,
+                    \langle9\rangle, \langle12\rangle, \langle18\rangle,
+                    \langle0\rangle$
+                    \begin{align*}
+                        \langle1\rangle & = \mathbb{Z}_{36}\\
+                        \langle2\rangle & = \{2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,0\}\\
+                        \langle3\rangle & = \{3,6,9,12,15,18,21,24,27,30,33,0\}\\
+                        \langle4\rangle & = \{4,8,12,16,20,24,28,32,0\}\\
+                        \langle6\rangle & = \{6,12,18,24,30,0\}\\
+                        \langle9\rangle & = \{9,18,27,0\}\\
+                        \langle12\rangle & = \{12,24,0\}\\
+                        \langle18\rangle & = \{18,0\}\\
+                        \langle0\rangle & = \{0\}
+                    \end{align*}
+
+                    \begin{figure}[h]
+                        \centering
+                        \caption{Subgroup Diagram of $\mathbb{Z}_{36}$}
+                        \begin{tikzpicture}[->,scale=1]
+                            \begin{scope}[every node/.style={circle}]
+                                \node (1) at (2,0) {$\mathbb{Z}_{36}$};
+                                \node (2) at (0,2) {$\langle2\rangle$};
+                                \node (3) at (4,2) {$\langle3\rangle$};
+                                \node (4) at (-2,4) {$\langle4\rangle$};
+                                \node (6) at (2,4) {$\langle6\rangle$};
+                                \node (9) at (6,4) {$\langle9\rangle$};
+                                \node (12) at (0,6) {$\langle12\rangle$};
+                                \node (18) at (4,6) {$\langle18\rangle$};
+                                \node (0) at (2,8) {$\langle0\rangle$};
+                            \end{scope}
+                            \begin{scope}
+                                \path [-] (1) edge (2);
+                                \path [-] (3) edge (1);
+                                \path [-] (2) edge (4);
+                                \path [-] (2) edge (6);
+                                \path [-] (3) edge (6);
+                                \path [-] (3) edge (9);
+                                \path [-] (4) edge (12);
+                                \path [-] (9) edge (18);
+                                \path [-] (6) edge (12);
+                                \path [-] (6) edge (18);
+                                \path [-] (12) edge (0);
+                                \path [-] (18) edge (0);
+                            \end{scope}
+                        \end{tikzpicture}
+                    \end{figure}
+
                 \end{cproof}
+                \newpage
 
             \end{enumerate}
 
             \item[\textbf{10}] Find all cyclic subgroups of $\mathbb{Z}_{6}
             \times \mathbb{Z}_{3}$
             \begin{cproof}
+
+                All the cyclic subgroups by checking the multiples of all
+                elements in the group
+                \begin{align*}
+                    \langle(0, 0)\rangle & = \{(0, 0)\} \\
+                    \langle(0, 1)\rangle & = \{(0, 0),(0, 1),(0, 2)\} \\
+                    & = \langle(0, 2)\rangle \\
+                    \langle(1, 0)\rangle & = \{(0, 0),(1, 0),(2, 0),(3, 0),(4, 0),(5, 0)\} \\
+                    & = \langle(5, 0)\rangle \\
+                    \langle(1, 1)\rangle & = \{(0, 0),(1, 1),(2, 2),(3, 0),(4, 1),(5, 2)\} \\
+                    & = \langle(5, 2)\rangle \\
+                    \langle(1, 2)\rangle & = \{(0, 0),(1, 2),(2, 1),(3, 0),(4, 2),(5, 1)\} \\
+                    & = \langle(5, 1)\rangle \\
+                    \langle(2, 0)\rangle & = \{(0, 0),(2, 0),(4, 0)\} \\
+                    & = \langle(4, 0)\rangle \\
+                    \langle(2, 1)\rangle & = \{(0, 0),(2, 1),(4, 2)\} \\
+                    & = \langle(4, 2)\rangle \\
+                    \langle(2, 2)\rangle & = \{(0, 0),(2, 2),(4, 1)\} \\
+                    & = \langle(4, 1)\rangle \\
+                    \langle(3, 0)\rangle & = \{(0, 0),(3, 0)\} \\
+                    \langle(3, 1)\rangle & = \{(0, 0),(3, 1),(0, 2),(3, 0),(0, 1),(3, 2)\} \\
+                    & = \langle(3, 2)\rangle \qedhere
+                \end{align*}
+
             \end{cproof}
 
             \item[\textbf{12}] Let $a,b$ be positive integers, and let
@@ -387,7 +536,7 @@
 
             \item[\textbf{17}] Let $G$ be the set of all $3\times 3$ matrices
             of the form $\left[\begin{tabular}{ccc}
-                    1 & b & c \\
+                    1 & a & b \\
                     0 & 1 & c \\
                     0 & 0 & 1
                 \end{tabular}\right]$.
@@ -397,11 +546,131 @@
                 \item[\textbf{a}] Show that if $a,b,c\in \mathbb{Z}_3$, the $G$
                 is a group with exponent 3.
                 \begin{cproof}
+
+                    Consider
+                    \salign{1}
+                    \begin{align*}
+                        \left(\left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\right)^2 & =
+                        \left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]
+                        \left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right] \\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & a+a & b+ac+b \\
+                            0 & 1 & c+c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\\
+                        \left(\left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\right)^3 & =
+                        \left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]
+                        \left[\begin{tabular}{ccc}
+                            1 & a+a & b+ac+b \\
+                            0 & 1 & c+c \\
+                            0 & 0 & 1
+                        \end{tabular}\right] \\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & 3a & 3b+3ac \\
+                            0 & 1 & 3c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]
+                    \end{align*}
+                    \endgroup
+
+                    Since $G$ has an exponent of 3,
+                    \salign{1}
+                    \begin{align*}
+                        \left[\begin{tabular}{ccc}
+                            1 & 3a & 3b+3ac \\
+                            0 & 1 & 3c \\
+                            0 & 0 & 1
+                        \end{tabular}\right] & =
+                        \left[\begin{tabular}{ccc}
+                            1 & 0 & 0 \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right] \qedhere
+                    \end{align*}
+                    \endgroup
+
                 \end{cproof}
 
                 \item[\textbf{b}] Show that if $a,b,c\in \mathbb{Z}_2$, the $G$
                 is a group with exponent 4.
                 \begin{cproof}
+
+                    Consider
+                    \salign{1}
+                    \begin{align*}
+                        \left(\left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\right)^2 & =
+                        \left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]
+                        \left[\begin{tabular}{ccc}
+                            1 & a & b \\
+                            0 & 1 & c \\
+                            0 & 0 & 1
+                        \end{tabular}\right] \\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & a+a & b+ac+b \\
+                            0 & 1 & c+c \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & 0 & ac \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\\
+                        \left(\left[\begin{tabular}{ccc}
+                            1 & 0 & ac \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\right)^2 &=
+                        \left[\begin{tabular}{ccc}
+                            1 & 0 & ac \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right]
+                        \left[\begin{tabular}{ccc}
+                            1 & 0 & ac \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & 0 & ac+ac \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right]\\
+                        & = \left[\begin{tabular}{ccc}
+                            1 & 0 & 0 \\
+                            0 & 1 & 0 \\
+                            0 & 0 & 1
+                        \end{tabular}\right] \qedhere
+                    \end{align*}
+                    \endgroup
+
                 \end{cproof}
 
             \end{itemize}
@@ -411,6 +680,38 @@
             that $\pm 1$ satisfy the equation $x^2=1$, and that this is
             impossible in any cyclic group.
             \begin{cproof}
+
+                Let $x=\frac{n}{2}+1$. Then
+                \salign{1}
+                \begin{align*}
+                    x & = \bigg(\frac{n}{2}+1\bigg)^2\\
+                    & = \bigg(\frac{2^k}{2}+1\bigg)^2\\
+                    & = (2^{k-1}+1)^2\\
+                    & = 2^{2k-2}+1+2^k\\
+                    & = 1+2^k(2^k+1)
+                \end{align*}
+                \endgroup
+                Therefore, $x^2 - 1 \equiv 0 \Mod{2^k}$, or $x^2=1$\\
+
+                Now let $x=\frac{n}{2}-1$. Then
+                \salign{1}
+                \begin{align*}
+                    x & = \bigg(\frac{n}{2}-1\bigg)^2\\
+                    & = \bigg(\frac{2^k}{2}-1\bigg)^2\\
+                    & = (2^{k-1}-1)^2\\
+                    & = 2^{2k-2}+1-2^k\\
+                    & = 1+2^k(2^k-1)
+                \end{align*}
+                \endgroup
+                Therefore, $x^2 - 1 \equiv 0 \Mod{2^k}$, or $x^2=1$\\
+
+                Therefore, the solutions to $x^2=1$ are $\pm 1,
+                \frac{n}{2}\pm1$\\
+                Therefore, the order of $\mathbb{Z}_{n}^{\times}$ are even,
+                which is not possible in a cyclic group\\
+                Therefore, $\mathbb{Z}_{n}^{\times}$ is not cyclic (by
+                contradiction) \qedhere
+
             \end{cproof}
 
         \end{itemize}
