@@ -217,13 +217,13 @@
                 Then
                 \salign{1}
                 \begin{align*}
-                    \phi\left(\left(\left[\begin{tabular}{cc}
+                    \phi\left(\left[\begin{tabular}{cc}
                             1 & 1 \\
                             0 & 1
-                    \end{tabular}\right]\right)^i\left(\left[\begin{tabular}{cc}
+                    \end{tabular}\right]^i\left[\begin{tabular}{cc}
                             2 & 1 \\
                             0 & 1
-                    \end{tabular}\right]\right)^i\right) & = (1,2,3)^i(1,2)^i, \ i = 0,1,2, \ j = 0,1
+                    \end{tabular}\right]^i\right) & = (1,2,3)^i(1,2)^i, \ i = 0,1,2, \ j = 0,1
                 \end{align*}
                 \endgroup
 
@@ -239,10 +239,20 @@
 
                 Assume $\phi: G \rightarrow \mathbb{R}^{\times}$ is one-to-one
                 and onto\\
-                Let $y \neq 0 \in \mathbb{R}^{\times}$, such that $e^y>0 \in G$
+                Let $y \neq 0 \in \mathbb{R}^{\times}$, such that $e^y>0 \in G$,\\
+                $\phi(e^y) = \ln{e^y} = y$\\
+
+                And let $\phi(a)=\phi(b)$\\
+                Then, $\ln{a}=\ln(b)$ or $a=b$\\
+                Therefore, $\phi$ is both onto and one-to-one\\
+
+                To show $\phi(a*b)=\phi(a)\phi(b)$
                 \begin{align*}
-                    \phi(e^y) & = \ln{e^y}\\
-                    & = y
+                    \phi(a*b) &= \phi(a^{\ln{b}})\\
+                    & = \ln{a^{\ln{b}}}\\
+                    & = \ln{b}\cdot\ln{a}\\
+                    & = \ln{a}\cdot\ln{b}\\
+                    & = \phi(a)\phi(b) \qedhere
                 \end{align*}
 
             \end{cproof}
@@ -419,19 +429,18 @@
                             \end{scope}
                             \begin{scope}
                                 \path [-] (1) edge (2);
-                                \path [-] (2) edge (3);
-                                \path [-] (3) edge (1);
+                                \path [-] (1) edge (3);
                                 \path [-] (2) edge (4);
+                                \path [-] (2) edge (6);
                                 \path [-] (3) edge (6);
-                                \path [-] (4) edge (6);
                                 \path [-] (4) edge (8);
+                                \path [-] (4) edge (12);
                                 \path [-] (6) edge (12);
-                                \path [-] (8) edge (12);
                                 \path [-] (8) edge (0);
                                 \path [-] (12) edge (0);
                             \end{scope}
                         \end{tikzpicture}
-                    \end{figure}
+                    \end{figure} \qedhere
 
                 \end{cproof}
                 \newpage
@@ -485,7 +494,7 @@
                                 \path [-] (18) edge (0);
                             \end{scope}
                         \end{tikzpicture}
-                    \end{figure}
+                    \end{figure} \qedhere
 
                 \end{cproof}
                 \newpage
@@ -519,19 +528,6 @@
                     & = \langle(3, 2)\rangle \qedhere
                 \end{align*}
 
-            \end{cproof}
-
-            \item[\textbf{12}] Let $a,b$ be positive integers, and let
-            $d=\gcd(a,b)$ and $m=\text{lcm}(a,b)$. Use Proposition 3.5.5 to
-            prove that $\mathbb{Z}_{a}\times \mathbb{Z}_{b} \cong
-            \mathbb{Z}_{d} \times \mathbb{Z}_{m}$
-            \begin{cproof}
-            \end{cproof}
-
-            \item[\textbf{13}] Show that in a finite cyclic group of order $n$,
-            the equation $x^m=e$ has exactly $m$ solutions, for each positive
-            integer $m$ that is a divisor of $n$.
-            \begin{cproof}
             \end{cproof}
 
             \item[\textbf{17}] Let $G$ be the set of all $3\times 3$ matrices
