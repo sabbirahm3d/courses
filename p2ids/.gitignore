@@ -1,2 +1,6 @@
+# Temporary LaTex files
 *.aux
 *.log
+
+# Compiled Python files
+*.pyc

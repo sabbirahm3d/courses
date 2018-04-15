@@ -32,13 +32,19 @@
     that without the built-in system calls such as \texttt{ptrace}, logging
     system calls would require much greater effort.
 
+    The kernel-space program will trace the system calls and dump them on a log
+    consisting of the \texttt{pid}, the system call numbers, and their
+    corresponding timestamps.
+
     Due to the extensive research required to build the kernel-level logging
     system, the development of its counterpart user-space program would be
     completed first. Research on plausible methods to achieve the logging of
     the system calls would resume simultaneously.
 
     Two approaches are currently being considered to influence the flow of the
-    research.
+    research. Regardless of the approach chosen to develop the functionality in
+    the kernel space, extensive research on the system call dispatcher is
+    required.
 
     \subsubsection{Trivially Insert Breakpoints to the System Call
     Implementations} A potential but not very likely approach would involve
@@ -64,9 +70,6 @@
     logging system. Creating a stripped-down version of the system call would
     most likely allow the system call logging functionality for the IDS.
 
-    Regardless of the approach chosen to develop the functionality in the
-    kernel space, extensive research on the system call dispatcher is required.
-
     \subsection{User Space} The user-space program will be implemented in
     Python 2 without any third-party libraries. Time-permitting, the
     implementation will be translated to C to trade off the lines of codes for
@@ -74,12 +77,12 @@
 
     The program will continually parse the log file shared with the kernel-
     space program while properly utilizing mutex locks to avoid any
-    synchronization issues. Due to the difference in speed of the Python
-    interpreter and the kernel process, the parsing of the log file may be
-    delayed. Once the lines of system calls for a process is properly parsed,
-    they will be converted to their binary vector representations. The binary
-    vectors will then be analyzed for their hamming distances, and the results
-    will be logged in a separate file.
+    synchronization issues. The user-space program will begin parsing the logs
+    only after it has been closed by the kernel-space program. Once the lines
+    of system calls for a process are properly parsed, they will be converted
+    to their binary vector representations. The binary vectors will then be
+    analyzed for their hamming distances, and the results will be logged in a
+    separate file.
 
     Additional Python 2 and shell scripts will be added to assist in properly
     formatting the outputs and managing the process as it runs in the
