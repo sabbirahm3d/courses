@@ -170,18 +170,56 @@
         \begin{enumerate}
 
             % a
-            \item Let $a$ be a constant between $-1$ and $1$.
-            The receiver at the other end decides that the signal $-1$
-            (respectively, $+1$) was transmitted if the value it receives is
-            less (respectively, more) than $a$. Find a formula for the
-            probability of making an error.
+            \item Let $a$ be a constant between $-1$ and $1$. The receiver at
+            the other end decides that the signal $-1$ (respectively, $+1$) was
+            transmitted if the value it receives is less (respectively, more)
+            than $a$. Find a formula for the probability of making an error.
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    P(\text{send -1} \mid \text{error}) & = P(\text{error} \mid \text{send -1})P(\text{send -1})\\
+                    & = P(y-1 < a)(1-p)\\
+                    & = P(y < a+1)(1-p)\\
+                    & = (1-P(y \ge a+1))(1-p)\\
+                    & = \bigg(1-\Phi\bigg(\frac{a-1}{\sigma}\bigg)\bigg)(1-p)\\
+                    & = \Phi\bigg(\frac{1-a}{\sigma}\bigg)(1-p)
+                \end{align*}
+                \endgroup
+
+                \salign{1}
+                \begin{align*}
+                    P(\text{send +1} \mid \text{error}) & = P(\text{error} \mid \text{send +1})P(\text{send +1})\\
+                    & = P(y-1 > a)p\\
+                    & = P(y > a+1)p\\
+                    & = \Phi\bigg(\frac{1+a}{\sigma}\bigg)p
+                \end{align*}
+                \endgroup
+
+                Therefore, by the total probability theorem,
+                \salign{1}
+                \begin{align*}
+                    P(\text{error}) & = P(\text{error} \mid \text{send -1})P(\text{send -1}) + P(\text{error} \mid \text{send +1})P(\text{send +1})\\
+                    & = \Phi\bigg(\frac{1-a}{\sigma}\bigg)(1-p) + \Phi\bigg(\frac{1+a}{\sigma}\bigg)p \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
             % b
             \item Find a numerical answer for the question of part (a) assuming
             that $p=2/5$, $a=1/2$ and $\sigma^2=1/4$.
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \Phi\bigg(\frac{1-a}{\sigma}\bigg)(1-p) + \Phi\bigg(\frac{1+a}{\sigma}\bigg)p &= \Phi\bigg(\frac{1-\frac{1}{2}}{\frac{1}{2}}\bigg)\bigg(1-\frac{2}{5}\bigg) + \Phi\bigg(\frac{1+\frac{1}{2}}{\frac{1}{2}}\bigg)\frac{2}{5}\\
+                    & = \Phi(1)\bigg(1-\frac{2}{5}\bigg) + \Phi(3)\bigg(\frac{2}{5}\bigg)\\
+                    & = 0.8413 \cdot \frac{3}{5} + 0.9987\cdot \frac{2}{5}\\
+                    & = 0.9043 \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
         \end{enumerate}
