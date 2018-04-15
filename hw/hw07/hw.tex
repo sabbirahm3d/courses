@@ -28,26 +28,79 @@
 
     \begin{enumerate}
 
+        % 1
         \item A radar tends to overestimate the distance of an aircraft, and
         the error is a normal random variable with a mean of 50 meters and a
         standard deviation 100 meters. What is the probability that the
         measured distance will be smaller than the true distance?
         \begin{cproof}
+
+            \salign{1}
+            \begin{align*}
+                P(X<0) & = P\bigg(Y<\frac{x-\mu}{\sigma} \bigg)\\
+                & = P\bigg(Y<\frac{0-50}{100} \bigg)\\
+                & = P(Y<-0.5)\\
+                & = \Phi(-0.5)\\
+                & = 1-\Phi(0.5)\\
+                & = 0.3085 \qedhere
+            \end{align*}
+            \endgroup
+
         \end{cproof}
 
+        % 2
         \item Let $X$ be normal with mean 1 and variance 4. Let $Y=2X+3$.
         \begin{enumerate}
 
+            % a
             \item Calculate the PDF of $Y$.
             \begin{cproof}
+
+                \begin{align*}
+                    E[Y] & = E[2X+3] \\
+                    & = 2E[X]+3\\
+                    & = 2(1)+3\\
+                    & = 5
+                \end{align*}
+
+                \begin{align*}
+                    var(Y) & = var(2X+3) \\
+                    & = (2)^2var(X) \\
+                    & = (2)^2(4)\\
+                    & = 16
+                \end{align*}
+                The PDF of the normal random variable is
+                \salign{1}
+                \begin{equation*}
+                    f_{Y}(y) = \begin{cases}
+                        \frac{1}{\sqrt{2\pi}}e^{\frac{-(x-5)^2}{32}}, & \text{ if } \infty < y \le \infty,\\
+                        0, & \text{ otherwise, }
+                    \end{cases} \qedhere
+                \end{equation*}
+                \endgroup
+
             \end{cproof}
 
-            \item Find $P(Y>0)$.
+            % b
+            \item Find $P(Y\ge 0)$.
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    P(Y\ge 0) & = P\bigg(Z\ge \frac{x-\mu}{\sigma} \bigg)\\
+                    & = P\bigg(Z\ge \frac{0-5}{\sqrt{16}} \bigg)\\
+                    & = P(Z\ge -1.25)\\
+                    & = \Phi(-1.25)\\
+                    & = 1-\Phi(1.25)\\
+                    & = 0.1056 \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
         \end{enumerate}
 
+        % 3
         \item A signal of amplitude $s = 2$ is transmitted from a satellite but
         is corrupted by noise, and the received signal is $X = s+W$, where $W$
         is noise. When the weather is good, $W$ is normal with zero mean and
@@ -55,16 +108,19 @@
         variance 4. In the absence of any weather information:
         \begin{enumerate}
 
+            % a
             \item Calculate the PDF of $X$.
             \begin{cproof}
             \end{cproof}
 
+            % b
             \item Calculate the probability that $X$ is between 1 and 3.
             \begin{cproof}
             \end{cproof}
 
         \end{enumerate}
 
+        % 4
         \item Oscar uses his high-speed modem to connect to the internet. The
         modem transmits zeros and ones by sending signals $-1$ and $+1$,
         respectively. We assume that any given bit has probability $p$ of being
@@ -75,6 +131,7 @@
         encoded signal value.
         \begin{enumerate}
 
+            % a
             \item Let $a$ be a constant between $-1$ and $1$.
             The receiver at the other end decides that the signal $-1$
             (respectively, $+1$) was transmitted if the value it receives is
@@ -83,6 +140,7 @@
             \begin{cproof}
             \end{cproof}
 
+            % b
             \item Find a numerical answer for the question of part (a) assuming
             that $p=2/5$, $a=1/2$ and $\sigma^2=1/4$.
             \begin{cproof}
@@ -90,22 +148,43 @@
 
         \end{enumerate}
 
+        % 5
         \item An old modem can take anywhere from 0 to 30 seconds to establish
         a connection, with all times between 0 and 30 being equally likely.
         \begin{enumerate}
 
+            % a
             \item What is the probability that if you use this modem you will
             have to wait more than 15 seconds to connect?
             \begin{cproof}
+
+                For the uniformly distributed normal variable
+                \salign{1}
+                \begin{align*}
+                    \int_{15}^{30} \frac{1}{30}dx & = \frac{1}{30}x\big\vert_{15}^{30}\\
+                    & = 0.5 \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
+            % b
             \item Given that you have already waited 10 seconds, what is the
-            probaility of having to wait at least 10 more seconds?
+            probability of having to wait at least 10 more seconds?
             \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \int_{20}^{30} \frac{1}{20}dx & = \frac{1}{20}x\big\vert_{10}^{20}\\
+                    & = 0.5 \qedhere
+                \end{align*}
+                \endgroup
+
             \end{cproof}
 
         \end{enumerate}
 
+        % 6
         \item Consider a random variable $X$ with PDF
         \begin{equation*}
             f_X(x) = \begin{cases}
@@ -118,6 +197,7 @@
         \begin{cproof}
         \end{cproof}
 
+        % 7
         \item Dine, the cook, has good days and bad days with equal frequency.
         On a good day, the time (in hours) it takes Dino to cook a souffle is
         described by the PDF
@@ -139,21 +219,21 @@
         \begin{cproof}
         \end{cproof}
 
-
+        % 8
         \item One of the two wheels of fortune, $A$ and $B$, is selected by the
         toss of a fair coin, and the wheel chosen is spun once to determine the
         value of a random variable $X$. If wheel $A$ is selected, the PDF of
         $X$ is
         \begin{equation*}
             f_{X\mid A}(x\mid A) = \begin{cases}
-                1, & \text{ if } 0 < b \le 1,\\
+                1, & \text{ if } 0 < x \le 1,\\
                 0, & \text{ otherwise, }
             \end{cases}
         \end{equation*}
         If wheel $B$ is selected, the PDF of $X$ is
         \begin{equation*}
             f_{X\mid B}(x\mid B) = \begin{cases}
-                3, & \text{ if } 0 < b \le 1/3,\\
+                3, & \text{ if } 0 < x \le 1/3,\\
                 0, & \text{ otherwise, }
             \end{cases}
         \end{equation*}
