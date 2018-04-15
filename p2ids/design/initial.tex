@@ -26,15 +26,22 @@
     completed and tested for its functionality first, concurrently while
     conducting research on the Linux system call dispatcher.
 
-    \subsection{Kernel Space} Initially, the logging of the system calls were
-    perceived as a non-trivial but moderately difficult task that would not
-    require much time committed. After preliminary research, it was evident
-    that without the built-in system calls such as \texttt{ptrace}, logging
-    system calls would require much greater effort.
+    \subsection{Kernel Space} The kernel-space program will trace the system
+    calls and dump them on a log consisting of the \texttt{pid}, the system
+    call numbers, and the corresponding timestamps of their execution. The path
+    of the log file will be shared with the user-space program. The program
+    will provide the user the ability to initiate and terminate the logging of
+    the system calls. The system call will include a parameter $N$ to indicate
+    the maximum number of system calls per log. This parameter will ensure the
+    logging system writes at most $N$ system calls in the log file, close the
+    file, then signal the user-space program to begin analysis. Once the signal
+    is sent, the logging system will resume logging to a new file.
 
-    The kernel-space program will trace the system calls and dump them on a log
-    consisting of the \texttt{pid}, the system call numbers, and their
-    corresponding timestamps.
+    Initially, the logging of the system calls were perceived as a non-trivial
+    but moderately difficult task that would not require much time committed.
+    After preliminary research, it was evident that without the built-in system
+    calls such as \texttt{ptrace}, logging system calls would require much
+    greater effort.
 
     Due to the extensive research required to build the kernel-level logging
     system, the development of its counterpart user-space program would be
@@ -73,7 +80,7 @@
     \subsection{User Space} The user-space program will be implemented in
     Python 2 without any third-party libraries. Time-permitting, the
     implementation will be translated to C to trade off the lines of codes for
-    speed.
+    processing speed.
 
     The program will continually parse the log file shared with the kernel-
     space program while properly utilizing mutex locks to avoid any
