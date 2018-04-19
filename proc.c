@@ -63,7 +63,7 @@ int parse_cmd(char **cmd, int *exit_code) {
             return 0;
 
 
-        } else if ((*exit_code = atoi(cmd[1]))) {
+        } else if ((*exit_code = atoi(cmd[1])) && cmd[2] == NULL) {
 
             printf("%d", *exit_code);
             return 0;
