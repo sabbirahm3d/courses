@@ -1,5 +1,5 @@
 [submodule "hw/hw01/shell-sabbirahm3d"]
-	path = hw/hw01/shell-sabbirahm3d
+	path = hw/shell-sabbirahm3d
 	url = https://github.com/UMBC-CMSC421-SP2018/shell-sabbirahm3d
 [submodule "proj/proj1/project1-sabbirahm3d"]
 	path = proj/proj1/project1-sabbirahm3d
