@@ -26,16 +26,7 @@ void print_help() {
                     "------------------ Super Awesome Better BASH ------------------\n"
                     "===============================================================\n"
                     "-------------------------- By Sabbir --------------------------\n"
-                    "===============================================================\n"
-                    "\nMost basic commands are supported\n"
-                    "Features to be added soon:\n"
-                    "1. Piping\n"
-                    "2. Background processes\n"
-                    "3. Chaining commands\n"
-                    "4. Scripting\n"
-                    "5. Killing and suspending processes\n"
-                    "6. Handling other special characters and escaping\n"
-                    "7. And more...\n";
+                    "===============================================================\n";
 
     printf("%s", help_msg);
 
@@ -76,13 +67,15 @@ int parse_cmd(char **cmd, int *exit_code) {
         }
 
 
-    } else if (!strcmp(cmd[0], "cd") || !strcmp(cmd[0], "chdir")) {  // change
-        // directory
+        // change directory
+    } else if (!strcmp(cmd[0], "cd") || !strcmp(cmd[0], "chdir")) {
 
         change_dir(cmd);
 
     } else if (!strcmp(cmd[0], "echo")) {  // echo
 
+        // if multiple arguments are passed to the built-in echo, unescape
+        // each of the tokens separated by whitespace and concatenate
         if (cmd[2]) {
 
             char *full_arg = malloc(sizeof(char));
@@ -94,11 +87,11 @@ int parse_cmd(char **cmd, int *exit_code) {
 
             }
 
-            printf("%s\n", unescape(full_arg));
+            printf("%s\n", full_arg);
 
         } else {
 
-            printf("%s\n", unescape(cmd[1]));
+            printf("%s\n", cmd[1]);
 
         }
 

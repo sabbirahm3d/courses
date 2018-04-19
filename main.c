@@ -118,8 +118,13 @@ int main(int argc, char *argv[]) {
 
         // read all the tokens of the input
         num_tokens = 1;
-        while ((cmd_tokens[num_tokens] = strtok(NULL, " \n\t")) != NULL) {
+        while ((cmd_tokens[num_tokens] = strtok(NULL, " \n\t"))) {
             num_tokens++;
+        }
+
+        // escape each token after command
+        for (int i = 1; i < num_tokens; i++) {
+            cmd_tokens[i] = unescape(cmd_tokens[i]);
         }
 
         alive = parse_cmd(cmd_tokens, &exit_code);

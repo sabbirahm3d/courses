@@ -10,8 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-#include <stdio.h>
-#include <ctype.h>
 
 /*
  * Function to properly allocate space for the buffer to read standard inputs
@@ -56,14 +54,17 @@ char *unescape(const char *str) {
     /* Allocate space for the new string. Since only potentially removing
        characters, it will be no larger than the original string... */
     if (!(rv = (char *) malloc(len + 1))) {
+
         printf("sabbash error: %s\n", strerror(errno));
         return NULL;
+
     }
 
     unesc = rv;
 
     /* Scan through the string... */
     while (*str) {
+
         cur = *str++;
 
         /* Is this the beginning of an escape sequence? */
@@ -189,22 +190,29 @@ char *unescape(const char *str) {
         }
             /* Is this the beginning of a quoted string? */
         else if (!quoted && (cur == '\'' || cur == '"')) {
+
             quoted = cur;
             continue;
+
         } else if (quoted && cur == quoted) {
+
             quoted = 0;
             continue;
+
         }
 
         /* If we get here, it's not part of an escape, so copy it directly. */
         *unesc++ = cur;
+
     }
 
     /* Did we terminate any quotes that we started? */
     if (quoted) {
+
         printf("sabbash error: unterminated quote\n");
         free(rv);
         return NULL;
+
     }
 
     *unesc = 0;
