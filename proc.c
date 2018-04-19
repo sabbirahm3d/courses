@@ -8,7 +8,6 @@
 #include "proc.h"
 #include "util.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/wait.h>
@@ -22,11 +21,11 @@ void print_help() {
 
     char *help_msg =
             "===============================================================\n"
-                    "--------------------------- sabbash ---------------------------\n"
-                    "------------------ Super Awesome Better BASH ------------------\n"
-                    "===============================================================\n"
-                    "-------------------------- By Sabbir --------------------------\n"
-                    "===============================================================\n";
+            "--------------------------- sabbash ---------------------------\n"
+            "------------------ Super Awesome Better BASH ------------------\n"
+            "===============================================================\n"
+            "-------------------------- By Sabbir --------------------------\n"
+            "===============================================================\n";
 
     printf("%s", help_msg);
 
@@ -43,7 +42,7 @@ void print_help() {
  *
  * output:
  *
- *      0 to exit program successfully, 1 to keep program alive
+ *      0 to exit program with the exit code provided, 1 to keep program alive
  *
  * */
 int parse_cmd(char **cmd, int *exit_code) {
@@ -111,6 +110,7 @@ int parse_cmd(char **cmd, int *exit_code) {
 
 }
 
+
 /*
  * Launches processes from commands provided
  *
@@ -142,6 +142,7 @@ void launch_proc(char **cmd) {
     waitpid(pid, NULL, 0);
 
 }
+
 
 /*
  * Change directory to path provided

@@ -17,6 +17,6 @@ void read_stdin(char *, size_t *);
 /* Unescape a given string, transforming all escape sequences and quoted strings
    as appropriate.
    Note: You are responsible for freeing the string returned by this function */
-extern char *unescape(const char *);
+char *unescape(const char *);
 
 #endif // UTIL_H

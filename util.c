@@ -7,9 +7,9 @@
 
 #include "util.h"
 
+#include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-#include <errno.h>
 
 /*
  * Function to properly allocate space for the buffer to read standard inputs
