@@ -93,6 +93,8 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
+    int exit_code;
+
     // main loop where the user input will be read and the prompt will be
     // printed
     while (alive) {
@@ -120,7 +122,7 @@ int main(int argc, char *argv[]) {
             num_tokens++;
         }
 
-        alive = parse_cmd(cmd_tokens);
+        alive = parse_cmd(cmd_tokens, &exit_code);
 
     }
 
@@ -131,6 +133,6 @@ int main(int argc, char *argv[]) {
     free(cmd_tokens);
     cmd_tokens = NULL;
 
-    return 0;  // EXIT_SUCCESS
+    return exit_code;  // EXIT_SUCCESS
 
 }

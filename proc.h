@@ -14,7 +14,7 @@
 
 void print_help();
 
-int parse_cmd(char **);
+int parse_cmd(char **, int*);
 
 void change_dir(char **);
 

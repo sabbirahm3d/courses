@@ -21,20 +21,20 @@ void print_help() {
 
     char *help_msg =
             "===============================================================\n"
-            "--------------------------- sabbash ---------------------------\n"
-            "------------------ Super Awesome Better BASH ------------------\n"
-            "===============================================================\n"
-            "-------------------------- By Sabbir --------------------------\n"
-            "===============================================================\n"
-            "\nMost basic commands are supported\n"
-            "Features to be added soon:\n"
-            "1. Piping\n"
-            "2. Background processes\n"
-            "3. Chaining commands\n"
-            "4. Scripting\n"
-            "5. Killing and suspending processes\n"
-            "6. Handling other special characters and escaping\n"
-            "7. And more...\n";
+                    "--------------------------- sabbash ---------------------------\n"
+                    "------------------ Super Awesome Better BASH ------------------\n"
+                    "===============================================================\n"
+                    "-------------------------- By Sabbir --------------------------\n"
+                    "===============================================================\n"
+                    "\nMost basic commands are supported\n"
+                    "Features to be added soon:\n"
+                    "1. Piping\n"
+                    "2. Background processes\n"
+                    "3. Chaining commands\n"
+                    "4. Scripting\n"
+                    "5. Killing and suspending processes\n"
+                    "6. Handling other special characters and escaping\n"
+                    "7. And more...\n";
 
     printf("%s", help_msg);
 
@@ -53,13 +53,31 @@ void print_help() {
  *      0 to exit program successfully, 1 to keep program alive
  *
  * */
-int parse_cmd(char **cmd) {
+int parse_cmd(char **cmd, int *exit_code) {
 
     if (!strcmp(cmd[0], "exit")) {  // quit shell
 
-        return 0;
+        if (cmd[1] == NULL) {
 
-    } else if (!strcmp(cmd[0], "cd")) {  // change directory
+            *exit_code = 0;
+            return 0;
+
+
+        } else if ((*exit_code = atoi(cmd[1]))) {
+
+            printf("%d", *exit_code);
+            return 0;
+
+        } else {
+
+            printf("Invalid arguments provided to exit\n");
+            return 1;
+
+        }
+
+
+    } else if (!strcmp(cmd[0], "cd") || !strcmp(cmd[0], "chdir")) {  // change
+        // directory
 
         change_dir(cmd);
 
