@@ -6,6 +6,7 @@
  * */
 
 #include "proc.h"
+#include "util.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,7 +47,8 @@ void print_help() {
  *
  * inputs:
  *
- *      char **cmd  : array of command arguments provided by user
+ *      char **cmd      : array of command arguments provided by user
+ *      int *exit_code  : pointer to exit argument
  *
  * output:
  *
@@ -57,21 +59,19 @@ int parse_cmd(char **cmd, int *exit_code) {
 
     if (!strcmp(cmd[0], "exit")) {  // quit shell
 
-        if (cmd[1] == NULL) {
+        if (!cmd[1]) {
 
             *exit_code = 0;
             return 0;
 
 
-        } else if ((*exit_code = atoi(cmd[1])) && cmd[2] == NULL) {
+        } else if ((*exit_code = atoi(cmd[1])) && !cmd[2]) {
 
-            printf("%d", *exit_code);
             return 0;
 
         } else {
 
             printf("Invalid arguments provided to exit\n");
-            return 1;
 
         }
 
@@ -80,6 +80,27 @@ int parse_cmd(char **cmd, int *exit_code) {
         // directory
 
         change_dir(cmd);
+
+    } else if (!strcmp(cmd[0], "echo")) {  // echo
+
+        if (cmd[2]) {
+
+            char *full_arg = malloc(sizeof(char));
+            strcpy(full_arg, cmd[1]);
+            for (int i = 2; cmd[i]; i++) {
+
+                strcat(full_arg, " ");
+                strcat(full_arg, cmd[i]);
+
+            }
+
+            printf("%s\n", unescape(full_arg));
+
+        } else {
+
+            printf("%s\n", unescape(cmd[1]));
+
+        }
 
     } else if (!strcmp(cmd[0], "que?")) {  // print information on the shell
 

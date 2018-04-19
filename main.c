@@ -133,6 +133,6 @@ int main(int argc, char *argv[]) {
     free(cmd_tokens);
     cmd_tokens = NULL;
 
-    return exit_code;  // EXIT_SUCCESS
+    return exit_code;  // exit code provided by user
 
 }
