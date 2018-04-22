@@ -21,6 +21,9 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{../structure.tex} % specifies the document layout and style
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{arrows.meta}
 
 \begin{document}
 
@@ -65,6 +68,40 @@
             express the permutation that represents it in both ways, as a
             permutation on eight elements and as a permutation on six elements.
             \begin{proof}
+
+                \begin{figure}[h]
+                    \centering
+                    \caption{Cube of order 3}
+                    \begin{tikzpicture}
+                        \node (C) at (0,0,2) {1};
+                        \node (G) at (2,0,2) {2};
+                        \node (F) at (2,2,2) {3};
+                        \node (B) at (0,2,2) {4};
+                        \node (O) at (0,0,0) {5};
+                        \node (D) at (2,0,0) {6};
+                        \node (E) at (2,2,0) {7};
+                        \node (A) at (0,2,0) {8};
+
+                        \draw(-1,1,2) node{front};
+                        \draw(1,2,1) node{top};
+                        \draw(2,1,1) node{right};
+                        \draw[gray!80](1,0,1) node{bottom};
+                        \draw[gray!80](0,1,1) node{left};
+                        \draw[gray!80](3,1,0) node{back};
+
+                        \draw (O) -- (C) -- (G) -- (D) -- cycle;% Bottom Face
+                        \draw (O) -- (A) -- (E) -- (D) -- cycle;% Back Face
+                        \draw (O) -- (A) -- (B) -- (C) -- cycle;% Left Face
+                        \draw (O) -- (D) -- (E) -- (A) -- cycle;% Left Face
+                        \draw (D) -- (E) -- (F) -- (G) -- cycle;% Right Face
+                        \draw (C) -- (B) -- (F) -- (G) -- cycle;% Front Face
+                        \draw (A) -- (B) -- (F) -- (E) -- cycle;% Top Face
+                    \end{tikzpicture}
+                \end{figure}
+                Rigid motion of order 3 will be rotating the cube about a vector passing through $(1,7)$ 120$^\circ$ \\
+                The permutation of the eight vertices are $(2,4,5)(3,8,6)$ \\
+                and the sides are (front, left, back)(top, back, right) \qedhere
+
             \end{proof}
 
             \item[\textbf{10}] Show that the following matrices form a subgroup
@@ -88,6 +125,88 @@
                 \end{tabular}\right]
             \end{equation*}
             \begin{proof}
+
+                Let $a = \left[\begin{tabular}{cc}
+                           $i$ & 0 \\
+                            0 & $-i$
+                \end{tabular}\right]$ and $b = \left[\begin{tabular}{cc}
+                            0 & 1 \\
+                            1 & 0
+                \end{tabular}\right]$\\
+
+                Then,
+                \salign{1}
+                \begin{align*}
+                    a^2 & = \left(\left[\begin{tabular}{cc}
+                           $i$ & 0 \\
+                            0 & $-i$
+                    \end{tabular}\right]\right)^2 = \left[\begin{tabular}{cc}
+                            -1 & 0 \\
+                            0 & -1
+                    \end{tabular}\right]\\
+                    a^3 & = \left(\left[\begin{tabular}{cc}
+                           $i$ & 0 \\
+                            0 & $-i$
+                    \end{tabular}\right]\right)^3 = \left[\begin{tabular}{cc}
+                            $-i$ & 0 \\
+                            0 & $i$
+                    \end{tabular}\right]\\
+                    a^4 & = \left(\left[\begin{tabular}{cc}
+                           $i$ & 0 \\
+                            0 & $-i$
+                    \end{tabular}\right]\right)^4 = \left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    b^2 & = \left(\left[\begin{tabular}{cc}
+                            0 & 1 \\
+                            1 & 0
+                    \end{tabular}\right]\right)^2 = \left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    ab & = \left[\begin{tabular}{cc}
+                           $i$ & 0 \\
+                            0 & $-i$
+                    \end{tabular}\right]
+                    \left[\begin{tabular}{cc}
+                            0 & 1 \\
+                            1 & 0
+                    \end{tabular}\right] = \left[\begin{tabular}{cc}
+                            0 & $i$ \\
+                            $-i$ & 0
+                    \end{tabular}\right]\\
+                    a^2b & = \left[\begin{tabular}{cc}
+                            -1 & 0 \\
+                            0 & -1
+                    \end{tabular}\right]
+                    \left[\begin{tabular}{cc}
+                            0 & 1 \\
+                            1 & 0
+                    \end{tabular}\right] = \left[\begin{tabular}{cc}
+                            0 & -1 \\
+                            -1 & 0
+                    \end{tabular}\right]\\
+                    a^3b & = \left[\begin{tabular}{cc}
+                            $i$ & 0 \\
+                            0 & $-i$
+                    \end{tabular}\right]
+                    \left[\begin{tabular}{cc}
+                            0 & 1 \\
+                            1 & 0
+                    \end{tabular}\right] = \left[\begin{tabular}{cc}
+                            0 & $-i$ \\
+                            $i$ & 0
+                    \end{tabular}\right]
+                \end{align*}
+                \endgroup
+
+                Which forms the set
+                \begin{align*}
+                    \gl_2(\mathbb{C}) & = \{e,a,a^2,a^3,b,ab,a^2b,a^3b\}, \text{ with } a^4=b^2=e, \ ba=a^{-1}b\\
+                    & \cong D_4 \qedhere
+                \end{align*}
+
             \end{proof}
 
             \item[\textbf{15}]
@@ -117,6 +236,16 @@
             \item[\textbf{17}] For any elements $\sigma, \tau \in S_n$, show
             that $\sigma\tau\sigma^{-1}\tau^{-1}\in A_n$.
             \begin{proof}
+
+                Let $\sigma,\tau \in S_n$ be the products of $m$ and $n$
+                transpositions respectively\\
+                Thus, $\sigma^{-1},\tau^{-1} \in S_n$ are also the products of
+                $m$ and $n$ transpositions\\
+                Therefore, $\sigma\tau\sigma^{-1}\tau^{-1}$ is a product of
+                $m+n+m+n=2(m+n)$ transpositions\\
+                Since $2 \mid 2(m+n)$, $\sigma\tau\sigma^{-1}\tau^{-1} \in A_n$
+                \qedhere
+
             \end{proof}
 
             \item[\textbf{21}] Find the center of the dihedral group $D_n$. \\
@@ -127,9 +256,30 @@
 
             \item[\textbf{24}] Show that the product of two transpositions is
             one of (i) the identity; (ii) a 3-cycle; (iii) a product of two
-            (nondisjoint) 3-cycles. Deduce that every element of $A_n$ can be
+            (non-disjoint) 3-cycles. Deduce that every element of $A_n$ can be
             written as a product of 3-cycles.
             \begin{proof}
+
+                Consider $\sigma = (1,2,3,4)$\\
+                (i) For identity,
+                \begin{equation*}
+                    (1,2)(1,2) = (1)
+                \end{equation*}
+
+                (ii) For a 3-cycle,
+                \begin{equation*}
+                    (1,2)(2,3) = (1,3,2)
+                \end{equation*}
+
+                (iii) For a product of two (non-disjoint) 3-cycles,
+                \begin{equation*}
+                    (1,2)(3,4) = (1,2,3)(1,4,3)
+                \end{equation*}
+
+                Since $A_n$ is a set of even permutations, is it can be
+                expressed as a product of even number of transpositions
+                \qedhere
+
             \end{proof}
 
         \end{itemize}
@@ -141,16 +291,45 @@
             positive integer. Show that the function $\phi: G \rightarrow G$
             defined by $\phi(x)=x^n$ is a homomorphism.
             \begin{proof}
+
+                Let $x,y \in G$\\
+                Then $\phi(xy)=(xy)^n$\\
+                Since $G$ is abelian,
+                \begin{align*}
+                    (xy)^n & = x^ny^n\\
+                    & = \phi(x)\phi(y)
+                \end{align*}
+                Therefore, $\phi(xy)=\phi(x)\phi(y)$ $\forall x,y \in G$ \qedhere
+
             \end{proof}
 
             \item[\textbf{6}] Define $\phi:
             \mathbb{C}^{\times}\rightarrow\mathbb{R}^{\times}$ by
-            $\phi(a+bi)=a^2+bi$, for all $a+bi\in \mathbb{C}^{\times}$. Show
+            $\phi(a+bi)=a^2+b^2$, for all $a+bi\in \mathbb{C}^{\times}$. Show
             that $\phi$ is a homomorphism.
             \begin{proof}
+
+                Let $a+bi,c+di \in \mathbb{C}^{\times}$\\
+                Then $\phi((a+bi)(c+di))=(ac-bd)+i(ad+bc)$\\
+                Therefore,
+                \begin{align*}
+                    \phi((a+bi)(c+di)) & = (ac-bd)+i(ad+bc)\\
+                    & = (ac-bd)^2+(ad+bc)^2\\
+                    & = (ac)^2-2acbd+(bd)^2+(ad)^2+2adbc+(bc)^2\\
+                    & = (ac)^2+(bd)^2+(ad)^2+(bc)^2
+                \end{align*}
+                Also,
+                \begin{align*}
+                    \phi(a+bi)\phi(c+di) & = (a^2+b^2)(c^2+d^2)\\
+                    & = a^2c^2+a^2d^2+b^2c^2+b^2d^2\\
+                    & = (ac)^2+(bd)^2+(ad)^2+(bc)^2
+                \end{align*}
+                Therefore $\phi((a+bi)(c+di))=\phi(a+bi)\phi(c+di)$ \qedhere
+
             \end{proof}
 
-            \item[\textbf{7}]
+            \item[\textbf{7}] Which of the following functions are
+            homomorphisms?
             \begin{enumerate}
 
                 \item[\textbf{b}] $\phi: \mathbb{R} \rightarrow \gl_2(\mathbb{R})$ defined by $\phi(a)=\left[\begin{tabular}{cc}
@@ -158,6 +337,26 @@
                             0 & 1
                 \end{tabular}\right]$
                 \begin{proof}
+
+                    Consider,
+                    \begin{align*}
+                        \phi(a+b) &= \left[\begin{tabular}{cc}
+                                1 & a+b \\
+                                0 & 1
+                        \end{tabular}\right]\\
+                        &= \left[\begin{tabular}{cc}
+                                1 & a \\
+                                0 & 1
+                        \end{tabular}\right]
+                        \left[\begin{tabular}{cc}
+                                1 & b \\
+                                0 & 1
+                        \end{tabular}\right]\\
+                        &= \phi(a)\phi(b)
+                    \end{align*}
+                    Since $\phi(a+b)=\phi(a)\phi(b)$, $\phi$ is a homomorphism
+                    \qedhere
+
                 \end{proof}
 
                 \item[\textbf{d}] $\phi: \gl_2(\mathbb{R}) \rightarrow \mathbb{R}^{\times}$ defined by $\phi\left(\left[\begin{tabular}{cc}
@@ -165,6 +364,22 @@
                             c & d
                 \end{tabular}\right]\right)=ab$
                 \begin{proof}
+
+                    For $\phi$ to be homomorphic, the identity element of $\gl_2(\mathbb{R})=e_1=\left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]$ must be mapped to the identity element of $\mathbb{R}^{\times}=e_2=1$\\
+                    But
+                    \begin{align*}
+                        \phi\left(\left[\begin{tabular}{cc}
+                            1 & 0 \\
+                            0 & 1
+                        \end{tabular}\right]\right) &= 1 \times 0\\
+                        &= 0 \\
+                        & \neq e_2=1
+                    \end{align*}
+                    Therefore, $\phi$ is not a homomorphism \qedhere
+
                 \end{proof}
 
             \end{enumerate}
@@ -176,12 +391,53 @@
             Prove that $\phi$ is a group homomorphism, and find its kernel and
             image.
             \begin{proof}
+
+                Given $G = \{f_{m,b}: \mathbb{R} \rightarrow \mathbb{R} \mid m \neq 0 \text{ and } f_{m,b}(x)=mx+b\}$\\
+                Consider,
+                \begin{align*}
+                    (f_{n,a} \circ f_{m,b}) & = f_{n,a}(f_{m,b})\\
+                    & = f_{n,a}(mx+b)\\
+                    & = n(mx+b)+a\\
+                    & = nmx+bn+a\\
+                    & = f_{nm,bn+a}
+                \end{align*}
+                Therefore,
+                \begin{align*}
+                    \phi(f_{n,a} \circ f_{m,b}) & = \phi(f_{nm,bn+a})\\
+                    & = nm\\
+                    & = \phi(f_{n,a})\phi(f_{m,b})
+                \end{align*}
+                Therefore, $\phi$ is a homomorphism\\
+                By definition,
+                \begin{align*}
+                    \ker(\phi) & = \{f_{m,b} \in G \mid \phi(f_{m,b})=1\}\\
+                    & = \{f_{m,b} \in G \mid m=1\}
+                \end{align*}
+                By definition,
+                \begin{align*}
+                    \text{img}(\phi) & = \{m \in \mathbb{R}^{\times} \mid \phi(f_{m,b})=m\}\\
+                    & = \mathbb{R}^{\times}
+                \end{align*} \qedhere
+
             \end{proof}
 
             \item[\textbf{14}] Recall that the center of a group $G$ is $\{x
             \in G \mid xh=gx \text{ for all } g \in G\}$. Prove that the center
             of any group is a normal subgroup.
             \begin{proof}
+
+                Let $H$ be a subgroup of $G$, and $x\in H$\\
+                Then $xg=gx, \ \forall g \in G$\\
+                Therefore,
+                \begin{align*}
+                    gx & = xg \\
+                    \implies gxg^{-1} & = xgg^{-1}\\
+                    \implies gxg^{-1} & = x \in H
+                \end{align*}
+                Thus, $\forall x \in H$, $\forall g \in G$, $gxg^{-1} \in H$\\
+                That is, $\{x \in G \mid xh=gx \text{ for all } g \in G\}$ is a
+                normal subgroup of $G$ \qedhere
+
             \end{proof}
 
             \item[\textbf{18}] Let the dihedral group $D_n$ be given by
