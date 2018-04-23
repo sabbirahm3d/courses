@@ -548,6 +548,34 @@
             \item[\textbf{19}] Show that $(\mathbb{Z} \times \mathbb{Z})/
             \langle(0,1)\rangle$ is an infinite cyclic group.
             \begin{proof}
+
+                Consider $f: Z \rightarrow
+                \mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$ given by $f(n)
+                = (n,0)+\langle(0,1)\rangle$\\
+                Given, $\langle(0,1)\rangle =\{(0,n): n \in\mathbb{Z}\}$
+                To show that $f$ is a homomorphism,
+                \begin{align*}
+                    f(a+b) = (a+b,0) + \langle(0,1)\rangle \\
+                    & = (a,0) + (b,0) +\langle(0,1)\rangle \\
+                    & = (a,0) + \langle(0,1)\rangle + (b,0) + \langle(0,1)\rangle \\
+                    & =f(a) + f(b)
+                \end{align*}
+                To show that $f$ is one-to-one,
+                \begin{align*}
+                    f(a)&=f(b)\\
+                    \implies & (a,0) + \langle(0,1)\rangle \\
+                    & = (b,0) + \langle(0,1)\rangle \\
+                    & =(a-b,0) \in \langle(0,1)\rangle\\
+                    \implies & a-b = 0\\
+                    \implies & a =b
+                \end{align*}
+                To show that $f$ is onto, suppose $(x,y) + \langle(0,1)\rangle is \mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$\\
+                Then,
+                \begin{equation*}
+                    f(x) = (x,0) + \langle(0,1)\rangle = (x,y) +\langle(0,1)\rangle
+                \end{equation*}
+                Since $f$ is an isomorphism, $\mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$ is an infinite cyclic group \qedhere
+
             \end{proof}
 
             \item[\textbf{23}] Let $G$ be the set of all matrices in $\gl_2(\mathbb(Z)_5)$ of the form $\left[\begin{tabular}{cc}
