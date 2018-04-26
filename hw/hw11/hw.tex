@@ -209,6 +209,57 @@
             \item[\textbf{4}] For each of the subgroups $\{e, a^2\}$ and
             $\{e,b\}$ of $D_4$, list all left and right cosets.
             \begin{proof}
+
+                Given $D = \{e,a,a^2,a^3,b,ab,a^2b,a^3b\}$, with $a^4=e$, $b^2=e$, $ba=a^3b$\\
+                The elements $\{a,b,ab\} \cap \{e, a^2\} =\varnothing$\\
+                Therefore,
+                \begin{align*}
+                    a\{e, a^2\} &= \{a, a^3\}\\
+                    b\{e, a^2\} &= \{b, ba^2\}\\
+                    &= \{b, baa\}\\
+                    &= \{b, a^3ba\}\\
+                    &= \{b, a^3a^3b\}\\
+                    &= \{b, a^2b\}\\
+                    ab\{e, a^2\} &= \{ab, aba^2\}\\
+                    &= \{ab, abaa\}\\
+                    &= \{ab, aa^3ba\}\\
+                    &= \{ab, ba\}\\
+                    &= \{ab, a^3b\}
+                \end{align*}
+                Since $D_4$ consists of 8 elements, there are $8/2$ left cosets
+                and $8/2$ right cosets\\ Left cosets: $\{\{e, a^2\},a\{e,
+                a^2\},b\{e, a^2\},ab\{e, a^2\}\}$\\ Right cosets: $\{\{e,
+                a^2\},\{e, a^2\}a,\{e, a^2\}b,\{e, a^2\}ab\}$\\
+
+                For $\{e,b\}$, the elements $\{a,a^2,a^3\} \cap \{e, b\} =\varnothing$\\
+                Therefore,
+                \begin{align*}
+                    a\{e, b\} &= \{a, ab\}\\
+                    a^2\{e, b\} &= \{a^2, a^2b\}\\
+                    a^3\{e, b\} &= \{a^3, a^3b\}
+                \end{align*}
+                and,
+                \begin{align*}
+                    \{e, b\}a &= \{a, ba\}\\
+                    & = \{a, a^3b\}\\
+                    \{e, b\}a^2 &= \{a^2, ba^2\}\\
+                    & = \{a^2, ba^2\}\\
+                    & = \{a^2, baa\}\\
+                    & = \{a^2, a^3ba\}\\
+                    & = \{a^2, a^3a^3b\}\\
+                    & = \{a^2, a^2b\}\\
+                    \{e, b\}a^3 &= \{a^3, ba^3\}\\
+                    & = \{a^3, baaa\}\\
+                    & = \{a^3, a^3baa\}\\
+                    & = \{a^3, a^3a^3ba\}\\
+                    & = \{a^3, a^2a^3b\}\\
+                    & = \{a^3, ab\}
+                \end{align*}
+
+                Since $D_4$ consists of 8 elements, there are $8/2$ left cosets and $8/2$ right cosets\\
+                Left cosets: $\{\{e, b\},a\{e, b\},b\{e, b\},ab\{e, b\}\}$\\
+                Right cosets: $\{\{e, b\},\{e, b\}a,\{e, b\}b,\{e, b\}ab\}$ \qedhere
+
             \end{proof}
 
             \item[\textbf{9}] Let $G$ be a finite group, and let $n$ be a
