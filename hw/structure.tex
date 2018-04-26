@@ -15,6 +15,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{avant} % Use the Avantgarde font for headings
+\usepackage{array}   % for \newcolumntype macro
 \usepackage{bm}
 \usepackage{caption}
 \usepackage[pdftex]{graphicx}
@@ -47,6 +48,7 @@
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 \newcommand{\gl}{\text{GL}}
 \renewcommand*{\proofname}{\textbf{Pf.}}
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 
 \newcommand{\documentinfo}[2]{
     \begin{centering}

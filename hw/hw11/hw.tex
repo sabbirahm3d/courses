@@ -76,7 +76,7 @@
             homomorphisms?
             \begin{enumerate}
 
-                \item[\textbf{b}] $\phi: \mathbb{R} \rightarrow \gl_2(\mathbb{R})$ defined by $\phi(a)=\left[\begin{tabular}{cc}
+                \item[\textbf{b}] $\phi: \mathbb{R} \rightarrow \gl_2(\mathbb{R})$ defined by $\phi(a)=\left[\begin{tabular}{LL}
                             1 & a \\
                             0 & 1
                 \end{tabular}\right]$
@@ -84,15 +84,15 @@
 
                     Consider,
                     \begin{align*}
-                        \phi(a+b) &= \left[\begin{tabular}{cc}
+                        \phi(a+b) &= \left[\begin{tabular}{LL}
                                 1 & a+b \\
                                 0 & 1
                         \end{tabular}\right]\\
-                        &= \left[\begin{tabular}{cc}
+                        &= \left[\begin{tabular}{LL}
                                 1 & a \\
                                 0 & 1
                         \end{tabular}\right]
-                        \left[\begin{tabular}{cc}
+                        \left[\begin{tabular}{LL}
                                 1 & b \\
                                 0 & 1
                         \end{tabular}\right]\\
@@ -103,19 +103,19 @@
 
                 \end{proof}
 
-                \item[\textbf{d}] $\phi: \gl_2(\mathbb{R}) \rightarrow \mathbb{R}^{\times}$ defined by $\phi\left(\left[\begin{tabular}{cc}
+                \item[\textbf{d}] $\phi: \gl_2(\mathbb{R}) \rightarrow \mathbb{R}^{\times}$ defined by $\phi\left(\left[\begin{tabular}{LL}
                             a & b \\
                             c & d
                 \end{tabular}\right]\right)=ab$
                 \begin{proof}
 
-                    For $\phi$ to be homomorphic, the identity element of $\gl_2(\mathbb{R})=e_1=\left[\begin{tabular}{cc}
+                    For $\phi$ to be homomorphic, the identity element of $\gl_2(\mathbb{R})=e_1=\left[\begin{tabular}{LL}
                             1 & 0 \\
                             0 & 1
                     \end{tabular}\right]$ must be mapped to the identity element of $\mathbb{R}^{\times}=e_2=1$\\
                     But
                     \begin{align*}
-                        \phi\left(\left[\begin{tabular}{cc}
+                        \phi\left(\left[\begin{tabular}{LL}
                             1 & 0 \\
                             0 & 1
                         \end{tabular}\right]\right) &= 1 \times 0\\
@@ -166,7 +166,7 @@
             \end{proof}
 
             \item[\textbf{14}] Recall that the center of a group $G$ is $\{x
-            \in G \mid xh=gx \text{ for all } g \in G\}$. Prove that the center
+            \in G \mid xg=gx \text{ for all } g \in G\}$. Prove that the center
             of any group is a normal subgroup.
             \begin{proof}
 
@@ -259,6 +259,7 @@
                 left cosets\\
                 The factor groups are,
                 \begin{align*}
+                    (0,0) + \langle(3,2)\rangle & = \{(3,2),(0,0)\} \\
                     (0,1) + \langle(3,2)\rangle & = \{(3,3),(0,1)\} \\
                     (0,2) + \langle(3,2)\rangle & = \{(3,2),(0,2)\} \\
                     (0,3) + \langle(3,2)\rangle & = \{(3,1),(0,3)\} \\
@@ -266,6 +267,7 @@
                     (1,1) + \langle(3,2)\rangle & = \{(4,3),(1,1)\} \\
                     (1,2) + \langle(3,2)\rangle & = \{(4,0),(1,2)\} \\
                     (1,3) + \langle(3,2)\rangle & = \{(4,1),(1,3)\} \\
+                    (2,0) + \langle(3,2)\rangle & = \{(5,2),(2,0)\} \\
                     (2,1) + \langle(3,2)\rangle & = \{(5,3),(2,1)\} \\
                     (2,2) + \langle(3,2)\rangle & = \{(5,0),(2,2)\} \\
                     (2,3) + \langle(3,2)\rangle & = \{(5,1),(2,3)\} \qedhere
@@ -277,7 +279,7 @@
             \langle(0,1)\rangle$ is an infinite cyclic group.
             \begin{proof}
 
-                Consider $f: Z \rightarrow
+                Consider $f: \mathbb{Z} \rightarrow
                 \mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$ given by $f(n)
                 = (n,0)+\langle(0,1)\rangle$\\
                 Given, $\langle(0,1)\rangle =\{(0,n): n \in\mathbb{Z}\}$
@@ -297,7 +299,7 @@
                     \implies & a-b = 0\\
                     \implies & a =b
                 \end{align*}
-                To show that $f$ is onto, suppose $(x,y) + \langle(0,1)\rangle is \mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$\\
+                To show that $f$ is onto, suppose $(x,y) + \langle(0,1)\rangle$ is $\mathbb{Z}\times\mathbb{Z}/\langle(0,1)\rangle$\\
                 Then,
                 \begin{equation*}
                     f(x) = (x,0) + \langle(0,1)\rangle = (x,y) +\langle(0,1)\rangle
@@ -306,7 +308,7 @@
 
             \end{proof}
 
-            \item[\textbf{23}] Let $G$ be the set of all matrices in $\gl_2(\mathbb{Z}_5)$ of the form $\left[\begin{tabular}{cc}
+            \item[\textbf{23}] Let $G$ be the set of all matrices in $\gl_2(\mathbb{Z}_5)$ of the form $\left[\begin{tabular}{LL}
                             m & b \\
                             0 & 1
                 \end{tabular}\right]$
@@ -319,24 +321,24 @@
                     \{[0],[1],[2],[3],[4]\}$\\
                     For $G$ to be a subgroup, it is enough to show $xy \in G$, $\forall x,y\in G$\\
 
-                    Let $x=\left[\begin{tabular}{cc}
+                    Let $x=\left[\begin{tabular}{LL}
                             n & a \\
                             0 & 1
-                    \end{tabular}\right],y=\left[\begin{tabular}{cc}
+                    \end{tabular}\right],y=\left[\begin{tabular}{LL}
                                 m & b \\
                                 0 & 1
                     \end{tabular}\right] \in G$\\
 
                     Then,
                     \begin{align*}
-                        xy & = \left[\begin{tabular}{cc}
+                        xy & = \left[\begin{tabular}{LL}
                                 n & a \\
                                 0 & 1
-                    \end{tabular}\right]\left[\begin{tabular}{cc}
+                    \end{tabular}\right]\left[\begin{tabular}{LL}
                                 m & b \\
                                 0 & 1
                     \end{tabular}\right]\\
-                    & = \left[\begin{tabular}{cc}
+                    & = \left[\begin{tabular}{LL}
                                 nm & nb+a \\
                                 0 & 1
                     \end{tabular}\right]\\
@@ -345,12 +347,73 @@
 
                 \end{proof}
 
-                \item Show that the subset $N$ of all matrices in $G$ of the form $\left[\begin{tabular}{cc}
+                \item Show that the subset $N$ of all matrices in $G$ of the form $\left[\begin{tabular}{LL}
                             1 & c \\
                             0 & 1
                 \end{tabular}\right]$, with $c \in \mathbb{Z}_5$, is a normal
                 subgroup of $G$.
                 \begin{proof}
+
+                    Let $x,y \in G$, $xy \in N$, with matrices of the form $x =
+                                    \left[\begin{tabular}{LL}
+                                        1 & c \\
+                                        0 & 1
+                                    \end{tabular}\right]$, $y =
+                                    \left[\begin{tabular}{LL}
+                                        1 & d \\
+                                        0 & 1
+                                    \end{tabular}\right]$\\
+                    Then,
+                    \begin{align*}
+                        xy &= \left[\begin{tabular}{LL}
+                                1 & c \\
+                                0 & 1
+                            \end{tabular}\right]\left[\begin{tabular}{LL}
+                                1 & d \\
+                                0 & 1
+                            \end{tabular}\right]\\
+                            &= \left[\begin{tabular}{LL}
+                                1 & c+d \\
+                                0 & 1
+                            \end{tabular}\right]\\
+                            & \in N
+                    \end{align*}
+                    Therefore, $N \le G$\\
+
+                    Let $a=\left[\begin{tabular}{LL}
+                            m & b \\
+                            0 & 1
+                        \end{tabular}\right] \in N$,
+                    and $a^{-1}=\left[\begin{tabular}{LL}
+                            m^{-1} & -m^{-1}b \\
+                            0 & 1
+                        \end{tabular}\right] \in N$\\
+                    Then,
+                    \begin{align*}
+                        ana^{-1} &= \left[\begin{tabular}{LL}
+                            m & b \\
+                            0 & 1
+                        \end{tabular}\right]\left[\begin{tabular}{LL}
+                            1 & c \\
+                            0 & 1
+                        \end{tabular}\right]\left[\begin{tabular}{LL}
+                            m^{-1} & -m^{-1}b \\
+                            0 & 1
+                        \end{tabular}\right]\\
+                        & =\left[\begin{tabular}{LL}
+                            m & mc+b \\
+                            0 & 1
+                        \end{tabular}\right]\left[\begin{tabular}{LL}
+                            m^{-1} & -m^{-1}b \\
+                            0 & 1
+                        \end{tabular}\right]\\
+                        &= \left[\begin{tabular}{LL}
+                            1 & mc \\
+                            0 & 1
+                        \end{tabular}\right]\\
+                        & \in N \qedhere
+                    \end{align*}
+
                 \end{proof}
 
                 \item Show that the factor group $G/N$ is cyclic of order 4.
