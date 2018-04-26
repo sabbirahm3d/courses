@@ -469,6 +469,34 @@
 
                 \item Show that the factor group $G/N$ is cyclic of order 4.
                 \begin{proof}
+
+                    Let $G$ be the matrices in the form
+                    $\left[\begin{tabular}{LL}
+                        m & b \\
+                        0 & 1
+                    \end{tabular}\right]$ in $\gl_2(\mathbb{Z}_5)$, with
+                    $m\neq 0$\\
+
+                    Then, $G$ has matrices of the form
+                    $\left[\begin{tabular}{LL}
+                        m & b \\
+                        0 & 1
+                    \end{tabular}\right]$,\\
+
+                    for $m=\{1,2,3,4\}$ and $b\in \mathbb{Z}_5=\{[0],[1],[2],[3],[4]\}$\\
+                    Therefore, $G$ has 20 matrices\\
+
+                    Consider $N$ as the matrices in $G$ in the form
+                    $\left[\begin{tabular}{LL}
+                        1 & c \\
+                        0 & 1
+                    \end{tabular}\right]$\\
+                    Since $c\in \mathbb{Z}_5$, $N$ has 5 matrices\\
+                    Therefore, $G/N$ has $20/5=4$ matrices\\
+
+                    To show $G/N$ is cyclic, pick generator $[1]$ of $\mathbb{Z}_5$\\
+                    Then, any element $gN=[1]^mN=([1]N)^m$ \qedhere
+
                 \end{proof}
 
             \end{enumerate}
