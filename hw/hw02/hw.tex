@@ -1,7 +1,4 @@
 %
-% CMSC 421: Project 2 Initial Design Document
-% Template layout and preamble defined in structure.tex
-%
 % Author: Sabbir Ahmed
 %
 
@@ -17,20 +14,56 @@
         \item Describe the functions of the Memory Management Unit in a modern
         computer system.
 
+
         \item What is a virtual address space? Why do we use virtual address
-        spaces in modern operating systems?
+        spaces in modern operating systems?\\
+        Virtual address space is the address range which a process typically
+        works in. The range spans from low (0x0) to as high as the instruction
+        set architecture and the maximum pointer size allows. It is used
+        because of data security via process isolation. Each process is given a
+        separate virtual address space so that they do not access or interfere
+        each other.
 
         \item Compare and contrast the use of paging and segmentation for
-        memory management in an OS.
+        memory management in an OS.\\
+        Paging is a form of memory management that eliminates the need for
+        contiguous allocation of physical memory. It retrieves data from the
+        secondary storage for use in the main memory. Segmentation stores all
+        the data in segments along with their memory locations. Every segments
+        are loaded into a contiguous block of available memory. Paging requires
+        more memory overhead to maintain the translation structures.
+        Segmentation requires two registers per segment, while paging requires
+        only one entry per page.
 
         \item Consider a logical address space of 64 pages of 1024 words each,
         mapped onto a physical memory of 32 frames of 1024 words each. How many
         bits are required to represent a logical address (assuming word-based
-        addressing).
+        addressing). \\
+        Since logical address space = (number of pages in logical address
+        space) $\times$ (page size), with the number of bits required being
+        $\log_2$ of the size\\
+        Then,
+        \begin{align*}
+            \text{logical address space} & = 64 \times 1024\\
+            & = 2^{6} \times 2^{10}\\
+            & = 2^{16}\\
+            & = \log_2(2^{16}) = 16 \text{ bits}
+        \end{align*}
 
         \item With the same address space layout as the previous question, how
         many bits are required to represent a physical address (once again,
-        assuming word-based addressing).
+        assuming word-based addressing).\\
+        Since physical address space = (number of frames in physical address
+        space) $\times$ (frame size), with the number of bits required being
+        $\log_2$ of the size\\
+        Then,
+        \begin{align*}
+            \text{physical address space} & = 32 \times 1024\\
+            & = 2^{5} \times 2^{10}\\
+            & = 2^{15}\\
+            & = \log_2(2^{15}) = 15 \text{ bits}
+        \end{align*}
+
 
     \end{enumerate}
 
