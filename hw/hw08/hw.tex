@@ -20,10 +20,71 @@
         \begin{enumerate}
 
             \item Find $P(Y \ge X)$.
+            \begin{proof}
+
+                Since $X$ and $Y$ are independent,
+                $f_{X,Y}(x,y)=f_X(x)g_Y(y)$\\
+                Therefore, the joint PDF,
+                \begin{equation*}
+                    f_{X,Y}(x,y)=
+                    \begin{cases}
+                        2e^{-2y}, & \text{ if } 0 \le x \le 1, \ y \ge 0\\
+                        0, & \text{otherwise}
+                    \end{cases}
+                \end{equation*}
+                Therefore,
+                \salign{1}
+                \begin{align*}
+                    P(Y \ge X) & = 1 - P(X \le Y) \\
+                    & = \iint_{y \ge x}f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                    & = 1-\int_{0}^{1}\int_{0}^{x}2e^{-2y}\diff{x}\diff{y}\\
+                    & = 1-\int_{0}^{1}1-e^{-2x}\diff{x}\\
+                    & = \frac{1}{2}-\frac{e^{-2}}{2} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
 
             \item Find the conditional PDF of $Z$ given that $Y=y$.
+            \begin{proof}
+
+                \begin{align*}
+                    f_{Z \mid Y=y}(z) & = f_{X+Y \mid Y=y}(x+y)\\
+                    & = \begin{cases}
+                        1, & \text{ if } y \le z \le 1+y\\
+                        0, & \text{ otherwise},
+                    \end{cases} \qedhere
+                \end{align*}
+
+            \end{proof}
 
             \item Find the conditional PDF of $Y$ given that $Z=3$.
+            \begin{proof}
+
+                With the laws of conditional probability,
+                \begin{equation*}
+                    f_{Y\mid 3}(y \mid 3) = \frac{f_{Y,Z}(y,3)}{f_Z(3)} = \frac{f_{Z \mid Y=y}(3 \mid y)f_Y(y)}{f_Z(3)}
+                \end{equation*}
+                And,
+                \salign{1}
+                \begin{align*}
+                    F_Z(3) & = \int_{0}^{1}\int_{0}^{z-x}f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                    & = \int_{0}^{1}\int_{0}^{z-x}2e^{-2y}\diff{x}\diff{y}\\
+                    & = 1 - \frac{e^{-2(3)+2}}{2} + \frac{e^{-2(3)}}{2}\\
+                    & = e^{-4}-e^{-6}
+                \end{align*}
+                \endgroup
+                Therefore,
+                \salign{1}
+                \begin{equation*}
+                    f_{Y\mid 3}(y \mid 3) = \begin{cases}
+                        \frac{2e^{-2y}}{e^{-4}-e^{-6}}, & \text{ if } 2 \le y \le 3\\
+                        0, & \text{ otherwise},
+                    \end{cases} \qedhere
+                \end{equation*}
+                \endgroup
+
+            \end{proof}
 
         \end{enumerate}
 
@@ -34,7 +95,21 @@
         machine on different days is independent
         \begin{enumerate}
 
-            \item Find the probability that the machine is functional on a particular day.
+            \item Find the probability that the machine is functional on a
+            particular day.
+            \begin{proof}
+
+                Let $W$ represent the event that the machine is functional\\
+                Then,
+                \salign{0.5}
+                \begin{align*}
+                    P(W) & = \int_{0}^{1}P(W \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}x\diff{x}\\
+                    & = \frac{1}{2} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
 
             \item We are told that the machine was functional on $m$ out of the
             last $n$ days. Find the conditional PDF of $P$. You may use the
@@ -42,10 +117,40 @@
             \begin{equation*}
                 \int_{0}^{1}p^k(1-p)^{n-k}dp=\frac{k!(n-k)!}{(n+1)!}
             \end{equation*}
+            \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(W_m) & = \int_{0}^{1}P(W_m \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}\binom{n}{m}x^m(1-x)^{n-m}f_X(x)\diff{x}\\
+                    & = \binom{n}{m}\frac{m!(n-m)!}{(n+1)!}
+                \end{align*}
+                \endgroup
+
+                Therefore, using Bayes rule,
+                \salign{1}
+                \begin{align*}
+                    f_{X \mid W_m}(x) & = \frac{P(W_m \mid X = x)f_X(x)}{P(W_m)} \\
+                    & = \frac{x^m(1-x)^{n-m}}{\frac{m!(n-m)!}{(n+1)!}}, \ 0 \le q \le 1, \ n \ge m \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
 
             \item Find the conditional probability that the machine is
             functional today given that it was functional on $m$ out of the
             last $n$ days.
+            \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(W_m) & = \int_{0}^{1}P(W_m \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}\binom{n}{m}x^m(1-x)^{n-m}f_X(x)\diff{x}\\
+                    & = \binom{n}{m}\frac{m!(n-m)!}{(n+1)!}  \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
 
         \end{enumerate}
 
@@ -53,6 +158,8 @@
         \item Let $B \triangleq \{a < X \le b\}$. Derive a general expression
         for $E[X \mid B]$ if $X$ is a continuous RV. Let $X : N(0,1)$ with
         $B=\{-1 < X \le 2\}$. Compute $E[X \mid B]$.
+        \begin{proof}
+        \end{proof}
 
         % 4
         \item A particular model of an HDTV is manufactured in three different
@@ -72,12 +179,37 @@
         to a central warehouse, intermingled, and shipped to retail stores all
         around the country. What is the expected lifetime of a unit purchased
         at random?
+        \begin{proof}
+
+            The expectations of the exponential distributions, $1/\lambda$,
+            \begin{align*}
+                E[A] & = 5\\
+                E[B] & = 6.5\\
+                E[C] & = 10
+            \end{align*}
+            Given the ratio of the units is $6:2:1$,
+            \begin{align*}
+                P(A) & = \frac{6}{9}\\
+                P(B) & = \frac{2}{9}\\
+                P(C) & = \frac{1}{9}
+            \end{align*}
+            Therefore, the expected lifetime of a unit purchased at random,
+            \salign{0.5}
+            \begin{align*}
+                E & = \frac{5 \times 6}{9} + \frac{6.5 \times 2}{9} + \frac{10 \times 1}{9}\\
+                & = \frac{53}{6} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{proof}
 
         % 5
         \item The coordinate $X$ and $Y$ of a point are independent zero mean
         normal random variables with common variances $\sigma^2$. Given that
         the point is at a distance of at least $c$ from the origin, find the
         conditional joint PDF of $X$ and $Y$.
+        \begin{proof}
+        \end{proof}
 
         % 6
         \item Alexei is vacationing in Monte Carol. The amount $X$ (in dollars)
@@ -96,12 +228,26 @@
         \begin{enumerate}
 
             \item Determine the joint PDF $f_{X,Y}(x,y)$.
+            \begin{proof}
+
+                Since
+                \begin{align*}
+                    \int_{0}^{40}ax\diff{x} & = 1\\
+                    a\frac{40^2}{2} & = 1\\
+                    \implies a & = \frac{1}{800}
+                \end{align*}
+
+            \end{proof}
 
             \item What is the probability that on a given night Alexei makes a
             positive profit at the casino?
+            \begin{proof}
+            \end{proof}
 
             \item Find the PDF of Alexei's profit $Y-X$ on a particular night,
             and also determine its expected value.
+            \begin{proof}
+            \end{proof}
 
         \end{enumerate}
 
@@ -115,6 +261,8 @@
         \end{equation*}
         and $X$ is uniformly distributed on $[-1,1]$. What is the conditional
         pdf of $X$ given $Y$, that is, $f_{X \mid Y}(x \mid y)$
+        \begin{proof}
+        \end{proof}
 
         % 8
         \item A U.S. defense radar scans the skies for unidentified flying
@@ -130,6 +278,8 @@
         Assume that $P[M]-10^{-3}$. Compute $P[A\mid M]$, $P[A^C\mid M]$,
         $P[A\mid M^C]$, $P[A^C\mid M^C]$.\\
         Repeat for $P[M]=10^{-6}$
+        \begin{proof}
+        \end{proof}
 
     \end{enumerate}
 
