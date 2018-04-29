@@ -77,7 +77,8 @@
                 Therefore,
                 \salign{1}
                 \begin{equation*}
-                    f_{Y\mid 3}(y \mid 3) = \begin{cases}
+                    f_{Y\mid 3}(y \mid 3) =
+                    \begin{cases}
                         \frac{2e^{-2y}}{e^{-4}-e^{-6}}, & \text{ if } 2 \le y \le 3\\
                         0, & \text{ otherwise},
                     \end{cases} \qedhere
@@ -262,6 +263,34 @@
         and $X$ is uniformly distributed on $[-1,1]$. What is the conditional
         pdf of $X$ given $Y$, that is, $f_{X \mid Y}(x \mid y)$
         \begin{proof}
+
+            Given,
+            \begin{equation*}
+                f_{X}(x) =
+                \begin{cases}
+                    \frac{1}{2}, & \text{ if } -1 \le x \le 1\\
+                    0, & \text{ otherwise},
+                \end{cases}
+            \end{equation*}
+
+            And,
+            \salign{1}
+            \begin{align*}
+                f_Y(y) & = \int_{\infty}f_{X,Y}(x,y)\diff{x}\\
+                & = \int_{\infty}f_{Y \mid X}(y \mid x)f_X(x)\diff{x}\\
+                & = \int_{-1}^{1}\frac{1}{2}\frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big(\frac{-(y-x)^2}{2\sigma^2}\Big)\diff{x}\\
+                & = \frac{1}{2}\bigg(\phi\Big(\frac{y-1}{\sigma}\Big)-\phi\Big(\frac{y+1}{\sigma}\Big)\bigg)
+            \end{align*}
+            \endgroup
+
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                f_{X \mid Y}(x \mid y) & = \frac{f_{Y \mid X}(y \mid x)f_X(x)}{f_Y(y)}\\
+                & = \frac{\frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big(\frac{-(y-x)^2}{2\sigma^2}\Big)f_X(x)}{\phi\Big(\frac{y-1}{\sigma}\Big)-\phi\Big(\frac{y+1}{\sigma}\Big)} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{proof}
 
         % 8
