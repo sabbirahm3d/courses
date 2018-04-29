@@ -210,10 +210,30 @@
         the point is at a distance of at least $c$ from the origin, find the
         conditional joint PDF of $X$ and $Y$.
         \begin{proof}
+
+            Given,
+            \begin{equation*}
+                f_X(x)={\frac{1}{\sigma\sqrt{2\pi}}}\exp\bigg(\frac{-x^2}{2\sigma^2}\bigg)
+            \end{equation*}
+            \begin{equation*}
+                f_Y(y)={\frac{1}{\sigma\sqrt{2\pi}}}\exp\bigg(\frac{-y^2}{2\sigma^2}\bigg)
+            \end{equation*}
+            Since $X$ and $Y$ are assumed independent
+            \begin{equation*}
+                f_{(X,Y)}(x,y)=f_X(x)f_Y(y) = \frac{1}{2\pi\sigma^2}\exp\bigg(\frac{-(x^2+y^2)}{2\sigma^2}\bigg)
+            \end{equation*}
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                P(x^2+y^2 \ge c^2) & = \int f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                & = \frac{1}{2\pi\sigma^2} \int_{c}^{\infty}\exp\bigg(\frac{-r^2}{2\sigma^2}\bigg)2\pi r\diff{r} \qedhere
+            \end{align*}
+            \endgroup
+
         \end{proof}
 
         % 6
-        \item Alexei is vacationing in Monte Carol. The amount $X$ (in dollars)
+        \item Alexei is vacationing in Monte Carlo. The amount $X$ (in dollars)
         he takes to the casino each evening is a random variable with a PDF of
         the form
         \begin{equation*}
@@ -296,7 +316,7 @@
         % 8
         \item A U.S. defense radar scans the skies for unidentified flying
         objects (UFOs). Let $M$ be the event that a UFO is present and $M^C$
-        the venemt that a UFO is absent. Let $f_{X \mid M}(x \mid
+        the event that a UFO is absent. Let $f_{X \mid M}(x \mid
         M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5[x-r]^2)$ be the conditional pdf of
         the radar return signal $X$ when a UFO is actually there, and let $f_{X
         \mid M^C}(x \mid M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5[x]^2)$ be the
