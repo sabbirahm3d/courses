@@ -27,10 +27,10 @@
                 Therefore, the joint PDF,
                 \begin{equation*}
                     f_{X,Y}(x,y)=
-                    \begin{cases}
+                    \begin{dcases}
                         2e^{-2y}, & \text{ if } 0 \le x \le 1, \ y \ge 0\\
                         0, & \text{otherwise}
-                    \end{cases}
+                    \end{dcases}
                 \end{equation*}
                 Therefore,
                 \salign{1}
@@ -50,10 +50,10 @@
 
                 \begin{align*}
                     f_{Z \mid Y=y}(z) & = f_{X+Y \mid Y=y}(x+y)\\
-                    & = \begin{cases}
+                    & = \begin{dcases}
                         1, & \text{ if } y \le z \le 1+y\\
                         0, & \text{ otherwise},
-                    \end{cases} \qedhere
+                    \end{dcases} \qedhere
                 \end{align*}
 
             \end{proof}
@@ -78,10 +78,10 @@
                 \salign{1}
                 \begin{equation*}
                     f_{Y\mid 3}(y \mid 3) =
-                    \begin{cases}
+                    \begin{dcases}
                         \frac{2e^{-2y}}{e^{-4}-e^{-6}}, & \text{ if } 2 \le y \le 3\\
                         0, & \text{ otherwise},
-                    \end{cases} \qedhere
+                    \end{dcases} \qedhere
                 \end{equation*}
                 \endgroup
 
@@ -238,10 +238,10 @@
         the form
         \begin{equation*}
             f_X(x)=
-            \begin{cases}
+            \begin{dcases}
                 ax, & \text{ if } 0 \le x \le 40,\\
                 0, & \text{otherwise}
-            \end{cases}
+            \end{dcases}
         \end{equation*}
         At the end of each night, the amount $Y$ that he has when leaving the
         casino is uniformly distributed between zero and twice the amount that
@@ -258,16 +258,103 @@
                     \implies a & = \frac{1}{800}
                 \end{align*}
 
+                The uniform distribution,
+                \begin{equation*}
+                    f_{Y \mid X}(y \mid x) =
+                    \begin{dcases}
+                        \frac{1}{2x}, & \text{ if } 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases}
+                \end{equation*}
+
+                Therefore,
+                \begin{align*}
+                    f_{X,Y}(x,y) & =\frac{f_{Y \mid X}(y \mid x)}{f_X(x)}\\
+                    & =
+                    \begin{dcases}
+                        \frac{ax}{2x}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \\
+                    & =
+                    \begin{dcases}
+                        \frac{a}{2}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \\
+                    & =
+                    \begin{dcases}
+                        \frac{1}{1600}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \qedhere
+                \end{align*}
+
             \end{proof}
 
             \item What is the probability that on a given night Alexei makes a
             positive profit at the casino?
             \begin{proof}
+
+                Since the probability of loss is $0 \le y \le x$, and the
+                probability of profit is $x \le y \le 2x$,
+                \begin{equation*}
+                    P(\text{profit}) = P(y-x>0)=\frac{1}{2} \qedhere
+                \end{equation*}
+
             \end{proof}
 
             \item Find the PDF of Alexei's profit $Y-X$ on a particular night,
             and also determine its expected value.
             \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(x-y<m)
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2x}f(x)\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2x}f(x)\diff{x}, & \text{otherwise}
+                    \end{dcases}
+                \end{align*}
+                \endgroup
+                Since $f(x) = ax$,
+                \salign{1}
+                \begin{align*}
+                    P(x-y<m)
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2}a\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2}a\diff{x}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2}a\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2}a\diff{x}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \frac{1}{1600}\bigg(\frac{x^2}{2}+mx\bigg)\bigg\vert_{m}^{40}, & \text{ if } t > 0,\\
+                        \frac{1}{1600}\bigg(\frac{x^2}{2}-mx\bigg)\bigg\vert_{-m}^{40}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \frac{1}{1600}\bigg(800-\frac{3m^2}{2}+40m\bigg), & \text{ if } t > 0,\\
+                        \frac{1}{1600}\bigg(800+\frac{m^2}{2}-40m\bigg), & \text{otherwise}
+                    \end{dcases}
+                \end{align*}
+                \endgroup
+                Therefore, the PDF
+                \salign{0.7}
+                \begin{equation*}
+                    =\begin{dcases}
+                        \frac{1}{1600}(40-3m), & \text{ if } t > 0,\\
+                        \frac{1}{1600}(m-40), & \text{otherwise}
+                    \end{dcases}
+                \end{equation*}
+                \endgroup
+                And the expected value,
+                \salign{0.7}
+                \begin{align*}
+                    &= \frac{1}{1600}\bigg(\int_{0}^{40}(40-3m)m\diff{m}+\int_{-40}^{0}(m-40)m\diff{m}\bigg)\\
+                    & = \frac{1}{1600}\bigg((20m^2-m^3)\bigg\vert_{0}^{40}+(\frac{m^3}{3}-20m^3)\bigg\vert_{-40}^{0}\bigg)\\
+                    & = \frac{1}{1600}\bigg(-32000+ \frac{160000}{3}\bigg)\\
+                    & = \frac{40}{3} \qedhere
+                \end{align*}
+                \endgroup
+
             \end{proof}
 
         \end{enumerate}
@@ -287,10 +374,10 @@
             Given,
             \begin{equation*}
                 f_{X}(x) =
-                \begin{cases}
+                \begin{dcases}
                     \frac{1}{2}, & \text{ if } -1 \le x \le 1\\
                     0, & \text{ otherwise},
-                \end{cases}
+                \end{dcases}
             \end{equation*}
 
             And,
@@ -324,7 +411,7 @@
         be specific, let $r=1$ and let the \textit{alert level} be $x_A=0.5$.
         Let $A$ denote the event of an alert, that is, $\{X>x_A\}$. Compute
         $P[A\mid M]$, $P[A^C\mid M]$, $P[A\mid M^C]$, $P[A^C\mid M^C]$.\\
-        Assume that $P[M]-10^{-3}$. Compute $P[A\mid M]$, $P[A^C\mid M]$,
+        Assume that $P[M]=10^{-3}$. Compute $P[A\mid M]$, $P[A^C\mid M]$,
         $P[A\mid M^C]$, $P[A^C\mid M^C]$.\\
         Repeat for $P[M]=10^{-6}$
         \begin{proof}
