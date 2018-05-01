@@ -180,6 +180,128 @@
             field under the operations of matrix addition and
             multiplication.
             \begin{proof}
+
+                Let $A=\left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                \end{tabular}\right]$, $B=\left[\begin{tabular}{LL}
+                        c & d \\
+                        -d & c
+                \end{tabular}\right] \in M$\\
+                To prove closure,
+                \salign{0.5}
+                \begin{align*}
+                    A+B & = \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]+\left[\begin{tabular}{LL}
+                            c & d \\
+                            -d & c
+                    \end{tabular}\right]\\
+                    &=\left[\begin{tabular}{LL}
+                            a+c & b+d \\
+                            -(b+d) & a+c
+                    \end{tabular}\right] \in M
+                \end{align*}
+                \endgroup
+                And,
+                \salign{0.5}
+                \begin{align*}
+                    AB & = \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]\left[\begin{tabular}{LL}
+                            c & d \\
+                            -d & c
+                    \end{tabular}\right]\\
+                    &=\left[\begin{tabular}{LL}
+                            ac-bd & ad+bc \\
+                            -(bc+ad) & ac-bd
+                    \end{tabular}\right] \in M
+                \end{align*}
+                \endgroup
+
+                To prove that multiplication is commutative,
+                \salign{0.5}
+                \begin{align*}
+                    AB &=\left[\begin{tabular}{LL}
+                            ac-bd & ad+bc \\
+                            -(bc+ad) & ac-bd
+                    \end{tabular}\right] \\
+                    & = \left[\begin{tabular}{LL}
+                        c & d \\
+                        -d & c
+                    \end{tabular}\right]\left[\begin{tabular}{LL}
+                            a & b \\
+                            -b & a
+                    \end{tabular}\right]\\
+                    & = BA
+                \end{align*}
+                \endgroup
+
+                To prove the existence of the additive identity element, let $e=\left[\begin{tabular}{LL}
+                    0 & 0 \\
+                    0 & 0
+                \end{tabular}\right]$ such that $A+e=e+A=A$\\
+                Since,
+                \salign{0.5}
+                \begin{align*}
+                    A+e &= \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]+\left[\begin{tabular}{LL}
+                            0 & 0 \\
+                            0 & 0
+                    \end{tabular}\right]\\
+                    & = \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]\\
+                    & = A
+                \end{align*}
+                \endgroup
+
+                To prove the existence of the multiplicative identity element, let $e=\left[\begin{tabular}{LL}
+                    1 & 0 \\
+                    0 & 1
+                \end{tabular}\right]$ such that $Ae=eA=A$\\
+                Since,
+                \salign{0.5}
+                \begin{align*}
+                    A+e &= \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]+\left[\begin{tabular}{LL}
+                            1 & 0 \\
+                            0 & 1
+                    \end{tabular}\right]\\
+                    & = \left[\begin{tabular}{LL}
+                        a & b \\
+                        -b & a
+                    \end{tabular}\right]\\
+                    & = A
+                \end{align*}
+                \endgroup
+
+                To prove the existence of additive inverse elements, let $-A=\left[\begin{tabular}{LL}
+                    -a & -b \\
+                    b & -a
+                \end{tabular}\right]$ such that $A+(-A)=(-A)+A=e$\\
+                If $A$ is non-zero, then it's determinant $a^2+b^2\neq0$\\
+                Therefore
+                \salign{0.5}
+                \begin{align*}
+                    \det{(-A)} &= \frac{1}{aa-(-b)b} \left[\begin{tabular}{LL}
+                        -a & -b \\
+                        b & -a
+                    \end{tabular}\right]\\
+                    &= \frac{1}{a^2+b^2} \left[\begin{tabular}{LL}
+                        -a & -b \\
+                        b & -a
+                    \end{tabular}\right] \in M \qedhere
+                \end{align*}
+                \endgroup
+
             \end{proof}
 
             \item[\textbf{17}] Let $(x_0,y_0),(x_1,y_1),(x_2,y_2)$ be points in
