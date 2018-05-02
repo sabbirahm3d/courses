@@ -166,7 +166,7 @@
         \item A particular model of an HDTV is manufactured in three different
         plants, say, $A$, $B$ and $C$, of the same company. Because the workers
         at $A$, $B$ and $C$ are not equally experienced, the quality of the
-        units differs from plant to plant. The pdf's of the time-to-failure
+        units differs from plant to plant. The PDF's of the time-to-failure
         $X$, in years, are
         \salign{0.5}
         \begin{align*}
@@ -404,17 +404,26 @@
         \item A U.S. defense radar scans the skies for unidentified flying
         objects (UFOs). Let $M$ be the event that a UFO is present and $M^C$
         the event that a UFO is absent. Let $f_{X \mid M}(x \mid
-        M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5[x-r]^2)$ be the conditional pdf of
+        M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x-r)^2)$ be the conditional PDF of
         the radar return signal $X$ when a UFO is actually there, and let $f_{X
-        \mid M^C}(x \mid M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5[x]^2)$ be the
-        conditional pdf of the radar return signal $X$ when there is no UFO. To
+        \mid M}(x \mid M^C)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x)^2)$ be the
+        conditional PDF of the radar return signal $X$ when there is no UFO. To
         be specific, let $r=1$ and let the \textit{alert level} be $x_A=0.5$.
         Let $A$ denote the event of an alert, that is, $\{X>x_A\}$. Compute
-        $P[A\mid M]$, $P[A^C\mid M]$, $P[A\mid M^C]$, $P[A^C\mid M^C]$.\\
-        Assume that $P[M]=10^{-3}$. Compute $P[A\mid M]$, $P[A^C\mid M]$,
-        $P[A\mid M^C]$, $P[A^C\mid M^C]$.\\
-        Repeat for $P[M]=10^{-6}$
+        $P(A\mid M)$, $P(A^C\mid M)$, $P(A\mid M^C)$, $P(A^C\mid M^C)$.\\
+        Assume that $P(M)=10^{-3}$. Compute $P(A\mid M)$, $P(A^C\mid M)$,
+        $P(A\mid M^C)$, $P(A^C\mid M^C)$.\\
+        Repeat for $P(M)=10^{-6}$
         \begin{proof}
+
+            Given, $r=1$,
+            \begin{equation*}
+                f_{X \mid M}(x \mid M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x-1)^2)
+            \end{equation*}
+            \begin{equation*}
+                f_{X \mid M}(x \mid M^C)=\frac{1}{\sqrt{2\pi}}\exp(-0.5x^2)
+            \end{equation*}
+
         \end{proof}
 
     \end{enumerate}
