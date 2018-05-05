@@ -7,24 +7,31 @@ from parsesyscalls import get_sys_call_names
 from pprint import pprint
 
 BASE_PATH = path.abspath(__file__)
+try:
+    range = xrange
+except NameError:
+    pass
 
 
 def parse_log(log_path):
 
     sys_calls = []
-    get_sys_call_names()
+    sys_call_names = get_sys_call_names()
     window = []
 
     with open(log_path) as log_file:
+
         for line in log_file:
             split_line = line.split()
+            split_line += [sys_call_names[split_line[1]]]
 
             if not any(split_line[0] in sublist for sublist in window):
                 sys_calls.append(window)
                 window = []
+
             window.append(split_line)
 
-    sys_calls.append(window)
+        sys_calls.append(window)
 
     return filter(None, sys_calls)
 
@@ -35,7 +42,7 @@ def chunk_window(seq, k):
 
     if (k < seq_len):
         chunked = []
-        for elem in xrange(seq_len - k + 1):
+        for elem in range(seq_len - k + 1):
             chunked.append(seq[elem:elem + k])
 
         return chunked
@@ -65,10 +72,10 @@ def vectorize(seq, healthy_seq=None):
 
 def analyze_prog(log_file, k):
 
-    log = parse_log(log_file)
+    prog_log = parse_log(log_file)
     healthy = 0
     prog_db = []
-    for sys_calls in log:
+    for sys_calls in prog_log:
         windows = chunk_window(sys_calls, k)
         if (not healthy):
             vec = vectorize(windows, healthy_seq=None)
