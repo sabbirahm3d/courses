@@ -5,7 +5,6 @@ from os import path
 
 from parsesyscalls import get_sys_call_names
 from util import read_data, write_data
-from pprint import pprint
 
 BASE_PATH = path.abspath(__file__)
 try:
@@ -14,23 +13,20 @@ except NameError:
     pass
 
 
-class IntrusionDetectionSystem(object):
+class LogParser(object):
 
-    def __init__(self, prog_name, window_size, custom=None):
+    def __init__(self, prog_name):
 
         self.prog_name = prog_name
-        self.healthy_seq_name = self.prog_name[:-4] + \
-            "_healthy.json" if not custom else custom
-        self.healthy_seq = []
-        self.window_size = window_size
+        self.healthy_seq_name = prog_name[:-10] + "_healthy.json"
 
-    def set_healthy_seq(self):
+    def set_healthy_seq(self, window_size):
 
         seqs = self.parse_log(self.prog_name)
 
         chunked_sequence = []
         for seq in seqs:
-            chunked_sequence.extend(self.chunk_window(seq, self.window_size))
+            chunked_sequence.extend(self.chunk_window(seq, window_size))
 
         return write_data(self.healthy_seq_name, chunked_sequence)
 
@@ -73,12 +69,11 @@ class IntrusionDetectionSystem(object):
 
         return [seq]
 
-    def vectorize(self, seq):
+    def get_hamming_dist(self, seq, healthy_seq):
 
         vectorized_seq = {}
         vectorized_seq["seqs"] = seq
 
-        healthy_seq = self.get_healthy_seq()
         hamming_dist = 0
         for window, healthy_window in zip(seq, healthy_seq):
             for sys_call, healthy_sys_call in zip(window, healthy_window):
@@ -88,22 +83,14 @@ class IntrusionDetectionSystem(object):
 
         return vectorized_seq
 
-    def analyze_prog(self):
+    def vectorize(self, prog_name, window_size):
 
-        prog_log = self.parse_log(self.prog_name)
+        prog_log = self.parse_log(prog_name)
         prog_db = []
+        healthy_seq = self.get_healthy_seq()
         for sys_calls in prog_log:
-            windows = self.chunk_window(sys_calls, self.window_size)
-            vec = self.vectorize(windows)
+            windows = self.chunk_window(sys_calls, window_size)
+            vec = self.get_hamming_dist(windows, healthy_seq)
             prog_db.append(vec)
 
         return prog_db
-
-
-if __name__ == '__main__':
-
-    ids_obj1 = IntrusionDetectionSystem("sample.log", window_size=3)
-    ids_obj1.set_healthy_seq()
-    ids_obj2 = IntrusionDetectionSystem(
-        "sample1.log", window_size=3, custom="sample_healthy.json")
-    pprint(ids_obj2.analyze_prog())
