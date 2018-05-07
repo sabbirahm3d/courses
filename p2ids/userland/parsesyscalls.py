@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import json
 from os import path
 
 from config import SYS_CALLS_TABLE_PATH
+from util import read_data, write_data
 
 BASE_PATH = path.abspath(__file__)
 TABLE_PATH = path.join(
@@ -23,14 +23,12 @@ def parse_sys_calls():
                 split_line = line.split()
                 sys_calls[int(split_line[0])] = split_line[2]
 
-    with open(SYS_CALLS_TABLE_PATH, "w") as dump_file:
-        json.dump(sys_calls, dump_file)
+    write_data(SYS_CALLS_TABLE_PATH, sys_calls)
 
 
 def get_sys_call_names():
 
-    with open(SYS_CALLS_TABLE_PATH) as sys_calls_table_file:
-        return dict(json.load(sys_calls_table_file))
+    return read_data(SYS_CALLS_TABLE_PATH)
 
 
 if __name__ == '__main__':
