@@ -1,0 +1,431 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\today}{08}
+
+    \begin{enumerate}
+
+        % 1
+        \item Let $X$ have a uniform distribution in the unit interval $[0,1]$,
+        and let $Y$ have an exponential distribution with parameter $\nu=2$.
+        Assume that $X$ and $Y$ are independent. Let $Z=X+Y$.
+        \begin{enumerate}
+
+            \item Find $P(Y \ge X)$.
+            \begin{proof}
+
+                Since $X$ and $Y$ are independent,
+                $f_{X,Y}(x,y)=f_X(x)g_Y(y)$\\
+                Therefore, the joint PDF,
+                \begin{equation*}
+                    f_{X,Y}(x,y)=
+                    \begin{dcases}
+                        2e^{-2y}, & \text{ if } 0 \le x \le 1, \ y \ge 0\\
+                        0, & \text{otherwise}
+                    \end{dcases}
+                \end{equation*}
+                Therefore,
+                \salign{1}
+                \begin{align*}
+                    P(Y \ge X) & = 1 - P(X \le Y) \\
+                    & = \iint_{y \ge x}f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                    & = 1-\int_{0}^{1}\int_{0}^{x}2e^{-2y}\diff{x}\diff{y}\\
+                    & = 1-\int_{0}^{1}1-e^{-2x}\diff{x}\\
+                    & = \frac{1}{2}-\frac{e^{-2}}{2} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
+
+            \item Find the conditional PDF of $Z$ given that $Y=y$.
+            \begin{proof}
+
+                \begin{align*}
+                    f_{Z \mid Y=y}(z) & = f_{X+Y \mid Y=y}(x+y)\\
+                    & = \begin{dcases}
+                        1, & \text{ if } y \le z \le 1+y\\
+                        0, & \text{ otherwise},
+                    \end{dcases} \qedhere
+                \end{align*}
+
+            \end{proof}
+
+            \item Find the conditional PDF of $Y$ given that $Z=3$.
+            \begin{proof}
+
+                With the laws of conditional probability,
+                \begin{equation*}
+                    f_{Y\mid 3}(y \mid 3) = \frac{f_{Y,Z}(y,3)}{f_Z(3)} = \frac{f_{Z \mid Y=y}(3 \mid y)f_Y(y)}{f_Z(3)}
+                \end{equation*}
+                And,
+                \salign{1}
+                \begin{align*}
+                    F_Z(3) & = \int_{0}^{1}\int_{0}^{z-x}f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                    & = \int_{0}^{1}\int_{0}^{z-x}2e^{-2y}\diff{x}\diff{y}\\
+                    & = 1 - \frac{e^{-2(3)+2}}{2} + \frac{e^{-2(3)}}{2}\\
+                    & = e^{-4}-e^{-6}
+                \end{align*}
+                \endgroup
+                Therefore,
+                \salign{1}
+                \begin{equation*}
+                    f_{Y\mid 3}(y \mid 3) =
+                    \begin{dcases}
+                        \frac{2e^{-2y}}{e^{-4}-e^{-6}}, & \text{ if } 2 \le y \le 3\\
+                        0, & \text{ otherwise},
+                    \end{dcases} \qedhere
+                \end{equation*}
+                \endgroup
+
+            \end{proof}
+
+        \end{enumerate}
+
+        % 2
+        \item Let $P$, a random variable which is uniformly distributed between
+        0 and 1. On any given day, a particular machine is functional with
+        probability $P$. Furthermore, given the value of $P$, the status of the
+        machine on different days is independent
+        \begin{enumerate}
+
+            \item Find the probability that the machine is functional on a
+            particular day.
+            \begin{proof}
+
+                Let $W$ represent the event that the machine is functional\\
+                Then,
+                \salign{0.5}
+                \begin{align*}
+                    P(W) & = \int_{0}^{1}P(W \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}x\diff{x}\\
+                    & = \frac{1}{2} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
+
+            \item We are told that the machine was functional on $m$ out of the
+            last $n$ days. Find the conditional PDF of $P$. You may use the
+            identity
+            \begin{equation*}
+                \int_{0}^{1}p^k(1-p)^{n-k}dp=\frac{k!(n-k)!}{(n+1)!}
+            \end{equation*}
+            \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(W_m) & = \int_{0}^{1}P(W_m \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}\binom{n}{m}x^m(1-x)^{n-m}f_X(x)\diff{x}\\
+                    & = \binom{n}{m}\frac{m!(n-m)!}{(n+1)!}
+                \end{align*}
+                \endgroup
+
+                Therefore, using Bayes rule,
+                \salign{1}
+                \begin{align*}
+                    f_{X \mid W_m}(x) & = \frac{P(W_m \mid X = x)f_X(x)}{P(W_m)} \\
+                    & = \frac{x^m(1-x)^{n-m}}{\frac{m!(n-m)!}{(n+1)!}}, \ 0 \le q \le 1, \ n \ge m \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
+
+            \item Find the conditional probability that the machine is
+            functional today given that it was functional on $m$ out of the
+            last $n$ days.
+            \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(W_m) & = \int_{0}^{1}P(W_m \mid X=x)f_X(x)\diff{x}\\
+                    & = \int_{0}^{1}\binom{n}{m}x^m(1-x)^{n-m}f_X(x)\diff{x}\\
+                    & = \binom{n}{m}\frac{m!(n-m)!}{(n+1)!}  \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
+
+        \end{enumerate}
+
+        % 3
+        \item Let $B \triangleq \{a < X \le b\}$. Derive a general expression
+        for $E[X \mid B]$ if $X$ is a continuous RV. Let $X : N(0,1)$ with
+        $B=\{-1 < X \le 2\}$. Compute $E[X \mid B]$.
+        \begin{proof}
+        \end{proof}
+
+        % 4
+        \item A particular model of an HDTV is manufactured in three different
+        plants, say, $A$, $B$ and $C$, of the same company. Because the workers
+        at $A$, $B$ and $C$ are not equally experienced, the quality of the
+        units differs from plant to plant. The PDF's of the time-to-failure
+        $X$, in years, are
+        \salign{0.5}
+        \begin{align*}
+            f_X(x) &= \frac{1}{5}\exp(-x/5)u(x) \text{ for } A\\
+            f_X(x) &= \frac{1}{6.5}\exp(-x/6.5)u(x) \text{ for } B\\
+            f_X(x) &= \frac{1}{10}\exp(-x/10)u(x) \text{ for } C,
+        \end{align*}
+        \endgroup
+        where $u(x)$ is the unit step. Plant $A$ produces three times as many
+        units as $B$, which produces twice as many as $C$. The TVs are all sent
+        to a central warehouse, intermingled, and shipped to retail stores all
+        around the country. What is the expected lifetime of a unit purchased
+        at random?
+        \begin{proof}
+
+            The expectations of the exponential distributions, $1/\lambda$,
+            \begin{align*}
+                E[A] & = 5\\
+                E[B] & = 6.5\\
+                E[C] & = 10
+            \end{align*}
+            Given the ratio of the units is $6:2:1$,
+            \begin{align*}
+                P(A) & = \frac{6}{9}\\
+                P(B) & = \frac{2}{9}\\
+                P(C) & = \frac{1}{9}
+            \end{align*}
+            Therefore, the expected lifetime of a unit purchased at random,
+            \salign{0.5}
+            \begin{align*}
+                E & = \frac{5 \times 6}{9} + \frac{6.5 \times 2}{9} + \frac{10 \times 1}{9}\\
+                & = \frac{53}{6} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{proof}
+
+        % 5
+        \item The coordinate $X$ and $Y$ of a point are independent zero mean
+        normal random variables with common variances $\sigma^2$. Given that
+        the point is at a distance of at least $c$ from the origin, find the
+        conditional joint PDF of $X$ and $Y$.
+        \begin{proof}
+
+            Given,
+            \begin{equation*}
+                f_X(x)={\frac{1}{\sigma\sqrt{2\pi}}}\exp\bigg(\frac{-x^2}{2\sigma^2}\bigg)
+            \end{equation*}
+            \begin{equation*}
+                f_Y(y)={\frac{1}{\sigma\sqrt{2\pi}}}\exp\bigg(\frac{-y^2}{2\sigma^2}\bigg)
+            \end{equation*}
+            Since $X$ and $Y$ are assumed independent
+            \begin{equation*}
+                f_{(X,Y)}(x,y)=f_X(x)f_Y(y) = \frac{1}{2\pi\sigma^2}\exp\bigg(\frac{-(x^2+y^2)}{2\sigma^2}\bigg)
+            \end{equation*}
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                P(x^2+y^2 \ge c^2) & = \int f_{X,Y}(x,y)\diff{x}\diff{y}\\
+                & = \frac{1}{2\pi\sigma^2} \int_{c}^{\infty}\exp\bigg(\frac{-r^2}{2\sigma^2}\bigg)2\pi r\diff{r} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{proof}
+
+        % 6
+        \item Alexei is vacationing in Monte Carlo. The amount $X$ (in dollars)
+        he takes to the casino each evening is a random variable with a PDF of
+        the form
+        \begin{equation*}
+            f_X(x)=
+            \begin{dcases}
+                ax, & \text{ if } 0 \le x \le 40,\\
+                0, & \text{otherwise}
+            \end{dcases}
+        \end{equation*}
+        At the end of each night, the amount $Y$ that he has when leaving the
+        casino is uniformly distributed between zero and twice the amount that
+        he came with.
+        \begin{enumerate}
+
+            \item Determine the joint PDF $f_{X,Y}(x,y)$.
+            \begin{proof}
+
+                Since
+                \begin{align*}
+                    \int_{0}^{40}ax\diff{x} & = 1\\
+                    a\frac{40^2}{2} & = 1\\
+                    \implies a & = \frac{1}{800}
+                \end{align*}
+
+                The uniform distribution,
+                \begin{equation*}
+                    f_{Y \mid X}(y \mid x) =
+                    \begin{dcases}
+                        \frac{1}{2x}, & \text{ if } 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases}
+                \end{equation*}
+
+                Therefore,
+                \begin{align*}
+                    f_{X,Y}(x,y) & =\frac{f_{Y \mid X}(y \mid x)}{f_X(x)}\\
+                    & =
+                    \begin{dcases}
+                        \frac{ax}{2x}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \\
+                    & =
+                    \begin{dcases}
+                        \frac{a}{2}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \\
+                    & =
+                    \begin{dcases}
+                        \frac{1}{1600}, & \text{ if } 0 \le x \le 40, \ 0 \le y \le 2x,\\
+                        0, & \text{otherwise}
+                    \end{dcases} \qedhere
+                \end{align*}
+
+            \end{proof}
+
+            \item What is the probability that on a given night Alexei makes a
+            positive profit at the casino?
+            \begin{proof}
+
+                Since the probability of loss is $0 \le y \le x$, and the
+                probability of profit is $x \le y \le 2x$,
+                \begin{equation*}
+                    P(\text{profit}) = P(y-x>0)=\frac{1}{2} \qedhere
+                \end{equation*}
+
+            \end{proof}
+
+            \item Find the PDF of Alexei's profit $Y-X$ on a particular night,
+            and also determine its expected value.
+            \begin{proof}
+
+                \salign{1}
+                \begin{align*}
+                    P(x-y<m)
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2x}f(x)\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2x}f(x)\diff{x}, & \text{otherwise}
+                    \end{dcases}
+                \end{align*}
+                \endgroup
+                Since $f(x) = ax$,
+                \salign{1}
+                \begin{align*}
+                    P(x-y<m)
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2}a\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2}a\diff{x}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \int_{m}^{40}\frac{x+m}{2}a\diff{x}, & \text{ if } t > 0,\\
+                        \int_{-m}^{40}\frac{x-m}{2}a\diff{x}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \frac{1}{1600}\bigg(\frac{x^2}{2}+mx\bigg)\bigg\vert_{m}^{40}, & \text{ if } t > 0,\\
+                        \frac{1}{1600}\bigg(\frac{x^2}{2}-mx\bigg)\bigg\vert_{-m}^{40}, & \text{otherwise}
+                    \end{dcases} \\
+                    & = \begin{dcases}
+                        \frac{1}{1600}\bigg(800-\frac{3m^2}{2}+40m\bigg), & \text{ if } t > 0,\\
+                        \frac{1}{1600}\bigg(800+\frac{m^2}{2}-40m\bigg), & \text{otherwise}
+                    \end{dcases}
+                \end{align*}
+                \endgroup
+                Therefore, the PDF
+                \salign{0.7}
+                \begin{equation*}
+                    =\begin{dcases}
+                        \frac{1}{1600}(40-3m), & \text{ if } t > 0,\\
+                        \frac{1}{1600}(m-40), & \text{otherwise}
+                    \end{dcases}
+                \end{equation*}
+                \endgroup
+                And the expected value,
+                \salign{0.7}
+                \begin{align*}
+                    &= \frac{1}{1600}\bigg(\int_{0}^{40}(40-3m)m\diff{m}+\int_{-40}^{0}(m-40)m\diff{m}\bigg)\\
+                    & = \frac{1}{1600}\bigg((20m^2-m^3)\bigg\vert_{0}^{40}+(\frac{m^3}{3}-20m^3)\bigg\vert_{-40}^{0}\bigg)\\
+                    & = \frac{1}{1600}\bigg(-32000+ \frac{160000}{3}\bigg)\\
+                    & = \frac{40}{3} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{proof}
+
+        \end{enumerate}
+
+        % 7
+        \item Consider a communication channel corrupted by noise. Let $X$ be
+        the value of the transmitted signal and $Y$ be the value of the
+        received signal. Assume that the conditional density of $Y$ given
+        $\{X=x\}$ is Gaussian, that is,
+        \begin{equation*}
+            f_{Y \mid X}(y \mid x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\bigg(\frac{-(y-x)^2}{2\sigma^2}\bigg),
+        \end{equation*}
+        and $X$ is uniformly distributed on $[-1,1]$. What is the conditional
+        pdf of $X$ given $Y$, that is, $f_{X \mid Y}(x \mid y)$
+        \begin{proof}
+
+            Given,
+            \begin{equation*}
+                f_{X}(x) =
+                \begin{dcases}
+                    \frac{1}{2}, & \text{ if } -1 \le x \le 1\\
+                    0, & \text{ otherwise},
+                \end{dcases}
+            \end{equation*}
+
+            And,
+            \salign{1}
+            \begin{align*}
+                f_Y(y) & = \int_{\infty}f_{X,Y}(x,y)\diff{x}\\
+                & = \int_{\infty}f_{Y \mid X}(y \mid x)f_X(x)\diff{x}\\
+                & = \int_{-1}^{1}\frac{1}{2}\frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big(\frac{-(y-x)^2}{2\sigma^2}\Big)\diff{x}\\
+                & = \frac{1}{2}\bigg(\phi\Big(\frac{y-1}{\sigma}\Big)-\phi\Big(\frac{y+1}{\sigma}\Big)\bigg)
+            \end{align*}
+            \endgroup
+
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                f_{X \mid Y}(x \mid y) & = \frac{f_{Y \mid X}(y \mid x)f_X(x)}{f_Y(y)}\\
+                & = \frac{\frac{1}{\sqrt{2\pi\sigma^2}}\exp\Big(\frac{-(y-x)^2}{2\sigma^2}\Big)f_X(x)}{\phi\Big(\frac{y-1}{\sigma}\Big)-\phi\Big(\frac{y+1}{\sigma}\Big)} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{proof}
+
+        % 8
+        \item A U.S. defense radar scans the skies for unidentified flying
+        objects (UFOs). Let $M$ be the event that a UFO is present and $M^C$
+        the event that a UFO is absent. Let $f_{X \mid M}(x \mid
+        M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x-r)^2)$ be the conditional PDF of
+        the radar return signal $X$ when a UFO is actually there, and let $f_{X
+        \mid M}(x \mid M^C)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x)^2)$ be the
+        conditional PDF of the radar return signal $X$ when there is no UFO. To
+        be specific, let $r=1$ and let the \textit{alert level} be $x_A=0.5$.
+        Let $A$ denote the event of an alert, that is, $\{X>x_A\}$. Compute
+        $P(A\mid M)$, $P(A^C\mid M)$, $P(A\mid M^C)$, $P(A^C\mid M^C)$.\\
+        Assume that $P(M)=10^{-3}$. Compute $P(A\mid M)$, $P(A^C\mid M)$,
+        $P(A\mid M^C)$, $P(A^C\mid M^C)$.\\
+        Repeat for $P(M)=10^{-6}$
+        \begin{proof}
+
+            Given, $r=1$,
+            \begin{equation*}
+                f_{X \mid M}(x \mid M)=\frac{1}{\sqrt{2\pi}}\exp(-0.5(x-1)^2)
+            \end{equation*}
+            \begin{equation*}
+                f_{X \mid M}(x \mid M^C)=\frac{1}{\sqrt{2\pi}}\exp(-0.5x^2)
+            \end{equation*}
+
+        \end{proof}
+
+    \end{enumerate}
+
+\end{document}
