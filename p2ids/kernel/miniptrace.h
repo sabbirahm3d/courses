@@ -39,7 +39,7 @@ enum __ptrace_setoptions {
    appear (those that are used for the particular request) as:
      pid_t PID, void *ADDR, int DATA, void *ADDR2
    after REQUEST.  */
-extern long int ptrace(enum ptrace_req req, ...);
+extern long int ptrace(enum ptrace_req req, pid_t pid, void *addr, void *data);
 
 
 #endif // CPTRACE_H

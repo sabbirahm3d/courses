@@ -1,44 +1,68 @@
-#include <sys/wait.h>
-#include <unistd.h>
+//#include <linux/time.h>
+//#include <linux/cred.h>
+//#include <kernel/signal.h>
+//#include <linux/slab.h>
+//#include <linux/signal.h>
 
+#include <sys/wait.h>
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "logger.h"
 #include "miniptrace.h"
 
-int do_child(char **argv);
+int main() {
 
-int do_trace(pid_t child);
+    char **args = malloc(sizeof(char));
+    //char **args = kmalloc(sizeof(char));
 
-int wait_for_syscall(pid_t child);
+    *args = "pwd";
 
-int main(int argc, char **argv) {
+    sys_ids_log(args);
 
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s prog args\n", argv[0]);
-        exit(1);
-    }
+    free(args);
 
-    int i = 1;
-    while (argv[i]) {
+}
+
+
+int sys_ids_log(char **argv) {
+
+    int i;
+    for (i = 0; argv[i]; i++) {
 
         fprintf(stderr, "%s ", argv[i]);
-        i++;
 
     }
     fprintf(stderr, "\n");
 
+    struct timespec ts;
+//    getnstimeofday(&ts);
+
+    printf("TIME: %.2lu:%.2lu:%.2lu:%.6lu \r\n",
+           (ts.tv_sec / 3600) % (24),
+           (ts.tv_sec / 60) % (60),
+           ts.tv_sec % 60,
+           ts.tv_nsec / 1000);
+
     pid_t child = fork();
     if (!child) {
-        return do_child(argv + 1);
+        return do_child(argv);
     } else {
         return do_trace(child);
     }
+
 }
+
 
 int do_child(char **argv) {
 
-    ptrace(PTRACE_TRACEME);
+//    // get the real UID
+//    kuid_t cred;
+//    cred = current_uid();
+//    uid = (int) cred.val;
+
+    ptrace(PTRACE_TRACEME, 0, 0, 0);
+//    kill(uid, SIGSTOP);
     kill(getpid(), SIGSTOP);
 
     return execvp(argv[0], argv);
@@ -48,8 +72,9 @@ int do_child(char **argv) {
 int do_trace(pid_t child) {
 
     int status, syscall;
+    long addr_sz = sizeof(long) * 15;
     waitpid(child, &status, 0);
-    ptrace(PTRACE_SETOPTIONS, child, 0, PTRACE_O_TRACESYSGOOD);
+    ptrace(PTRACE_SETOPTIONS, child, 0, (void *) PTRACE_O_TRACESYSGOOD);
 
     while (1) {
 
@@ -57,7 +82,7 @@ int do_trace(pid_t child) {
             break;
         }
 
-        syscall = ptrace(PTRACE_PEEKUSER, child, sizeof(long) * 15);
+        syscall = ptrace(PTRACE_PEEKUSER, child, (void *) addr_sz, 0);
         fprintf(stdout, "%d %d\n", child, syscall);
 
         if (wait_for_syscall(child)) {
@@ -65,7 +90,9 @@ int do_trace(pid_t child) {
         }
 
     }
+
     return 0;
+
 }
 
 int wait_for_syscall(pid_t child) {
