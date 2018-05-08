@@ -4,6 +4,7 @@
 #include <linux/slab.h>
 #include <linux/signal.h>
 #include <linux/unistd.h>
+#include <linux/syscalls.h>
 
 //#include <sys/wait.h>
 //#include <stdlib.h>

@@ -11,20 +11,15 @@ enum ptrace_req {
        All signals received by this process can be intercepted by its
        parent, and its parent can use the other `ptrace' requests.  */
             PTRACE_TRACEME = 0,
-#define PT_TRACE_ME PTRACE_TRACEME
 
     /* Return the word in the process's user area at offset ADDR.  */
             PTRACE_PEEKUSER = 3,
 
-#define PT_READ_U PTRACE_PEEKUSER
-
     /* Continue and stop at the next (return from) syscall.  */
             PTRACE_SYSCALL = 24,
-#define PT_SYSCALL PTRACE_SYSCALL
 
     /* Set ptrace filter options.  */
             PTRACE_SETOPTIONS = 0x4200,
-#define PT_SETOPTIONS PTRACE_SETOPTIONS
 
 };
 
