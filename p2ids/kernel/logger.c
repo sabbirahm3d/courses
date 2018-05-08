@@ -1,28 +1,29 @@
-//#include <linux/time.h>
-//#include <linux/cred.h>
-//#include <kernel/signal.h>
-//#include <linux/slab.h>
-//#include <linux/signal.h>
+#include <linux/kernel.h>
+#include <linux/time.h>
+#include <linux/cred.h>
+#include <linux/slab.h>
+#include <linux/signal.h>
+#include <linux/unistd.h>
 
-#include <sys/wait.h>
-#include <stdlib.h>
-#include <stdio.h>
-
+//#include <sys/wait.h>
+//#include <stdlib.h>
+//#include <stdio.h>
+//
 #include "logger.h"
 #include "miniptrace.h"
 
-int main() {
-
-    char **args = malloc(sizeof(char));
-    //char **args = kmalloc(sizeof(char));
-
-    *args = "pwd";
-
-    sys_ids_log(args);
-
-    free(args);
-
-}
+//int main() {
+//
+//    char **args = kmalloc(sizeof(char));
+//    //char **args = kmalloc(sizeof(char));
+//
+//    *args = "pwd";
+//
+//    sys_ids_log(args);
+//
+//    kfree(args);
+//
+//}
 
 
 int sys_ids_log(char **argv) {
@@ -30,15 +31,15 @@ int sys_ids_log(char **argv) {
     int i;
     for (i = 0; argv[i]; i++) {
 
-        fprintf(stderr, "%s ", argv[i]);
+        printk("%s ", argv[i]);
 
     }
-    fprintf(stderr, "\n");
+    printk("\n");
 
     struct timespec ts;
 //    getnstimeofday(&ts);
 
-    printf("TIME: %.2lu:%.2lu:%.2lu:%.6lu \r\n",
+    printk("TIME: %.2lu:%.2lu:%.2lu:%.6lu \r\n",
            (ts.tv_sec / 3600) % (24),
            (ts.tv_sec / 60) % (60),
            ts.tv_sec % 60,
@@ -56,14 +57,9 @@ int sys_ids_log(char **argv) {
 
 int do_child(char **argv) {
 
-//    // get the real UID
-//    kuid_t cred;
-//    cred = current_uid();
-//    uid = (int) cred.val;
-
     ptrace(PTRACE_TRACEME, 0, 0, 0);
-//    kill(uid, SIGSTOP);
-    kill(getpid(), SIGSTOP);
+    kill(current->pid, SIGSTOP);
+    //kill(getpid(), SIGSTOP);
 
     return execvp(argv[0], argv);
 
@@ -83,7 +79,7 @@ int do_trace(pid_t child) {
         }
 
         syscall = ptrace(PTRACE_PEEKUSER, child, (void *) addr_sz, 0);
-        fprintf(stdout, "%d %d\n", child, syscall);
+        printk("%d %d\n", child, syscall);
 
         if (wait_for_syscall(child)) {
             break;
