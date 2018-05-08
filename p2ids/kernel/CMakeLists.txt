@@ -3,5 +3,5 @@ project(p2ids)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES cptrace.c logger.c)
+set(SOURCE_FILES logger.c miniptrace.h)
 add_executable(p2ids ${SOURCE_FILES})
