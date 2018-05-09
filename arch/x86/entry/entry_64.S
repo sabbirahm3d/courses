@@ -247,7 +247,7 @@ GLOBAL(entry_SYSCALL_64_after_hwframe)
 	 */
 	movq	PER_CPU_VAR(current_task), %r11
 	testl	$_TIF_WORK_SYSCALL_ENTRY|_TIF_ALLWORK_MASK, TASK_TI_flags(%r11)
-	jnz	entry_SYSCALL64_slow_path
+	jmp	entry_SYSCALL64_slow_path
 
 entry_SYSCALL_64_fastpath:
 	/*
