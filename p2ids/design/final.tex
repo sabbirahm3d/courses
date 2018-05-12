@@ -10,9 +10,53 @@
 
 \begin{document}
 
-    \documentinfo{May 9, 2018}{Final}
+    \documentinfo{May 13, 2018}{Final}
 
     % import commmon sections on Introduction
     \input{intro.tex}
+
+    \section{Design Approach} The final design of the project adopted a much
+    simpler approach than what was previously assumed. The methods to achieve
+    the requirements became apparent after extensive research.
+
+    \subsection{Kernel Space} The kernel-space program will trace the system
+    calls and dump them on logs consisting of the \texttt{pid} and the system
+    call numbers of each processes spawned by a program. The log was intended
+    to also contain the corresponding timestamps of the execution of the system
+    calls, but the kernel-space did not appear to have nanosecond resolution of
+    their timestamps. Initially, the kernel-space program intended to create
+    the log files in $N$ chunks specified by the user to pass on to the user-
+    space program for analysis. This parameter will be removed as an option to
+    the user and instead be converted to a constant. The constant $N$ number of
+    system calls per log files would provide a smooth communication method with
+    the user-space program.
+
+    Initially, \texttt{ptrace} appeared to be the only method of tracing system
+    calls. Two different approaches were proposed in the initial design. The
+    first approach suggested inserting breakpoints in the implementations for
+    each system calls in the kernel. The second and more probable approach
+    suggested a stripped down version of \texttt{ptrace} that behaved
+    identically. After extensive research, a third approach was considered that
+    merged aspects of both of the prior approaches. The conditional jump
+    instruction, \texttt{jnz}, was updated to an unconditional jump,
+    \texttt{jmp}, inside the system call entry point section in
+    \texttt{entry\_64.S}. This update forces all the system calls to save their
+    system call number to registers before disabling the interrupt request. The
+    system call number is then accessible in the register \texttt{ORIG\_RAX} in
+    \texttt{common.c} which can be provided as a macro to external files.
+
+    The kernel-space program will require the user to provide the programs to
+    be traced. The program will fork its own copy of the process, and gather
+    the process IDs and the system call numbers. The \texttt{proc} filesystem
+    will be utilized to provide a convenient interface between the kernels-
+    space program and writing log files accessible to the user space. The
+    common directory shared by the entire IDS, \texttt{idsdata}, will be used
+    to store the log files.
+
+    \subsection{User Space} The user-space program was developed before the
+    kernel-space program. The program was tested using dummy data simulating
+    log files created by the kernel-space program. An object oriented approach
+    was taken to develop the interface with the user and the kernel-space
+    logger. The user would be required to initialize the user-space program after the kernel-space program has been initiated to run concurrently. The user-space program would wait for the logger to generate a chunk of the system call logs, and then automatically store the first
 
 \end{document}
