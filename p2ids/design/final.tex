@@ -47,7 +47,7 @@
 
     The kernel-space program will require the user to provide the programs to
     be traced. The program will fork its own copy of the process, and gather
-    the process IDs and the system call numbers. The \texttt{proc} filesystem
+    the process IDs and the system call numbers. The \texttt{proc} file system
     will be utilized to provide a convenient interface between the kernels-
     space program and writing log files accessible to the user space. The
     common directory shared by the entire IDS, \texttt{idsdata}, will be used
@@ -57,6 +57,18 @@
     kernel-space program. The program was tested using dummy data simulating
     log files created by the kernel-space program. An object oriented approach
     was taken to develop the interface with the user and the kernel-space
-    logger. The user would be required to initialize the user-space program after the kernel-space program has been initiated to run concurrently. The user-space program would wait for the logger to generate a chunk of the system call logs, and then automatically store the first
+    logger. The user would be required to initialize the user-space program
+    after the kernel-space program has been initiated to run concurrently. The
+    user-space program would wait for the logger to generate a chunk of the
+    system call logs, and then automatically label the first sequences of
+    system calls as ``healthy'' sequences. The healthy sequences get stored in
+    a separate file so that it may be read back into memory for analysis of the
+    specified program at a later time.
+
+
+
+    The user-space program is written in Python 2, with support for Python 3
+    interpreters. The programming language allowed for a faster approach to
+    computing the hamming distances between the windows.
 
 \end{document}
