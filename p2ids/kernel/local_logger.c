@@ -37,6 +37,7 @@ extern void free(void *__ptr);
 
 
 #define SIGSTOP 19
+#define SIGTERM 15
 
 int main() {
 
@@ -46,7 +47,7 @@ int main() {
     *args = "ls";
 
     ids_log_syscall();
-    sys_ids_log(args);
+    launch_proc(args);
 
     free(args);
 
@@ -69,6 +70,31 @@ int sys_ids_log(char **argv) {
     } else {
         return do_trace(child);
     }
+
+}
+
+
+void launch_proc(char **cmd) {
+
+    int pid = fork();
+
+    if (pid == -1) {
+
+        printf("Child process could not be created\n");
+        return;
+
+    } else if (!pid) {  // child process
+
+        // end the process for invalid commands
+        if (execvp(cmd[0], cmd) == -1) {
+            printf("sabbash: command not found: %s\n", cmd[0]);
+            kill(getpid(), SIGTERM);
+        }
+
+    }
+
+    // wait for child to finish
+    waitpid(pid, NULL, 0);
 
 }
 
