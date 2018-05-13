@@ -46,11 +46,11 @@ if __name__ == '__main__':
         help="| Show this help message and exit"
     )
 
+    parser.add_argument("--prog", "-p", default="",
+                        metavar="cmd", help="| Program", required=True)
+
     parser.add_argument("--window", "-w", default=5, metavar="N",
                         type=int, help="| Window size of sequences")
-
-    parser.add_argument("--prog", "-p", default="",
-                        metavar="cmd", help="| Program")
 
     # parse arguments to pass into function
     args = parser.parse_args()

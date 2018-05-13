@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
     char **cmd_tokens = malloc(argc * sizeof(*cmd_tokens));
 
     for (int i = 2; argv[i]; i++) {
-        printf("%s\n", argv[i]);
         cmd_tokens[i] = argv[i];
     }
 
