@@ -44,7 +44,11 @@ class LogParser(object):
 
             for line in log_file:
                 split_line = line.split()
-                split_line += [sys_call_names[split_line[1]]]
+                try:
+                    split_line += [sys_call_names[split_line[1]]]
+                except KeyError:
+                    print "Invalid system call found"
+                    split_line += ["NULL"]
 
                 if not any(split_line[0] in sublist for sublist in window):
                     sys_calls.append(window)

@@ -24,16 +24,12 @@ int main(int argc, char *argv[]) {
     // array for the different tokens in the command
     char **cmd_tokens = malloc(argc * sizeof(*cmd_tokens));
 
-    for (int i = 1; argv[i]; i++) {
+    for (int i = 2; argv[i]; i++) {
+        printf("%s\n", argv[i]);
         cmd_tokens[i] = argv[i];
     }
 
-    char *file_name = malloc(sizeof(char));
-    strcpy(file_name, "../idsdata/");
-    strcat(file_name, argv[1]);
-    strcat(file_name, ".log");
-
-    launch_proc(cmd_tokens, file_name);
+    launch_proc(cmd_tokens, argv[1]);
 
 }
 
@@ -84,9 +80,6 @@ int wait_for_syscall(pid_t child) {
     while (1) {
 
         waitpid(child, &status, 0);
-        if (WIFSTOPPED(status) && WSTOPSIG(status) & 0x80) {
-            return 0;
-        }
         if (WIFEXITED(status)) {
             return 1;
         }

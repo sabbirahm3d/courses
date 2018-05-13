@@ -1,14 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import argparse
 from os import path
+from subprocess import call
 
+from config import LOG_PATH, LOGGER_PATH
 from parselog import LogParser
-
-from pprint import pprint
-
-
-BASE_PATH = path.abspath(__file__)
 
 
 class IntrusionDetectionSystem(object):
@@ -37,6 +35,33 @@ class IntrusionDetectionSystem(object):
 
 if __name__ == '__main__':
 
-    ids = IntrusionDetectionSystem(prog_name="sample_train.log", window_size=3)
+    parser = argparse.ArgumentParser(
+        description="Intrusion Detection System: Execute this script with the program you would like to trace",
+        add_help=False
+    )
+
+    parser.add_argument(
+        "-h", "--help", action="help",
+        default=argparse.SUPPRESS,
+        help="| Show this help message and exit"
+    )
+
+    parser.add_argument("--window", "-w", default=5, metavar="N",
+                        type=int, help="| Window size of sequences")
+
+    parser.add_argument("--prog", "-p", default="",
+                        metavar="cmd", help="| Program")
+
+    # parse arguments to pass into function
+    args = parser.parse_args()
+    log_file_name = LOG_PATH + args.prog.split()[0] + ".log"
+    if (path.isfile(LOGGER_PATH)):
+        call([LOGGER_PATH, log_file_name, args.prog])
+    else:
+        print "Logger executable not compiled"
+
+    ids = IntrusionDetectionSystem(
+        prog_name=log_file_name, window_size=args.window
+    )
     ids.train()
-    ids.analyze("sample.log")
+    ids.analyze(log_file_name)
