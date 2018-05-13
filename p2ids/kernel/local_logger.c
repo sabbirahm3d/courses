@@ -42,14 +42,40 @@ extern void free(void *__ptr);
 int main() {
 
     char **args = malloc(sizeof(char));
-    //char **args = kmalloc(sizeof(char));
 
     *args = "ls";
 
-    ids_log_syscall();
     launch_proc(args);
 
     free(args);
+
+}
+
+void launch_proc(char **cmd) {
+
+    unsigned long syscall_nr;
+    long ret = ids_log_syscall(&syscall_nr);
+
+    int pid = fork();
+
+    if (pid == -1) {
+
+        printf("Child process could not be created\n");
+        return;
+
+    } else if (!pid) {  // child process
+
+        // end the process for invalid commands
+        if (execvp(cmd[0], cmd) == -1) {
+            printf("Command not found: %s\n", cmd[0]);
+            kill(getpid(), SIGTERM);
+        }
+
+    }
+
+    printf("%d %ld %ld\n", pid, syscall_nr, ret);
+    // wait for child to finish
+    waitpid(pid, NULL, 0);
 
 }
 
@@ -74,37 +100,9 @@ int sys_ids_log(char **argv) {
 }
 
 
-void launch_proc(char **cmd) {
-
-    int pid = fork();
-
-    if (pid == -1) {
-
-        printf("Child process could not be created\n");
-        return;
-
-    } else if (!pid) {  // child process
-
-        // end the process for invalid commands
-        if (execvp(cmd[0], cmd) == -1) {
-            printf("sabbash: command not found: %s\n", cmd[0]);
-            kill(getpid(), SIGTERM);
-        }
-
-    }
-
-    // wait for child to finish
-    waitpid(pid, NULL, 0);
-
-}
 
 
 int do_child(char **argv) {
-
-    // ids_log_syscall();
-    // // ptrace(PTRACE_TRACEME, 0, 0, 0);
-    // // kill(getpid(), SIGSTOP);
-    printf("KILLED\n");
 
     return execvp(argv[0], argv);
 
@@ -116,7 +114,6 @@ int do_trace(pid_t child) {
     long addr_sz = sizeof(long) * 15;
     waitpid(child, &status, 0);
     ids_log_syscall();
-    // ptrace(PTRACE_SETOPTIONS, child, 0, (void *) PTRACE_O_TRACESYSGOOD);
 
     while (1) {
 
@@ -125,8 +122,6 @@ int do_trace(pid_t child) {
         }
 
         ids_log_syscall();
-        // syscall_num = ptrace(PTRACE_PEEKUSER, child, (void *) addr_sz, 0);
-        // printf("%d %d\n", child, syscall_num);
 
         if (wait_for_syscall(child)) {
             break;

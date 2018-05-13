@@ -3,5 +3,4 @@
 
 extern unsigned long SYSCALL_NR;
 
-
 #endif // COMMON_H
