@@ -1,1 +1,1 @@
-obj-y := kernel/logger.o
+obj-y := kernel/idslogger.o
