@@ -1,15 +1,15 @@
-//#include <linux/time.h>
-//#include <linux/cred.h>
-//#include <kernel/signal.h>
-//#include <linux/slab.h>
-//#include <linux/signal.h>
-
-//#include <sys/wait.h>
-//#include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <linux/kernel.h>
+#include <sys/syscall.h>
+#define __NR_ids_log 333
+
+long ids_log_syscall(void) {
+    return syscall(__NR_ids_log);
+}
 
 #include "local_logger.h"
-#include "local_miniptrace.h"
+// #include "local_miniptrace.h"
 
 # define WIFSTOPPED(status)    __WIFSTOPPED (__WAIT_INT (status))
 # define WSTOPSIG(status)    __WSTOPSIG (__WAIT_INT (status))
@@ -45,6 +45,7 @@ int main() {
 
     *args = "ls";
 
+    ids_log_syscall();
     sys_ids_log(args);
 
     free(args);
@@ -74,8 +75,10 @@ int sys_ids_log(char **argv) {
 
 int do_child(char **argv) {
 
-    ptrace(PTRACE_TRACEME, 0, 0, 0);
-    kill(getpid(), SIGSTOP);
+    // ids_log_syscall();
+    // // ptrace(PTRACE_TRACEME, 0, 0, 0);
+    // // kill(getpid(), SIGSTOP);
+    printf("KILLED\n");
 
     return execvp(argv[0], argv);
 
@@ -86,7 +89,8 @@ int do_trace(pid_t child) {
     int status, syscall_num;
     long addr_sz = sizeof(long) * 15;
     waitpid(child, &status, 0);
-    ptrace(PTRACE_SETOPTIONS, child, 0, (void *) PTRACE_O_TRACESYSGOOD);
+    ids_log_syscall();
+    // ptrace(PTRACE_SETOPTIONS, child, 0, (void *) PTRACE_O_TRACESYSGOOD);
 
     while (1) {
 
@@ -94,8 +98,9 @@ int do_trace(pid_t child) {
             break;
         }
 
-        syscall_num = ptrace(PTRACE_PEEKUSER, child, (void *) addr_sz, 0);
-        printf("%d %d\n", child, syscall_num);
+        ids_log_syscall();
+        // syscall_num = ptrace(PTRACE_PEEKUSER, child, (void *) addr_sz, 0);
+        // printf("%d %d\n", child, syscall_num);
 
         if (wait_for_syscall(child)) {
             break;
@@ -109,11 +114,11 @@ int do_trace(pid_t child) {
 
 int wait_for_syscall(pid_t child) {
 
-
     int status;
 
     while (1) {
-        ptrace(PTRACE_SYSCALL, child, 0, 0);
+        ids_log_syscall();
+        // ptrace(PTRACE_SYSCALL, child, 0, 0);
         waitpid(child, &status, 0);
         if (WIFSTOPPED(status) && WSTOPSIG(status) & 0x80) {
             return 0;
