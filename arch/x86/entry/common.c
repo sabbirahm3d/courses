@@ -36,6 +36,8 @@
 
 #include "common.h"
 
+unsigned long SYSCALL_NR;
+
 #ifdef CONFIG_CONTEXT_TRACKING
 /* Called on entry from user mode with IRQs off. */
 __visible inline void enter_from_user_mode(void)
@@ -271,7 +273,6 @@ __visible void do_syscall_64(struct pt_regs *regs)
 {
 	struct thread_info *ti = current_thread_info();
 	unsigned long nr = regs->orig_ax;
-	SYSCALL_NR = nr;
 
 	enter_from_user_mode();
 	local_irq_enable();
@@ -289,6 +290,8 @@ __visible void do_syscall_64(struct pt_regs *regs)
 			regs->di, regs->si, regs->dx,
 			regs->r10, regs->r8, regs->r9);
 	}
+
+	SYSCALL_NR = nr;
 
 	syscall_return_slowpath(regs);
 }

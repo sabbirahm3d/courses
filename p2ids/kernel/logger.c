@@ -5,7 +5,7 @@
 #include <linux/signal.h>
 #include <linux/unistd.h>
 #include <linux/syscalls.h>
-#include <arch/x86/entry/common.h>
+#include "../../arch/x86/entry/common.h"
 
 //#include <sys/wait.h>
 //#include <stdlib.h>
