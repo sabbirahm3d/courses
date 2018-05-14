@@ -61,6 +61,37 @@
         distributed in the interval $[0,1]$. Find the CDF and the PDF of
         $|X-Y|$.
         \begin{proof}
+
+            Given, $X$ and $Y$ be independent and uniformly distributed\\
+            Therefore, the PDF
+            \begin{equation*}
+                f_X(x) = \frac{1}{b-a}, \ a \le X \le b
+            \end{equation*}
+            and CDF
+            \begin{equation*}
+                F_X(x) = \frac{x-a}{b-a}, \ a \le X \le b
+            \end{equation*}
+            Let $Z=|X-Y|$. Then, the CDF,
+            \salign{0.7}
+            \begin{align*}
+                F_Z(z) & = P(Z \le z)\\
+                & = P(|X-Y| \le z) \\
+                & = P(-z \le (X-Y) \le z) \\
+                & = F_Z(z) - F_Z(-z) \\
+                & = \frac{z-0}{1-0} - \frac{-z-0}{1-0}\\
+                & = 2z
+            \end{align*}
+            \endgroup
+
+            Since $f_Z(z)=f^\prime_Z(z)$,
+            \salign{0.7}
+            \begin{align*}
+                f_Z(z) & = F_Z(z) + F_Z(-z) \\
+                & = \frac{z-0}{1-0} - \frac{-z-0}{1-0}\\
+                & = 0 \qedhere
+            \end{align*}
+            \endgroup
+
         \end{proof}
 
         \item Your driving time to work is between 30 and 45 minutes if the day
@@ -137,7 +168,30 @@
             driving time)?
             \begin{proof}
 
+                PDF of speed
+                \begin{align*}
+                    f_X & = \begin{dcases}
+                        \frac{2}{3}\cdot40 - 40 \text{ mph}, & \text{if sunny},\\
+                        20 - 30 \text{ mph}, & \text{if rainy},\\
+                    \end{dcases}
+                \end{align*}
+                The mean
+                \salign{0.7}
+                \begin{align*}
+                    E[X] & = \frac{26.67+40}{2} \cdot \frac{2}{3} + \frac{20+30}{2} \cdot \frac{1}{3}\\
+                    & = 30.56
+                \end{align*}
+                \endgroup
 
+                Variance of uniform distribution
+                \salign{0.7}
+                \begin{align*}
+                    E[X^2] & = \frac{26.67+40}{2}\int_{26.67}^{40}x^2\diff{x} + \frac{20+30}{2}\int_{20}^{30}x^2\diff{x}\\
+                    & = 65691\\
+                    var(X) & = E[X^2] - (E[X])^2\\
+                    & = 65691 - (30.56)^2  \qedhere
+                \end{align*}
+                \endgroup
 
             \end{proof}
 
@@ -233,6 +287,17 @@
 
             \item Calculate the PDF of $Y/X$.
             \begin{proof}
+
+                \begin{align*}
+                    f_X(x) & = \int_{0}^{1-x}2\diff{y}\\
+                    & = 2(1-x), \ 0 < x < 1
+                \end{align*}
+                Then,
+                \begin{align*}
+                    f_{Y/X}(x) & = \frac{f_{X,Y}(x,y)}{f_X(x)} \\
+                    & = \frac{1}{1-x}, \ 0 < y < 1 - x  \qedhere
+                \end{align*}
+
             \end{proof}
 
         \end{enumerate}
