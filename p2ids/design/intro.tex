@@ -27,7 +27,8 @@ possible to develop a scheme to identify those that might be under attack
 for further action to be taken.
 
 \section{Objective} The project will compare sequences of system calls made
-by a monitored process to known good sequences.
+by a monitored process to known good sequences using the hamming distances
+between them.
 
 \subsection{Kernel Space Requirements} The kernel-space program will
 instrument the system call dispatcher of the Linux kernel with code that

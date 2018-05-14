@@ -35,10 +35,22 @@
 \captionsetup[table]{skip=10pt}  % space between tables and their captions
 \captionsetup{labelfont=bf}  % bold captions
 
-% bold item numbers for enumerate and itemize
-\setlist[enumerate,1]{label=\textbf{\arabic*}.,itemsep=2em}
-\setlist[itemize]{label=\textbf{\alph*}.,itemsep=2em}
-\setlist[enumerate,2]{label=\textbf{\alph*}.,itemsep=2em}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinelanguage{args}{
+sensitive=false,
+alsoletter={.},
+moredelim=[s][\color{red}]{<}{>},
+moredelim=[s][\color{blue}]{[}{]},
+moredelim=[is][\color{orange}]{:}{:},
+keywords=[10]{...},
+keywordstyle=[10]{\color{magenta}},
+}
+\lstnewenvironment{arguments}
+{\lstset{language=args}}
+{}
+
 
 % custom command to make headings easier
 \newcommand{\documentinfo}[2]{

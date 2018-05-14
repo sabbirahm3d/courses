@@ -7,7 +7,6 @@
 
 \documentclass[paper=usletter, fontsize=12pt]{article}
 \input{structure.tex} % specifies the document layout and style
-
 \begin{document}
 
     \documentinfo{May 13, 2018}{Final}
@@ -65,10 +64,73 @@
     a separate file so that it may be read back into memory for analysis of the
     specified program at a later time.
 
+    The user-space program is written in Python 2. The user-space program
+    executes a C wrapper for the kernel-space system call. The program provides
+    feature options via the command line to the user. The options allow the
+    users to utilize the the detection system for the list of programs, window
+    sizes or other analysis parameters as needed.
 
+    \section{Implementation} Not all the requirements of the project were
+    completed. The implementation for the user-space program mostly followed
+    the design approach initially planned. Portions of the program were
+    required to be modified due to the incomplete kernel-space program it
+    accompanied. Development for the kernel-space program involved programming
+    in user-space for simulation in the same programming language (C). Once
+    sufficient progress was made in the user-space version, the source code
+    would be copied over and translated into the kernel-space program with
+    kernel libraries. This method proved unsuccessful, since the translation
+    process did not have enough time as the development neared the deadline.
 
-    The user-space program is written in Python 2, with support for Python 3
-    interpreters. The programming language allowed for a faster approach to
-    computing the hamming distances between the windows.
+    The only requirement successfully implemented in the kernel-space program
+    was creating a reference to the current system call in the architecture's
+    register. The system call is labeled \texttt{sys\_ids\_log}. The kernel
+    compiles and packages successfully using the kernel-space program.
+
+    The other requirements that were not successfully implemented in the
+    kernel-space were forking processes from the programs listed by the user to
+    trace, and writing to special filesystems using \texttt{proc} instead of
+    normal filesystems. These requirements were implemented in the C wrapper
+    user-space program which invoked the \texttt{sys\_ids\_log} system call.
+
+    The user-space program, labeled \texttt{ids.py}, therefore had to modify
+    its design approach to compensate for the missing functionalities in the
+    kernel-space. The initial design approach suggested both the kernel and
+    user-space programs utilize the log files concurrently with mutexes to
+    prevent any reader-writer issues. The current version of the
+    \texttt{ids.py} design invokes the \texttt{sys\_ids\_log} system call
+    before analyzing the sequences, removing the need for synchronization
+    locks. The current version of \texttt{ids.py} also serves as the convenient
+    high-level interface to the system call from the user.
+
+    \subsection{Usage} To use the IDS, the user-space program, \texttt{ids.py},
+    provides various options for tracing processes. The current version of
+    \texttt{ids.py} does not support tracing processes by their process
+    identifier (PID). The user must provide the processes to be traced as
+    command line arguments. Additional optional features are provided to the
+    user:
+    \begin{itemize}
+
+        \item The window size for the sequences of system calls to be analyzed
+        for their hamming distances is also provided as an option to the user.
+        The default value for the parameter is $k=5$
+
+        \item The minimum threshold for the hamming distance at which the IDS
+        will mark a sequence as ``unhealthy'' is set to the default value of
+        $t=3$. The feature is provided to the user via \texttt{ids.py}
+
+        \item The user also has the option to trace their processes from any
+        working directory, given the absolute path $l$ provided is valid
+
+    \end{itemize}
+
+    The command line arguments of \texttt{ids.py} are as follows:
+    \begin{arguments}
+    python2 ids.py -p=<PROC1> -p=<PROC2> ... -p=<PROCN> [-k=K] [-t=T] [-l=PATH]
+    \end{arguments}
+
+    An example usage of the IDS with simple parameters are as follows:
+    \begin{arguments}
+    python2 ids.py -p="ls -l" -p="pwd" -k=5 -t=4
+    \end{arguments}
 
 \end{document}
