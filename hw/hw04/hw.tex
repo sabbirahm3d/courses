@@ -1,0 +1,396 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+\allowdisplaybreaks
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{CMPE 320} HW 04}
+    \vspace{-0.2in}
+
+    \begin{enumerate}
+
+        % 1
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Given,\\
+            probability of not losing the first game: $p_1=0.4$\\
+            probability of losing the first game: $p_1^c=1-0.4=0.6$\\
+            probability of not losing the second game: $p_2=0.7$\\
+            probability of losing the second game: $p_2^c=1-0.7=0.3$\\
+
+            Therefore, the $p_X$ where $X=0,1,2,4$ represents the number of points earned over the weekend:
+            \begin{align*}
+                P(X=0) & = p_1^c \cdot p_2^c\\
+                & = 0.6 \cdot 0.3\\
+                & = 0.18
+            \end{align*}
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=1) & = \frac{p_1^c \cdot p_2}{2} + \frac{p_1 \cdot
+                p_2^c}{2}\\
+                & = \frac{0.6 \cdot 0.7}{2} + \frac{0.4 \cdot 0.3}{2}\\
+                & = 0.27
+            \end{align*}
+            \endgroup
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=2) & = \frac{p_1^c \cdot p_2}{2} + \frac{p_1 \cdot
+                p_2^c}{2} + \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.6 \cdot 0.7}{2} + \frac{0.4 \cdot 0.3}{2} + \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.34
+            \end{align*}
+            \endgroup
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=3) & = \frac{p_1}{2} \cdot \frac{p_2}{2} + \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.7}{2} \cdot \frac{0.4}{2} + \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.14
+            \end{align*}
+            \endgroup
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X=4) & = \frac{p_1}{2} \cdot \frac{p_2}{2}\\
+                & = \frac{0.7}{2} \cdot \frac{0.4}{2}\\
+                & = 0.07
+            \end{align*}
+            \endgroup
+            \begin{equation*}
+                p_X(k) =
+                \begin{cases}
+                    0.18, & \text{if}\ k = 0,\\
+                    0.27, & \text{if}\ k = 1,\\
+                    0.34, & \text{if}\ k = 2,\\
+                    0.14, & \text{if}\ k = 3,\\
+                    0.07, & \text{if}\ k = 4,\\
+                    0, & \text{otherwise}
+                \end{cases} \qedhere
+            \end{equation*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 2
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Given $p = 1/649640$.
+            Therefore,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(X \ge 1) & = 1 - P(X = 0)\\
+                & = 1 - \Bigg(\frac{649640-1}{649640}\Bigg)^{649640}\\
+                & = 1 - \Bigg(1 - \frac{1}{649640}\Bigg)^{649640}\\
+            \end{align*}
+            If $n = 649640$
+            \begin{align*}
+                P(X \ge 1) & = 1 - \Bigg(1 - \frac{1}{n}\Bigg)^{n}\\
+                & = 1 - \lim_{n \rightarrow \infty}\Bigg(1 -
+                \frac{1}{n}\Bigg)^{n}\\
+                & = 1 - \frac{1}{e} \qedhere
+            \end{align*}
+            \endgroup
+        \end{proof}
+        \vspace{0.2in}
+
+        % 3
+        \item
+        \begin{proof}[\unskip\nopunct]
+            A claim is first filed with the geometric probability
+            \begin{align*}
+                p(1-p)^{n-1} & = (0.05)(1 - 0.05)^{n-1}\\
+                & =(0.05)(0.095)^{n-1}
+            \end{align*}
+            The total premium is
+            \begin{align*}
+                1000 \cdot \sum_{k=0}^{n-1} (0.9)^k & = 1000 \cdot \frac{1-0.9^n}{1-0.9}\\
+                & = 10000 \cdot (1-(0.9)^n)
+            \end{align*}
+            Therefore, the PMF is
+            \begin{equation*}
+                p_X(k) =
+                \begin{cases}
+                    0.05 \cdot (0.095)^{n-1}, & \text{if}\ k = 10000 \cdot (1-(0.9)^n), n = 1,2, \ldots,\\
+                    0, & \text{otherwise}
+                \end{cases} \qedhere
+            \end{equation*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 4
+        \item
+        \begin{proof}[\unskip\nopunct]
+
+            \begin{enumerate}
+
+                \item $Y = X \ (mod \ 3)$\\
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,3,6,9\})\\
+                    & = \frac{4}{10}\\
+                    & = 0.4
+                \end{align*}
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,3,6,9\})\\
+                    & = \frac{4}{10}\\
+                    & = 0.4
+                \end{align*}
+                \begin{align*}
+                    P(Y = 1) & = P(X = \{1,4,7\})\\
+                    & = \frac{3}{10}\\
+                    & = 0.3
+                \end{align*}
+                \begin{align*}
+                    P(Y = 2) & = P(X = \{2,5,8\})\\
+                    & = \frac{3}{10}\\
+                    & = 0.3
+                \end{align*}
+
+                \item $Y = 5 \ (mod \ X + 1)$\\
+                \begin{align*}
+                    P(Y = 0) & = P(X = \{0,4\})\\
+                    & = \frac{2}{10}\\
+                    & = 0.2
+                \end{align*}
+                \begin{align*}
+                    P(Y = 1) & = P(X = \{1,5\})\\
+                    & = \frac{2}{10}\\
+                    & = 0.2
+                \end{align*}
+                \begin{align*}
+                    P(Y = 2) & = P(X = \{2\})\\
+                    & = \frac{1}{10}\\
+                    & = 0.1
+                \end{align*}
+                \begin{align*}
+                    P(Y = 5) & = P(X = \{5,6,7,8,9\})\\
+                    & = \frac{5}{10}\\
+                    & = 0.5 \qedhere
+                \end{align*}
+
+            \end{enumerate}
+
+        \end{proof}
+        \vspace{0.2in}
+
+        % 5
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Since $X$ is uniformly distributed over $[a, b]$,
+            \begin{align*}
+                p_X(k) & =
+                \begin{cases}
+                    \frac{1}{b-a+1}, & \text{if}\ k \in [a,b],\\
+                    0, & \text{otherwise}
+                \end{cases}
+            \end{align*}
+            and
+            \begin{align*}
+                max\{0,X\} & =
+                \begin{cases}
+                    X, & \text{if}\ X > 0\\
+                    0, & \text{if}\ X \le 0
+                \end{cases}
+            \end{align*}
+            Then,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(max\{0,X\} = 0) & = P(X \le 0)\\
+                & = \frac{|a| + 1}{b - a + 1}
+            \end{align*}
+            \endgroup
+            Similarly, for $min\{0,X\}$
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(min\{0,X\} = 0) & = P(X \ge 0)\\
+                & = \frac{b + 1}{b - a + 1}
+            \end{align*}
+            \endgroup
+            For $k > 0$,
+            \begingroup
+            \addtolength{\jot}{1em}
+            \begin{align*}
+                P(max\{0,X\} = k) & = P(max\{0,X\} = k)\\
+                & = P(X = k)\\
+                & = \frac{1}{b - a + 1} \qedhere
+            \end{align*}
+            \endgroup
+        \end{proof}
+        \vspace{0.2in}
+
+        % 6
+        \item
+        \begin{proof}[\unskip\nopunct]
+
+            \begin{enumerate}
+
+                \item Find $K$
+                \begin{align*}
+                    1 & = \sum_{K = -3}^{3} p_X(K)\\
+                    1 & = K\sum_{x = -3}^{3} x^2\\
+                    1 & = K(9 + 4 + 1 + 0 + 1 + 4 + 9) \\
+                    \Rightarrow K & = \frac{1}{28}
+                \end{align*}
+
+                \item Find the PMF of $Y$\\
+                Since $Y = |X|$, then $y \in \{0,1,2,3\}$\\
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    p_Y(0) & = p_X(0)\\
+                    & = 0
+                \end{align*}
+                \begin{align*}
+                    p_Y(1) & = p_X(-1) + p_X(1)\\
+                    & = \frac{1^2}{28} + \frac{1^2}{28}\\
+                    & = \frac{1}{14}
+                \end{align*}
+                \begin{align*}
+                    p_Y(2) & = p_X(-2) + p_X(2)\\
+                    & = \frac{2^2}{28} + \frac{2^2}{28}\\
+                    & = \frac{4}{14}
+                \end{align*}
+                \begin{align*}
+                    p_Y(3) & = p_X(-3) + p_X(3)\\
+                    & = \frac{3^2}{28} + \frac{3^2}{28}\\
+                    & = \frac{9}{14}
+                \end{align*}
+                \endgroup
+
+                \item General formula for $p_Y$
+                \begin{align*}
+                    p_Y & =
+                    \begin{cases}
+                        2p_X(y), & \text{if}\ y \in \{0,1,2,3\},\\
+                        0, & \text{otherwise}
+                    \end{cases} \qedhere
+                \end{align*}
+
+            \end{enumerate}
+
+        \end{proof}
+        \vspace{0.2in}
+
+        % 7
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Since $P_x(X) = sin(X\pi) = 0$ for $X \in \mathbb{Z}$:
+            \begin{align*}
+                E[sin(X\pi)] & = \sum_{k \in \mathbb{Z}} kP_x(k)\\
+                & = 0
+            \end{align*}
+            Since $P_x(X) = cos(X\pi) = 1$ for $X \in \mathbb{Z}$:
+            \begin{align*}
+                E[cos(X\pi)] & = \sum_{k \in \mathbb{Z}} kP_x(k)\\
+                & = 1 \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 8
+        \item
+        \begin{proof}[\unskip\nopunct]
+            \begin{enumerate}
+
+                \item Since the event where Fischer wins is independent, and a
+                win is determined by a win in the $(n+1)$th until $n$ ties:
+                \begin{equation*}
+                    \sum_{n \ge 0} (1-p-q)^{n-1}(p) = \frac{p}{p+q}
+                \end{equation*}
+
+                \item The PMF of the geometric probability
+                \begin{equation*}
+                    p_X(k) = (1-p-q)^{k-1}(p+q) \text{, for } k \ge 0
+                \end{equation*}
+                The mean of the geometric probability
+                \begin{equation*}
+                    E[X] = \frac{1}{p+q}
+                \end{equation*}
+                The variance of the geometric probability
+                \begin{equation*}
+                    var[X] = \frac{1-(p+q)}{(p+q)^2} \qedhere
+                \end{equation*}
+
+            \end{enumerate}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 9
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Since the distribution is binomial with $n=10$
+            \begin{align*}
+                E[X] = np & \ge 10000-10\\
+                \Rightarrow np & \ge 9990\\
+                \Rightarrow p & \ge 0.999 \qedhere
+            \end{align*}
+        \end{proof}
+        \vspace{0.2in}
+
+        % 10
+        \item
+        \begin{proof}[\unskip\nopunct]
+            Since
+            \begin{equation*}
+                var(X) = E[X^2] - (E[X])^2 \Rightarrow E[X^2] = var(X) + (E[X])^2
+            \end{equation*}
+            Then
+            \begin{align*}
+                E[(X_1 + \ldots + X_n)^2] & = var(X_1 + \ldots + X_n) + (E[(X_1 + \ldots + X_n)])^2\\
+                & = n \cdot var(X_1) + (n \cdot E[X_1])^2 \text{, (since the variables are identical)}\\
+                & = n \cdot (E[X_1^2] - (E[X_1])^2) + n^2 \cdot E[X_1]^2\\
+                & = n \cdot E[X_1^2] + (n^2-n) \cdot (E[X_1])^2
+            \end{align*}
+            Let $c = n$ and $d = n^2-n$, then
+            \begin{equation*}
+                E[(X_1 + \ldots + X_n)^2] = cE[X_1^2] + d(E[X_1])^2 \qedhere
+            \end{equation*}
+        \end{proof}
+        \vspace{0.2in}
+
+    \end{enumerate}
+
+\end{document}

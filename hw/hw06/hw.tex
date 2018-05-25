@@ -1,0 +1,578 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{\today}{06}
+    \vspace{-0.2in}
+
+    \begin{enumerate}
+
+        % 1
+        \item
+        At his workplace, the first thing Oscar does every morning is to go to
+        the supply room and pick up one, two, or three pens with equal
+        probability 1/3. If he picks up three pens, he does not return to the
+        supply room again that day. If he picks up one or two pens, he will
+        make one additional trip to the supply room, where he again will pick
+        up one, two, or three pens with equal probability 1/3. (The number of
+        pens taken in one trip will not affect the number of pens taken in any
+        other trip.)
+
+        \begin{enumerate}
+
+            \item The probability that Oscar gets a total of three pens on any
+            particular day.
+            \begin{cproof}
+
+                The probability that he gets 3 pens on his first trip
+                \begin{equation*}
+                    P_1 = \frac{1}{3}
+                \end{equation*}
+
+                The probability that he gets 2 pens on his first trip and 1 pen
+                on his second
+                \begin{equation*}
+                    P_2 = \frac{1}{3}\cdot\frac{1}{3}=\frac{1}{9}
+                \end{equation*}
+
+                The probability that he gets 1 pen on his first trip and 2 pens
+                on his second
+                \begin{equation*}
+                    P_3 = \frac{1}{3}\cdot\frac{1}{3}=\frac{1}{9}
+                \end{equation*}
+
+                The probability that he gets 3 pens on any particular day
+                \begin{equation*}
+                    P(\text{3 pens}) = \frac{1}{3}+\frac{1}{9}+\frac{1}{9}=\frac{5}{9} \qedhere
+                \end{equation*}
+
+            \end{cproof}
+
+            \item The conditional probability that he visited the supply room
+            twice on a given day, given that it is a day in which he got a
+            total of three pens.
+            \begin{cproof}
+
+                The probability that he makes two trips
+                \salign{1}
+                \begin{align*}
+                    P(\text{two trips} \mid \text{3 pens}) & =
+                    \frac{P(\text{two trips} \cap \text{3 pens})}{P(\text{3
+                    pens})} \\
+                    & = \frac{P_2 + P_3}{P(\text{3 pens})} \\
+                    & = \frac{\frac{1}{9} + \frac{1}{9}}{\frac{5}{9}} \\
+                    & = \frac{2}{5} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item \textbf{E}$[N]$ and \textbf{E}$[N \mid C]$, where
+            \textbf{E}$[N]$ is the unconditional expectation of $N$, the total
+            number of pens Oscar gets on any given day, and \textbf{E}$[N \mid
+            C]$ is the conditional expectation of $N$ given the event
+            $C=\{N>3\}$.
+            \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N] & = 2P(\text{2 pens}) + 3P(\text{3 pens}) + 4P(\text{4 pens}) + 5P(\text{5 pens}) \\
+                    & = 2P_2 + 3P(\text{3 pens}) + 4(P_1P_1P_1P_1) + 5(P_1P_1) \\
+                    & = 2\cdot\frac{1}{9} + 3\cdot\frac{5}{9} + 4\cdot\bigg(\frac{1}{9}\cdot\frac{1}{9}\bigg) + 5\cdot\bigg(\frac{1}{3}\cdot\frac{1}{3}\bigg)\\
+                    & = \frac{30}{9}
+                \end{align*}
+                \endgroup
+
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N \mid C] & = \textbf{E}[N \mid \{\text{4 pens,
+                    5 pens}\}] \\
+                    & = 4\cdot\frac{P(\text{4 pens})}{P(\text{4 pens}) + P(\text{5 pens})} + 5\cdot\frac{P(\text{5 pens})}{P(\text{4 pens}) + P(\text{5 pens})} \\
+                    & = 4\cdot\frac{\frac{1}{9}+\frac{1}{9}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} + 5\cdot\frac{\frac{1}{3}\cdot\frac{1}{3}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} \\
+                    & = \frac{13}{3}  \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item $\sigma_{N \mid C}$, the conditional standard deviation of
+            the total number of pens Oscar gets on a particular day, where $N$
+            and $C$ are as in part (c).
+            \begin{cproof}
+
+                Since $\textbf{E}[N \mid C]= 13/3$,\\
+                $\textbf{E}[N^2 \mid C]$
+                \salign{1}
+                \begin{align*}
+                    \textbf{E}[N^2 \mid C] & = \textbf{E}[N^2 \mid \{\text{4 pens, 5 pens}\}] \\
+                    & = 4^2\cdot\frac{P(\text{4 pens})}{P(\text{4 pens}) + P(\text{5 pens})} + 5^2\cdot\frac{P(\text{5 pens})}{P(\text{4 pens}) + P(\text{5 pens})} \\
+                    & = 4^2\cdot\frac{\frac{1}{9}+\frac{1}{9}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} + 5^2\cdot\frac{\frac{1}{3}\cdot\frac{1}{3}}{\frac{1}{9}+\frac{1}{9} + \frac{1}{3}\cdot\frac{1}{3}} \\
+                    & = 19
+                \end{align*}
+                \endgroup
+
+                Therefore, $\sigma_{N \mid C}$
+                \salign{1}
+                \begin{align*}
+                    \sigma_{N \mid C} &= \sqrt{\textbf{E}[N^2 \mid C]-(\textbf{E}[N^2 \mid C])^2} \\
+                    & = \sqrt{19-\bigg(\frac{13}{3}\bigg)^2}\\
+                    & = \frac{\sqrt{2}}{3} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item The probability that he gets more than three pens on each of
+            the next 16 days.
+            \begin{cproof}
+                \salign{1}
+                \begin{align*}
+                    P(N > 3)^{16} & = \bigg(\frac{1}{3}\bigg)^{16}\\
+                    & = \frac{1}{3^{16}} \qedhere
+                \end{align*}
+                \endgroup
+            \end{cproof}
+
+            \item The conditional standard deviation of the total number of
+            pens he gets in the next 16 days given that he gets more than three
+            pens on each of those days.
+            \begin{cproof}
+
+                \salign{1}
+                \begin{align*}
+                    \sigma_{N_1,N_2,\ldots,N_{16} \mid C} &= \sqrt{16\cdot(\textbf{E}[N^2 \mid C]-(\textbf{E}[N^2 \mid C])^2)} \\
+                    & = \sqrt{16\cdot\bigg(19-\bigg(\frac{13}{3}\bigg)^2\bigg)}\\
+                    & = \frac{4\sqrt{2}}{3} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+        \end{enumerate}
+
+        % 2
+        \item Your computer has been acting very strangely lately, and you
+        suspect that it might have a virus on it. Unfortunately, all 12 of the
+        different virus detection programs you own are outdated. You know that
+        if your computer does have a virus, each of the programs, independently
+        of the others, has a 0.8 chance of believing that your computer as
+        infected, and a 0.2 chance of thinking your computer is fine. On the
+        other hand, if your computer does not have a virus, each program has a
+        0.9 chance of believing that your computer is fine, and a 0.1 chance of
+        wrongly thinking your computer is infected. Given that your computer
+        has a 0.65 chance of being infected with some virus, and given that you
+        will believe your virus protection programs only if 9 or more of them
+        agree, find the probability that your detection programs will lead you
+        to the right answer.
+        \begin{cproof}
+
+            Let $V$ denote the computer has a virus, and $D$ denote the detection programs detected it
+            Therefore, given
+            \begin{align*}
+                P(D \mid V) &= 0.8\\
+                P(D \mid V^C) &= 0.9\\
+                P(V) &= 0.65\\
+                P(V^C) &= 0.35
+            \end{align*}
+
+            To find $P(D)$,
+            \salign{1}
+            \begin{align*}
+                P(V^C \cap D) & = P(D \mid V^C)\cdot P(V^C)\\
+                & = 0.9 \cdot 0.35& \\
+                & = 0.315\\
+                P(V \cap D) & = P(D \mid V)\cdot P(V)\\
+                & = 0.8 \cdot 0.65\\
+                & = 0.52\\
+                P(D) &= P(V \cap D) + P(V^C \cap D)\\
+                & = 0.835
+            \end{align*}
+            \endgroup
+
+            Therefore, $P(D)=0.835$ and $P(D^C)=0.165$\\
+            The probability that 9 or more of the 12 computers detect the virus
+            \salign{1}
+            \begin{align*}
+                P(X \ge 9) & = \sum_{i=9}^{12}\binom{12}{i}P(D)^{i}P(D^C)^{12-i}\\
+                & = 0.87835 \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 3
+        \item Joe Lucky plays the lottery on any given week with probability
+        $p$, independently of whether he played on any other week. Each time he
+        plays, he has a probability $q$ of winning, again independently of
+        everything else. During a fixed time period of $n$ weeks, let $X$ be
+        the number of weeks that he played the lottery and $Y$ be the number of
+        weeks that he won.
+        \begin{enumerate}
+
+            \item What is the probability that he played the lottery on any
+            particular week, given that he did not win on that week?
+            \begin{cproof}
+
+                Let $L_i$ represent the event that Joe played the lottery, \\
+                and $W_i$ represent the event that he won on week $i$ \\
+                Therefore,
+                \salign{1}
+                \begin{align*}
+                    P(L_i \mid W_i^c) &= \frac{P(W_i^c \mid L_i)P(L_i)}{P(W_i^c \mid L_i)P(L_i) + P(W_i^c \mid L_i^c)P(L_i^c)}\\
+                    & = \frac{(1-q)p}{(1-q)p+(1-p)} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item Find the conditional PMF $p_{Y \mid X}(y \mid x)$.
+            \begin{cproof}
+
+                The binomial PMF:
+                \salign{1}
+                \begin{align*}
+                    p_{Y \mid X}(y \mid x) & =
+                    \begin{cases}
+                        \binom{x}{y}q^y(1-q)^{x-y} &, \text{ if } 0 \le y \le x,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item Find the joint PMF $p_{X, Y}(x, y)$.
+            \begin{cproof}
+
+                Since $p_{X, Y}(x, y) = p_{Y \mid X}(y \mid x)p_X(x)$
+                \salign{1}
+                \begin{align*}
+                    p_{Y \mid X}(y \mid x) & =
+                    \begin{cases}
+                        \binom{x}{y}q^y(1-q)^{x-y}\binom{n}{x}p^x(1-p)^{n-x} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item Find the marginal PMF $p_{Y}(y)$. \\ \textit{Hint}: One
+            possibility is to start with the answer to part (c), but the
+            algebra can be messy. However, if you think intuitively about the
+            procedure that generates $Y$, you may be able to guess the answer.
+            \begin{cproof}
+
+                Let $Y_i$ be a Bernoulli random variable that takes 1 when Joe wins, and 0 otherwise
+                \begin{align*}
+                    p_{Y_i}(y) & =
+                    \begin{cases}
+                        pq &, \text{ if } y = 1,\\
+                        1 - pq &, \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                Therefore, the marginal PMF
+                \salign{1}
+                \begin{align*}
+                    p_{Y}(y) & =
+                    \begin{cases}
+                        \binom{n}{y}(pq)^y(1-(pq))^{n-y} &, \text{ if } 0 \le y \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item Find the conditional PMF $p_{X \mid Y}(x \mid y)$. Do this
+            algebraically using the preceding answers.
+            \begin{cproof}
+
+                Since $p_{X \mid Y}(x \mid y) = \frac{p_{X, Y}(x, y)}{p_Y(y)}$
+                \salign{1}
+                \begin{align*}
+                    p_{X \mid Y}(x \mid y) & =
+                    \begin{cases}
+                        \frac{\binom{x}{y}q^y(1-q)^{x-y}\binom{n}{x}p^x(1-p)^{n-x}}{\binom{n}{y}(pq)^y(1-(pq))^{n-y}} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases} \qedhere
+                \end{align*}
+                \endgroup
+
+            \end{cproof}
+
+            \item Rederive the answer to part (e) by thinking as follows: for
+            each one of the $n - Y$ weeks that he did not win, the answer to
+            part (a) should tell you something.
+            \begin{cproof}
+                For each of the $n-Y$ weeks where he did not win, there were
+                $x-y$ weeks where Joe he played\\
+                Therefore,
+                \begin{equation*}
+                    P(L_i \mid W_i^C) = \frac{p-pq}{1-pq}
+                \end{equation*}
+                with the PMF
+                \salign{1}
+                \begin{align*}
+                    p_{X \mid Y}(x \mid y) & =
+                    \begin{cases}
+                        \binom{n-y}{x-y}\big(\frac{p-pq}{1-pq}\big)^{x-y}\big(1-\frac{p-pq}{1-pq}\big)^{n-x} &, \text{ if } 0 \le y \le x \le n,\\
+                        0 &, \text{ otherwise }
+                    \end{cases}
+                \end{align*}
+                \endgroup
+
+                Which is equivalent to the answer in part (e) \qedhere
+
+            \end{cproof}
+
+        \end{enumerate}
+
+        % 4
+        \item The runner-up in a road race is given a reward that depends on
+        the difference between his time and the winner's time. He is given 10
+        dollars for being one minute behind, 6 dollars for being one to three
+        minutes behind, 2 dollars for being 3 to 6 minutes behind, and nothing
+        otherwise. Given that the difference between his time and the winner's
+        time is uniformly distributed between 0 and 12 minutes, find the mean
+        and variance of the reward of the runner-up.
+        \begin{cproof}
+
+            For being one minute behind,
+            \salign{1}
+            \begin{align*}
+                P(X=1) & = \frac{1-0}{12-0}\\
+                & = \frac{1}{12}
+            \end{align*}
+            \endgroup
+
+            For being one to three minutes behind,
+            \salign{1}
+            \begin{align*}
+                P(1 < X \le 3) & = \frac{3-0}{12-0}-\frac{1-0}{12-0}\\
+                & = \frac{1}{6}
+            \end{align*}
+            \endgroup
+
+            For being three to six minutes behind,
+            \salign{1}
+            \begin{align*}
+                P(3 < X < 6) & = \frac{6-0}{12-0}-\frac{3-0}{12-0}\\
+                & = \frac{1}{4}
+            \end{align*}
+            \endgroup
+
+            To find the mean and variance,
+                \begin{table}[h]
+                    \centering
+                    \renewcommand{\arraystretch}{2.5}
+                    \begin{tabular}{|c|c|c|c|}
+                        \hline
+                        $\bm{y}$ & $\bm{P(y)}$ & $\bm{yP(y)}$ & $\bm{y^2P(y)}$ \\
+                        \hline
+                        $10$ & $\frac{1}{12}$ & $\frac{5}{6}$ & $\frac{25}{3}$ \\
+                        \hline
+                        $6$ & $\frac{1}{6}$ & $1$ & $6$ \\
+                        \hline
+                        $2$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $1$ \\
+                        \hline
+                    \end{tabular}
+                \end{table}
+
+            Therefore,
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y] &= \sum yP(y)\\
+                & = \frac{5}{6} + 1 + \frac{1}{2}\\
+                & = \frac{7}{3}
+            \end{align*}
+            \endgroup
+
+            And
+            \salign{1}
+            \begin{align*}
+                var(Y) &= \sum y^2P(y)-\bigg(\sum yP(y)\bigg)^2\\
+                & = \frac{25}{3} + 6 + 1 - \bigg(\frac{7}{3}\bigg)^2\\
+                & = \frac{89}{9} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 5
+        \item Let $X$ be a random variable with PDF
+        \begin{equation*}
+            f_X(x) = \begin{cases}
+                2x/3 & \text{, if } 1 < x \le 2,\\
+                0 & \text{, otherwise, }
+            \end{cases}
+        \end{equation*}
+        and let $Y=X^2$. Calculate \textbf{E}$[Y]$ and $var(Y)$.
+        \begin{cproof}
+
+            To compute \textbf{E}$[Y]$
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y] & = \textbf{E}[X^2] \\
+                & = \int_{1}^{2}x^2\cdot\frac{2x}{3}dx \\
+                & = \frac{2}{3}\cdot\frac{x^4}{4}\bigg\vert_1^2\\
+                & = \frac{5}{2}
+            \end{align*}
+            \endgroup
+
+            And
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[Y^2] & = \textbf{E}[X^4] \\
+                & = \int_{1}^{2}x^4\cdot\frac{2x}{3}dx \\
+                & = \frac{2}{3}\cdot\frac{x^6}{6}\bigg\vert_1^2\\
+                & = 7
+            \end{align*}
+            \endgroup
+
+            Therefore, $var(Y)$
+            \salign{1}
+            \begin{align*}
+                var(Y) & = \textbf{E}[Y^2] - (\textbf{E}[Y])^2 \\
+                & = 7 - \bigg(\frac{5}{2}\bigg)^2 \\
+                & = \frac{3}{4} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 6
+        \item The pdf of a RV $X$ is shown in Figure 6. The numbers in
+        parentheses indicate area. Compute the value of $A$.
+        \begin{cproof}
+
+            \salign{1}
+            \begin{align*}
+                \text{area at $x=2$ to $x=3$ + area under $Ae^{-x}$} & \Rightarrow \int_{1}^{4}f_X(x)dx =1 \\
+                \frac{1}{4} + \frac{1}{4} + \int_{1}^{4}Ae^{-x}dx & = 1\\
+                \int_{1}^{4}Ae^{-x}dx & = \frac{1}{2}\\
+                -Ae^{-x}\big\vert_{1}^{4} & = \frac{1}{2} \\
+                A(e^{-1}-e^{-4}) & = \frac{1}{2} \\
+                \Rightarrow A & = \frac{e^4}{2(e^3-1)} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 7
+        \item Find the PDF, the mean, and the variance of the random variable
+        $X$ with CDF
+        \salign{1}
+        \begin{equation*}
+            F_X(x) =
+            \begin{cases}
+                1-\frac{a^3}{x^3} & \text{, if } x \ge a,\\
+                0 & \text{, if } x < a,
+            \end{cases}
+        \end{equation*}
+        \endgroup
+        where $a$ is a positive constant.
+        \begin{cproof}
+            Since the PDF is $\frac{d}{dx}F_X(x)$
+            \begin{align*}
+                f_X(x) & = \frac{d}{dx}F_X(x) \\
+                & =
+                \begin{cases}
+                    \frac{d}{dx}\big(1-\frac{a^3}{x^3}\big)=\frac{3a^3}{x^4} & \text{, if } x \ge a,\\
+                    0 & \text{, if } x < a,
+                \end{cases}
+            \end{align*}
+
+            Therefore, the mean
+            \salign{1}
+            \begin{align*}
+                \textbf{E}[N] & = \int_{a}^{\infty}nf(n)dn \\
+                & = \int_{a}^{\infty}\frac{3a^3}{n^3}dn\\
+                & = 3a^3\bigg(\frac{-1}{2n^2}\bigg)\bigg\vert_{a}^{\infty}\\
+                & = \frac{3a}{2}
+            \end{align*}
+            \endgroup
+
+            And the variance
+            \salign{1}
+            \begin{align*}
+                var(N) & = \int_{a}^{\infty}n^2f(n)dn - (\textbf{E}[N])^2 \\
+                & = \int_{a}^{\infty}\frac{3a^3}{n^2}dn - \bigg(\frac{3a}{2}\bigg)^2\\
+                & = 3a^3\bigg(\frac{-1}{n}\bigg)\bigg\vert_{a}^{\infty}-\frac{9a^2}{4}\\
+                & = \frac{3a^2}{4} \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 8
+        \item You are allowed to take a certain test three times, and your
+        final score will be the maximum of the test scores. Your score in test
+        $i$, where $i$ = 1, 2, 3, takes one of the values from $i$ to 10 with
+        equal probability $1/(11-i)$, independently of the scores in other
+        tests. What is the PMF of the final score?
+        \begin{cproof}
+
+            Let $X_i$ be the score of the $i$th test, and $m=max\{X_1,X_2,X_3\}$\\
+            By independence,
+            \salign{1}
+            \begin{align*}
+                P(m \le x) &= P(X_1 \le x)P(X_2 \le x)P(X_3 \le x)\\
+                & = \frac{x-2}{8}\cdot\frac{x-1}{9}\cdot\frac{x}{10}, \ \ 3 \le x \le 10
+            \end{align*}
+            \endgroup
+
+            Therefore, the PMF
+            \salign{1}
+            \begin{align*}
+                P_X(x) &= P(m \le x) - P(m \le x-1)\\
+                & = \frac{x-2}{8}\cdot\frac{x-1}{9}\cdot\frac{x}{10} - \frac{x-3}{8}\cdot\frac{x-2}{9}\cdot\frac{x-1}{10}\\
+                & = \frac{(x-2)(x-1)}{240}, \ \ 4 \le x \le 10 \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+        % 9
+        \item The \textbf{median} of a random variable $X$ is a number $\mu$
+        that satisfies $F_X(\mu)=1/2$. Find the median of the exponential
+        random variable with parameter $\lambda$.
+        \begin{cproof}
+
+            Let $m$ = median
+            \salign{1}
+            \begin{align*}
+                P(X < m) & = \int_{0}^{m}e^{-\lambda x}dx\\
+                & = (-\lambda e^{x})\vert_{0}^{m}\\
+                \Rightarrow 1 - \lambda e^{-m} & = 0.5\\
+                \Rightarrow m & = \ln(2)\lambda \qedhere
+            \end{align*}
+            \endgroup
+
+        \end{cproof}
+
+    \end{enumerate}
+
+\end{document}
