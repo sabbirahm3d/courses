@@ -1,6 +1,3 @@
-[submodule "proj/proj1/project1-sabbirahm3d"]
-	path = proj/proj1/project1-sabbirahm3d
-	url = https://github.com/UMBC-CMSC421-SP2018/project1-sabbirahm3d
 [submodule "proj/proj2/project2-sabbirahm3d"]
 	path = proj/proj2/project2-sabbirahm3d
 	url = https://github.com/UMBC-CMSC421-SP2018/project2-sabbirahm3d
