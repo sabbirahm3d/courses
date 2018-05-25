@@ -1,0 +1,46 @@
+# define the C compiler to use
+CC = gcc
+
+# define any compile-time flags
+CFLAGS = -Wall -Wno-unused-function -std=gnu11
+
+# define debug flags
+DEBUG ?= 0
+ifeq ($(DEBUG), 1)
+    CFLAGS += -DDEBUG
+endif
+
+# define the C header files
+DEPS = utilmath.h utilstr.h
+
+# define the C source files
+SRCS = msgq.c msgsl.c mbx.c main.c
+
+# define the C object files
+OBJS = ${SRCS:.c=.o}
+
+# define the executable file
+EXE = slmbx.o
+
+
+.PHONY: build
+build: ${EXE}
+	@echo "\033[0;32mProgram compiled successfully\033[0m"
+
+${EXE}: ${OBJS}
+	${CC} -o $@ $^ ${CFLAGS}
+
+%.o: %.c ${DEPS}
+	${CC} -c -o $@ $< ${CFLAGS}
+
+
+.PHONY: val
+val:
+    # check memory leaks
+	@valgrind ./${EXE}
+
+
+.PHONY: clean
+clean:
+	# clean out cache, temporary files and executables
+	@find . \( -name "*.o" -o -name ${EXE} \) -type f -delete
