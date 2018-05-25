@@ -1,0 +1,98 @@
+%
+% CMSC 421: Project 2 Initial Design Document
+% Template layout and preamble defined in structure.tex
+%
+% Author: Sabbir Ahmed
+%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{structure.tex} % specifies the document layout and style
+
+\begin{document}
+
+    \documentinfo{April 15, 2018}{Initial}
+
+    % import commmon sections on Introduction
+    \input{intro.tex}
+
+    \section{Design Approach} Development in the preliminary stages began with
+    research into the topics involved in the project. Understanding the
+    objectives and scope of the project to identify the requirements was the
+    initial step taken for the project.
+
+    The next step in development involved outlining the list of tasks necessary
+    to complete the project within the milestone deadlines. After considering
+    several approaches, it was decided that the user-space program will be
+    completed and tested for its functionality first, concurrently while
+    conducting research on the Linux system call dispatcher.
+
+    \subsection{Kernel Space} The kernel-space program will trace the system
+    calls and dump them on a log consisting of the \texttt{pid}, the system
+    call numbers, and the corresponding timestamps of their execution. The path
+    of the log file will be shared with the user-space program. The program
+    will provide the user the ability to initiate and terminate the logging of
+    the system calls. The system call will include a parameter $N$ to indicate
+    the maximum number of system calls per log. This parameter will ensure the
+    logging system writes at most $N$ system calls in the log file, close the
+    file, then signal the user-space program to begin analysis. Once the signal
+    is sent, the logging system will resume logging to a new file.
+
+    Initially, the logging of the system calls were perceived as a non-trivial
+    but moderately difficult task that would not require much time committed.
+    After preliminary research, it was evident that without the built-in system
+    calls such as \texttt{ptrace}, logging system calls would require much
+    greater effort.
+
+    Due to the extensive research required to build the kernel-level logging
+    system, the development of its counterpart user-space program would be
+    completed first. Research on plausible methods to achieve the logging of
+    the system calls would resume simultaneously.
+
+    Two approaches are currently being considered to influence the flow of the
+    research. Regardless of the approach chosen to develop the functionality in
+    the kernel space, extensive research on the system call dispatcher is
+    required.
+
+    \subsubsection{Trivially Insert Breakpoints to the System Call
+    Implementations} A potential but not very likely approach would involve
+    fully understanding the implementation of all the system calls that would
+    be used in the logging system. Once their implementation is understood,
+    breakpoints would be added to suitable areas to pause the system call while
+    it indicates to the log of its activity. This approach was being considered
+    seriously, until it was apparent that it would not be feasible with the
+    number of system calls involved. This would also increase complications
+    when attempting to bind system calls. Adding breakpoints may involve
+    modifying numerous assembly files, such as inserting \texttt{jmp}
+    instructions to the writing system calls to write to the log.
+
+    Even though this approach appears very unlikely, it is not being completely
+    ruled out because of the potential uses of parts of its ideology, such as
+    using the system calls table to identify implementations of each system
+    calls.
+
+    \subsubsection{Reverse Engineer and Create A Stripped-Down Version of
+    \texttt{ptrace}} The more probable approach involves fully understanding
+    \texttt{<linux/ptrace.h>} and simulate it for the project. The built-in
+    system call offers several functionalities that may not be required for the
+    logging system. Creating a stripped-down version of the system call would
+    most likely allow the system call logging functionality for the IDS.
+
+    \subsection{User Space} The user-space program will be implemented in
+    Python 2 without any third-party libraries. Time-permitting, the
+    implementation will be translated to C to trade off the lines of codes for
+    processing speed.
+
+    The program will continually parse the log file shared with the kernel-
+    space program while properly utilizing mutex locks to avoid any
+    synchronization issues. The user-space program will begin parsing the logs
+    only after it has been closed by the kernel-space program. Once the lines
+    of system calls for a process are properly parsed, they will be converted
+    to their binary vector representations. The binary vectors will then be
+    analyzed for their hamming distances, and the results will be logged in a
+    separate file.
+
+    Additional Python 2 and shell scripts will be added to assist in properly
+    formatting the outputs and managing the process as it runs in the
+    background.
+
+\end{document}

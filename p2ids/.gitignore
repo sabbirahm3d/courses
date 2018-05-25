@@ -1,0 +1,12 @@
+# Temporary LaTex files
+*.aux
+*.log
+
+# Compiled Python files
+*.pyc
+
+# Clion files and directories
+cmake-build-debug/
+
+# Test log files
+*_healthy.json
