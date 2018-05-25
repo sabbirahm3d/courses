@@ -1,2 +1,1 @@
-# CMSC421
-Operating Systems
+# CMSC 421 Shell
