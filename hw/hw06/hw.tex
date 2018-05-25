@@ -1,0 +1,504 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+\allowdisplaybreaks
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\include{tikz}
+\usetikzlibrary{arrows.meta}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407:} HW 06}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{2.3}]
+
+        \begin{itemize}
+
+            \item[\textbf{1}] Consider the following permutations in $S_7$
+            \begin{align*}
+                \sigma & = \left(
+                    \begin{tabular}{ccccccc}
+                        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                        3 & 2 & 5 & 4 & 6 & 1 & 7
+                    \end{tabular}
+                \right) &
+                \tau & = \left(
+                    \begin{tabular}{ccccccc}
+                        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                        2 & 1 & 5 & 7 & 4 & 6 & 3
+                    \end{tabular}
+                \right)
+            \end{align*}
+            Compute the following products:
+            \begin{itemize}
+
+                \item[\textbf{b}] $\tau\sigma$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    \begingroup
+                    \addtolength{\jot}{1em}
+                    \begin{align*}
+                        \tau\sigma &= \left(
+                            \begin{tabular}{ccccccc}
+                                1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                3 & 2 & 5 & 4 & 6 & 1 & 7
+                            \end{tabular}
+                        \right)\left(
+                            \begin{tabular}{ccccccc}
+                                1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                2 & 1 & 5 & 7 & 4 & 6 & 3
+                            \end{tabular}
+                        \right) \\
+                        &= \left(
+                            \begin{tabular}{ccccccc}
+                                1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                2 & 3 & 6 & 7 & 4 & 1 & 5
+                            \end{tabular}
+                        \right) \qedhere
+                    \end{align*}
+                    \endgroup
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{f}] $\tau^{-1}\sigma\tau$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    \begingroup
+                    \addtolength{\jot}{1em}
+                    \begin{align*}
+                        \tau^{-1} &= \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 1 & 5 & 7 & 4 & 6 & 3 \\
+                                1 & 2 & 3 & 4 & 5 & 6 & 7
+                            \end{tabular}
+                        \right)\\
+                        &= \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 3 & 6 & 7 & 4 & 1 & 5 \\
+                                1 & 7 & 6 & 4 & 5 & 2 & 3
+                            \end{tabular}
+                        \right)\\
+                        \tau^{-1}\sigma &= \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 3 & 6 & 7 & 4 & 1 & 5 \\
+                                1 & 7 & 6 & 4 & 5 & 2 & 3
+                            \end{tabular}
+                        \right)\left(
+                            \begin{tabular}{ccccccc}
+                                1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                3 & 2 & 5 & 4 & 6 & 1 & 7
+                            \end{tabular}
+                        \right) \\
+                        & = \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 3 & 6 & 7 & 4 & 1 & 5 \\
+                                3 & 7 & 1 & 4 & 6 & 2 & 5
+                            \end{tabular}
+                        \right) \\
+                        \tau^{-1}\sigma\tau & = \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 3 & 6 & 7 & 4 & 1 & 5 \\
+                                3 & 7 & 1 & 4 & 6 & 2 & 5
+                            \end{tabular}
+                        \right)\left(
+                            \begin{tabular}{ccccccc}
+                                1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+                                3 & 2 & 5 & 4 & 6 & 1 & 7
+                            \end{tabular}
+                        \right) \\
+                        & = \left(
+                            \begin{tabular}{ccccccc}
+                                2 & 3 & 6 & 7 & 4 & 1 & 5 \\
+                                5 & 7 & 3 & 4 & 1 & 2 & 6
+                            \end{tabular}
+                        \right) \qedhere
+                    \end{align*}
+                    \endgroup
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+            \item[\textbf{3}] Write $\left(
+                \begin{tabular}{cccccccccc}
+                    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+                    3 & 4 & 10 & 5 & 7 & 8 & 2 & 6 & 9 & 1
+                \end{tabular}
+            \right)$ as a product of disjoint cycles and as a product of
+            transpositions. Construct its associated diagram, find its inverse,
+            and find its order.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+
+                The product of disjoint cycles:
+                \begin{equation*}
+                    \{(1,3,10)(2,4,5,7)(6,8)\}
+                \end{equation*}
+                The product of transpositions:
+                \begin{equation*}
+                    \{(1,3,10)(2,4,5,7)(6,8)\} = \{(1,3)(3,10)(2,4)(4,5)(5,7)(6,8)\}
+                \end{equation*}
+                Reconstructing the permutation based on the product of transpositions:
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    \sigma &= \left(
+                        \begin{tabular}{cccccccccc}
+                            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+                            3 & 4 & 10 & 5 & 7 & 8 & 2 & 6 & 9 & 1
+                        \end{tabular}
+                    \right) \\
+                    & = \left(
+                        \begin{tabular}{cccccccccc}
+                            1 & 3 & 10 & 2 & 4 & 5 & 7 & 6 & 8 & 9 \\
+                            3 & 10 & 1 & 4 & 5 & 7 & 2 & 8 & 6 & 9
+                        \end{tabular}
+                    \right)
+                \end{align*}
+                \endgroup
+
+                Constructing the associated diagrams
+                \begin{figure}[!htbp]
+                    \centering
+                    \begin{tikzpicture}[->,scale=1]
+                        \begin{scope}[every node/.style={circle}]
+                            \node (1) at (0,0) {1};
+                            \node (2) at (0,3) {3};
+                            \node (3) at (3,3) {10};
+                        \end{scope}
+                        \begin{scope}
+                            \path [->] (1) edge (2);
+                            \path [->] (2) edge (3);
+                            \path [->] (3) edge (1);
+                        \end{scope}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}[->,scale=1]
+                        \begin{scope}[every node/.style={circle}]
+                            \node (1) at (0,0) {2};
+                            \node (2) at (0,3) {4};
+                            \node (3) at (3,3) {5};
+                            \node (4) at (3,0) {7};
+                        \end{scope}
+                        \begin{scope}
+                            \path [->] (1) edge (2);
+                            \path [->] (2) edge (3);
+                            \path [->] (3) edge (4);
+                            \path [->] (4) edge (1);
+                        \end{scope}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}[->,scale=1]
+                        \begin{scope}[every node/.style={circle}]
+                            \node (1) at (0,0) {6};
+                            \node (2) at (0,3) {8};
+                        \end{scope}
+                        \begin{scope}
+                            \path [->] (1) edge[bend left=60] (2);
+                            \path [->] (2) edge[bend left=60] (1);
+                        \end{scope}
+                    \end{tikzpicture}
+                    \begin{tikzpicture}[->,scale=1]
+                        \begin{scope}[every node/.style={circle}]
+                            \node (1) at (0,0) {9};
+                        \end{scope}
+                        \begin{scope}[every loop/.style={min distance=10mm,in=0,out=100,looseness=15}]
+                            \path [->] (1) edge[loop above] (1);
+                        \end{scope}
+                    \end{tikzpicture}
+                \end{figure}
+
+                The inverse of the permutation:
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    \sigma^{-1} &= \left(
+                        \begin{tabular}{cccccccccc}
+                            3 & 4 & 10 & 5 & 7 & 8 & 2 & 6 & 9 & 1 \\
+                            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+                        \end{tabular}
+                    \right) \\
+                    & = \left(
+                        \begin{tabular}{cccccccccc}
+                            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+                            10 & 7 & 1 & 2 & 4 & 8 & 5 & 6 & 9 & 3
+                        \end{tabular}
+                    \right)
+                \end{align*}
+                \endgroup
+
+                Since
+                \begin{align*}
+                    o(\sigma) & = lcm(\text{length(cycles)})\\
+                    & = lcm(\{2,4,3\})\\
+                    & = 12 \qedhere
+                \end{align*}
+
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{5}] Let $3 \le m \le n$. Calculate $\sigma\tau^{-1}$
+            for the cycles $\sigma = (1,2,\ldots,m-1)$ and
+            $\tau=(1,2,\ldots,m-1,m)$ in $S_n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Given
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    \tau &= \left(
+                        \begin{tabular}{ccccccc}
+                            1 & 2 & 3 & \ldots & m-2 & m-1 & m \\
+                            2 & 3 & 4 & \ldots & m-1 & m & 1
+                        \end{tabular}
+                    \right) \\
+                    \tau^{-1} & = \left(
+                        \begin{tabular}{ccccccc}
+                            2 & 3 & 4 & \ldots & m-1 & m & 1 \\
+                            1 & 2 & 3 & \ldots & m-2 & m-1 & m
+                        \end{tabular}
+                    \right)\\
+                    &= \left(
+                        \begin{tabular}{ccccccc}
+                            1 & 2 & 3 & 4 & \ldots & m-1 & m \\
+                            m & 1 & 2 & 3 & \ldots & m-2 & m-1
+                        \end{tabular}
+                    \right)
+                \end{align*}
+                Therefore the product
+                \begin{align*}
+                    \sigma\tau^{-1} & = \left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-2 & m-1 \\
+                            2 & 3 & 4 & \ldots & m-1 & 1
+                        \end{tabular}
+                    \right)\left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-1 & m \\
+                            m & 1 & 2 & \ldots & m-2 & m-1
+                        \end{tabular}
+                    \right)\\
+                    & = \left(
+                        \begin{tabular}{cccccc}
+                            1 & 2 & 3 & \ldots & m-1 & m \\
+                            m & 2 & 3 & \ldots & m-1 & 1
+                        \end{tabular}
+                    \right)\\
+                    & = (1,m) \qedhere
+                \end{align*}
+                \endgroup
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{11}] Prove that in $S_n$, with $n \ge 3$ , any even
+            permutation is a product of cycles of length three.\\
+            \textit{Hint}: $(a,b)(b,c)=(a,b,c)$ and
+            $(a,b)(c,d)=(a,b,c)(b,c,d)$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                To show any even permutation in $S_n$, with $n \ge 3$ is a product of cycles of length three, consider the case where the pair of transpositions are disjoint:
+                \begin{equation*}
+                    (a,b)(c,d) = (a,b,c)(b,c,d)
+                \end{equation*}
+                The product yields cycles of length three.\\
+                The other case would be the transpositions consisting of repeating elements, such as
+                \begin{equation*}
+                    (a,b)(b,c)=(a,b,c)
+                \end{equation*}
+                where the product yields cycles of length three as well. \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{15}] For $\alpha, \beta \in S_n$, let
+            $\alpha\sim\beta$ if there exists $\sigma \in S_n$ such that
+            $\sigma\alpha\sigma^{-1}=\beta$. Show that $\sim$ is an equivalence
+            relation on $S_n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                To prove \textbf{reflexivity}, let $\alpha = 1_S$\\
+                Then,
+                \begin{align*}
+                    \sigma\alpha\sigma^{-1} & = \sigma\sigma^{-1}\cdot 1_S\\
+                    & = 1 \cdot 1_S\\
+                    & = \alpha
+                \end{align*}
+                for any $\alpha \in S_n$\\
+                Therefore, $\alpha \sim \alpha$\\
+
+                To prove \textbf{symmetry}, let $\alpha \sim \beta$\\
+                Then, there exists $\sigma \in S_n$ such that $\sigma\alpha\sigma^{-1} = \beta$\\
+                Thus
+                \begin{align*}
+                    \sigma\alpha\sigma^{-1} &= \beta \\
+                    \Rightarrow \sigma^{-1}\sigma\alpha\sigma^{-1} &= \sigma^{-1}\beta\\
+                    \alpha\sigma^{-1} &= \sigma^{-1}\beta\\
+                    \Rightarrow \alpha\sigma^{-1}\sigma &= \sigma^{-1}\beta\sigma\\
+                    \alpha &= \sigma^{-1}\beta\sigma\\
+                    \Rightarrow \alpha &= \sigma^{-1}\beta(\sigma^{-1})^{-1}
+                \end{align*}
+                Or $\sigma^{-1}\beta(\sigma^{-1})^{-1} = \alpha$\\
+                Implying $\beta \sim \alpha$\\
+
+                The prove \textbf{transitivity}, let $\alpha \sim \beta$ and
+                $\beta \sim \gamma$\\
+                Then, there exists $\sigma_1, \sigma_2 \in S_n$ such that
+                $\sigma_1\alpha\sigma_1^{-1} = \beta$ and
+                $\sigma_2\beta\sigma_2^{-1} = \gamma$\\
+                Then $\sigma_2\sigma_1\alpha\sigma_1^{-1}\sigma_2^{-1} =
+                \gamma$,\\
+                Or $(\sigma_2\sigma_1)\alpha(\sigma_1\sigma_2)^{-1} =
+                \gamma$\\
+                Thus, $\alpha \sim \gamma$\\
+                Therefore, $\sim$ is an equivalence relation on $S_n$ \qedhere
+
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{16}] View $S_3$ as a subset of $S_5$, in the obvious
+            way. For $\sigma, \tau \in S_5$, define $\sigma \sim \tau$ if
+            $\sigma\tau^{-1} \in S_3$.
+            \begin{itemize}
+
+                \item[\textbf{a}] Show that $\sim$ is an equivalence relation
+                on $S_5$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    To prove \textbf{reflexive}, let $\sigma \in S_3$\\
+                    Then,
+                    \begin{align*}
+                        \sigma\sigma^{-1}=1_{S_3} \in S_3
+                    \end{align*}
+                    Thus, $\sigma \sim \sigma$\\
+
+                    To prove \textbf{symmetric}, let $\sigma, \tau \in S_3$\\
+                    Then
+                    \begin{align*}
+                        \sigma \sim \tau & \in S_3\\
+                        \Rightarrow \sigma\tau^{-1} & \in S_3\\
+                        \Rightarrow (\sigma\tau^{-1})^{-1} & \in S_3\\
+                        \Rightarrow \sigma^{-1}\tau & \in S_3
+                    \end{align*}
+                    Thus, $\tau \sim \sigma$\\
+
+                    To prove \textbf{transitivity}, let $\sigma, \tau, \upsilon
+                    \in S_3$.\\
+                    Then, $\sigma \sim \tau \Rightarrow \sigma\tau^{-1} \in
+                    S_3$\\
+                    and $\tau \sim \upsilon \Rightarrow \tau\upsilon^{-1} \in
+                    S_3$\\
+                    Thus,
+                    \begin{align*}
+                        (\sigma\tau^{-1})(\tau\upsilon^{-1}) & \in S_3\\
+                        \sigma(\tau^{-1}\tau)\upsilon^{-1} & \in S_3\\
+                        \sigma\upsilon^{-1} & \in S_3\\
+                        \Rightarrow \sigma \sim \upsilon & \in S_3
+                    \end{align*}
+                    Therefore, $\sim$ is an equivalence relation on $S_5$
+                    \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{b}] Find the equivalence class of (4, 5).
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Since $(4,5) \in S_3$, $\Rightarrow (4,5)(5,4) \in S_3$ and
+                    $(4,5) \sim (4,5)$\\
+                    Similarly,\\
+                    \begin{equation*}
+                        (4,5)(1,2,3)(5,4), (4,5)(1,3,2)(5,4) \in S_3
+                    \end{equation*}
+                    and
+                    \begin{equation*}
+                        (4,5)(1,2)(5,4), (4,5)(1,3)(5,4), (4,5)(2,3)(5,4) \in S_3
+                    \end{equation*}
+                    Therefore,
+                    \begin{equation*}
+                        [(4,5)] = \{(4,5), (1,2,3)(4,5), (1,3,2)(4,5), (1,2)(4,5), (1,3)(4,5), (2,3)(4,5)\} \qedhere
+                    \end{equation*}
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] Find the equivalence class of (1, 2, 3, 4, 5).
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Since
+                    \begin{align*}
+                        (1,2,3,4,5) & = (1,2)(1,3)(1,4)(1,5)\\
+                        \text{and } (1,2)(1,3)(1,4)(4,1)(5,1) & = (1,2)(1,3)\\
+                        & \in S_3
+                    \end{align*}
+                    Then $(1,2,3,4,5) \sim (1,4)(1,5)$\\
+                    Similarly,
+                    \begin{align*}
+                        \{(1,2)(1,3)(1,4)(4,1)(5,1)(1,3,2), & \\
+                        (1,2)(1,3)(1,4)(4,1)(5,1)(1,2), & \\
+                        (1,2)(1,3)(1,4)(4,1)(5,1)(1,3), & \\
+                        (1,2)(1,3)(1,4)(4,1)(5,1)(2,3), & \\
+                        (1,2)(1,3)(1,4)(4,1)(5,1)(1,2,3)\} & \in S_3
+                    \end{align*}
+                    Therefore,
+                    \begin{multline*}
+                        [(1,2,3,4,5)] = \{(1,4)(1,5)(1,3,2),
+                        (1,4)(1,5)(1,2),\\(1,4)(1,5)(1,3), (1,4)(1,5)(2,3),
+                        (1,4)(1,5)(1,2,3)\} \qedhere
+                    \end{multline*}
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{d}] Determine the total number of equivalence
+                classes.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    $S_3$ contains $3!=6$ elements, and $S_5$ contains $5!=120$
+                    elements\\ Therefore, the number of equivalence classes are
+                    $120/6=20$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}

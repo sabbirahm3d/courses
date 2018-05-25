@@ -1,0 +1,144 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407} HW 03}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{1.2}]
+
+        \begin{itemize}
+
+            \item[\textbf{7}] Let $m$ and $n$ be positive integers such that $m
+            + n = 57$ and $[m, n] = 680$. Find $m$ and $n$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                $m + n = 57$ and $[m, n] = 680$\\
+                Let $n$ be represented by $m$, such that,
+                \begingroup
+                \addtolength{\jot}{1em}
+                \begin{align*}
+                    m \cdot (57 - m) & = 680\\
+                    \Rightarrow 0 & = m^2 - 57m + 680\\
+                    & = \frac{57 \pm \sqrt{57^2-4\cdot 680}}{2}\\
+                    & = \frac{57 \pm 23}{2}\\
+                    m & = 40, 17
+                \end{align*}
+                \endgroup
+                $\therefore m = 40$, $n = 17$ \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{10}] Show that $a\mathbb{Z} \cap b\mathbb{Z} =
+            [a,b]\mathbb{Z}$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Let $x \in [a,b]\mathbb{Z}$\\
+                Since, $a \given [a,b]$ and $b \given [a,b]$,\\
+                $a \given x$ and $b \given x$\\
+                Therefore, $x \in a\mathbb{Z} \cap b\mathbb{Z}$\\
+
+                Conversely,\\
+                since $a \given [a,b]$, then $[a,b] \in a\mathbb{Z}$\\
+                and $b \given [a,b]$, then $[a,b] \in b\mathbb{Z}$\\
+                Then, $[a,b] \in (a \cap b)\mathbb{Z}$
+
+                $\therefore a\mathbb{Z} \cap b\mathbb{Z} = [a,b]\mathbb{Z}$
+                \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{16}] A positive integer $a$ is called a
+            \textbf{square} if $a = n^2$ for some $n \in \integers$. Show that
+            the integer $a > 1$ is an integer if and only if every exponent in
+            its prime factorization is even.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Suppose $a = p_{1}^{r_{1}} \cdot p_{2}^{r_{2}} \cdot \ldots \cdot p_{k}^{r_{k}}$, where $r_{i}$ is even.\\
+                Also, let $n = p_{1}^{r_{1}/2} \cdot p_{2}^{r_{2}/2} \cdot \ldots \cdot p_{k}^{r_{k}/2}$\\
+                Then, $a = n^2$\\
+
+                Conversely, suppose $a = n^2$.\\
+                Let $n = p_{1}^{s_{1}} \cdot p_{2}^{s_{2}} \cdot \ldots \cdot p_{l}^{s_{l}}$\\
+                Then, $a = p_{1}^{2s_{1}} \cdot p_{2}^{2s_{2}} \cdot \ldots \cdot p_{l}^{2s_{l}}$\\
+                Therefore, all the primes of $a$ have even powers. \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{20}] A positive integer is called \textbf{square-free} if it is a product of distinct primes. Prove that every
+            positive integer can be written uniquely as a product of a square
+            and a square-free integer.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                \texttt{\small NOTE: I needed help on this question}\\
+                Let $x \in \mathbb{Z^{+}}$ not be a square or a square-free integer.\\
+                Let
+                \begin{equation*}
+                    x = p_{1}^{r_1} \cdot p_{2}^{r_2} \cdot \ldots \cdot p_{k}^{r_k}
+                \end{equation*}
+                where $r_{i}$ for $1 \le i \le k$ can be either odd or even.\\
+                However, they all cannot be even since $x$ is not a square integer.\\
+
+                All the odd $r_i$'s can be represented as the sum of $r_i$ with all the even $r_i$'s.\\
+                For example,\\
+                if $r_i = 5$ (a prime integer),\\
+                then $r_i = 1 + 4$\\
+
+                If all the even $r_i$'s and all the exponents that are $1$ are grouped together,\\
+                $x$ can be represented as:
+                \begin{equation*}
+                    x = p_{1}^{s_1} \cdot p_{2}^{s_2} \cdot \ldots \cdot p_{k}^{s_k} \cdot p_{k+1} \cdot p_{k+2} \cdot \ldots \cdot p_{k+r}
+                \end{equation*}
+                where all the $s_i$'s are even.\\
+                This implies that $x$ is the product of a square and square free integer. \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}

@@ -1,0 +1,361 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template
+% LaTeX Template
+% Version 1.0 (December 8 2014)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Brandon Fryslie
+% With extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Authors:
+% Sabbir Ahmed
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=usletter, fontsize=12pt]{article}
+\input{../structure.tex} % specifies the document layout and style
+\allowdisplaybreaks
+%------------------------------------------------------------------------------
+% document info command
+\newcommand{\documentinfo}[5]{
+    \begin{centering}
+        \parbox{2in}{
+        \begin{spacing}{1}
+            \begin{flushleft}
+                \begin{tabular}{l l}
+                    #1 \\
+                    #2 \\
+                    #3 \\
+                \end{tabular}\\
+                \rule{\textwidth}{1pt}
+            \end{flushleft}
+        \end{spacing}
+        }
+    \end{centering}
+}
+
+\begin{document}
+
+    \documentinfo{Sabbir Ahmed}{\textbf{DATE:} \today}{\textbf{MATH 407} HW 03}
+    \vspace{-0.2in}
+
+    \begin{itemize}
+
+        \item[\textbf{1.1}]
+
+        \begin{itemize}
+
+            \item[\textbf{4}] Use the Euclidean algorithm to find the
+            following greatest common divisors.
+
+            \begin{itemize}
+
+                \item[\textbf{a}] $(6643, 2873)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        6643 & = 2873 \cdot 2 + 897, r_1 = 897 \\
+                        2873 & = 897 \cdot 3 + 182, r_2 = 182 \\
+                        897 & = 182 \cdot 4 + 169, r_3 = 169 \\
+                        182 & = 169 \cdot 1 + 13, r_4 = 13 \\
+                        169 & = 13 \cdot 13 + 0, r_5 = 0
+                    \end{align*}
+                    $\therefore (6643, 2873) = 13$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] $(26460, 12600)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        26460 & = 12600 \cdot 2 + 1260, r_1 = 1260 \\
+                        12600 & = 1260 \cdot 10 + 0, r_2 = 0
+                    \end{align*}
+                    $\therefore (26460, 12600) = 1260$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{e}] $(12091, 8439)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    \begin{align*}
+                        12091 & = 8439 \cdot 1 + 3652, r_1 = 3652 \\
+                        8439 & = 3652 \cdot 2 + 1135, r_2 = 1135 \\
+                        3652 & = 1135 \cdot 3 + 247, r_3 = 247 \\
+                        1135 & = 247 \cdot 4 + 147, r_4 = 147 \\
+                        247 & = 147 \cdot 1 + 100, r_5 = 100 \\
+                        147 & = 100 \cdot 1 + 47, r_6 = 47 \\
+                        100 & = 47 \cdot 2 + 6, r_7 = 6 \\
+                        47 & = 6 \cdot 6 + 5, r_8 = 5 \\
+                        6 & = 5 \cdot 1 + 1, r_9 = 1 \\
+                        5 & = 1 \cdot 5 + 0, r_{10} = 0
+                    \end{align*}
+                    $\therefore (12091, 8439) = 1$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+            \item[\textbf{6}] For each part of Exercise 4, find integers $m$
+            and $n$ such that $(a, b)$ is expressed in the form $ma + nb$.
+
+            \begin{itemize}
+
+                \item[\textbf{a}] $(6643, 2873)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    $\because (6643, 2873) = 13$ \\
+                    $\Rightarrow 13 = n \cdot 6643 + m \cdot 2873$
+                    \begin{align*}
+                        r_1 = 897 & = 1 \cdot 6643 - 2 \cdot 2873 \\
+                        r_2 = 182 & = 1 \cdot 2873 - 3 \cdot 897 \\
+                        & =  1 \cdot 2873 - 3 \cdot (1 \cdot 6643 - 2 \cdot 2873) \\
+                        & =  1 \cdot 2873 - 3 \cdot 6643 + 6 \cdot 2873 \\
+                        & =  7 \cdot 2873 - 3 \cdot 6643 \\
+                        r_3 = 169 & = 1 \cdot 897 - 4 \cdot 182 \\
+                        & = 1 \cdot (1 \cdot 6643 - 2 \cdot 2873) - 4 \cdot (7
+                        \cdot 2873 - 3 \cdot 6643) \\
+                        & = 1 \cdot 6643 - 2 \cdot 2873 - 28 \cdot 2873 + 12 \cdot 6643 \\
+                        & = 13 \cdot 6643 - 30 \cdot 2873 \\
+                        r_4 = 13 & = 1 \cdot 182 - 1 \cdot 169 \\
+                        & = 1 \cdot (7 \cdot 2873 - 3 \cdot 6643) - 1 \cdot (13 \cdot 6643 - 30 \cdot 2873) \\
+                        & = 7 \cdot 2873 - 3 \cdot 6643 - 13 \cdot 6643 + 30 \cdot 2873 \\
+                        & = 37 \cdot 2873 - 16 \cdot 6643
+                    \end{align*}
+                    $\therefore 13 = 37 \cdot 2873 - 16 \cdot 6643$, with $n = -16, m = 37$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] $(26460, 12600)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    $\because (26460, 12600) = 1260$ \\
+                    $\Rightarrow 1260 = n \cdot 26460 + m \cdot 12600$
+                    \begin{align*}
+                        r_1 = 1260 & = 1 \cdot 26460 - 2 \cdot 12600
+                    \end{align*}
+                    $\therefore 1260 = 1 \cdot 26460 - 2 \cdot 12600$, with $n
+                    = 1, m = -2$
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{e}] $(12091, 8439)$
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    $\because (12091, 8439) = 1$ \\
+                    $\Rightarrow 1 = n \cdot 12091 + m \cdot 8439$
+                    \begin{align*}
+                        % r_1 = 3652
+                        r_1 = 3652 & = 1 \cdot 12091 - 1 \cdot 8439 \\
+                        % r_2 = 1135
+                        r_2 = 1135 & = 1 \cdot 8439 - 2 \cdot 3652 \\
+                        & = 1 \cdot 8439 - 2 \cdot (1 \cdot 12091 - 1 \cdot 8439) \\
+                        & = 1 \cdot 8439 - 2 \cdot 12091 + 2 \cdot 8439 \\
+                        & = 3 \cdot 8439 - 2 \cdot 12091 \\
+                        % r_3 = 247
+                        r_3 = 247 & = 1 \cdot 3652 - 3 \cdot 1135 \\
+                        & = 1 \cdot (1 \cdot 12091 - 1 \cdot 8439) - 3 \cdot (3 \cdot 8439 - 2 \cdot 12091) \\
+                        & = 1 \cdot 12091 - 1 \cdot 8439 - 9 \cdot 8439 + 6 \cdot 12091 \\
+                        & = 7 \cdot 12091 - 10 \cdot 8439 \\
+                        % r_4 = 147
+                        r_4 = 147 & = 1 \cdot 1135 - 4 \cdot 247 \\
+                        & = 1 \cdot (3 \cdot 8439 - 2 \cdot 12091) - 4 \cdot (7 \cdot 12091 - 10 \cdot 8439) \\
+                        & = 3 \cdot 8439 - 2 \cdot 12091 - 28 \cdot 12091 + 40 \cdot 8439 \\
+                        & = 43 \cdot 8439 - 30 \cdot 12091 \\
+                        % r_5 = 100
+                        r_5 = 100 & = 1 \cdot 247 - 1 \cdot 147 \\
+                        & = 1 \cdot (7 \cdot 12091 - 10 \cdot 8439) - 1 \cdot (43 \cdot 8439 - 30 \cdot 12091) \\
+                        & = 7 \cdot 12091 - 10 \cdot 8439 - 43 \cdot 8439 + 30 \cdot 12091 \\
+                        & = 37 \cdot 12091 - 53 \cdot 8439 \\
+                        % r_6 = 47
+                        r_6 = 47 & = 1 \cdot 147 - 1 \cdot 100 \\
+                        & = 1 \cdot (43 \cdot 8439 - 30 \cdot 12091) - 1 \cdot (37 \cdot 12091 - 53 \cdot 8439) \\
+                        & = 43 \cdot 8439 - 30 \cdot 12091 - 37 \cdot 12091 + 53 \cdot 8439 \\
+                        & = 96 \cdot 8439 - 67 \cdot 12091 \\
+                        % r_7 = 6
+                        r_7 = 6 & = 1 \cdot 100 - 2 \cdot 47 \\
+                        & = 1 \cdot (37 \cdot 12091 - 53 \cdot 8439) - 2 \cdot (96 \cdot 8439 - 67 \cdot 12091) \\
+                        & = 37 \cdot 12091 - 53 \cdot 8439 - 192 \cdot 8439 + 134 \cdot 12091 \\
+                        & = 171 \cdot 12091 - 245 \cdot 8439 \\
+                        % r_8 = 5
+                        r_8 = 5 & = 1 \cdot 47 - 7 \cdot 6 \\
+                        & = 1 \cdot (96 \cdot 8439 - 67 \cdot 12091) - 7 \cdot (171 \cdot 12091 - 245 \cdot 8439) \\
+                        & = 96 \cdot 8439 - 67 \cdot 12091 - 1197 \cdot 12091 + 1715 \cdot 8439 \\
+                        & = 1811 \cdot 8439 - 1264 \cdot 12091 \\
+                        % r_9 = 1
+                        r_9 = 1 & = 1 \cdot 6 - 1 \cdot 5 \\
+                        & = 1 \cdot (171 \cdot 12091 - 245 \cdot 8439) - 1 \cdot (1811 \cdot 8439 - 1264 \cdot 12091) \\
+                        & = 171 \cdot 12091 - 245 \cdot 8439 - 1811 \cdot 8439 + 1264 \cdot 12091 \\
+                        & = 1435 \cdot 12091 - 2056 \cdot 8439
+                    \end{align*}
+                    $\therefore 1 = 1435 \cdot 12091 - 2056 \cdot 8439$, with
+                    $n = 1435, m = -2056$
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+            \item[\textbf{7}] Let $a, b, c$ be integers. Give a proof for these
+            facts about divisors:
+
+            \begin{itemize}
+
+                \item[\textbf{a}] If $b \given a$, then $b \given ac$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Let $a = mb$, $m \in \integers$. \\
+                    Multiplying both sides by $c$: \\
+                    $a \cdot c = mb \cdot c$ \\
+                    $a \cdot c = mc \cdot b$ (commutative law of multiplication) \\
+                    Let $n = mb$, $n \in \integers$. \\
+                    $a \cdot c = n \cdot c$ \\
+                    $\therefore b \given ac$ if $b \given a$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{b}] If $b \given a$ and $c \given b$, then $c
+                \given a$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Let $a = m \cdot b$ and $b = n \cdot c$ for $m, n \in
+                    \integers$ \\
+                    $\because a = m \cdot b$, $b = \frac{a}{m}$.
+                    \begin{align*}
+                        \therefore \frac{a}{m} & = n \cdot c \\
+                        \Rightarrow a & = mn \cdot c
+                    \end{align*}
+                    $\therefore c \given a$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+                \item[\textbf{c}] If $c \given a$ and $c \given b$, then $c
+                \given (ma + nb)$ for any integers $m, n$.
+                \item[\textbf{Ans}]
+                \begin{proof}[\unskip\nopunct]
+                    Since $c \given a$ and $c \given b$, they can be expressed
+                    as \\ $a = m \cdot c$ and $b = n \cdot c$ for $m, n \in
+                    \integers$. \\
+                    Then:
+                    \begin{align*}
+                        ma + nb & = m(mc) + n(nc) \\
+                        & = m^2c + n^2c \\
+                        & = (m^2 + n^2)c
+                    \end{align*}
+                    Thus $c \given (m^2 + n^2)$ for some $(m^2 + n^2)
+                    \in \integers$. \\
+                    $\therefore c \given (ma + nb)$ \qedhere
+                \end{proof}
+                \vspace{0.2in}
+
+            \end{itemize}
+
+            \item[\textbf{11}] Show that if $a > 0$, then $(ab, ac) = a(b,
+            c)$
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Let $d = (b,c)$, so $d \given b$ and $d \given c$. \\
+                $\therefore$ $b = m \cdot d$, $c = n \cdot d$, $m, n \in
+                \integers$.
+                Then $ab = m \cdot ad$ and $ac = n \cdot ad$. \\
+                Thus $ad \given ab$ and $ad \given ac$ \\
+                $\therefore a(b, c) \Rightarrow (ab, ac)$ \\
+                Conversely, \\
+                Let $x \given ab$ and $x \given ac$. \\
+                $\therefore$ $ab = k \cdot x$ and $ac = l \cdot x$, for
+                some $k, l \in \integers$. \\
+                Since $d = (b,c)$, $d = mb + nc$ for some $m, n \in
+                \integers$. \\
+                Then:
+                \begin{align*}
+                    ad & = a \cdot mb + a \cdot nc \\
+                    & = x \cdot km + x \cdot ln \\
+                    & = x(km, ln)
+                \end{align*}
+                Thus, $x \given ad$ \\
+                $\therefore (ab, ac) = a(b,c)$ if $a > 0$. \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{14}] For what positive integers $n$ is it true
+            that $(n , n + 2) = 2$? Prove your claim.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Assume $n$ is even, such that $(n, 2) = 2$. \\
+                Let $d$ be a divisor of $n$ and $n + 2$. \\
+                So $d \given n$ and $d \given (n+2)$. \\
+                Since $(n,2) = 2$, then $(n + 2, 2) = 2$. Therefore, 2 is a
+                divisor of both $n$ and $n+2$. \\
+                Since $d \given n$ and $d \given (n+2)$, then $d \given (|n -
+                (n + 2)|) \Rightarrow d \given 2$. \\
+                Therefore, $d$ must be $1$ or $2$. \\
+                $\therefore$ $n$ can be any positive even integer. \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{17}] Let $a, b, n$ be integers with $n > 1$.
+            Suppose that $a = nq_1 + r_1$ with $0 \le r_1 < n$ and $b =
+            nq_2 + r_2$ with $0 \le r_2 < n$. Prove that $n \given (a - b)$
+            if and only if $r_1 = r_2$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Suppose $r_1 \le r_2$ \\
+                If $n \given (a - b)$, then $a - b = nq_3$ for $q_3 \in
+                \integers$. \\
+                Therefore:
+                \begin{align*}
+                    a - b & = nq_3 \\
+                    \Rightarrow a - b + b & = nq_3 + b \\
+                    \Rightarrow a & = nq_3 + b
+                \end{align*}
+                Since $b = nq_2 + r_2$:
+                \begin{align*}
+                    a & = nq_3 + nq_2 + r_2 \\
+                    & = n(q_3 + q_2) + r_2
+                \end{align*}
+                Since $a = nq_1 + r_1$:
+                \begin{align*}
+                    nq_1 + r_1 & = n(q_3 + q_2) + r_2 \\
+                    nq_1 - n(q_3 + q_2) & = r_2 - r_1 \\
+                    n(q_1 - q_2 - q_3) & = r_2 - r_1
+                \end{align*}
+                Thus, $n \given (r_2 - r_1)$, $0 \le r_2 - r_1 < r_2 < n$.
+                \\
+                Therefore, $r_2 - r_1 = 0$, $\Rightarrow r_2 = r_1$. \\
+                Conversely, suppose $n \given (a - b)$ if $r_1 = r_2$. \\
+                Therefore, $a - b = n(q_1 - q_2) + (r_1 - r_2)$. \\
+                $\therefore n \given (a-b)$ \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+            \item[\textbf{19}] Let $a, b, q, n$ be integers such that $b
+            \ne 0$ and $a = bq + r$. Prove that $(a, b) = (b, r)$ by
+            showing that $(b, r)$ satisfies the definition of the greatest
+            common divisor of $a$ and $b$.
+            \item[\textbf{Ans}]
+            \begin{proof}[\unskip\nopunct]
+                Suppose $(a,b)$, then $(a,b) \given a$ and $(a,b) \given b$. \\
+                Since $a = bq + r$,\\
+                $\Rightarrow (a,b) \given a - bq = (a,b) \given r$ \\
+                Therefore $(a,b) \given b$ and $(a,b) \given r$ \\
+                $\Rightarrow (a,b) \given (b, r)$ \\
+                Conversely, suppose $(b,r)$, then $(b,r) \given b$ and $(b,r) \given r$. \\
+                Since $a = bq + r$,\\
+                $\Rightarrow (b,r) \given bq + r = (b,r) \given a$ \\
+                Therefore $(b,r) \given a$ and $(b,r) \given b$ \\
+                $\Rightarrow (b,r) \given (a, b)$ \\
+                $\therefore (a, b) = (b, r)$ \qedhere
+            \end{proof}
+            \vspace{0.2in}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{document}
